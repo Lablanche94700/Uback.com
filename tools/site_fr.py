@@ -48,7 +48,7 @@ def head(title, desc, path, extra=''):
 <header class="hdr">
   <div class="wrap">
     <a class="brand" href="@HOME@" aria-label="Uback, accueil"><span class="u">U</span>Uback</a>
-    <a class="market" href="/" aria-label="Uback Maroc, accueil du classement">Maroc</a>
+    {M['switcher']}
     <button class="menu-toggle" aria-label="Menu" aria-expanded="false" onclick="var n=document.getElementById('nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
@@ -424,6 +424,7 @@ def under_prefix(page):
     """Les gabarits écrivent des chemins absolus (/methode.html, /assets/…) : on les place sous /ma."""
     page = re.sub(r'((?:href|src|action)=")/(?!/)', rf'\1{PREFIX}/', page)
     page = page.replace('href="@HOME@"', 'href="/"')   # le logo Uback, lui, ramène à la homepage monde
+    page = page.replace('href="@ROOT@', 'href="/')     # sélecteur de pays : liens vers les autres marchés
     return page.replace("location.href='/", f"location.href='{PREFIX}/")
 
 # robots.txt, sitemap.xml, CNAME et netlify.toml sont à la racine et se maintiennent à la main.

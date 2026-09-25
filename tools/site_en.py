@@ -51,7 +51,7 @@ def head(title, desc, path, extra=''):
 <header class="hdr">
   <div class="wrap">
     <a class="brand" href="/" aria-label="Uback, home"><span class="u">U</span>Uback</a>
-    <a class="market" href="{P}/" aria-label="Uback {e(NAME)}, ranking home">{e(NAME)}</a>
+    {M['switcher'].replace('href="@ROOT@', 'href="/')}
     <button class="menu-toggle" aria-label="Menu" aria-expanded="false" onclick="var n=document.getElementById('nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
