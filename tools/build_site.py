@@ -32,7 +32,7 @@ def head(title, desc, path, extra=''):
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:url" content="{url}">
-<meta property="og:image" content="{BASE}/assets/og-image.png">
+<meta property="og:image" content="{BASE}/assets/og-image.png?v=2">
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">

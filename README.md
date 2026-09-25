@@ -28,7 +28,13 @@ ma/                     ← site Maroc, entièrement généré
   data/classement-ma-2026-09.json ← la donnée du classement (une entrée par société, source par montant)
 
 tools/build_site.py     ← génère les pages de ma/ à partir du JSON ; n'écrit jamais à la racine
+tools/og-image-ma.html  ← source de ma/assets/og-image.png (image de partage 1200×630)
 ```
+
+Image de partage : modifier `tools/og-image-ma.html` (édition, mois), la capturer en 1200×630
+(`msedge --headless=new --window-size=1200,630 --screenshot=og.png tools/og-image-ma.html`),
+la copier dans `ma/assets/og-image.png`, puis incrémenter `?v=` de `og:image` dans le générateur
+pour que les réseaux sociaux rafraîchissent leur cache.
 
 Les pages de `ma/` ne se modifient pas à la main : on modifie le JSON ou le générateur, puis on relance `python3 tools/build_site.py` (Python 3 standard, aucune dépendance). Les gabarits écrivent des liens absolus (`/methode.html`) ; le générateur les place sous `/ma`.
 
