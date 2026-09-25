@@ -4,7 +4,7 @@ Usage : python3 tools/build_site.py            (tous les marchés)
         python3 tools/build_site.py pl vn      (seulement ceux-là)
 Chaque marché écrit UNIQUEMENT dans son dossier, à partir de <code>/data/<data>.
 La racine (homepage monde, redirections, sitemap, robots, CNAME) se maintient à la main."""
-import os, sys, runpy
+import os, sys, runpy, hashlib
 
 TOOLS = os.path.dirname(os.path.abspath(__file__))
 
@@ -36,10 +36,15 @@ def switcher(m):
     return (f'<details class="mkt"><summary class="market" aria-label="{ui["choose"]}">{m["names"][m["lang"]]}</summary>'
             f'<div class="menu">{items}<hr><a href="@ROOT@">{ui["all"]}</a></div></details>')
 
+# version de la feuille de style (empreinte du fichier) : un changement de style est vu tout de suite,
+# sans attendre l'expiration du cache des navigateurs
+CSS_V = hashlib.sha1(open(os.path.join(TOOLS, '..', 'ma', 'assets', 'style.css'), 'rb').read()).hexdigest()[:8]
+
 wanted = set(sys.argv[1:])
 for m in MARKETS:
     if wanted and m['code'] not in wanted:
         continue
     m['switcher'] = switcher(m)
+    m['css_v'] = CSS_V
     runpy.run_path(os.path.join(TOOLS, f"site_{m['lang']}.py"), init_globals={'M': m})
     print('ok', m['code'])
