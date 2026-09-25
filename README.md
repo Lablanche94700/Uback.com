@@ -27,9 +27,18 @@ ma/                     ← site Maroc, entièrement généré
   assets/               ← style.css (marine #1E3A5F, or #C8A052, Inter), favicons, image de partage
   data/classement-ma-2026-09.json ← la donnée du classement (une entrée par société, source par montant)
 
-tools/build_site.py     ← génère les pages de ma/ à partir du JSON ; n'écrit jamais à la racine
-tools/og-image-ma.html  ← source de ma/assets/og-image.png (image de partage 1200×630)
+pl/, vn/                ← sites Pologne et Vietnam (anglais, classement seul), entièrement générés :
+  index.html, method.html, legal-notice.html, assets/ (style.css copié depuis ma/, og-image.png), data/
+
+tools/build_site.py     ← chef d'orchestre : liste des marchés (code, langue, données, top_n, statut partenaire)
+tools/site_fr.py        ← gabarit français complet (Maroc : Backers, partenaire)
+tools/site_en.py        ← gabarit anglais « classement seul » (Pologne, Vietnam)
+tools/og-image-<code>.html ← source de <code>/assets/og-image.png (image de partage 1200×630)
 ```
+
+Ajouter un marché : créer `<code>/data/classement-<code>-AAAA-MM.json` (mêmes clés que le Maroc), l'ajouter à
+`MARKETS` dans `tools/build_site.py`, lancer `python3 tools/build_site.py <code>`, puis ajouter sa carte sur la
+homepage et ses pages dans `sitemap.xml`. `ma/assets/style.css` reste la seule feuille de style à modifier.
 
 Image de partage : modifier `tools/og-image-ma.html` (édition, mois), la capturer en 1200×630
 (`msedge --headless=new --window-size=1200,630 --screenshot=og.png tools/og-image-ma.html`),
