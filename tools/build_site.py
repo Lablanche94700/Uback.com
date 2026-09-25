@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
-"""Génère le site statique Uback Maroc à partir de data/classement-ma-2026-09.json.
-Usage : python3 tools/build_site.py  (écrit les pages à la racine du dépôt, publiée par GitHub Pages)."""
-import json, html, os, datetime
+"""Génère le site statique Uback Maroc à partir de ma/data/classement-ma-2026-09.json.
+Usage : python3 tools/build_site.py  (écrit les pages dans ma/ uniquement ; la racine du dépôt, publiée
+par GitHub Pages, porte la homepage monde, écrite à la main, et n'est jamais touchée par ce script)."""
+import json, html, os, re, datetime
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # racine du dépôt = dossier publié
-D = json.load(open(f'{ROOT}/data/classement-ma-2026-09.json', encoding='utf-8'))
-BASE = 'https://uback.com'          # provisoire : deviendra https://ma.uback.com quand le sous-domaine sera créé
+PREFIX = '/ma'                      # chemin du site Maroc sur uback.com
+OUT = ROOT + PREFIX                 # seul dossier écrit par ce script
+D = json.load(open(f'{OUT}/data/classement-ma-2026-09.json', encoding='utf-8'))
+BASE = 'https://uback.com' + PREFIX
 FORM_MODE = 'mailto'                # 'mailto' (GitHub Pages) ou 'netlify' (Netlify Forms)
 FORM_EMAIL = 'contact@uback.com'
 e = html.escape
@@ -411,22 +414,12 @@ merci = head("Merci | Uback Maroc", "Inscription confirmée.", "/merci.html") + 
 ''' + FOOT
 merci = merci.replace('@FORM_EMAIL@', FORM_EMAIL)
 
-os.makedirs(ROOT, exist_ok=True)
+def under_prefix(page):
+    """Les gabarits écrivent des chemins absolus (/methode.html, /assets/…) : on les place sous /ma."""
+    page = re.sub(r'((?:href|src|action)=")/(?!/)', rf'\1{PREFIX}/', page)
+    return page.replace("location.href='/", f"location.href='{PREFIX}/")
+
+# robots.txt, sitemap.xml, CNAME et netlify.toml sont à la racine et se maintiennent à la main.
 for name, content in [('index.html', index), ('methode.html', methode), ('partenaire.html', partenaire), ('mentions-legales.html', mentions), ('merci.html', merci)]:
-    open(f'{ROOT}/{name}', 'w', encoding='utf-8', newline='\n').write(content)
-
-open(f'{ROOT}/robots.txt', 'w', encoding='utf-8', newline='\n').write(f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n")
-today = datetime.date.today().isoformat()
-pages = ['/', '/methode.html', '/partenaire.html', '/mentions-legales.html']
-open(f'{ROOT}/sitemap.xml', 'w', encoding='utf-8', newline='\n').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(f'  <url><loc>{BASE}{p}</loc><lastmod>{today}</lastmod></url>\n' for p in pages) + '</urlset>\n')
-open(f'{ROOT}/netlify.toml', 'w', encoding='utf-8', newline='\n').write('''[build]
-  publish = "."
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-''')
+    open(f'{OUT}/{name}', 'w', encoding='utf-8', newline='\n').write(under_prefix(content))
 print('ok')

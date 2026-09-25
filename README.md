@@ -2,30 +2,39 @@
 
 **Funded startups, ranked by AI.**
 
-Site statique de Uback, publié par GitHub Pages sur https://uback.com (provisoirement : le site du marché marocain occupe la racine ; il migrera vers `ma.uback.com` quand le sous-domaine sera créé).
+Site statique de Uback, publié par GitHub Pages sur https://uback.com. La racine porte la homepage monde (en anglais) ; chaque marché vit dans son dossier, en commençant par le Maroc dans `/ma`.
 
-Contenu : classement « Édition 0 – bêta » des 20 startups marocaines les mieux valorisées, radar, repères, méthode et règles du jeu, page partenaire, mentions légales.
+Contenu du Maroc : classement « Édition 0 – bêta » des 20 startups marocaines les mieux valorisées, radar, repères, méthode et règles du jeu, page partenaire, mentions légales.
 
 ## Structure
 
 ```
-index.html              ← accueil Maroc : classement, radar, Backers, partenaire
-methode.html            ← méthode, règles du jeu, éligibilité, droit de réponse
-partenaire.html         ← pitch pour le futur partenaire exclusif
-mentions-legales.html   ← éditeur (sans adresse, volontairement) et hébergeur
-merci.html              ← confirmation du formulaire de suivi
-assets/                 ← style.css (marine #1E3A5F, or #C8A052, Inter), favicons, image de partage
-data/classement-ma-2026-09.json   ← la donnée du classement (une entrée par société, source par montant)
-tools/build_site.py     ← génère les pages HTML à partir du JSON
+index.html              ← homepage monde, écrite à la main (hors générateur)
+methode.html, partenaire.html, mentions-legales.html, merci.html
+                        ← redirections vers /ma/… (anciennes adresses, à garder)
+assets/                 ← favicons et ancienne image de partage, pour la racine
+data/classement-ma-2026-09.json   ← copie à l'ancien chemin, pour ne casser aucun lien
+sitemap.xml, robots.txt ← maintenus à la main (racine + pages /ma)
 CNAME                   ← domaine servi par GitHub Pages
 netlify.toml            ← prêt pour une migration vers Netlify (formulaire natif)
+
+ma/                     ← site Maroc, entièrement généré
+  index.html            ← accueil Maroc : classement, radar, Backers, partenaire
+  methode.html          ← méthode, règles du jeu, éligibilité, droit de réponse
+  partenaire.html       ← pitch pour le futur partenaire exclusif
+  mentions-legales.html ← éditeur (sans adresse, volontairement) et hébergeur
+  merci.html            ← confirmation du formulaire de suivi
+  assets/               ← style.css (marine #1E3A5F, or #C8A052, Inter), favicons, image de partage
+  data/classement-ma-2026-09.json ← la donnée du classement (une entrée par société, source par montant)
+
+tools/build_site.py     ← génère les pages de ma/ à partir du JSON ; n'écrit jamais à la racine
 ```
 
-Les pages HTML ne se modifient pas à la main : on modifie le JSON ou le générateur, puis on relance `python3 tools/build_site.py` (Python 3 standard, aucune dépendance).
+Les pages de `ma/` ne se modifient pas à la main : on modifie le JSON ou le générateur, puis on relance `python3 tools/build_site.py` (Python 3 standard, aucune dépendance). Les gabarits écrivent des liens absolus (`/methode.html`) ; le générateur les place sous `/ma`.
 
 ## Mettre à jour le classement
 
-1. Modifier `data/classement-ma-2026-09.json` (ou créer le fichier du mois suivant et changer son nom dans `tools/build_site.py`).
+1. Modifier `ma/data/classement-ma-2026-09.json` (ou créer le fichier du mois suivant et changer son nom dans `tools/build_site.py`).
 2. Lancer `python3 tools/build_site.py`.
 3. Committer et pousser sur `main` : GitHub Pages republie en une à deux minutes.
 
@@ -38,6 +47,4 @@ GitHub Pages ne traite pas les formulaires. En attendant Netlify, le formulaire 
 ## Reste à faire
 
 - Créer les adresses `contact@`, `corrections@`, `partenaires@`, `privacy@uback.com` (redirections suffisent).
-- Remplir `mentions-legales.html` (crochets).
-- Sous-domaine `ma.uback.com` puis `uback.com` comme page monde.
 - Édition 1 : consensus multi-IA (Claude, Gemini, ChatGPT), indice de confiance, pages société et secteur, EN puis AR.
