@@ -117,16 +117,16 @@ jsonld = {
 
 index = head(
   f"Top 20 des startups marocaines les mieux valorisées – {D['date_label']} | Uback Maroc",
-  "Classement mensuel des startups marocaines par IA, contesté par des experts et confronté aux intentions réelles d'investisseurs. Uback classe, ne valorise pas.",
+  "Classement mensuel des startups marocaines non cotées ayant déjà levé des fonds, établi par IA à partir d'informations publiques. Uback classe, ne valorise pas.",
   "/", f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>')
 
 index += f'''
 <div class="wrap">
   <div class="hero">
     <div>
-      <div class="kicker">AI rankings, challenged by humans</div>
+      <div class="kicker">Funded startups, ranked by AI</div>
       <h1>Les 20 startups marocaines les mieux valorisées</h1>
-      <p class="lead">Un classement mensuel établi par intelligence artificielle à partir d’informations publiques, contesté par des experts et confronté aux intentions réelles des investisseurs. Uback ne calcule aucune valorisation : il classe.</p>
+      <p class="lead">Un classement mensuel des startups marocaines non cotées ayant déjà levé des fonds, établi par intelligence artificielle à partir d’informations publiques. Uback ne calcule aucune valorisation : il classe.</p>
       <div class="meta">
         <span class="tag beta">{e(D['edition'])} · {e(D['date_label'])}</span>
         <span>Claude · consensus multi-IA à partir de l’édition 1</span><span>·</span>
@@ -360,7 +360,7 @@ partenaire = head("Devenir le partenaire exclusif Uback au Maroc | Uback", "Banq
 <li><b>De la visibilité.</b> Votre nom, votre statut réglementaire et votre numéro d’immatriculation apparaissent sur chaque classement du pays (« Mises en relation assurées par… »), et sur votre page partenaire.</li>
 <li><b>Un tableau de bord.</b> Alertes quand les intentions convergent sur une société ou un secteur, suivi des dossiers, trace de chaque contact.</li>
 <li><b>Un kit de prospection trimestriel.</b> Une synthèse des intentions de votre marché, à envoyer à vos propres clients.</li>
-<li><b>Une voix.</b> Vous pouvez publier des notes sous votre nom et contester les classements : le regard humain de Uback, c’est le vôtre.</li>
+<li><b>Une voix.</b> Vous pouvez publier des notes sous votre nom sur votre marché.</li>
 </ul>
 
 <h2>Ce que Uback ne vous apporte pas</h2>
@@ -387,9 +387,9 @@ mentions = head("Mentions légales | Uback", "Mentions légales du site Uback.",
 <div class="wrap prose">
 <h1>Mentions légales</h1>
 <h2>Éditeur</h2>
-<p>DEALING-ROOM SARL, [adresse du siège], [RCS et numéro], capital de [montant] €. Directeur de la publication : [nom]. Contact : <a href="mailto:contact@uback.com">contact@uback.com</a>.</p>
+<p>DEALING-ROOM SARL, SARL au capital de 50 000 € enregistrée en France au RCS de Créteil sous le numéro 485313712. Directeur de la publication : Sebastien Blanchard. Contact : <a href="mailto:contact@uback.com">contact@uback.com</a>.</p>
 <h2>Hébergement</h2>
-<p>[Hébergeur, adresse].</p>
+<p>GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis. Site : <a href="https://github.com">github.com</a>.</p>
 <h2>Nature du service</h2>
 <p>Uback est un éditeur de contenu. Les classements publiés sont des opinions produites par des systèmes d’intelligence artificielle à partir d’informations publiques, selon une méthode publiée. Ils ne constituent ni un conseil en investissement, ni une recommandation personnalisée, ni une sollicitation ou une offre de titres. Uback ne reçoit aucun mandat, ne négocie aucune transaction et n’encaisse aucun fonds destiné à un investissement. Les mises en relation sont réalisées par un partenaire agréé, identifié sur chaque marché, sous sa seule responsabilité réglementaire.</p>
 <h2>Droit de réponse</h2>
@@ -413,13 +413,13 @@ merci = merci.replace('@FORM_EMAIL@', FORM_EMAIL)
 
 os.makedirs(ROOT, exist_ok=True)
 for name, content in [('index.html', index), ('methode.html', methode), ('partenaire.html', partenaire), ('mentions-legales.html', mentions), ('merci.html', merci)]:
-    open(f'{ROOT}/{name}', 'w', encoding='utf-8').write(content)
+    open(f'{ROOT}/{name}', 'w', encoding='utf-8', newline='\n').write(content)
 
-open(f'{ROOT}/robots.txt', 'w').write(f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n")
+open(f'{ROOT}/robots.txt', 'w', encoding='utf-8', newline='\n').write(f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n")
 today = datetime.date.today().isoformat()
 pages = ['/', '/methode.html', '/partenaire.html', '/mentions-legales.html']
-open(f'{ROOT}/sitemap.xml', 'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(f'  <url><loc>{BASE}{p}</loc><lastmod>{today}</lastmod></url>\n' for p in pages) + '</urlset>\n')
-open(f'{ROOT}/netlify.toml', 'w').write('''[build]
+open(f'{ROOT}/sitemap.xml', 'w', encoding='utf-8', newline='\n').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(f'  <url><loc>{BASE}{p}</loc><lastmod>{today}</lastmod></url>\n' for p in pages) + '</urlset>\n')
+open(f'{ROOT}/netlify.toml', 'w', encoding='utf-8', newline='\n').write('''[build]
   publish = "."
 
 [[headers]]

@@ -1,6 +1,6 @@
 # Uback – site public
 
-**AI rankings, challenged by humans.**
+**Funded startups, ranked by AI.**
 
 Site statique de Uback, publié par GitHub Pages sur https://uback.com (provisoirement : le site du marché marocain occupe la racine ; il migrera vers `ma.uback.com` quand le sous-domaine sera créé).
 
@@ -12,7 +12,7 @@ Contenu : classement « Édition 0 – bêta » des 20 startups marocaines les m
 index.html              ← accueil Maroc : classement, radar, Backers, partenaire
 methode.html            ← méthode, règles du jeu, éligibilité, droit de réponse
 partenaire.html         ← pitch pour le futur partenaire exclusif
-mentions-legales.html   ← à compléter (adresse, RCS, hébergeur)
+mentions-legales.html   ← éditeur (sans adresse, volontairement) et hébergeur
 merci.html              ← confirmation du formulaire de suivi
 assets/                 ← style.css (marine #1E3A5F, or #C8A052, Inter), favicons, image de partage
 data/classement-ma-2026-09.json   ← la donnée du classement (une entrée par société, source par montant)
