@@ -91,6 +91,10 @@ tr.top .rank{color:var(--gold)}
 .soon-list{display:flex;flex-wrap:wrap;gap:10px;font-size:13px;font-weight:600;color:var(--muted);margin-top:16px}
 .soon-list span{padding:6px 12px;border:1px dashed #d9dee5;border-radius:999px}
 section.navy p.lead{font-size:16px;color:#c7d0dc;max-width:860px;margin:0 0 24px}
+.steps-head{text-align:center;max-width:720px;margin:40px auto 24px}
+.steps-head h3{font-size:24px;font-weight:800;color:#fff;margin:0 0 8px}
+.steps-head p{margin:0;font-size:16px;color:#c7d0dc}
+.steps-note{margin:16px 0 0;font-size:13px;color:#9fb0c4}
 .cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:24px;font-size:13px;color:#9fb0c4}
 /* partner */
 .partner{display:grid;grid-template-columns:1fr 440px;gap:48px;align-items:stretch}

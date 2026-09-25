@@ -201,16 +201,22 @@ index += f'''
 <section class="navy" id="backers">
   <div class="wrap">
     <div class="sec-head"><h2>Investir au Maroc, à plusieurs, depuis Paris, Dubaï ou Montréal</h2></div>
-    <p class="lead">Uback agrège les intentions d’investisseurs qualifiés (business angels, family offices, diaspora) et les confie à un partenaire marocain agréé, qui construit le deal. Vous entrez au capital aux côtés d’investisseurs professionnels déjà présents : ils ont fait la due diligence et négocié le pacte.</p>
-    <div class="grid3">
-      <div class="card dark"><span class="num">1</span><h3>Déclarez une intention</h3><p>Sur une société ou sur un secteur, avec un ticket minimum et maximum. Payante, pour qualifier le sérieux ; transférable tant qu’elle n’est pas transformée.</p></div>
-      <div class="card dark"><span class="num">2</span><h3>Le partenaire agréé travaille</h3><p>Quand les intentions convergent, il contacte la société, structure et négocie : levée, cession de titres existants, ou véhicule commun pour les petits tickets.</p></div>
-      <div class="card dark"><span class="num">3</span><h3>Vous décidez</h3><p>Uback ne conseille pas, ne négocie pas, n’encaisse rien. Le deal se fait de gré à gré, avec le partenaire, sous le droit indiqué sur la fiche de la société.</p></div>
+    <p class="lead">Uback agrège les intentions d’investisseurs qualifiés (business angels, family offices, diaspora) et les confie à un partenaire agréé, qui construit le deal. Vous entrez au capital aux côtés d’investisseurs professionnels déjà présents. Vous bénéficiez du même pacte d’associés.</p>
+    <div class="steps-head">
+      <h3>Le nombre fait la force</h3>
+      <p>Seul, un petit ticket n’ouvre aucune porte. Regroupés, les Backers pèsent.</p>
     </div>
+    <div class="grid4">
+      <div class="card dark"><span class="num">1</span><h3>Déclarez une intention</h3><p>Sur une société ou sur un secteur, avec un ticket minimum et maximum. Payante, pour qualifier le sérieux&nbsp;; transférable tant qu’elle n’est pas transformée.</p></div>
+      <div class="card dark"><span class="num">2</span><h3>La masse critique est atteinte</h3><p>Quand le nombre de Backers et le cumul de leurs intentions franchissent un seuil, le partenaire agréé contacte la société et lui présente cette demande.</p></div>
+      <div class="card dark"><span class="num">3</span><h3>Le partenaire agréé structure</h3><p>Si les attentes de la société et celles des Backers convergent, il construit une opération et la présente directement aux Backers concernés.</p></div>
+      <div class="card dark"><span class="num">4</span><h3>Closing</h3><p>Levée ou cession de titres existants&nbsp;: les petits tickets sont regroupés dans un véhicule commun créé par le partenaire agréé. Chaque Backer décide d’y participer ou non.</p></div>
+    </div>
+    <p class="steps-note">Uback ne conseille pas, ne négocie pas, n’encaisse rien. Chaque opération est menée par le partenaire agréé, sous le droit indiqué sur la fiche de la société.</p>
     <div class="cta-row">
       <a class="btn gold" href="#suivre">Être prévenu à l’ouverture des intentions</a>
       <a class="btn ghost" href="/methode.html#apres">Que se passe-t-il après ma déclaration ?</a>
-      <span>Ouverture des déclarations d’intention dès la signature du partenaire marocain · prix par tranche de ticket · validité 12 mois · crédit transférable</span>
+      <span>Ouverture des déclarations d’intention dès la signature du partenaire agréé · prix par tranche de ticket · validité 12 mois · crédit transférable</span>
     </div>
   </div>
 </section>
@@ -341,7 +347,7 @@ methode = head("Méthode et règles du jeu | Uback Maroc", "Comment Uback classe
 </table>
 
 <h2 id="apres">Que se passe-t-il après ma déclaration ?</h2>
-<p>Une déclaration d’intention est payante (prix par pays et par tranche de ticket), valable douze mois, et transférable : tant qu’elle n’a pas été transformée, vous pouvez la supprimer et reporter son crédit sur une autre société ou un secteur. Uback ne promet pas un deal. Il promet que votre intention, agrégée à celles des autres Backers, est vue par le partenaire agréé du pays, qui décide seul de contacter une société. Si un deal se dessine, c’est le partenaire qui vous contacte, sous son nom et sous sa responsabilité réglementaire. Au Maroc, les déclarations d’intention ouvriront dès la signature du partenaire.</p>
+<p>Une déclaration d’intention est payante (prix par pays et par tranche de ticket), valable douze mois, et transférable : tant qu’elle n’a pas été transformée, vous pouvez la supprimer et reporter son crédit sur une autre société ou un secteur. Uback ne promet pas un deal. Il promet que votre intention, agrégée à celles des autres Backers, compte dans la masse critique&nbsp;: quand le nombre de Backers et le cumul de leurs intentions franchissent un seuil, le partenaire agréé du pays contacte la société et lui présente cette demande. Si les attentes de la société et celles des Backers convergent, il structure une opération et la présente directement aux Backers concernés, sous son nom et sous sa responsabilité réglementaire. Les petits tickets sont regroupés dans un véhicule commun créé par le partenaire agréé&nbsp;; chaque Backer décide d’y participer ou non. Au Maroc, les déclarations d’intention ouvriront dès la signature du partenaire.</p>
 
 <h2 id="correction">Droit de réponse et corrections</h2>
 <p>Toute société citée peut demander la correction d’une information (montant, date, secteur, statut), contester sa position ou demander son retrait, en écrivant à <a href="mailto:corrections@uback.com">corrections@uback.com</a>. Chaque demande reçoit une réponse motivée. Les dirigeants peuvent revendiquer la fiche de leur société pour y publier leurs indicateurs et déclarer une intention de lever des fonds.</p>
@@ -361,7 +367,7 @@ partenaire = head("Devenir le partenaire exclusif Uback au Maroc | Uback", "Banq
 <ul>
 <li><b>Des investisseurs que vous ne trouveriez pas seul.</b> Les intentions déclarées sur votre marché vous sont réservées : montants, secteurs, sociétés convoitées, avec l’identité des Backers qui ont consenti à être mis en relation.</li>
 <li><b>De la visibilité.</b> Votre nom, votre statut réglementaire et votre numéro d’immatriculation apparaissent sur chaque classement du pays (« Mises en relation assurées par… »), et sur votre page partenaire.</li>
-<li><b>Un tableau de bord.</b> Alertes quand les intentions convergent sur une société ou un secteur, suivi des dossiers, trace de chaque contact.</li>
+<li><b>Un tableau de bord.</b> Alertes quand les intentions sur une société ou un secteur franchissent le seuil, suivi des dossiers, trace de chaque contact.</li>
 <li><b>Un kit de prospection trimestriel.</b> Une synthèse des intentions de votre marché, à envoyer à vos propres clients.</li>
 <li><b>Une voix.</b> Vous pouvez publier des notes sous votre nom sur votre marché.</li>
 </ul>
