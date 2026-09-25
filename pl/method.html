@@ -14,8 +14,8 @@
 <meta property="og:image" content="https://uback.com/pl/assets/og-image.png?v=1">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/assets/favicon-192.png">
+<link rel="icon" href="/pl/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/pl/assets/favicon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -33,11 +33,15 @@
     </button>
     <nav class="main" id="nav" aria-label="Main navigation">
       <a href="/pl/#ranking">Ranking</a>
-      <a href="/pl/#radar">Radar</a>
+      <a href="/pl/#sectors">Sectors</a>
+      <a href="/pl/#backers">Backers</a>
+      <a href="/pl/partner.html">Partner</a>
       <a href="/pl/method.html">Method</a>
     </nav>
     <span class="spacer"></span>
-    <a class="btn" href="mailto:contact@uback.com?subject=Follow%20Uback%20Poland">Follow Poland</a>
+    <span class="langs"><span class="on">EN</span><span>·</span><span class="soon" title="Coming soon">PL</span></span>
+    <a class="btn" href="/pl/#follow">Follow Poland</a>
+    <a class="btn gold" href="/pl/#backers">Declare an intention</a>
   </div>
 </header>
 <main id="main">
@@ -49,36 +53,47 @@
 <h2>The rules</h2>
 <ol>
 <li><b>Uback ranks, it does not value.</b> Uback estimates no valuation; only public, dated and sourced figures are shown (amounts raised, last announced round).</li>
-<li><b>A ranking is never for sale.</b> No payment, from a company, a partner or an analyst, influences a position.</li>
+<li><b>A ranking is never for sale.</b> No payment, from a company, a partner or an analyst, influences a position. Paid listing (“Challengers”) is shown separately, labelled as such, and never enters the ranking.</li>
 <li><b>No human changes the order.</b> A reviewer may exclude a company on a traced eligibility ground, or rerun the calculation; never reorder.</li>
 <li><b>Uback never solicits.</b> Any outgoing contact with a company, a manager or a shareholder goes through the country’s licensed partner.</li>
 <li><b>Uback is not a financial intermediary.</b> No mandate, no negotiation, no advice, no collection of funds intended for an investment.</li>
+<li><b>Data stays in.</b> Intentions to sell are confidential; no data is sold or passed on to third parties, except to the local partner with the declarant’s consent.</li>
 <li><b>Everything is published, everything is traced.</b> AIs queried, date, consensus rule and eligibility criteria are public; every company has a right of reply.</li>
+<li><b>No false promises.</b> Every company shows its access status. An intention that has not been converted is a transferable credit.</li>
 </ol>
 
 <h2>How the ranking is built</h2>
-<p>Every month, the same question is put to several artificial intelligences for each country and each sector: which eligible companies rank highest, in order? The answers are merged into a consensus ranking (by points: 1st = 20 points, 2nd = 19, and so on). A confidence index is shown for each position: when the AIs agree, the ranking is solid; when they diverge, the divergence itself becomes information.</p>
-<p><b>Edition 0 (beta).</b> This first edition was established by a single AI (Claude, Anthropic), from desk research on the press and funding announcements, each amount being sourced. Cumulative funding counts equity only: debt and grants are shown but not added up. The confidence index reflects the quality of the available sources. The multi-AI consensus applies from Edition 1.</p>
+<p>Every month, the same question is put to several artificial intelligences for each country and each sector: which eligible companies are the most highly valued, in order? The answers are merged into a consensus ranking (by points: 1st = 20 points, 2nd = 19, and so on). A confidence index is shown for each position: when the AIs agree, the ranking is solid; when they diverge, the divergence itself becomes information.</p>
+<p><b>Edition 0 (beta).</b> This first edition was established by a single AI (Claude, Anthropic), from desk research on the press and funding announcements, each amount being sourced. The confidence index reflects the quality of the available sources. The multi-AI consensus applies from Edition 1.</p>
 
 <h2>Eligibility</h2>
 <table>
 <tr><th>Rule</th><th>Application</th></tr>
 <tr><td>Technology or innovative company</td><td>Starting scope; the sector tree is public and evolving.</td></tr>
 <tr><td>One main activity, one sector</td><td>Conglomerates and multi-activity companies are excluded. A company appears in one ranking only.</td></tr>
-<tr><td>Has raised funds</td><td>At least USD 500k (or equivalent), verifiable (public announcement, register, or partner attestation). A grant is not a funding round. Debt is distinguished from equity.</td></tr>
+<tr><td>Has raised funds</td><td>At least USD 500k (or equivalent) in equity or debt, verifiable (public announcement, register, or partner attestation). A grant is not a funding round. Debt is distinguished from equity.</td></tr>
 <tr><td>Non-listed</td><td>Listed companies are benchmarks, shown separately, never ranked.</td></tr>
-<tr><td>Active and independent</td><td>A company acquired, closed or in insolvency proceedings leaves the ranking; history keeps its positions.</td></tr>
+<tr><td>Active</td><td>A company acquired, closed or in insolvency proceedings leaves the ranking; history keeps its positions.</td></tr>
 <tr><td>Main operations in the country</td><td>A ranking’s country is the country of operations (team, market), whatever the legal seat. The legal seat and the law governing the shares are shown on each profile. Companies of local origin operated abroad appear in “Born here, based elsewhere”.</td></tr>
 </table>
 
-<h2>Investor intentions</h2>
-<p>In Poland, Uback currently publishes the ranking only. Investor intentions will open once our local licensed partner is on board: until then, no intention can be declared and no company status is shown.</p>
+<h2>Access status</h2>
+<table>
+<tr><th>Status</th><th>Meaning</th></tr>
+<tr><td>Listed</td><td>On the stock exchange: no intention possible.</td></tr>
+<tr><td>Not declared</td><td>No sign of the capital opening up on Uback. A Backer who declares an intention does so knowingly, and may move their credit.</td></tr>
+<tr><td>Open</td><td>A manager has declared an intention to raise funds, or a shareholder an intention to sell.</td></tr>
+<tr><td>Worked on</td><td>The licensed partner has a deal in progress.</td></tr>
+</table>
+
+<h2 id="after">What happens after my declaration?</h2>
+<p>An intention declaration is paid (price per country and per ticket band), valid for twelve months, and transferable: as long as it has not been converted, you can delete it and move its credit to another company or a sector. Uback does not promise a deal. It promises that your intention, aggregated with those of other Backers, counts towards critical mass: when the number of Backers and the total of their intentions cross a threshold, the country’s licensed partner contacts the company and presents this demand. If the company’s expectations and the Backers’ converge, the partner structures a transaction and presents it directly to the Backers concerned, under its own name and regulatory responsibility. Small tickets are pooled in a common vehicle set up by the licensed partner; each Backer decides whether to take part. In Poland, intention declarations will open once the partner signs.</p>
 
 <h2 id="correction">Right of reply and corrections</h2>
-<p>Any company mentioned may request the correction of an information (amount, date, sector, status), dispute its position or ask to be removed, by writing to <a href="mailto:corrections@uback.com">corrections@uback.com</a>. Every request receives a reasoned answer.</p>
+<p>Any company mentioned may request the correction of an information (amount, date, sector, status), dispute its position or ask to be removed, by writing to <a href="mailto:corrections@uback.com">corrections@uback.com</a>. Every request receives a reasoned answer. Managers can claim their company’s profile to publish their indicators and declare an intention to raise funds.</p>
 
 <h2>Sources</h2>
-<p>Business and technology press, investor announcements and market reports (PFR Ventures &amp; Inovo, Mamstartup). Every amount in the ranking links to its source.</p>
+<p>Polish and international business and technology press (Rzeczpospolita, Puls Biznesu, Business Insider Polska, Bankier, Mamstartup, Brief, Sifted, TechCrunch, EU-Startups, Tech.eu), PFR Ventures and Inovo reports, investor announcements. Every amount in the ranking links to its source.</p>
 </div>
 
 </main>
@@ -88,13 +103,13 @@
       <span class="brand"><span class="u">U</span>Uback</span>
       <span>Powered by AI</span>
       <span>·</span><a href="/pl/method.html">Method and rules</a>
+      <span>·</span><a href="/pl/partner.html">Become a partner</a>
       <span>·</span><a href="/pl/method.html#correction">Request a correction</a>
       <span>·</span><a href="/pl/legal-notice.html">Legal notice</a>
-      <span>·</span><a href="/">All markets</a>
       <span class="spacer"></span>
       <span>Uback.com · 2026</span>
     </div>
-    <p>Uback is a content publisher. It provides no investment advice, receives no mandate and takes part in no transaction. Investing in non-listed companies carries a risk of losing all the capital invested.</p>
+    <p>Uback is a content publisher. It provides no investment advice, receives no mandate and takes part in no transaction. Introductions are made by a licensed partner, currently being selected in Poland. Investing in non-listed companies carries a risk of losing all the capital invested.</p>
   </div>
 </footer>
 </body>

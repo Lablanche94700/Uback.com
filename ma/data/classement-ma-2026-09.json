@@ -56,7 +56,9 @@
     "total_2025": "80 à 108 M$",
     "deals_2025": "29 à 48",
     "commentaire": "Selon Partech (80 M$, 29 deals) ou UM6P Ventures (108 M$, 48 deals). Aucune série B en 2025. Fintech premier secteur.",
-    "source_partech": "https://medias24.com/2026/01/28/startups-technologiques-au-maroc-80-m-leves-en-2025-hausse-du-nombre-de-deals-1618587/",
-    "source_um6p": "https://www.moroccoworldnews.com/2026/08/333604/um6p-report-moroccos-startup-funding-spread-across-more-companies-in-2025/"
+    "sources": [
+      {"label": "Partech", "url": "https://medias24.com/2026/01/28/startups-technologiques-au-maroc-80-m-leves-en-2025-hausse-du-nombre-de-deals-1618587/"},
+      {"label": "UM6P Ventures", "url": "https://www.moroccoworldnews.com/2026/08/333604/um6p-report-moroccos-startup-funding-spread-across-more-companies-in-2025/"}
+    ]
   }
 }

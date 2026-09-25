@@ -27,12 +27,11 @@ ma/                     ← site Maroc, entièrement généré
   assets/               ← style.css (marine #1E3A5F, or #C8A052, Inter), favicons, image de partage
   data/classement-ma-2026-09.json ← la donnée du classement (une entrée par société, source par montant)
 
-pl/, vn/                ← sites Pologne et Vietnam (anglais, classement seul), entièrement générés :
-  index.html, method.html, legal-notice.html, assets/ (style.css copié depuis ma/, og-image.png), data/
+pl/, vn/                ← sites Pologne et Vietnam (anglais), même structure que le Maroc, entièrement générés :
+  index.html, method.html, partner.html, legal-notice.html, thank-you.html, assets/ (copies depuis ma/), data/
 
-tools/build_site.py     ← chef d'orchestre : liste des marchés (code, langue, données, top_n, statut partenaire)
-tools/site_fr.py        ← gabarit français complet (Maroc : Backers, partenaire)
-tools/site_en.py        ← gabarit anglais « classement seul » (Pologne, Vietnam)
+tools/build_site.py     ← réglages de chaque marché (langue, top_n, pays, diaspora, secteurs, partenaire, presse…)
+tools/site.py           ← gabarit unique de tous les marchés ; textes d'interface en français et en anglais (TXT)
 tools/og-image-<code>.html ← source de <code>/assets/og-image.png (image de partage 1200×630)
 ```
 
