@@ -29,6 +29,11 @@ a{color:var(--navy)}a:hover{color:var(--navy-dark)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 [hidden]{display:none!important}
 
+/* bandeau bêta : identique à celui des pages marchés */
+.beta{background:#fbf7ee;border-bottom:1px solid var(--line);font-size:12.5px;line-height:1.4;color:var(--navy)}
+.beta .wrap{min-height:32px;display:flex;align-items:center;justify-content:center;gap:6px;padding-top:6px;padding-bottom:6px;text-align:center}
+.beta b{color:var(--gold);font-weight:700;white-space:nowrap}
+.beta a{color:var(--navy);font-weight:600;white-space:nowrap;margin-left:4px}
 header{background:#fff;border-bottom:1px solid var(--line)}
 header .wrap{height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--navy)}
@@ -120,6 +125,7 @@ footer .wrap{padding-top:28px;padding-bottom:36px;display:flex;flex-direction:co
 footer a{color:var(--muted)}
 .disclaimer{font-size:13px;line-height:1.5}
 
+@media (max-width:760px){.beta .beta-t{display:none}}
 @media (max-width:899px){
   .js .view-tabs{display:flex}
   .js [data-view="countries"] #sectors,.js [data-view="sectors"] #countries{display:none}
@@ -155,6 +161,7 @@ footer a{color:var(--muted)}
 </head>
 <body>
 
+<div class="beta"><div class="wrap"><b>Beta · prototype</b><span class="beta-t">— This site is under construction: rankings, texts and features change every week.</span><a href="mailto:contact@uback.com">Contact us</a></div></div>
 <header>
   <div class="wrap">
     <a class="logo" href="/" aria-label="Uback, home"><span class="u" aria-hidden="true">U</span>Uback</a>
