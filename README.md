@@ -19,7 +19,10 @@ sitemap.xml, robots.txt ← maintenus à la main (racine + pages /ma)
 CNAME                   ← domaine servi par GitHub Pages
 netlify.toml            ← prêt pour une migration vers Netlify (formulaire natif)
 
-ma/                     ← site Maroc, entièrement généré
+ma/                     ← site Maroc, entièrement généré : anglais à la racine (/ma/, version principale),
+                          français dans /ma/fr/ ; textes anglais des données dans data/classement-ma-*.en.json
+                          (couche de traduction : les chiffres restent dans le fichier français de référence) ;
+                          les anciennes pages françaises de /ma/ redirigent vers /ma/fr/
   index.html            ← accueil Maroc : classement, radar, Backers, partenaire
   methode.html          ← méthode, règles du jeu, éligibilité, droit de réponse
   partenaire.html       ← pitch pour le futur partenaire exclusif

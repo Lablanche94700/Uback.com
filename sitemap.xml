@@ -2,9 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://uback.com/</loc></url>
   <url><loc>https://uback.com/ma/</loc></url>
-  <url><loc>https://uback.com/ma/methode.html</loc></url>
-  <url><loc>https://uback.com/ma/partenaire.html</loc></url>
-  <url><loc>https://uback.com/ma/mentions-legales.html</loc></url>
+  <url><loc>https://uback.com/ma/method.html</loc></url>
+  <url><loc>https://uback.com/ma/partner.html</loc></url>
+  <url><loc>https://uback.com/ma/legal-notice.html</loc></url>
+  <url><loc>https://uback.com/ma/fr/</loc></url>
+  <url><loc>https://uback.com/ma/fr/methode.html</loc></url>
+  <url><loc>https://uback.com/ma/fr/partenaire.html</loc></url>
+  <url><loc>https://uback.com/ma/fr/mentions-legales.html</loc></url>
   <url><loc>https://uback.com/pl/</loc></url>
   <url><loc>https://uback.com/pl/method.html</loc></url>
   <url><loc>https://uback.com/pl/partner.html</loc></url>

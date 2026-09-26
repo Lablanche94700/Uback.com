@@ -24,7 +24,7 @@ FLAGS = {
 
 # Classements par pays, groupés par région. live : (code, nom, sous-ligne, url) ; soon : noms à venir.
 REGIONS = [
- {'name': 'North Africa & Middle East', 'live': [('ma', 'Morocco', 'In French · by sector soon', '/ma/')],
+ {'name': 'North Africa & Middle East', 'live': [('ma', 'Morocco', 'In English & French · by sector soon', '/ma/')],
   'soon': ['Tunisia', 'Egypt', 'UAE', 'Saudi Arabia']},
  {'name': 'Europe', 'live': [('pl', 'Poland', 'In English · by sector soon', '/pl/')],
   'soon': ['France', 'Romania', 'Ukraine']},
@@ -78,7 +78,7 @@ JSONLD = {"@context": "https://schema.org", "@graph": [
      "logo": "https://uback.com/assets/favicon-192.png"},
     {"@type": "WebSite", "name": "Uback", "url": "https://uback.com/", "inLanguage": "en"},
     {"@type": "ItemList", "name": "Uback markets", "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Morocco — monthly ranking (in French)", "url": "https://uback.com/ma/"},
+        {"@type": "ListItem", "position": 1, "name": "Morocco — monthly ranking (English and French)", "url": "https://uback.com/ma/"},
         {"@type": "ListItem", "position": 2, "name": "Poland — monthly ranking", "url": "https://uback.com/pl/"},
         {"@type": "ListItem", "position": 3, "name": "Vietnam — monthly ranking", "url": "https://uback.com/vn/"}]}]}
 
@@ -401,7 +401,7 @@ page = f'''<!doctype html>
       <span>© 2026 Uback</span>
       <a href="{METHOD_URL}">Method</a>
       <a href="mailto:contact@uback.com?subject={quote('Correction request')}">Request a correction</a>
-      <a href="/ma/mentions-legales.html">Legal notice</a>
+      <a href="/ma/legal-notice.html">Legal notice</a>
       <a href="mailto:contact@uback.com">contact@uback.com</a>
     </div>
     <span class="disclaimer">Rankings are editorial content, not investment advice.</span>

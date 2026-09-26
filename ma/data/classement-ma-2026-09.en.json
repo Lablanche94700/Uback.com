@@ -1,0 +1,313 @@
+{
+  "edition": "Edition 0 – beta",
+  "date_label": "September 2026",
+  "methode": "Ranking compiled by Claude (Anthropic) from public information, according to the published rules. A consensus of several AIs (Claude, Gemini, ChatGPT) will be applied from edition 1 onwards.",
+  "seuil_levee": "USD 500k",
+  "classement": {
+    "Nuitée": {
+      "sous_secteur": "Tourism › hotel booking infrastructure (B2B API)",
+      "ville": "Casablanca",
+      "leve_cumule": "USD 48M",
+      "derniere_levee": "Series A · USD 48M · Dec 2024 (Accel)",
+      "juridiction": "Headquartered in Dublin (Ireland); tech and operations teams in Casablanca and Palma",
+      "note": "Counted as Moroccan by the UM6P Ventures 2024 report.",
+      "round_label": "Series A",
+      "adjust_reason": ""
+    },
+    "Chari": {
+      "sous_secteur": "Fintech › B2B commerce and payments for grocery stores",
+      "ville": "Casablanca",
+      "leve_cumule": "USD 17–19.5M",
+      "derniere_levee": "Series A · USD 12M · Oct 2025 (SPE Capital, Orange Ventures)",
+      "juridiction": "Morocco (Chari Group); operations in Morocco, Tunisia, Côte d'Ivoire",
+      "note": "USD 100M valuation cited at the 2022 bridge round (TechCrunch). Licensed as a payment institution by Bank Al-Maghrib in 2025.",
+      "round_label": "Series A",
+      "adjust_reason": ""
+    },
+    "Yakeey": {
+      "sous_secteur": "Real estate › transactional marketplace",
+      "ville": "Casablanca",
+      "leve_cumule": "USD ≥15M",
+      "derniere_levee": "Series A · USD >15M · Jan 2026 (IFC, Beltone VC, Enza, CDG Invest)",
+      "juridiction": "Morocco",
+      "note": "",
+      "round_label": "Series A",
+      "adjust_reason": ""
+    },
+    "ORA Technologies": {
+      "sous_secteur": "Fintech › super-app (delivery, payments, logistics)",
+      "ville": "Casablanca",
+      "leve_cumule": "USD 12–14M",
+      "derniere_levee": "Series A increased to USD 10M · Jul 2026",
+      "juridiction": "Morocco",
+      "note": "Acquired Cathedis (last-mile logistics) in 2025.",
+      "round_label": "Series A",
+      "adjust_reason": ""
+    },
+    "Inyad": {
+      "sous_secteur": "Enterprise software › management and payments for merchants",
+      "ville": "Casablanca",
+      "leve_cumule": "USD 8–14M",
+      "derniere_levee": "Series A · USD ~6M · 2023 (Al Mada Ventures, Partech)",
+      "juridiction": "Probable US holding company; operations in Casablanca",
+      "note": "Round amounts not confirmed by press release: cumulative total between USD 8M (The Pulse) and USD 14M (CB Insights).",
+      "round_label": "Series A",
+      "adjust_reason": ""
+    },
+    "YoLa Fresh": {
+      "sous_secteur": "Food › B2B agricultural distribution",
+      "ville": "Casablanca",
+      "leve_cumule": "USD 7M",
+      "derniere_levee": "Pre-Series A · USD 7M · May 2024 (Al Mada Ventures)",
+      "juridiction": "Morocco",
+      "note": "",
+      "round_label": "Pre-Series A",
+      "adjust_reason": ""
+    },
+    "PayTic": {
+      "sous_secteur": "Fintech › payment operations automation (B2B)",
+      "ville": "Casablanca",
+      "leve_cumule": "USD ~7M",
+      "derniere_levee": "Seed extension · USD 4M · Apr 2025 (AfricInvest)",
+      "juridiction": "Legal entity in Canada (Prince Edward Island); operations in Casablanca",
+      "note": "",
+      "round_label": "Seed extension",
+      "adjust_reason": ""
+    },
+    "Agenz": {
+      "sous_secteur": "Real estate › data and valuation",
+      "ville": "Casablanca",
+      "leve_cumule": "USD ~6.8M",
+      "derniere_levee": "Seed · USD 5M · Jun 2026 (Breega, Attijariwafa Ventures, Saviu)",
+      "juridiction": "Morocco",
+      "note": "",
+      "round_label": "Seed",
+      "adjust_reason": ""
+    },
+    "WafR": {
+      "sous_secteur": "Fintech › loyalty and payments for neighbourhood retail",
+      "ville": "Casablanca",
+      "leve_cumule": "USD ~6.7M",
+      "derniere_levee": "Seed · USD 4M · Feb 2026 (LoftyInc, Attijariwafa Ventures, Al Mada Ventures)",
+      "juridiction": "Morocco",
+      "note": "",
+      "round_label": "Seed",
+      "adjust_reason": ""
+    },
+    "Davis AI": {
+      "sous_secteur": "Real estate › AI-assisted design",
+      "ville": "Casablanca / London",
+      "leve_cumule": "USD 5.5M",
+      "derniere_levee": "Pre-seed · USD 5.5M · May 2026 (Balderton, Heartcore)",
+      "juridiction": "Jurisdiction not specified (probably United Kingdom); Moroccan founders, team in Casablanca",
+      "note": "",
+      "round_label": "Pre-seed",
+      "adjust_reason": ""
+    },
+    "Freterium": {
+      "sous_secteur": "Mobility › transport management software (TMS)",
+      "ville": "Casablanca",
+      "leve_cumule": "USD ~4.3M",
+      "derniere_levee": "Seed · USD 4M · Feb 2022 (Partech Africa, Flexport, Y Combinator)",
+      "juridiction": "Morocco; office in Dubai",
+      "note": "",
+      "round_label": "Seed",
+      "adjust_reason": ""
+    },
+    "CloudFret": {
+      "sous_secteur": "Mobility › digital road freight",
+      "ville": "Casablanca",
+      "leve_cumule": "USD ~3M (MAD 30M)",
+      "derniere_levee": "MAD 10M · May 2022 (Azur Innovation Fund); 3rd round under negotiation (2026)",
+      "juridiction": "Morocco",
+      "note": "USD 20M valuation cited by the press in 2022; profitable company, revenue > MAD 60M.",
+      "round_label": null,
+      "adjust_reason": "profitable company, revenue above MAD 60M cited by the press"
+    },
+    "Enakl": {
+      "sous_secteur": "Mobility › shared employee transport",
+      "ville": "Casablanca",
+      "leve_cumule": "USD 3.7M",
+      "derniere_levee": "Seed · USD 2.3M · Jan 2026 (Azur Innovation Fund, Witamax)",
+      "juridiction": "Morocco",
+      "note": "",
+      "round_label": "Seed",
+      "adjust_reason": ""
+    },
+    "z.systems": {
+      "sous_secteur": "Retail › digitalisation of neighbourhood stores",
+      "ville": "Casablanca",
+      "leve_cumule": "USD 2.7M",
+      "derniere_levee": "Seed · USD 1.65M · Apr 2026 (Azur Innovation Management)",
+      "juridiction": "Morocco",
+      "note": "",
+      "round_label": "Seed",
+      "adjust_reason": ""
+    },
+    "Woliz": {
+      "sous_secteur": "Retail › tools for neighbourhood stores",
+      "ville": "Casablanca",
+      "leve_cumule": "USD 2.2M",
+      "derniere_levee": "Pre-seed · USD 2.2M · Dec 2025 (Sanlam Maroc)",
+      "juridiction": "Morocco",
+      "note": "",
+      "round_label": "Pre-seed",
+      "adjust_reason": ""
+    },
+    "GoSwap": {
+      "sous_secteur": "Energy › battery swapping for electric two-wheelers",
+      "ville": "Casablanca",
+      "leve_cumule": "USD ~2.1M (> MAD 20M)",
+      "derniere_levee": "1st round · > MAD 20M · Mar 2026 (Azur Innovation Fund)",
+      "juridiction": "Morocco",
+      "note": "",
+      "round_label": "First round",
+      "adjust_reason": ""
+    },
+    "Terraa": {
+      "sous_secteur": "Food › B2B agricultural distribution",
+      "ville": "Casablanca",
+      "leve_cumule": "USD 1.5M",
+      "derniere_levee": "Pre-seed · USD 1.5M · Feb 2023 (FoodLabs)",
+      "juridiction": "Morocco",
+      "note": "",
+      "round_label": "Pre-seed",
+      "adjust_reason": ""
+    },
+    "Tookeez": {
+      "sous_secteur": "Fintech › loyalty programmes",
+      "ville": "Casablanca",
+      "leve_cumule": "USD 1.5M (MAD 15M)",
+      "derniere_levee": "MAD 15M · Mar 2024 (Azur Innovation Fund)",
+      "juridiction": "Morocco",
+      "note": "",
+      "round_label": null,
+      "adjust_reason": ""
+    },
+    "Koolskools": {
+      "sous_secteur": "Education › platform for schools",
+      "ville": "Casablanca",
+      "leve_cumule": "USD ~1.4M (MAD 14M)",
+      "derniere_levee": "MAD 10M · Feb 2023 (Azur Innovation Fund)",
+      "juridiction": "Morocco",
+      "note": "",
+      "round_label": null,
+      "adjust_reason": ""
+    },
+    "Konta": {
+      "sous_secteur": "Enterprise software › procurement and spend management (purchase-to-pay)",
+      "ville": "Casablanca",
+      "leve_cumule": "USD ~1.35M",
+      "derniere_levee": "USD 1.15M · Mar 2023 (Azur Innovation Fund)",
+      "juridiction": "Morocco",
+      "note": "",
+      "round_label": null,
+      "adjust_reason": ""
+    }
+  },
+  "radar": [
+    {
+      "nom": "Weego",
+      "sous_secteur": "Mobility › multimodal transport",
+      "derniere_levee": "USD 1.1M · Mar 2026",
+      "source": "https://medias24.com/2026/03/03/weego-leve-11-million-de-dollars-pour-developper-linfrastructure-digitale-du-transport-1620965/"
+    },
+    {
+      "nom": "ToumAI Analytics",
+      "sous_secteur": "AI › voice and customer relationship analytics",
+      "derniere_levee": "EUR 1M · Feb 2025",
+      "source": "https://techpoint.africa/feature/toumai-pre-seed/"
+    },
+    {
+      "nom": "Sand to Green",
+      "sous_secteur": "Energy & climate › agroforestry (headquartered in Paris, operations in Morocco)",
+      "derniere_levee": "USD 1M · Feb 2023",
+      "source": "https://medias24.com/2023/02/07/agriculture-regenerative-from-sand-to-green-annonce-une-levee-de-10-millions-de-dirhams/"
+    },
+    {
+      "nom": "Deepecho",
+      "sous_secteur": "Health › AI for ultrasound",
+      "derniere_levee": "MAD 6M · 2023",
+      "source": "https://telquel.ma/2023/11/14/deepecho-lia-healtech-made-in-morocco-leve-6-millions-de-dirhams_1841076"
+    },
+    {
+      "nom": "Talaty",
+      "sous_secteur": "Fintech › SME credit scoring",
+      "derniere_levee": "Undisclosed amount · Dec 2024",
+      "source": "https://leseco.ma/business/fintech-talaty-leve-des-fonds-pour-accelerer-son-expansion.html"
+    },
+    {
+      "nom": "Alya",
+      "sous_secteur": "Fintech › instalment payments",
+      "derniere_levee": "Undisclosed amount · Dec 2024",
+      "source": "https://www.start-up.ma/alya-une-levee-de-fonds-pour-accelerer-le-paiement-au-maroc/"
+    },
+    {
+      "nom": "VOVE ID",
+      "sous_secteur": "Fintech › identity verification (KYC)",
+      "derniere_levee": "Undisclosed amount · Apr 2025",
+      "source": "https://www.wamda.com/2025/04/moroccos-vove-id-secures-fresh-funds-support-expansion-ambitions"
+    },
+    {
+      "nom": "ATAREC",
+      "sous_secteur": "Energy › wave energy",
+      "derniere_levee": "Undisclosed amount · 2022",
+      "source": "https://www.fedenerg.ma/2022/03/11/energies-renouvelables-um6p-ventures-investit-dans-la-startup-atarec/"
+    },
+    {
+      "nom": "SOWIT",
+      "sous_secteur": "Food › precision agriculture",
+      "derniere_levee": "Undisclosed amount · 2019",
+      "source": "https://www.seaf.com/seaf-morocco-growth-fund-invests-in-sowit-an-agritech-company-specializing-in-precision-agriculture/"
+    },
+    {
+      "nom": "Charikaty",
+      "sous_secteur": "Enterprise software › online company formation",
+      "derniere_levee": "MAD 1.5M · Feb 2026",
+      "source": "https://fr.allafrica.com/stories/202602200318.html"
+    }
+  ],
+  "nees_ici": [
+    {
+      "nom": "RemotePass",
+      "sous_secteur": "Enterprise software › remote payroll and HR",
+      "lieu": "Headquartered in Dubai, Moroccan founders, team in Casablanca",
+      "derniere_levee": "Series B · USD 17.4M · May 2026",
+      "source": "https://www.wamda.com/2026/05/remotepass-secures-17-4-million-series-b-accelerate-global-expansion"
+    }
+  ],
+  "hors_classement": [
+    {
+      "nom": "Cash Plus",
+      "motif": "Listed on the Casablanca Stock Exchange since Nov 2025: benchmark, not ranked",
+      "source": "https://medias24.com/2025/11/26/cash-plus-ce-que-revele-la-valorisation-de-la-premiere-fintech-cotee-1584489/"
+    },
+    {
+      "nom": "Cathedis",
+      "motif": "Acquired by ORA Technologies in 2025",
+      "source": "https://www.infomaroc.net/ora-technologies-leve-19-m-pour-booster-kooulmaroc-et-ora-cash/"
+    },
+    {
+      "nom": "Kifal Auto",
+      "motif": "Acquired by Autochek (Nigeria) in May 2022",
+      "source": "https://medias24.com/2022/05/18/la-start-up-marocaine-kifal-auto-rachetee-par-le-nigerian-autochek/"
+    },
+    {
+      "nom": "DabaDoc",
+      "motif": "Majority control sold to Orange and AXA Assurance Maroc in 2021",
+      "source": "https://newsroom.orange.com/orange-middle-east-and-africa-and-axa-assurance-maroc-sign-an-agreement-to-acquire-a-majority-stake-in-dabadoc/"
+    }
+  ],
+  "reperes_cotes": [
+    {
+      "nom": "Cash Plus",
+      "info": "Fintech · Casablanca Stock Exchange · listed Nov 2025",
+      "source": "https://medias24.com/2025/11/26/cash-plus-ce-que-revele-la-valorisation-de-la-premiere-fintech-cotee-1584489/"
+    }
+  ],
+  "marche": {
+    "total_2025": "USD 80–108M",
+    "deals_2025": "29–48",
+    "commentaire": "According to Partech (USD 80M, 29 deals) or UM6P Ventures (USD 108M, 48 deals). No Series B in 2025. Fintech is the leading sector."
+  }
+}

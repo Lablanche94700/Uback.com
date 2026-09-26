@@ -3,12 +3,34 @@
 Ne pas lancer directement : tools/build_site.py l'exécute avec la configuration du marché dans M.
 Les textes d'interface sont dans TXT (fr, en) ; tout ce qui est propre au pays vient de M ou des données.
 Écrit uniquement dans le dossier du marché (ex. pl/), jamais à la racine."""
-import json, html, os, re, shutil, datetime
+import json, html, os, re, shutil, datetime, copy
 from urllib.parse import quote
+import valuation
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # racine du dépôt = dossier publié
-PREFIX = '/' + M['code']            # chemin du marché sur uback.com (M est fourni par build_site.py)
-OUT = ROOT + PREFIX                 # seul dossier écrit par ce gabarit
-D = json.load(open(f"{OUT}/data/{M['data']}", encoding='utf-8'))
+PREFIX = M['path']                  # chemin de cette version sur uback.com : /ma (anglais), /ma/fr (français)…
+ASSETS = '/' + M['code'] + '/assets'   # feuille de style et images : partagées par les langues d'un marché
+OUT = ROOT + PREFIX                 # seul dossier écrit par ce gabarit (ou ses sous-dossiers de langue)
+DATA = f"{ROOT}/{M['code']}/data"
+D = json.load(open(f"{DATA}/{M['data']}", encoding='utf-8'))
+if M.get('overlay'):
+    # couche de traduction : les textes dans la langue de la page, les chiffres restent ceux du fichier de référence
+    T_ = json.load(open(f"{DATA}/{M['overlay']}", encoding='utf-8'))
+    for k in ('edition', 'date_label', 'methode', 'seuil_levee', 'radar', 'nees_ici', 'nees_ailleurs', 'hors_classement', 'reperes_cotes'):
+        if k in T_:
+            D[k] = T_[k]
+    D['marche'].update({k: v for k, v in T_.get('marche', {}).items()})
+    for c in D['classement']:
+        t = T_['classement'][c['nom']]
+        vi = c.get('valuation_input')
+        for k in ('sous_secteur', 'ville', 'leve_cumule', 'derniere_levee', 'juridiction', 'note'):
+            c[k] = t[k]
+        if vi:
+            vi = c['valuation_input'] = copy.deepcopy(vi)
+            vi['round_label'], vi['adjust_reason'] = t.get('round_label'), t.get('adjust_reason', '')
+for c in D['classement']:
+    # justification de la valorisation dans la langue de la page (même règle, mêmes chiffres)
+    if c.get('valuation_input'):
+        c.update(valuation.estimate(c['valuation_input'], D['date'], M['lang']))
 BASE = 'https://uback.com' + PREFIX
 FORM_MODE = 'mailto'                # 'mailto' (GitHub Pages) ou 'netlify' (Netlify Forms)
 FORM_EMAIL = 'contact@uback.com'
@@ -163,10 +185,30 @@ PM, PP, PL_, PT = L['p_method'], L['p_partner'], L['p_legal'], L['p_thanks']
 def src(url, label='source', style=''):
     return f'<a href="{e(url)}"{style} rel="nofollow noopener" target="_blank">{label}</a>'
 
+PAGE_KEY = {'/': 'index'}
+for _l in TXT:
+    for _k in ('method', 'partner', 'legal', 'thanks'):
+        PAGE_KEY['/' + TXT[_l]['p_' + _k]] = _k
+
+def page_in(lang, key):
+    """Chemin d'une page dans une langue donnée (ex. ('fr', 'method') → methode.html)."""
+    return '' if key == 'index' else TXT[lang]['p_' + key]
+
 def head(title, desc, path, extra=''):
     url = BASE + path
-    langs = '<span>·</span>'.join(
-        f'<span class="on">{c}</span>' if on else f'<span class="soon" title="{L["soon"]}">{c}</span>' for c, on in M['langs'])
+    key = PAGE_KEY[path]
+    # sélecteur de langue : lien vers la même page dans l'autre langue ; langues à venir grisées
+    items = [f'<span class="on">{v["lang"].upper()}</span>' if v['path'] == PREFIX else
+             f'<a class="lang-link" href="@ROOT@{v["path"][1:]}/{page_in(v["lang"], key)}" hreflang="{v["lang"]}">{v["lang"].upper()}</a>'
+             for v in M['variants']]
+    items += [f'<span class="soon" title="{L["soon"]}">{c}</span>' for c in M['langs_soon']]
+    langs = '<span>·</span>'.join(items)
+    alt = ''
+    if len(M['variants']) > 1:
+        alt = ''.join(f'\n<link rel="alternate" hreflang="{v["lang"]}" href="https://uback.com{v["path"]}/{page_in(v["lang"], key)}">'
+                      for v in M['variants'])
+        dv = next(v for v in M['variants'] if v['default'])
+        alt += f'\n<link rel="alternate" hreflang="x-default" href="https://uback.com{dv["path"]}/{page_in(dv["lang"], key)}">'
     return f'''<!doctype html>
 <html lang="{L['html_lang']}">
 <head>
@@ -174,13 +216,13 @@ def head(title, desc, path, extra=''):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
-<link rel="canonical" href="{url}">
+<link rel="canonical" href="{url}">{alt}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Uback">
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:url" content="{url}">
-<meta property="og:image" content="{BASE}/assets/og-image.png?v={M['og_v']}">
+<meta property="og:image" content="https://uback.com{ASSETS}/{M['og']}?v={M['og_v']}">
 <meta property="og:locale" content="{L['locale']}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
@@ -726,17 +768,43 @@ else:
 ''' + FOOT
 
 def under_prefix(page):
-    """Les gabarits écrivent des chemins absolus (/methode.html, /assets/…) : on les place sous le dossier du marché.
-    « @ROOT@ » marque les liens vers la racine du site (logo, favicon, autres marchés)."""
+    """Les gabarits écrivent des chemins absolus (/methode.html, /assets/…) : on les place sous le dossier de la version.
+    /assets/ va vers les fichiers partagés du marché ; « @ROOT@ » marque les liens vers la racine du site."""
+    page = re.sub(r'((?:href|src)=")/assets/', r'\1@ROOT@' + ASSETS[1:] + '/', page)
     page = re.sub(r'((?:href|src|action)=")/(?!/)', rf'\1{PREFIX}/', page)
-    page = page.replace('href="@ROOT@', 'href="/')
+    page = page.replace('href="@ROOT@', 'href="/').replace('src="@ROOT@', 'src="/')
     return page.replace("location.href='/", f"location.href='{PREFIX}/")
 
 # feuille de style et icônes : une seule source (ma/assets/), chaque autre marché en reçoit une copie
 if M['code'] != 'ma':
-    os.makedirs(f'{OUT}/assets', exist_ok=True)
+    os.makedirs(f"{ROOT}{ASSETS}", exist_ok=True)
     for f in ('style.css', 'favicon.svg', 'favicon-192.png'):
-        shutil.copyfile(f'{ROOT}/ma/assets/{f}', f'{OUT}/assets/{f}')
+        shutil.copyfile(f'{ROOT}/ma/assets/{f}', f'{ROOT}{ASSETS}/{f}')
 
+os.makedirs(OUT, exist_ok=True)
 for name, content in [('index.html', index)] + list(PAGES.items()):
     open(f'{OUT}/{name}', 'w', encoding='utf-8', newline='\n').write(under_prefix(content))
+
+# version secondaire (ex. /ma/fr) : les anciennes adresses de ses pages à la racine du marché redirigent vers elle
+if not M['default']:
+    root_dir = f"{ROOT}/{M['code']}"
+    dv = next(v for v in M['variants'] if v['default'])
+    taken = {TXT[dv['lang']]['p_' + k] for k in ('method', 'partner', 'legal', 'thanks')}   # pages de la version principale
+    for name in PAGES:
+        target = f'{PREFIX}/{name}'
+        if name not in taken:
+            open(f'{root_dir}/{name}', 'w', encoding='utf-8', newline='\n').write(f'''<!doctype html>
+<html lang="{L['html_lang']}">
+<head>
+<meta charset="utf-8">
+<title>Page déplacée | Uback</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://uback.com{target}">
+<meta http-equiv="refresh" content="0; url={target}">
+<script>location.replace('{target}' + location.search + location.hash);</script>
+</head>
+<body>
+<p><a href="{target}">uback.com{target}</a></p>
+</body>
+</html>
+''')
