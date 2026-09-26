@@ -9,7 +9,8 @@ Contenu du Maroc : classement « Édition 0 – bêta » des 20 startups marocai
 ## Structure
 
 ```
-index.html              ← homepage monde, écrite à la main (hors générateur)
+index.html              ← homepage monde (anglais), générée par tools/build_home.py : ne pas modifier à la main
+data/sectors.json       ← arborescence des classements mondiaux (famille > secteur > segment), source unique
 methode.html, partenaire.html, mentions-legales.html, merci.html
                         ← redirections vers /ma/… (anciennes adresses, à garder)
 assets/                 ← favicons et ancienne image de partage, pour la racine
@@ -33,11 +34,22 @@ pl/, vn/                ← sites Pologne et Vietnam (anglais), même structure 
 tools/build_site.py     ← réglages de chaque marché (langue, top_n, pays, diaspora, secteurs, partenaire, presse…)
 tools/site.py           ← gabarit unique de tous les marchés ; textes d'interface en français et en anglais (TXT)
 tools/og-image-<code>.html ← source de <code>/assets/og-image.png (image de partage 1200×630)
+tools/build_home.py     ← génère index.html : classements mondiaux par secteur (depuis data/sectors.json)
+                          et classements par pays / régionaux (liste REGIONS en tête du script)
 ```
 
 Ajouter un marché : créer `<code>/data/classement-<code>-AAAA-MM.json` (mêmes clés que le Maroc), l'ajouter à
-`MARKETS` dans `tools/build_site.py`, lancer `python3 tools/build_site.py <code>`, puis ajouter sa carte sur la
-homepage et ses pages dans `sitemap.xml`. `ma/assets/style.css` reste la seule feuille de style à modifier.
+`MARKETS` dans `tools/build_site.py`, lancer `python3 tools/build_site.py <code>`, puis le passer en « live » dans
+`REGIONS` de `tools/build_home.py`, lancer `python3 tools/build_home.py`, et ajouter ses pages dans `sitemap.xml`.
+`ma/assets/style.css` reste la seule feuille de style des marchés.
+
+## Homepage et classements mondiaux par secteur
+
+`python3 tools/build_home.py` réécrit `index.html` (HTML statique, tous les noms de familles, secteurs et segments
+présents pour le référencement ; le JavaScript ne sert qu'à la recherche, aux onglets mobiles et au formulaire).
+Arborescence : `data/sectors.json`, trois niveaux fixes (famille > secteur > segment) ; seul le segment est classé ;
+identifiant `FAMILLE-nn-nn`, slug anglais stable. Chaque segment a `"status": "soon"` ; pour publier un classement,
+passer à `"status": "published"` et ajouter `"url"`, puis relancer le script (le segment devient un lien).
 
 Image de partage : modifier `tools/og-image-ma.html` (édition, mois), la capturer en 1200×630
 (`msedge --headless=new --window-size=1200,630 --screenshot=og.png tools/og-image-ma.html`),

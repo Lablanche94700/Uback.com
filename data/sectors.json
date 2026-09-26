@@ -1,0 +1,1357 @@
+{
+  "version": "2026-09-26",
+  "levels": [
+    "family",
+    "sector",
+    "segment"
+  ],
+  "families": [
+    {
+      "id": "FIN",
+      "name": "Fintech",
+      "sectors": [
+        {
+          "name": "Banking",
+          "segments": [
+            {
+              "id": "FIN-01-01",
+              "name": "Consumer neobanks",
+              "slug": "consumer-neobanks",
+              "status": "soon"
+            },
+            {
+              "id": "FIN-01-02",
+              "name": "Business accounts",
+              "slug": "business-accounts",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Payments",
+          "segments": [
+            {
+              "id": "FIN-02-01",
+              "name": "Online payments & acquiring",
+              "slug": "online-payments-and-acquiring",
+              "status": "soon"
+            },
+            {
+              "id": "FIN-02-02",
+              "name": "Buy now, pay later",
+              "slug": "buy-now-pay-later",
+              "status": "soon"
+            },
+            {
+              "id": "FIN-02-03",
+              "name": "Cross-border remittances",
+              "slug": "cross-border-remittances",
+              "status": "soon"
+            },
+            {
+              "id": "FIN-02-04",
+              "name": "Mobile wallets",
+              "slug": "mobile-wallets",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Crypto & digital assets",
+          "segments": [
+            {
+              "id": "FIN-03-01",
+              "name": "Crypto exchanges",
+              "slug": "crypto-exchanges",
+              "status": "soon"
+            },
+            {
+              "id": "FIN-03-02",
+              "name": "Cold wallets",
+              "slug": "cold-wallets",
+              "status": "soon"
+            },
+            {
+              "id": "FIN-03-03",
+              "name": "Stablecoins",
+              "slug": "stablecoins",
+              "status": "soon"
+            },
+            {
+              "id": "FIN-03-04",
+              "name": "Institutional custody",
+              "slug": "institutional-custody",
+              "status": "soon"
+            },
+            {
+              "id": "FIN-03-05",
+              "name": "Blockchain infrastructure",
+              "slug": "blockchain-infrastructure",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Lending",
+          "segments": [
+            {
+              "id": "FIN-04-01",
+              "name": "SME lending",
+              "slug": "sme-lending",
+              "status": "soon"
+            },
+            {
+              "id": "FIN-04-02",
+              "name": "Consumer credit",
+              "slug": "consumer-credit",
+              "status": "soon"
+            },
+            {
+              "id": "FIN-04-03",
+              "name": "Invoice financing",
+              "slug": "invoice-financing",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Insurance",
+          "segments": [
+            {
+              "id": "FIN-05-01",
+              "name": "Neo-insurers",
+              "slug": "neo-insurers",
+              "status": "soon"
+            },
+            {
+              "id": "FIN-05-02",
+              "name": "Embedded insurance",
+              "slug": "embedded-insurance",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Investing & savings",
+          "segments": [
+            {
+              "id": "FIN-06-01",
+              "name": "Online brokerage",
+              "slug": "online-brokerage",
+              "status": "soon"
+            },
+            {
+              "id": "FIN-06-02",
+              "name": "Robo-advisors",
+              "slug": "robo-advisors",
+              "status": "soon"
+            },
+            {
+              "id": "FIN-06-03",
+              "name": "Crowdfunding",
+              "slug": "crowdfunding",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Finance operations",
+          "segments": [
+            {
+              "id": "FIN-07-01",
+              "name": "SME accounting",
+              "slug": "sme-accounting",
+              "status": "soon"
+            },
+            {
+              "id": "FIN-07-02",
+              "name": "Spend management",
+              "slug": "spend-management",
+              "status": "soon"
+            },
+            {
+              "id": "FIN-07-03",
+              "name": "Cash management & forecasting",
+              "slug": "cash-management-and-forecasting",
+              "status": "soon"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SAN",
+      "name": "Healthtech",
+      "sectors": [
+        {
+          "name": "Access to care",
+          "segments": [
+            {
+              "id": "SAN-01-01",
+              "name": "Telemedicine",
+              "slug": "telemedicine",
+              "status": "soon"
+            },
+            {
+              "id": "SAN-01-02",
+              "name": "Appointment booking",
+              "slug": "appointment-booking",
+              "status": "soon"
+            },
+            {
+              "id": "SAN-01-03",
+              "name": "Online pharmacy",
+              "slug": "online-pharmacy",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Clinical software",
+          "segments": [
+            {
+              "id": "SAN-02-01",
+              "name": "Clinical software",
+              "slug": "clinical-software",
+              "status": "soon"
+            },
+            {
+              "id": "SAN-02-02",
+              "name": "Clinic management",
+              "slug": "clinic-management",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Medtech",
+          "segments": [
+            {
+              "id": "SAN-03-01",
+              "name": "Connected devices",
+              "slug": "connected-devices",
+              "status": "soon"
+            },
+            {
+              "id": "SAN-03-02",
+              "name": "In-vitro diagnostics",
+              "slug": "in-vitro-diagnostics",
+              "status": "soon"
+            },
+            {
+              "id": "SAN-03-03",
+              "name": "Imaging & medical AI",
+              "slug": "imaging-and-medical-ai",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Biotech",
+          "segments": [
+            {
+              "id": "SAN-04-01",
+              "name": "Gene & cell therapies",
+              "slug": "gene-and-cell-therapies",
+              "status": "soon"
+            },
+            {
+              "id": "SAN-04-02",
+              "name": "AI drug discovery",
+              "slug": "ai-drug-discovery",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Wellbeing",
+          "segments": [
+            {
+              "id": "SAN-05-01",
+              "name": "Mental health",
+              "slug": "mental-health",
+              "status": "soon"
+            },
+            {
+              "id": "SAN-05-02",
+              "name": "Women’s health",
+              "slug": "womens-health",
+              "status": "soon"
+            },
+            {
+              "id": "SAN-05-03",
+              "name": "Elderly care",
+              "slug": "elderly-care",
+              "status": "soon"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ENT",
+      "name": "Business software",
+      "sectors": [
+        {
+          "name": "HR",
+          "segments": [
+            {
+              "id": "ENT-01-01",
+              "name": "Payroll",
+              "slug": "payroll",
+              "status": "soon"
+            },
+            {
+              "id": "ENT-01-02",
+              "name": "Recruiting",
+              "slug": "recruiting",
+              "status": "soon"
+            },
+            {
+              "id": "ENT-01-03",
+              "name": "Talent management",
+              "slug": "talent-management",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Sales & marketing",
+          "segments": [
+            {
+              "id": "ENT-02-01",
+              "name": "CRM",
+              "slug": "crm",
+              "status": "soon"
+            },
+            {
+              "id": "ENT-02-02",
+              "name": "Marketing automation",
+              "slug": "marketing-automation",
+              "status": "soon"
+            },
+            {
+              "id": "ENT-02-03",
+              "name": "Sales intelligence",
+              "slug": "sales-intelligence",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Productivity",
+          "segments": [
+            {
+              "id": "ENT-03-01",
+              "name": "Collaboration & docs",
+              "slug": "collaboration-and-docs",
+              "status": "soon"
+            },
+            {
+              "id": "ENT-03-02",
+              "name": "No-code",
+              "slug": "no-code",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Legal",
+          "segments": [
+            {
+              "id": "ENT-04-01",
+              "name": "Contracts & e-signature",
+              "slug": "contracts-and-e-signature",
+              "status": "soon"
+            },
+            {
+              "id": "ENT-04-02",
+              "name": "Compliance",
+              "slug": "compliance",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Customer service",
+          "segments": [
+            {
+              "id": "ENT-05-01",
+              "name": "Customer support",
+              "slug": "customer-support",
+              "status": "soon"
+            },
+            {
+              "id": "ENT-05-02",
+              "name": "AI contact centers",
+              "slug": "ai-contact-centers",
+              "status": "soon"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "IA",
+      "name": "Artificial intelligence",
+      "sectors": [
+        {
+          "name": "Models",
+          "segments": [
+            {
+              "id": "IA-01-01",
+              "name": "Foundation models",
+              "slug": "foundation-models",
+              "status": "soon"
+            },
+            {
+              "id": "IA-01-02",
+              "name": "Specialized models",
+              "slug": "specialized-models",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Agents",
+          "segments": [
+            {
+              "id": "IA-02-01",
+              "name": "Coding agents",
+              "slug": "coding-agents",
+              "status": "soon"
+            },
+            {
+              "id": "IA-02-02",
+              "name": "Enterprise agents",
+              "slug": "enterprise-agents",
+              "status": "soon"
+            },
+            {
+              "id": "IA-02-03",
+              "name": "Consumer assistants",
+              "slug": "consumer-assistants",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "AI infrastructure",
+          "segments": [
+            {
+              "id": "IA-03-01",
+              "name": "Compute & inference",
+              "slug": "compute-and-inference",
+              "status": "soon"
+            },
+            {
+              "id": "IA-03-02",
+              "name": "Data & labeling",
+              "slug": "data-and-labeling",
+              "status": "soon"
+            },
+            {
+              "id": "IA-03-03",
+              "name": "MLOps & evaluation",
+              "slug": "mlops-and-evaluation",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Generative media",
+          "segments": [
+            {
+              "id": "IA-04-01",
+              "name": "Voice & audio",
+              "slug": "voice-and-audio",
+              "status": "soon"
+            },
+            {
+              "id": "IA-04-02",
+              "name": "Image & video",
+              "slug": "image-and-video",
+              "status": "soon"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CYB",
+      "name": "Cybersecurity",
+      "sectors": [
+        {
+          "name": "Identity",
+          "segments": [
+            {
+              "id": "CYB-01-01",
+              "name": "Identity management",
+              "slug": "identity-management",
+              "status": "soon"
+            },
+            {
+              "id": "CYB-01-02",
+              "name": "Privileged access",
+              "slug": "privileged-access",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Infrastructure",
+          "segments": [
+            {
+              "id": "CYB-02-01",
+              "name": "Cloud security",
+              "slug": "cloud-security",
+              "status": "soon"
+            },
+            {
+              "id": "CYB-02-02",
+              "name": "Endpoint protection",
+              "slug": "endpoint-protection",
+              "status": "soon"
+            },
+            {
+              "id": "CYB-02-03",
+              "name": "Network security",
+              "slug": "network-security",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Operations",
+          "segments": [
+            {
+              "id": "CYB-03-01",
+              "name": "Detection & response",
+              "slug": "detection-and-response",
+              "status": "soon"
+            },
+            {
+              "id": "CYB-03-02",
+              "name": "Threat intelligence",
+              "slug": "threat-intelligence",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Data",
+          "segments": [
+            {
+              "id": "CYB-04-01",
+              "name": "Data protection",
+              "slug": "data-protection",
+              "status": "soon"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "INF",
+      "name": "Cloud, data & developer tools",
+      "sectors": [
+        {
+          "name": "Cloud",
+          "segments": [
+            {
+              "id": "INF-01-01",
+              "name": "Hosting",
+              "slug": "hosting",
+              "status": "soon"
+            },
+            {
+              "id": "INF-01-02",
+              "name": "Edge & CDN",
+              "slug": "edge-and-cdn",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Data",
+          "segments": [
+            {
+              "id": "INF-02-01",
+              "name": "Databases",
+              "slug": "databases",
+              "status": "soon"
+            },
+            {
+              "id": "INF-02-02",
+              "name": "Analytics",
+              "slug": "analytics",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Developer tools",
+          "segments": [
+            {
+              "id": "INF-03-01",
+              "name": "APIs & integration",
+              "slug": "apis-and-integration",
+              "status": "soon"
+            },
+            {
+              "id": "INF-03-02",
+              "name": "Observability",
+              "slug": "observability",
+              "status": "soon"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "COM",
+      "name": "Commerce & consumer",
+      "sectors": [
+        {
+          "name": "E-commerce",
+          "segments": [
+            {
+              "id": "COM-01-01",
+              "name": "General marketplaces",
+              "slug": "general-marketplaces",
+              "status": "soon"
+            },
+            {
+              "id": "COM-01-02",
+              "name": "Second-hand",
+              "slug": "second-hand",
+              "status": "soon"
+            },
+            {
+              "id": "COM-01-03",
+              "name": "Refurbished",
+              "slug": "refurbished",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Digital brands",
+          "segments": [
+            {
+              "id": "COM-02-01",
+              "name": "Fashion",
+              "slug": "fashion",
+              "status": "soon"
+            },
+            {
+              "id": "COM-02-02",
+              "name": "Beauty",
+              "slug": "beauty",
+              "status": "soon"
+            },
+            {
+              "id": "COM-02-03",
+              "name": "Home",
+              "slug": "home",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Delivery",
+          "segments": [
+            {
+              "id": "COM-03-01",
+              "name": "Quick commerce",
+              "slug": "quick-commerce",
+              "status": "soon"
+            },
+            {
+              "id": "COM-03-02",
+              "name": "Last-mile delivery",
+              "slug": "last-mile-delivery",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Merchant tools",
+          "segments": [
+            {
+              "id": "COM-04-01",
+              "name": "POS & retail tech",
+              "slug": "pos-and-retail-tech",
+              "status": "soon"
+            },
+            {
+              "id": "COM-04-02",
+              "name": "Store builders",
+              "slug": "store-builders",
+              "status": "soon"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "FOO",
+      "name": "Food & agriculture",
+      "sectors": [
+        {
+          "name": "Agriculture",
+          "segments": [
+            {
+              "id": "FOO-01-01",
+              "name": "Precision farming",
+              "slug": "precision-farming",
+              "status": "soon"
+            },
+            {
+              "id": "FOO-01-02",
+              "name": "Vertical farming",
+              "slug": "vertical-farming",
+              "status": "soon"
+            },
+            {
+              "id": "FOO-01-03",
+              "name": "Biological inputs",
+              "slug": "biological-inputs",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Food",
+          "segments": [
+            {
+              "id": "FOO-02-01",
+              "name": "Alternative proteins",
+              "slug": "alternative-proteins",
+              "status": "soon"
+            },
+            {
+              "id": "FOO-02-02",
+              "name": "Online food brands",
+              "slug": "online-food-brands",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Restaurants",
+          "segments": [
+            {
+              "id": "FOO-03-01",
+              "name": "Food delivery",
+              "slug": "food-delivery",
+              "status": "soon"
+            },
+            {
+              "id": "FOO-03-02",
+              "name": "Restaurant software",
+              "slug": "restaurant-software",
+              "status": "soon"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MOB",
+      "name": "Mobility & logistics",
+      "sectors": [
+        {
+          "name": "Passenger transport",
+          "segments": [
+            {
+              "id": "MOB-01-01",
+              "name": "Carpooling",
+              "slug": "carpooling",
+              "status": "soon"
+            },
+            {
+              "id": "MOB-01-02",
+              "name": "Ride-hailing & taxis",
+              "slug": "ride-hailing-and-taxis",
+              "status": "soon"
+            },
+            {
+              "id": "MOB-01-03",
+              "name": "Micromobility",
+              "slug": "micromobility",
+              "status": "soon"
+            },
+            {
+              "id": "MOB-01-04",
+              "name": "Car sharing",
+              "slug": "car-sharing",
+              "status": "soon"
+            },
+            {
+              "id": "MOB-01-05",
+              "name": "On-demand transit",
+              "slug": "on-demand-transit",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Electric vehicles",
+          "segments": [
+            {
+              "id": "MOB-02-01",
+              "name": "EV makers",
+              "slug": "ev-makers",
+              "status": "soon"
+            },
+            {
+              "id": "MOB-02-02",
+              "name": "Electric two-wheelers",
+              "slug": "electric-two-wheelers",
+              "status": "soon"
+            },
+            {
+              "id": "MOB-02-03",
+              "name": "Charging",
+              "slug": "charging",
+              "status": "soon"
+            },
+            {
+              "id": "MOB-02-04",
+              "name": "Batteries",
+              "slug": "batteries",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Logistics",
+          "segments": [
+            {
+              "id": "MOB-03-01",
+              "name": "Digital freight",
+              "slug": "digital-freight",
+              "status": "soon"
+            },
+            {
+              "id": "MOB-03-02",
+              "name": "B2B delivery",
+              "slug": "b2b-delivery",
+              "status": "soon"
+            },
+            {
+              "id": "MOB-03-03",
+              "name": "Warehouse automation",
+              "slug": "warehouse-automation",
+              "status": "soon"
+            },
+            {
+              "id": "MOB-03-04",
+              "name": "Fleet software",
+              "slug": "fleet-software",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Aviation",
+          "segments": [
+            {
+              "id": "MOB-04-01",
+              "name": "Air taxis (eVTOL)",
+              "slug": "air-taxis-evtol",
+              "status": "soon"
+            },
+            {
+              "id": "MOB-04-02",
+              "name": "Electric & hybrid aviation",
+              "slug": "electric-and-hybrid-aviation",
+              "status": "soon"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ENE",
+      "name": "Energy & climate",
+      "sectors": [
+        {
+          "name": "Generation",
+          "segments": [
+            {
+              "id": "ENE-01-01",
+              "name": "Solar",
+              "slug": "solar",
+              "status": "soon"
+            },
+            {
+              "id": "ENE-01-02",
+              "name": "Wind",
+              "slug": "wind",
+              "status": "soon"
+            },
+            {
+              "id": "ENE-01-03",
+              "name": "Hydrogen",
+              "slug": "hydrogen",
+              "status": "soon"
+            },
+            {
+              "id": "ENE-01-04",
+              "name": "Fusion & advanced nuclear",
+              "slug": "fusion-and-advanced-nuclear",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Grid & storage",
+          "segments": [
+            {
+              "id": "ENE-02-01",
+              "name": "Stationary storage",
+              "slug": "stationary-storage",
+              "status": "soon"
+            },
+            {
+              "id": "ENE-02-02",
+              "name": "Smart grids",
+              "slug": "smart-grids",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Carbon",
+          "segments": [
+            {
+              "id": "ENE-03-01",
+              "name": "Carbon capture",
+              "slug": "carbon-capture",
+              "status": "soon"
+            },
+            {
+              "id": "ENE-03-02",
+              "name": "Carbon accounting & ESG",
+              "slug": "carbon-accounting-and-esg",
+              "status": "soon"
+            },
+            {
+              "id": "ENE-03-03",
+              "name": "Carbon credits",
+              "slug": "carbon-credits",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Resources",
+          "segments": [
+            {
+              "id": "ENE-04-01",
+              "name": "Recycling",
+              "slug": "recycling",
+              "status": "soon"
+            },
+            {
+              "id": "ENE-04-02",
+              "name": "Water",
+              "slug": "water",
+              "status": "soon"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "IMM",
+      "name": "Proptech & construction",
+      "sectors": [
+        {
+          "name": "Transactions",
+          "segments": [
+            {
+              "id": "IMM-01-01",
+              "name": "Online real-estate agencies",
+              "slug": "online-real-estate-agencies",
+              "status": "soon"
+            },
+            {
+              "id": "IMM-01-02",
+              "name": "Rentals",
+              "slug": "rentals",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Management",
+          "segments": [
+            {
+              "id": "IMM-02-01",
+              "name": "Property management",
+              "slug": "property-management",
+              "status": "soon"
+            },
+            {
+              "id": "IMM-02-02",
+              "name": "Condominium management",
+              "slug": "condominium-management",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Construction",
+          "segments": [
+            {
+              "id": "IMM-03-01",
+              "name": "Construction software",
+              "slug": "construction-software",
+              "status": "soon"
+            },
+            {
+              "id": "IMM-03-02",
+              "name": "Modular construction",
+              "slug": "modular-construction",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Spaces",
+          "segments": [
+            {
+              "id": "IMM-04-01",
+              "name": "Coworking",
+              "slug": "coworking",
+              "status": "soon"
+            },
+            {
+              "id": "IMM-04-02",
+              "name": "Coliving",
+              "slug": "coliving",
+              "status": "soon"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EDU",
+      "name": "Edtech & future of work",
+      "sectors": [
+        {
+          "name": "K-12",
+          "segments": [
+            {
+              "id": "EDU-01-01",
+              "name": "Tutoring",
+              "slug": "tutoring",
+              "status": "soon"
+            },
+            {
+              "id": "EDU-01-02",
+              "name": "School platforms",
+              "slug": "school-platforms",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Higher education & skills",
+          "segments": [
+            {
+              "id": "EDU-02-01",
+              "name": "Online schools",
+              "slug": "online-schools",
+              "status": "soon"
+            },
+            {
+              "id": "EDU-02-02",
+              "name": "Professional training",
+              "slug": "professional-training",
+              "status": "soon"
+            },
+            {
+              "id": "EDU-02-03",
+              "name": "Coding bootcamps",
+              "slug": "coding-bootcamps",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Languages",
+          "segments": [
+            {
+              "id": "EDU-03-01",
+              "name": "Language learning",
+              "slug": "language-learning",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Work",
+          "segments": [
+            {
+              "id": "EDU-04-01",
+              "name": "Freelance platforms",
+              "slug": "freelance-platforms",
+              "status": "soon"
+            },
+            {
+              "id": "EDU-04-02",
+              "name": "Gig work",
+              "slug": "gig-work",
+              "status": "soon"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MED",
+      "name": "Media, entertainment & gaming",
+      "sectors": [
+        {
+          "name": "Gaming",
+          "segments": [
+            {
+              "id": "MED-01-01",
+              "name": "Mobile studios",
+              "slug": "mobile-studios",
+              "status": "soon"
+            },
+            {
+              "id": "MED-01-02",
+              "name": "PC & console studios",
+              "slug": "pc-and-console-studios",
+              "status": "soon"
+            },
+            {
+              "id": "MED-01-03",
+              "name": "Esports",
+              "slug": "esports",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Audio & video",
+          "segments": [
+            {
+              "id": "MED-02-01",
+              "name": "Music streaming",
+              "slug": "music-streaming",
+              "status": "soon"
+            },
+            {
+              "id": "MED-02-02",
+              "name": "Podcasts",
+              "slug": "podcasts",
+              "status": "soon"
+            },
+            {
+              "id": "MED-02-03",
+              "name": "Video",
+              "slug": "video",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Creators",
+          "segments": [
+            {
+              "id": "MED-03-01",
+              "name": "Creator tools",
+              "slug": "creator-tools",
+              "status": "soon"
+            },
+            {
+              "id": "MED-03-02",
+              "name": "Social networks",
+              "slug": "social-networks",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Sports & events",
+          "segments": [
+            {
+              "id": "MED-04-01",
+              "name": "Connected fitness",
+              "slug": "connected-fitness",
+              "status": "soon"
+            },
+            {
+              "id": "MED-04-02",
+              "name": "Ticketing",
+              "slug": "ticketing",
+              "status": "soon"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "IND",
+      "name": "Industrial, deeptech & space",
+      "sectors": [
+        {
+          "name": "Robotics",
+          "segments": [
+            {
+              "id": "IND-01-01",
+              "name": "Industrial robots",
+              "slug": "industrial-robots",
+              "status": "soon"
+            },
+            {
+              "id": "IND-01-02",
+              "name": "Humanoid robots",
+              "slug": "humanoid-robots",
+              "status": "soon"
+            },
+            {
+              "id": "IND-01-03",
+              "name": "Logistics robots",
+              "slug": "logistics-robots",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Space",
+          "segments": [
+            {
+              "id": "IND-02-01",
+              "name": "Launchers",
+              "slug": "launchers",
+              "status": "soon"
+            },
+            {
+              "id": "IND-02-02",
+              "name": "Earth observation",
+              "slug": "earth-observation",
+              "status": "soon"
+            },
+            {
+              "id": "IND-02-03",
+              "name": "Satellite connectivity",
+              "slug": "satellite-connectivity",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Defense",
+          "segments": [
+            {
+              "id": "IND-03-01",
+              "name": "Drones",
+              "slug": "drones",
+              "status": "soon"
+            },
+            {
+              "id": "IND-03-02",
+              "name": "Defense systems",
+              "slug": "defense-systems",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Semiconductors",
+          "segments": [
+            {
+              "id": "IND-04-01",
+              "name": "AI chips",
+              "slug": "ai-chips",
+              "status": "soon"
+            },
+            {
+              "id": "IND-04-02",
+              "name": "Photonics",
+              "slug": "photonics",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Quantum",
+          "segments": [
+            {
+              "id": "IND-05-01",
+              "name": "Quantum computers",
+              "slug": "quantum-computers",
+              "status": "soon"
+            },
+            {
+              "id": "IND-05-02",
+              "name": "Quantum software",
+              "slug": "quantum-software",
+              "status": "soon"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TOU",
+      "name": "Travel, hospitality & leisure",
+      "sectors": [
+        {
+          "name": "Travel",
+          "segments": [
+            {
+              "id": "TOU-01-01",
+              "name": "Online booking",
+              "slug": "online-booking",
+              "status": "soon"
+            },
+            {
+              "id": "TOU-01-02",
+              "name": "Business travel",
+              "slug": "business-travel",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Hospitality",
+          "segments": [
+            {
+              "id": "TOU-02-01",
+              "name": "Vacation rentals",
+              "slug": "vacation-rentals",
+              "status": "soon"
+            },
+            {
+              "id": "TOU-02-02",
+              "name": "Hotel software",
+              "slug": "hotel-software",
+              "status": "soon"
+            }
+          ]
+        },
+        {
+          "name": "Leisure",
+          "segments": [
+            {
+              "id": "TOU-03-01",
+              "name": "Activities & experiences",
+              "slug": "activities-and-experiences",
+              "status": "soon"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

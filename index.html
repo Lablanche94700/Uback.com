@@ -4,20 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Uback — Funded startups, ranked by AI</title>
-<meta name="description" content="Uback ranks non-listed startups that have already raised funds, by country and by global sector, using public information. We don’t value companies. We rank them, and give an AI-estimated order of magnitude. Country rankings in Morocco, Poland and Vietnam.">
+<meta name="description" content="Uback ranks non-listed startups that have already raised funds, by global sector and by country, using public information. We don’t value companies. We rank them, and give an AI-estimated order of magnitude. Country rankings in Morocco, Poland and Vietnam.">
 <link rel="canonical" href="https://uback.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Uback">
 <meta property="og:url" content="https://uback.com/">
 <meta property="og:title" content="Uback — Funded startups, ranked by AI">
-<meta property="og:description" content="Uback ranks non-listed startups that have already raised funds, by country and by global sector, using public information. We don’t value companies. We rank them, and give an AI-estimated order of magnitude.">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"Uback","url":"https://uback.com/","email":"contact@uback.com","description":"AI rankings of funded, non-listed startups, by country and by global sector. We don’t value companies. We rank them, and give an AI-estimated order of magnitude.","logo":"https://uback.com/assets/favicon-192.png"},{"@type":"WebSite","name":"Uback","url":"https://uback.com/","inLanguage":"en"},{"@type":"ItemList","name":"Uback markets","itemListElement":[{"@type":"ListItem","position":1,"name":"Morocco — monthly ranking (in French)","url":"https://uback.com/ma/"},{"@type":"ListItem","position":2,"name":"Poland — monthly ranking","url":"https://uback.com/pl/"},{"@type":"ListItem","position":3,"name":"Vietnam — monthly ranking","url":"https://uback.com/vn/"}]}]}</script>
+<meta property="og:description" content="Uback ranks non-listed startups that have already raised funds, by global sector and by country, using public information. We don’t value companies. We rank them, and give an AI-estimated order of magnitude.">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"Uback","url":"https://uback.com/","email":"contact@uback.com","description":"AI rankings of funded, non-listed startups, by global sector and by country. We don’t value companies. We rank them, and give an AI-estimated order of magnitude.","logo":"https://uback.com/assets/favicon-192.png"},{"@type":"WebSite","name":"Uback","url":"https://uback.com/","inLanguage":"en"},{"@type":"ItemList","name":"Uback markets","itemListElement":[{"@type":"ListItem","position":1,"name":"Morocco — monthly ranking (in French)","url":"https://uback.com/ma/"},{"@type":"ListItem","position":2,"name":"Poland — monthly ranking","url":"https://uback.com/pl/"},{"@type":"ListItem","position":3,"name":"Vietnam — monthly ranking","url":"https://uback.com/vn/"}]}]}</script>
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/favicon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Généré par tools/build_home.py à partir de data/sectors.json : ne pas modifier à la main. -->
 <style>
 :root{--navy:#1E3A5F;--navy-dark:#142842;--gold:#C8A052;--bg:#F7F8FA;--line:#E4E8EE;--muted:#5A6B82;--body:#4A5A70;--dim:#6B7A8F;--dash:#C9D1DC}
 *{box-sizing:border-box}
@@ -25,43 +26,93 @@ html,body{margin:0}
 body{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--navy);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
 a{color:var(--navy)}a:hover{color:var(--navy-dark)}
 .wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+[hidden]{display:none!important}
 
 header{background:#fff;border-bottom:1px solid var(--line)}
-header .wrap{height:64px;display:flex;align-items:center;justify-content:space-between}
+header .wrap{height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--navy)}
 .logo .u{width:34px;height:34px;border-radius:8px;background:var(--navy);color:var(--gold);display:inline-flex;align-items:center;justify-content:center;font-size:20px;letter-spacing:0}
-nav{display:flex;gap:28px;align-items:center;font-size:15px;font-weight:500}
+nav{display:flex;gap:20px;align-items:center;font-size:15px;font-weight:500}
 nav a{text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
-nav .nav-markets{display:none}
+nav .nav-wide{display:none}
 
-.hero{padding:56px 0 40px}
+.hero{padding:56px 0 32px}
 .hero .wrap{display:flex;flex-direction:column;gap:20px}
 .eyebrow{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.eyebrow i{width:20px;height:2px;background:var(--gold);display:block}
+.eyebrow i{width:20px;height:2px;background:var(--gold);display:block;flex-shrink:0}
 .eyebrow i.r{display:none}
 h1{margin:0;font-size:40px;line-height:1.08;font-weight:800;letter-spacing:-.03em}
 .lead{margin:0;font-size:17px;line-height:1.6;color:var(--body)}
 
-.markets{padding-bottom:56px}
-.markets h2{margin:0 0 16px;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.grid{display:grid;grid-template-columns:1fr;gap:16px}
-.card{padding:24px;border-radius:16px;display:flex;flex-direction:column;gap:20px}
-.card.live{background:#fff;border:1px solid var(--line);box-shadow:0 1px 2px rgba(30,58,95,.04),0 8px 24px rgba(30,58,95,.06)}
-.card.soon{border:1.5px dashed var(--dash)}
-.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
-.country{display:flex;align-items:center;gap:14px}
+.rankings{padding-bottom:32px}
+.view-tabs{display:none;gap:6px;padding:4px;margin-bottom:14px;background:#fff;border:1px solid var(--line);border-radius:12px}
+.view-tabs button{flex:1;min-height:44px;border:0;border-radius:9px;background:none;font:inherit;font-size:15px;font-weight:600;color:var(--muted);cursor:pointer}
+.view-tabs button[aria-selected="true"]{background:var(--navy);color:#fff}
+.cols{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;align-items:start}
+.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 1px 2px rgba(30,58,95,.04),0 8px 24px rgba(30,58,95,.06);min-width:0}
+.p-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:12px 20px}
+.p-head>div:first-child{flex:1 1 220px;min-width:0}
+.kicker{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.panel h2{margin:6px 0 6px;font-size:24px;line-height:1.2;font-weight:800;letter-spacing:-.02em}
+.panel .intro{margin:0;font-size:15px;line-height:1.55;color:var(--body)}
+.freq{display:inline-flex;flex-direction:column;gap:2px;padding:8px 14px;border-radius:12px;font-size:12px;color:var(--muted);white-space:nowrap}
+.freq b{font-size:14px;color:var(--navy)}
+.freq.gold{border:1.5px solid var(--gold)}
+.freq.navy{border:1.5px solid var(--navy)}
+
+.search{margin-top:20px}
+.search label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+.search input{width:100%;min-height:44px;padding:10px 14px;border:1px solid var(--dash);border-radius:10px;font:inherit;font-size:15px;color:var(--navy);background:#fff}
+.search input:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
+.legend{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:14px 0 10px;font-size:13px;color:var(--muted)}
+.legend .count{font-weight:600;color:var(--navy);margin-right:auto}
+.no-match{margin:10px 0;font-size:14px;color:var(--body)}
+
+.fam{border-top:1px solid var(--line)}
+.fam:last-of-type{border-bottom:1px solid var(--line)}
+.fam summary{list-style:none;display:flex;align-items:center;gap:10px;min-height:48px;padding:6px 2px;cursor:pointer}
+.fam summary::-webkit-details-marker{display:none}
+.fam summary:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:6px}
+.chev{width:8px;height:8px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(-45deg);transition:transform .15s;flex-shrink:0;margin:0 4px}
+.fam[open] .chev{transform:rotate(45deg)}
+.fam summary b{font-size:16px}
+.fam .cnt{margin-left:auto;font-size:12px;color:var(--muted);white-space:nowrap}
+.fam-body{padding:2px 0 16px 24px}
+.sect{margin-top:10px}
+.sect-h{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pill{position:relative;display:inline-flex;align-items:center;min-height:34px;padding:4px 12px;border-radius:999px;font-size:13px;font-weight:500;line-height:1.25;text-decoration:none}
+.pill.soon{border:1.5px dashed var(--dash);color:var(--body);background:#fff;cursor:default}
+.pill.soon:hover,.pill.soon:focus,.pill.soon.show{border-style:solid;border-color:var(--gold);outline:none}
+.pill.pub{background:var(--navy);color:#fff;border:1.5px solid var(--navy)}
+.pill.pub:hover{background:var(--navy-dark);color:#fff}
+.pill.static{min-height:26px;padding:2px 10px;font-size:12px}
+.tip{display:none;position:absolute;left:50%;bottom:calc(100% + 6px);transform:translateX(-50%);background:var(--navy);color:#fff;font-size:11px;font-weight:600;padding:4px 8px;border-radius:6px;white-space:nowrap;z-index:5;pointer-events:none}
+.pill.soon:hover .tip,.pill.soon:focus .tip,.pill.soon.show .tip{display:block}
+
+.region{margin-top:18px}
+.reg-h{margin:0 0 8px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.live-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);margin-bottom:10px}
 .flag{width:42px;height:28px;border-radius:4px;flex-shrink:0}
-.globe{width:42px;height:28px;border-radius:4px;background:var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.name{font-size:22px;font-weight:700;letter-spacing:-.01em}
-.sub{font-size:14px;color:var(--muted);margin-top:2px}
-.soon .name,.soon .sub{color:var(--dim)}
-.badge{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:#E8F3EC;color:#1B6B3A;font-size:12px;font-weight:600;white-space:nowrap}
-.badge::before{content:"";width:7px;height:7px;border-radius:999px;background:#1F8A4C}
-.btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 24px;border-radius:10px;font-size:16px;font-weight:600;text-decoration:none;text-align:center}
-.btn-primary{background:var(--navy);color:#fff}
-.btn-primary:hover{background:var(--navy-dark);color:#fff}
-.btn-secondary{background:#fff;border:1px solid var(--dash);color:var(--navy);font-size:15px}
-.btn-secondary:hover{border-color:var(--navy)}
+.lr-txt{display:flex;flex-direction:column;min-width:0}
+.lr-txt b{font-size:17px}
+.lr-txt span{font-size:13px;color:var(--muted)}
+.btn-view{margin-left:auto;display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 16px;border-radius:10px;background:var(--navy);color:#fff;font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap}
+.btn-view:hover{background:var(--navy-dark);color:#fff}
+.regional{margin-top:22px;padding:16px;border-radius:12px;background:var(--bg)}
+.regional h3{margin:0 0 4px;font-size:15px;font-weight:700}
+.regional p{margin:0 0 10px;font-size:13px;color:var(--muted)}
+
+.follow{margin:8px 0 56px}
+.follow .box{display:flex;flex-direction:column;gap:16px;padding:22px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:16px;box-shadow:0 1px 2px rgba(30,58,95,.04),0 8px 24px rgba(30,58,95,.06)}
+.follow h2{margin:0 0 4px;font-size:20px;font-weight:800}
+.follow p{margin:0;font-size:14px;line-height:1.5;color:var(--body)}
+.follow form{display:flex;flex-direction:column;gap:8px}
+.follow input,.follow select{min-height:44px;padding:10px 12px;border:1px solid var(--dash);border-radius:10px;font:inherit;font-size:15px;color:var(--navy);background:#fff;min-width:0}
+.follow button{min-height:44px;padding:0 22px;border:0;border-radius:10px;background:var(--navy);color:#fff;font:inherit;font-size:15px;font-weight:600;cursor:pointer}
+.follow button:hover{background:var(--navy-dark)}
+.skip{position:absolute;left:-9999px}
 
 footer{margin-top:auto;background:#fff;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
 footer .wrap{padding-top:28px;padding-bottom:36px;display:flex;flex-direction:column;gap:12px}
@@ -69,27 +120,33 @@ footer .wrap{padding-top:28px;padding-bottom:36px;display:flex;flex-direction:co
 footer a{color:var(--muted)}
 .disclaimer{font-size:13px;line-height:1.5}
 
+@media (max-width:899px){
+  .js .view-tabs{display:flex}
+  .js [data-view="countries"] #sectors,.js [data-view="sectors"] #countries{display:none}
+  .pill.soon{min-height:44px}
+}
 @media (min-width:900px){
   .wrap{padding:0 48px}
   header .wrap{height:80px}
   .logo{font-size:24px;gap:12px}
   .logo .u{width:38px;height:38px;border-radius:9px;font-size:22px}
-  nav .nav-markets{display:inline-flex}
-  .hero{padding:112px 0 72px}
+  nav{gap:28px}
+  nav .nav-wide{display:inline-flex}
+  .hero{padding:104px 0 64px}
   .hero .wrap{align-items:center;text-align:center;gap:28px}
   .eyebrow{font-size:13px}.eyebrow i{width:24px}.eyebrow i.r{display:block}
   h1{font-size:68px;line-height:1.05;letter-spacing:-.035em;max-width:980px}
-  .lead{font-size:20px;max-width:720px}
-  .markets{padding-bottom:96px}
-  .markets h2{font-size:14px;margin-bottom:20px}
-  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
-  .card{padding:32px;gap:24px}
-  .card-top{align-items:center}
-  .flag,.globe{width:48px;height:32px}
-  .country{gap:16px}
-  .name{font-size:26px}.sub{font-size:15px;margin-top:4px}
-  .badge{font-size:13px;padding:6px 12px;gap:8px}.badge::before{width:8px;height:8px}
-  .btn{align-self:flex-start;min-height:48px}
+  .lead{font-size:20px;max-width:760px}
+  .cols{grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:24px}
+  .panel{padding:32px}
+  .panel h2{font-size:28px}
+  .flag{width:48px;height:32px}
+  .follow{margin:24px 0 96px}
+  .follow .box{flex-direction:row;align-items:center;justify-content:space-between;padding:28px 32px;gap:32px}
+  .follow .ftxt{flex:1 1 320px}
+  .follow .fform{flex:0 1 560px}
+  .follow form{flex-direction:row}
+  .follow input{flex:1}
   footer .wrap{flex-direction:row;align-items:center;justify-content:space-between;padding-top:28px;padding-bottom:28px}
   .foot-links{gap:24px}
   .disclaimer{font-size:14px}
@@ -102,7 +159,9 @@ footer a{color:var(--muted)}
   <div class="wrap">
     <a class="logo" href="/" aria-label="Uback, home"><span class="u" aria-hidden="true">U</span>Uback</a>
     <nav aria-label="Main">
-      <a class="nav-markets" href="#markets">Markets</a>
+      <a class="nav-wide" href="#sectors">Sectors</a>
+      <a class="nav-wide" href="#countries">Countries</a>
+      <a href="/pl/method.html">Method</a>
       <a href="mailto:contact@uback.com">Contact</a>
     </nav>
   </div>
@@ -111,70 +170,105 @@ footer a{color:var(--muted)}
 <main>
   <section class="hero">
     <div class="wrap">
-      <div class="eyebrow"><i></i><span>Startup rankings · by country and by global sector</span><i class="r"></i></div>
+      <div class="eyebrow"><i></i><span>Startup rankings · by global sector and by country</span><i class="r"></i></div>
       <h1>Funded startups, ranked by AI.</h1>
-      <p class="lead">Uback ranks non-listed startups that have already raised funds, by country and by global sector, using public information. We don’t value companies. We rank them, and give an AI-estimated order of magnitude.</p>
+      <p class="lead">Uback ranks non-listed startups that have already raised funds, by global sector and by country, using public information. We don’t value companies. We rank them, and give an AI-estimated order of magnitude.</p>
     </div>
   </section>
 
-  <section class="markets" id="markets">
-    <div class="wrap">
-      <h2>Markets</h2>
-      <div class="grid">
+  <section class="rankings">
+    <div class="wrap" id="rankings" data-view="sectors">
+      <div class="view-tabs" role="tablist" aria-label="Rankings">
+        <button type="button" role="tab" data-view="sectors" aria-selected="true" aria-controls="sectors">By sector</button>
+        <button type="button" role="tab" data-view="countries" aria-selected="false" aria-controls="countries">By country</button>
+      </div>
+      <div class="cols">
 
-        <div class="card live">
-          <div class="card-top">
-            <div class="country">
-              <svg class="flag" viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" fill="#C1272D"/><polygon points="24,8.5 26.6,16.4 34.4,11.6 20,20.9 29.6,20.9 18.2,11.6 26,16.4" fill="none" stroke="#006233" stroke-width="1.6" stroke-linejoin="round" transform="translate(-2.2 1.2)"/></svg>
-              <div>
-                <div class="name">Morocco</div>
-                <div class="sub">Monthly ranking · in French</div>
-              </div>
-            </div>
-            <span class="badge">Live</span>
-          </div>
-          <a class="btn btn-primary" href="/ma/">View ranking <span aria-hidden="true">→</span></a>
-        </div>
-
-        <div class="card live">
-          <div class="card-top">
-            <div class="country">
-              <svg class="flag" viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="16" fill="#FFFFFF"/><rect y="16" width="48" height="16" fill="#DC143C"/><rect x=".5" y=".5" width="47" height="31" fill="none" stroke="#E4E8EE"/></svg>
-              <div>
-                <div class="name">Poland</div>
-                <div class="sub">Monthly ranking · in English</div>
-              </div>
-            </div>
-            <span class="badge">Live</span>
-          </div>
-          <a class="btn btn-primary" href="/pl/">View ranking <span aria-hidden="true">→</span></a>
-        </div>
-
-        <div class="card live">
-          <div class="card-top">
-            <div class="country">
-              <svg class="flag" viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" fill="#DA251D"/><polygon points="24,7 26.47,14.6 34.46,14.6 28,19.3 30.47,26.9 24,22.2 17.53,26.9 20,19.3 13.54,14.6 21.53,14.6" fill="#FFFF00"/></svg>
-              <div>
-                <div class="name">Vietnam</div>
-                <div class="sub">Monthly ranking · in English</div>
-              </div>
-            </div>
-            <span class="badge">Live</span>
-          </div>
-          <a class="btn btn-primary" href="/vn/">View ranking <span aria-hidden="true">→</span></a>
-        </div>
-
-        <div class="card soon">
-          <div class="country">
-            <div class="globe"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8795A8" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
+        <section class="panel" id="sectors" aria-labelledby="sectors-h">
+          <div class="p-head">
             <div>
-              <div class="name">More markets to come</div>
-              <div class="sub">New countries open as rankings are ready.</div>
+              <div class="kicker">Worldwide</div>
+              <h2 id="sectors-h">Global sector rankings</h2>
+              <p class="intro">The world’s leading startups in each segment, ranked against their direct competitors.</p>
             </div>
+            <div class="freq gold"><b>Twice a year</b><span>January 1 · July 1</span></div>
           </div>
-          <a class="btn btn-secondary" href="mailto:contact@uback.com?subject=Notify%20me%20when%20new%20markets%20open">Get notified when new markets open</a>
-        </div>
+          <div class="search">
+            <label for="seg-q">Find a segment</label>
+            <input id="seg-q" type="search" placeholder="e.g. carpooling, cold wallets, payroll…" autocomplete="off">
+          </div>
+          <div class="legend">
+            <span class="count">15 families · 157 ranked segments</span>
+            <span class="pill soon static" aria-hidden="true">Coming soon</span>
+            <span class="pill pub static" aria-hidden="true">Published</span>
+          </div>
+          <p class="no-match" id="no-match" hidden>No segment matches. <a href="mailto:contact@uback.com?subject=Suggest%20a%20segment">Suggest a segment</a></p>
+          <div class="acc">
+            <details class="fam" data-n="fintech" open><summary><span class="chev" aria-hidden="true"></span><b>Fintech</b><span class="cnt">7 sectors · 22 segments</span></summary><div class="fam-body"><div class="sect" data-n="banking"><div class="sect-h">Fintech › Banking</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="consumer neobanks">Consumer neobanks<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="business accounts">Business accounts<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="payments"><div class="sect-h">Fintech › Payments</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="online payments &amp; acquiring">Online payments &amp; acquiring<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="buy now, pay later">Buy now, pay later<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="cross-border remittances">Cross-border remittances<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="mobile wallets">Mobile wallets<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="crypto &amp; digital assets"><div class="sect-h">Fintech › Crypto &amp; digital assets</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="crypto exchanges">Crypto exchanges<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="cold wallets">Cold wallets<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="stablecoins">Stablecoins<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="institutional custody">Institutional custody<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="blockchain infrastructure">Blockchain infrastructure<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="lending"><div class="sect-h">Fintech › Lending</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="sme lending">SME lending<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="consumer credit">Consumer credit<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="invoice financing">Invoice financing<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="insurance"><div class="sect-h">Fintech › Insurance</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="neo-insurers">Neo-insurers<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="embedded insurance">Embedded insurance<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="investing &amp; savings"><div class="sect-h">Fintech › Investing &amp; savings</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="online brokerage">Online brokerage<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="robo-advisors">Robo-advisors<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="crowdfunding">Crowdfunding<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="finance operations"><div class="sect-h">Fintech › Finance operations</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="sme accounting">SME accounting<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="spend management">Spend management<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="cash management &amp; forecasting">Cash management &amp; forecasting<span class="tip" role="tooltip">Coming soon</span></span></div></div></div></details>
+            <details class="fam" data-n="healthtech"><summary><span class="chev" aria-hidden="true"></span><b>Healthtech</b><span class="cnt">5 sectors · 13 segments</span></summary><div class="fam-body"><div class="sect" data-n="access to care"><div class="sect-h">Healthtech › Access to care</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="telemedicine">Telemedicine<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="appointment booking">Appointment booking<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="online pharmacy">Online pharmacy<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="clinical software"><div class="sect-h">Healthtech › Clinical software</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="clinical software">Clinical software<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="clinic management">Clinic management<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="medtech"><div class="sect-h">Healthtech › Medtech</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="connected devices">Connected devices<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="in-vitro diagnostics">In-vitro diagnostics<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="imaging &amp; medical ai">Imaging &amp; medical AI<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="biotech"><div class="sect-h">Healthtech › Biotech</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="gene &amp; cell therapies">Gene &amp; cell therapies<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="ai drug discovery">AI drug discovery<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="wellbeing"><div class="sect-h">Healthtech › Wellbeing</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="mental health">Mental health<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="womens health">Women’s health<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="elderly care">Elderly care<span class="tip" role="tooltip">Coming soon</span></span></div></div></div></details>
+            <details class="fam" data-n="business software"><summary><span class="chev" aria-hidden="true"></span><b>Business software</b><span class="cnt">5 sectors · 12 segments</span></summary><div class="fam-body"><div class="sect" data-n="hr"><div class="sect-h">Business software › HR</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="payroll">Payroll<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="recruiting">Recruiting<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="talent management">Talent management<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="sales &amp; marketing"><div class="sect-h">Business software › Sales &amp; marketing</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="crm">CRM<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="marketing automation">Marketing automation<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="sales intelligence">Sales intelligence<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="productivity"><div class="sect-h">Business software › Productivity</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="collaboration &amp; docs">Collaboration &amp; docs<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="no-code">No-code<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="legal"><div class="sect-h">Business software › Legal</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="contracts &amp; e-signature">Contracts &amp; e-signature<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="compliance">Compliance<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="customer service"><div class="sect-h">Business software › Customer service</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="customer support">Customer support<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="ai contact centers">AI contact centers<span class="tip" role="tooltip">Coming soon</span></span></div></div></div></details>
+            <details class="fam" data-n="artificial intelligence"><summary><span class="chev" aria-hidden="true"></span><b>Artificial intelligence</b><span class="cnt">4 sectors · 10 segments</span></summary><div class="fam-body"><div class="sect" data-n="models"><div class="sect-h">Artificial intelligence › Models</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="foundation models">Foundation models<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="specialized models">Specialized models<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="agents"><div class="sect-h">Artificial intelligence › Agents</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="coding agents">Coding agents<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="enterprise agents">Enterprise agents<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="consumer assistants">Consumer assistants<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="ai infrastructure"><div class="sect-h">Artificial intelligence › AI infrastructure</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="compute &amp; inference">Compute &amp; inference<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="data &amp; labeling">Data &amp; labeling<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="mlops &amp; evaluation">MLOps &amp; evaluation<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="generative media"><div class="sect-h">Artificial intelligence › Generative media</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="voice &amp; audio">Voice &amp; audio<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="image &amp; video">Image &amp; video<span class="tip" role="tooltip">Coming soon</span></span></div></div></div></details>
+            <details class="fam" data-n="cybersecurity"><summary><span class="chev" aria-hidden="true"></span><b>Cybersecurity</b><span class="cnt">4 sectors · 8 segments</span></summary><div class="fam-body"><div class="sect" data-n="identity"><div class="sect-h">Cybersecurity › Identity</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="identity management">Identity management<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="privileged access">Privileged access<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="infrastructure"><div class="sect-h">Cybersecurity › Infrastructure</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="cloud security">Cloud security<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="endpoint protection">Endpoint protection<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="network security">Network security<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="operations"><div class="sect-h">Cybersecurity › Operations</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="detection &amp; response">Detection &amp; response<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="threat intelligence">Threat intelligence<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="data"><div class="sect-h">Cybersecurity › Data</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="data protection">Data protection<span class="tip" role="tooltip">Coming soon</span></span></div></div></div></details>
+            <details class="fam" data-n="cloud, data &amp; developer tools"><summary><span class="chev" aria-hidden="true"></span><b>Cloud, data &amp; developer tools</b><span class="cnt">3 sectors · 6 segments</span></summary><div class="fam-body"><div class="sect" data-n="cloud"><div class="sect-h">Cloud, data &amp; developer tools › Cloud</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="hosting">Hosting<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="edge &amp; cdn">Edge &amp; CDN<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="data"><div class="sect-h">Cloud, data &amp; developer tools › Data</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="databases">Databases<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="analytics">Analytics<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="developer tools"><div class="sect-h">Cloud, data &amp; developer tools › Developer tools</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="apis &amp; integration">APIs &amp; integration<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="observability">Observability<span class="tip" role="tooltip">Coming soon</span></span></div></div></div></details>
+            <details class="fam" data-n="commerce &amp; consumer"><summary><span class="chev" aria-hidden="true"></span><b>Commerce &amp; consumer</b><span class="cnt">4 sectors · 10 segments</span></summary><div class="fam-body"><div class="sect" data-n="e-commerce"><div class="sect-h">Commerce &amp; consumer › E-commerce</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="general marketplaces">General marketplaces<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="second-hand">Second-hand<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="refurbished">Refurbished<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="digital brands"><div class="sect-h">Commerce &amp; consumer › Digital brands</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="fashion">Fashion<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="beauty">Beauty<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="home">Home<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="delivery"><div class="sect-h">Commerce &amp; consumer › Delivery</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="quick commerce">Quick commerce<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="last-mile delivery">Last-mile delivery<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="merchant tools"><div class="sect-h">Commerce &amp; consumer › Merchant tools</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="pos &amp; retail tech">POS &amp; retail tech<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="store builders">Store builders<span class="tip" role="tooltip">Coming soon</span></span></div></div></div></details>
+            <details class="fam" data-n="food &amp; agriculture"><summary><span class="chev" aria-hidden="true"></span><b>Food &amp; agriculture</b><span class="cnt">3 sectors · 7 segments</span></summary><div class="fam-body"><div class="sect" data-n="agriculture"><div class="sect-h">Food &amp; agriculture › Agriculture</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="precision farming">Precision farming<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="vertical farming">Vertical farming<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="biological inputs">Biological inputs<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="food"><div class="sect-h">Food &amp; agriculture › Food</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="alternative proteins">Alternative proteins<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="online food brands">Online food brands<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="restaurants"><div class="sect-h">Food &amp; agriculture › Restaurants</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="food delivery">Food delivery<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="restaurant software">Restaurant software<span class="tip" role="tooltip">Coming soon</span></span></div></div></div></details>
+            <details class="fam" data-n="mobility &amp; logistics"><summary><span class="chev" aria-hidden="true"></span><b>Mobility &amp; logistics</b><span class="cnt">4 sectors · 15 segments</span></summary><div class="fam-body"><div class="sect" data-n="passenger transport"><div class="sect-h">Mobility &amp; logistics › Passenger transport</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="carpooling">Carpooling<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="ride-hailing &amp; taxis">Ride-hailing &amp; taxis<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="micromobility">Micromobility<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="car sharing">Car sharing<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="on-demand transit">On-demand transit<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="electric vehicles"><div class="sect-h">Mobility &amp; logistics › Electric vehicles</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="ev makers">EV makers<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="electric two-wheelers">Electric two-wheelers<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="charging">Charging<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="batteries">Batteries<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="logistics"><div class="sect-h">Mobility &amp; logistics › Logistics</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="digital freight">Digital freight<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="b2b delivery">B2B delivery<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="warehouse automation">Warehouse automation<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="fleet software">Fleet software<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="aviation"><div class="sect-h">Mobility &amp; logistics › Aviation</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="air taxis (evtol)">Air taxis (eVTOL)<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="electric &amp; hybrid aviation">Electric &amp; hybrid aviation<span class="tip" role="tooltip">Coming soon</span></span></div></div></div></details>
+            <details class="fam" data-n="energy &amp; climate"><summary><span class="chev" aria-hidden="true"></span><b>Energy &amp; climate</b><span class="cnt">4 sectors · 11 segments</span></summary><div class="fam-body"><div class="sect" data-n="generation"><div class="sect-h">Energy &amp; climate › Generation</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="solar">Solar<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="wind">Wind<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="hydrogen">Hydrogen<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="fusion &amp; advanced nuclear">Fusion &amp; advanced nuclear<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="grid &amp; storage"><div class="sect-h">Energy &amp; climate › Grid &amp; storage</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="stationary storage">Stationary storage<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="smart grids">Smart grids<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="carbon"><div class="sect-h">Energy &amp; climate › Carbon</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="carbon capture">Carbon capture<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="carbon accounting &amp; esg">Carbon accounting &amp; ESG<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="carbon credits">Carbon credits<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="resources"><div class="sect-h">Energy &amp; climate › Resources</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="recycling">Recycling<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="water">Water<span class="tip" role="tooltip">Coming soon</span></span></div></div></div></details>
+            <details class="fam" data-n="proptech &amp; construction"><summary><span class="chev" aria-hidden="true"></span><b>Proptech &amp; construction</b><span class="cnt">4 sectors · 8 segments</span></summary><div class="fam-body"><div class="sect" data-n="transactions"><div class="sect-h">Proptech &amp; construction › Transactions</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="online real-estate agencies">Online real-estate agencies<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="rentals">Rentals<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="management"><div class="sect-h">Proptech &amp; construction › Management</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="property management">Property management<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="condominium management">Condominium management<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="construction"><div class="sect-h">Proptech &amp; construction › Construction</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="construction software">Construction software<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="modular construction">Modular construction<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="spaces"><div class="sect-h">Proptech &amp; construction › Spaces</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="coworking">Coworking<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="coliving">Coliving<span class="tip" role="tooltip">Coming soon</span></span></div></div></div></details>
+            <details class="fam" data-n="edtech &amp; future of work"><summary><span class="chev" aria-hidden="true"></span><b>Edtech &amp; future of work</b><span class="cnt">4 sectors · 8 segments</span></summary><div class="fam-body"><div class="sect" data-n="k-12"><div class="sect-h">Edtech &amp; future of work › K-12</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="tutoring">Tutoring<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="school platforms">School platforms<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="higher education &amp; skills"><div class="sect-h">Edtech &amp; future of work › Higher education &amp; skills</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="online schools">Online schools<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="professional training">Professional training<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="coding bootcamps">Coding bootcamps<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="languages"><div class="sect-h">Edtech &amp; future of work › Languages</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="language learning">Language learning<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="work"><div class="sect-h">Edtech &amp; future of work › Work</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="freelance platforms">Freelance platforms<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="gig work">Gig work<span class="tip" role="tooltip">Coming soon</span></span></div></div></div></details>
+            <details class="fam" data-n="media, entertainment &amp; gaming"><summary><span class="chev" aria-hidden="true"></span><b>Media, entertainment &amp; gaming</b><span class="cnt">4 sectors · 10 segments</span></summary><div class="fam-body"><div class="sect" data-n="gaming"><div class="sect-h">Media, entertainment &amp; gaming › Gaming</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="mobile studios">Mobile studios<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="pc &amp; console studios">PC &amp; console studios<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="esports">Esports<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="audio &amp; video"><div class="sect-h">Media, entertainment &amp; gaming › Audio &amp; video</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="music streaming">Music streaming<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="podcasts">Podcasts<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="video">Video<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="creators"><div class="sect-h">Media, entertainment &amp; gaming › Creators</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="creator tools">Creator tools<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="social networks">Social networks<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="sports &amp; events"><div class="sect-h">Media, entertainment &amp; gaming › Sports &amp; events</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="connected fitness">Connected fitness<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="ticketing">Ticketing<span class="tip" role="tooltip">Coming soon</span></span></div></div></div></details>
+            <details class="fam" data-n="industrial, deeptech &amp; space"><summary><span class="chev" aria-hidden="true"></span><b>Industrial, deeptech &amp; space</b><span class="cnt">5 sectors · 12 segments</span></summary><div class="fam-body"><div class="sect" data-n="robotics"><div class="sect-h">Industrial, deeptech &amp; space › Robotics</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="industrial robots">Industrial robots<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="humanoid robots">Humanoid robots<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="logistics robots">Logistics robots<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="space"><div class="sect-h">Industrial, deeptech &amp; space › Space</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="launchers">Launchers<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="earth observation">Earth observation<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="satellite connectivity">Satellite connectivity<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="defense"><div class="sect-h">Industrial, deeptech &amp; space › Defense</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="drones">Drones<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="defense systems">Defense systems<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="semiconductors"><div class="sect-h">Industrial, deeptech &amp; space › Semiconductors</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="ai chips">AI chips<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="photonics">Photonics<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="quantum"><div class="sect-h">Industrial, deeptech &amp; space › Quantum</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="quantum computers">Quantum computers<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="quantum software">Quantum software<span class="tip" role="tooltip">Coming soon</span></span></div></div></div></details>
+            <details class="fam" data-n="travel, hospitality &amp; leisure"><summary><span class="chev" aria-hidden="true"></span><b>Travel, hospitality &amp; leisure</b><span class="cnt">3 sectors · 5 segments</span></summary><div class="fam-body"><div class="sect" data-n="travel"><div class="sect-h">Travel, hospitality &amp; leisure › Travel</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="online booking">Online booking<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="business travel">Business travel<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="hospitality"><div class="sect-h">Travel, hospitality &amp; leisure › Hospitality</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="vacation rentals">Vacation rentals<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true" data-n="hotel software">Hotel software<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect" data-n="leisure"><div class="sect-h">Travel, hospitality &amp; leisure › Leisure</div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true" data-n="activities &amp; experiences">Activities &amp; experiences<span class="tip" role="tooltip">Coming soon</span></span></div></div></div></details>
+          </div>
+        </section>
 
+        <section class="panel" id="countries" aria-labelledby="countries-h">
+          <div class="p-head">
+            <div>
+              <div class="kicker">Domestic markets</div>
+              <h2 id="countries-h">Country rankings</h2>
+              <p class="intro">All sectors, then by sector.</p>
+            </div>
+            <div class="freq navy"><b>Monthly</b><span>1st of each month</span></div>
+          </div>
+          <div class="region"><h3 class="reg-h">North Africa &amp; Middle East</h3><div class="live-row"><svg class="flag" viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" fill="#C1272D"/><polygon points="24,8.5 26.6,16.4 34.4,11.6 20,20.9 29.6,20.9 18.2,11.6 26,16.4" fill="none" stroke="#006233" stroke-width="1.6" stroke-linejoin="round" transform="translate(-2.2 1.2)"/></svg><div class="lr-txt"><b>Morocco</b><span>In French · by sector soon</span></div><a class="btn-view" href="/ma/">View <span aria-hidden="true">→</span></a></div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true">Tunisia<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true">Egypt<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true">UAE<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true">Saudi Arabia<span class="tip" role="tooltip">Coming soon</span></span></div></div>
+          <div class="region"><h3 class="reg-h">Europe</h3><div class="live-row"><svg class="flag" viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="16" fill="#FFFFFF"/><rect y="16" width="48" height="16" fill="#DC143C"/><rect x=".5" y=".5" width="47" height="31" fill="none" stroke="#E4E8EE"/></svg><div class="lr-txt"><b>Poland</b><span>In English · by sector soon</span></div><a class="btn-view" href="/pl/">View <span aria-hidden="true">→</span></a></div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true">France<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true">Romania<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true">Ukraine<span class="tip" role="tooltip">Coming soon</span></span></div></div>
+          <div class="region"><h3 class="reg-h">Asia</h3><div class="live-row"><svg class="flag" viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" fill="#DA251D"/><polygon points="24,7 26.47,14.6 34.46,14.6 28,19.3 30.47,26.9 24,22.2 17.53,26.9 20,19.3 13.54,14.6 21.53,14.6" fill="#FFFF00"/></svg><div class="lr-txt"><b>Vietnam</b><span>In English · by sector soon</span></div><a class="btn-view" href="/vn/">View <span aria-hidden="true">→</span></a></div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true">Indonesia<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true">Philippines<span class="tip" role="tooltip">Coming soon</span></span></div></div>
+          <div class="region"><h3 class="reg-h">Sub-Saharan Africa</h3><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true">Nigeria<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true">Kenya<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true">Senegal<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true">Côte d’Ivoire<span class="tip" role="tooltip">Coming soon</span></span></div></div>
+          <div class="region"><h3 class="reg-h">Latin America</h3><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true">Mexico<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true">Colombia<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true">Chile<span class="tip" role="tooltip">Coming soon</span></span></div></div>
+          <div class="regional">
+            <h3>Regional rankings</h3>
+            <p>Multi-country rankings, as new markets open.</p>
+            <div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true">Africa<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true">Central &amp; Eastern Europe<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true">Southeast Asia<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true">Middle East<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true">Latin America<span class="tip" role="tooltip">Coming soon</span></span></div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="follow" id="follow">
+    <div class="wrap">
+      <div class="box">
+        <div class="ftxt">
+          <h2>Get the rankings</h2>
+          <p>Every new edition of the countries and sectors you follow. One-click unsubscribe. No data passed on to third parties.</p>
+        </div>
+        <div class="fform">
+          <form name="follow-uback" method="POST" action="/pl/thank-you.html" data-netlify="true" netlify-honeypot="bot-field" data-mailto="contact@uback.com">
+            <input type="hidden" name="form-name" value="follow-uback">
+            <p class="skip"><label>Do not fill: <input name="bot-field"></label></p>
+            <label class="sr" for="email">Your e-mail</label>
+            <input id="email" name="email" type="email" required placeholder="you@email.com" autocomplete="email">
+            <select name="profil" aria-label="Your profile">
+              <option value="investor">Investor</option>
+              <option value="corporate">Corporate</option>
+              <option value="startup">Startup</option>
+              <option value="advisor">Advisor</option>
+            </select>
+            <button type="submit">Follow</button>
+          </form>
+        </div>
       </div>
     </div>
   </section>
@@ -184,6 +278,8 @@ footer a{color:var(--muted)}
   <div class="wrap">
     <div class="foot-links">
       <span>© 2026 Uback</span>
+      <a href="/pl/method.html">Method</a>
+      <a href="mailto:contact@uback.com?subject=Correction%20request">Request a correction</a>
       <a href="/ma/mentions-legales.html">Legal notice</a>
       <a href="mailto:contact@uback.com">contact@uback.com</a>
     </div>
@@ -191,5 +287,50 @@ footer a{color:var(--muted)}
   </div>
 </footer>
 
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  // onglets mobiles « By sector » / « By country »
+  var main=document.getElementById('rankings'), tabs=document.querySelectorAll('.view-tabs button');
+  tabs.forEach(function(b){b.addEventListener('click',function(){
+    main.setAttribute('data-view',b.dataset.view);
+    tabs.forEach(function(t){t.setAttribute('aria-selected',t===b?'true':'false');});
+  });});
+  // info-bulle « Coming soon » au tap
+  document.querySelectorAll('.pill.soon').forEach(function(p){p.addEventListener('click',function(){
+    document.querySelectorAll('.pill.soon.show').forEach(function(o){if(o!==p)o.classList.remove('show');});
+    p.classList.toggle('show');
+  });});
+  // recherche de segment : insensible aux accents et aux majuscules
+  var q=document.getElementById('seg-q'), fams=[].slice.call(document.querySelectorAll('.fam')),
+      none=document.getElementById('no-match'), wasOpen=null;
+  function norm(s){return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();}
+  q.addEventListener('input',function(){
+    var v=norm(q.value), total=0;
+    if(v&&wasOpen===null){wasOpen=fams.map(function(f){return f.open;});}
+    fams.forEach(function(f,i){
+      var fm=!v||f.dataset.n.indexOf(v)>=0, fc=0;
+      f.querySelectorAll('.sect').forEach(function(s){
+        var sm=fm||s.dataset.n.indexOf(v)>=0, sc=0;
+        s.querySelectorAll('.pills > .pill').forEach(function(p){
+          var ok=sm||p.dataset.n.indexOf(v)>=0; p.hidden=!ok; if(ok)sc++;
+        });
+        s.hidden=sc===0; fc+=sc;
+      });
+      f.hidden=fc===0; total+=fc;
+      if(v){f.open=fc>0;}else if(wasOpen){f.open=wasOpen[i];}
+    });
+    if(!v){wasOpen=null;}
+    none.hidden=total>0;
+  });
+  // formulaire d'abonnement (mailto)
+  var f=document.querySelector('form[data-mailto]'); if(!f)return;
+  f.addEventListener('submit',function(ev){ev.preventDefault();
+    var em=f.email.value,pr=f.profil.options[f.profil.selectedIndex].text;
+    var body='Hello,\n\nI would like to receive new Uback rankings.\n\nE-mail: '+em+'\nProfile: '+pr+'\n';
+    window.location.href='mailto:'+f.dataset.mailto+'?subject='+encodeURIComponent('Follow Uback rankings')+'&body='+encodeURIComponent(body);
+    setTimeout(function(){window.location.href="/pl/thank-you.html";},1500);});
+})();
+</script>
 </body>
 </html>
