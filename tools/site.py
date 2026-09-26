@@ -64,7 +64,7 @@ TXT = {
   reg_mon_h='Ce que veut l’argent', reg_mon='Les sociétés les plus convoitées : celles qui cumulent le plus d’intentions d’investissement payantes. Montants agrégés, jamais d’intention individuelle.',
   sect_h2='Classements par secteur', sect_sub='Quatre verticales au lancement, d’autres quand le test de faisabilité le permet.', sect_k='Bientôt · Top 10',
   inv_h2='Investir {in_}, à plusieurs, depuis {cities}',
-  inv_lead='Uback agrège les intentions d’investisseurs qualifiés (business angels, family offices, diaspora) et les confie à un partenaire agréé, qui construit le deal. Vous entrez au capital aux côtés d’investisseurs professionnels déjà présents. Vous bénéficiez du même pacte d’associés.',
+  inv_lead='Uback agrège les intentions d’investissement des business angels, family offices, corporates et investisseurs de la diaspora. Vous entrez au capital aux côtés d’investisseurs professionnels déjà présents. Vous bénéficiez du même pacte d’associés.',
   steps_h='Le nombre fait la force', steps_sub='Seul, un petit ticket n’ouvre aucune porte. Regroupés, les Backers pèsent.',
   s1h='Déclarez une intention', s1='Sur une société ou sur un secteur, avec un ticket minimum et maximum. Payante, pour qualifier le sérieux&nbsp;; transférable tant qu’elle n’est pas transformée.',
   s2h='La masse critique est atteinte', s2='Quand le nombre de Backers et le cumul de leurs intentions franchissent un seuil, le partenaire agréé contacte la société et lui présente cette demande.',
@@ -128,7 +128,7 @@ TXT = {
   reg_mon_h='What the money wants', reg_mon='The most sought-after companies: those gathering the most paid investment intentions. Aggregated amounts, never an individual intention.',
   sect_h2='Rankings by sector', sect_sub='Four verticals at launch, more when the feasibility test allows.', sect_k='Coming soon · Top 10',
   inv_h2='Invest {in_}, together, from {cities}',
-  inv_lead='Uback aggregates the intentions of qualified investors (business angels, family offices, diaspora) and hands them to a licensed partner, who builds the deal. You invest alongside professional investors already on the cap table. You benefit from the same shareholders’ agreement.',
+  inv_lead='Uback aggregates investment intentions from business angels, family offices, corporates and diaspora investors. You invest alongside professional investors already on the cap table. You benefit from the same shareholders’ agreement.',
   steps_h='Strength in numbers', steps_sub='Alone, a small ticket opens no doors. Together, Backers carry weight.',
   s1h='Declare an intention', s1='On a company or a sector, with a minimum and maximum ticket. Paid, to show you are serious; transferable as long as it has not been converted.',
   s2h='Critical mass is reached', s2='When the number of Backers and the total of their intentions cross a threshold, the licensed partner contacts the company and presents this demand.',
@@ -549,7 +549,7 @@ if M['lang'] == 'fr':
     PAGES[PP] = head(f"Devenir le partenaire exclusif Uback {M['in']} | Uback", "Banques d'affaires, boutiques M&A, conseils agréés : Uback vous apporte des investisseurs étrangers et de la visibilité, en exclusivité par pays.", f"/{PP}") + f'''
 <div class="wrap prose">
 <h1>Devenir le partenaire exclusif Uback {M['in']}</h1>
-<p class="lead">Uback classe les startups d’un pays et agrège les intentions d’investissement de business angels, family offices et diasporas, en Europe, dans le Golfe et ailleurs. Un seul partenaire par pays exécute : c’est vous.</p>
+<p class="lead">Uback classe les startups d’un pays et agrège les intentions d’investissement des business angels, family offices, corporates et investisseurs de la diaspora, en Europe, dans le Golfe et ailleurs. Un seul partenaire par pays exécute : c’est vous.</p>
 
 <h2>Ce que Uback vous apporte</h2>
 <ul>
@@ -668,7 +668,7 @@ else:
     PAGES[PP] = head(f"Become Uback’s exclusive partner {M['in']} | Uback", "Investment banks, M&A boutiques, licensed advisers: Uback brings you foreign investors and visibility, exclusively per country.", f"/{PP}") + f'''
 <div class="wrap prose">
 <h1>Become Uback’s exclusive partner {M['in']}</h1>
-<p class="lead">Uback ranks a country’s startups and aggregates the investment intentions of business angels, family offices and diasporas, in Europe, the Gulf and elsewhere. A single partner per country executes: you.</p>
+<p class="lead">Uback ranks a country’s startups and aggregates investment intentions from business angels, family offices, corporates and diaspora investors, in Europe, the Gulf and elsewhere. A single partner per country executes: you.</p>
 
 <h2>What Uback brings you</h2>
 <ul>
