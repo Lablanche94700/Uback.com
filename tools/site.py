@@ -89,9 +89,7 @@ TXT = {
   prof_inv='Investisseur', prof_ceo='Dirigeant de startup', prof_bank='Banque d’affaires / conseil', prof_other='Autre', fol_btn='Suivre',
   fol_fine='Un e-mail par mois. Désinscription en un clic. Aucune donnée transmise à des tiers.',
   js_body='Bonjour,\\n\\nJe souhaite recevoir chaque mois le classement Uback {name}.\\n\\nE-mail : \'+em+\'\\nProfil : \'+pr+\'\\n',
-  js_subject='Suivre le classement Uback {name}',
-  claim_h='Vous dirigez l’une de ces sociétés ?', claim_p='Revendiquez votre fiche pour publier vos KPI, corriger une information ou déclarer une intention de lever des fonds. Gratuit.', claim_btn='Revendiquer ou corriger une fiche',
-),
+  js_subject='Suivre le classement Uback {name}',),
 'en': dict(
   html_lang='en', locale='en_US', skip='Skip to content', home_aria='Uback, home', nav_aria='Main navigation',
   beta_b='Beta · prototype', beta_t='This site is under construction: rankings, texts and features change every week.', beta_link='Contact us',
@@ -155,9 +153,7 @@ TXT = {
   prof_inv='Investor', prof_ceo='Startup manager', prof_bank='Investment bank / adviser', prof_other='Other', fol_btn='Follow',
   fol_fine='One e-mail a month. One-click unsubscribe. No data passed on to third parties.',
   js_body='Hello,\\n\\nI would like to receive the Uback {name} ranking every month.\\n\\nE-mail: \'+em+\'\\nProfile: \'+pr+\'\\n',
-  js_subject='Follow the Uback {name} ranking',
-  claim_h='Do you run one of these companies?', claim_p='Claim your profile to publish your KPIs, correct an information or declare an intention to raise funds. Free.', claim_btn='Claim or correct a profile',
-),
+  js_subject='Follow the Uback {name} ranking',),
 }
 V = dict(name=M['name'], in_=M['in'], In_=cap(M['in']), the=M['the'], adj_m=M['adj_m'], adj_f=M['adj_f'], adj_fp=M['adj_fp'],
          N=N, cities=M['cities'], date=D['date_label'], seuil=e(D['seuil_levee']), partner_short=M['partner_short'])
@@ -363,6 +359,38 @@ index += f'''
       </tbody>
     </table>
     <div class="disclaimer"><b>{L['disc_b']}</b> {L['val_disc']} {e(D['methode'])} {L['disc']}</div>
+
+    <div class="follow-band" id="{L['id_follow']}">
+      <div class="fb-text">
+        <h3>{L['fol_h']}</h3>
+        <p>{L['fol_p']}</p>
+      </div>
+      <div class="fb-form">
+        <form class="follow" name="{L['form_prefix']}{M['slug']}" method="POST" action="/{PT}" data-netlify="true" netlify-honeypot="bot-field"{' data-mailto="' + FORM_EMAIL + '"' if FORM_MODE == 'mailto' else ''}>
+          <input type="hidden" name="form-name" value="{L['form_prefix']}{M['slug']}">
+          <input type="hidden" name="marche" value="{M['code']}">
+          <p class="skip"><label>Ne pas remplir : <input name="bot-field"></label></p>
+          <label class="skip" for="email">{L['email_lab']}</label>
+          <input id="email" name="email" type="email" required placeholder="{L['email_ph']}" autocomplete="email">
+          <select name="profil" aria-label="{L['prof_aria']}">
+            <option value="investisseur">{L['prof_inv']}</option>
+            <option value="dirigeant">{L['prof_ceo']}</option>
+            <option value="banque">{L['prof_bank']}</option>
+            <option value="autre">{L['prof_other']}</option>
+          </select>
+          <button class="btn navy" type="submit">{L['fol_btn']}</button>
+        </form>
+        <p class="src">{L['fol_fine']}</p>
+      </div>
+      <script>
+      (function(){{var f=document.querySelector('form[data-mailto]');if(!f)return;
+      f.addEventListener('submit',function(ev){{ev.preventDefault();
+        var em=f.email.value,pr=f.profil.options[f.profil.selectedIndex].text;
+        var body='{L['js_body']}';
+        window.location.href='mailto:'+f.dataset.mailto+'?subject='+encodeURIComponent('{L['js_subject']}')+'&body='+encodeURIComponent(body);
+        setTimeout(function(){{window.location.href='/{PT}';}},1500);}});}})();
+      </script>
+    </div>
   </div>
 </section>
 
@@ -437,57 +465,21 @@ index += f'''
 
 <section class="soft" id="radar">
   <div class="wrap">
-    <div class="two">
-      <div class="box line">
-        <h3>{L['rad_h']}</h3>
-        <p>{L['rad_p']}</p>
-        <ul class="list">
-        {''.join(li(r) for r in D['radar'])}
-        </ul>
-        <h3 id="{L['id_born']}" style="margin-top:22px">{L['born_h']}</h3>
-        <p>{L['born_p']}</p>
-        <ul class="list">
-        {''.join(li(r, 'lieu') for r in D['nees_ici'])}
-        </ul>{BASED}
-        <h3 style="margin-top:22px">{L['out_h']}</h3>
-        <ul class="list">
-        {''.join(f'<li><span><b>{e(r["nom"])}</b> · {e(r["motif"])}</span><span>{src(r["source"])}</span></li>' for r in D['hors_classement'])}
-        </ul>
-      </div>
-      <div>
-        <div class="box line" id="{L['id_follow']}">
-          <h3>{L['fol_h']}</h3>
-          <p>{L['fol_p']}</p>
-          <form class="follow" name="{L['form_prefix']}{M['slug']}" method="POST" action="/{PT}" data-netlify="true" netlify-honeypot="bot-field"{' data-mailto="' + FORM_EMAIL + '"' if FORM_MODE == 'mailto' else ''}>
-            <input type="hidden" name="form-name" value="{L['form_prefix']}{M['slug']}">
-            <input type="hidden" name="marche" value="{M['code']}">
-            <p class="skip"><label>Ne pas remplir : <input name="bot-field"></label></p>
-            <label class="skip" for="email">{L['email_lab']}</label>
-            <input id="email" name="email" type="email" required placeholder="{L['email_ph']}" autocomplete="email">
-            <select name="profil" aria-label="{L['prof_aria']}" style="padding:11px 12px;border:1px solid #d9dee5;border-radius:8px;font-size:14px;font-family:inherit">
-              <option value="investisseur">{L['prof_inv']}</option>
-              <option value="dirigeant">{L['prof_ceo']}</option>
-              <option value="banque">{L['prof_bank']}</option>
-              <option value="autre">{L['prof_other']}</option>
-            </select>
-            <button class="btn navy" type="submit">{L['fol_btn']}</button>
-          </form>
-          <p class="src" style="margin-top:10px">{L['fol_fine']}</p>
-          <script>
-          (function(){{var f=document.querySelector('form[data-mailto]');if(!f)return;
-          f.addEventListener('submit',function(ev){{ev.preventDefault();
-            var em=f.email.value,pr=f.profil.options[f.profil.selectedIndex].text;
-            var body='{L['js_body']}';
-            window.location.href='mailto:'+f.dataset.mailto+'?subject='+encodeURIComponent('{L['js_subject']}')+'&body='+encodeURIComponent(body);
-            setTimeout(function(){{window.location.href='/{PT}';}},1500);}});}})();
-          </script>
-        </div>
-        <div class="box" style="margin-top:20px">
-          <h3>{L['claim_h']}</h3>
-          <p>{L['claim_p']}</p>
-          <a class="btn" href="/{PM}#correction">{L['claim_btn']}</a>
-        </div>
-      </div>
+    <div class="box line">
+      <h3>{L['rad_h']}</h3>
+      <p>{L['rad_p']}</p>
+      <ul class="list">
+      {''.join(li(r) for r in D['radar'])}
+      </ul>
+      <h3 id="{L['id_born']}" style="margin-top:22px">{L['born_h']}</h3>
+      <p>{L['born_p']}</p>
+      <ul class="list">
+      {''.join(li(r, 'lieu') for r in D['nees_ici'])}
+      </ul>{BASED}
+      <h3 style="margin-top:22px">{L['out_h']}</h3>
+      <ul class="list">
+      {''.join(f'<li><span><b>{e(r["nom"])}</b> · {e(r["motif"])}</span><span>{src(r["source"])}</span></li>' for r in D['hors_classement'])}
+      </ul>
     </div>
   </div>
 </section>

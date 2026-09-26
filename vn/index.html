@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/vn/assets/style.css?v=776cab63">
+<link rel="stylesheet" href="/vn/assets/style.css?v=c6e34dc8">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "Vietnam’s top 15 funded startups – September 2026", "description": "Uback monthly ranking of non-listed Vietnamese startups, established by AI from public information. We don’t value companies. We rank them, and give an AI-estimated order of magnitude.", "itemListOrder": "https://schema.org/ItemListOrderDescending", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "VNLife / VNPay", "url": "https://vnlife.vn"}, {"@type": "ListItem", "position": 2, "name": "MoMo", "url": "https://momo.vn"}, {"@type": "ListItem", "position": 3, "name": "Sky Mavis", "url": "https://skymavis.com"}, {"@type": "ListItem", "position": 4, "name": "Trusting Social", "url": "https://trustingsocial.com"}, {"@type": "ListItem", "position": 5, "name": "Buymed (thuocsi.vn)", "url": "https://buymed.com"}, {"@type": "ListItem", "position": 6, "name": "OnPoint", "url": "https://onpoint.vn"}, {"@type": "ListItem", "position": 7, "name": "KiotViet", "url": "https://kiotviet.vn"}, {"@type": "ListItem", "position": 8, "name": "Dat Bike", "url": "https://dat.bike"}, {"@type": "ListItem", "position": 9, "name": "Coolmate", "url": "https://coolmate.me"}, {"@type": "ListItem", "position": 10, "name": "Be Group", "url": "https://be.com.vn"}, {"@type": "ListItem", "position": 11, "name": "Jio Health", "url": "https://jiohealth.com"}, {"@type": "ListItem", "position": 12, "name": "Techcoop", "url": "https://techcoop.com"}, {"@type": "ListItem", "position": 13, "name": "Finhay", "url": "https://finhay.com.vn"}, {"@type": "ListItem", "position": 14, "name": "AI Hay", "url": "https://aihay.vn"}, {"@type": "ListItem", "position": 15, "name": "Edupia", "url": "https://edupia.vn"}]}</script>
 </head>
 <body>
@@ -214,6 +214,38 @@
       </tbody>
     </table>
     <div class="disclaimer"><b>This ranking is an opinion, not a valuation.</b> Valuation orders of magnitude are indicative editorial estimates, produced by AI from public information (amounts raised, published valuations, reported indicators). They are neither a financial valuation, nor an offer, nor investment advice. Ranking established by Claude (Anthropic) from public information, following the published rules. A consensus of several AIs (Claude, Gemini, ChatGPT) will apply from Edition 1. It is based on public information (press, funding announcements), following a published method, with no human intervention on the order. The confidence index reflects the quality of the sources. Any company may <a href="/vn/method.html#correction">request a correction</a> or dispute its position. Eligibility threshold: at least USD 500k raised, non-listed companies, main operations in Vietnam.</div>
+
+    <div class="follow-band" id="follow">
+      <div class="fb-text">
+        <h3>Get the ranking every month</h3>
+        <p>Free. Movements, new entries, disagreements between AIs, and the opening of intention declarations.</p>
+      </div>
+      <div class="fb-form">
+        <form class="follow" name="follow-vietnam" method="POST" action="/vn/thank-you.html" data-netlify="true" netlify-honeypot="bot-field" data-mailto="contact@uback.com">
+          <input type="hidden" name="form-name" value="follow-vietnam">
+          <input type="hidden" name="marche" value="vn">
+          <p class="skip"><label>Ne pas remplir : <input name="bot-field"></label></p>
+          <label class="skip" for="email">Your e-mail</label>
+          <input id="email" name="email" type="email" required placeholder="you@email.com" autocomplete="email">
+          <select name="profil" aria-label="Your profile">
+            <option value="investisseur">Investor</option>
+            <option value="dirigeant">Startup manager</option>
+            <option value="banque">Investment bank / adviser</option>
+            <option value="autre">Other</option>
+          </select>
+          <button class="btn navy" type="submit">Follow</button>
+        </form>
+        <p class="src">One e-mail a month. One-click unsubscribe. No data passed on to third parties.</p>
+      </div>
+      <script>
+      (function(){var f=document.querySelector('form[data-mailto]');if(!f)return;
+      f.addEventListener('submit',function(ev){ev.preventDefault();
+        var em=f.email.value,pr=f.profil.options[f.profil.selectedIndex].text;
+        var body='Hello,\n\nI would like to receive the Uback Vietnam ranking every month.\n\nE-mail: '+em+'\nProfile: '+pr+'\n';
+        window.location.href='mailto:'+f.dataset.mailto+'?subject='+encodeURIComponent('Follow the Uback Vietnam ranking')+'&body='+encodeURIComponent(body);
+        setTimeout(function(){window.location.href='/vn/thank-you.html';},1500);});})();
+      </script>
+    </div>
   </div>
 </section>
 
@@ -291,62 +323,26 @@
 
 <section class="soft" id="radar">
   <div class="wrap">
-    <div class="two">
-      <div class="box line">
-        <h3>Radar · known eligible companies, not ranked</h3>
-        <p>Sorted by date of last round, with no judgement and no AI call. Undisclosed amount: the round is confirmed by the press, not its amount.</p>
-        <ul class="list">
-        <li><span><b>Stride</b> · Climate fintech › rooftop solar and battery financing</span><span>Series B · USD 15M · May 2026 (Lightrock, TRIREC), partly secondary · <a href="https://technode.global/2026/05/22/vietnams-renewable-energy-startup-stride-raises-15m-in-series-b-round-as-touchstone-partially-exits/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Homebase</b> · Proptech › rent-to-own (pivoted to HR tech in 2025)</span><span>USD 30M equity and debt, split undisclosed · Nov 2021 (Y Combinator, Goodwater, Partech) · <a href="https://technode.global/2021/11/15/vietnam-proptech-firm-homebase-raises-30m-led-by-y-combinator-and-other-global-investors/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Manabie</b> · Edtech › SaaS and cram schools (Singapore HQ; main market possibly Japan)</span><span>Series B · USD ~23M (JPY 3.3bn) · Apr 2025 (JIC VGI) · <a href="https://japanstartupobserver.substack.com/p/education-dx-platform-manabie-raises" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>GIMO</b> · Fintech › earned wage access</span><span>Series A · USD 17.1M equity and debt, split undisclosed · Jul 2023 (TNB Aura) · <a href="https://fintechnews.sg/76772/vietnam/vietnams-earned-wage-access-firm-gimo-raises-us17-1m-to-fuel-expansion/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Orochi Network</b> · Blockchain › infrastructure</span><span>Seed · USD 12M · 2025 (single source) · <a href="https://theinvestor.vn/10-top-funded-startups-in-vietnam-in-2025-d18419.html" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Ephyra / GameBeast</b> · Gaming › mobile games</span><span>Series A · USD 10.5M · 2025 (single source) · <a href="https://theinvestor.vn/10-top-funded-startups-in-vietnam-in-2025-d18419.html" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Galaxy Education</b> · Edtech › K-12, English, online university (HOCMAI, ICAN, FUNiX)</span><span>USD ~10M · Jun 2025 (East Ventures) · <a href="https://vir.com.vn/galaxy-education-bags-10-million-from-east-ventures-and-other-investors-131165.html" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Kyna English</b> · Edtech › online English</span><span>Series B · undisclosed (est. USD 10M) · 2025 (Asia Business Builders) · <a href="https://www.edtechreview.in/news/kyna-english-raises-series-b-funding-to-fuel-growth-and-expansion/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>SmartPay</b> · Fintech › merchant e-wallet</span><span>USD ~9.2M (VND 240bn) · ~2022 (SMBC) · <a href="https://en.vneconomy.vn/sumitomo-mitsui-banking-corporation-to-invest-in-smartnet.htm" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>EcoTruck</b> · Logistics › trucking marketplace</span><span>USD 2M · May 2021 (STIC Ventures) · <a href="https://www.kedglobal.com/newsView/ked202105240002" rel="nofollow noopener" target="_blank">source</a></span></li>
-        </ul>
-        <h3 id="born-here" style="margin-top:22px">Born in Vietnam, based elsewhere</h3>
-        <p>Companies of Vietnamese origin whose main operations are now abroad: not ranked, shown with the law governing their shares.</p>
-        <ul class="list">
-        <li><span><b>ELSA</b> · Edtech › English-learning app<br><span class="src">Co-founded by a Vietnamese founder; headquarters in San Francisco, global user base</span></span><span>Series C · USD 23M · 2022 · <a href="https://peopleofcolorintech.com/articles/english-language-app-secures-23m-series-c-launches-personal-ai-tutor/" rel="nofollow noopener" target="_blank">source</a></span></li>
-        </ul>
+    <div class="box line">
+      <h3>Radar · known eligible companies, not ranked</h3>
+      <p>Sorted by date of last round, with no judgement and no AI call. Undisclosed amount: the round is confirmed by the press, not its amount.</p>
+      <ul class="list">
+      <li><span><b>Stride</b> · Climate fintech › rooftop solar and battery financing</span><span>Series B · USD 15M · May 2026 (Lightrock, TRIREC), partly secondary · <a href="https://technode.global/2026/05/22/vietnams-renewable-energy-startup-stride-raises-15m-in-series-b-round-as-touchstone-partially-exits/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Homebase</b> · Proptech › rent-to-own (pivoted to HR tech in 2025)</span><span>USD 30M equity and debt, split undisclosed · Nov 2021 (Y Combinator, Goodwater, Partech) · <a href="https://technode.global/2021/11/15/vietnam-proptech-firm-homebase-raises-30m-led-by-y-combinator-and-other-global-investors/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Manabie</b> · Edtech › SaaS and cram schools (Singapore HQ; main market possibly Japan)</span><span>Series B · USD ~23M (JPY 3.3bn) · Apr 2025 (JIC VGI) · <a href="https://japanstartupobserver.substack.com/p/education-dx-platform-manabie-raises" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>GIMO</b> · Fintech › earned wage access</span><span>Series A · USD 17.1M equity and debt, split undisclosed · Jul 2023 (TNB Aura) · <a href="https://fintechnews.sg/76772/vietnam/vietnams-earned-wage-access-firm-gimo-raises-us17-1m-to-fuel-expansion/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Orochi Network</b> · Blockchain › infrastructure</span><span>Seed · USD 12M · 2025 (single source) · <a href="https://theinvestor.vn/10-top-funded-startups-in-vietnam-in-2025-d18419.html" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Ephyra / GameBeast</b> · Gaming › mobile games</span><span>Series A · USD 10.5M · 2025 (single source) · <a href="https://theinvestor.vn/10-top-funded-startups-in-vietnam-in-2025-d18419.html" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Galaxy Education</b> · Edtech › K-12, English, online university (HOCMAI, ICAN, FUNiX)</span><span>USD ~10M · Jun 2025 (East Ventures) · <a href="https://vir.com.vn/galaxy-education-bags-10-million-from-east-ventures-and-other-investors-131165.html" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Kyna English</b> · Edtech › online English</span><span>Series B · undisclosed (est. USD 10M) · 2025 (Asia Business Builders) · <a href="https://www.edtechreview.in/news/kyna-english-raises-series-b-funding-to-fuel-growth-and-expansion/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>SmartPay</b> · Fintech › merchant e-wallet</span><span>USD ~9.2M (VND 240bn) · ~2022 (SMBC) · <a href="https://en.vneconomy.vn/sumitomo-mitsui-banking-corporation-to-invest-in-smartnet.htm" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>EcoTruck</b> · Logistics › trucking marketplace</span><span>USD 2M · May 2021 (STIC Ventures) · <a href="https://www.kedglobal.com/newsView/ked202105240002" rel="nofollow noopener" target="_blank">source</a></span></li>
+      </ul>
+      <h3 id="born-here" style="margin-top:22px">Born in Vietnam, based elsewhere</h3>
+      <p>Companies of Vietnamese origin whose main operations are now abroad: not ranked, shown with the law governing their shares.</p>
+      <ul class="list">
+      <li><span><b>ELSA</b> · Edtech › English-learning app<br><span class="src">Co-founded by a Vietnamese founder; headquarters in San Francisco, global user base</span></span><span>Series C · USD 23M · 2022 · <a href="https://peopleofcolorintech.com/articles/english-language-app-secures-23m-series-c-launches-personal-ai-tutor/" rel="nofollow noopener" target="_blank">source</a></span></li>
+      </ul>
         <h3 style="margin-top:22px">Born elsewhere, based in Vietnam</h3>
         <p>Companies founded abroad whose main operations are in Vietnam.</p>
         <ul class="list">
         <li><span><b>Kamereo</b> · B2B e-commerce › food sourcing for restaurants and hotels<br><span class="src">Japanese co-founder (Taku Tanaka); operations entirely in Vietnam</span></span><span>Series B · USD 7.8M · Dec 2024 (Sumitomo Corp., SMBC VC, MUFG Capital) · <a href="https://theinvestor.vn/vietnam-based-food-sourcing-startup-kamereo-nets-78-mln-in-series-b-funding-d13710.html" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>OKXE</b> · Marketplace › used motorbikes and financing<br><span class="src">Korean founder (Wooseok Kim); operations entirely in Vietnam</span></span><span>Series A · USD 14.5M reported (may be the cumulative total) · Jul 2025 (Kwangju Bank, JB Financial) · <a href="https://e.vnexpress.net/news/business/okxe-raises-total-capital-to-14-5m-marking-7-year-growth-milestone-4946390.html" rel="nofollow noopener" target="_blank">source</a></span></li>
         </ul>
-        <h3 style="margin-top:22px">Not ranked</h3>
-        <ul class="list">
-        <li><span><b>Tiki</b> · Under review: reported valuation cut from ~USD 1bn (2021) to under USD 10M (2025) after a restructuring round; control status being verified</span><span><a href="https://www.dealstreetasia.com/stories/tikis-from-soonicorn-to-sub-10m-valuation-441113" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Scommerce (GHN, AhaMove)</b> · Out of window: last documented round (Temasek-led, up to USD ~100M) in Oct 2019</span><span><a href="https://e.vnexpress.net/news/business/companies/logistics-firm-scommerce-raises-100-mln-from-temasek-4004004.html" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Sendo</b> · Out of window: last round was a USD 61M Series C in Nov 2019</span><span><a href="https://e.vnexpress.net/news/business/companies/e-commerce-firm-sendo-nets-61-mln-in-latest-funding-round-4015087.html" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>VNG</b> · Listed on UPCoM (VNZ) since Jan 2023: benchmark, not ranked</span><span><a href="https://theinvestor.vn/vietnam-tech-unicorn-vng-to-trade-358-mln-shares-on-upcom-d3118.html" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>F88</b> · Listed on UPCoM since Aug 2025: benchmark, not ranked</span><span><a href="https://vietnamnews.vn/media-outreach/1723082/f88-officially-lists-8-26-million-shares-on-upcom.html" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Timo</b> · Acquired: Kredivo Group took nearly full ownership (announced May 2026)</span><span><a href="https://technode.global/2026/05/07/indonesias-bnpl-platform-kredivo-acquires-nearly-full-ownership-of-vietnams-timo-digital-bank/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>VinBrain</b> · Acquired by NVIDIA in Dec 2024</span><span><a href="https://theinvestor.vn/nvidia-acquires-ai-unit-of-vietnamese-private-giant-vingroup-d13667.html" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Telio</b> · Shut down in Nov 2024</span><span><a href="https://www.dealstreetasia.com/stories/telio-ceases-operations-427902" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Mio</b> · Shut down in 2024</span><span><a href="https://www.dealstreetasia.com/stories/mio-ceases-operations-410537" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Kilo</b> · Shut down in Oct 2023</span><span><a href="https://www.dealstreetasia.com/stories/vietnam-kilo-shuts-down-ops-363922" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Propzy</b> · Shut down in Sep 2022</span><span><a href="https://e.vnexpress.net/news/companies/proptech-startup-propzy-to-close-up-shop-4511207.html" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Cake by VPBank</b> · Not a startup issuer: a bank product licensed through VPBank</span><span><a href="https://vir.com.vn/be-group-partnering-up-with-vpbank-to-launch-cake-digital-bank-82038.html" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>CME Solar</b> · Not tech: rooftop-solar developer financed with infrastructure capital</span><span><a href="https://pidg.org/eaaif-invests-usd-20-million-in-cme-solar-cmes-to-power-vietnams-manufacturing-sector-with-clean-energy-sources/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Xanh SM (GSM)</b> · Not VC-backed: 95% owned by Vingroup&#x27;s chairman</span><span><a href="https://theinvestor.vn/vingroup-chair-backed-xanh-sm-lifts-capital-base-above-1-bln-as-ev-ride-hailing-lead-widens-d18461.html" rel="nofollow noopener" target="_blank">source</a></span></li>
-        </ul>
-      </div>
-      <div>
-        <div class="box line" id="follow">
-          <h3>Get the ranking every month</h3>
-          <p>Free. Movements, new entries, disagreements between AIs, and the opening of intention declarations.</p>
-          <form class="follow" name="follow-vietnam" method="POST" action="/vn/thank-you.html" data-netlify="true" netlify-honeypot="bot-field" data-mailto="contact@uback.com">
-            <input type="hidden" name="form-name" value="follow-vietnam">
-            <input type="hidden" name="marche" value="vn">
-            <p class="skip"><label>Ne pas remplir : <input name="bot-field"></label></p>
-            <label class="skip" for="email">Your e-mail</label>
-            <input id="email" name="email" type="email" required placeholder="you@email.com" autocomplete="email">
-            <select name="profil" aria-label="Your profile" style="padding:11px 12px;border:1px solid #d9dee5;border-radius:8px;font-size:14px;font-family:inherit">
-              <option value="investisseur">Investor</option>
-              <option value="dirigeant">Startup manager</option>
-              <option value="banque">Investment bank / adviser</option>
-              <option value="autre">Other</option>
-            </select>
-            <button class="btn navy" type="submit">Follow</button>
-          </form>
-          <p class="src" style="margin-top:10px">One e-mail a month. One-click unsubscribe. No data passed on to third parties.</p>
-          <script>
-          (function(){var f=document.querySelector('form[data-mailto]');if(!f)return;
-          f.addEventListener('submit',function(ev){ev.preventDefault();
-            var em=f.email.value,pr=f.profil.options[f.profil.selectedIndex].text;
-            var body='Hello,\n\nI would like to receive the Uback Vietnam ranking every month.\n\nE-mail: '+em+'\nProfile: '+pr+'\n';
-            window.location.href='mailto:'+f.dataset.mailto+'?subject='+encodeURIComponent('Follow the Uback Vietnam ranking')+'&body='+encodeURIComponent(body);
-            setTimeout(function(){window.location.href='/vn/thank-you.html';},1500);});})();
-          </script>
-        </div>
-        <div class="box" style="margin-top:20px">
-          <h3>Do you run one of these companies?</h3>
-          <p>Claim your profile to publish your KPIs, correct an information or declare an intention to raise funds. Free.</p>
-          <a class="btn" href="/vn/method.html#correction">Claim or correct a profile</a>
-        </div>
-      </div>
+      <h3 style="margin-top:22px">Not ranked</h3>
+      <ul class="list">
+      <li><span><b>Tiki</b> · Under review: reported valuation cut from ~USD 1bn (2021) to under USD 10M (2025) after a restructuring round; control status being verified</span><span><a href="https://www.dealstreetasia.com/stories/tikis-from-soonicorn-to-sub-10m-valuation-441113" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Scommerce (GHN, AhaMove)</b> · Out of window: last documented round (Temasek-led, up to USD ~100M) in Oct 2019</span><span><a href="https://e.vnexpress.net/news/business/companies/logistics-firm-scommerce-raises-100-mln-from-temasek-4004004.html" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Sendo</b> · Out of window: last round was a USD 61M Series C in Nov 2019</span><span><a href="https://e.vnexpress.net/news/business/companies/e-commerce-firm-sendo-nets-61-mln-in-latest-funding-round-4015087.html" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>VNG</b> · Listed on UPCoM (VNZ) since Jan 2023: benchmark, not ranked</span><span><a href="https://theinvestor.vn/vietnam-tech-unicorn-vng-to-trade-358-mln-shares-on-upcom-d3118.html" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>F88</b> · Listed on UPCoM since Aug 2025: benchmark, not ranked</span><span><a href="https://vietnamnews.vn/media-outreach/1723082/f88-officially-lists-8-26-million-shares-on-upcom.html" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Timo</b> · Acquired: Kredivo Group took nearly full ownership (announced May 2026)</span><span><a href="https://technode.global/2026/05/07/indonesias-bnpl-platform-kredivo-acquires-nearly-full-ownership-of-vietnams-timo-digital-bank/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>VinBrain</b> · Acquired by NVIDIA in Dec 2024</span><span><a href="https://theinvestor.vn/nvidia-acquires-ai-unit-of-vietnamese-private-giant-vingroup-d13667.html" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Telio</b> · Shut down in Nov 2024</span><span><a href="https://www.dealstreetasia.com/stories/telio-ceases-operations-427902" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Mio</b> · Shut down in 2024</span><span><a href="https://www.dealstreetasia.com/stories/mio-ceases-operations-410537" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Kilo</b> · Shut down in Oct 2023</span><span><a href="https://www.dealstreetasia.com/stories/vietnam-kilo-shuts-down-ops-363922" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Propzy</b> · Shut down in Sep 2022</span><span><a href="https://e.vnexpress.net/news/companies/proptech-startup-propzy-to-close-up-shop-4511207.html" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Cake by VPBank</b> · Not a startup issuer: a bank product licensed through VPBank</span><span><a href="https://vir.com.vn/be-group-partnering-up-with-vpbank-to-launch-cake-digital-bank-82038.html" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>CME Solar</b> · Not tech: rooftop-solar developer financed with infrastructure capital</span><span><a href="https://pidg.org/eaaif-invests-usd-20-million-in-cme-solar-cmes-to-power-vietnams-manufacturing-sector-with-clean-energy-sources/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Xanh SM (GSM)</b> · Not VC-backed: 95% owned by Vingroup&#x27;s chairman</span><span><a href="https://theinvestor.vn/vingroup-chair-backed-xanh-sm-lifts-capital-base-above-1-bln-as-ev-ride-hailing-lead-widens-d18461.html" rel="nofollow noopener" target="_blank">source</a></span></li>
+      </ul>
     </div>
   </div>
 </section>

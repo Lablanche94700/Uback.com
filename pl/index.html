@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/pl/assets/style.css?v=776cab63">
+<link rel="stylesheet" href="/pl/assets/style.css?v=c6e34dc8">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "Poland’s top 15 funded startups – September 2026", "description": "Uback monthly ranking of non-listed Polish startups, established by AI from public information. We don’t value companies. We rank them, and give an AI-estimated order of magnitude.", "itemListOrder": "https://schema.org/ItemListOrderDescending", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Docplanner", "url": "https://docplanner.com"}, {"@type": "ListItem", "position": 2, "name": "Brainly", "url": "https://brainly.com"}, {"@type": "ListItem", "position": 3, "name": "Ramp Network", "url": "https://rampnetwork.com"}, {"@type": "ListItem", "position": 4, "name": "Booksy", "url": "https://booksy.com"}, {"@type": "ListItem", "position": 5, "name": "Viktor", "url": "https://viktor.com"}, {"@type": "ListItem", "position": 6, "name": "Spacelift", "url": "https://spacelift.io"}, {"@type": "ListItem", "position": 7, "name": "Packhelp", "url": "https://packhelp.com"}, {"@type": "ListItem", "position": 8, "name": "Infermedica", "url": "https://infermedica.com"}, {"@type": "ListItem", "position": 9, "name": "Nomagic", "url": "https://nomagic.ai"}, {"@type": "ListItem", "position": 10, "name": "Tylko", "url": "https://tylko.com"}, {"@type": "ListItem", "position": 11, "name": "Alokai", "url": "https://alokai.com"}, {"@type": "ListItem", "position": 12, "name": "Synerise", "url": "https://synerise.com"}, {"@type": "ListItem", "position": 13, "name": "Cosmose AI", "url": "https://cosmose.co"}, {"@type": "ListItem", "position": 14, "name": "Tidio", "url": "https://tidio.com"}, {"@type": "ListItem", "position": 15, "name": "Jutro Medical", "url": "https://jutromedical.com"}]}</script>
 </head>
 <body>
@@ -214,6 +214,38 @@
       </tbody>
     </table>
     <div class="disclaimer"><b>This ranking is an opinion, not a valuation.</b> Valuation orders of magnitude are indicative editorial estimates, produced by AI from public information (amounts raised, published valuations, reported indicators). They are neither a financial valuation, nor an offer, nor investment advice. Ranking established by Claude (Anthropic) from public information, following the published rules. A consensus of several AIs (Claude, Gemini, ChatGPT) will apply from Edition 1. It is based on public information (press, funding announcements), following a published method, with no human intervention on the order. The confidence index reflects the quality of the sources. Any company may <a href="/pl/method.html#correction">request a correction</a> or dispute its position. Eligibility threshold: at least USD 500k raised, non-listed companies, main operations in Poland.</div>
+
+    <div class="follow-band" id="follow">
+      <div class="fb-text">
+        <h3>Get the ranking every month</h3>
+        <p>Free. Movements, new entries, disagreements between AIs, and the opening of intention declarations.</p>
+      </div>
+      <div class="fb-form">
+        <form class="follow" name="follow-poland" method="POST" action="/pl/thank-you.html" data-netlify="true" netlify-honeypot="bot-field" data-mailto="contact@uback.com">
+          <input type="hidden" name="form-name" value="follow-poland">
+          <input type="hidden" name="marche" value="pl">
+          <p class="skip"><label>Ne pas remplir : <input name="bot-field"></label></p>
+          <label class="skip" for="email">Your e-mail</label>
+          <input id="email" name="email" type="email" required placeholder="you@email.com" autocomplete="email">
+          <select name="profil" aria-label="Your profile">
+            <option value="investisseur">Investor</option>
+            <option value="dirigeant">Startup manager</option>
+            <option value="banque">Investment bank / adviser</option>
+            <option value="autre">Other</option>
+          </select>
+          <button class="btn navy" type="submit">Follow</button>
+        </form>
+        <p class="src">One e-mail a month. One-click unsubscribe. No data passed on to third parties.</p>
+      </div>
+      <script>
+      (function(){var f=document.querySelector('form[data-mailto]');if(!f)return;
+      f.addEventListener('submit',function(ev){ev.preventDefault();
+        var em=f.email.value,pr=f.profil.options[f.profil.selectedIndex].text;
+        var body='Hello,\n\nI would like to receive the Uback Poland ranking every month.\n\nE-mail: '+em+'\nProfile: '+pr+'\n';
+        window.location.href='mailto:'+f.dataset.mailto+'?subject='+encodeURIComponent('Follow the Uback Poland ranking')+'&body='+encodeURIComponent(body);
+        setTimeout(function(){window.location.href='/pl/thank-you.html';},1500);});})();
+      </script>
+    </div>
   </div>
 </section>
 
@@ -291,62 +323,26 @@
 
 <section class="soft" id="radar">
   <div class="wrap">
-    <div class="two">
-      <div class="box line">
-        <h3>Radar · known eligible companies, not ranked</h3>
-        <p>Sorted by date of last round, with no judgement and no AI call. Undisclosed amount: the round is confirmed by the press, not its amount.</p>
-        <ul class="list">
-        <li><span><b>Zowie</b> · AI › customer-service automation (Zowie Inc., US; team in Warsaw)</span><span>Series A · USD 14M · May 2022 (Tiger Global) · <a href="https://getzowie.com/blog/series-a-funding" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Symmetrical.ai</b> · Fintech › payroll</span><span>Series A · USD 18.5M · Apr 2022 (Target Global) · <a href="https://tech.eu/2022/04/28/what-does-future-of-global-payroll-look-like-warsaws-symmetricalai-unlocks-185-million-to-lay-the-roadmap/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>BLANK. Game Studios</b> · Gaming › AAA studio</span><span>Strategic minority · USD 17M · Nov 2023 (Neowiz) · <a href="https://www.gematsu.com/2023/11/neowiz-acquires-21-percent-stake-in-blank" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>CampusAI</b> · EdTech › AI upskilling</span><span>Pre-seed · USD ~10.7M (EUR 9.2M) · Jun 2024 · <a href="https://www.eu-startups.com/2024/06/warsaw-based-campusai-raises-e9-2-million-to-create-a-global-network-of-interactive-platforms-teaching-collaboration-with-ai/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Ingenix.ai</b> · HealthTech › AI clinical-trial simulation</span><span>Seed · USD ~10.4M (EUR 9M) · Apr 2025 (Inovo) · <a href="https://tech.eu/2025/04/08/ingenix-raises-9m-seed-for-clinical-drug-trial-simulations/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Fudo Security</b> · Cybersecurity › privileged access management</span><span>Series A · USD 10M (PLN 40M) · Jan 2025 (bValue Growth) · <a href="https://www.vestbee.com/insights/articles/fudo-security-secures-10-m" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Sybilla Technologies</b> · SpaceTech › space situational awareness</span><span>First external round · USD ~9.6M (EUR &gt;8M) · Jun 2026 (3TS, Vinci) · <a href="https://www.eu-startups.com/2026/06/polish-spacetech-startup-sybilla-exits-bootstrapped-orbit-with-over-e8-million-to-strengthen-space-monitoring" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>SR Robotics</b> · Robotics › underwater robots (dual-use)</span><span>Equity · USD ~9.7M (EUR 8.4M) · Jul 2025 (Vinci) · <a href="https://www.eu-startups.com/2025/07/polish-startup-sr-robotics-lands-e8-4-million-to-expand-eco-friendly-underwater-solutions-and-boost-energy-security/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Orbotix Industries</b> · DefenceTech › autonomous drones</span><span>Equity · USD ~7.5M (EUR 6.5M) · Oct 2025 (Bravo Victor VC) · <a href="https://www.eu-startups.com/2025/10/warsaw-based-orbotix-raises-e6-5-million-to-advance-autonomous-defence-systems-in-europe/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Wealthon</b> · Fintech › SME lending</span><span>Equity USD ~8.5M (EUR 7.3M, 3TS) plus EUR 116M debt · Feb 2025 · <a href="https://www.eu-startups.com/2025/02/fintech-startup-wealthon-secures-e126-million-for-financial-services-ecosystem-for-smes/" rel="nofollow noopener" target="_blank">source</a></span></li>
-        </ul>
-        <h3 id="born-here" style="margin-top:22px">Born in Poland, based elsewhere</h3>
-        <p>Companies of Polish origin whose main operations are now abroad: not ranked, shown with the law governing their shares.</p>
-        <ul class="list">
-        <li><span><b>ElevenLabs</b> · AI › voice generation<br><span class="src">Polish founders; HQ London and New York, significant staff in Warsaw</span></span><span>Series D · USD 500M · Feb 2026 (Sequoia) · <a href="https://elevenlabs.io/blog/series-d" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Kontakt.io</b> · HealthTech › hospital location and IoT platform<br><span class="src">Founded in Kraków; HQ New York, R&amp;D in Kraków</span></span><span>Series C · USD 47.5M · Apr 2024 (Goldman Sachs Asset Management) · <a href="https://kontakt.io/press-releases/kontakt-io-raises-47-5-million-series-c-funding-from-goldman-sachs-to-fuel-ai-development-and-expansion-into-us-hospitals/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Silent Eight</b> · RegTech › AI financial-crime compliance<br><span class="src">Polish founders; HQ Singapore, R&amp;D in Warsaw</span></span><span>Series B · USD 40M · Mar 2022 (TYH Ventures) · <a href="https://www.prnewswire.com/news-releases/silent-eight-raises-40m-in-series-b-round-301499126.html" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>SKY ENGINE AI</b> · AI › synthetic data for computer vision<br><span class="src">HQ London; Polish subsidiary</span></span><span>Series A · USD 7M · Jan 2024 (Cogito Capital) · <a href="https://tech.eu/2024/01/17/sky-engine-ai-raises-7m-in-series-a-funding-for-synthetic-data-cloud-platform/" rel="nofollow noopener" target="_blank">source</a></span></li>
-        </ul>
+    <div class="box line">
+      <h3>Radar · known eligible companies, not ranked</h3>
+      <p>Sorted by date of last round, with no judgement and no AI call. Undisclosed amount: the round is confirmed by the press, not its amount.</p>
+      <ul class="list">
+      <li><span><b>Zowie</b> · AI › customer-service automation (Zowie Inc., US; team in Warsaw)</span><span>Series A · USD 14M · May 2022 (Tiger Global) · <a href="https://getzowie.com/blog/series-a-funding" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Symmetrical.ai</b> · Fintech › payroll</span><span>Series A · USD 18.5M · Apr 2022 (Target Global) · <a href="https://tech.eu/2022/04/28/what-does-future-of-global-payroll-look-like-warsaws-symmetricalai-unlocks-185-million-to-lay-the-roadmap/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>BLANK. Game Studios</b> · Gaming › AAA studio</span><span>Strategic minority · USD 17M · Nov 2023 (Neowiz) · <a href="https://www.gematsu.com/2023/11/neowiz-acquires-21-percent-stake-in-blank" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>CampusAI</b> · EdTech › AI upskilling</span><span>Pre-seed · USD ~10.7M (EUR 9.2M) · Jun 2024 · <a href="https://www.eu-startups.com/2024/06/warsaw-based-campusai-raises-e9-2-million-to-create-a-global-network-of-interactive-platforms-teaching-collaboration-with-ai/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Ingenix.ai</b> · HealthTech › AI clinical-trial simulation</span><span>Seed · USD ~10.4M (EUR 9M) · Apr 2025 (Inovo) · <a href="https://tech.eu/2025/04/08/ingenix-raises-9m-seed-for-clinical-drug-trial-simulations/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Fudo Security</b> · Cybersecurity › privileged access management</span><span>Series A · USD 10M (PLN 40M) · Jan 2025 (bValue Growth) · <a href="https://www.vestbee.com/insights/articles/fudo-security-secures-10-m" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Sybilla Technologies</b> · SpaceTech › space situational awareness</span><span>First external round · USD ~9.6M (EUR &gt;8M) · Jun 2026 (3TS, Vinci) · <a href="https://www.eu-startups.com/2026/06/polish-spacetech-startup-sybilla-exits-bootstrapped-orbit-with-over-e8-million-to-strengthen-space-monitoring" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>SR Robotics</b> · Robotics › underwater robots (dual-use)</span><span>Equity · USD ~9.7M (EUR 8.4M) · Jul 2025 (Vinci) · <a href="https://www.eu-startups.com/2025/07/polish-startup-sr-robotics-lands-e8-4-million-to-expand-eco-friendly-underwater-solutions-and-boost-energy-security/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Orbotix Industries</b> · DefenceTech › autonomous drones</span><span>Equity · USD ~7.5M (EUR 6.5M) · Oct 2025 (Bravo Victor VC) · <a href="https://www.eu-startups.com/2025/10/warsaw-based-orbotix-raises-e6-5-million-to-advance-autonomous-defence-systems-in-europe/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Wealthon</b> · Fintech › SME lending</span><span>Equity USD ~8.5M (EUR 7.3M, 3TS) plus EUR 116M debt · Feb 2025 · <a href="https://www.eu-startups.com/2025/02/fintech-startup-wealthon-secures-e126-million-for-financial-services-ecosystem-for-smes/" rel="nofollow noopener" target="_blank">source</a></span></li>
+      </ul>
+      <h3 id="born-here" style="margin-top:22px">Born in Poland, based elsewhere</h3>
+      <p>Companies of Polish origin whose main operations are now abroad: not ranked, shown with the law governing their shares.</p>
+      <ul class="list">
+      <li><span><b>ElevenLabs</b> · AI › voice generation<br><span class="src">Polish founders; HQ London and New York, significant staff in Warsaw</span></span><span>Series D · USD 500M · Feb 2026 (Sequoia) · <a href="https://elevenlabs.io/blog/series-d" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Kontakt.io</b> · HealthTech › hospital location and IoT platform<br><span class="src">Founded in Kraków; HQ New York, R&amp;D in Kraków</span></span><span>Series C · USD 47.5M · Apr 2024 (Goldman Sachs Asset Management) · <a href="https://kontakt.io/press-releases/kontakt-io-raises-47-5-million-series-c-funding-from-goldman-sachs-to-fuel-ai-development-and-expansion-into-us-hospitals/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Silent Eight</b> · RegTech › AI financial-crime compliance<br><span class="src">Polish founders; HQ Singapore, R&amp;D in Warsaw</span></span><span>Series B · USD 40M · Mar 2022 (TYH Ventures) · <a href="https://www.prnewswire.com/news-releases/silent-eight-raises-40m-in-series-b-round-301499126.html" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>SKY ENGINE AI</b> · AI › synthetic data for computer vision<br><span class="src">HQ London; Polish subsidiary</span></span><span>Series A · USD 7M · Jan 2024 (Cogito Capital) · <a href="https://tech.eu/2024/01/17/sky-engine-ai-raises-7m-in-series-a-funding-for-synthetic-data-cloud-platform/" rel="nofollow noopener" target="_blank">source</a></span></li>
+      </ul>
         <h3 style="margin-top:22px">Born elsewhere, based in Poland</h3>
         <p>Companies founded abroad whose main operations are in Poland.</p>
         <ul class="list">
         <li><span><b>PeopleForce</b> · HR tech › HR management software<br><span class="src">Founded in Kyiv (Ukraine); expanding teams in Poland</span></span><span>Pre-Series A · USD 5.38M · Apr 2025 (Pracuj Ventures) · <a href="https://en.ain.ua/2025/04/16/peopleforce-raises-54m-in-pre-series-a/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Molfar Defence Technologies</b> · DefenceTech<br><span class="src">Polish-Ukrainian, founded 2026; operations in Poland, office in Ukraine</span></span><span>First tranche · USD ~1.7M (EUR 1.5M) · Jun 2026 (Front Ventures) · <a href="https://en.ain.ua/2026/06/03/polish-ukrainian-startup-molfar-defence-technologies-raised-eur15m-investment-from-swedens-front-ventures/" rel="nofollow noopener" target="_blank">source</a></span></li>
         </ul>
-        <h3 style="margin-top:22px">Not ranked</h3>
-        <ul class="list">
-        <li><span><b>Neptune.ai</b> · Acquired by OpenAI (Dec 2025)</span><span><a href="https://openai.com/index/openai-to-acquire-neptune/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Nethone</b> · Acquired by Mangopay (announced Nov 2022)</span><span><a href="https://tech.eu/2022/11/29/mangopay-acquires-fraud-detection-and-prevention-company-nethone/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Applica</b> · Acquired by Snowflake (2022)</span><span><a href="https://en.ain.ua/2025/04/08/polish-healthtech-ingenix-secures-eur9m/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Displate</b> · Majority acquired by Mid Europa Partners (Nov 2020)</span><span><a href="https://www.unquote.com/cee/official-record/3021678/mid-europa-buys-polish-e-retailer-displate" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>UXPin</b> · Acquired by Xenon Partners (Jun 2020, aggregator source only)</span><span><a href="https://tracxn.com/d/companies/uxpin/__BuK2m7FfPS0RRzwI2WnsaFkYDirrfRzldavpqZi7z7A" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Brand24</b> · Formerly listed on WSE; taken over by Prowly.com and delisted (2024)</span><span><a href="https://www.wirtualnemedia.pl/brand24-akcje-kupione-przez-prowly-com-spolka-zniknie-z-gieldy,7254624438393216a" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Saule Technologies</b> · Listed on NewConnect; in restructuring, shares excluded from trading (Jun 2026)</span><span><a href="https://www.bankier.pl/inwestowanie/profile/quote.html?symbol=SAULETECH" rel="nofollow noopener" target="_blank">source</a></span></li>
-        </ul>
-      </div>
-      <div>
-        <div class="box line" id="follow">
-          <h3>Get the ranking every month</h3>
-          <p>Free. Movements, new entries, disagreements between AIs, and the opening of intention declarations.</p>
-          <form class="follow" name="follow-poland" method="POST" action="/pl/thank-you.html" data-netlify="true" netlify-honeypot="bot-field" data-mailto="contact@uback.com">
-            <input type="hidden" name="form-name" value="follow-poland">
-            <input type="hidden" name="marche" value="pl">
-            <p class="skip"><label>Ne pas remplir : <input name="bot-field"></label></p>
-            <label class="skip" for="email">Your e-mail</label>
-            <input id="email" name="email" type="email" required placeholder="you@email.com" autocomplete="email">
-            <select name="profil" aria-label="Your profile" style="padding:11px 12px;border:1px solid #d9dee5;border-radius:8px;font-size:14px;font-family:inherit">
-              <option value="investisseur">Investor</option>
-              <option value="dirigeant">Startup manager</option>
-              <option value="banque">Investment bank / adviser</option>
-              <option value="autre">Other</option>
-            </select>
-            <button class="btn navy" type="submit">Follow</button>
-          </form>
-          <p class="src" style="margin-top:10px">One e-mail a month. One-click unsubscribe. No data passed on to third parties.</p>
-          <script>
-          (function(){var f=document.querySelector('form[data-mailto]');if(!f)return;
-          f.addEventListener('submit',function(ev){ev.preventDefault();
-            var em=f.email.value,pr=f.profil.options[f.profil.selectedIndex].text;
-            var body='Hello,\n\nI would like to receive the Uback Poland ranking every month.\n\nE-mail: '+em+'\nProfile: '+pr+'\n';
-            window.location.href='mailto:'+f.dataset.mailto+'?subject='+encodeURIComponent('Follow the Uback Poland ranking')+'&body='+encodeURIComponent(body);
-            setTimeout(function(){window.location.href='/pl/thank-you.html';},1500);});})();
-          </script>
-        </div>
-        <div class="box" style="margin-top:20px">
-          <h3>Do you run one of these companies?</h3>
-          <p>Claim your profile to publish your KPIs, correct an information or declare an intention to raise funds. Free.</p>
-          <a class="btn" href="/pl/method.html#correction">Claim or correct a profile</a>
-        </div>
-      </div>
+      <h3 style="margin-top:22px">Not ranked</h3>
+      <ul class="list">
+      <li><span><b>Neptune.ai</b> · Acquired by OpenAI (Dec 2025)</span><span><a href="https://openai.com/index/openai-to-acquire-neptune/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Nethone</b> · Acquired by Mangopay (announced Nov 2022)</span><span><a href="https://tech.eu/2022/11/29/mangopay-acquires-fraud-detection-and-prevention-company-nethone/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Applica</b> · Acquired by Snowflake (2022)</span><span><a href="https://en.ain.ua/2025/04/08/polish-healthtech-ingenix-secures-eur9m/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Displate</b> · Majority acquired by Mid Europa Partners (Nov 2020)</span><span><a href="https://www.unquote.com/cee/official-record/3021678/mid-europa-buys-polish-e-retailer-displate" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>UXPin</b> · Acquired by Xenon Partners (Jun 2020, aggregator source only)</span><span><a href="https://tracxn.com/d/companies/uxpin/__BuK2m7FfPS0RRzwI2WnsaFkYDirrfRzldavpqZi7z7A" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Brand24</b> · Formerly listed on WSE; taken over by Prowly.com and delisted (2024)</span><span><a href="https://www.wirtualnemedia.pl/brand24-akcje-kupione-przez-prowly-com-spolka-zniknie-z-gieldy,7254624438393216a" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Saule Technologies</b> · Listed on NewConnect; in restructuring, shares excluded from trading (Jun 2026)</span><span><a href="https://www.bankier.pl/inwestowanie/profile/quote.html?symbol=SAULETECH" rel="nofollow noopener" target="_blank">source</a></span></li>
+      </ul>
     </div>
   </div>
 </section>

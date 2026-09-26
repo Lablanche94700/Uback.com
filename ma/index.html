@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/ma/assets/style.css?v=776cab63">
+<link rel="stylesheet" href="/ma/assets/style.css?v=c6e34dc8">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "Les 20 startups marocaines les mieux valorisées – Septembre 2026", "description": "Classement mensuel Uback des startups marocaines, établi par IA à partir d'informations publiques. Uback ne valorise pas les sociétés : il les classe, et indique un ordre de grandeur estimé par IA.", "itemListOrder": "https://schema.org/ItemListOrderDescending", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Nuitée", "url": "https://nuitee.com"}, {"@type": "ListItem", "position": 2, "name": "Chari", "url": "https://chari.ma"}, {"@type": "ListItem", "position": 3, "name": "Yakeey", "url": "https://yakeey.com"}, {"@type": "ListItem", "position": 4, "name": "ORA Technologies", "url": "https://oratechnologies.ma"}, {"@type": "ListItem", "position": 5, "name": "Inyad", "url": "https://inyad.com"}, {"@type": "ListItem", "position": 6, "name": "YoLa Fresh", "url": "https://yolafresh.com"}, {"@type": "ListItem", "position": 7, "name": "PayTic", "url": "https://paytic.com"}, {"@type": "ListItem", "position": 8, "name": "Agenz", "url": "https://agenz.ma"}, {"@type": "ListItem", "position": 9, "name": "WafR", "url": "https://wafr.ma"}, {"@type": "ListItem", "position": 10, "name": "Davis AI", "url": "https://meetdavis.com"}, {"@type": "ListItem", "position": 11, "name": "Freterium", "url": "https://freterium.com"}, {"@type": "ListItem", "position": 12, "name": "CloudFret", "url": "https://cloudfret.com"}, {"@type": "ListItem", "position": 13, "name": "Enakl", "url": "https://enakl.com"}, {"@type": "ListItem", "position": 14, "name": "z.systems", "url": "https://z.systems"}, {"@type": "ListItem", "position": 15, "name": "Woliz", "url": "https://woliz.ma"}, {"@type": "ListItem", "position": 16, "name": "GoSwap", "url": "https://goswap.ma"}, {"@type": "ListItem", "position": 17, "name": "Terraa", "url": "https://terraa.ma"}, {"@type": "ListItem", "position": 18, "name": "Tookeez", "url": "https://tookeez.com"}, {"@type": "ListItem", "position": 19, "name": "Koolskools", "url": "https://koolskools.com"}, {"@type": "ListItem", "position": 20, "name": "Konta", "url": "https://konta.ma"}]}</script>
 </head>
 <body>
@@ -254,6 +254,38 @@
       </tbody>
     </table>
     <div class="disclaimer"><b>Ce classement est une opinion, pas une évaluation.</b> Les ordres de grandeur de valorisation sont des estimations éditoriales indicatives, produites par IA à partir d’informations publiques (montants levés, valorisations publiées, indicateurs cités). Ils ne constituent ni une évaluation financière, ni une offre, ni un conseil en investissement. Classement établi par Claude (Anthropic) à partir d&#x27;informations publiques, selon les règles publiées. Le consensus de plusieurs IA (Claude, Gemini, ChatGPT) sera appliqué à partir de l&#x27;édition 1. Il est établi à partir d’informations publiques (presse, annonces de levées de fonds), selon une méthode publiée, sans intervention humaine sur l’ordre. L’indice de confiance reflète la qualité des sources. Toute société peut <a href="/ma/methode.html#correction">demander une correction</a> ou contester sa position. Seuil d’éligibilité : au moins 500 k$ levés, sociétés non cotées, opérations principales au Maroc.</div>
+
+    <div class="follow-band" id="suivre">
+      <div class="fb-text">
+        <h3>Recevoir le classement chaque mois</h3>
+        <p>Gratuit. Les mouvements, les entrées, les désaccords entre IA, et l’ouverture des déclarations d’intention.</p>
+      </div>
+      <div class="fb-form">
+        <form class="follow" name="suivre-maroc" method="POST" action="/ma/merci.html" data-netlify="true" netlify-honeypot="bot-field" data-mailto="contact@uback.com">
+          <input type="hidden" name="form-name" value="suivre-maroc">
+          <input type="hidden" name="marche" value="ma">
+          <p class="skip"><label>Ne pas remplir : <input name="bot-field"></label></p>
+          <label class="skip" for="email">Votre e-mail</label>
+          <input id="email" name="email" type="email" required placeholder="votre@email.com" autocomplete="email">
+          <select name="profil" aria-label="Votre profil">
+            <option value="investisseur">Investisseur</option>
+            <option value="dirigeant">Dirigeant de startup</option>
+            <option value="banque">Banque d’affaires / conseil</option>
+            <option value="autre">Autre</option>
+          </select>
+          <button class="btn navy" type="submit">Suivre</button>
+        </form>
+        <p class="src">Un e-mail par mois. Désinscription en un clic. Aucune donnée transmise à des tiers.</p>
+      </div>
+      <script>
+      (function(){var f=document.querySelector('form[data-mailto]');if(!f)return;
+      f.addEventListener('submit',function(ev){ev.preventDefault();
+        var em=f.email.value,pr=f.profil.options[f.profil.selectedIndex].text;
+        var body='Bonjour,\n\nJe souhaite recevoir chaque mois le classement Uback Maroc.\n\nE-mail : '+em+'\nProfil : '+pr+'\n';
+        window.location.href='mailto:'+f.dataset.mailto+'?subject='+encodeURIComponent('Suivre le classement Uback Maroc')+'&body='+encodeURIComponent(body);
+        setTimeout(function(){window.location.href='/ma/merci.html';},1500);});})();
+      </script>
+    </div>
   </div>
 </section>
 
@@ -331,57 +363,21 @@
 
 <section class="soft" id="radar">
   <div class="wrap">
-    <div class="two">
-      <div class="box line">
-        <h3>Radar · sociétés éligibles connues, non classées</h3>
-        <p>Triées par date de dernière levée, sans jugement ni appel d’IA. Montant non divulgué : la levée est confirmée par la presse, pas son montant.</p>
-        <ul class="list">
-        <li><span><b>Weego</b> · Mobilité › transport multimodal</span><span>1,1 M$ · mars 2026 · <a href="https://medias24.com/2026/03/03/weego-leve-11-million-de-dollars-pour-developper-linfrastructure-digitale-du-transport-1620965/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>ToumAI Analytics</b> · IA › voix et analyse de la relation client</span><span>1 M€ · févr. 2025 · <a href="https://techpoint.africa/feature/toumai-pre-seed/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Sand to Green</b> · Énergie &amp; climat › agroforesterie (siège Paris, opérations Maroc)</span><span>1 M$ · févr. 2023 · <a href="https://medias24.com/2023/02/07/agriculture-regenerative-from-sand-to-green-annonce-une-levee-de-10-millions-de-dirhams/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Deepecho</b> · Santé › IA pour l&#x27;échographie</span><span>6 MDH · 2023 · <a href="https://telquel.ma/2023/11/14/deepecho-lia-healtech-made-in-morocco-leve-6-millions-de-dirhams_1841076" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Talaty</b> · Fintech › scoring de crédit PME</span><span>Montant non divulgué · déc. 2024 · <a href="https://leseco.ma/business/fintech-talaty-leve-des-fonds-pour-accelerer-son-expansion.html" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Alya</b> · Fintech › paiement fractionné</span><span>Montant non divulgué · déc. 2024 · <a href="https://www.start-up.ma/alya-une-levee-de-fonds-pour-accelerer-le-paiement-au-maroc/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>VOVE ID</b> · Fintech › vérification d&#x27;identité (KYC)</span><span>Montant non divulgué · avr. 2025 · <a href="https://www.wamda.com/2025/04/moroccos-vove-id-secures-fresh-funds-support-expansion-ambitions" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>ATAREC</b> · Énergie › énergie houlomotrice</span><span>Montant non divulgué · 2022 · <a href="https://www.fedenerg.ma/2022/03/11/energies-renouvelables-um6p-ventures-investit-dans-la-startup-atarec/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>SOWIT</b> · Alimentation › agriculture de précision</span><span>Montant non divulgué · 2019 · <a href="https://www.seaf.com/seaf-morocco-growth-fund-invests-in-sowit-an-agritech-company-specializing-in-precision-agriculture/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Charikaty</b> · Logiciels d&#x27;entreprise › création d&#x27;entreprise en ligne</span><span>1,5 MDH · févr. 2026 · <a href="https://fr.allafrica.com/stories/202602200318.html" rel="nofollow noopener" target="_blank">source</a></span></li>
-        </ul>
-        <h3 id="nees-ici" style="margin-top:22px">Nées au Maroc, établies ailleurs</h3>
-        <p>Sociétés d’origine marocaine dont les opérations principales sont désormais à l’étranger : hors classement, avec le droit qui régit leurs titres.</p>
-        <ul class="list">
-        <li><span><b>RemotePass</b> · Logiciels d&#x27;entreprise › paie et RH à distance<br><span class="src">Siège à Dubaï, fondateurs marocains, équipe à Casablanca</span></span><span>Série B · 17,4 M$ · mai 2026 · <a href="https://www.wamda.com/2026/05/remotepass-secures-17-4-million-series-b-accelerate-global-expansion" rel="nofollow noopener" target="_blank">source</a></span></li>
-        </ul>
-        <h3 style="margin-top:22px">Hors classement</h3>
-        <ul class="list">
-        <li><span><b>Cash Plus</b> · Cotée à la Bourse de Casablanca depuis nov. 2025 : repère, pas de classement</span><span><a href="https://medias24.com/2025/11/26/cash-plus-ce-que-revele-la-valorisation-de-la-premiere-fintech-cotee-1584489/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Cathedis</b> · Rachetée par ORA Technologies en 2025</span><span><a href="https://www.infomaroc.net/ora-technologies-leve-19-m-pour-booster-kooulmaroc-et-ora-cash/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Kifal Auto</b> · Rachetée par Autochek (Nigeria) en mai 2022</span><span><a href="https://medias24.com/2022/05/18/la-start-up-marocaine-kifal-auto-rachetee-par-le-nigerian-autochek/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>DabaDoc</b> · Contrôle majoritaire cédé à Orange et AXA Assurance Maroc en 2021</span><span><a href="https://newsroom.orange.com/orange-middle-east-and-africa-and-axa-assurance-maroc-sign-an-agreement-to-acquire-a-majority-stake-in-dabadoc/" rel="nofollow noopener" target="_blank">source</a></span></li>
-        </ul>
-      </div>
-      <div>
-        <div class="box line" id="suivre">
-          <h3>Recevoir le classement chaque mois</h3>
-          <p>Gratuit. Les mouvements, les entrées, les désaccords entre IA, et l’ouverture des déclarations d’intention.</p>
-          <form class="follow" name="suivre-maroc" method="POST" action="/ma/merci.html" data-netlify="true" netlify-honeypot="bot-field" data-mailto="contact@uback.com">
-            <input type="hidden" name="form-name" value="suivre-maroc">
-            <input type="hidden" name="marche" value="ma">
-            <p class="skip"><label>Ne pas remplir : <input name="bot-field"></label></p>
-            <label class="skip" for="email">Votre e-mail</label>
-            <input id="email" name="email" type="email" required placeholder="votre@email.com" autocomplete="email">
-            <select name="profil" aria-label="Votre profil" style="padding:11px 12px;border:1px solid #d9dee5;border-radius:8px;font-size:14px;font-family:inherit">
-              <option value="investisseur">Investisseur</option>
-              <option value="dirigeant">Dirigeant de startup</option>
-              <option value="banque">Banque d’affaires / conseil</option>
-              <option value="autre">Autre</option>
-            </select>
-            <button class="btn navy" type="submit">Suivre</button>
-          </form>
-          <p class="src" style="margin-top:10px">Un e-mail par mois. Désinscription en un clic. Aucune donnée transmise à des tiers.</p>
-          <script>
-          (function(){var f=document.querySelector('form[data-mailto]');if(!f)return;
-          f.addEventListener('submit',function(ev){ev.preventDefault();
-            var em=f.email.value,pr=f.profil.options[f.profil.selectedIndex].text;
-            var body='Bonjour,\n\nJe souhaite recevoir chaque mois le classement Uback Maroc.\n\nE-mail : '+em+'\nProfil : '+pr+'\n';
-            window.location.href='mailto:'+f.dataset.mailto+'?subject='+encodeURIComponent('Suivre le classement Uback Maroc')+'&body='+encodeURIComponent(body);
-            setTimeout(function(){window.location.href='/ma/merci.html';},1500);});})();
-          </script>
-        </div>
-        <div class="box" style="margin-top:20px">
-          <h3>Vous dirigez l’une de ces sociétés ?</h3>
-          <p>Revendiquez votre fiche pour publier vos KPI, corriger une information ou déclarer une intention de lever des fonds. Gratuit.</p>
-          <a class="btn" href="/ma/methode.html#correction">Revendiquer ou corriger une fiche</a>
-        </div>
-      </div>
+    <div class="box line">
+      <h3>Radar · sociétés éligibles connues, non classées</h3>
+      <p>Triées par date de dernière levée, sans jugement ni appel d’IA. Montant non divulgué : la levée est confirmée par la presse, pas son montant.</p>
+      <ul class="list">
+      <li><span><b>Weego</b> · Mobilité › transport multimodal</span><span>1,1 M$ · mars 2026 · <a href="https://medias24.com/2026/03/03/weego-leve-11-million-de-dollars-pour-developper-linfrastructure-digitale-du-transport-1620965/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>ToumAI Analytics</b> · IA › voix et analyse de la relation client</span><span>1 M€ · févr. 2025 · <a href="https://techpoint.africa/feature/toumai-pre-seed/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Sand to Green</b> · Énergie &amp; climat › agroforesterie (siège Paris, opérations Maroc)</span><span>1 M$ · févr. 2023 · <a href="https://medias24.com/2023/02/07/agriculture-regenerative-from-sand-to-green-annonce-une-levee-de-10-millions-de-dirhams/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Deepecho</b> · Santé › IA pour l&#x27;échographie</span><span>6 MDH · 2023 · <a href="https://telquel.ma/2023/11/14/deepecho-lia-healtech-made-in-morocco-leve-6-millions-de-dirhams_1841076" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Talaty</b> · Fintech › scoring de crédit PME</span><span>Montant non divulgué · déc. 2024 · <a href="https://leseco.ma/business/fintech-talaty-leve-des-fonds-pour-accelerer-son-expansion.html" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Alya</b> · Fintech › paiement fractionné</span><span>Montant non divulgué · déc. 2024 · <a href="https://www.start-up.ma/alya-une-levee-de-fonds-pour-accelerer-le-paiement-au-maroc/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>VOVE ID</b> · Fintech › vérification d&#x27;identité (KYC)</span><span>Montant non divulgué · avr. 2025 · <a href="https://www.wamda.com/2025/04/moroccos-vove-id-secures-fresh-funds-support-expansion-ambitions" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>ATAREC</b> · Énergie › énergie houlomotrice</span><span>Montant non divulgué · 2022 · <a href="https://www.fedenerg.ma/2022/03/11/energies-renouvelables-um6p-ventures-investit-dans-la-startup-atarec/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>SOWIT</b> · Alimentation › agriculture de précision</span><span>Montant non divulgué · 2019 · <a href="https://www.seaf.com/seaf-morocco-growth-fund-invests-in-sowit-an-agritech-company-specializing-in-precision-agriculture/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Charikaty</b> · Logiciels d&#x27;entreprise › création d&#x27;entreprise en ligne</span><span>1,5 MDH · févr. 2026 · <a href="https://fr.allafrica.com/stories/202602200318.html" rel="nofollow noopener" target="_blank">source</a></span></li>
+      </ul>
+      <h3 id="nees-ici" style="margin-top:22px">Nées au Maroc, établies ailleurs</h3>
+      <p>Sociétés d’origine marocaine dont les opérations principales sont désormais à l’étranger : hors classement, avec le droit qui régit leurs titres.</p>
+      <ul class="list">
+      <li><span><b>RemotePass</b> · Logiciels d&#x27;entreprise › paie et RH à distance<br><span class="src">Siège à Dubaï, fondateurs marocains, équipe à Casablanca</span></span><span>Série B · 17,4 M$ · mai 2026 · <a href="https://www.wamda.com/2026/05/remotepass-secures-17-4-million-series-b-accelerate-global-expansion" rel="nofollow noopener" target="_blank">source</a></span></li>
+      </ul>
+      <h3 style="margin-top:22px">Hors classement</h3>
+      <ul class="list">
+      <li><span><b>Cash Plus</b> · Cotée à la Bourse de Casablanca depuis nov. 2025 : repère, pas de classement</span><span><a href="https://medias24.com/2025/11/26/cash-plus-ce-que-revele-la-valorisation-de-la-premiere-fintech-cotee-1584489/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Cathedis</b> · Rachetée par ORA Technologies en 2025</span><span><a href="https://www.infomaroc.net/ora-technologies-leve-19-m-pour-booster-kooulmaroc-et-ora-cash/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>Kifal Auto</b> · Rachetée par Autochek (Nigeria) en mai 2022</span><span><a href="https://medias24.com/2022/05/18/la-start-up-marocaine-kifal-auto-rachetee-par-le-nigerian-autochek/" rel="nofollow noopener" target="_blank">source</a></span></li><li><span><b>DabaDoc</b> · Contrôle majoritaire cédé à Orange et AXA Assurance Maroc en 2021</span><span><a href="https://newsroom.orange.com/orange-middle-east-and-africa-and-axa-assurance-maroc-sign-an-agreement-to-acquire-a-majority-stake-in-dabadoc/" rel="nofollow noopener" target="_blank">source</a></span></li>
+      </ul>
     </div>
   </div>
 </section>
