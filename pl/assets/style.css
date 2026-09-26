@@ -7,6 +7,11 @@ h1,h2,h3{color:var(--navy);letter-spacing:-.02em;margin:0}
 .wrap{max-width:1280px;margin:0 auto;padding:0 24px}
 .skip{position:absolute;left:-9999px}.skip:focus{left:16px;top:16px;background:#fff;padding:8px;z-index:99}
 /* header */
+/* bandeau bêta, au-dessus de l'en-tête collant (défile avec la page) */
+.beta{background:var(--gold-bg);border-bottom:1px solid var(--line);font-size:12.5px;line-height:1.4;color:var(--navy)}
+.beta .wrap{min-height:32px;display:flex;align-items:center;justify-content:center;gap:6px;padding-top:6px;padding-bottom:6px;text-align:center}
+.beta b{color:var(--gold);font-weight:700;white-space:nowrap}
+.beta a{color:var(--navy);font-weight:600;white-space:nowrap;margin-left:4px}
 .hdr{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:20}
 .hdr .wrap{display:flex;align-items:center;gap:20px;height:64px}
 .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:21px;color:var(--navy);letter-spacing:-.02em}
@@ -159,6 +164,7 @@ footer p{margin:0;line-height:1.6;max-width:1100px}
   .menu-toggle{display:inline-flex}
   .hdr .btn{display:none}
   .wrap{padding:0 16px}
+  .beta .beta-t{display:none}
   .hero{padding:36px 0 24px;gap:24px}
   .hero h1{font-size:32px}
   .hero p.lead{font-size:16px}
