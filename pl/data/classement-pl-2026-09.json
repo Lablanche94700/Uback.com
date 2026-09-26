@@ -8,64 +8,642 @@
   "methode": "Ranking established by Claude (Anthropic) from public information, following the published rules. A consensus of several AIs (Claude, Gemini, ChatGPT) will apply from Edition 1.",
   "seuil_levee": "USD 500k",
   "classement": [
-    {"rang": 1, "nom": "Docplanner", "site": "docplanner.com", "sous_secteur": "HealthTech › doctor booking marketplace and SaaS", "ville": "Warsaw", "creation": 2012, "leve_cumule": "USD ≥151M (EUR >130M)", "derniere_levee": "Equity · Undisclosed · Aug 2021 (existing investors)", "source": "https://www.unquote.com/cee/news/3024909/docplanner-raises-finance-valuing-business-at-usd-1bn", "confiance": 2, "juridiction": "HQ Warsaw; operations in Poland and 13 other countries", "note": "Valued at USD 1bn in Aug 2021 (Unquote). A reported EUR 140M round in Oct 2024 is unconfirmed (single source) and not counted."},
-    {"rang": 2, "nom": "Brainly", "site": "brainly.com", "sous_secteur": "EdTech › AI homework help", "ville": "Kraków", "creation": 2009, "leve_cumule": "USD ~150M", "derniere_levee": "Series D · USD 80M · Dec 2020 (Learn Capital, Prosus Ventures, General Catalyst)", "source": "https://www.prnewswire.com/news-releases/brainly-completes-80m-series-d-round-301195010.html", "confiance": 3, "juridiction": "Dual HQ New York (US) and Kraków; main office in Kraków", "note": "No round since 2020."},
-    {"rang": 3, "nom": "Ramp Network", "site": "rampnetwork.com", "sous_secteur": "Fintech › crypto payments infrastructure", "ville": "Warsaw", "creation": 2017, "leve_cumule": "USD ~133M", "derniere_levee": "Series B · USD 70M · Nov 2022 (Mubadala Capital, Korelya)", "source": "https://rampnetwork.com/blog/ramp-network-closes-70m-series-b-round", "confiance": 3, "juridiction": "Legal seat London (UK); Polish founders and team in Warsaw", "note": ""},
-    {"rang": 4, "nom": "Booksy", "site": "booksy.com", "sous_secteur": "Vertical SaaS › beauty and wellness booking", "ville": "Warsaw", "creation": 2014, "leve_cumule": "USD ~120M", "derniere_levee": "Equity · Undisclosed · Nov 2023 (Inovia Capital)", "source": "https://mamstartup.pl/booksy-ma-nowego-inwestora-inovia-capital-zainwestowal-w-startup-stefana-batorego/", "confiance": 2, "juridiction": "HQ Chicago (US); large team in Warsaw; US is the main market", "note": "Total excludes undisclosed 2023 equity and 2024 debt. A USD 39.75M round in Sept 2025 is unconfirmed (single source) and not counted. About 20% staff cut announced Sept 2026."},
-    {"rang": 5, "nom": "Viktor", "site": "viktor.com", "sous_secteur": "AI › AI coworker agents for Slack and Teams", "ville": "Warsaw", "creation": 2023, "leve_cumule": "USD ≥75M", "derniere_levee": "Series A · USD 75M (PLN 274M) · May 2026 (Accel)", "source": "https://viktor.com/blog/viktor-series-a", "confiance": 3, "juridiction": "Legal seat not verified; co-HQ Warsaw and Munich, engineering in Warsaw", "note": "Earlier rounds not found."},
-    {"rang": 6, "nom": "Spacelift", "site": "spacelift.io", "sous_secteur": "DevOps › infrastructure-as-code automation", "ville": "Warsaw", "creation": 2020, "leve_cumule": "USD ~72M", "derniere_levee": "Series C · USD 51M · Jul 2025 (Five Elms Capital, Endeavor Catalyst, Inovo)", "source": "https://www.prnewswire.com/news-releases/spacelift-raises-51m-series-c-to-redefine-enterprise-infrastructure-automation-302501578.html", "confiance": 3, "juridiction": "HQ Redwood City (US); Polish founders and office in Warsaw", "note": "Share of team in Poland not verified."},
-    {"rang": 7, "nom": "Packhelp", "site": "packhelp.com", "sous_secteur": "E-commerce › custom packaging marketplace", "ville": "Warsaw", "creation": 2015, "leve_cumule": "USD ~60M (EUR 52M)", "derniere_levee": "Series B · USD ~46M (EUR 40M) · Nov 2021 (InfraVia)", "source": "https://techcrunch.com/2021/11/18/packhelp-series-b/", "confiance": 3, "juridiction": "Poland", "note": "EIB took part in the Series B, possibly as venture debt. No round since 2021."},
-    {"rang": 8, "nom": "Infermedica", "site": "infermedica.com", "sous_secteur": "HealthTech › AI symptom triage", "ville": "Wrocław", "creation": 2012, "leve_cumule": "USD ~45M", "derniere_levee": "Series B · USD 30M · Jan 2022 (One Peak)", "source": "https://techcrunch.com/2022/01/25/infermedica-raises-30m-to-expand-its-ai-based-medical-guidance-platform/", "confiance": 3, "juridiction": "Poland (a US entity also exists)", "note": "No round since 2022."},
-    {"rang": 9, "nom": "Nomagic", "site": "nomagic.ai", "sous_secteur": "Robotics › AI picking robots for warehouses", "ville": "Warsaw", "creation": 2017, "leve_cumule": "USD ≥40M", "derniere_levee": "Series B extension · USD 10M (EUR 8.3M) · Jan 2026 (Cogito Capital)", "source": "https://nomagic.ai/news/nomagic-secures-an-additional-10m-to-accelerate-commercial-growth-and-advance-its-technology-roadmap/", "confiance": 3, "juridiction": "Poland", "note": "Identifiable equity only. The company reports over USD 84M raised in total, but its USD 44M Series B (Feb 2025) includes EIB venture debt with no published split."},
-    {"rang": 10, "nom": "Tylko", "site": "tylko.com", "sous_secteur": "D2C › made-to-measure furniture with online configurator", "ville": "Warsaw", "creation": 2015, "leve_cumule": "USD ~38M (EUR 33M)", "derniere_levee": "Series C · USD ~26M (EUR 22M) · Mar 2021 (Pitango, Evli Growth Partners)", "source": "https://www.eu-startups.com/2021/03/polish-startup-tylko-raises-e22-million-to-expand-its-digital-first-personalised-sustainable-furniture-beyond-europe/", "confiance": 2, "juridiction": "Poland", "note": "No news since 2021; status 2024–26 not verified."},
-    {"rang": 11, "nom": "Alokai", "site": "alokai.com", "sous_secteur": "E-commerce › frontend-as-a-service", "ville": "Wrocław", "creation": 2018, "leve_cumule": "USD ~37.4M", "derniere_levee": "Equity · USD 20M · Mar 2023 (Felix Capital)", "source": "https://alokai.com/news/alokai-raises-20-million-in-equity-round", "confiance": 2, "juridiction": "HQ London (UK); team in Wrocław", "note": "Formerly Vue Storefront. Date of the USD 17.4M Series A not confirmed."},
-    {"rang": 12, "nom": "Synerise", "site": "synerise.com", "sous_secteur": "AI › behavioural data platform", "ville": "Kraków", "creation": 2013, "leve_cumule": "USD ~31.5M", "derniere_levee": "Venture debt · USD ~29M (EUR 25M) · 2025 (EIB); last equity: Series B+ · USD 8.5M · Jul 2024 (VTEX)", "source": "https://www.pymnts.com/artificial-intelligence-2/2024/synerise-raises-8-5-million-to-expand-ai-driven-behavioral-modeling-solutions/", "confiance": 3, "juridiction": "Poland (Synerise S.A.)", "note": "Equity only; EIB debt not counted. Valued above USD 120M in Jul 2024. The 2022 USD 23M round included a secondary component; pre-2022 rounds not itemised."},
-    {"rang": 13, "nom": "Cosmose AI", "site": "cosmose.co", "sous_secteur": "AI › offline retail analytics and media", "ville": "Warsaw", "creation": 2014, "leve_cumule": "USD ~27M", "derniere_levee": "Strategic · Undisclosed · Apr 2023 (NEAR Foundation)", "source": "https://en.ain.ua/2023/04/27/polish-founded-cosmose-ai-raises-strategic-investment-from-near-foundation/", "confiance": 1, "juridiction": "Legal seat not verified; engineering in Warsaw, markets in Asia", "note": "Seed amount (USD 12M) not verified. A USD 500M valuation (2023) comes from a single weak source."},
-    {"rang": 14, "nom": "Tidio", "site": "tidio.com", "sous_secteur": "SaaS › AI customer service", "ville": "Szczecin", "creation": 2013, "leve_cumule": "USD ~26.8M", "derniere_levee": "Series B · USD 25M · May 2022 (PeakSpan Capital)", "source": "https://techcrunch.com/2022/05/12/tidio-raises-25m-to-automate-customer-service-interactions/", "confiance": 3, "juridiction": "Possible US entity (Tidio LLC) to verify; team in Szczecin", "note": "No round since 2022."},
-    {"rang": 15, "nom": "Jutro Medical", "site": "jutromedical.com", "sous_secteur": "HealthTech › AI-first primary-care clinics", "ville": "Warsaw", "creation": 2020, "leve_cumule": "USD ≥22.5M (EUR 19.4M)", "derniere_levee": "Series A extension (equity and debt) · USD ~28M (EUR 24M) · Dec 2025 (Warsaw Equity Group)", "source": "https://tech.eu/2025/12/16/jutro-medical-extends-series-a-to-eur36m-for-ai-enabled-primary-care-scale/", "confiance": 2, "juridiction": "Poland", "note": "Identifiable equity only. The EUR 24M Dec 2025 round includes debt from mBank and Orbit Capital with no published split, so it is not counted; including it, about USD 50M."}
+    {
+      "rang": 1,
+      "nom": "Docplanner",
+      "site": "docplanner.com",
+      "sous_secteur": "HealthTech › doctor booking marketplace and SaaS",
+      "ville": "Warsaw",
+      "creation": 2012,
+      "leve_cumule": "USD ≥151M (EUR >130M)",
+      "derniere_levee": "Equity · Undisclosed · Aug 2021 (existing investors)",
+      "source": "https://www.unquote.com/cee/news/3024909/docplanner-raises-finance-valuing-business-at-usd-1bn",
+      "confiance": 2,
+      "juridiction": "HQ Warsaw; operations in Poland and 13 other countries",
+      "note": "Valued at USD 1bn in Aug 2021 (Unquote). A reported EUR 140M round in Oct 2024 is unconfirmed (single source) and not counted.",
+      "valuation_input": {
+        "published_usd": 1000000000,
+        "published_date": "2021-08",
+        "round_usd": 89800000,
+        "round_date": "2019-05",
+        "round_label": "Series E",
+        "cumulative_usd": null,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 1,
+        "adjust_reason": "later undisclosed round (Aug 2021) at reported USD 1bn valuation"
+      },
+      "valuation_bracket": "unicorn",
+      "valuation_basis": "Series E of USD 89.8M (May 2019); published valuation of USD 1bn (Aug 2021), over 24 months old; adjusted +1 bracket: later undisclosed round (Aug 2021) at reported USD 1bn valuation.",
+      "valuation_confidence": "medium",
+      "valuation_low_usd": 359200000,
+      "valuation_high_usd": 598666667
+    },
+    {
+      "rang": 2,
+      "nom": "Brainly",
+      "site": "brainly.com",
+      "sous_secteur": "EdTech › AI homework help",
+      "ville": "Kraków",
+      "creation": 2009,
+      "leve_cumule": "USD ~150M",
+      "derniere_levee": "Series D · USD 80M · Dec 2020 (Learn Capital, Prosus Ventures, General Catalyst)",
+      "source": "https://www.prnewswire.com/news-releases/brainly-completes-80m-series-d-round-301195010.html",
+      "confiance": 3,
+      "juridiction": "Dual HQ New York (US) and Kraków; main office in Kraków",
+      "note": "No round since 2020.",
+      "valuation_input": {
+        "published_usd": null,
+        "published_date": null,
+        "round_usd": 80000000,
+        "round_date": "2020-12",
+        "round_label": "Series D",
+        "cumulative_usd": null,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 0,
+        "adjust_reason": ""
+      },
+      "valuation_bracket": "hundreds_m",
+      "valuation_basis": "Series D of USD 80M (Dec 2020).",
+      "valuation_confidence": "medium",
+      "valuation_low_usd": 320000000,
+      "valuation_high_usd": 533333333
+    },
+    {
+      "rang": 3,
+      "nom": "Ramp Network",
+      "site": "rampnetwork.com",
+      "sous_secteur": "Fintech › crypto payments infrastructure",
+      "ville": "Warsaw",
+      "creation": 2017,
+      "leve_cumule": "USD ~133M",
+      "derniere_levee": "Series B · USD 70M · Nov 2022 (Mubadala Capital, Korelya)",
+      "source": "https://rampnetwork.com/blog/ramp-network-closes-70m-series-b-round",
+      "confiance": 3,
+      "juridiction": "Legal seat London (UK); Polish founders and team in Warsaw",
+      "note": "",
+      "valuation_input": {
+        "published_usd": null,
+        "published_date": null,
+        "round_usd": 70000000,
+        "round_date": "2022-11",
+        "round_label": "Series B",
+        "cumulative_usd": null,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 0,
+        "adjust_reason": ""
+      },
+      "valuation_bracket": "hundreds_m",
+      "valuation_basis": "Series B of USD 70M (Nov 2022).",
+      "valuation_confidence": "medium",
+      "valuation_low_usd": 280000000,
+      "valuation_high_usd": 466666667
+    },
+    {
+      "rang": 4,
+      "nom": "Booksy",
+      "site": "booksy.com",
+      "sous_secteur": "Vertical SaaS › beauty and wellness booking",
+      "ville": "Warsaw",
+      "creation": 2014,
+      "leve_cumule": "USD ~120M",
+      "derniere_levee": "Equity · Undisclosed · Nov 2023 (Inovia Capital)",
+      "source": "https://mamstartup.pl/booksy-ma-nowego-inwestora-inovia-capital-zainwestowal-w-startup-stefana-batorego/",
+      "confiance": 2,
+      "juridiction": "HQ Chicago (US); large team in Warsaw; US is the main market",
+      "note": "Total excludes undisclosed 2023 equity and 2024 debt. A USD 39.75M round in Sept 2025 is unconfirmed (single source) and not counted. About 20% staff cut announced Sept 2026.",
+      "valuation_input": {
+        "published_usd": null,
+        "published_date": null,
+        "round_usd": 70000000,
+        "round_date": "2021-01",
+        "round_label": "Series C",
+        "cumulative_usd": null,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 0,
+        "adjust_reason": ""
+      },
+      "valuation_bracket": "hundreds_m",
+      "valuation_basis": "Series C of USD 70M (Jan 2021).",
+      "valuation_confidence": "medium",
+      "valuation_low_usd": 280000000,
+      "valuation_high_usd": 466666667
+    },
+    {
+      "rang": 5,
+      "nom": "Viktor",
+      "site": "viktor.com",
+      "sous_secteur": "AI › AI coworker agents for Slack and Teams",
+      "ville": "Warsaw",
+      "creation": 2023,
+      "leve_cumule": "USD ≥75M",
+      "derniere_levee": "Series A · USD 75M (PLN 274M) · May 2026 (Accel)",
+      "source": "https://viktor.com/blog/viktor-series-a",
+      "confiance": 3,
+      "juridiction": "Legal seat not verified; co-HQ Warsaw and Munich, engineering in Warsaw",
+      "note": "Earlier rounds not found.",
+      "valuation_input": {
+        "published_usd": null,
+        "published_date": null,
+        "round_usd": 75000000,
+        "round_date": "2026-05",
+        "round_label": "Series A",
+        "cumulative_usd": null,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 0,
+        "adjust_reason": ""
+      },
+      "valuation_bracket": "hundreds_m",
+      "valuation_basis": "Series A of USD 75M (May 2026).",
+      "valuation_confidence": "high",
+      "valuation_low_usd": 300000000,
+      "valuation_high_usd": 500000000
+    },
+    {
+      "rang": 6,
+      "nom": "Spacelift",
+      "site": "spacelift.io",
+      "sous_secteur": "DevOps › infrastructure-as-code automation",
+      "ville": "Warsaw",
+      "creation": 2020,
+      "leve_cumule": "USD ~72M",
+      "derniere_levee": "Series C · USD 51M · Jul 2025 (Five Elms Capital, Endeavor Catalyst, Inovo)",
+      "source": "https://www.prnewswire.com/news-releases/spacelift-raises-51m-series-c-to-redefine-enterprise-infrastructure-automation-302501578.html",
+      "confiance": 3,
+      "juridiction": "HQ Redwood City (US); Polish founders and office in Warsaw",
+      "note": "Share of team in Poland not verified.",
+      "valuation_input": {
+        "published_usd": null,
+        "published_date": null,
+        "round_usd": 51000000,
+        "round_date": "2025-07",
+        "round_label": "Series C",
+        "cumulative_usd": null,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 0,
+        "adjust_reason": ""
+      },
+      "valuation_bracket": "hundreds_m",
+      "valuation_basis": "Series C of USD 51M (Jul 2025).",
+      "valuation_confidence": "high",
+      "valuation_low_usd": 204000000,
+      "valuation_high_usd": 340000000
+    },
+    {
+      "rang": 7,
+      "nom": "Packhelp",
+      "site": "packhelp.com",
+      "sous_secteur": "E-commerce › custom packaging marketplace",
+      "ville": "Warsaw",
+      "creation": 2015,
+      "leve_cumule": "USD ~60M (EUR 52M)",
+      "derniere_levee": "Series B · USD ~46M (EUR 40M) · Nov 2021 (InfraVia)",
+      "source": "https://techcrunch.com/2021/11/18/packhelp-series-b/",
+      "confiance": 3,
+      "juridiction": "Poland",
+      "note": "EIB took part in the Series B, possibly as venture debt. No round since 2021.",
+      "valuation_input": {
+        "published_usd": null,
+        "published_date": null,
+        "round_usd": 45600000,
+        "round_date": "2021-11",
+        "round_label": "Series B",
+        "cumulative_usd": null,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 0,
+        "adjust_reason": ""
+      },
+      "valuation_bracket": "hundreds_m",
+      "valuation_basis": "Series B of USD 45.6M (Nov 2021).",
+      "valuation_confidence": "medium",
+      "valuation_low_usd": 182400000,
+      "valuation_high_usd": 304000000
+    },
+    {
+      "rang": 8,
+      "nom": "Infermedica",
+      "site": "infermedica.com",
+      "sous_secteur": "HealthTech › AI symptom triage",
+      "ville": "Wrocław",
+      "creation": 2012,
+      "leve_cumule": "USD ~45M",
+      "derniere_levee": "Series B · USD 30M · Jan 2022 (One Peak)",
+      "source": "https://techcrunch.com/2022/01/25/infermedica-raises-30m-to-expand-its-ai-based-medical-guidance-platform/",
+      "confiance": 3,
+      "juridiction": "Poland (a US entity also exists)",
+      "note": "No round since 2022.",
+      "valuation_input": {
+        "published_usd": null,
+        "published_date": null,
+        "round_usd": 30000000,
+        "round_date": "2022-01",
+        "round_label": "Series B",
+        "cumulative_usd": null,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 0,
+        "adjust_reason": ""
+      },
+      "valuation_bracket": "hundreds_m",
+      "valuation_basis": "Series B of USD 30M (Jan 2022).",
+      "valuation_confidence": "medium",
+      "valuation_low_usd": 120000000,
+      "valuation_high_usd": 200000000
+    },
+    {
+      "rang": 9,
+      "nom": "Nomagic",
+      "site": "nomagic.ai",
+      "sous_secteur": "Robotics › AI picking robots for warehouses",
+      "ville": "Warsaw",
+      "creation": 2017,
+      "leve_cumule": "USD ≥40M",
+      "derniere_levee": "Series B extension · USD 10M (EUR 8.3M) · Jan 2026 (Cogito Capital)",
+      "source": "https://nomagic.ai/news/nomagic-secures-an-additional-10m-to-accelerate-commercial-growth-and-advance-its-technology-roadmap/",
+      "confiance": 3,
+      "juridiction": "Poland",
+      "note": "Identifiable equity only. The company reports over USD 84M raised in total, but its USD 44M Series B (Feb 2025) includes EIB venture debt with no published split.",
+      "valuation_input": {
+        "published_usd": null,
+        "published_date": null,
+        "round_usd": 10000000,
+        "round_date": "2026-01",
+        "round_label": "Series B extension",
+        "cumulative_usd": null,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 1,
+        "adjust_reason": "extension of USD 44M Series B (Feb 2025, equity+debt mix); company reports over USD 84M raised"
+      },
+      "valuation_bracket": "hundreds_m",
+      "valuation_basis": "Series B extension of USD 10M (Jan 2026); adjusted +1 bracket: extension of USD 44M Series B (Feb 2025, equity+debt mix); company reports over USD 84M raised.",
+      "valuation_confidence": "high",
+      "valuation_low_usd": 40000000,
+      "valuation_high_usd": 66666667
+    },
+    {
+      "rang": 10,
+      "nom": "Tylko",
+      "site": "tylko.com",
+      "sous_secteur": "D2C › made-to-measure furniture with online configurator",
+      "ville": "Warsaw",
+      "creation": 2015,
+      "leve_cumule": "USD ~38M (EUR 33M)",
+      "derniere_levee": "Series C · USD ~26M (EUR 22M) · Mar 2021 (Pitango, Evli Growth Partners)",
+      "source": "https://www.eu-startups.com/2021/03/polish-startup-tylko-raises-e22-million-to-expand-its-digital-first-personalised-sustainable-furniture-beyond-europe/",
+      "confiance": 2,
+      "juridiction": "Poland",
+      "note": "No news since 2021; status 2024–26 not verified.",
+      "valuation_input": {
+        "published_usd": null,
+        "published_date": null,
+        "round_usd": 26000000,
+        "round_date": "2021-03",
+        "round_label": "Series C",
+        "cumulative_usd": null,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 0,
+        "adjust_reason": ""
+      },
+      "valuation_bracket": "hundreds_m",
+      "valuation_basis": "Series C of USD 26M (Mar 2021).",
+      "valuation_confidence": "medium",
+      "valuation_low_usd": 104000000,
+      "valuation_high_usd": 173333333
+    },
+    {
+      "rang": 11,
+      "nom": "Alokai",
+      "site": "alokai.com",
+      "sous_secteur": "E-commerce › frontend-as-a-service",
+      "ville": "Wrocław",
+      "creation": 2018,
+      "leve_cumule": "USD ~37.4M",
+      "derniere_levee": "Equity · USD 20M · Mar 2023 (Felix Capital)",
+      "source": "https://alokai.com/news/alokai-raises-20-million-in-equity-round",
+      "confiance": 2,
+      "juridiction": "HQ London (UK); team in Wrocław",
+      "note": "Formerly Vue Storefront. Date of the USD 17.4M Series A not confirmed.",
+      "valuation_input": {
+        "published_usd": null,
+        "published_date": null,
+        "round_usd": 20000000,
+        "round_date": "2023-03",
+        "round_label": null,
+        "cumulative_usd": null,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 0,
+        "adjust_reason": ""
+      },
+      "valuation_bracket": "tens_m",
+      "valuation_basis": "Round of USD 20M (Mar 2023).",
+      "valuation_confidence": "medium",
+      "valuation_low_usd": 80000000,
+      "valuation_high_usd": 133333333
+    },
+    {
+      "rang": 12,
+      "nom": "Synerise",
+      "site": "synerise.com",
+      "sous_secteur": "AI › behavioural data platform",
+      "ville": "Kraków",
+      "creation": 2013,
+      "leve_cumule": "USD ~31.5M",
+      "derniere_levee": "Venture debt · USD ~29M (EUR 25M) · 2025 (EIB); last equity: Series B+ · USD 8.5M · Jul 2024 (VTEX)",
+      "source": "https://www.pymnts.com/artificial-intelligence-2/2024/synerise-raises-8-5-million-to-expand-ai-driven-behavioral-modeling-solutions/",
+      "confiance": 3,
+      "juridiction": "Poland (Synerise S.A.)",
+      "note": "Equity only; EIB debt not counted. Valued above USD 120M in Jul 2024. The 2022 USD 23M round included a secondary component; pre-2022 rounds not itemised.",
+      "valuation_input": {
+        "published_usd": 120000000,
+        "published_date": "2024-07",
+        "round_usd": 8500000,
+        "round_date": "2024-07",
+        "round_label": "Series B+",
+        "cumulative_usd": null,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 0,
+        "adjust_reason": ""
+      },
+      "valuation_bracket": "tens_m",
+      "valuation_basis": "Series B+ of USD 8.5M (Jul 2024); published valuation of USD 120M (Jul 2024), over 24 months old.",
+      "valuation_confidence": "medium",
+      "valuation_low_usd": 34000000,
+      "valuation_high_usd": 56666667
+    },
+    {
+      "rang": 13,
+      "nom": "Cosmose AI",
+      "site": "cosmose.co",
+      "sous_secteur": "AI › offline retail analytics and media",
+      "ville": "Warsaw",
+      "creation": 2014,
+      "leve_cumule": "USD ~27M",
+      "derniere_levee": "Strategic · Undisclosed · Apr 2023 (NEAR Foundation)",
+      "source": "https://en.ain.ua/2023/04/27/polish-founded-cosmose-ai-raises-strategic-investment-from-near-foundation/",
+      "confiance": 1,
+      "juridiction": "Legal seat not verified; engineering in Warsaw, markets in Asia",
+      "note": "Seed amount (USD 12M) not verified. A USD 500M valuation (2023) comes from a single weak source.",
+      "valuation_input": {
+        "published_usd": 500000000,
+        "published_date": "2023-04",
+        "round_usd": 15000000,
+        "round_date": "2020-08",
+        "round_label": "Series A",
+        "cumulative_usd": null,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 0,
+        "adjust_reason": ""
+      },
+      "valuation_bracket": "tens_m",
+      "valuation_basis": "Series A of USD 15M (Aug 2020); published valuation of USD 500M (Apr 2023), over 24 months old.",
+      "valuation_confidence": "medium",
+      "valuation_low_usd": 60000000,
+      "valuation_high_usd": 100000000
+    },
+    {
+      "rang": 14,
+      "nom": "Tidio",
+      "site": "tidio.com",
+      "sous_secteur": "SaaS › AI customer service",
+      "ville": "Szczecin",
+      "creation": 2013,
+      "leve_cumule": "USD ~26.8M",
+      "derniere_levee": "Series B · USD 25M · May 2022 (PeakSpan Capital)",
+      "source": "https://techcrunch.com/2022/05/12/tidio-raises-25m-to-automate-customer-service-interactions/",
+      "confiance": 3,
+      "juridiction": "Possible US entity (Tidio LLC) to verify; team in Szczecin",
+      "note": "No round since 2022.",
+      "valuation_input": {
+        "published_usd": null,
+        "published_date": null,
+        "round_usd": 25000000,
+        "round_date": "2022-05",
+        "round_label": "Series B",
+        "cumulative_usd": null,
+        "sources": "single",
+        "contradictory": false,
+        "adjust": 0,
+        "adjust_reason": ""
+      },
+      "valuation_bracket": "hundreds_m",
+      "valuation_basis": "Series B of USD 25M (May 2022); single source.",
+      "valuation_confidence": "low",
+      "valuation_low_usd": 100000000,
+      "valuation_high_usd": 166666667
+    },
+    {
+      "rang": 15,
+      "nom": "Jutro Medical",
+      "site": "jutromedical.com",
+      "sous_secteur": "HealthTech › AI-first primary-care clinics",
+      "ville": "Warsaw",
+      "creation": 2020,
+      "leve_cumule": "USD ≥22.5M (EUR 19.4M)",
+      "derniere_levee": "Series A extension (equity and debt) · USD ~28M (EUR 24M) · Dec 2025 (Warsaw Equity Group)",
+      "source": "https://tech.eu/2025/12/16/jutro-medical-extends-series-a-to-eur36m-for-ai-enabled-primary-care-scale/",
+      "confiance": 2,
+      "juridiction": "Poland",
+      "note": "Identifiable equity only. The EUR 24M Dec 2025 round includes debt from mBank and Orbit Capital with no published split, so it is not counted; including it, about USD 50M.",
+      "valuation_input": {
+        "published_usd": null,
+        "published_date": null,
+        "round_usd": 13900000,
+        "round_date": "2025-03",
+        "round_label": "Series A",
+        "cumulative_usd": null,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 1,
+        "adjust_reason": "later EUR 24M Series A extension (Dec 2025) with undisclosed debt share"
+      },
+      "valuation_bracket": "hundreds_m",
+      "valuation_basis": "Series A of USD 13.9M (Mar 2025); adjusted +1 bracket: later EUR 24M Series A extension (Dec 2025) with undisclosed debt share.",
+      "valuation_confidence": "high",
+      "valuation_low_usd": 55600000,
+      "valuation_high_usd": 92666667
+    }
   ],
   "radar": [
-    {"nom": "Zowie", "sous_secteur": "AI › customer-service automation (Zowie Inc., US; team in Warsaw)", "derniere_levee": "Series A · USD 14M · May 2022 (Tiger Global)", "source": "https://getzowie.com/blog/series-a-funding"},
-    {"nom": "Symmetrical.ai", "sous_secteur": "Fintech › payroll", "derniere_levee": "Series A · USD 18.5M · Apr 2022 (Target Global)", "source": "https://tech.eu/2022/04/28/what-does-future-of-global-payroll-look-like-warsaws-symmetricalai-unlocks-185-million-to-lay-the-roadmap/"},
-    {"nom": "BLANK. Game Studios", "sous_secteur": "Gaming › AAA studio", "derniere_levee": "Strategic minority · USD 17M · Nov 2023 (Neowiz)", "source": "https://www.gematsu.com/2023/11/neowiz-acquires-21-percent-stake-in-blank"},
-    {"nom": "CampusAI", "sous_secteur": "EdTech › AI upskilling", "derniere_levee": "Pre-seed · USD ~10.7M (EUR 9.2M) · Jun 2024", "source": "https://www.eu-startups.com/2024/06/warsaw-based-campusai-raises-e9-2-million-to-create-a-global-network-of-interactive-platforms-teaching-collaboration-with-ai/"},
-    {"nom": "Ingenix.ai", "sous_secteur": "HealthTech › AI clinical-trial simulation", "derniere_levee": "Seed · USD ~10.4M (EUR 9M) · Apr 2025 (Inovo)", "source": "https://tech.eu/2025/04/08/ingenix-raises-9m-seed-for-clinical-drug-trial-simulations/"},
-    {"nom": "Fudo Security", "sous_secteur": "Cybersecurity › privileged access management", "derniere_levee": "Series A · USD 10M (PLN 40M) · Jan 2025 (bValue Growth)", "source": "https://www.vestbee.com/insights/articles/fudo-security-secures-10-m"},
-    {"nom": "Sybilla Technologies", "sous_secteur": "SpaceTech › space situational awareness", "derniere_levee": "First external round · USD ~9.6M (EUR >8M) · Jun 2026 (3TS, Vinci)", "source": "https://www.eu-startups.com/2026/06/polish-spacetech-startup-sybilla-exits-bootstrapped-orbit-with-over-e8-million-to-strengthen-space-monitoring"},
-    {"nom": "SR Robotics", "sous_secteur": "Robotics › underwater robots (dual-use)", "derniere_levee": "Equity · USD ~9.7M (EUR 8.4M) · Jul 2025 (Vinci)", "source": "https://www.eu-startups.com/2025/07/polish-startup-sr-robotics-lands-e8-4-million-to-expand-eco-friendly-underwater-solutions-and-boost-energy-security/"},
-    {"nom": "Orbotix Industries", "sous_secteur": "DefenceTech › autonomous drones", "derniere_levee": "Equity · USD ~7.5M (EUR 6.5M) · Oct 2025 (Bravo Victor VC)", "source": "https://www.eu-startups.com/2025/10/warsaw-based-orbotix-raises-e6-5-million-to-advance-autonomous-defence-systems-in-europe/"},
-    {"nom": "Wealthon", "sous_secteur": "Fintech › SME lending", "derniere_levee": "Equity USD ~8.5M (EUR 7.3M, 3TS) plus EUR 116M debt · Feb 2025", "source": "https://www.eu-startups.com/2025/02/fintech-startup-wealthon-secures-e126-million-for-financial-services-ecosystem-for-smes/"}
+    {
+      "nom": "Zowie",
+      "sous_secteur": "AI › customer-service automation (Zowie Inc., US; team in Warsaw)",
+      "derniere_levee": "Series A · USD 14M · May 2022 (Tiger Global)",
+      "source": "https://getzowie.com/blog/series-a-funding"
+    },
+    {
+      "nom": "Symmetrical.ai",
+      "sous_secteur": "Fintech › payroll",
+      "derniere_levee": "Series A · USD 18.5M · Apr 2022 (Target Global)",
+      "source": "https://tech.eu/2022/04/28/what-does-future-of-global-payroll-look-like-warsaws-symmetricalai-unlocks-185-million-to-lay-the-roadmap/"
+    },
+    {
+      "nom": "BLANK. Game Studios",
+      "sous_secteur": "Gaming › AAA studio",
+      "derniere_levee": "Strategic minority · USD 17M · Nov 2023 (Neowiz)",
+      "source": "https://www.gematsu.com/2023/11/neowiz-acquires-21-percent-stake-in-blank"
+    },
+    {
+      "nom": "CampusAI",
+      "sous_secteur": "EdTech › AI upskilling",
+      "derniere_levee": "Pre-seed · USD ~10.7M (EUR 9.2M) · Jun 2024",
+      "source": "https://www.eu-startups.com/2024/06/warsaw-based-campusai-raises-e9-2-million-to-create-a-global-network-of-interactive-platforms-teaching-collaboration-with-ai/"
+    },
+    {
+      "nom": "Ingenix.ai",
+      "sous_secteur": "HealthTech › AI clinical-trial simulation",
+      "derniere_levee": "Seed · USD ~10.4M (EUR 9M) · Apr 2025 (Inovo)",
+      "source": "https://tech.eu/2025/04/08/ingenix-raises-9m-seed-for-clinical-drug-trial-simulations/"
+    },
+    {
+      "nom": "Fudo Security",
+      "sous_secteur": "Cybersecurity › privileged access management",
+      "derniere_levee": "Series A · USD 10M (PLN 40M) · Jan 2025 (bValue Growth)",
+      "source": "https://www.vestbee.com/insights/articles/fudo-security-secures-10-m"
+    },
+    {
+      "nom": "Sybilla Technologies",
+      "sous_secteur": "SpaceTech › space situational awareness",
+      "derniere_levee": "First external round · USD ~9.6M (EUR >8M) · Jun 2026 (3TS, Vinci)",
+      "source": "https://www.eu-startups.com/2026/06/polish-spacetech-startup-sybilla-exits-bootstrapped-orbit-with-over-e8-million-to-strengthen-space-monitoring"
+    },
+    {
+      "nom": "SR Robotics",
+      "sous_secteur": "Robotics › underwater robots (dual-use)",
+      "derniere_levee": "Equity · USD ~9.7M (EUR 8.4M) · Jul 2025 (Vinci)",
+      "source": "https://www.eu-startups.com/2025/07/polish-startup-sr-robotics-lands-e8-4-million-to-expand-eco-friendly-underwater-solutions-and-boost-energy-security/"
+    },
+    {
+      "nom": "Orbotix Industries",
+      "sous_secteur": "DefenceTech › autonomous drones",
+      "derniere_levee": "Equity · USD ~7.5M (EUR 6.5M) · Oct 2025 (Bravo Victor VC)",
+      "source": "https://www.eu-startups.com/2025/10/warsaw-based-orbotix-raises-e6-5-million-to-advance-autonomous-defence-systems-in-europe/"
+    },
+    {
+      "nom": "Wealthon",
+      "sous_secteur": "Fintech › SME lending",
+      "derniere_levee": "Equity USD ~8.5M (EUR 7.3M, 3TS) plus EUR 116M debt · Feb 2025",
+      "source": "https://www.eu-startups.com/2025/02/fintech-startup-wealthon-secures-e126-million-for-financial-services-ecosystem-for-smes/"
+    }
   ],
   "nees_ici": [
-    {"nom": "ElevenLabs", "sous_secteur": "AI › voice generation", "lieu": "Polish founders; HQ London and New York, significant staff in Warsaw", "derniere_levee": "Series D · USD 500M · Feb 2026 (Sequoia)", "source": "https://elevenlabs.io/blog/series-d"},
-    {"nom": "Kontakt.io", "sous_secteur": "HealthTech › hospital location and IoT platform", "lieu": "Founded in Kraków; HQ New York, R&D in Kraków", "derniere_levee": "Series C · USD 47.5M · Apr 2024 (Goldman Sachs Asset Management)", "source": "https://kontakt.io/press-releases/kontakt-io-raises-47-5-million-series-c-funding-from-goldman-sachs-to-fuel-ai-development-and-expansion-into-us-hospitals/"},
-    {"nom": "Silent Eight", "sous_secteur": "RegTech › AI financial-crime compliance", "lieu": "Polish founders; HQ Singapore, R&D in Warsaw", "derniere_levee": "Series B · USD 40M · Mar 2022 (TYH Ventures)", "source": "https://www.prnewswire.com/news-releases/silent-eight-raises-40m-in-series-b-round-301499126.html"},
-    {"nom": "SKY ENGINE AI", "sous_secteur": "AI › synthetic data for computer vision", "lieu": "HQ London; Polish subsidiary", "derniere_levee": "Series A · USD 7M · Jan 2024 (Cogito Capital)", "source": "https://tech.eu/2024/01/17/sky-engine-ai-raises-7m-in-series-a-funding-for-synthetic-data-cloud-platform/"}
+    {
+      "nom": "ElevenLabs",
+      "sous_secteur": "AI › voice generation",
+      "lieu": "Polish founders; HQ London and New York, significant staff in Warsaw",
+      "derniere_levee": "Series D · USD 500M · Feb 2026 (Sequoia)",
+      "source": "https://elevenlabs.io/blog/series-d"
+    },
+    {
+      "nom": "Kontakt.io",
+      "sous_secteur": "HealthTech › hospital location and IoT platform",
+      "lieu": "Founded in Kraków; HQ New York, R&D in Kraków",
+      "derniere_levee": "Series C · USD 47.5M · Apr 2024 (Goldman Sachs Asset Management)",
+      "source": "https://kontakt.io/press-releases/kontakt-io-raises-47-5-million-series-c-funding-from-goldman-sachs-to-fuel-ai-development-and-expansion-into-us-hospitals/"
+    },
+    {
+      "nom": "Silent Eight",
+      "sous_secteur": "RegTech › AI financial-crime compliance",
+      "lieu": "Polish founders; HQ Singapore, R&D in Warsaw",
+      "derniere_levee": "Series B · USD 40M · Mar 2022 (TYH Ventures)",
+      "source": "https://www.prnewswire.com/news-releases/silent-eight-raises-40m-in-series-b-round-301499126.html"
+    },
+    {
+      "nom": "SKY ENGINE AI",
+      "sous_secteur": "AI › synthetic data for computer vision",
+      "lieu": "HQ London; Polish subsidiary",
+      "derniere_levee": "Series A · USD 7M · Jan 2024 (Cogito Capital)",
+      "source": "https://tech.eu/2024/01/17/sky-engine-ai-raises-7m-in-series-a-funding-for-synthetic-data-cloud-platform/"
+    }
   ],
   "nees_ailleurs": [
-    {"nom": "PeopleForce", "sous_secteur": "HR tech › HR management software", "lieu": "Founded in Kyiv (Ukraine); expanding teams in Poland", "derniere_levee": "Pre-Series A · USD 5.38M · Apr 2025 (Pracuj Ventures)", "source": "https://en.ain.ua/2025/04/16/peopleforce-raises-54m-in-pre-series-a/"},
-    {"nom": "Molfar Defence Technologies", "sous_secteur": "DefenceTech", "lieu": "Polish-Ukrainian, founded 2026; operations in Poland, office in Ukraine", "derniere_levee": "First tranche · USD ~1.7M (EUR 1.5M) · Jun 2026 (Front Ventures)", "source": "https://en.ain.ua/2026/06/03/polish-ukrainian-startup-molfar-defence-technologies-raised-eur15m-investment-from-swedens-front-ventures/"}
+    {
+      "nom": "PeopleForce",
+      "sous_secteur": "HR tech › HR management software",
+      "lieu": "Founded in Kyiv (Ukraine); expanding teams in Poland",
+      "derniere_levee": "Pre-Series A · USD 5.38M · Apr 2025 (Pracuj Ventures)",
+      "source": "https://en.ain.ua/2025/04/16/peopleforce-raises-54m-in-pre-series-a/"
+    },
+    {
+      "nom": "Molfar Defence Technologies",
+      "sous_secteur": "DefenceTech",
+      "lieu": "Polish-Ukrainian, founded 2026; operations in Poland, office in Ukraine",
+      "derniere_levee": "First tranche · USD ~1.7M (EUR 1.5M) · Jun 2026 (Front Ventures)",
+      "source": "https://en.ain.ua/2026/06/03/polish-ukrainian-startup-molfar-defence-technologies-raised-eur15m-investment-from-swedens-front-ventures/"
+    }
   ],
   "hors_classement": [
-    {"nom": "Neptune.ai", "motif": "Acquired by OpenAI (Dec 2025)", "source": "https://openai.com/index/openai-to-acquire-neptune/"},
-    {"nom": "Nethone", "motif": "Acquired by Mangopay (announced Nov 2022)", "source": "https://tech.eu/2022/11/29/mangopay-acquires-fraud-detection-and-prevention-company-nethone/"},
-    {"nom": "Applica", "motif": "Acquired by Snowflake (2022)", "source": "https://en.ain.ua/2025/04/08/polish-healthtech-ingenix-secures-eur9m/"},
-    {"nom": "Displate", "motif": "Majority acquired by Mid Europa Partners (Nov 2020)", "source": "https://www.unquote.com/cee/official-record/3021678/mid-europa-buys-polish-e-retailer-displate"},
-    {"nom": "UXPin", "motif": "Acquired by Xenon Partners (Jun 2020, aggregator source only)", "source": "https://tracxn.com/d/companies/uxpin/__BuK2m7FfPS0RRzwI2WnsaFkYDirrfRzldavpqZi7z7A"},
-    {"nom": "Brand24", "motif": "Formerly listed on WSE; taken over by Prowly.com and delisted (2024)", "source": "https://www.wirtualnemedia.pl/brand24-akcje-kupione-przez-prowly-com-spolka-zniknie-z-gieldy,7254624438393216a"},
-    {"nom": "Saule Technologies", "motif": "Listed on NewConnect; in restructuring, shares excluded from trading (Jun 2026)", "source": "https://www.bankier.pl/inwestowanie/profile/quote.html?symbol=SAULETECH"}
+    {
+      "nom": "Neptune.ai",
+      "motif": "Acquired by OpenAI (Dec 2025)",
+      "source": "https://openai.com/index/openai-to-acquire-neptune/"
+    },
+    {
+      "nom": "Nethone",
+      "motif": "Acquired by Mangopay (announced Nov 2022)",
+      "source": "https://tech.eu/2022/11/29/mangopay-acquires-fraud-detection-and-prevention-company-nethone/"
+    },
+    {
+      "nom": "Applica",
+      "motif": "Acquired by Snowflake (2022)",
+      "source": "https://en.ain.ua/2025/04/08/polish-healthtech-ingenix-secures-eur9m/"
+    },
+    {
+      "nom": "Displate",
+      "motif": "Majority acquired by Mid Europa Partners (Nov 2020)",
+      "source": "https://www.unquote.com/cee/official-record/3021678/mid-europa-buys-polish-e-retailer-displate"
+    },
+    {
+      "nom": "UXPin",
+      "motif": "Acquired by Xenon Partners (Jun 2020, aggregator source only)",
+      "source": "https://tracxn.com/d/companies/uxpin/__BuK2m7FfPS0RRzwI2WnsaFkYDirrfRzldavpqZi7z7A"
+    },
+    {
+      "nom": "Brand24",
+      "motif": "Formerly listed on WSE; taken over by Prowly.com and delisted (2024)",
+      "source": "https://www.wirtualnemedia.pl/brand24-akcje-kupione-przez-prowly-com-spolka-zniknie-z-gieldy,7254624438393216a"
+    },
+    {
+      "nom": "Saule Technologies",
+      "motif": "Listed on NewConnect; in restructuring, shares excluded from trading (Jun 2026)",
+      "source": "https://www.bankier.pl/inwestowanie/profile/quote.html?symbol=SAULETECH"
+    }
   ],
   "reperes_cotes": [
-    {"nom": "Allegro.eu", "info": "E-commerce · WSE IPO Oct 2020 · largest IPO in WSE history (PLN 9.2bn offering)", "source": "https://about.allegro.eu/news-releases/news-release-details/shares-allegroeu-debut-warsaw-stock-exchange"},
-    {"nom": "QNA Technology", "info": "Quantum dots · moved from NewConnect to WSE Main Market in Jun 2025", "source": "https://www.gpw.pl/aktualnosc?cmn_id=117040"}
+    {
+      "nom": "Allegro.eu",
+      "info": "E-commerce · WSE IPO Oct 2020 · largest IPO in WSE history (PLN 9.2bn offering)",
+      "source": "https://about.allegro.eu/news-releases/news-release-details/shares-allegroeu-debut-warsaw-stock-exchange"
+    },
+    {
+      "nom": "QNA Technology",
+      "info": "Quantum dots · moved from NewConnect to WSE Main Market in Jun 2025",
+      "source": "https://www.gpw.pl/aktualnosc?cmn_id=117040"
+    }
   ],
   "marche": {
     "total_2025": "PLN 3.4bn (~USD 0.93bn)",
     "deals_2025": "183",
     "commentaire": "183 deals in 166 companies in 2025. ElevenLabs and ICEYE account for about half of the total and are not counted as Polish-operated by Uback; excluding them, the market grew 28% year on year.",
     "sources": [
-      {"label": "PFR Ventures & Inovo", "url": "https://pfrventures.pl/document/2799"},
-      {"label": "Mamstartup", "url": "https://mamstartup.pl/wartosc-inwestycji-venture-capital-w-polsce-w-2025-roku-wyniosla-34-mld-pln/"}
+      {
+        "label": "PFR Ventures & Inovo",
+        "url": "https://pfrventures.pl/document/2799"
+      },
+      {
+        "label": "Mamstartup",
+        "url": "https://mamstartup.pl/wartosc-inwestycji-venture-capital-w-polsce-w-2025-roku-wyniosla-34-mld-pln/"
+      }
     ]
   }
 }

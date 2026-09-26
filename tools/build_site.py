@@ -20,7 +20,7 @@ TOOLS = os.path.dirname(os.path.abspath(__file__))
 #   langs        langues affichées dans l'en-tête (code, disponible ?)
 #   slug         nom du formulaire de suivi ; og_v : version de l'image de partage
 MARKETS = [
-    {'code': 'ma', 'lang': 'fr', 'data': 'classement-ma-2026-09.json', 'top_n': 20, 'slug': 'maroc', 'og_v': 2,
+    {'code': 'ma', 'lang': 'fr', 'data': 'classement-ma-2026-09.json', 'top_n': 20, 'slug': 'maroc', 'og_v': 3,
      'name': 'Maroc', 'in': 'au Maroc', 'the': 'le Maroc', 'adj_m': 'marocain', 'adj_f': 'marocaine', 'adj_fp': 'marocaines',
      'names': {'fr': 'Maroc', 'en': 'Morocco'},
      'cities': 'Paris, Dubaï ou Montréal',
@@ -36,7 +36,7 @@ MARKETS = [
      'langs': [('FR', True), ('EN', False), ('AR', False)],
      'flag': '<svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" fill="#C1272D"/><polygon points="24,8.5 26.6,16.4 34.4,11.6 20,20.9 29.6,20.9 18.2,11.6 26,16.4" fill="none" stroke="#006233" stroke-width="1.6" stroke-linejoin="round" transform="translate(-2.2 1.2)"/></svg>'},
 
-    {'code': 'pl', 'lang': 'en', 'data': 'classement-pl-2026-09.json', 'top_n': 15, 'slug': 'poland', 'og_v': 1,
+    {'code': 'pl', 'lang': 'en', 'data': 'classement-pl-2026-09.json', 'top_n': 15, 'slug': 'poland', 'og_v': 2,
      'name': 'Poland', 'in': 'in Poland', 'the': 'Poland', 'adj_m': 'Polish', 'adj_f': 'Polish', 'adj_fp': 'Polish',
      'names': {'fr': 'Pologne', 'en': 'Poland'},
      'cities': 'London, Chicago or Berlin',
@@ -52,7 +52,7 @@ MARKETS = [
      'langs': [('EN', True), ('PL', False)],
      'flag': '<svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="16" fill="#FFFFFF"/><rect y="16" width="48" height="16" fill="#DC143C"/><rect x=".5" y=".5" width="47" height="31" fill="none" stroke="#E4E8EE"/></svg>'},
 
-    {'code': 'vn', 'lang': 'en', 'data': 'classement-vn-2026-09.json', 'top_n': 15, 'slug': 'vietnam', 'og_v': 1,
+    {'code': 'vn', 'lang': 'en', 'data': 'classement-vn-2026-09.json', 'top_n': 15, 'slug': 'vietnam', 'og_v': 2,
      'name': 'Vietnam', 'in': 'in Vietnam', 'the': 'Vietnam', 'adj_m': 'Vietnamese', 'adj_f': 'Vietnamese', 'adj_fp': 'Vietnamese',
      'names': {'fr': 'Vietnam', 'en': 'Vietnam'},
      'cities': 'Singapore, Paris or California',
@@ -85,10 +85,18 @@ def switcher(m):
 # sans attendre l'expiration du cache des navigateurs
 CSS_V = hashlib.sha1(open(os.path.join(TOOLS, '..', 'ma', 'assets', 'style.css'), 'rb').read()).hexdigest()[:8]
 
+sys.path.insert(0, TOOLS)
+import json, valuation
+
 wanted = set(sys.argv[1:])
 for m in MARKETS:
     if wanted and m['code'] not in wanted:
         continue
+    # ordre de grandeur de valorisation : recalculé depuis "valuation_input" (règle dans tools/valuation.py)
+    path = os.path.join(TOOLS, '..', m['code'], 'data', m['data'])
+    data = json.load(open(path, encoding='utf-8'))
+    if valuation.apply(data, m['lang']):
+        open(path, 'w', encoding='utf-8', newline='\n').write(json.dumps(data, ensure_ascii=False, indent=2) + '\n')
     m['switcher'] = switcher(m)
     m['css_v'] = CSS_V
     runpy.run_path(os.path.join(TOOLS, 'site.py'), init_globals={'M': m})

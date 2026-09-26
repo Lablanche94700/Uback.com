@@ -4,6 +4,7 @@ Ne pas lancer directement : tools/build_site.py l'exécute avec la configuration
 Les textes d'interface sont dans TXT (fr, en) ; tout ce qui est propre au pays vient de M ou des données.
 Écrit uniquement dans le dossier du marché (ex. pl/), jamais à la racine."""
 import json, html, os, re, shutil, datetime
+from urllib.parse import quote
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # racine du dépôt = dossier publié
 PREFIX = '/' + M['code']            # chemin du marché sur uback.com (M est fourni par build_site.py)
 OUT = ROOT + PREFIX                 # seul dossier écrit par ce gabarit
@@ -38,11 +39,17 @@ TXT = {
   founded='fondée en', l_sub='Sous-secteur', l_fund='Levées', l_conf='Confiance', l_access='Accès', raised=' cumulés',
   st_title='Aucune intention de lever ou de céder n’a été déclarée sur Uback. Les dirigeants peuvent revendiquer leur fiche.', st='Non déclaré',
   ld_name='Les {N} startups {adj_fp} les mieux valorisées – {date}',
-  ld_desc="Classement mensuel Uback des startups {adj_fp}, établi par IA à partir d'informations publiques.",
+  ld_desc="Classement mensuel Uback des startups {adj_fp}, établi par IA à partir d'informations publiques. Uback ne valorise pas les sociétés : il les classe, et indique un ordre de grandeur estimé par IA.",
   title='Top {N} des startups {adj_fp} les mieux valorisées – {date} | Uback {name}',
-  desc="Classement mensuel des startups {adj_fp} non cotées ayant déjà levé des fonds, établi par IA à partir d'informations publiques. Uback classe, ne valorise pas.",
+  desc="Classement mensuel des startups {adj_fp} non cotées ayant déjà levé des fonds, établi par IA à partir d'informations publiques. Uback ne valorise pas les sociétés : il les classe, et indique un ordre de grandeur estimé par IA.",
   h1='Les {N} startups {adj_fp} les mieux valorisées',
-  lead='Un classement mensuel des startups {adj_fp} non cotées ayant déjà levé des fonds, établi par intelligence artificielle à partir d’informations publiques. Uback ne calcule aucune valorisation : il classe.',
+  lead='Un classement mensuel des startups {adj_fp} non cotées ayant déjà levé des fonds, établi par intelligence artificielle à partir d’informations publiques. Uback ne valorise pas les sociétés : il les classe, et indique un ordre de grandeur estimé par IA.',
+  th_val='Valorisation estimée (IA, ordre de grandeur)', l_val='Valorisation (IA)',
+  vb_hundreds_k='Centaines de k$', vb_millions='Millions $', vb_tens_m='Dizaines de M$', vb_hundreds_m='Centaines de M$',
+  vb_unicorn='Licorne', vb_decacorn='Décacorne', vb_not_estimated='Non estimé',
+  vc_high='Confiance élevée', vc_medium='Confiance moyenne', vc_low='Confiance faible',
+  report='Vous êtes cette société ? Signalez une erreur', report_subject='Signalement d’erreur – {{co}} – Uback {name}',
+  val_disc='Les ordres de grandeur de valorisation sont des estimations éditoriales indicatives, produites par IA à partir d’informations publiques (montants levés, valorisations publiées, indicateurs cités). Ils ne constituent ni une évaluation financière, ni une offre, ni un conseil en investissement.',
   m_consensus='Claude · consensus multi-IA à partir de l’édition 1', m_method='Méthode publiée', m_order='Ordre jamais modifié par un humain',
   glance='Le marché en un coup d’œil', s_ranked='sociétés classées', s_radar='sociétés sur le radar', s_raised='levés en 2025', s_rounds='tours en 2025',
   sources='Sources : ', counters=' Les compteurs d’intentions s’afficheront au-delà d’un seuil de montant et de nombre de Backers.',
@@ -50,7 +57,7 @@ TXT = {
   h2_rank='Classement national · tous secteurs', t_born='Nées ici, établies ailleurs', first_ed='Première édition : pas encore de mouvements.',
   th_co='Société', th_sub='Sous-secteur', th_fund='Levées connues', th_conf='Confiance', th_access='Accès',
   disc_b='Ce classement est une opinion, pas une évaluation.',
-  disc='Il est établi à partir d’informations publiques (presse, annonces de levées de fonds), selon une méthode publiée, sans intervention humaine sur l’ordre. Uback ne calcule ni n’estime de valorisation : classer des sociétés non cotées est un exercice par nature imprécis, qui dépend des informations disponibles et peut être contredit par des faits non publics. L’indice de confiance reflète la qualité des sources. Toute société peut <a href="/methode.html#correction">demander une correction</a> ou contester sa position. Ce classement ne constitue ni un conseil en investissement, ni une sollicitation. Seuil d’éligibilité : au moins {seuil} levés, sociétés non cotées, opérations principales {in_}.',
+  disc='Il est établi à partir d’informations publiques (presse, annonces de levées de fonds), selon une méthode publiée, sans intervention humaine sur l’ordre. L’indice de confiance reflète la qualité des sources. Toute société peut <a href="/methode.html#correction">demander une correction</a> ou contester sa position. Seuil d’éligibilité : au moins {seuil} levés, sociétés non cotées, opérations principales {in_}.',
   reg_h2='Trois regards, jamais un seul',
   reg_ai_h='Ce que pensent les IA', reg_ai='Chaque mois, la même question est posée à plusieurs IA. Les réponses sont fusionnées en un classement de consensus, avec un indice de confiance par position. L’édition 0 est établie par une seule IA ; le consensus arrive avec l’édition 1.',
   reg_hum_h='Ce que défendent les experts', reg_hum='Le partenaire agréé et des analystes contestent le classement : « pourquoi ce leader est absent », « pourquoi ce n° 3 est surévalué ». Les résumés sont gratuits.',
@@ -98,11 +105,17 @@ TXT = {
   founded='founded', l_sub='Sub-sector', l_fund='Funding', l_conf='Confidence', l_access='Access', raised=' raised',
   st_title='No intention to raise or sell has been declared on Uback. Managers can claim their company profile.', st='Not declared',
   ld_name='{name}’s top {N} funded startups – {date}',
-  ld_desc='Uback monthly ranking of non-listed {adj_fp} startups, established by AI from public information.',
+  ld_desc='Uback monthly ranking of non-listed {adj_fp} startups, established by AI from public information. We don’t value companies. We rank them, and give an AI-estimated order of magnitude.',
   title='{name}’s top {N} funded startups – {date} | Uback {name}',
-  desc='Monthly ranking of non-listed {adj_fp} startups that have already raised funds, established by AI from public information. Uback ranks, it does not value.',
+  desc='Monthly ranking of non-listed {adj_fp} startups that have already raised funds, established by AI from public information. We don’t value companies. We rank them, and give an AI-estimated order of magnitude.',
   h1='{name}’s top {N} funded startups',
-  lead='A monthly ranking of non-listed {adj_fp} startups that have already raised funds, established by artificial intelligence from public information. Uback does not calculate any valuation: it ranks.',
+  lead='A monthly ranking of non-listed {adj_fp} startups that have already raised funds, established by artificial intelligence from public information. We don’t value companies. We rank them, and give an AI-estimated order of magnitude.',
+  th_val='Estimated valuation (AI, order of magnitude)', l_val='Valuation (AI)',
+  vb_hundreds_k='Hundreds of k$', vb_millions='Millions $', vb_tens_m='Tens of M$', vb_hundreds_m='Hundreds of M$',
+  vb_unicorn='Unicorn', vb_decacorn='Decacorn', vb_not_estimated='Not estimated',
+  vc_high='High confidence', vc_medium='Medium confidence', vc_low='Low confidence',
+  report='Is this your company? Report an error', report_subject='Error report – {{co}} – Uback {name}',
+  val_disc='Valuation orders of magnitude are indicative editorial estimates, produced by AI from public information (amounts raised, published valuations, reported indicators). They are neither a financial valuation, nor an offer, nor investment advice.',
   m_consensus='Claude · multi-AI consensus from Edition 1', m_method='Published method', m_order='Order never changed by a human',
   glance='The market at a glance', s_ranked='companies ranked', s_radar='companies on the radar', s_raised='raised in 2025', s_rounds='rounds in 2025',
   sources='Sources: ', counters=' Intention counters will be shown above a threshold of amount and number of Backers.',
@@ -110,7 +123,7 @@ TXT = {
   h2_rank='National ranking · all sectors', t_born='Born here, based elsewhere', first_ed='First edition: no movements yet.',
   th_co='Company', th_sub='Sub-sector', th_fund='Known funding', th_conf='Confidence', th_access='Access',
   disc_b='This ranking is an opinion, not a valuation.',
-  disc='It is based on public information (press, funding announcements), following a published method, with no human intervention on the order. Uback neither calculates nor estimates any valuation: ranking non-listed companies is inherently imprecise, depends on the information available and may be contradicted by non-public facts. The confidence index reflects the quality of the sources. Any company may <a href="/method.html#correction">request a correction</a> or dispute its position. This ranking is neither investment advice nor a solicitation. Eligibility threshold: at least {seuil} raised, non-listed companies, main operations {in_}.',
+  disc='It is based on public information (press, funding announcements), following a published method, with no human intervention on the order. The confidence index reflects the quality of the sources. Any company may <a href="/method.html#correction">request a correction</a> or dispute its position. Eligibility threshold: at least {seuil} raised, non-listed companies, main operations {in_}.',
   reg_h2='Three perspectives, never just one',
   reg_ai_h='What the AIs think', reg_ai='Every month, the same question is put to several AIs. The answers are merged into a consensus ranking, with a confidence index for each position. Edition 0 is established by a single AI; the consensus arrives with Edition 1.',
   reg_hum_h='What the experts argue', reg_hum='The licensed partner and analysts challenge the ranking: “why is this leader missing”, “why is number 3 overrated”. Summaries are free.',
@@ -233,17 +246,34 @@ def conf(n):
     dots = ''.join('<i class="f"></i>' if i < n else '<i></i>' for i in range(3))
     return f'<span class="conf" aria-hidden="true">{dots}</span><span class="conf-l">{L["conf" + str(n)]}</span>'
 
+def val(c):
+    """Tranche de valorisation estimée par IA + confiance ; la justification s'affiche au survol ou au tap (bouton + infobulle)."""
+    b, vc = c.get('valuation_bracket', 'not_estimated'), c.get('valuation_confidence', 'low')
+    n = {'high': 3, 'medium': 2, 'low': 1}[vc]
+    dots = '' if b == 'not_estimated' else '<span class="conf" aria-hidden="true">' + ''.join(
+        '<i class="f"></i>' if i < n else '<i></i>' for i in range(3)) + '</span>'
+    conf_txt = '' if b == 'not_estimated' else f'<span class="sr"> · {L["vc_" + vc]}</span>'
+    tid = f"vb-{c['rang']}"
+    ne = ' ne' if b == 'not_estimated' else ''
+    toggle = "var p=this.parentNode;this.setAttribute('aria-expanded',p.classList.toggle('open'))"   # tap sur mobile (iOS ne donne pas le focus)
+    return (f'<span class="val{ne}"><button type="button" class="val-b" aria-describedby="{tid}" aria-expanded="false" onclick="{toggle}">'
+            f'<span class="vl">{L["vb_" + b]}</span>{dots}{conf_txt}</button>'
+            f'<span class="val-tip" role="tooltip" id="{tid}">{e(c.get("valuation_basis", ""))}</span></span>')
+
 def row(c):
     top = ' class="top"' if c['rang'] == 1 else ''
     jur = ''
     if c.get('juridiction') and (not c['juridiction'].startswith(M['name']) or ';' in c['juridiction']):
         jur = f'<span class="jur">{e(c["juridiction"])}</span>'
     note = f'<div class="src">{e(c["note"])}</div>' if c.get('note') else ''
+    subject = quote(L['report_subject'].format(co=c['nom']))
+    report = f'<a class="report" href="mailto:contact@uback.com?subject={subject}">{L["report"]}</a>'
     return f'''<tr{top}>
 <td class="rank">{c['rang']}</td>
-<td><span class="co">{e(c['nom'])}<small>{e(c['ville'])} · {L['founded']} {c['creation']}</small></span>{jur}{note}</td>
+<td><span class="co">{e(c['nom'])}<small>{e(c['ville'])} · {L['founded']} {c['creation']}</small></span>{jur}{note}{report}</td>
 <td data-l="{L['l_sub']}">{e(c['sous_secteur'])}</td>
 <td data-l="{L['l_fund']}">{e(c['leve_cumule'])}{L['raised']}<br><span class="src">{e(c['derniere_levee'])} · {src(c['source'])}</span></td>
+<td data-l="{L['l_val']}">{val(c)}</td>
 <td data-l="{L['l_conf']}">{conf(c['confiance'])}</td>
 <td data-l="{L['l_access']}"><span class="st" title="{L['st_title']}">{L['st']}</span></td>
 <td class="act"><a class="btn" href="/#backers">{L['declare']}</a></td>
@@ -313,12 +343,12 @@ index += f'''
       <span class="sub">{L['first_ed']}</span>
     </div>
     <table class="tbl">
-      <thead><tr><th>#</th><th>{L['th_co']}</th><th>{L['th_sub']}</th><th>{L['th_fund']}</th><th>{L['th_conf']}</th><th>{L['th_access']}</th><th></th></tr></thead>
+      <thead><tr><th>#</th><th>{L['th_co']}</th><th>{L['th_sub']}</th><th>{L['th_fund']}</th><th>{L['th_val']}</th><th>{L['th_conf']}</th><th>{L['th_access']}</th><th></th></tr></thead>
       <tbody>
       {''.join(row(c) for c in RANKED)}
       </tbody>
     </table>
-    <div class="disclaimer"><b>{L['disc_b']}</b> {e(D['methode'])} {L['disc']}</div>
+    <div class="disclaimer"><b>{L['disc_b']}</b> {L['val_disc']} {e(D['methode'])} {L['disc']}</div>
   </div>
 </section>
 
@@ -452,14 +482,14 @@ index += f'''
 # ---------------------------------------------------------------- pages de contenu (texte long par langue)
 PAGES = {}
 if M['lang'] == 'fr':
-    PAGES[PM] = head(f"Méthode et règles du jeu | Uback {M['name']}", "Comment Uback classe les startups : consensus d'IA, éligibilité, indice de confiance, droit de réponse. Uback classe, ne valorise pas.", f"/{PM}") + f'''
+    PAGES[PM] = head(f"Méthode et règles du jeu | Uback {M['name']}", "Comment Uback classe les startups : consensus d'IA, éligibilité, indice de confiance, ordre de grandeur de valorisation, droit de réponse. Uback ne valorise pas les sociétés : il les classe, et indique un ordre de grandeur estimé par IA.", f"/{PM}") + f'''
 <div class="wrap prose">
 <h1>Méthode et règles du jeu</h1>
 <p class="lead">Uback est un algorithme avant d’être un site. Sa crédibilité repose sur des règles simples, publiques, identiques dans tous les pays et appliquées sans exception.</p>
 
 <h2>Les règles du jeu</h2>
 <ol>
-<li><b>Uback classe, ne valorise pas.</b> Aucune valorisation n’est estimée par Uback ; seules des valeurs publiques, datées et sourcées sont affichées (montants levés, dernière levée annoncée).</li>
+<li><b>Uback ne valorise pas les sociétés : il les classe, et indique un ordre de grandeur estimé par IA.</b> Cet ordre de grandeur est une tranche indicative, jamais un chiffre, calculée selon une règle publiée ; seules des valeurs publiques, datées et sourcées servent de point de départ (montants levés, valorisations publiées).</li>
 <li><b>Un classement n’est jamais à vendre.</b> Aucun paiement, d’une société, d’un partenaire ou d’un analyste, n’influence une position. Le référencement payant (« Challengers ») est affiché à part, étiqueté comme tel, et n’entre jamais dans le classement.</li>
 <li><b>Aucun humain ne modifie l’ordre.</b> Un validateur peut exclure une société pour un motif d’éligibilité, tracé, ou relancer le calcul ; jamais réordonner.</li>
 <li><b>Uback ne démarche jamais.</b> Tout contact sortant vers une société, un dirigeant ou un actionnaire passe par le partenaire agréé du pays.</li>
@@ -472,6 +502,18 @@ if M['lang'] == 'fr':
 <h2>Comment le classement est établi</h2>
 <p>Chaque mois, la même question est posée à plusieurs intelligences artificielles pour chaque pays et chaque secteur : quelles sont les sociétés éligibles les mieux valorisées, dans l’ordre ? Les réponses sont fusionnées en un classement de consensus (par points : 1er = 20 points, 2e = 19, etc.). Un indice de confiance est affiché pour chaque position : quand les IA sont d’accord, le classement est solide ; quand elles divergent, la divergence devient elle-même une information.</p>
 <p><b>Édition 0 (bêta).</b> Cette première édition a été établie par une seule IA (Claude, Anthropic), à partir d’une recherche documentaire sur la presse et les annonces de levées de fonds, chaque montant étant sourcé. L’indice de confiance y reflète la qualité des sources disponibles. Le consensus multi-IA s’applique à partir de l’édition 1.</p>
+
+<h2 id="valorisation">Ordre de grandeur de valorisation</h2>
+<p>À côté de chaque société, Uback indique une tranche de valorisation estimée par IA : centaines de milliers de dollars, millions, dizaines de millions, centaines de millions, licorne (plus d’un milliard) ou décacorne (plus de dix milliards). C’est un ordre de grandeur indicatif, jamais un chiffre, et il n’intervient pas dans l’ordre du classement. Survolez ou touchez la tranche pour voir sur quoi repose l’estimation.</p>
+<ul>
+<li><b>Le point de départ.</b> Si une valorisation a été publiée depuis moins de 24 mois, elle sert d’ancrage. Sinon, Uback part du dernier tour en fonds propres dont le montant est connu : les investisseurs prennent en général 15 à 25 % du capital, la valorisation après le tour est donc estimée entre 4 et 6,7 fois le montant levé. La dette et les subventions ne servent jamais d’ancrage.</li>
+<li><b>Un ajustement limité.</b> L’IA peut décaler l’estimation d’une tranche au plus, vers le haut ou vers le bas, à partir de faits publics : tour ultérieur au montant non publié, chiffre d’affaires, rentabilité, agrément, restructuration… Chaque ajustement est justifié et affiché.</li>
+<li><b>La règle de la borne basse.</b> La tranche affichée est celle qui contient le bas de la fourchette estimée : entre deux tranches, Uback retient la plus prudente.</li>
+<li><b>L’indice de confiance.</b> Élevée : valorisation publiée, ou tour chiffré et recoupé, de moins de 24 mois. Moyenne : tour de plus de 24 mois, ou seul le cumul levé est connu. Faible : source unique ou sources divergentes.</li>
+<li><b>« Non estimé ».</b> Quand aucun tour en fonds propres n’a de montant publié, quand il n’y a que de la dette ou des subventions, ou quand l’ancrage repose sur une source incertaine, Uback n’affiche aucune tranche plutôt qu’un chiffre fragile.</li>
+<li><b>Signaler une erreur.</b> Chaque ligne du classement permet à la société concernée de signaler une erreur à <a href="mailto:contact@uback.com">contact@uback.com</a>. La correction est tracée.</li>
+</ul>
+<p>Ces ordres de grandeur sont des estimations éditoriales indicatives : ils ne constituent ni une évaluation financière, ni une offre, ni un conseil en investissement.</p>
 
 <h2>Règles d’éligibilité</h2>
 <table>
@@ -565,14 +607,14 @@ if M['lang'] == 'fr':
 ''' + FOOT
 
 else:
-    PAGES[PM] = head(f"Method and rules | Uback {M['name']}", "How Uback ranks startups: AI consensus, eligibility, confidence index, right of reply. Uback ranks, it does not value.", f"/{PM}") + f'''
+    PAGES[PM] = head(f"Method and rules | Uback {M['name']}", "How Uback ranks startups: AI consensus, eligibility, confidence index, valuation order of magnitude, right of reply. We don’t value companies. We rank them, and give an AI-estimated order of magnitude.", f"/{PM}") + f'''
 <div class="wrap prose">
 <h1>Method and rules</h1>
 <p class="lead">Uback is an algorithm before it is a website. Its credibility rests on simple, public rules, identical in every country and applied without exception.</p>
 
 <h2>The rules</h2>
 <ol>
-<li><b>Uback ranks, it does not value.</b> Uback estimates no valuation; only public, dated and sourced figures are shown (amounts raised, last announced round).</li>
+<li><b>We don’t value companies. We rank them, and give an AI-estimated order of magnitude.</b> This order of magnitude is an indicative bracket, never a figure, computed with a published rule; only public, dated and sourced figures are used as a starting point (amounts raised, published valuations).</li>
 <li><b>A ranking is never for sale.</b> No payment, from a company, a partner or an analyst, influences a position. Paid listing (“Challengers”) is shown separately, labelled as such, and never enters the ranking.</li>
 <li><b>No human changes the order.</b> A reviewer may exclude a company on a traced eligibility ground, or rerun the calculation; never reorder.</li>
 <li><b>Uback never solicits.</b> Any outgoing contact with a company, a manager or a shareholder goes through the country’s licensed partner.</li>
@@ -585,6 +627,18 @@ else:
 <h2>How the ranking is built</h2>
 <p>Every month, the same question is put to several artificial intelligences for each country and each sector: which eligible companies are the most highly valued, in order? The answers are merged into a consensus ranking (by points: 1st = 20 points, 2nd = 19, and so on). A confidence index is shown for each position: when the AIs agree, the ranking is solid; when they diverge, the divergence itself becomes information.</p>
 <p><b>Edition 0 (beta).</b> This first edition was established by a single AI (Claude, Anthropic), from desk research on the press and funding announcements, each amount being sourced. The confidence index reflects the quality of the available sources. The multi-AI consensus applies from Edition 1.</p>
+
+<h2 id="valuation">Valuation order of magnitude</h2>
+<p>Next to each company, Uback shows an AI-estimated valuation bracket: hundreds of thousands of dollars, millions, tens of millions, hundreds of millions, unicorn (over one billion) or decacorn (over ten billion). It is an indicative order of magnitude, never a figure, and it plays no part in the order of the ranking. Hover over or tap the bracket to see what the estimate is based on.</p>
+<ul>
+<li><b>The starting point.</b> If a valuation was published less than 24 months ago, it is the anchor. Otherwise, Uback starts from the last equity round with a disclosed amount: investors usually take 15 to 25% of the capital, so the post-money valuation is estimated at 4 to 6.7 times the amount raised. Debt and grants are never used as an anchor.</li>
+<li><b>A limited adjustment.</b> The AI may shift the estimate by one bracket at most, up or down, based on public facts: a later round of undisclosed size, revenue, profitability, a licence, a restructuring… Every adjustment is justified and shown.</li>
+<li><b>The lower-bound rule.</b> The bracket shown is the one containing the bottom of the estimated range: between two brackets, Uback keeps the more cautious one.</li>
+<li><b>The confidence index.</b> High: a published valuation, or a disclosed and confirmed round, less than 24 months old. Medium: a round over 24 months old, or only the total raised is known. Low: a single source or conflicting sources.</li>
+<li><b>“Not estimated”.</b> When no equity round has a disclosed amount, when there is only debt or grants, or when the anchor rests on an uncertain source, Uback shows no bracket rather than a fragile figure.</li>
+<li><b>Report an error.</b> Each line of the ranking lets the company concerned report an error to <a href="mailto:contact@uback.com">contact@uback.com</a>. Every correction is traced.</li>
+</ul>
+<p>These orders of magnitude are indicative editorial estimates: they are neither a financial valuation, nor an offer, nor investment advice.</p>
 
 <h2>Eligibility</h2>
 <table>

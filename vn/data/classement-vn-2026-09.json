@@ -8,69 +8,660 @@
   "methode": "Ranking established by Claude (Anthropic) from public information, following the published rules. A consensus of several AIs (Claude, Gemini, ChatGPT) will apply from Edition 1.",
   "seuil_levee": "USD 500k",
   "classement": [
-    {"rang": 1, "nom": "VNLife / VNPay", "site": "vnlife.vn", "sous_secteur": "Fintech › QR payments, super-app", "ville": "Hanoi", "creation": 2007, "leve_cumule": "USD ~550M", "derniere_levee": "Series B · USD >250M · Jul 2021 (General Atlantic, Dragoneer)", "source": "https://www.businesswire.com/news/home/20210730005305/en/VNLIFE-Announces-Series-B-Funding-Round-Led-by-General-Atlantic-and-Dragoneer", "confiance": 3, "juridiction": "Investable company not verified (VNLIFE holding; VNLIFE Singapore Pte. Ltd. struck off); operations in Vietnam", "note": "Valuation above USD 1bn reported in Jul 2021 (Reuters). GIC and SoftBank reported to weigh selling stakes in Sep 2025; outcome unknown."},
-    {"rang": 2, "nom": "MoMo", "site": "momo.vn", "sous_secteur": "Fintech › e-wallet, super-app", "ville": "Ho Chi Minh City", "creation": 2010, "leve_cumule": "USD ~434M", "derniere_levee": "Series E · USD 200M · Dec 2021 (Mizuho, Ward Ferry, Goodwater, Kora)", "source": "https://e.vnexpress.net/news/business/companies/mobile-wallet-momo-becomes-unicorn-startup-4406525.html", "confiance": 3, "juridiction": "Legal seat not verified (operating company M_Service JSC, Vietnam); operations in Vietnam", "note": "Valued at USD 2bn in Dec 2021 (Bloomberg). A sale of up to 50% of existing shares (secondary, not new equity) was under way in 2026."},
-    {"rang": 3, "nom": "Sky Mavis", "site": "skymavis.com", "sous_secteur": "Web3 › blockchain gaming (Axie Infinity, Ronin)", "ville": "Ho Chi Minh City", "creation": 2018, "leve_cumule": "USD ~171M", "derniere_levee": "Round · USD ~11M confirmed of USD 150M announced · Apr 2022 (Binance, a16z, Animoca, Paradigm, Accel)", "source": "https://vir.com.vn/vietnamese-startup-sky-mavis-creator-of-axie-infinity-bags-152-million-in-series-b-88221.html", "confiance": 2, "juridiction": "Investable company: Sky Mavis Pte. Ltd. (Singapore); operations in Vietnam", "note": "Only the ~USD 11M confirmed from the Apr 2022 round is counted, not the USD 150M announced. The 2021 Series B valuation predates the 2022 Ronin hack and is not current. 21% layoffs in Nov 2024."},
-    {"rang": 4, "nom": "Trusting Social", "site": "trustingsocial.com", "sous_secteur": "Fintech › AI credit scoring, eKYC", "ville": "Ho Chi Minh City", "creation": 2013, "leve_cumule": "USD ~109M", "derniere_levee": "Series C · USD 65M · Apr 2022 (The Sherpa / Masan Group)", "source": "https://technode.global/2022/04/29/vietnams-trusting-social-raises-65m-series-c-round-from-sherpa/", "confiance": 2, "juridiction": "Investable company: Trust IQ Pte. Ltd. (Singapore); operations in Vietnam", "note": "Up to USD ~149M if the balance of Masan's USD 105M commitment was paid; not confirmed. FY2025: revenue USD 23.1M, net loss USD 87.5M."},
-    {"rang": 5, "nom": "Buymed (thuocsi.vn)", "site": "buymed.com", "sous_secteur": "Healthtech › B2B pharma marketplace and distribution", "ville": "Ho Chi Minh City", "creation": 2018, "leve_cumule": "USD ~64M", "derniere_levee": "Series B · USD 51.5M total · May 2023 (UOB Venture Management, US DFC)", "source": "https://cocooncap.com/buymed-health-tech-leader-in-southeast-asia-announced-us51-5-million-series-b-funding/", "confiance": 2, "juridiction": "Investable company: Singapore-headquartered holding (name not verified); operations in Vietnam", "note": "Equity/debt split of US DFC's participation not disclosed; possible overlap with the 2021 round."},
-    {"rang": 6, "nom": "OnPoint", "site": "onpoint.vn", "sous_secteur": "E-commerce › brand operations on marketplaces", "ville": "Ho Chi Minh City", "creation": 2017, "leve_cumule": "USD ~58M", "derniere_levee": "Series B · up to USD 50M · Jun 2022 (SeaTown / Temasek)", "source": "https://www.prnewswire.com/news-releases/onpoint-closes-the-largest-series-b-round-for-a-sea-e-commerce-enabler-led-by-seatown-holdings-international-301575669.html", "confiance": 2, "juridiction": "Legal seat not verified; operations in Vietnam", "note": "Series B announced as an investment of up to USD 50M, possibly in tranches."},
-    {"rang": 7, "nom": "KiotViet", "site": "kiotviet.vn", "sous_secteur": "SaaS › POS and retail management for SMEs", "ville": "Hanoi", "creation": 2014, "leve_cumule": "USD ~51M", "derniere_levee": "Series B · USD 45M · Sep 2021 (KKR, Jungle Ventures, Kasikornbank)", "source": "https://e.vnexpress.net/news/business/companies/store-management-enabler-kiotviet-raises-45-mln-4350279.html", "confiance": 2, "juridiction": "Legal seat not verified; operations in Vietnam", "note": "Pre-2021 funding (USD ~6M) from an aggregator only. No round reported since 2021."},
-    {"rang": 8, "nom": "Dat Bike", "site": "dat.bike", "sous_secteur": "Mobility › electric motorbikes", "ville": "Ho Chi Minh City", "creation": 2019, "leve_cumule": "USD ~42M", "derniere_levee": "Equity · USD 4M · Mar 2026 (Thien Viet Securities)", "source": "https://technode.global/2026/03/10/vietnams-electric-motorbike-startup-dat-bike-secures-4m-funding-from-local-securities-firm/", "confiance": 3, "juridiction": "Legal seat not verified (operating company Dat Bike Vietnam Co., Ltd.); operations in Vietnam", "note": "Previous round: Series B, USD 22M, Sep–Oct 2025. The company-stated total of USD 51M includes some debt, excluded here."},
-    {"rang": 9, "nom": "Coolmate", "site": "coolmate.me", "sous_secteur": "E-commerce › D2C apparel", "ville": "Ho Chi Minh City", "creation": 2019, "leve_cumule": "USD ~33M", "derniere_levee": "Series C · undisclosed (est. USD ~22M) · Nov 2025 (Vertex Growth, Cool Japan Fund, YoungOne)", "source": "https://technode.global/2025/11/04/vietnams-coolmate-completes-series-c-funding-round-led-by-vertex-growth-fund/", "confiance": 1, "juridiction": "Legal seat not verified; operations in Vietnam", "note": "Series C amount is a single-source estimate (VinVentures via The Investor). Disclosed rounds total USD 10.25M."},
-    {"rang": 10, "nom": "Be Group", "site": "be.com.vn", "sous_secteur": "Mobility › ride-hailing and delivery super-app", "ville": "Ho Chi Minh City", "creation": 2018, "leve_cumule": "USD ≥30M", "derniere_levee": "Equity · USD 30.3M (VND 739.5bn) · Jan 2024 (VPBank Securities)", "source": "https://e.vnexpress.net/news/business/companies/ride-hailing-be-receives-30m-from-vpbank-securities-4699254.html", "confiance": 2, "juridiction": "Investable company: Be Holdings (legal seat not verified); operations in Vietnam", "note": "Excludes a USD 60M+ Deutsche Bank loan (2022) and an undisclosed VinFast investment (2023). Reported company-wide profitability in 2025."},
-    {"rang": 11, "nom": "Jio Health", "site": "jiohealth.com", "sous_secteur": "Healthtech › clinics and telehealth", "ville": "Ho Chi Minh City", "creation": 2014, "leve_cumule": "USD ~30M", "derniere_levee": "Series B · USD 20M · Jan 2022 (Heritas Capital, Fuchsia, KBank, Monk's Hill)", "source": "https://vietcetera.com/en/vietnam-based-health-tech-startup-jio-health-bags-20m-in-series-b-round", "confiance": 2, "juridiction": "Legal seat not verified (possibly a US parent); operations in Vietnam", "note": "No round reported since 2022."},
-    {"rang": 12, "nom": "Techcoop", "site": "techcoop.com", "sous_secteur": "Agritech › supply-chain trade and financing", "ville": "Ho Chi Minh City / Hanoi", "creation": 2022, "leve_cumule": "USD ≥28M", "derniere_levee": "Series A · USD 70M incl. USD 28M equity · Feb 2025 (TNB Aura, AVV)", "source": "https://technode.global/2025/02/27/vietnams-techcoop-secures-70m-series-a-with-equity-and-debt-funding/", "confiance": 3, "juridiction": "Investable company: TECHCOOP Investment & Technology Pte. Ltd. (Singapore); operations in Vietnam", "note": "Only equity is counted: USD 42M of the Series A and a USD 11.75M facility (Apr 2026) are debt."},
-    {"rang": 13, "nom": "Finhay", "site": "finhay.com.vn", "sous_secteur": "Fintech › retail investing app", "ville": "Hanoi", "creation": 2017, "leve_cumule": "USD ~26M", "derniere_levee": "Series B · USD 25M · Jun 2022 (Openspace, VIG)", "source": "https://vietcetera.com/en/vietnamese-investment-app-finhay-raises-25m-in-series-b-funding", "confiance": 2, "juridiction": "Legal seat not verified; operations in Vietnam", "note": "No round reported since 2022."},
-    {"rang": 14, "nom": "AI Hay", "site": "aihay.vn", "sous_secteur": "AI › consumer Q&A and search", "ville": "Ho Chi Minh City", "creation": 2023, "leve_cumule": "USD ~18M", "derniere_levee": "Series A · USD 10M · Jul 2025 (Argor Capital, Square Peg, Northstar Ventures)", "source": "https://technode.global/2025/07/02/vietnams-ai-hay-secures-10m-in-series-a-funding-round-led-by-argor-capital/", "confiance": 2, "juridiction": "Legal seat not verified; operations in Vietnam", "note": "Earlier funding (USD ~8M) not itemised by round."},
-    {"rang": 15, "nom": "Edupia", "site": "edupia.vn", "sous_secteur": "Edtech › online English for K-12", "ville": "Hanoi", "creation": 2017, "leve_cumule": "USD ~16M", "derniere_levee": "Series A · USD 14M · Sep 2022 (Jungle Ventures, eWTP Capital, ThinkZone)", "source": "https://techcrunch.com/2022/09/07/edupia-raises-series-a-to-close-the-education-gap-in-vietnam/", "confiance": 2, "juridiction": "Legal seat not verified; operations in Vietnam", "note": "Low confidence: an aggregator shows USD 24M. Companies in the Radar could displace this position."}
+    {
+      "rang": 1,
+      "nom": "VNLife / VNPay",
+      "site": "vnlife.vn",
+      "sous_secteur": "Fintech › QR payments, super-app",
+      "ville": "Hanoi",
+      "creation": 2007,
+      "leve_cumule": "USD ~550M",
+      "derniere_levee": "Series B · USD >250M · Jul 2021 (General Atlantic, Dragoneer)",
+      "source": "https://www.businesswire.com/news/home/20210730005305/en/VNLIFE-Announces-Series-B-Funding-Round-Led-by-General-Atlantic-and-Dragoneer",
+      "confiance": 3,
+      "juridiction": "Investable company not verified (VNLIFE holding; VNLIFE Singapore Pte. Ltd. struck off); operations in Vietnam",
+      "note": "Valuation above USD 1bn reported in Jul 2021 (Reuters). GIC and SoftBank reported to weigh selling stakes in Sep 2025; outcome unknown.",
+      "valuation_input": {
+        "published_usd": 1000000000,
+        "published_date": "2021-07",
+        "round_usd": 250000000,
+        "round_date": "2021-07",
+        "round_label": "Series B",
+        "cumulative_usd": 550000000,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 0,
+        "adjust_reason": ""
+      },
+      "valuation_bracket": "unicorn",
+      "valuation_basis": "Series B of USD 250M (Jul 2021); published valuation of USD 1bn (Jul 2021), over 24 months old.",
+      "valuation_confidence": "medium",
+      "valuation_low_usd": 1000000000,
+      "valuation_high_usd": 1666666667
+    },
+    {
+      "rang": 2,
+      "nom": "MoMo",
+      "site": "momo.vn",
+      "sous_secteur": "Fintech › e-wallet, super-app",
+      "ville": "Ho Chi Minh City",
+      "creation": 2010,
+      "leve_cumule": "USD ~434M",
+      "derniere_levee": "Series E · USD 200M · Dec 2021 (Mizuho, Ward Ferry, Goodwater, Kora)",
+      "source": "https://e.vnexpress.net/news/business/companies/mobile-wallet-momo-becomes-unicorn-startup-4406525.html",
+      "confiance": 3,
+      "juridiction": "Legal seat not verified (operating company M_Service JSC, Vietnam); operations in Vietnam",
+      "note": "Valued at USD 2bn in Dec 2021 (Bloomberg). A sale of up to 50% of existing shares (secondary, not new equity) was under way in 2026.",
+      "valuation_input": {
+        "published_usd": 2000000000,
+        "published_date": "2021-12",
+        "round_usd": 200000000,
+        "round_date": "2021-12",
+        "round_label": "Series E",
+        "cumulative_usd": 434000000,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 1,
+        "adjust_reason": "2026 secondary sale of up to 50% discussed at up to USD 3bn valuation (The Investor, Jun 2026); reported profitable since 2024"
+      },
+      "valuation_bracket": "unicorn",
+      "valuation_basis": "Series E of USD 200M (Dec 2021); published valuation of USD 2bn (Dec 2021), over 24 months old; adjusted +1 bracket: 2026 secondary sale of up to 50% discussed at up to USD 3bn valuation (The Investor, Jun 2026); reported profitable since 2024.",
+      "valuation_confidence": "medium",
+      "valuation_low_usd": 800000000,
+      "valuation_high_usd": 1333333333
+    },
+    {
+      "rang": 3,
+      "nom": "Sky Mavis",
+      "site": "skymavis.com",
+      "sous_secteur": "Web3 › blockchain gaming (Axie Infinity, Ronin)",
+      "ville": "Ho Chi Minh City",
+      "creation": 2018,
+      "leve_cumule": "USD ~171M",
+      "derniere_levee": "Round · USD ~11M confirmed of USD 150M announced · Apr 2022 (Binance, a16z, Animoca, Paradigm, Accel)",
+      "source": "https://vir.com.vn/vietnamese-startup-sky-mavis-creator-of-axie-infinity-bags-152-million-in-series-b-88221.html",
+      "confiance": 2,
+      "juridiction": "Investable company: Sky Mavis Pte. Ltd. (Singapore); operations in Vietnam",
+      "note": "Only the ~USD 11M confirmed from the Apr 2022 round is counted, not the USD 150M announced. The 2021 Series B valuation predates the 2022 Ronin hack and is not current. 21% layoffs in Nov 2024.",
+      "valuation_input": {
+        "published_usd": 3000000000,
+        "published_date": "2021-10",
+        "round_usd": 11000000,
+        "round_date": "2022-04",
+        "round_label": "Strategic round",
+        "cumulative_usd": 171000000,
+        "sources": "weak",
+        "contradictory": true,
+        "adjust": 0,
+        "adjust_reason": ""
+      },
+      "valuation_bracket": "not_estimated",
+      "valuation_basis": "Strategic round of USD 11M (Apr 2022); published valuation of USD 3bn (Oct 2021), over 24 months old; anchor from an uncertain or unconfirmed source.",
+      "valuation_confidence": "low",
+      "valuation_low_usd": null,
+      "valuation_high_usd": null
+    },
+    {
+      "rang": 4,
+      "nom": "Trusting Social",
+      "site": "trustingsocial.com",
+      "sous_secteur": "Fintech › AI credit scoring, eKYC",
+      "ville": "Ho Chi Minh City",
+      "creation": 2013,
+      "leve_cumule": "USD ~109M",
+      "derniere_levee": "Series C · USD 65M · Apr 2022 (The Sherpa / Masan Group)",
+      "source": "https://technode.global/2022/04/29/vietnams-trusting-social-raises-65m-series-c-round-from-sherpa/",
+      "confiance": 2,
+      "juridiction": "Investable company: Trust IQ Pte. Ltd. (Singapore); operations in Vietnam",
+      "note": "Up to USD ~149M if the balance of Masan's USD 105M commitment was paid; not confirmed. FY2025: revenue USD 23.1M, net loss USD 87.5M.",
+      "valuation_input": {
+        "published_usd": null,
+        "published_date": null,
+        "round_usd": 65000000,
+        "round_date": "2022-04",
+        "round_label": "Series C",
+        "cumulative_usd": 109000000,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 0,
+        "adjust_reason": ""
+      },
+      "valuation_bracket": "hundreds_m",
+      "valuation_basis": "Series C of USD 65M (Apr 2022).",
+      "valuation_confidence": "medium",
+      "valuation_low_usd": 260000000,
+      "valuation_high_usd": 433333333
+    },
+    {
+      "rang": 5,
+      "nom": "Buymed (thuocsi.vn)",
+      "site": "buymed.com",
+      "sous_secteur": "Healthtech › B2B pharma marketplace and distribution",
+      "ville": "Ho Chi Minh City",
+      "creation": 2018,
+      "leve_cumule": "USD ~64M",
+      "derniere_levee": "Series B · USD 51.5M total · May 2023 (UOB Venture Management, US DFC)",
+      "source": "https://cocooncap.com/buymed-health-tech-leader-in-southeast-asia-announced-us51-5-million-series-b-funding/",
+      "confiance": 2,
+      "juridiction": "Investable company: Singapore-headquartered holding (name not verified); operations in Vietnam",
+      "note": "Equity/debt split of US DFC's participation not disclosed; possible overlap with the 2021 round.",
+      "valuation_input": {
+        "published_usd": null,
+        "published_date": null,
+        "round_usd": 51500000,
+        "round_date": "2023-05",
+        "round_label": "Series B",
+        "cumulative_usd": 64000000,
+        "sources": "single",
+        "contradictory": false,
+        "adjust": 0,
+        "adjust_reason": ""
+      },
+      "valuation_bracket": "hundreds_m",
+      "valuation_basis": "Series B of USD 51.5M (May 2023); single source.",
+      "valuation_confidence": "low",
+      "valuation_low_usd": 206000000,
+      "valuation_high_usd": 343333333
+    },
+    {
+      "rang": 6,
+      "nom": "OnPoint",
+      "site": "onpoint.vn",
+      "sous_secteur": "E-commerce › brand operations on marketplaces",
+      "ville": "Ho Chi Minh City",
+      "creation": 2017,
+      "leve_cumule": "USD ~58M",
+      "derniere_levee": "Series B · up to USD 50M · Jun 2022 (SeaTown / Temasek)",
+      "source": "https://www.prnewswire.com/news-releases/onpoint-closes-the-largest-series-b-round-for-a-sea-e-commerce-enabler-led-by-seatown-holdings-international-301575669.html",
+      "confiance": 2,
+      "juridiction": "Legal seat not verified; operations in Vietnam",
+      "note": "Series B announced as an investment of up to USD 50M, possibly in tranches.",
+      "valuation_input": {
+        "published_usd": null,
+        "published_date": null,
+        "round_usd": 50000000,
+        "round_date": "2022-06",
+        "round_label": "Series B",
+        "cumulative_usd": 58000000,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 0,
+        "adjust_reason": ""
+      },
+      "valuation_bracket": "hundreds_m",
+      "valuation_basis": "Series B of USD 50M (Jun 2022).",
+      "valuation_confidence": "medium",
+      "valuation_low_usd": 200000000,
+      "valuation_high_usd": 333333333
+    },
+    {
+      "rang": 7,
+      "nom": "KiotViet",
+      "site": "kiotviet.vn",
+      "sous_secteur": "SaaS › POS and retail management for SMEs",
+      "ville": "Hanoi",
+      "creation": 2014,
+      "leve_cumule": "USD ~51M",
+      "derniere_levee": "Series B · USD 45M · Sep 2021 (KKR, Jungle Ventures, Kasikornbank)",
+      "source": "https://e.vnexpress.net/news/business/companies/store-management-enabler-kiotviet-raises-45-mln-4350279.html",
+      "confiance": 2,
+      "juridiction": "Legal seat not verified; operations in Vietnam",
+      "note": "Pre-2021 funding (USD ~6M) from an aggregator only. No round reported since 2021.",
+      "valuation_input": {
+        "published_usd": null,
+        "published_date": null,
+        "round_usd": 45000000,
+        "round_date": "2021-09",
+        "round_label": "Series B",
+        "cumulative_usd": 51000000,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 0,
+        "adjust_reason": ""
+      },
+      "valuation_bracket": "hundreds_m",
+      "valuation_basis": "Series B of USD 45M (Sep 2021).",
+      "valuation_confidence": "medium",
+      "valuation_low_usd": 180000000,
+      "valuation_high_usd": 300000000
+    },
+    {
+      "rang": 8,
+      "nom": "Dat Bike",
+      "site": "dat.bike",
+      "sous_secteur": "Mobility › electric motorbikes",
+      "ville": "Ho Chi Minh City",
+      "creation": 2019,
+      "leve_cumule": "USD ~42M",
+      "derniere_levee": "Equity · USD 4M · Mar 2026 (Thien Viet Securities)",
+      "source": "https://technode.global/2026/03/10/vietnams-electric-motorbike-startup-dat-bike-secures-4m-funding-from-local-securities-firm/",
+      "confiance": 3,
+      "juridiction": "Legal seat not verified (operating company Dat Bike Vietnam Co., Ltd.); operations in Vietnam",
+      "note": "Previous round: Series B, USD 22M, Sep–Oct 2025. The company-stated total of USD 51M includes some debt, excluded here.",
+      "valuation_input": {
+        "published_usd": null,
+        "published_date": null,
+        "round_usd": 4000000,
+        "round_date": "2026-03",
+        "round_label": "Series B extension",
+        "cumulative_usd": 42000000,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 0,
+        "adjust_reason": ""
+      },
+      "valuation_bracket": "tens_m",
+      "valuation_basis": "Series B extension of USD 4M (Mar 2026).",
+      "valuation_confidence": "high",
+      "valuation_low_usd": 16000000,
+      "valuation_high_usd": 26666667
+    },
+    {
+      "rang": 9,
+      "nom": "Coolmate",
+      "site": "coolmate.me",
+      "sous_secteur": "E-commerce › D2C apparel",
+      "ville": "Ho Chi Minh City",
+      "creation": 2019,
+      "leve_cumule": "USD ~33M",
+      "derniere_levee": "Series C · undisclosed (est. USD ~22M) · Nov 2025 (Vertex Growth, Cool Japan Fund, YoungOne)",
+      "source": "https://technode.global/2025/11/04/vietnams-coolmate-completes-series-c-funding-round-led-by-vertex-growth-fund/",
+      "confiance": 1,
+      "juridiction": "Legal seat not verified; operations in Vietnam",
+      "note": "Series C amount is a single-source estimate (VinVentures via The Investor). Disclosed rounds total USD 10.25M.",
+      "valuation_input": {
+        "published_usd": null,
+        "published_date": null,
+        "round_usd": 6000000,
+        "round_date": "2024-10",
+        "round_label": "Series B",
+        "cumulative_usd": 10300000,
+        "sources": "single",
+        "contradictory": false,
+        "adjust": 1,
+        "adjust_reason": "Nov 2025 Series C (amount undisclosed, est. USD 22.3M by VinVentures) led by Vertex Growth"
+      },
+      "valuation_bracket": "hundreds_m",
+      "valuation_basis": "Series B of USD 6M (Oct 2024); single source; adjusted +1 bracket: Nov 2025 Series C (amount undisclosed, est. USD 22.3M by VinVentures) led by Vertex Growth.",
+      "valuation_confidence": "low",
+      "valuation_low_usd": 24000000,
+      "valuation_high_usd": 40000000
+    },
+    {
+      "rang": 10,
+      "nom": "Be Group",
+      "site": "be.com.vn",
+      "sous_secteur": "Mobility › ride-hailing and delivery super-app",
+      "ville": "Ho Chi Minh City",
+      "creation": 2018,
+      "leve_cumule": "USD ≥30M",
+      "derniere_levee": "Equity · USD 30.3M (VND 739.5bn) · Jan 2024 (VPBank Securities)",
+      "source": "https://e.vnexpress.net/news/business/companies/ride-hailing-be-receives-30m-from-vpbank-securities-4699254.html",
+      "confiance": 2,
+      "juridiction": "Investable company: Be Holdings (legal seat not verified); operations in Vietnam",
+      "note": "Excludes a USD 60M+ Deutsche Bank loan (2022) and an undisclosed VinFast investment (2023). Reported company-wide profitability in 2025.",
+      "valuation_input": {
+        "published_usd": null,
+        "published_date": null,
+        "round_usd": 30300000,
+        "round_date": "2024-01",
+        "round_label": "Strategic",
+        "cumulative_usd": 30300000,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 0,
+        "adjust_reason": ""
+      },
+      "valuation_bracket": "hundreds_m",
+      "valuation_basis": "Strategic of USD 30.3M (Jan 2024).",
+      "valuation_confidence": "medium",
+      "valuation_low_usd": 121200000,
+      "valuation_high_usd": 202000000
+    },
+    {
+      "rang": 11,
+      "nom": "Jio Health",
+      "site": "jiohealth.com",
+      "sous_secteur": "Healthtech › clinics and telehealth",
+      "ville": "Ho Chi Minh City",
+      "creation": 2014,
+      "leve_cumule": "USD ~30M",
+      "derniere_levee": "Series B · USD 20M · Jan 2022 (Heritas Capital, Fuchsia, KBank, Monk's Hill)",
+      "source": "https://vietcetera.com/en/vietnam-based-health-tech-startup-jio-health-bags-20m-in-series-b-round",
+      "confiance": 2,
+      "juridiction": "Legal seat not verified (possibly a US parent); operations in Vietnam",
+      "note": "No round reported since 2022.",
+      "valuation_input": {
+        "published_usd": null,
+        "published_date": null,
+        "round_usd": 20000000,
+        "round_date": "2022-01",
+        "round_label": "Series B",
+        "cumulative_usd": 30000000,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 0,
+        "adjust_reason": ""
+      },
+      "valuation_bracket": "tens_m",
+      "valuation_basis": "Series B of USD 20M (Jan 2022).",
+      "valuation_confidence": "medium",
+      "valuation_low_usd": 80000000,
+      "valuation_high_usd": 133333333
+    },
+    {
+      "rang": 12,
+      "nom": "Techcoop",
+      "site": "techcoop.com",
+      "sous_secteur": "Agritech › supply-chain trade and financing",
+      "ville": "Ho Chi Minh City / Hanoi",
+      "creation": 2022,
+      "leve_cumule": "USD ≥28M",
+      "derniere_levee": "Series A · USD 70M incl. USD 28M equity · Feb 2025 (TNB Aura, AVV)",
+      "source": "https://technode.global/2025/02/27/vietnams-techcoop-secures-70m-series-a-with-equity-and-debt-funding/",
+      "confiance": 3,
+      "juridiction": "Investable company: TECHCOOP Investment & Technology Pte. Ltd. (Singapore); operations in Vietnam",
+      "note": "Only equity is counted: USD 42M of the Series A and a USD 11.75M facility (Apr 2026) are debt.",
+      "valuation_input": {
+        "published_usd": null,
+        "published_date": null,
+        "round_usd": 28000000,
+        "round_date": "2025-02",
+        "round_label": "Series A",
+        "cumulative_usd": 28000000,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 0,
+        "adjust_reason": ""
+      },
+      "valuation_bracket": "hundreds_m",
+      "valuation_basis": "Series A of USD 28M (Feb 2025).",
+      "valuation_confidence": "high",
+      "valuation_low_usd": 112000000,
+      "valuation_high_usd": 186666667
+    },
+    {
+      "rang": 13,
+      "nom": "Finhay",
+      "site": "finhay.com.vn",
+      "sous_secteur": "Fintech › retail investing app",
+      "ville": "Hanoi",
+      "creation": 2017,
+      "leve_cumule": "USD ~26M",
+      "derniere_levee": "Series B · USD 25M · Jun 2022 (Openspace, VIG)",
+      "source": "https://vietcetera.com/en/vietnamese-investment-app-finhay-raises-25m-in-series-b-funding",
+      "confiance": 2,
+      "juridiction": "Legal seat not verified; operations in Vietnam",
+      "note": "No round reported since 2022.",
+      "valuation_input": {
+        "published_usd": null,
+        "published_date": null,
+        "round_usd": 25000000,
+        "round_date": "2022-06",
+        "round_label": "Series B",
+        "cumulative_usd": 26000000,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 0,
+        "adjust_reason": ""
+      },
+      "valuation_bracket": "hundreds_m",
+      "valuation_basis": "Series B of USD 25M (Jun 2022).",
+      "valuation_confidence": "medium",
+      "valuation_low_usd": 100000000,
+      "valuation_high_usd": 166666667
+    },
+    {
+      "rang": 14,
+      "nom": "AI Hay",
+      "site": "aihay.vn",
+      "sous_secteur": "AI › consumer Q&A and search",
+      "ville": "Ho Chi Minh City",
+      "creation": 2023,
+      "leve_cumule": "USD ~18M",
+      "derniere_levee": "Series A · USD 10M · Jul 2025 (Argor Capital, Square Peg, Northstar Ventures)",
+      "source": "https://technode.global/2025/07/02/vietnams-ai-hay-secures-10m-in-series-a-funding-round-led-by-argor-capital/",
+      "confiance": 2,
+      "juridiction": "Legal seat not verified; operations in Vietnam",
+      "note": "Earlier funding (USD ~8M) not itemised by round.",
+      "valuation_input": {
+        "published_usd": null,
+        "published_date": null,
+        "round_usd": 10000000,
+        "round_date": "2025-07",
+        "round_label": "Series A",
+        "cumulative_usd": 18000000,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 0,
+        "adjust_reason": ""
+      },
+      "valuation_bracket": "tens_m",
+      "valuation_basis": "Series A of USD 10M (Jul 2025).",
+      "valuation_confidence": "high",
+      "valuation_low_usd": 40000000,
+      "valuation_high_usd": 66666667
+    },
+    {
+      "rang": 15,
+      "nom": "Edupia",
+      "site": "edupia.vn",
+      "sous_secteur": "Edtech › online English for K-12",
+      "ville": "Hanoi",
+      "creation": 2017,
+      "leve_cumule": "USD ~16M",
+      "derniere_levee": "Series A · USD 14M · Sep 2022 (Jungle Ventures, eWTP Capital, ThinkZone)",
+      "source": "https://techcrunch.com/2022/09/07/edupia-raises-series-a-to-close-the-education-gap-in-vietnam/",
+      "confiance": 2,
+      "juridiction": "Legal seat not verified; operations in Vietnam",
+      "note": "Low confidence: an aggregator shows USD 24M. Companies in the Radar could displace this position.",
+      "valuation_input": {
+        "published_usd": null,
+        "published_date": null,
+        "round_usd": 14000000,
+        "round_date": "2022-09",
+        "round_label": "Series A",
+        "cumulative_usd": 16000000,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 0,
+        "adjust_reason": ""
+      },
+      "valuation_bracket": "tens_m",
+      "valuation_basis": "Series A of USD 14M (Sep 2022).",
+      "valuation_confidence": "medium",
+      "valuation_low_usd": 56000000,
+      "valuation_high_usd": 93333333
+    }
   ],
   "radar": [
-    {"nom": "Stride", "sous_secteur": "Climate fintech › rooftop solar and battery financing", "derniere_levee": "Series B · USD 15M · May 2026 (Lightrock, TRIREC), partly secondary", "source": "https://technode.global/2026/05/22/vietnams-renewable-energy-startup-stride-raises-15m-in-series-b-round-as-touchstone-partially-exits/"},
-    {"nom": "Homebase", "sous_secteur": "Proptech › rent-to-own (pivoted to HR tech in 2025)", "derniere_levee": "USD 30M equity and debt, split undisclosed · Nov 2021 (Y Combinator, Goodwater, Partech)", "source": "https://technode.global/2021/11/15/vietnam-proptech-firm-homebase-raises-30m-led-by-y-combinator-and-other-global-investors/"},
-    {"nom": "Manabie", "sous_secteur": "Edtech › SaaS and cram schools (Singapore HQ; main market possibly Japan)", "derniere_levee": "Series B · USD ~23M (JPY 3.3bn) · Apr 2025 (JIC VGI)", "source": "https://japanstartupobserver.substack.com/p/education-dx-platform-manabie-raises"},
-    {"nom": "GIMO", "sous_secteur": "Fintech › earned wage access", "derniere_levee": "Series A · USD 17.1M equity and debt, split undisclosed · Jul 2023 (TNB Aura)", "source": "https://fintechnews.sg/76772/vietnam/vietnams-earned-wage-access-firm-gimo-raises-us17-1m-to-fuel-expansion/"},
-    {"nom": "Orochi Network", "sous_secteur": "Blockchain › infrastructure", "derniere_levee": "Seed · USD 12M · 2025 (single source)", "source": "https://theinvestor.vn/10-top-funded-startups-in-vietnam-in-2025-d18419.html"},
-    {"nom": "Ephyra / GameBeast", "sous_secteur": "Gaming › mobile games", "derniere_levee": "Series A · USD 10.5M · 2025 (single source)", "source": "https://theinvestor.vn/10-top-funded-startups-in-vietnam-in-2025-d18419.html"},
-    {"nom": "Galaxy Education", "sous_secteur": "Edtech › K-12, English, online university (HOCMAI, ICAN, FUNiX)", "derniere_levee": "USD ~10M · Jun 2025 (East Ventures)", "source": "https://vir.com.vn/galaxy-education-bags-10-million-from-east-ventures-and-other-investors-131165.html"},
-    {"nom": "Kyna English", "sous_secteur": "Edtech › online English", "derniere_levee": "Series B · undisclosed (est. USD 10M) · 2025 (Asia Business Builders)", "source": "https://www.edtechreview.in/news/kyna-english-raises-series-b-funding-to-fuel-growth-and-expansion/"},
-    {"nom": "SmartPay", "sous_secteur": "Fintech › merchant e-wallet", "derniere_levee": "USD ~9.2M (VND 240bn) · ~2022 (SMBC)", "source": "https://en.vneconomy.vn/sumitomo-mitsui-banking-corporation-to-invest-in-smartnet.htm"},
-    {"nom": "EcoTruck", "sous_secteur": "Logistics › trucking marketplace", "derniere_levee": "USD 2M · May 2021 (STIC Ventures)", "source": "https://www.kedglobal.com/newsView/ked202105240002"}
+    {
+      "nom": "Stride",
+      "sous_secteur": "Climate fintech › rooftop solar and battery financing",
+      "derniere_levee": "Series B · USD 15M · May 2026 (Lightrock, TRIREC), partly secondary",
+      "source": "https://technode.global/2026/05/22/vietnams-renewable-energy-startup-stride-raises-15m-in-series-b-round-as-touchstone-partially-exits/"
+    },
+    {
+      "nom": "Homebase",
+      "sous_secteur": "Proptech › rent-to-own (pivoted to HR tech in 2025)",
+      "derniere_levee": "USD 30M equity and debt, split undisclosed · Nov 2021 (Y Combinator, Goodwater, Partech)",
+      "source": "https://technode.global/2021/11/15/vietnam-proptech-firm-homebase-raises-30m-led-by-y-combinator-and-other-global-investors/"
+    },
+    {
+      "nom": "Manabie",
+      "sous_secteur": "Edtech › SaaS and cram schools (Singapore HQ; main market possibly Japan)",
+      "derniere_levee": "Series B · USD ~23M (JPY 3.3bn) · Apr 2025 (JIC VGI)",
+      "source": "https://japanstartupobserver.substack.com/p/education-dx-platform-manabie-raises"
+    },
+    {
+      "nom": "GIMO",
+      "sous_secteur": "Fintech › earned wage access",
+      "derniere_levee": "Series A · USD 17.1M equity and debt, split undisclosed · Jul 2023 (TNB Aura)",
+      "source": "https://fintechnews.sg/76772/vietnam/vietnams-earned-wage-access-firm-gimo-raises-us17-1m-to-fuel-expansion/"
+    },
+    {
+      "nom": "Orochi Network",
+      "sous_secteur": "Blockchain › infrastructure",
+      "derniere_levee": "Seed · USD 12M · 2025 (single source)",
+      "source": "https://theinvestor.vn/10-top-funded-startups-in-vietnam-in-2025-d18419.html"
+    },
+    {
+      "nom": "Ephyra / GameBeast",
+      "sous_secteur": "Gaming › mobile games",
+      "derniere_levee": "Series A · USD 10.5M · 2025 (single source)",
+      "source": "https://theinvestor.vn/10-top-funded-startups-in-vietnam-in-2025-d18419.html"
+    },
+    {
+      "nom": "Galaxy Education",
+      "sous_secteur": "Edtech › K-12, English, online university (HOCMAI, ICAN, FUNiX)",
+      "derniere_levee": "USD ~10M · Jun 2025 (East Ventures)",
+      "source": "https://vir.com.vn/galaxy-education-bags-10-million-from-east-ventures-and-other-investors-131165.html"
+    },
+    {
+      "nom": "Kyna English",
+      "sous_secteur": "Edtech › online English",
+      "derniere_levee": "Series B · undisclosed (est. USD 10M) · 2025 (Asia Business Builders)",
+      "source": "https://www.edtechreview.in/news/kyna-english-raises-series-b-funding-to-fuel-growth-and-expansion/"
+    },
+    {
+      "nom": "SmartPay",
+      "sous_secteur": "Fintech › merchant e-wallet",
+      "derniere_levee": "USD ~9.2M (VND 240bn) · ~2022 (SMBC)",
+      "source": "https://en.vneconomy.vn/sumitomo-mitsui-banking-corporation-to-invest-in-smartnet.htm"
+    },
+    {
+      "nom": "EcoTruck",
+      "sous_secteur": "Logistics › trucking marketplace",
+      "derniere_levee": "USD 2M · May 2021 (STIC Ventures)",
+      "source": "https://www.kedglobal.com/newsView/ked202105240002"
+    }
   ],
   "nees_ici": [
-    {"nom": "ELSA", "sous_secteur": "Edtech › English-learning app", "lieu": "Co-founded by a Vietnamese founder; headquarters in San Francisco, global user base", "derniere_levee": "Series C · USD 23M · 2022", "source": "https://peopleofcolorintech.com/articles/english-language-app-secures-23m-series-c-launches-personal-ai-tutor/"}
+    {
+      "nom": "ELSA",
+      "sous_secteur": "Edtech › English-learning app",
+      "lieu": "Co-founded by a Vietnamese founder; headquarters in San Francisco, global user base",
+      "derniere_levee": "Series C · USD 23M · 2022",
+      "source": "https://peopleofcolorintech.com/articles/english-language-app-secures-23m-series-c-launches-personal-ai-tutor/"
+    }
   ],
   "nees_ailleurs": [
-    {"nom": "Kamereo", "sous_secteur": "B2B e-commerce › food sourcing for restaurants and hotels", "lieu": "Japanese co-founder (Taku Tanaka); operations entirely in Vietnam", "derniere_levee": "Series B · USD 7.8M · Dec 2024 (Sumitomo Corp., SMBC VC, MUFG Capital)", "source": "https://theinvestor.vn/vietnam-based-food-sourcing-startup-kamereo-nets-78-mln-in-series-b-funding-d13710.html"},
-    {"nom": "OKXE", "sous_secteur": "Marketplace › used motorbikes and financing", "lieu": "Korean founder (Wooseok Kim); operations entirely in Vietnam", "derniere_levee": "Series A · USD 14.5M reported (may be the cumulative total) · Jul 2025 (Kwangju Bank, JB Financial)", "source": "https://e.vnexpress.net/news/business/okxe-raises-total-capital-to-14-5m-marking-7-year-growth-milestone-4946390.html"}
+    {
+      "nom": "Kamereo",
+      "sous_secteur": "B2B e-commerce › food sourcing for restaurants and hotels",
+      "lieu": "Japanese co-founder (Taku Tanaka); operations entirely in Vietnam",
+      "derniere_levee": "Series B · USD 7.8M · Dec 2024 (Sumitomo Corp., SMBC VC, MUFG Capital)",
+      "source": "https://theinvestor.vn/vietnam-based-food-sourcing-startup-kamereo-nets-78-mln-in-series-b-funding-d13710.html"
+    },
+    {
+      "nom": "OKXE",
+      "sous_secteur": "Marketplace › used motorbikes and financing",
+      "lieu": "Korean founder (Wooseok Kim); operations entirely in Vietnam",
+      "derniere_levee": "Series A · USD 14.5M reported (may be the cumulative total) · Jul 2025 (Kwangju Bank, JB Financial)",
+      "source": "https://e.vnexpress.net/news/business/okxe-raises-total-capital-to-14-5m-marking-7-year-growth-milestone-4946390.html"
+    }
   ],
   "hors_classement": [
-    {"nom": "Tiki", "motif": "Under review: reported valuation cut from ~USD 1bn (2021) to under USD 10M (2025) after a restructuring round; control status being verified", "source": "https://www.dealstreetasia.com/stories/tikis-from-soonicorn-to-sub-10m-valuation-441113"},
-    {"nom": "Scommerce (GHN, AhaMove)", "motif": "Out of window: last documented round (Temasek-led, up to USD ~100M) in Oct 2019", "source": "https://e.vnexpress.net/news/business/companies/logistics-firm-scommerce-raises-100-mln-from-temasek-4004004.html"},
-    {"nom": "Sendo", "motif": "Out of window: last round was a USD 61M Series C in Nov 2019", "source": "https://e.vnexpress.net/news/business/companies/e-commerce-firm-sendo-nets-61-mln-in-latest-funding-round-4015087.html"},
-    {"nom": "VNG", "motif": "Listed on UPCoM (VNZ) since Jan 2023: benchmark, not ranked", "source": "https://theinvestor.vn/vietnam-tech-unicorn-vng-to-trade-358-mln-shares-on-upcom-d3118.html"},
-    {"nom": "F88", "motif": "Listed on UPCoM since Aug 2025: benchmark, not ranked", "source": "https://vietnamnews.vn/media-outreach/1723082/f88-officially-lists-8-26-million-shares-on-upcom.html"},
-    {"nom": "Timo", "motif": "Acquired: Kredivo Group took nearly full ownership (announced May 2026)", "source": "https://technode.global/2026/05/07/indonesias-bnpl-platform-kredivo-acquires-nearly-full-ownership-of-vietnams-timo-digital-bank/"},
-    {"nom": "VinBrain", "motif": "Acquired by NVIDIA in Dec 2024", "source": "https://theinvestor.vn/nvidia-acquires-ai-unit-of-vietnamese-private-giant-vingroup-d13667.html"},
-    {"nom": "Telio", "motif": "Shut down in Nov 2024", "source": "https://www.dealstreetasia.com/stories/telio-ceases-operations-427902"},
-    {"nom": "Mio", "motif": "Shut down in 2024", "source": "https://www.dealstreetasia.com/stories/mio-ceases-operations-410537"},
-    {"nom": "Kilo", "motif": "Shut down in Oct 2023", "source": "https://www.dealstreetasia.com/stories/vietnam-kilo-shuts-down-ops-363922"},
-    {"nom": "Propzy", "motif": "Shut down in Sep 2022", "source": "https://e.vnexpress.net/news/companies/proptech-startup-propzy-to-close-up-shop-4511207.html"},
-    {"nom": "Cake by VPBank", "motif": "Not a startup issuer: a bank product licensed through VPBank", "source": "https://vir.com.vn/be-group-partnering-up-with-vpbank-to-launch-cake-digital-bank-82038.html"},
-    {"nom": "CME Solar", "motif": "Not tech: rooftop-solar developer financed with infrastructure capital", "source": "https://pidg.org/eaaif-invests-usd-20-million-in-cme-solar-cmes-to-power-vietnams-manufacturing-sector-with-clean-energy-sources/"},
-    {"nom": "Xanh SM (GSM)", "motif": "Not VC-backed: 95% owned by Vingroup's chairman", "source": "https://theinvestor.vn/vingroup-chair-backed-xanh-sm-lifts-capital-base-above-1-bln-as-ev-ride-hailing-lead-widens-d18461.html"}
+    {
+      "nom": "Tiki",
+      "motif": "Under review: reported valuation cut from ~USD 1bn (2021) to under USD 10M (2025) after a restructuring round; control status being verified",
+      "source": "https://www.dealstreetasia.com/stories/tikis-from-soonicorn-to-sub-10m-valuation-441113"
+    },
+    {
+      "nom": "Scommerce (GHN, AhaMove)",
+      "motif": "Out of window: last documented round (Temasek-led, up to USD ~100M) in Oct 2019",
+      "source": "https://e.vnexpress.net/news/business/companies/logistics-firm-scommerce-raises-100-mln-from-temasek-4004004.html"
+    },
+    {
+      "nom": "Sendo",
+      "motif": "Out of window: last round was a USD 61M Series C in Nov 2019",
+      "source": "https://e.vnexpress.net/news/business/companies/e-commerce-firm-sendo-nets-61-mln-in-latest-funding-round-4015087.html"
+    },
+    {
+      "nom": "VNG",
+      "motif": "Listed on UPCoM (VNZ) since Jan 2023: benchmark, not ranked",
+      "source": "https://theinvestor.vn/vietnam-tech-unicorn-vng-to-trade-358-mln-shares-on-upcom-d3118.html"
+    },
+    {
+      "nom": "F88",
+      "motif": "Listed on UPCoM since Aug 2025: benchmark, not ranked",
+      "source": "https://vietnamnews.vn/media-outreach/1723082/f88-officially-lists-8-26-million-shares-on-upcom.html"
+    },
+    {
+      "nom": "Timo",
+      "motif": "Acquired: Kredivo Group took nearly full ownership (announced May 2026)",
+      "source": "https://technode.global/2026/05/07/indonesias-bnpl-platform-kredivo-acquires-nearly-full-ownership-of-vietnams-timo-digital-bank/"
+    },
+    {
+      "nom": "VinBrain",
+      "motif": "Acquired by NVIDIA in Dec 2024",
+      "source": "https://theinvestor.vn/nvidia-acquires-ai-unit-of-vietnamese-private-giant-vingroup-d13667.html"
+    },
+    {
+      "nom": "Telio",
+      "motif": "Shut down in Nov 2024",
+      "source": "https://www.dealstreetasia.com/stories/telio-ceases-operations-427902"
+    },
+    {
+      "nom": "Mio",
+      "motif": "Shut down in 2024",
+      "source": "https://www.dealstreetasia.com/stories/mio-ceases-operations-410537"
+    },
+    {
+      "nom": "Kilo",
+      "motif": "Shut down in Oct 2023",
+      "source": "https://www.dealstreetasia.com/stories/vietnam-kilo-shuts-down-ops-363922"
+    },
+    {
+      "nom": "Propzy",
+      "motif": "Shut down in Sep 2022",
+      "source": "https://e.vnexpress.net/news/companies/proptech-startup-propzy-to-close-up-shop-4511207.html"
+    },
+    {
+      "nom": "Cake by VPBank",
+      "motif": "Not a startup issuer: a bank product licensed through VPBank",
+      "source": "https://vir.com.vn/be-group-partnering-up-with-vpbank-to-launch-cake-digital-bank-82038.html"
+    },
+    {
+      "nom": "CME Solar",
+      "motif": "Not tech: rooftop-solar developer financed with infrastructure capital",
+      "source": "https://pidg.org/eaaif-invests-usd-20-million-in-cme-solar-cmes-to-power-vietnams-manufacturing-sector-with-clean-energy-sources/"
+    },
+    {
+      "nom": "Xanh SM (GSM)",
+      "motif": "Not VC-backed: 95% owned by Vingroup's chairman",
+      "source": "https://theinvestor.vn/vingroup-chair-backed-xanh-sm-lifts-capital-base-above-1-bln-as-ev-ride-hailing-lead-widens-d18461.html"
+    }
   ],
   "reperes_cotes": [
-    {"nom": "VNG", "info": "Tech · UPCoM (VNZ) · listed Jan 2023; debut market cap VND 8,592bn (USD ~0.37bn)", "source": "https://theinvestor.vn/vietnam-tech-unicorn-vng-to-trade-358-mln-shares-on-upcom-d3118.html"},
-    {"nom": "F88", "info": "Consumer lending · UPCoM · listed Aug 2025; VC-backed (Mekong Capital)", "source": "https://vietnamnews.vn/media-outreach/1723082/f88-officially-lists-8-26-million-shares-on-upcom.html"}
+    {
+      "nom": "VNG",
+      "info": "Tech · UPCoM (VNZ) · listed Jan 2023; debut market cap VND 8,592bn (USD ~0.37bn)",
+      "source": "https://theinvestor.vn/vietnam-tech-unicorn-vng-to-trade-358-mln-shares-on-upcom-d3118.html"
+    },
+    {
+      "nom": "F88",
+      "info": "Consumer lending · UPCoM · listed Aug 2025; VC-backed (Mekong Capital)",
+      "source": "https://vietnamnews.vn/media-outreach/1723082/f88-officially-lists-8-26-million-shares-on-upcom.html"
+    }
   ],
   "marche": {
     "total_2025": "USD 509M",
     "deals_2025": "103",
     "commentaire": "Figure shown: NIC, VPCA and BCG (USD 509M across 103 VC deals, +28% in value). Sources disagree on scope: VinVentures counts USD 215M disbursed across about 41 deals.",
     "sources": [
-      {"label": "NIC, VPCA, BCG – Vietnam Innovation & Private Capital Report 2026 (via TNGlobal)", "url": "https://technode.global/2026/05/29/vietnams-private-capital-surges-to-4-5b-as-pe-hits-record-high-ipo-remains-shut-for-technology/"},
-      {"label": "BCG – report page", "url": "https://www.bcg.com/publications/2026/vietnam-innovation-and-private-capital-report"},
-      {"label": "VinVentures (via The Investor)", "url": "https://theinvestor.vn/10-top-funded-startups-in-vietnam-in-2025-d18419.html"}
+      {
+        "label": "NIC, VPCA, BCG – Vietnam Innovation & Private Capital Report 2026 (via TNGlobal)",
+        "url": "https://technode.global/2026/05/29/vietnams-private-capital-surges-to-4-5b-as-pe-hits-record-high-ipo-remains-shut-for-technology/"
+      },
+      {
+        "label": "BCG – report page",
+        "url": "https://www.bcg.com/publications/2026/vietnam-innovation-and-private-capital-report"
+      },
+      {
+        "label": "VinVentures (via The Investor)",
+        "url": "https://theinvestor.vn/10-top-funded-startups-in-vietnam-in-2025-d18419.html"
+      }
     ]
   }
 }

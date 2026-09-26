@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Méthode et règles du jeu | Uback Maroc</title>
-<meta name="description" content="Comment Uback classe les startups : consensus d&#x27;IA, éligibilité, indice de confiance, droit de réponse. Uback classe, ne valorise pas.">
+<meta name="description" content="Comment Uback classe les startups : consensus d&#x27;IA, éligibilité, indice de confiance, ordre de grandeur de valorisation, droit de réponse. Uback ne valorise pas les sociétés : il les classe, et indique un ordre de grandeur estimé par IA.">
 <link rel="canonical" href="https://uback.com/ma/methode.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Uback">
 <meta property="og:title" content="Méthode et règles du jeu | Uback Maroc">
-<meta property="og:description" content="Comment Uback classe les startups : consensus d&#x27;IA, éligibilité, indice de confiance, droit de réponse. Uback classe, ne valorise pas.">
+<meta property="og:description" content="Comment Uback classe les startups : consensus d&#x27;IA, éligibilité, indice de confiance, ordre de grandeur de valorisation, droit de réponse. Uback ne valorise pas les sociétés : il les classe, et indique un ordre de grandeur estimé par IA.">
 <meta property="og:url" content="https://uback.com/ma/methode.html">
-<meta property="og:image" content="https://uback.com/ma/assets/og-image.png?v=2">
+<meta property="og:image" content="https://uback.com/ma/assets/og-image.png?v=3">
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/ma/assets/favicon.svg" type="image/svg+xml">
@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/ma/assets/style.css?v=a6139ebe">
+<link rel="stylesheet" href="/ma/assets/style.css?v=c3ab39e4">
 
 </head>
 <body>
@@ -53,7 +53,7 @@
 
 <h2>Les règles du jeu</h2>
 <ol>
-<li><b>Uback classe, ne valorise pas.</b> Aucune valorisation n’est estimée par Uback ; seules des valeurs publiques, datées et sourcées sont affichées (montants levés, dernière levée annoncée).</li>
+<li><b>Uback ne valorise pas les sociétés : il les classe, et indique un ordre de grandeur estimé par IA.</b> Cet ordre de grandeur est une tranche indicative, jamais un chiffre, calculée selon une règle publiée ; seules des valeurs publiques, datées et sourcées servent de point de départ (montants levés, valorisations publiées).</li>
 <li><b>Un classement n’est jamais à vendre.</b> Aucun paiement, d’une société, d’un partenaire ou d’un analyste, n’influence une position. Le référencement payant (« Challengers ») est affiché à part, étiqueté comme tel, et n’entre jamais dans le classement.</li>
 <li><b>Aucun humain ne modifie l’ordre.</b> Un validateur peut exclure une société pour un motif d’éligibilité, tracé, ou relancer le calcul ; jamais réordonner.</li>
 <li><b>Uback ne démarche jamais.</b> Tout contact sortant vers une société, un dirigeant ou un actionnaire passe par le partenaire agréé du pays.</li>
@@ -66,6 +66,18 @@
 <h2>Comment le classement est établi</h2>
 <p>Chaque mois, la même question est posée à plusieurs intelligences artificielles pour chaque pays et chaque secteur : quelles sont les sociétés éligibles les mieux valorisées, dans l’ordre ? Les réponses sont fusionnées en un classement de consensus (par points : 1er = 20 points, 2e = 19, etc.). Un indice de confiance est affiché pour chaque position : quand les IA sont d’accord, le classement est solide ; quand elles divergent, la divergence devient elle-même une information.</p>
 <p><b>Édition 0 (bêta).</b> Cette première édition a été établie par une seule IA (Claude, Anthropic), à partir d’une recherche documentaire sur la presse et les annonces de levées de fonds, chaque montant étant sourcé. L’indice de confiance y reflète la qualité des sources disponibles. Le consensus multi-IA s’applique à partir de l’édition 1.</p>
+
+<h2 id="valorisation">Ordre de grandeur de valorisation</h2>
+<p>À côté de chaque société, Uback indique une tranche de valorisation estimée par IA : centaines de milliers de dollars, millions, dizaines de millions, centaines de millions, licorne (plus d’un milliard) ou décacorne (plus de dix milliards). C’est un ordre de grandeur indicatif, jamais un chiffre, et il n’intervient pas dans l’ordre du classement. Survolez ou touchez la tranche pour voir sur quoi repose l’estimation.</p>
+<ul>
+<li><b>Le point de départ.</b> Si une valorisation a été publiée depuis moins de 24 mois, elle sert d’ancrage. Sinon, Uback part du dernier tour en fonds propres dont le montant est connu : les investisseurs prennent en général 15 à 25 % du capital, la valorisation après le tour est donc estimée entre 4 et 6,7 fois le montant levé. La dette et les subventions ne servent jamais d’ancrage.</li>
+<li><b>Un ajustement limité.</b> L’IA peut décaler l’estimation d’une tranche au plus, vers le haut ou vers le bas, à partir de faits publics : tour ultérieur au montant non publié, chiffre d’affaires, rentabilité, agrément, restructuration… Chaque ajustement est justifié et affiché.</li>
+<li><b>La règle de la borne basse.</b> La tranche affichée est celle qui contient le bas de la fourchette estimée : entre deux tranches, Uback retient la plus prudente.</li>
+<li><b>L’indice de confiance.</b> Élevée : valorisation publiée, ou tour chiffré et recoupé, de moins de 24 mois. Moyenne : tour de plus de 24 mois, ou seul le cumul levé est connu. Faible : source unique ou sources divergentes.</li>
+<li><b>« Non estimé ».</b> Quand aucun tour en fonds propres n’a de montant publié, quand il n’y a que de la dette ou des subventions, ou quand l’ancrage repose sur une source incertaine, Uback n’affiche aucune tranche plutôt qu’un chiffre fragile.</li>
+<li><b>Signaler une erreur.</b> Chaque ligne du classement permet à la société concernée de signaler une erreur à <a href="mailto:contact@uback.com">contact@uback.com</a>. La correction est tracée.</li>
+</ul>
+<p>Ces ordres de grandeur sont des estimations éditoriales indicatives : ils ne constituent ni une évaluation financière, ni une offre, ni un conseil en investissement.</p>
 
 <h2>Règles d’éligibilité</h2>
 <table>
