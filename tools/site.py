@@ -36,8 +36,8 @@ TXT = {
   f_method='Méthode et règles du jeu', f_partner='Devenir partenaire', f_corr='Demander une correction', f_legal='Mentions légales',
   f_disc='Uback est un éditeur de contenu. Il ne fournit aucun conseil en investissement, ne reçoit aucun mandat et n’intervient dans aucune transaction. Les mises en relation sont réalisées par un partenaire agréé, en cours de sélection {in_}. Investir dans des sociétés non cotées comporte un risque de perte totale du capital investi.',
   conf3='Sources solides', conf2='Sources partielles', conf1='Sources faibles',
-  founded='fondée en', l_sub='Sous-secteur', l_fund='Levées', l_conf='Confiance', l_access='Accès', raised=' cumulés',
-  st_title='Aucune intention de lever ou de céder n’a été déclarée sur Uback. Les dirigeants peuvent revendiquer leur fiche.', st='Non déclaré',
+  founded='fondée en', l_sub='Sous-secteur', l_fund='Levées', l_conf='Confiance', raised=' cumulés',
+  declare_cell='Déclarer une intention', b_levee='Levée en cours', b_suivie='Suivie par {{p}}', exit='Sortie', exit_by='Sortie – {{a}}',
   ld_name='Les {N} startups {adj_fp} les mieux valorisées – {date}',
   ld_desc="Classement mensuel Uback des startups {adj_fp}, établi par IA à partir d'informations publiques. Uback ne valorise pas les sociétés : il les classe, et indique un ordre de grandeur estimé par IA.",
   title='Top {N} des startups {adj_fp} les mieux valorisées – {date} | Uback {name}',
@@ -55,7 +55,7 @@ TXT = {
   sources='Sources : ', counters=' Les compteurs d’intentions s’afficheront au-delà d’un seuil de montant et de nombre de Backers.',
   listed='Repères cotés', listed_note='Hors classement : aucune intention possible sur une société cotée.',
   h2_rank='Classement national · tous secteurs', t_born='Nées ici, établies ailleurs', first_ed='Première édition : pas encore de mouvements.',
-  th_co='Société', th_sub='Sous-secteur', th_fund='Levées connues', th_conf='Confiance', th_access='Accès',
+  th_co='Société', th_sub='Sous-secteur', th_fund='Levées connues', th_conf='Confiance', th_invest='Investir',
   disc_b='Ce classement est une opinion, pas une évaluation.',
   disc='Il est établi à partir d’informations publiques (presse, annonces de levées de fonds), selon une méthode publiée, sans intervention humaine sur l’ordre. L’indice de confiance reflète la qualité des sources. Toute société peut <a href="/methode.html#correction">demander une correction</a> ou contester sa position. Seuil d’éligibilité : au moins {seuil} levés, sociétés non cotées, opérations principales {in_}.',
   reg_h2='Trois regards, jamais un seul',
@@ -102,8 +102,8 @@ TXT = {
   f_method='Method and rules', f_partner='Become a partner', f_corr='Request a correction', f_legal='Legal notice',
   f_disc='Uback is a content publisher. It provides no investment advice, receives no mandate and takes part in no transaction. Introductions are made by a licensed partner, currently being selected {in_}. Investing in non-listed companies carries a risk of losing all the capital invested.',
   conf3='Solid sources', conf2='Partial sources', conf1='Weak sources',
-  founded='founded', l_sub='Sub-sector', l_fund='Funding', l_conf='Confidence', l_access='Access', raised=' raised',
-  st_title='No intention to raise or sell has been declared on Uback. Managers can claim their company profile.', st='Not declared',
+  founded='founded', l_sub='Sub-sector', l_fund='Funding', l_conf='Confidence', raised=' raised',
+  declare_cell='Declare an intent', b_levee='Raise in progress', b_suivie='Followed by {{p}}', exit='Exit', exit_by='Exit – {{a}}',
   ld_name='{name}’s top {N} funded startups – {date}',
   ld_desc='Uback monthly ranking of non-listed {adj_fp} startups, established by AI from public information. We don’t value companies. We rank them, and give an AI-estimated order of magnitude.',
   title='{name}’s top {N} funded startups – {date} | Uback {name}',
@@ -121,7 +121,7 @@ TXT = {
   sources='Sources: ', counters=' Intention counters will be shown above a threshold of amount and number of Backers.',
   listed='Listed benchmarks', listed_note='Not ranked: no intention is possible on a listed company.',
   h2_rank='National ranking · all sectors', t_born='Born here, based elsewhere', first_ed='First edition: no movements yet.',
-  th_co='Company', th_sub='Sub-sector', th_fund='Known funding', th_conf='Confidence', th_access='Access',
+  th_co='Company', th_sub='Sub-sector', th_fund='Known funding', th_conf='Confidence', th_invest='Invest',
   disc_b='This ranking is an opinion, not a valuation.',
   disc='It is based on public information (press, funding announcements), following a published method, with no human intervention on the order. The confidence index reflects the quality of the sources. Any company may <a href="/method.html#correction">request a correction</a> or dispute its position. Eligibility threshold: at least {seuil} raised, non-listed companies, main operations {in_}.',
   reg_h2='Three perspectives, never just one',
@@ -260,6 +260,21 @@ def val(c):
             f'<span class="vl">{L["vb_" + b]}</span>{dots}{conf_txt}</button>'
             f'<span class="val-tip" role="tooltip" id="{tid}">{e(c.get("valuation_basis", ""))}</span></span>')
 
+def invest(c):
+    """Colonne « Investir » : bouton d'intention, précédé d'un badge d'état s'il y a lieu.
+    acces : defaut | levee (levée en cours) | travaillee (suivie par le partenaire du marché) | sortie (rachat, sans bouton).
+    L'état par défaut n'affiche aucun libellé ; « travaillee » n'est jamais affiché sans partenaire signé."""
+    a = c.get('acces') or 'defaut'
+    btn = f'<a class="btn" href="/#backers">{L["declare_cell"]}</a>'
+    if a == 'sortie':
+        who = (c.get('acquereur') or '').strip()
+        return f'<span class="exit">{L["exit_by"].format(a=e(who)) if who else L["exit"]}</span>'
+    if a == 'levee':
+        return f'<span class="inv-badge gold">{L["b_levee"]}</span>{btn}'
+    if a == 'travaillee' and M.get('partner_name'):
+        return f'<span class="inv-badge line">{L["b_suivie"].format(p=e(M["partner_name"]))}</span>{btn}'
+    return btn
+
 def row(c):
     top = ' class="top"' if c['rang'] == 1 else ''
     jur = ''
@@ -275,8 +290,7 @@ def row(c):
 <td data-l="{L['l_fund']}">{e(c['leve_cumule'])}{L['raised']}<br><span class="src">{e(c['derniere_levee'])} · {src(c['source'])}</span></td>
 <td data-l="{L['l_val']}">{val(c)}</td>
 <td data-l="{L['l_conf']}">{conf(c['confiance'])}</td>
-<td data-l="{L['l_access']}"><span class="st" title="{L['st_title']}">{L['st']}</span></td>
-<td class="act"><a class="btn" href="/#backers">{L['declare']}</a></td>
+<td class="act">{invest(c)}</td>
 </tr>'''
 
 def li(r, sub=None):
@@ -343,7 +357,7 @@ index += f'''
       <span class="sub">{L['first_ed']}</span>
     </div>
     <table class="tbl">
-      <thead><tr><th>#</th><th>{L['th_co']}</th><th>{L['th_sub']}</th><th>{L['th_fund']}</th><th>{L['th_val']}</th><th>{L['th_conf']}</th><th>{L['th_access']}</th><th></th></tr></thead>
+      <thead><tr><th>#</th><th>{L['th_co']}</th><th>{L['th_sub']}</th><th>{L['th_fund']}</th><th>{L['th_val']}</th><th>{L['th_conf']}</th><th class="th-inv">{L['th_invest']}</th></tr></thead>
       <tbody>
       {''.join(row(c) for c in RANKED)}
       </tbody>
@@ -496,7 +510,7 @@ if M['lang'] == 'fr':
 <li><b>Uback n’est pas un intermédiaire financier.</b> Aucun mandat, aucune négociation, aucun conseil, aucun encaissement de fonds destinés à un investissement.</li>
 <li><b>Les données ne sortent pas.</b> Les intentions de cession sont confidentielles ; aucune donnée n’est vendue ni transmise à des tiers, hors le partenaire local avec le consentement du déclarant.</li>
 <li><b>Tout est publié, tout est tracé.</b> IA interrogées, date, règle de consensus, critères d’éligibilité sont publics ; chaque société dispose d’un droit de réponse.</li>
-<li><b>Aucune fausse promesse.</b> Chaque société affiche son statut d’accès. Une intention non transformée est un crédit transférable.</li>
+<li><b>Aucune fausse promesse.</b> La colonne « Investir » n’affiche un état que lorsqu’il est avéré (levée en cours, dossier suivi, sortie). Une intention non transformée est un crédit transférable.</li>
 </ol>
 
 <h2>Comment le classement est établi</h2>
@@ -526,14 +540,8 @@ if M['lang'] == 'fr':
 <tr><td>Opérations principales dans le pays</td><td>Le pays d’un classement est celui des opérations (équipe, marché), quel que soit le siège juridique. Le siège et le droit applicable aux titres sont indiqués sur la fiche. Les sociétés d’origine locale opérées à l’étranger figurent dans « Nées ici, établies ailleurs ».</td></tr>
 </table>
 
-<h2>Le statut d’accès</h2>
-<table>
-<tr><th>Statut</th><th>Signification</th></tr>
-<tr><td>Cotée</td><td>En bourse : aucune intention possible.</td></tr>
-<tr><td>Non déclaré</td><td>Aucun signal d’ouverture du capital sur Uback. Un Backer qui déclare une intention le fait en connaissance de cause, et pourra déplacer son crédit.</td></tr>
-<tr><td>Ouverte</td><td>Un dirigeant a déclaré une intention de lever des fonds, ou un actionnaire une intention de céder.</td></tr>
-<tr><td>Travaillée</td><td>Le partenaire agréé a un dossier en cours.</td></tr>
-</table>
+<h2>La colonne « Investir »</h2>
+<p>Chaque société classée propose le bouton « Déclarer une intention ». Un badge discret s’y ajoute seulement quand un fait est avéré : « Levée en cours » quand la société lève des fonds, « Suivie par… » quand le partenaire agréé du pays a un dossier ouvert. Une société rachetée affiche « Sortie », avec le nom de l’acquéreur quand il est connu, et n’accepte plus d’intention. Les sociétés cotées ne sont pas classées : elles figurent parmi les repères cotés.</p>
 
 <h2 id="apres">Que se passe-t-il après ma déclaration ?</h2>
 <p>Une déclaration d’intention est payante (prix par pays et par tranche de ticket), valable douze mois, et transférable : tant qu’elle n’a pas été transformée, vous pouvez la supprimer et reporter son crédit sur une autre société ou un secteur. Uback ne promet pas un deal. Il promet que votre intention, agrégée à celles des autres Backers, compte dans la masse critique&nbsp;: quand le nombre de Backers et le cumul de leurs intentions franchissent un seuil, le partenaire agréé du pays contacte la société et lui présente cette demande. Si les attentes de la société et celles des Backers convergent, il structure une opération et la présente directement aux Backers concernés, sous son nom et sous sa responsabilité réglementaire. Les petits tickets sont regroupés dans un véhicule commun créé par le partenaire agréé&nbsp;; chaque Backer décide d’y participer ou non. {V['In_']}, les déclarations d’intention ouvriront dès la signature du partenaire.</p>
@@ -621,7 +629,7 @@ else:
 <li><b>Uback is not a financial intermediary.</b> No mandate, no negotiation, no advice, no collection of funds intended for an investment.</li>
 <li><b>Data stays in.</b> Intentions to sell are confidential; no data is sold or passed on to third parties, except to the local partner with the declarant’s consent.</li>
 <li><b>Everything is published, everything is traced.</b> AIs queried, date, consensus rule and eligibility criteria are public; every company has a right of reply.</li>
-<li><b>No false promises.</b> Every company shows its access status. An intention that has not been converted is a transferable credit.</li>
+<li><b>No false promises.</b> The “Invest” column only shows a status when it is established (raise in progress, deal followed, exit). An intention that has not been converted is a transferable credit.</li>
 </ol>
 
 <h2>How the ranking is built</h2>
@@ -651,14 +659,8 @@ else:
 <tr><td>Main operations in the country</td><td>A ranking’s country is the country of operations (team, market), whatever the legal seat. The legal seat and the law governing the shares are shown on each profile. Companies of local origin operated abroad appear in “Born here, based elsewhere”.</td></tr>
 </table>
 
-<h2>Access status</h2>
-<table>
-<tr><th>Status</th><th>Meaning</th></tr>
-<tr><td>Listed</td><td>On the stock exchange: no intention possible.</td></tr>
-<tr><td>Not declared</td><td>No sign of the capital opening up on Uback. A Backer who declares an intention does so knowingly, and may move their credit.</td></tr>
-<tr><td>Open</td><td>A manager has declared an intention to raise funds, or a shareholder an intention to sell.</td></tr>
-<tr><td>Worked on</td><td>The licensed partner has a deal in progress.</td></tr>
-</table>
+<h2>The “Invest” column</h2>
+<p>Every ranked company offers the “Declare an intent” button. A discreet badge is added only when a fact is established: “Raise in progress” when the company is raising funds, “Followed by…” when the country’s licensed partner has an open deal. An acquired company shows “Exit”, with the acquirer’s name when known, and no longer accepts intentions. Listed companies are not ranked: they appear among the listed benchmarks.</p>
 
 <h2 id="after">What happens after my declaration?</h2>
 <p>An intention declaration is paid (price per country and per ticket band), valid for twelve months, and transferable: as long as it has not been converted, you can delete it and move its credit to another company or a sector. Uback does not promise a deal. It promises that your intention, aggregated with those of other Backers, counts towards critical mass: when the number of Backers and the total of their intentions cross a threshold, the country’s licensed partner contacts the company and presents this demand. If the company’s expectations and the Backers’ converge, the partner structures a transaction and presents it directly to the Backers concerned, under its own name and regulatory responsibility. Small tickets are pooled in a common vehicle set up by the licensed partner; each Backer decides whether to take part. {V['In_']}, intention declarations will open once the partner signs.</p>

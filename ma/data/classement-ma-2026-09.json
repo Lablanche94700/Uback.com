@@ -36,7 +36,9 @@
       "valuation_basis": "Série A de 48 M$ (déc. 2024).",
       "valuation_confidence": "high",
       "valuation_low_usd": 192000000,
-      "valuation_high_usd": 320000000
+      "valuation_high_usd": 320000000,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 2,
@@ -67,7 +69,9 @@
       "valuation_basis": "Série A de 12 M$ (oct. 2025) ; valorisation publiée de 100 M$ (janv. 2022), plus de 24 mois.",
       "valuation_confidence": "high",
       "valuation_low_usd": 48000000,
-      "valuation_high_usd": 80000000
+      "valuation_high_usd": 80000000,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 3,
@@ -98,7 +102,9 @@
       "valuation_basis": "Série A de 15 M$ (janv. 2026).",
       "valuation_confidence": "high",
       "valuation_low_usd": 60000000,
-      "valuation_high_usd": 100000000
+      "valuation_high_usd": 100000000,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 4,
@@ -129,7 +135,9 @@
       "valuation_basis": "Série A de 10 M$ (juil. 2026).",
       "valuation_confidence": "high",
       "valuation_low_usd": 40000000,
-      "valuation_high_usd": 66666667
+      "valuation_high_usd": 66666667,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 5,
@@ -160,7 +168,9 @@
       "valuation_basis": "Série A de 6 M$ (2023) ; ancrage de source incertaine ou non recoupée.",
       "valuation_confidence": "low",
       "valuation_low_usd": null,
-      "valuation_high_usd": null
+      "valuation_high_usd": null,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 6,
@@ -191,7 +201,9 @@
       "valuation_basis": "Pré-série A de 7 M$ (mai 2024).",
       "valuation_confidence": "medium",
       "valuation_low_usd": 28000000,
-      "valuation_high_usd": 46666667
+      "valuation_high_usd": 46666667,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 7,
@@ -222,7 +234,9 @@
       "valuation_basis": "Extension seed de 4 M$ (avr. 2025) ; source unique.",
       "valuation_confidence": "low",
       "valuation_low_usd": 16000000,
-      "valuation_high_usd": 26666667
+      "valuation_high_usd": 26666667,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 8,
@@ -253,7 +267,9 @@
       "valuation_basis": "Seed de 5 M$ (juin 2026).",
       "valuation_confidence": "high",
       "valuation_low_usd": 20000000,
-      "valuation_high_usd": 33333333
+      "valuation_high_usd": 33333333,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 9,
@@ -284,7 +300,9 @@
       "valuation_basis": "Seed de 4 M$ (févr. 2026).",
       "valuation_confidence": "high",
       "valuation_low_usd": 16000000,
-      "valuation_high_usd": 26666667
+      "valuation_high_usd": 26666667,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 10,
@@ -315,7 +333,9 @@
       "valuation_basis": "Pré-seed de 5,5 M$ (mai 2026) ; source unique.",
       "valuation_confidence": "low",
       "valuation_low_usd": 22000000,
-      "valuation_high_usd": 36666667
+      "valuation_high_usd": 36666667,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 11,
@@ -346,7 +366,9 @@
       "valuation_basis": "Seed de 4 M$ (févr. 2022).",
       "valuation_confidence": "medium",
       "valuation_low_usd": 16000000,
-      "valuation_high_usd": 26666667
+      "valuation_high_usd": 26666667,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 12,
@@ -377,7 +399,9 @@
       "valuation_basis": "Tour de 1 M$ (mai 2022) ; valorisation publiée de 20 M$ (janv. 2022), plus de 24 mois ; source unique ; ajustement +1 tranche : société rentable, chiffre d’affaires supérieur à 60 MDH cité par la presse.",
       "valuation_confidence": "low",
       "valuation_low_usd": 4000000,
-      "valuation_high_usd": 6666667
+      "valuation_high_usd": 6666667,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 13,
@@ -408,7 +432,9 @@
       "valuation_basis": "Seed de 2,3 M$ (janv. 2026) ; source unique.",
       "valuation_confidence": "low",
       "valuation_low_usd": 9200000,
-      "valuation_high_usd": 15333333
+      "valuation_high_usd": 15333333,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 14,
@@ -439,7 +465,9 @@
       "valuation_basis": "Seed de 1,6 M$ (avr. 2026) ; source unique.",
       "valuation_confidence": "low",
       "valuation_low_usd": 6600000,
-      "valuation_high_usd": 11000000
+      "valuation_high_usd": 11000000,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 15,
@@ -470,7 +498,9 @@
       "valuation_basis": "Pré-seed de 2,2 M$ (déc. 2025) ; source unique.",
       "valuation_confidence": "low",
       "valuation_low_usd": 8800000,
-      "valuation_high_usd": 14666667
+      "valuation_high_usd": 14666667,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 16,
@@ -501,7 +531,9 @@
       "valuation_basis": "Premier tour de 2 M$ (mars 2026) ; source unique.",
       "valuation_confidence": "low",
       "valuation_low_usd": 8000000,
-      "valuation_high_usd": 13333333
+      "valuation_high_usd": 13333333,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 17,
@@ -532,7 +564,9 @@
       "valuation_basis": "Pré-seed de 1,5 M$ (févr. 2023) ; source unique.",
       "valuation_confidence": "low",
       "valuation_low_usd": 6000000,
-      "valuation_high_usd": 10000000
+      "valuation_high_usd": 10000000,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 18,
@@ -563,7 +597,9 @@
       "valuation_basis": "Tour de 1,5 M$ (mars 2024) ; ancrage de source incertaine ou non recoupée.",
       "valuation_confidence": "low",
       "valuation_low_usd": null,
-      "valuation_high_usd": null
+      "valuation_high_usd": null,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 19,
@@ -594,7 +630,9 @@
       "valuation_basis": "Tour de 1 M$ (févr. 2023) ; ancrage de source incertaine ou non recoupée.",
       "valuation_confidence": "low",
       "valuation_low_usd": null,
-      "valuation_high_usd": null
+      "valuation_high_usd": null,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 20,
@@ -625,7 +663,9 @@
       "valuation_basis": "Tour de 1,1 M$ (mars 2023) ; ancrage de source incertaine ou non recoupée.",
       "valuation_confidence": "low",
       "valuation_low_usd": null,
-      "valuation_high_usd": null
+      "valuation_high_usd": null,
+      "acces": "defaut",
+      "acquereur": ""
     }
   ],
   "radar": [

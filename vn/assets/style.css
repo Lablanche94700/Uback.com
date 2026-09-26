@@ -102,6 +102,12 @@ tr.top .rank{color:var(--gold)}
 .jur{font-size:12px;color:var(--warn);display:block;margin-top:3px}
 .tbl .act{text-align:right;white-space:nowrap}
 .tbl .act .btn{padding:8px 12px;font-size:13px}
+/* colonne « Investir » : badge d'état discret au-dessus du bouton */
+.tbl .th-inv{text-align:right}
+.inv-badge{display:table;margin:0 0 6px auto;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:700;line-height:1.5;white-space:nowrap}
+.inv-badge.gold{background:var(--gold);color:#fff}
+.inv-badge.line{border:1px solid var(--navy);color:var(--navy)}
+.exit{font-size:13px;font-weight:600;color:var(--muted)}
 .disclaimer{margin-top:18px;padding:14px 18px;background:var(--soft);border-radius:10px;font-size:12px;line-height:1.6;color:#4b5563}
 .disclaimer b{color:var(--navy)}
 /* cards */
@@ -143,6 +149,8 @@ section.navy p.lead{font-size:16px;color:#c7d0dc;max-width:860px;margin:0 0 24px
 .list{list-style:none;margin:0;padding:0;font-size:14px}
 .list li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid #e5e9ef}
 .list li span:last-child{color:var(--muted);white-space:nowrap;font-size:13px}
+.two>*{min-width:0}
+@media (max-width:760px){.list li{flex-direction:column;gap:2px}.list li span:last-child{white-space:normal}}
 form.follow{display:flex;gap:8px;margin-top:8px}
 form.follow input{flex:1;padding:11px 12px;border:1px solid #d9dee5;border-radius:8px;font-size:14px;font-family:inherit;min-width:0}
 /* prose pages */
@@ -188,6 +196,7 @@ footer p{margin:0;line-height:1.6;max-width:1100px}
   .tbl tr{position:relative;padding-left:52px}
   .tbl td.rank{left:14px;top:12px}
   .tbl .act{text-align:left;padding-top:8px}
+  .inv-badge{margin:0 0 6px}
   .tbl td[data-l]:before{content:attr(data-l) " : ";font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
   .pstats{flex-wrap:wrap;gap:16px}
   form.follow{flex-direction:column}

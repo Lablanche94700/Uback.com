@@ -19,8 +19,9 @@ TOOLS = os.path.dirname(os.path.abspath(__file__))
 #   sectors      4 verticales (titre, description) ; sectors_soon : les suivantes
 #   langs        langues affichées dans l'en-tête (code, disponible ?)
 #   slug         nom du formulaire de suivi ; og_v : version de l'image de partage
+#   partner_name nom du partenaire agréé signé (None tant qu'il n'y en a pas : le badge « Suivie par » n'apparaît jamais)
 MARKETS = [
-    {'code': 'ma', 'lang': 'fr', 'data': 'classement-ma-2026-09.json', 'top_n': 20, 'slug': 'maroc', 'og_v': 3,
+    {'code': 'ma', 'lang': 'fr', 'data': 'classement-ma-2026-09.json', 'top_n': 20, 'slug': 'maroc', 'og_v': 3, 'partner_name': None,
      'name': 'Maroc', 'in': 'au Maroc', 'the': 'le Maroc', 'adj_m': 'marocain', 'adj_f': 'marocaine', 'adj_fp': 'marocaines',
      'names': {'fr': 'Maroc', 'en': 'Morocco'},
      'cities': 'Paris, Dubaï ou Montréal',
@@ -36,7 +37,7 @@ MARKETS = [
      'langs': [('FR', True), ('EN', False), ('AR', False)],
      'flag': '<svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" fill="#C1272D"/><polygon points="24,8.5 26.6,16.4 34.4,11.6 20,20.9 29.6,20.9 18.2,11.6 26,16.4" fill="none" stroke="#006233" stroke-width="1.6" stroke-linejoin="round" transform="translate(-2.2 1.2)"/></svg>'},
 
-    {'code': 'pl', 'lang': 'en', 'data': 'classement-pl-2026-09.json', 'top_n': 15, 'slug': 'poland', 'og_v': 2,
+    {'code': 'pl', 'lang': 'en', 'data': 'classement-pl-2026-09.json', 'top_n': 15, 'slug': 'poland', 'og_v': 2, 'partner_name': None,
      'name': 'Poland', 'in': 'in Poland', 'the': 'Poland', 'adj_m': 'Polish', 'adj_f': 'Polish', 'adj_fp': 'Polish',
      'names': {'fr': 'Pologne', 'en': 'Poland'},
      'cities': 'London, Chicago or Berlin',
@@ -52,7 +53,7 @@ MARKETS = [
      'langs': [('EN', True), ('PL', False)],
      'flag': '<svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="16" fill="#FFFFFF"/><rect y="16" width="48" height="16" fill="#DC143C"/><rect x=".5" y=".5" width="47" height="31" fill="none" stroke="#E4E8EE"/></svg>'},
 
-    {'code': 'vn', 'lang': 'en', 'data': 'classement-vn-2026-09.json', 'top_n': 15, 'slug': 'vietnam', 'og_v': 2,
+    {'code': 'vn', 'lang': 'en', 'data': 'classement-vn-2026-09.json', 'top_n': 15, 'slug': 'vietnam', 'og_v': 2, 'partner_name': None,
      'name': 'Vietnam', 'in': 'in Vietnam', 'the': 'Vietnam', 'adj_m': 'Vietnamese', 'adj_f': 'Vietnamese', 'adj_fp': 'Vietnamese',
      'names': {'fr': 'Vietnam', 'en': 'Vietnam'},
      'cities': 'Singapore, Paris or California',

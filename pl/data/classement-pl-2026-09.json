@@ -37,7 +37,9 @@
       "valuation_basis": "Series E of USD 89.8M (May 2019); published valuation of USD 1bn (Aug 2021), over 24 months old; adjusted +1 bracket: later undisclosed round (Aug 2021) at reported USD 1bn valuation.",
       "valuation_confidence": "medium",
       "valuation_low_usd": 359200000,
-      "valuation_high_usd": 598666667
+      "valuation_high_usd": 598666667,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 2,
@@ -68,7 +70,9 @@
       "valuation_basis": "Series D of USD 80M (Dec 2020).",
       "valuation_confidence": "medium",
       "valuation_low_usd": 320000000,
-      "valuation_high_usd": 533333333
+      "valuation_high_usd": 533333333,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 3,
@@ -99,7 +103,9 @@
       "valuation_basis": "Series B of USD 70M (Nov 2022).",
       "valuation_confidence": "medium",
       "valuation_low_usd": 280000000,
-      "valuation_high_usd": 466666667
+      "valuation_high_usd": 466666667,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 4,
@@ -130,7 +136,9 @@
       "valuation_basis": "Series C of USD 70M (Jan 2021).",
       "valuation_confidence": "medium",
       "valuation_low_usd": 280000000,
-      "valuation_high_usd": 466666667
+      "valuation_high_usd": 466666667,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 5,
@@ -161,7 +169,9 @@
       "valuation_basis": "Series A of USD 75M (May 2026).",
       "valuation_confidence": "high",
       "valuation_low_usd": 300000000,
-      "valuation_high_usd": 500000000
+      "valuation_high_usd": 500000000,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 6,
@@ -192,7 +202,9 @@
       "valuation_basis": "Series C of USD 51M (Jul 2025).",
       "valuation_confidence": "high",
       "valuation_low_usd": 204000000,
-      "valuation_high_usd": 340000000
+      "valuation_high_usd": 340000000,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 7,
@@ -223,7 +235,9 @@
       "valuation_basis": "Series B of USD 45.6M (Nov 2021).",
       "valuation_confidence": "medium",
       "valuation_low_usd": 182400000,
-      "valuation_high_usd": 304000000
+      "valuation_high_usd": 304000000,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 8,
@@ -254,7 +268,9 @@
       "valuation_basis": "Series B of USD 30M (Jan 2022).",
       "valuation_confidence": "medium",
       "valuation_low_usd": 120000000,
-      "valuation_high_usd": 200000000
+      "valuation_high_usd": 200000000,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 9,
@@ -285,7 +301,9 @@
       "valuation_basis": "Series B extension of USD 10M (Jan 2026); adjusted +1 bracket: extension of USD 44M Series B (Feb 2025, equity+debt mix); company reports over USD 84M raised.",
       "valuation_confidence": "high",
       "valuation_low_usd": 40000000,
-      "valuation_high_usd": 66666667
+      "valuation_high_usd": 66666667,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 10,
@@ -316,7 +334,9 @@
       "valuation_basis": "Series C of USD 26M (Mar 2021).",
       "valuation_confidence": "medium",
       "valuation_low_usd": 104000000,
-      "valuation_high_usd": 173333333
+      "valuation_high_usd": 173333333,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 11,
@@ -347,7 +367,9 @@
       "valuation_basis": "Round of USD 20M (Mar 2023).",
       "valuation_confidence": "medium",
       "valuation_low_usd": 80000000,
-      "valuation_high_usd": 133333333
+      "valuation_high_usd": 133333333,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 12,
@@ -378,7 +400,9 @@
       "valuation_basis": "Series B+ of USD 8.5M (Jul 2024); published valuation of USD 120M (Jul 2024), over 24 months old.",
       "valuation_confidence": "medium",
       "valuation_low_usd": 34000000,
-      "valuation_high_usd": 56666667
+      "valuation_high_usd": 56666667,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 13,
@@ -409,7 +433,9 @@
       "valuation_basis": "Series A of USD 15M (Aug 2020); published valuation of USD 500M (Apr 2023), over 24 months old.",
       "valuation_confidence": "medium",
       "valuation_low_usd": 60000000,
-      "valuation_high_usd": 100000000
+      "valuation_high_usd": 100000000,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 14,
@@ -440,7 +466,9 @@
       "valuation_basis": "Series B of USD 25M (May 2022); single source.",
       "valuation_confidence": "low",
       "valuation_low_usd": 100000000,
-      "valuation_high_usd": 166666667
+      "valuation_high_usd": 166666667,
+      "acces": "defaut",
+      "acquereur": ""
     },
     {
       "rang": 15,
@@ -471,7 +499,9 @@
       "valuation_basis": "Series A of USD 13.9M (Mar 2025); adjusted +1 bracket: later EUR 24M Series A extension (Dec 2025) with undisclosed debt share.",
       "valuation_confidence": "high",
       "valuation_low_usd": 55600000,
-      "valuation_high_usd": 92666667
+      "valuation_high_usd": 92666667,
+      "acces": "defaut",
+      "acquereur": ""
     }
   ],
   "radar": [
