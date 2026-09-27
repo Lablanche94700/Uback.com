@@ -76,7 +76,7 @@ TXT = {
   beta_b='Bêta · prototype', beta_t='Ce site est en construction : classements, textes et fonctionnalités évoluent chaque semaine.', beta_link='Nous écrire',
   p_method='methode.html', p_partner='partenaire.html', p_legal='mentions-legales.html', p_thanks='merci.html',
   id_rank='classement', id_sect='secteurs', id_follow='suivre', id_born='nees-ici', id_after='apres',
-  nav_rank='Classement', nav_sect='Secteurs', nav_partner='Partenaire', nav_method='Méthode',
+  nav_rank='Classement', nav_sect='Secteurs', nav_partner='Partenaire', nav_invest='Investir', nav_method='Méthode',
   soon='Bientôt disponible', follow='Suivre {the}', declare='Déclarer une intention',
   f_method='Méthode et règles du jeu', f_partner='Devenir partenaire', f_corr='Demander une correction', f_legal='Mentions légales',
   f_disc='Uback est un éditeur de contenu. Il ne fournit aucun conseil en investissement, ne reçoit aucun mandat et n’intervient dans aucune transaction. Les mises en relation sont réalisées par un partenaire agréé, en cours de sélection {in_}. Investir dans des sociétés non cotées comporte un risque de perte totale du capital investi.',
@@ -152,7 +152,7 @@ TXT = {
   beta_b='Beta · prototype', beta_t='This site is under construction: rankings, texts and features change every week.', beta_link='Contact us',
   p_method='method.html', p_partner='partner.html', p_legal='legal-notice.html', p_thanks='thank-you.html',
   id_rank='ranking', id_sect='sectors', id_follow='follow', id_born='born-here', id_after='after',
-  nav_rank='Ranking', nav_sect='Sectors', nav_partner='Partner', nav_method='Method',
+  nav_rank='Ranking', nav_sect='Sectors', nav_partner='Partner', nav_invest='Invest', nav_method='Method',
   soon='Coming soon', follow='Follow {the}', declare='Declare an intention',
   f_method='Method and rules', f_partner='Become a partner', f_corr='Request a correction', f_legal='Legal notice',
   f_disc='Uback is a content publisher. It provides no investment advice, receives no mandate and takes part in no transaction. Introductions are made by a licensed partner, currently being selected {in_}. Investing in non-listed companies carries a risk of losing all the capital invested.',
@@ -300,6 +300,7 @@ def head(title, desc, path, extra=''):
       <a href="/#{L['id_sect']}">{L['nav_sect']}</a>
       <a href="/#backers">Backers</a>
       <a href="/{PP}">{L['nav_partner']}</a>
+      <a href="{GI}">{L['nav_invest']}</a>
       <a href="{GM}">{L['nav_method']}</a>
     </nav>
     <span class="spacer"></span>

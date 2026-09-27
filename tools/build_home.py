@@ -327,6 +327,7 @@ page = f'''<!doctype html>
     <nav aria-label="Main">
       <a class="nav-wide" href="#sectors">Sectors</a>
       <a class="nav-wide" href="#countries">Countries</a>
+      <a href="/invest.html">Invest</a>
       <a href="{METHOD_URL}">Method</a>
       <a href="mailto:contact@uback.com">Contact</a>
     </nav>
@@ -523,6 +524,7 @@ G_CSS = '''
 .langsw a{color:var(--muted);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
 .langsw .on{color:var(--navy)}
 @media (max-width:899px){.prose h1{font-size:32px}.prose table{font-size:14px}}
+@media (max-width:439px){nav .nav-m{display:none}}
 '''
 
 def calendar(lang):
@@ -549,6 +551,7 @@ def global_page(key, lang, body):
           f'<a href="/{GLOBAL[key][other]}" hreflang="{other}">{other.upper()}</a></span>')
     title, desc = u['t_' + key], u['d_' + key]
     method_url = '/' + GLOBAL['method'][lang]
+    cur = lambda k: ' aria-current="page"' if k == key else ''
     return f'''<!doctype html>
 <html lang="{lang}">
 <head>
@@ -580,7 +583,8 @@ def global_page(key, lang, body):
     <nav aria-label="Main">
       <a class="nav-wide" href="/#sectors">{u['sectors']}</a>
       <a class="nav-wide" href="/#countries">{u['countries']}</a>
-      <a href="{method_url}">{u['method']}</a>
+      <a href="/{GLOBAL['invest'][lang]}"{cur('invest')}>{u['invest']}</a>
+      <a class="nav-m" href="{method_url}"{cur('method')}>{u['method']}</a>
       <a href="mailto:contact@uback.com">{u['contact']}</a>
       {sw}
     </nav>

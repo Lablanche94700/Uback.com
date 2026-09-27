@@ -191,6 +191,13 @@ footer p{margin:0;line-height:1.6;max-width:1100px}
   .partner{grid-template-columns:1fr}
   .grid4{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
+/* tablette et petit écran de bureau : la navigation passe dans le menu pour ne pas déborder */
+@media (min-width:761px) and (max-width:1260px){
+  .hdr .wrap{height:auto;min-height:64px;flex-wrap:wrap;row-gap:0}
+  nav.main{display:none;order:10;width:100%;flex-direction:column;gap:12px;margin-left:0;padding:8px 0 12px;border-top:1px solid var(--line)}
+  nav.main.open{display:flex}
+  .menu-toggle{display:inline-flex}
+}
 @media (max-width:760px){
   .hdr .wrap{height:auto;padding:10px 16px;flex-wrap:wrap;gap:10px}
   nav.main{display:none;width:100%;flex-direction:column;gap:12px;padding:8px 0 4px;border-top:1px solid var(--line)}
