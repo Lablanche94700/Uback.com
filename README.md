@@ -103,5 +103,5 @@ GitHub Pages ne traite pas les formulaires. En attendant Netlify, le formulaire 
 
 ## Reste à faire
 
-- Créer les adresses `contact@`, `corrections@`, `partenaires@`, `privacy@uback.com` (redirections suffisent).
+- Créer les adresses `contact@`, `corrections@`, `partner@`, `privacy@uback.com` (redirections suffisent).
 - Édition 1 : consensus multi-IA (Claude, Gemini, ChatGPT), indice de confiance, pages société et secteur, EN puis AR.

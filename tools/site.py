@@ -647,7 +647,7 @@ if M['lang'] == 'fr':
 <p>Une société éligible qui ne figure pas dans le classement pourra, contre paiement, s’afficher dans une liste séparée et étiquetée « Challengers », pour une durée déterminée, avec un mémo accessible aux Backers vérifiés. Le référencement n’a aucun effet sur le classement. Ouverture après la signature du partenaire.</p>
 
 <h2>Nous contacter</h2>
-<p>Écrivez à <a href="mailto:partenaires@uback.com">partenaires@uback.com</a>. Nous vous enverrons le dossier partenaire (modèle économique, contrat type, calendrier) et conviendrons d’un échange.</p>
+<p>Écrivez à <a href="mailto:partner@uback.com">partner@uback.com</a>. Nous vous enverrons le dossier partenaire (modèle économique, contrat type, calendrier) et conviendrons d’un échange.</p>
 </div>
 ''' + FOOT
 
@@ -690,7 +690,7 @@ else:
 <p>An eligible company that is not in the ranking will be able, for a fee, to appear in a separate list labelled “Challengers”, for a set period, with a memo available to verified Backers. The listing has no effect on the ranking. Opens once the partner signs.</p>
 
 <h2>Contact us</h2>
-<p>Write to <a href="mailto:partenaires@uback.com">partenaires@uback.com</a>. We will send you the partner pack (business model, standard contract, timeline) and arrange a call.</p>
+<p>Write to <a href="mailto:partner@uback.com">partner@uback.com</a>. We will send you the partner pack (business model, standard contract, timeline) and arrange a call.</p>
 </div>
 ''' + FOOT
 
