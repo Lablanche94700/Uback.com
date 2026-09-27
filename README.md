@@ -11,8 +11,11 @@ Contenu du Maroc : classement « Édition 0 – bêta » des 20 startups marocai
 ```
 index.html              ← homepage monde (anglais), générée par tools/build_home.py : ne pas modifier à la main
 data/sectors.json       ← arborescence des classements mondiaux (famille > secteur > segment), source unique
-methode.html, partenaire.html, mentions-legales.html, merci.html
-                        ← redirections vers /ma/… (anciennes adresses, à garder)
+method.html, fr/methode.html      ← méthode et règles du jeu GLOBALES (anglais / français), communes à tous les pays
+legal-notice.html, mentions-legales.html ← mentions légales globales (anglais / français)
+                        (ces 4 pages sont générées par tools/build_home.py, texte dans tools/pages_global.py)
+methode.html, partenaire.html, merci.html
+                        ← redirections (anciennes adresses, à garder) vers /fr/methode.html et /ma/fr/…
 assets/                 ← favicons et ancienne image de partage, pour la racine
 data/classement-ma-2026-09.json   ← copie à l'ancien chemin, pour ne casser aucun lien
 sitemap.xml, robots.txt ← maintenus à la main (racine + pages /ma)
@@ -23,21 +26,24 @@ ma/                     ← site Maroc, entièrement généré : anglais à la r
                           français dans /ma/fr/ ; textes anglais des données dans data/classement-ma-*.en.json
                           (couche de traduction : les chiffres restent dans le fichier français de référence) ;
                           les anciennes pages françaises de /ma/ redirigent vers /ma/fr/
-  index.html            ← accueil Maroc : classement, radar, Backers, partenaire
-  methode.html          ← méthode, règles du jeu, éligibilité, droit de réponse
-  partenaire.html       ← pitch pour le futur partenaire exclusif
-  mentions-legales.html ← éditeur (sans adresse, volontairement) et hébergeur
-  merci.html            ← confirmation du formulaire de suivi
+  index.html            ← accueil : classement, radar, Backers, partenaire, encadré « La méthode au Maroc »
+                          (calendrier, seuil, partenaire recherché, sources) qui renvoie à la méthode globale
+  partner.html / fr/partenaire.html ← pitch pour le futur partenaire exclusif (propre à chaque pays)
+  thank-you.html / fr/merci.html    ← confirmation du formulaire de suivi (noindex)
+  method.html, legal-notice.html, fr/methode.html, fr/mentions-legales.html
+                        ← redirections vers les pages globales (anciennes adresses)
   assets/               ← style.css (marine #1E3A5F, or #C8A052, Inter), favicons, image de partage
   data/classement-ma-2026-09.json ← la donnée du classement (une entrée par société, source par montant)
 
 pl/, vn/                ← sites Pologne et Vietnam (anglais), même structure que le Maroc, entièrement générés :
-  index.html, method.html, partner.html, legal-notice.html, thank-you.html, assets/ (copies depuis ma/), data/
+  index.html, partner.html, thank-you.html, assets/ (copies depuis ma/), data/ ;
+  method.html et legal-notice.html redirigent vers les pages globales
 
 tools/build_site.py     ← réglages de chaque marché (langue, top_n, pays, diaspora, secteurs, partenaire, presse…)
 tools/site.py           ← gabarit unique de tous les marchés ; textes d'interface en français et en anglais (TXT)
 tools/og-image-<code>.html ← source de <code>/assets/og-image.png (image de partage 1200×630)
-tools/build_home.py     ← génère index.html : classements mondiaux par secteur (depuis data/sectors.json)
+tools/pages_global.py   ← texte de la méthode et des mentions légales globales (français / anglais)
+tools/build_home.py     ← génère index.html et les pages globales ; homepage : classements mondiaux par secteur (depuis data/sectors.json)
                           et classements par pays / régionaux (liste REGIONS en tête du script)
 ```
 

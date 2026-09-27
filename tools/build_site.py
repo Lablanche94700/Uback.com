@@ -140,6 +140,15 @@ def format_date(d, lang):
     """« November 15, 2026 » / « 15 novembre 2026 »."""
     return f"{MONTHS[lang][d.month - 1]} {d.day}, {d.year}" if lang == 'en' else f"{d.day} {MONTHS[lang][d.month - 1]} {d.year}"
 
+def months_txt(market, lang=None):
+    """Mois de publication en toutes lettres : « de février, mai, août et novembre » / « of February, May, August and November »."""
+    lang = lang or market['lang']
+    names = [MONTHS[lang][x - 1] for x in sorted(market['publish_months'])]
+    joined = ', '.join(names[:-1]) + (' et ' if lang == 'fr' else ' and ') + names[-1]
+    if lang == 'fr':
+        return ('d’' if joined[0] in 'aeiouy' else 'de ') + joined
+    return 'of ' + joined
+
 def edition_label(d, lang):
     """Libellé d'une édition trimestrielle : trimestre de sa date de publication (« Q4 2026 » / « T4 2026 »)."""
     return f"{'T' if lang == 'fr' else 'Q'}{(d.month - 1) // 3 + 1} {d.year}"
@@ -165,6 +174,7 @@ def build(m, valuation):
     m['css_v'] = CSS_V
     nxt = next_edition(m)
     m['next_edition'] = format_date(nxt, m['lang'])
+    m['months_txt'] = months_txt(m)
     m['next_edition_label'] = edition_label(nxt, m['lang'])
     runpy.run_path(os.path.join(TOOLS, 'site.py'), init_globals={'M': m})
     print('ok', m['path'], '· next edition', nxt.isoformat())

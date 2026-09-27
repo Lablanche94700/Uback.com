@@ -10,7 +10,8 @@ from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from build_site import MARKETS, next_edition, format_date   # même calendrier que les pages marchés
+from build_site import MARKETS, next_edition, format_date, months_txt   # même calendrier que les pages marchés
+from pages_global import METHOD, LEGAL
 
 def next_ed(code):
     m = next(v for v in MARKETS if v['code'] == code and v['default'])
@@ -19,7 +20,7 @@ SECTORS = json.load(open(os.path.join(ROOT, 'data', 'sectors.json'), encoding='u
 FORM_MODE = 'soon'                  # 'soon' (inscriptions pas encore ouvertes : « Coming soon » au clic),
                                     # 'mailto' (message prérempli vers FORM_EMAIL) ou 'netlify' (Netlify Forms)
 FORM_EMAIL = 'contact@uback.com'
-METHOD_URL = '/pl/method.html'      # page méthode anglaise (à remplacer par une page globale quand elle existera)
+METHOD_URL = '/method.html'         # méthode globale (anglais) ; version française : /fr/methode.html
 THANKS_URL = '/pl/thank-you.html'
 e = html.escape
 
@@ -415,7 +416,7 @@ page = f'''<!doctype html>
       <span>© 2026 Uback</span>
       <a href="{METHOD_URL}">Method</a>
       <a href="mailto:contact@uback.com?subject={quote('Correction request')}">Request a correction</a>
-      <a href="/ma/legal-notice.html">Legal notice</a>
+      <a href="/legal-notice.html">Legal notice</a>
       <a href="mailto:contact@uback.com">contact@uback.com</a>
     </div>
     <span class="disclaimer">Rankings are editorial content, not investment advice.</span>
@@ -429,3 +430,127 @@ page = f'''<!doctype html>
 
 open(os.path.join(ROOT, 'index.html'), 'w', encoding='utf-8', newline='\n').write(page)
 print('ok index.html', N_FAM, 'families,', N_SEG, 'segments')
+
+# ---------------------------------------------------------------- pages globales (communes à tous les pays)
+# Méthode et mentions légales, en anglais et en français (texte : tools/pages_global.py), avec la charte de la homepage.
+GLOBAL = {'method': {'en': 'method.html', 'fr': 'fr/methode.html'}, 'legal': {'en': 'legal-notice.html', 'fr': 'mentions-legales.html'}}
+G_UI = {
+ 'en': dict(skip='Skip to content', sectors='Sectors', countries='Countries', method='Method', contact='Contact',
+            beta='Beta · prototype', beta_t='— This site is under construction: rankings, texts and features change every week.',
+            beta_l='Contact us', legal='Legal notice', corr='Request a correction', disc='Rankings are editorial content, not investment advice.',
+            cal_country='Country', cal_months='Published on the 15th', cal_next='Next edition',
+            t_method='Method and rules | Uback', d_method='How Uback ranks startups: AI consensus, quarterly editions, eligibility, confidence index, valuation order of magnitude, right of reply. We don’t value companies. We rank them, and give an AI-estimated order of magnitude.',
+            t_legal='Legal notice | Uback', d_legal='Legal notice of the Uback website.'),
+ 'fr': dict(skip='Aller au contenu', sectors='Secteurs', countries='Pays', method='Méthode', contact='Contact',
+            beta='Bêta · prototype', beta_t='— Ce site est en construction : classements, textes et fonctionnalités évoluent chaque semaine.',
+            beta_l='Nous écrire', legal='Mentions légales', corr='Demander une correction', disc='Les classements sont des contenus éditoriaux, pas des conseils en investissement.',
+            cal_country='Pays', cal_months='Publié le 15', cal_next='Prochaine édition',
+            t_method='Méthode et règles du jeu | Uback', d_method='Comment Uback classe les startups : consensus d’IA, éditions trimestrielles, éligibilité, indice de confiance, ordre de grandeur de valorisation, droit de réponse. Uback ne valorise pas les sociétés : il les classe, et indique un ordre de grandeur estimé par IA.',
+            t_legal='Mentions légales | Uback', d_legal='Mentions légales du site Uback.'),
+}
+G_CSS = '''
+.prose-main{padding:24px 0 72px}
+.prose{max-width:820px;font-size:16px;line-height:1.7;color:var(--body)}
+.prose h1{margin:28px 0 12px;font-size:40px;line-height:1.1;font-weight:800;letter-spacing:-.03em;color:var(--navy)}
+.prose h2{margin:36px 0 10px;font-size:24px;line-height:1.25;color:var(--navy)}
+.prose .lead{font-size:18px}
+.prose b{color:var(--navy)}
+.prose ol,.prose ul{padding-left:22px}.prose li{margin-bottom:8px}
+.prose table{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.prose th,.prose td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.prose th{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.langsw{display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:600;color:var(--muted)}
+.langsw a{color:var(--muted);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+.langsw .on{color:var(--navy)}
+@media (max-width:899px){.prose h1{font-size:32px}.prose table{font-size:14px}}
+'''
+
+def calendar(lang):
+    """Tableau des éditions pays : mois de publication et prochaine date, lien vers la version dans la langue de la page."""
+    rows, seen = '', []
+    for m in MARKETS:
+        if m['code'] in seen or not m['default']:
+            continue
+        seen.append(m['code'])
+        v = next((x for x in MARKETS if x['code'] == m['code'] and x['lang'] == lang), m)
+        name = v['name'] if v['lang'] == lang else {'fr': {'Poland': 'Pologne', 'Vietnam': 'Vietnam'}}.get(lang, {}).get(m['name'], m['name'])
+        months = months_txt(m, lang).split(' ', 1)[1] if lang == 'en' else months_txt(m, lang)[3:].lstrip("’ ")
+        rows += (f'<tr><td><a href="{v["path"]}/">{e(name)}</a></td><td>{e(months)}</td>'
+                 f'<td>{e(format_date(next_edition(m), lang))}</td></tr>')
+    u = G_UI[lang]
+    return f'<table><tr><th>{u["cal_country"]}</th><th>{u["cal_months"]}</th><th>{u["cal_next"]}</th></tr>{rows}</table>'
+
+def global_page(key, lang, body):
+    u, path = G_UI[lang], GLOBAL[key][lang]
+    other = 'fr' if lang == 'en' else 'en'
+    alt = ''.join(f'\n<link rel="alternate" hreflang="{l}" href="https://uback.com/{GLOBAL[key][l]}">' for l in ('en', 'fr'))
+    alt += f'\n<link rel="alternate" hreflang="x-default" href="https://uback.com/{GLOBAL[key]["en"]}">'
+    sw = (f'<span class="langsw"><span class="on">{lang.upper()}</span><span>·</span>'
+          f'<a href="/{GLOBAL[key][other]}" hreflang="{other}">{other.upper()}</a></span>')
+    title, desc = u['t_' + key], u['d_' + key]
+    method_url = '/' + GLOBAL['method'][lang]
+    return f'''<!doctype html>
+<html lang="{lang}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{e(title)}</title>
+<meta name="description" content="{e(desc)}">
+<link rel="canonical" href="https://uback.com/{path}">{alt}
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Uback">
+<meta property="og:url" content="https://uback.com/{path}">
+<meta property="og:title" content="{e(title)}">
+<meta property="og:description" content="{e(desc)}">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/favicon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Généré par tools/build_home.py (texte : tools/pages_global.py) : ne pas modifier à la main. -->
+<style>{CSS}{G_CSS}</style>
+</head>
+<body>
+
+<div class="beta"><div class="wrap"><b>{u['beta']}</b><span class="beta-t">{u['beta_t']}</span><a href="mailto:contact@uback.com">{u['beta_l']}</a></div></div>
+<header>
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="Uback, home"><span class="u" aria-hidden="true">U</span>Uback</a>
+    <nav aria-label="Main">
+      <a class="nav-wide" href="/#sectors">{u['sectors']}</a>
+      <a class="nav-wide" href="/#countries">{u['countries']}</a>
+      <a href="{method_url}">{u['method']}</a>
+      <a href="mailto:contact@uback.com">{u['contact']}</a>
+      {sw}
+    </nav>
+  </div>
+</header>
+
+<main class="prose-main">
+{body.replace('@CAL@', calendar(lang))}
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-links">
+      <span>© 2026 Uback</span>
+      <a href="{method_url}">{u['method']}</a>
+      <a href="mailto:contact@uback.com?subject={quote('Correction request')}">{u['corr']}</a>
+      <a href="/{GLOBAL['legal'][lang]}">{u['legal']}</a>
+      <a href="mailto:contact@uback.com">contact@uback.com</a>
+    </div>
+    <span class="disclaimer">{u['disc']}</span>
+  </div>
+</footer>
+
+</body>
+</html>
+'''
+
+for key, texts in (('method', METHOD), ('legal', LEGAL)):
+    for lang in ('en', 'fr'):
+        out = os.path.join(ROOT, *GLOBAL[key][lang].split('/'))
+        os.makedirs(os.path.dirname(out), exist_ok=True)
+        open(out, 'w', encoding='utf-8', newline='\n').write(global_page(key, lang, texts[lang]))
+        print('ok', GLOBAL[key][lang])

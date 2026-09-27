@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://uback.com/</loc></url>
+  <url><loc>https://uback.com/method.html</loc></url>
+  <url><loc>https://uback.com/fr/methode.html</loc></url>
+  <url><loc>https://uback.com/legal-notice.html</loc></url>
+  <url><loc>https://uback.com/mentions-legales.html</loc></url>
   <url><loc>https://uback.com/ma/</loc></url>
-  <url><loc>https://uback.com/ma/method.html</loc></url>
   <url><loc>https://uback.com/ma/partner.html</loc></url>
-  <url><loc>https://uback.com/ma/legal-notice.html</loc></url>
   <url><loc>https://uback.com/ma/fr/</loc></url>
-  <url><loc>https://uback.com/ma/fr/methode.html</loc></url>
   <url><loc>https://uback.com/ma/fr/partenaire.html</loc></url>
-  <url><loc>https://uback.com/ma/fr/mentions-legales.html</loc></url>
   <url><loc>https://uback.com/pl/</loc></url>
-  <url><loc>https://uback.com/pl/method.html</loc></url>
   <url><loc>https://uback.com/pl/partner.html</loc></url>
-  <url><loc>https://uback.com/pl/legal-notice.html</loc></url>
   <url><loc>https://uback.com/vn/</loc></url>
-  <url><loc>https://uback.com/vn/method.html</loc></url>
   <url><loc>https://uback.com/vn/partner.html</loc></url>
-  <url><loc>https://uback.com/vn/legal-notice.html</loc></url>
 </urlset>

@@ -146,6 +146,7 @@ section.navy p.lead{font-size:16px;color:#c7d0dc;max-width:860px;margin:0 0 24px
 .box h3{font-size:16px;font-weight:700;margin-bottom:8px}
 .box p{margin:0 0 8px;font-size:14px;color:#4b5563}
 .box.line{background:#fff;border:1px solid var(--line)}
+.box.local{margin-top:20px}.box.local p{margin:0 0 6px}.box.local p:last-child{margin:10px 0 0;font-weight:600}
 .list{list-style:none;margin:0;padding:0;font-size:14px}
 /* ligne de liste : nom + secteur à gauche, détails du tour à droite sur une ligne quand la place le permet */
 .list li{display:flex;flex-wrap:wrap;justify-content:space-between;column-gap:24px;row-gap:2px;padding:8px 0;border-bottom:1px solid #e5e9ef}
