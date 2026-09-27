@@ -78,11 +78,11 @@ def region(r):
 FAMS = SECTORS['families']
 N_FAM = len(FAMS)
 N_SEG = sum(len(s['segments']) for f in FAMS for s in f['sectors'])
-DESC = ('Uback ranks non-listed startups that have already raised funds, by global sector and by country, using public '
-        'information. We don’t value companies. We rank them, and give an AI-estimated order of magnitude.')
+DESC = ('Uback ranks funded, non-listed tech startups by AI-estimated valuation, by country and by global segment. '
+        'The market sets the value; our AI estimates it. Investors can pool their intentions to invest.')
 JSONLD = {"@context": "https://schema.org", "@graph": [
     {"@type": "Organization", "name": "Uback", "url": "https://uback.com/", "email": "contact@uback.com",
-     "description": "AI rankings of funded, non-listed startups, by global sector and by country. We don’t value companies. We rank them, and give an AI-estimated order of magnitude.",
+     "description": DESC,
      "logo": "https://uback.com/assets/favicon-192.png"},
     {"@type": "WebSite", "name": "Uback", "url": "https://uback.com/", "inLanguage": "en"},
     # liste des marchés en ligne : calculée depuis REGIONS, jamais écrite à la main
@@ -120,8 +120,19 @@ nav .nav-wide{display:none}
 .eyebrow{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .eyebrow i{width:20px;height:2px;background:var(--gold);display:block;flex-shrink:0}
 .eyebrow i.r{display:none}
-h1{margin:0;font-size:40px;line-height:1.08;font-weight:800;letter-spacing:-.03em}
+h1{margin:0;font-size:38px;line-height:1.08;font-weight:800;letter-spacing:-.03em}
 .lead{margin:0;font-size:17px;line-height:1.6;color:var(--body)}
+/* homepage : deux colonnes Discover / Back sous le titre */
+.duo{width:100%;max-width:1040px;margin:16px auto 0;display:grid;grid-template-columns:1fr;row-gap:16px;text-align:left}
+.duo-col{display:flex;flex-direction:column;align-items:flex-start;gap:14px;min-width:0}
+.duo-rule{height:1px;background:#DCC89A;margin:8px 0}
+.duo-k{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--navy)}
+.duo-k::before{content:"";width:20px;height:2px;background:var(--gold);flex-shrink:0}
+.duo p{margin:0;font-size:16px;line-height:1.6;color:var(--body)}
+.duo p b{font-weight:600;color:var(--navy)}
+.duo a{display:inline-flex;align-items:center;gap:6px;min-height:44px;font-size:15px;font-weight:600;color:var(--navy);text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:6px}
+.duo a:hover{color:var(--navy);text-decoration-color:var(--navy)}
+@media (min-width:768px){.duo{grid-template-columns:minmax(0,1fr) 1px minmax(0,1fr);column-gap:64px;row-gap:0}.duo-rule{height:auto;width:1px;margin:0;align-self:stretch}.duo p{font-size:18px;line-height:1.65}}
 
 .rankings{padding-bottom:32px}
 .view-tabs{display:none;gap:6px;padding:4px;margin-bottom:14px;background:#fff;border:1px solid var(--line);border-radius:12px}
@@ -218,6 +229,7 @@ footer a{color:var(--muted)}
   .eyebrow{font-size:13px}.eyebrow i{width:24px}.eyebrow i.r{display:block}
   h1{font-size:68px;line-height:1.05;letter-spacing:-.035em;max-width:980px}
   .lead{font-size:20px;max-width:760px}
+  .duo{margin-top:28px}
   .cols{grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:24px}
   .panel{padding:32px}
   .panel h2{font-size:28px}
@@ -288,13 +300,13 @@ page = f'''<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Uback — Funded startups, ranked by AI</title>
-<meta name="description" content="{e(DESC)} Country rankings in {e(LIVE_TXT)}.">
+<title>Uback — The most valuable startups, ranked by AI</title>
+<meta name="description" content="{e(DESC)}">
 <link rel="canonical" href="https://uback.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Uback">
 <meta property="og:url" content="https://uback.com/">
-<meta property="og:title" content="Uback — Funded startups, ranked by AI">
+<meta property="og:title" content="Uback — The most valuable startups, ranked by AI">
 <meta property="og:description" content="{e(DESC)}">
 <script type="application/ld+json">{json.dumps(JSONLD, ensure_ascii=False, separators=(',', ':'))}</script>
 <meta name="twitter:card" content="summary">
@@ -324,9 +336,21 @@ page = f'''<!doctype html>
 <main>
   <section class="hero">
     <div class="wrap">
-      <div class="eyebrow"><i></i><span>Startup rankings · by global sector and by country</span><i class="r"></i></div>
-      <h1>Funded startups, ranked by AI.</h1>
-      <p class="lead">{e(DESC)}</p>
+      <div class="eyebrow"><i></i><span>Startup rankings · Public beta</span><i class="r"></i></div>
+      <h1>The most valuable startups, ranked by AI.</h1>
+      <div class="duo">
+        <div class="duo-col">
+          <div class="duo-k">Discover</div>
+          <p>Uback ranks funded, non-listed tech startups by AI-estimated valuation, by country and by global segment. <b>The market sets the value; our AI estimates it.</b> We publish the rank and an order of magnitude, never a figure.</p>
+          <a href="#rankings">See the rankings <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="duo-rule" aria-hidden="true"></div>
+        <div class="duo-col">
+          <div class="duo-k">Back</div>
+          <p>Alone, an investor rarely gets a seat at the table. <b>Together, Backers form a pool startups can’t ignore.</b> Declare an intention on a ranked company or a sector: once the pool reaches critical mass, the country’s licensed partner takes it to the company.</p>
+          <a href="/invest.html">How it works <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
     </div>
   </section>
 
