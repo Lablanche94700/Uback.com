@@ -202,7 +202,7 @@ LEGAL = {
 <h2>Nature du service</h2>
 <p>Uback est un éditeur de contenu. Les classements publiés sont des opinions produites par des systèmes d’intelligence artificielle à partir d’informations publiques, selon une méthode publiée. Ils ne constituent ni un conseil en investissement, ni une recommandation personnalisée, ni une sollicitation ou une offre de titres. Uback ne reçoit aucun mandat, ne négocie aucune transaction et n’encaisse aucun fonds destiné à un investissement. Les mises en relation sont réalisées par un partenaire agréé, identifié sur chaque marché, sous sa seule responsabilité réglementaire.</p>
 <h2>Droit de réponse</h2>
-<p>Toute société citée peut demander la correction ou le retrait d’une information la concernant à <a href="mailto:corrections@uback.com">corrections@uback.com</a>.</p>
+<p>Toute société citée peut signaler une information inexacte la concernant ou contester son rang, via le <a href="/fr/correction.html">formulaire de correction</a>.</p>
 <h2>Données personnelles</h2>
 <p>Les adresses e-mail collectées via le formulaire de suivi servent uniquement à l’envoi de chaque nouvelle édition du classement et des informations sur l’ouverture du service. Elles ne sont ni vendues ni transmises à des tiers. Désinscription possible à tout moment. Responsable du traitement : DEALING-ROOM SARL. Droits d’accès, de rectification et d’effacement : <a href="mailto:privacy@uback.com">privacy@uback.com</a>.</p>
 <h2>Propriété intellectuelle</h2>
@@ -218,7 +218,7 @@ LEGAL = {
 <h2>Nature of the service</h2>
 <p>Uback is a content publisher. The rankings published are opinions produced by artificial intelligence systems from public information, following a published method. They constitute neither investment advice, nor a personal recommendation, nor a solicitation or an offer of securities. Uback receives no mandate, negotiates no transaction and collects no funds intended for an investment. Introductions are made by a licensed partner identified in each market, under its sole regulatory responsibility.</p>
 <h2>Right of reply</h2>
-<p>Any company mentioned may request the correction or removal of information about it at <a href="mailto:corrections@uback.com">corrections@uback.com</a>.</p>
+<p>Any company mentioned may report inaccurate information about it or dispute its rank, using the <a href="/correction.html">correction form</a>.</p>
 <h2>Personal data</h2>
 <p>E-mail addresses collected through the follow form are used only to send every new edition of the ranking and information about the opening of the service. They are neither sold nor passed on to third parties. You may unsubscribe at any time. Data controller: DEALING-ROOM SARL. Rights of access, rectification and erasure: <a href="mailto:privacy@uback.com">privacy@uback.com</a>.</p>
 <h2>Intellectual property</h2>

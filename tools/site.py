@@ -38,7 +38,8 @@ EDITION = D.get('edition') or f"{'T' if M['lang'] == 'fr' else 'Q'}{(int(_mo) - 
 FORM_MODE = 'soon'                  # 'soon' (inscriptions pas encore ouvertes : « Bientôt disponible » au clic),
                                     # 'mailto' (message prérempli vers FORM_EMAIL) ou 'netlify' (Netlify Forms)
 FORM_EMAIL = 'contact@uback.com'
-N = M['top_n']
+# nombre de places affiché = sociétés réellement classées (le classement peut être plus court que top_n)
+N = min(M['top_n'], len(D['classement']))
 RANKED = D['classement'][:N]
 e = html.escape
 cap = lambda s: s[:1].upper() + s[1:]
