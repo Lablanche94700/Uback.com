@@ -417,7 +417,7 @@ page = f'''<!doctype html>
     <div class="foot-links">
       <span>© 2026 Uback</span>
       <a href="{METHOD_URL}">Method</a>
-      <a href="mailto:contact@uback.com?subject={quote('Correction request')}">Request a correction</a>
+      <a href="/correction.html">Request a correction</a>
       <a href="/legal-notice.html">Legal notice</a>
       <a href="mailto:contact@uback.com">contact@uback.com</a>
     </div>
@@ -435,19 +435,24 @@ print('ok index.html', N_FAM, 'families,', N_SEG, 'segments')
 
 # ---------------------------------------------------------------- pages globales (communes à tous les pays)
 # Méthode et mentions légales, en anglais et en français (texte : tools/pages_global.py), avec la charte de la homepage.
-GLOBAL = {'method': {'en': 'method.html', 'fr': 'fr/methode.html'}, 'legal': {'en': 'legal-notice.html', 'fr': 'mentions-legales.html'}}
+GLOBAL = {'method': {'en': 'method.html', 'fr': 'fr/methode.html'}, 'legal': {'en': 'legal-notice.html', 'fr': 'mentions-legales.html'},
+          'correction': {'en': 'correction.html', 'fr': 'fr/correction.html'}, 'thanks': {'en': 'thank-you.html', 'fr': 'fr/merci.html'}}
 G_UI = {
  'en': dict(skip='Skip to content', sectors='Sectors', countries='Countries', method='Method', contact='Contact',
             beta='Beta · prototype', beta_t='— This site is under construction: rankings, texts and features change every week.',
             beta_l='Contact us', legal='Legal notice', corr='Request a correction', disc='Rankings are editorial content, not investment advice.',
             cal_country='Country', cal_months='Published on the 15th', cal_next='Next edition',
-            t_method='Method and rules | Uback', d_method='How Uback ranks startups: AI consensus, quarterly editions, eligibility, confidence index, valuation order of magnitude, right of reply. We don’t value companies. We rank them, and give an AI-estimated order of magnitude.',
+            t_method='Method and rules of the game | Uback', d_method='How Uback ranks non-listed startups in descending order of AI-estimated valuation: consensus, confidence index, order of magnitude, eligibility, how human input is taken into account, corrections.',
+            t_correction='Request a correction | Uback', d_correction='Report inaccurate information or dispute a rank in a Uback ranking.',
+            t_thanks='Thank you | Uback', d_thanks='Request prepared.',
             t_legal='Legal notice | Uback', d_legal='Legal notice of the Uback website.'),
  'fr': dict(skip='Aller au contenu', sectors='Secteurs', countries='Pays', method='Méthode', contact='Contact',
             beta='Bêta · prototype', beta_t='— Ce site est en construction : classements, textes et fonctionnalités évoluent chaque semaine.',
             beta_l='Nous écrire', legal='Mentions légales', corr='Demander une correction', disc='Les classements sont des contenus éditoriaux, pas des conseils en investissement.',
             cal_country='Pays', cal_months='Publié le 15', cal_next='Prochaine édition',
-            t_method='Méthode et règles du jeu | Uback', d_method='Comment Uback classe les startups : consensus d’IA, éditions trimestrielles, éligibilité, indice de confiance, ordre de grandeur de valorisation, droit de réponse. Uback ne valorise pas les sociétés : il les classe, et indique un ordre de grandeur estimé par IA.',
+            t_method='Méthode et règles du jeu | Uback', d_method='Comment Uback classe les startups non cotées par ordre décroissant de valorisation estimée par IA : consensus, indice de confiance, ordre de grandeur, éligibilité, prise en compte des avis humains, corrections.',
+            t_correction='Demander une correction | Uback', d_correction='Signalez une information inexacte ou contestez un rang dans un classement Uback.',
+            t_thanks='Merci | Uback', d_thanks='Demande préparée.',
             t_legal='Mentions légales | Uback', d_legal='Mentions légales du site Uback.'),
 }
 G_CSS = '''
@@ -461,6 +466,20 @@ G_CSS = '''
 .prose table{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
 .prose th,.prose td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
 .prose th{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.prose .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.prose .table-wrap table{min-width:520px}
+.callout{margin:20px 0;padding:14px 18px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:10px}
+.callout p{margin:0}
+.cform{display:grid;gap:16px;max-width:640px;margin-top:24px}
+.cform label{display:block;font-size:14px;font-weight:600;color:var(--navy);margin-bottom:6px}
+.cform .req{color:var(--gold)}
+.cform input[type=text],.cform input[type=url],.cform input[type=email],.cform select,.cform textarea{width:100%;min-height:44px;padding:10px 12px;border:1px solid var(--dash);border-radius:10px;font:inherit;font-size:15px;color:var(--navy);background:#fff}
+.cform textarea{min-height:120px;resize:vertical}
+.cform .hint{font-size:12.5px;color:var(--muted);margin-top:4px}
+.cform .consent{display:flex;gap:10px;align-items:flex-start;font-weight:500}
+.cform .consent input{width:20px;height:20px;margin-top:2px;flex-shrink:0}
+.cform button{justify-self:start;min-height:48px;padding:0 24px;border:0;border-radius:10px;background:var(--navy);color:#fff;font:inherit;font-size:16px;font-weight:600;cursor:pointer}
+.cform button:hover{background:var(--navy-dark)}
 .langsw{display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:600;color:var(--muted)}
 .langsw a{color:var(--muted);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
 .langsw .on{color:var(--navy)}
@@ -497,7 +516,7 @@ def global_page(key, lang, body):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(title)}</title>
-<meta name="description" content="{e(desc)}">
+<meta name="description" content="{e(desc)}">{'<meta name="robots" content="noindex">' if key == 'thanks' else ''}
 <link rel="canonical" href="https://uback.com/{path}">{alt}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Uback">
@@ -538,7 +557,7 @@ def global_page(key, lang, body):
     <div class="foot-links">
       <span>© 2026 Uback</span>
       <a href="{method_url}">{u['method']}</a>
-      <a href="mailto:contact@uback.com?subject={quote('Correction request')}">{u['corr']}</a>
+      <a href="/{GLOBAL['correction'][lang]}">{u['corr']}</a>
       <a href="/{GLOBAL['legal'][lang]}">{u['legal']}</a>
       <a href="mailto:contact@uback.com">contact@uback.com</a>
     </div>
@@ -550,7 +569,116 @@ def global_page(key, lang, body):
 </html>
 '''
 
-for key, texts in (('method', METHOD), ('legal', LEGAL)):
+# ---------------------------------------------------------------- formulaire de correction
+# Envoi : 'mailto' (message structuré vers contact@uback.com, lisible par un agent IA) ou 'netlify' (formulaire natif
+# nommé « correction »). Réglage distinct de FORM_MODE (newsletter, en « soon ») : les corrections restent ouvertes.
+CORRECTION_MODE = 'mailto'
+C_UI = {
+ 'fr': dict(h1='Demander une correction',
+    intro='Signalez une information inexacte ou contestez un rang. Chaque demande reçoit une réponse motivée. Une société ne peut pas demander son retrait d’un classement (<a href="/fr/methode.html#correction">voir la méthode</a>).',
+    company='Société', country='Pays du classement', global_seg='Classement mondial par segment', type='Type de demande',
+    t_inacc='Information inexacte', t_disp='Contestation du rang', info='Information concernée',
+    infos=['Montant levé', 'Date', 'Secteur ou segment', 'Statut (active, rachetée, fermée)', 'Siège / pays', 'Autre'],
+    current='Valeur actuellement affichée', proposed='Valeur proposée', source='Source (lien)',
+    source_hint='Obligatoire pour une information inexacte.', comment='Commentaire', comment_hint='1 000 caractères maximum.',
+    name='Nom', role='Fonction et lien avec la société', email='E-mail', box='Case',
+    consent='J’accepte que ces informations soient utilisées pour traiter ma demande.', yes='oui', choose='Choisir…',
+    send='Envoyer la demande', sep=' : ',
+    thanks_h='Merci, votre demande est prête.',
+    thanks_p='Si votre messagerie s’est ouverte, envoyez simplement le message préparé : votre demande nous parviendra et recevra une réponse motivée. Sinon, écrivez-nous à <a href="mailto:contact@uback.com">contact@uback.com</a>.',
+    back='Retour à la méthode'),
+ 'en': dict(h1='Request a correction',
+    intro='Report inaccurate information or dispute a rank. Every request receives a reasoned reply. A company cannot ask to be removed from a ranking (<a href="/method.html#correction">see the method</a>).',
+    company='Company', country='Ranking country', global_seg='Global ranking by segment', type='Request type',
+    t_inacc='Inaccurate information', t_disp='Rank dispute', info='Information concerned',
+    infos=['Amount raised', 'Date', 'Sector or segment', 'Status (active, acquired, closed)', 'Seat / country', 'Other'],
+    current='Value currently shown', proposed='Proposed value', source='Source (link)',
+    source_hint='Required for inaccurate information.', comment='Comment', comment_hint='1,000 characters maximum.',
+    name='Name', role='Role and relationship to the company', email='E-mail', box='Checkbox',
+    consent='I agree that this information may be used to process my request.', yes='yes', choose='Choose…',
+    send='Send request', sep=': ',
+    thanks_h='Thank you, your request is ready.',
+    thanks_p='If your e-mail app opened, simply send the prepared message: your request will reach us and receive a reasoned reply. Otherwise, write to us at <a href="mailto:contact@uback.com">contact@uback.com</a>.',
+    back='Back to the method'),
+}
+
+def country_options(lang):
+    """Pays du classement : générés depuis la configuration des marchés (une entrée par pays)."""
+    opts, seen = [], []
+    for m in MARKETS:
+        if m['code'] in seen:
+            continue
+        seen.append(m['code'])
+        v = next((x for x in MARKETS if x['code'] == m['code'] and x['lang'] == lang), None)
+        name = v['name'] if v else {'fr': {'Poland': 'Pologne'}}.get(lang, {}).get(m['name'], m['name'])
+        opts.append((m['code'], name))
+    return opts
+
+def correction_body(lang):
+    c = C_UI[lang]
+    req = ' <span class="req" aria-hidden="true">*</span>'
+    opt = lambda items: f'<option value="">{c["choose"]}</option>' + ''.join(f'<option value="{e(v)}">{e(t)}</option>' for v, t in items)
+    countries = opt(country_options(lang) + [('global', c['global_seg'])])
+    thanks = '/' + GLOBAL['thanks'][lang]
+    mailto = ' data-mailto="contact@uback.com"' if CORRECTION_MODE == 'mailto' else ''
+    labels = json.dumps([c[k] for k in ('company', 'country', 'type', 'info', 'current', 'proposed', 'source', 'comment',
+                                        'name', 'role', 'email', 'box')], ensure_ascii=False)
+    return f'''<div class="wrap prose">
+<h1>{c['h1']}</h1>
+<p class="lead">{c['intro']}</p>
+<form class="cform" name="correction" method="POST" action="{thanks}" data-netlify="true" netlify-honeypot="bot-field"{mailto}>
+  <input type="hidden" name="form-name" value="correction">
+  <p class="skip"><label>Ne pas remplir : <input name="bot-field"></label></p>
+  <div><label for="c-company">{c['company']}{req}</label><input id="c-company" name="company" type="text" required autocomplete="organization"></div>
+  <div><label for="c-country">{c['country']}{req}</label><select id="c-country" name="country" required>{countries}</select></div>
+  <div><label for="c-type">{c['type']}{req}</label><select id="c-type" name="type" required>{opt([('inaccurate', c['t_inacc']), ('dispute', c['t_disp'])])}</select></div>
+  <div><label for="c-info">{c['info']}{req}</label><select id="c-info" name="info" required>{opt([(x, x) for x in c['infos']])}</select></div>
+  <div><label for="c-current">{c['current']}</label><input id="c-current" name="current" type="text"></div>
+  <div><label for="c-proposed">{c['proposed']}{req}</label><input id="c-proposed" name="proposed" type="text" required></div>
+  <div><label for="c-source">{c['source']}<span class="req" id="c-source-req" aria-hidden="true"> *</span></label><input id="c-source" name="source" type="url" placeholder="https://" aria-describedby="c-source-hint"><div class="hint" id="c-source-hint">{c['source_hint']}</div></div>
+  <div><label for="c-comment">{c['comment']}</label><textarea id="c-comment" name="comment" maxlength="1000" aria-describedby="c-comment-hint"></textarea><div class="hint" id="c-comment-hint">{c['comment_hint']}</div></div>
+  <div><label for="c-name">{c['name']}{req}</label><input id="c-name" name="name" type="text" required autocomplete="name"></div>
+  <div><label for="c-role">{c['role']}{req}</label><input id="c-role" name="role" type="text" required></div>
+  <div><label for="c-email">{c['email']}{req}</label><input id="c-email" name="email" type="email" required autocomplete="email"></div>
+  <div><label class="consent"><input type="checkbox" name="consent" value="{c['yes']}" required> {c['consent']}</label></div>
+  <button type="submit">{c['send']}</button>
+</form>
+<script>
+(function(){{
+  var f=document.querySelector('form.cform'), t=f.type, s=f.source, star=document.getElementById('c-source-req');
+  function syncSource(){{ var need=t.value==='inaccurate'; s.required=need; star.hidden=!need; }}
+  t.addEventListener('change',syncSource); syncSource();
+  // préremplissage depuis les pages classements : ?company=…&country=…
+  var q=new URLSearchParams(location.search);
+  if(q.get('company'))f.company.value=q.get('company');
+  if(q.get('country'))f.country.value=q.get('country');
+  if(!f.dataset.mailto)return;
+  f.addEventListener('submit',function(ev){{ev.preventDefault();
+    var L={labels}, sep={json.dumps(c['sep'])};
+    function txt(el){{return el.tagName==='SELECT'?(el.value?el.options[el.selectedIndex].text:''):el.value.trim();}}
+    var vals=[txt(f.company),txt(f.country),txt(f.type),txt(f.info),txt(f.current),txt(f.proposed),txt(f.source),
+              txt(f.comment),txt(f.name),txt(f.role),txt(f.email),f.consent.checked?{json.dumps(c['yes'])}:''];
+    var body=L.map(function(l,i){{return l+sep+vals[i];}}).join('\\n');
+    var subject='[Correction] '+vals[0]+' – '+vals[1]+' – '+vals[2];
+    window.location.href='mailto:'+f.dataset.mailto+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+    setTimeout(function(){{window.location.href={json.dumps(thanks)};}},1500);}});
+}})();
+</script>
+</div>
+'''
+
+def thanks_body(lang):
+    c = C_UI[lang]
+    return f'''<div class="wrap prose">
+<h1>{c['thanks_h']}</h1>
+<p class="lead">{c['thanks_p']}</p>
+<p><a href="/{GLOBAL['method'][lang]}">{c['back']}</a></p>
+</div>
+'''
+
+BODIES = {'method': METHOD, 'legal': LEGAL,
+          'correction': {l: correction_body(l) for l in ('en', 'fr')}, 'thanks': {l: thanks_body(l) for l in ('en', 'fr')}}
+for key, texts in BODIES.items():
     for lang in ('en', 'fr'):
         out = os.path.join(ROOT, *GLOBAL[key][lang].split('/'))
         os.makedirs(os.path.dirname(out), exist_ok=True)

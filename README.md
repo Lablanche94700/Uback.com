@@ -13,7 +13,11 @@ index.html              ← homepage monde (anglais), générée par tools/build
 data/sectors.json       ← arborescence des classements mondiaux (famille > secteur > segment), source unique
 method.html, fr/methode.html      ← méthode et règles du jeu GLOBALES (anglais / français), communes à tous les pays
 legal-notice.html, mentions-legales.html ← mentions légales globales (anglais / français)
-                        (ces 4 pages sont générées par tools/build_home.py, texte dans tools/pages_global.py)
+correction.html, fr/correction.html ← formulaire de correction global (CORRECTION_MODE dans tools/build_home.py :
+                          'mailto' → message structuré « Champ : valeur » vers contact@uback.com ; 'netlify' → formulaire
+                          natif « correction ») ; préremplissable : ?company=…&country=ma
+thank-you.html, fr/merci.html ← confirmation du formulaire de correction (noindex)
+                        (ces pages sont générées par tools/build_home.py, texte de la méthode dans tools/pages_global.py)
 methode.html, partenaire.html, merci.html
                         ← redirections (anciennes adresses, à garder) vers /fr/methode.html et /ma/fr/…
 assets/                 ← favicons et ancienne image de partage, pour la racine

@@ -172,6 +172,20 @@ footer a{color:var(--muted)}
 .prose table{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
 .prose th,.prose td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
 .prose th{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.prose .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.prose .table-wrap table{min-width:520px}
+.callout{margin:20px 0;padding:14px 18px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:10px}
+.callout p{margin:0}
+.cform{display:grid;gap:16px;max-width:640px;margin-top:24px}
+.cform label{display:block;font-size:14px;font-weight:600;color:var(--navy);margin-bottom:6px}
+.cform .req{color:var(--gold)}
+.cform input[type=text],.cform input[type=url],.cform input[type=email],.cform select,.cform textarea{width:100%;min-height:44px;padding:10px 12px;border:1px solid var(--dash);border-radius:10px;font:inherit;font-size:15px;color:var(--navy);background:#fff}
+.cform textarea{min-height:120px;resize:vertical}
+.cform .hint{font-size:12.5px;color:var(--muted);margin-top:4px}
+.cform .consent{display:flex;gap:10px;align-items:flex-start;font-weight:500}
+.cform .consent input{width:20px;height:20px;margin-top:2px;flex-shrink:0}
+.cform button{justify-self:start;min-height:48px;padding:0 24px;border:0;border-radius:10px;background:var(--navy);color:#fff;font:inherit;font-size:16px;font-weight:600;cursor:pointer}
+.cform button:hover{background:var(--navy-dark)}
 .langsw{display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:600;color:var(--muted)}
 .langsw a{color:var(--muted);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
 .langsw .on{color:var(--navy)}
@@ -218,7 +232,7 @@ footer a{color:var(--muted)}
     <div class="foot-links">
       <span>© 2026 Uback</span>
       <a href="/fr/methode.html">Méthode</a>
-      <a href="mailto:contact@uback.com?subject=Correction%20request">Demander une correction</a>
+      <a href="/fr/correction.html">Demander une correction</a>
       <a href="/mentions-legales.html">Mentions légales</a>
       <a href="mailto:contact@uback.com">contact@uback.com</a>
     </div>

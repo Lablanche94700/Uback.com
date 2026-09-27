@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Méthode et règles du jeu | Uback</title>
-<meta name="description" content="Comment Uback classe les startups : consensus d’IA, éditions trimestrielles, éligibilité, indice de confiance, ordre de grandeur de valorisation, droit de réponse. Uback ne valorise pas les sociétés : il les classe, et indique un ordre de grandeur estimé par IA.">
+<meta name="description" content="Comment Uback classe les startups non cotées par ordre décroissant de valorisation estimée par IA : consensus, indice de confiance, ordre de grandeur, éligibilité, prise en compte des avis humains, corrections.">
 <link rel="canonical" href="https://uback.com/fr/methode.html">
 <link rel="alternate" hreflang="en" href="https://uback.com/method.html">
 <link rel="alternate" hreflang="fr" href="https://uback.com/fr/methode.html">
@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Uback">
 <meta property="og:url" content="https://uback.com/fr/methode.html">
 <meta property="og:title" content="Méthode et règles du jeu | Uback">
-<meta property="og:description" content="Comment Uback classe les startups : consensus d’IA, éditions trimestrielles, éligibilité, indice de confiance, ordre de grandeur de valorisation, droit de réponse. Uback ne valorise pas les sociétés : il les classe, et indique un ordre de grandeur estimé par IA.">
+<meta property="og:description" content="Comment Uback classe les startups non cotées par ordre décroissant de valorisation estimée par IA : consensus, indice de confiance, ordre de grandeur, éligibilité, prise en compte des avis humains, corrections.">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/favicon-192.png">
@@ -172,6 +172,20 @@ footer a{color:var(--muted)}
 .prose table{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
 .prose th,.prose td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
 .prose th{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.prose .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.prose .table-wrap table{min-width:520px}
+.callout{margin:20px 0;padding:14px 18px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:10px}
+.callout p{margin:0}
+.cform{display:grid;gap:16px;max-width:640px;margin-top:24px}
+.cform label{display:block;font-size:14px;font-weight:600;color:var(--navy);margin-bottom:6px}
+.cform .req{color:var(--gold)}
+.cform input[type=text],.cform input[type=url],.cform input[type=email],.cform select,.cform textarea{width:100%;min-height:44px;padding:10px 12px;border:1px solid var(--dash);border-radius:10px;font:inherit;font-size:15px;color:var(--navy);background:#fff}
+.cform textarea{min-height:120px;resize:vertical}
+.cform .hint{font-size:12.5px;color:var(--muted);margin-top:4px}
+.cform .consent{display:flex;gap:10px;align-items:flex-start;font-weight:500}
+.cform .consent input{width:20px;height:20px;margin-top:2px;flex-shrink:0}
+.cform button{justify-self:start;min-height:48px;padding:0 24px;border:0;border-radius:10px;background:var(--navy);color:#fff;font:inherit;font-size:16px;font-weight:600;cursor:pointer}
+.cform button:hover{background:var(--navy-dark)}
 .langsw{display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:600;color:var(--muted)}
 .langsw a{color:var(--muted);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
 .langsw .on{color:var(--navy)}
@@ -197,60 +211,94 @@ footer a{color:var(--muted)}
 <main class="prose-main">
 <div class="wrap prose">
 <h1>Méthode et règles du jeu</h1>
-<p class="lead">Uback est un algorithme avant d’être un site. Sa crédibilité repose sur des règles simples, publiques, identiques dans tous les pays et appliquées sans exception.</p>
+<p class="lead"><b>Uback classe les startups technologiques non cotées par ordre décroissant de valorisation estimée.</b> L’estimation est faite par des intelligences artificielles, à partir des informations disponibles : levées de fonds, valorisations publiées, indicateurs d’activité, investisseurs, comparables. Uback publie le rang et un ordre de grandeur, jamais un chiffre.</p>
+
+<h2>Le marché décide, Uback estime</h2>
+<p>La valeur d’une startup n’existe vraiment qu’au moment où elle est fixée par un accord : une levée de fonds, une cession, une entrée en bourse. Entre deux opérations, elle évolue en permanence, comme un cours de bourse, sans que personne ne l’observe.</p>
+<p>Uback ne prétend pas fixer cette valeur. Il l’estime, avec les informations disponibles, dans un seul but : classer les sociétés entre elles. L’exercice est par nature imprécis. C’est pourquoi Uback publie des rangs et des tranches, jamais une valorisation chiffrée.</p>
+<p>Le montant levé n’est pas le critère de classement. C’est un indice parmi d’autres. Une société qui a peu levé mais croît vite et rentablement peut valoir plus qu’une société qui a beaucoup levé.</p>
+
+<h2>Deux familles de classements</h2>
+<p><b>Par pays : tous secteurs confondus, puis par secteur.</b> Un classement pays réunit les startups dont les opérations principales (équipe, marché) sont dans le pays. Il est publié chaque trimestre, le 15 du mois. Chaque pays a son propre mois de départ : le Maroc, par exemple, est publié en février, mai, août et novembre. Les pays étant décalés les uns des autres, Uback publie chaque mois. La date de la prochaine édition figure sur la page d’accueil et sur la page de chaque pays.</p>
+<p><b>Mondiaux, par segment.</b> Un classement mondial compare une startup à ses concurrents directs, où qu’ils soient : covoiturage, crypto exchanges, paie… Les segments s’inscrivent dans une arborescence publique à trois niveaux (famille &gt; secteur &gt; segment). Ces classements seront publiés deux fois par an, le 1er janvier et le 1er juillet. Les premiers sont en préparation.</p>
+<p>Une même société peut donc figurer dans deux classements : celui de son pays et celui de son segment.</p>
+<p><b>Pourquoi un rythme trimestriel et semestriel ?</b> Entre deux opérations, les informations disponibles sur une société non cotée changent peu. Un rythme espacé permet aux IA une analyse plus approfondie à chaque édition. Entre deux éditions, le Radar est mis à jour au fil des levées annoncées.</p>
+
+<h2 id="estimation">Comment la valorisation est estimée</h2>
+<p><b>Les mêmes données pour toutes les IA.</b> Pour chaque société éligible, Uback constitue un dossier de faits datés. Ce dossier comprend :</p>
+<ul>
+<li>les tours de financement : montant, date, nature, investisseurs ;</li>
+<li>les valorisations publiées ;</li>
+<li>les indicateurs d’activité connus : chiffre d’affaires, croissance, effectifs, clients, rentabilité, agréments ;</li>
+<li>les rachats et introductions en bourse comparables dans le même segment.</li>
+</ul>
+<p><b>Plusieurs estimations indépendantes.</b> Chaque IA estime la valorisation de chaque société sans connaître les réponses des autres.</p>
+<p><b>Le consensus.</b> L’estimation retenue est la médiane des estimations des IA. C’est elle qui détermine le rang : le n° 1 est la société dont la valorisation estimée est la plus élevée. L’ordre de grandeur affiché est la tranche qui contient cette médiane. Le rang et la tranche sont donc toujours cohérents.</p>
+<p><b>L’indice de confiance.</b> Il est affiché pour chaque société et combine deux éléments : l’accord entre les IA et la qualité des données.</p>
+<ul>
+<li><b>Élevé</b> : les estimations convergent, et reposent sur une valorisation publiée ou un tour chiffré de moins de 24 mois.</li>
+<li><b>Moyen</b> : les estimations divergent modérément, ou les données ont plus de 24 mois.</li>
+<li><b>Faible</b> : les estimations divergent fortement, ou reposent sur une source unique.</li>
+</ul>
+<p>Quand les IA ne s’accordent pas, cette divergence est elle-même une information.</p>
+<p><b>Des données de plus en plus riches.</b> Chaque édition intègre de nouvelles sources. La précision des estimations doit progresser d’une édition à l’autre.</p>
+<p><b>Édition 0 (bêta).</b> Les premières éditions ont été établies par une seule IA (Claude, Anthropic), à partir d’une recherche documentaire. L’indice de confiance y reflète la seule qualité des sources. Le consensus de plusieurs IA s’appliquera prochainement, lors d’une future édition.</p>
+
+<h2>L’ordre de grandeur</h2>
+<p>Uback affiche une tranche, jamais un chiffre :</p>
+<div class="table-wrap"><table>
+<tr><th>Tranche</th><th>Valorisation estimée</th></tr>
+<tr><td>Centaines de k$</td><td>100 k$ à 1 M$</td></tr>
+<tr><td>Millions $</td><td>1 à 10 M$</td></tr>
+<tr><td>Dizaines de M$</td><td>10 à 100 M$</td></tr>
+<tr><td>Centaines de M$</td><td>100 M$ à 1 Md$</td></tr>
+<tr><td>Licorne</td><td>1 à 10 Md$</td></tr>
+<tr><td>Décacorne</td><td>plus de 10 Md$</td></tr>
+</table></div>
+<p>Au sein d’une tranche, les sociétés restent classées selon leur estimation. Quand les données ne permettent pas une estimation sérieuse, la société n’est pas classée. Elle figure au Radar.</p>
+<p>Ces estimations sont éditoriales et indicatives. Elles ne constituent ni une évaluation financière, ni une offre, ni un conseil en investissement.</p>
+
+<h2 id="eligibilite">Qui est éligible</h2>
+<div class="table-wrap"><table>
+<tr><th>Règle</th><th>Application</th></tr>
+<tr><td>Startup technologique ou innovante</td><td>Le périmètre est défini par l’arborescence publique des secteurs, qui évolue.</td></tr>
+<tr><td>A levé au moins 1 M$, dont un tour en fonds propres</td><td>Le seuil est cumulé, en fonds propres ou en dette, et au moins un tour doit avoir été réalisé en fonds propres. Des investisseurs sont donc déjà au capital et ont négocié leurs droits. Une subvention n’est pas une levée. Le même seuil s’applique dans tous les pays.</td></tr>
+<tr><td>Non cotée</td><td>Les sociétés cotées sont affichées à part, comme repères, et ne sont jamais classées.</td></tr>
+<tr><td>Active</td><td>Une société rachetée, fermée ou en procédure collective sort du classement. L’historique conserve ses positions.</td></tr>
+<tr><td>Une activité principale</td><td>Chaque société est rattachée à un seul secteur et à un seul segment. Les conglomérats sont exclus.</td></tr>
+<tr><td>Pays des opérations</td><td>Le pays retenu est celui des opérations, quel que soit le siège juridique. Le siège est indiqué sur la fiche. Les sociétés d’origine locale opérées depuis l’étranger figurent dans « Nées ici, établies ailleurs ».</td></tr>
+</table></div>
+
+<h2>Classement, Challengers, Radar</h2>
+<ul>
+<li><b>Le classement</b> : jusqu’à 20 sociétés par ordre de valorisation estimée. Il est plus court quand le marché compte moins de sociétés estimables. Rien ne s’y achète.</li>
+<li><b>Les Challengers</b> : un espace de visibilité payant, réservé aux sociétés immatriculées en recherche de financement qui veulent se faire connaître des investisseurs. Il est affiché séparément, étiqueté comme sponsorisé, et n’a aucun effet sur le classement. Un Challenger qui devient éligible et estimable entre dans le classement dans les mêmes conditions que les autres sociétés.</li>
+<li><b>Le Radar</b> : les autres sociétés éligibles connues, triées par date de dernière levée. Il est mis à jour en continu, sans estimation.</li>
+</ul>
+
+<h2 id="avis-humains">Règles de prise en compte des inputs des humains</h2>
+<p>Uback ouvrira ses classements aux avis d’analystes. Un analyste pourra publier, sous son nom, une lecture critique d’un classement : pourquoi telle société lui paraît sous-estimée, pourquoi telle autre lui paraît surestimée. Ces textes lui permettront de faire connaître son expertise. Les lecteurs pourront les juger utiles ou non.</p>
+<p>Les IA pourront tenir compte de ces avis, sans y être tenues. <b>Seules les IA décident du classement, et elles n’ont pas à justifier la prise en compte ou non d’un avis.</b> Aucun avis, aucun vote, aucun paiement ne s’impose à elles.</p>
+<p>Les règles selon lesquelles les IA considèrent ces avis figurent dans les instructions qui leur sont données, et ces instructions sont publiques.</p>
+<p>Les corrections de faits sont traitées différemment (voir « Corrections ») : un montant, une date ou un statut erroné est corrigé dans les données dès qu’il est vérifié.</p>
 
 <h2>Les règles du jeu</h2>
 <ol>
-<li><b>Uback ne valorise pas les sociétés : il les classe, et indique un ordre de grandeur estimé par IA.</b> Cet ordre de grandeur est une tranche indicative, jamais un chiffre, calculée selon une règle publiée ; seules des valeurs publiques, datées et sourcées servent de point de départ (montants levés, valorisations publiées).</li>
-<li><b>Un classement n’est jamais à vendre.</b> Aucun paiement, d’une société, d’un partenaire ou d’un analyste, n’influence une position. Le référencement payant (« Challengers ») est affiché à part, étiqueté comme tel, et n’entre jamais dans le classement.</li>
-<li><b>Aucun humain ne modifie l’ordre.</b> Un validateur peut exclure une société pour un motif d’éligibilité, tracé, ou relancer le calcul ; jamais réordonner.</li>
-<li><b>Uback ne démarche jamais.</b> Tout contact sortant vers une société, un dirigeant ou un actionnaire passe par le partenaire agréé du pays.</li>
-<li><b>Uback n’est pas un intermédiaire financier.</b> Aucun mandat, aucune négociation, aucun conseil, aucun encaissement de fonds destinés à un investissement.</li>
-<li><b>Les données ne sortent pas.</b> Les intentions de cession sont confidentielles ; aucune donnée n’est vendue ni transmise à des tiers, hors le partenaire local avec le consentement du déclarant.</li>
-<li><b>Tout est publié, tout est tracé.</b> IA interrogées, date, règle de consensus, critères d’éligibilité sont publics ; chaque société dispose d’un droit de réponse.</li>
-<li><b>Aucune fausse promesse.</b> La colonne « Investir » n’affiche un état que lorsqu’il est avéré (levée en cours, dossier suivi, sortie). Une intention non transformée est un crédit transférable.</li>
+<li><b>Le classement n’est jamais à vendre.</b> Aucun paiement, d’une société, d’un partenaire ou d’un investisseur, n’influence un rang ni une tranche.</li>
+<li><b>Aucun humain ne modifie l’ordre.</b> Un humain peut exclure une société pour un motif d’éligibilité, de façon tracée, ou relancer le calcul. Il ne réordonne jamais.</li>
+<li><b>La méthode est publique.</b> Cette page et les instructions données aux IA pour chaque type de classement (pays, segment) sont publiques. Les données de travail et les estimations chiffrées ne le sont pas.</li>
+<li><b>Uback n’est pas un intermédiaire financier.</b> Uback ne détient aucun mandat, ne négocie pas, ne donne pas de conseil et n’encaisse aucun fonds destiné à un investissement. Toute opération est proposée par le partenaire agréé du pays, sous sa propre responsabilité.</li>
+<li><b>Les données ne sortent pas.</b> Les intentions d’investissement sont confidentielles. Aucune donnée n’est vendue. Elles ne sont transmises qu’au partenaire agréé du pays, avec le consentement de l’investisseur.</li>
 </ol>
+<div class="callout" id="investir"><p><b>Investir.</b> Uback permet aux investisseurs de déclarer une intention d’investissement sur une société ou un secteur. La mécanique est décrite sur la page « Investir avec Uback ».</p></div>
 
-<h2>Comment le classement est établi</h2>
-<p>À chaque édition, la même question est posée à plusieurs intelligences artificielles pour chaque pays et chaque secteur : quelles sont les sociétés éligibles les mieux valorisées, dans l’ordre ? Les réponses sont fusionnées en un classement de consensus (par points : 1er = 20 points, 2e = 19, etc.). Un indice de confiance est affiché pour chaque position : quand les IA sont d’accord, le classement est solide ; quand elles divergent, la divergence devient elle-même une information.</p>
-<p><b>Un rythme trimestriel.</b> La valorisation d’une société non cotée ne bouge qu’à ses levées de fonds et à sa sortie : un classement trimestriel suffit à suivre le marché, et laisse aux IA le temps d’une analyse plus approfondie. Chaque pays est publié un mois sur trois, le 15, en décalé : Uback publie ainsi chaque mois. Le calendrier de chaque pays figure ci-dessous. Entre deux éditions, le Radar est mis à jour au fil des levées annoncées.</p>
-<table><tr><th>Pays</th><th>Publié le 15</th><th>Prochaine édition</th></tr><tr><td><a href="/ma/fr/">Maroc</a></td><td>février, mai, août et novembre</td><td>15 novembre 2026</td></tr><tr><td><a href="/pl/">Pologne</a></td><td>mars, juin, septembre et décembre</td><td>15 décembre 2026</td></tr><tr><td><a href="/vn/">Vietnam</a></td><td>janvier, avril, juillet et octobre</td><td>15 octobre 2026</td></tr></table>
-<p><b>Édition 0 (bêta).</b> Cette première édition a été établie par une seule IA (Claude, Anthropic), à partir d’une recherche documentaire sur la presse et les annonces de levées de fonds, chaque montant étant sourcé. L’indice de confiance y reflète la qualité des sources disponibles. Le consensus multi-IA s’applique à partir de l’édition 1.</p>
+<h2 id="correction">Corrections</h2>
+<p>Toute société citée peut signaler une information inexacte (montant, date, secteur, statut) ou contester son rang, via le <a href="/fr/correction.html">formulaire de correction</a>. Chaque demande reçoit une réponse motivée, et chaque correction de fait est tracée.</p>
+<p>Une société ne peut pas demander à ne pas figurer dans un classement. Uback traite d’informations publiques sur des acteurs de la vie économique. Seul un motif d’éligibilité peut entraîner une sortie.</p>
 
-<h2 id="valorisation">Ordre de grandeur de valorisation</h2>
-<p>À côté de chaque société, Uback indique une tranche de valorisation estimée par IA : centaines de milliers de dollars, millions, dizaines de millions, centaines de millions, licorne (plus d’un milliard) ou décacorne (plus de dix milliards). C’est un ordre de grandeur indicatif, jamais un chiffre, et il n’intervient pas dans l’ordre du classement. Survolez ou touchez la tranche pour voir sur quoi repose l’estimation.</p>
-<ul>
-<li><b>Le point de départ.</b> Si une valorisation a été publiée depuis moins de 24 mois, elle sert d’ancrage. Sinon, Uback part du dernier tour en fonds propres dont le montant est connu : les investisseurs prennent en général 15 à 25 % du capital, la valorisation après le tour est donc estimée entre 4 et 6,7 fois le montant levé. La dette et les subventions ne servent jamais d’ancrage.</li>
-<li><b>Un ajustement limité.</b> L’IA peut décaler l’estimation d’une tranche au plus, vers le haut ou vers le bas, à partir de faits publics : tour ultérieur au montant non publié, chiffre d’affaires, rentabilité, agrément, restructuration… Chaque ajustement est justifié et affiché.</li>
-<li><b>La règle de la borne basse.</b> La tranche affichée est celle qui contient le bas de la fourchette estimée : entre deux tranches, Uback retient la plus prudente.</li>
-<li><b>L’indice de confiance.</b> Élevée : valorisation publiée, ou tour chiffré et recoupé, de moins de 24 mois. Moyenne : tour de plus de 24 mois, ou seul le cumul levé est connu. Faible : source unique ou sources divergentes.</li>
-<li><b>« Non estimé ».</b> Quand aucun tour en fonds propres n’a de montant publié, quand il n’y a que de la dette ou des subventions, ou quand l’ancrage repose sur une source incertaine, Uback n’affiche aucune tranche plutôt qu’un chiffre fragile.</li>
-<li><b>Signaler une erreur.</b> Chaque ligne du classement permet à la société concernée de signaler une erreur à <a href="mailto:contact@uback.com">contact@uback.com</a>. La correction est tracée.</li>
-</ul>
-<p>Ces ordres de grandeur sont des estimations éditoriales indicatives : ils ne constituent ni une évaluation financière, ni une offre, ni un conseil en investissement.</p>
-
-<h2>Règles d’éligibilité</h2>
-<table>
-<tr><th>Règle</th><th>Application</th></tr>
-<tr><td>Société technologique ou innovante</td><td>Périmètre de départ ; l’arborescence des secteurs est publique et évolutive.</td></tr>
-<tr><td>Une activité principale, un seul secteur</td><td>Les conglomérats et sociétés multi-activités sont exclus. Une société n’apparaît que dans un seul classement.</td></tr>
-<tr><td>A levé des fonds</td><td>Au moins 500 k$ (ou l’équivalent) en fonds propres ou en dette, vérifiables (annonce publique, registre, ou attestation du partenaire). Une subvention n’est pas une levée. La dette est distinguée des fonds propres.</td></tr>
-<tr><td>Non cotée</td><td>Les sociétés cotées sont des repères, affichés séparément, jamais classées.</td></tr>
-<tr><td>Active</td><td>Une société rachetée, fermée ou en procédure collective sort du classement ; l’historique conserve ses positions.</td></tr>
-<tr><td>Opérations principales dans le pays</td><td>Le pays d’un classement est celui des opérations (équipe, marché), quel que soit le siège juridique. Le siège et le droit applicable aux titres sont indiqués sur la fiche. Les sociétés d’origine locale opérées à l’étranger figurent dans « Nées ici, établies ailleurs ».</td></tr>
-</table>
-
-<h2>La colonne « Investir »</h2>
-<p>Chaque société classée propose le bouton « Déclarer une intention ». Un badge discret s’y ajoute seulement quand un fait est avéré : « Levée en cours » quand la société lève des fonds, « Suivie par… » quand le partenaire agréé du pays a un dossier ouvert. Une société rachetée affiche « Sortie », avec le nom de l’acquéreur quand il est connu, et n’accepte plus d’intention. Les sociétés cotées ne sont pas classées : elles figurent parmi les repères cotés.</p>
-
-<h2 id="apres">Que se passe-t-il après ma déclaration ?</h2>
-<p>Une déclaration d’intention est payante (prix par pays et par tranche de ticket), valable douze mois, et transférable : tant qu’elle n’a pas été transformée, vous pouvez la supprimer et reporter son crédit sur une autre société ou un secteur. Uback ne promet pas un deal. Il promet que votre intention, agrégée à celles des autres Backers, compte dans la masse critique&nbsp;: quand le nombre de Backers et le cumul de leurs intentions franchissent un seuil, le partenaire agréé du pays contacte la société et lui présente cette demande. Si les attentes de la société et celles des Backers convergent, il structure une opération et la présente directement aux Backers concernés, sous son nom et sous sa responsabilité réglementaire. Les petits tickets sont regroupés dans un véhicule commun créé par le partenaire agréé&nbsp;; chaque Backer décide d’y participer ou non. Dans chaque pays, les déclarations d’intention ouvriront dès la signature du partenaire agréé.</p>
-
-<h2 id="correction">Droit de réponse et corrections</h2>
-<p>Toute société citée peut demander la correction d’une information (montant, date, secteur, statut), contester sa position ou demander son retrait, en écrivant à <a href="mailto:corrections@uback.com">corrections@uback.com</a>. Chaque demande reçoit une réponse motivée. Les dirigeants peuvent revendiquer la fiche de leur société pour y publier leurs indicateurs et déclarer une intention de lever des fonds.</p>
-
-<h2>Sources</h2>
-<p>Presse économique et technologique de chaque pays et presse internationale, rapports de place et communiqués des investisseurs : chaque page pays détaille ses sources. Chaque montant du classement renvoie à sa source.</p>
+<h2>Sources et limites</h2>
+<p>Uback s’appuie sur la presse économique et technologique de chaque pays, la presse internationale, les rapports de place, les registres publics et des services de données. Chaque page pays cite les médias et services utilisés.</p>
+<p>Uback n’exclut ni les erreurs d’interprétation ni la reprise involontaire d’informations inexactes publiées ailleurs. Nous faisons de notre mieux pour les écarter, et nous corrigeons dès qu’une erreur est signalée.</p>
 </div>
 
 </main>
@@ -260,7 +308,7 @@ footer a{color:var(--muted)}
     <div class="foot-links">
       <span>© 2026 Uback</span>
       <a href="/fr/methode.html">Méthode</a>
-      <a href="mailto:contact@uback.com?subject=Correction%20request">Demander une correction</a>
+      <a href="/fr/correction.html">Demander une correction</a>
       <a href="/mentions-legales.html">Mentions légales</a>
       <a href="mailto:contact@uback.com">contact@uback.com</a>
     </div>

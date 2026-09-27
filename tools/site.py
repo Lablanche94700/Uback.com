@@ -112,7 +112,12 @@ TXT = {
   out_h='Hors classement',
   id_local='methode-locale', loc_h='La méthode {in_}',
   loc_cal='<b>Calendrier.</b> Classement trimestriel, publié le 15 {months}. Prochaine édition : {next}.',
-  loc_elig='<b>Éligibilité.</b> Au moins {seuil} levés, sociétés non cotées, opérations principales {in_}.',
+  elig_h='Éligibilité.', elig='Éligibilité : au moins 1 M$ levés dont un tour en fonds propres, société non cotée, opérations principales {in_}.',
+  disc2='Classement établi par ordre décroissant de valorisation estimée par IA, à partir d’informations publiques, selon une méthode publiée, sans intervention humaine sur l’ordre. Les tranches de valorisation sont des estimations éditoriales indicatives : ni une évaluation financière, ni une offre, ni un conseil en investissement. Le marché seul fixe la valeur d’une société, lors d’une levée ou d’une cession.',
+  ed0='Édition 0 : établie par Claude (Anthropic) ; consensus de plusieurs IA lors d’une prochaine édition. ',
+  tip_round='Dernier tour en fonds propres connu : ', tip_pub='Valorisation publiée : ', tip_conf='Indice de confiance : ',
+  tc_high='Élevé', tc_medium='Moyen', tc_low='Faible', tip_none='Aucun tour en fonds propres au montant publié.', tip_more='Méthode',
+  id_invest='investir',
   loc_partner='<b>Partenaire recherché.</b> {partner_short}.', loc_src='<b>Sources.</b>',
   loc_more='Méthode et règles du jeu, communes à tous les pays →',
   fol_h='Recevoir chaque nouvelle édition', fol_p='Entrées, sorties et mouvements, chaque trimestre.',
@@ -183,7 +188,12 @@ TXT = {
   out_h='Not ranked',
   id_local='local-method', loc_h='The method {in_}',
   loc_cal='<b>Calendar.</b> Quarterly ranking, published on the 15th {months}. Next edition: {next}.',
-  loc_elig='<b>Eligibility.</b> At least {seuil} raised, non-listed companies, main operations {in_}.',
+  elig_h='Eligibility.', elig='Eligibility: at least $1M raised including one equity round, non-listed company, main operations {in_}.',
+  disc2='Ranking in descending order of AI-estimated valuation, based on public information, following a published method, with no human intervention on the order. Valuation ranges are indicative editorial estimates: neither a financial valuation, nor an offer, nor investment advice. Only the market sets a company’s value, through a funding round or a sale.',
+  ed0='Edition 0: produced by Claude (Anthropic); a consensus of several AI models will apply in a future edition. ',
+  tip_round='Last known equity round: ', tip_pub='Published valuation: ', tip_conf='Confidence index: ',
+  tc_high='High', tc_medium='Medium', tc_low='Low', tip_none='No equity round with a disclosed amount.', tip_more='Method',
+  id_invest='invest',
   loc_partner='<b>Partner sought.</b> {partner_short}.', loc_src='<b>Sources.</b>',
   loc_more='Method and rules, common to all countries →',
   fol_h='Get every new edition', fol_p='New entries, exits and movements, every quarter.',
@@ -202,6 +212,7 @@ PP, PT = L['p_partner'], L['p_thanks']
 # méthode et mentions légales : pages globales, communes à tous les pays (générées par tools/build_home.py)
 GM = '@ROOT@fr/methode.html' if M['lang'] == 'fr' else '@ROOT@method.html'
 GL = '@ROOT@mentions-legales.html' if M['lang'] == 'fr' else '@ROOT@legal-notice.html'
+GC = '@ROOT@fr/correction.html' if M['lang'] == 'fr' else '@ROOT@correction.html'   # formulaire de correction (global)
 
 def src(url, label='source', style=''):
     return f'<a href="{e(url)}"{style} rel="nofollow noopener" target="_blank">{label}</a>'
@@ -289,7 +300,7 @@ FOOT = f'''
       <span>Powered by AI</span>
       <span>·</span><a href="{GM}">{L['f_method']}</a>
       <span>·</span><a href="/{PP}">{L['f_partner']}</a>
-      <span>·</span><a href="{GM}#correction">{L['f_corr']}</a>
+      <span>·</span><a href="{GC}">{L['f_corr']}</a>
       <span>·</span><a href="{GL}">{L['f_legal']}</a>
       <span class="spacer"></span>
       <span>Uback.com · {datetime.date.today().year}</span>
@@ -305,8 +316,28 @@ def conf(n):
     dots = ''.join('<i class="f"></i>' if i < n else '<i></i>' for i in range(3))
     return f'<span class="conf" aria-hidden="true">{dots}</span><span class="conf-l">{L["conf" + str(n)]}</span>'
 
+def tip_facts(c):
+    """Infobulle de la tranche : uniquement des faits publics (dernier tour en fonds propres connu, valorisation publiée,
+    indice de confiance). Le raisonnement de l'IA (ajustements, multiples, fourchette) reste dans les données, non affiché."""
+    vi, lang, lines = c.get('valuation_input') or {}, M['lang'], []
+    if vi.get('round_usd') and vi.get('round_date'):
+        when = valuation.month(vi['round_date'], lang)
+        parts = [p for p in (vi.get('round_label'), valuation.money(vi['round_usd'], lang), when) if p]
+        txt = ' · '.join(parts)
+        inv = re.search(re.escape(when) + r'\s*\(([^()]*)\)', c.get('derniere_levee', ''))
+        if inv:                                               # investisseurs cités juste après la date de ce même tour
+            txt += f' ({inv.group(1)})'
+        lines.append(L['tip_round'] + txt)
+    else:
+        lines.append(L['tip_none'])
+    if vi.get('published_usd') and vi.get('published_date'):
+        lines.append(L['tip_pub'] + f"{valuation.money(vi['published_usd'], lang)} ({valuation.month(vi['published_date'], lang)})")
+    if c.get('valuation_bracket', 'not_estimated') != 'not_estimated':
+        lines.append(L['tip_conf'] + L['tc_' + c.get('valuation_confidence', 'low')])
+    return '<br>'.join(e(x) for x in lines)
+
 def val(c):
-    """Tranche de valorisation estimée par IA + confiance ; la justification s'affiche au survol ou au tap (bouton + infobulle)."""
+    """Tranche de valorisation estimée par IA + confiance ; les faits publics s'affichent au survol ou au tap (bouton + infobulle)."""
     b, vc = c.get('valuation_bracket', 'not_estimated'), c.get('valuation_confidence', 'low')
     n = {'high': 3, 'medium': 2, 'low': 1}[vc]
     dots = '' if b == 'not_estimated' else '<span class="conf" aria-hidden="true">' + ''.join(
@@ -317,7 +348,8 @@ def val(c):
     toggle = "var p=this.parentNode;this.setAttribute('aria-expanded',p.classList.toggle('open'))"   # tap sur mobile (iOS ne donne pas le focus)
     return (f'<span class="val{ne}"><button type="button" class="val-b" aria-describedby="{tid}" aria-expanded="false" onclick="{toggle}">'
             f'<span class="vl">{L["vb_" + b]}</span>{dots}{conf_txt}</button>'
-            f'<span class="val-tip" role="tooltip" id="{tid}">{e(c.get("valuation_basis", ""))}</span></span>')
+            f'<span class="val-tip"><span id="{tid}">{tip_facts(c)}</span>'
+            f'<a class="tip-more" href="{GM}#estimation">{L["tip_more"]}</a></span></span>')
 
 def invest(c):
     """Colonne « Investir » : bouton d'intention, précédé d'un badge d'état s'il y a lieu.
@@ -340,8 +372,8 @@ def row(c):
     if c.get('juridiction') and (not c['juridiction'].startswith(M['name']) or ';' in c['juridiction']):
         jur = f'<span class="jur">{e(c["juridiction"])}</span>'
     note = f'<div class="src">{e(c["note"])}</div>' if c.get('note') else ''
-    subject = quote(L['report_subject'].format(co=c['nom']))
-    report = f'<a class="report" href="mailto:contact@uback.com?subject={subject}">{L["report"]}</a>'
+    # « Signalez une erreur » : formulaire de correction prérempli (société, pays)
+    report = f'<a class="report" href="{GC}?company={quote(c["nom"])}&amp;country={M["code"]}">{L["report"]}</a>'
     return f'''<tr{top}>
 <td class="rank">{c['rang']}</td>
 <td><span class="co">{e(c['nom'])}<small>{e(c['ville'])} · {L['founded']} {c['creation']}</small></span>{jur}{note}{report}</td>
@@ -422,7 +454,7 @@ index += f'''
       {''.join(row(c) for c in RANKED)}
       </tbody>
     </table>
-    <div class="disclaimer"><b>{L['disc_b']}</b> {L['val_disc']} {e(D['methode'])} {L['disc']}</div>
+    <div class="disclaimer">{L['disc2']} {L['ed0'] if EDITION.lower().startswith(('édition 0', 'edition 0')) else ''}{L['elig']} <a href="{GC}">{L['f_corr']}</a></div>
 
     <div class="follow-band" id="{L['id_follow']}">
       <div class="fb-text">
@@ -499,7 +531,7 @@ index += f'''
     <p class="steps-note">{L['steps_note']}</p>
     <div class="cta-row">
       <a class="btn gold" href="#{L['id_follow']}">{L['cta_notify']}</a>
-      <a class="btn ghost" href="{GM}#{L['id_after']}">{L['cta_after']}</a>
+      <a class="btn ghost" href="{GM}#{L['id_invest']}">{L['cta_after']}</a>
       <span>{L['cta_line']}</span>
     </div>
   </div>
@@ -551,7 +583,7 @@ index += f'''
     <div class="box local" id="{L['id_local']}">
       <h3>{L['loc_h']}</h3>
       <p>{L['loc_cal']}</p>
-      <p>{L['loc_elig']}</p>
+      <p>{L['elig']}</p>
       <p>{L['loc_partner']}</p>
       <p>{L['loc_src']} {M['press']}</p>
       <p><a href="{GM}">{L['loc_more']}</a></p>
