@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/vn/assets/style.css?v=2578505b">
+<link rel="stylesheet" href="/vn/assets/style.css?v=61b590db">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "Vietnam’s top 15 funded startups – September 2026", "description": "Uback quarterly ranking of non-listed Vietnamese startups, established by AI from public information. We don’t value companies. We rank them, and give an AI-estimated order of magnitude.", "itemListOrder": "https://schema.org/ItemListOrderDescending", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "VNLife / VNPay", "url": "https://vnlife.vn"}, {"@type": "ListItem", "position": 2, "name": "MoMo", "url": "https://momo.vn"}, {"@type": "ListItem", "position": 3, "name": "Sky Mavis", "url": "https://skymavis.com"}, {"@type": "ListItem", "position": 4, "name": "Trusting Social", "url": "https://trustingsocial.com"}, {"@type": "ListItem", "position": 5, "name": "Buymed (thuocsi.vn)", "url": "https://buymed.com"}, {"@type": "ListItem", "position": 6, "name": "OnPoint", "url": "https://onpoint.vn"}, {"@type": "ListItem", "position": 7, "name": "KiotViet", "url": "https://kiotviet.vn"}, {"@type": "ListItem", "position": 8, "name": "Dat Bike", "url": "https://dat.bike"}, {"@type": "ListItem", "position": 9, "name": "Coolmate", "url": "https://coolmate.me"}, {"@type": "ListItem", "position": 10, "name": "Be Group", "url": "https://be.com.vn"}, {"@type": "ListItem", "position": 11, "name": "Jio Health", "url": "https://jiohealth.com"}, {"@type": "ListItem", "position": 12, "name": "Techcoop", "url": "https://techcoop.com"}, {"@type": "ListItem", "position": 13, "name": "Finhay", "url": "https://finhay.com.vn"}, {"@type": "ListItem", "position": 14, "name": "AI Hay", "url": "https://aihay.vn"}, {"@type": "ListItem", "position": 15, "name": "Edupia", "url": "https://edupia.vn"}]}</script>
 </head>
 <body>
@@ -222,7 +222,7 @@
         <p>New entries, exits and movements, every quarter.</p>
       </div>
       <div class="fb-form">
-        <form class="follow" name="follow-vietnam" method="POST" action="/vn/thank-you.html" data-netlify="true" netlify-honeypot="bot-field" data-mailto="contact@uback.com">
+        <form class="follow" name="follow-vietnam" method="POST" action="/vn/thank-you.html" data-netlify="true" netlify-honeypot="bot-field" data-soon="1" novalidate>
           <input type="hidden" name="form-name" value="follow-vietnam">
           <input type="hidden" name="marche" value="vn">
           <p class="skip"><label>Ne pas remplir : <input name="bot-field"></label></p>
@@ -237,8 +237,11 @@
           <button class="btn navy" type="submit">Follow</button>
         </form>
         <p class="src">One e-mail per edition. One-click unsubscribe. No data passed on to third parties.</p>
+        <p class="soon-msg" role="status" hidden>Coming soon: subscriptions will open shortly.</p>
       </div>
       <script>
+      (function(){var s=document.querySelector('form[data-soon]');if(s){s.addEventListener('submit',function(ev){ev.preventDefault();
+        var m=s.parentNode.querySelector('.soon-msg');m.hidden=false;});}})();
       (function(){var f=document.querySelector('form[data-mailto]');if(!f)return;
       f.addEventListener('submit',function(ev){ev.preventDefault();
         var em=f.email.value,pr=f.profil.options[f.profil.selectedIndex].text;

@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/pl/assets/style.css?v=2578505b">
+<link rel="stylesheet" href="/pl/assets/style.css?v=61b590db">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "Poland’s top 15 funded startups – September 2026", "description": "Uback quarterly ranking of non-listed Polish startups, established by AI from public information. We don’t value companies. We rank them, and give an AI-estimated order of magnitude.", "itemListOrder": "https://schema.org/ItemListOrderDescending", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Docplanner", "url": "https://docplanner.com"}, {"@type": "ListItem", "position": 2, "name": "Brainly", "url": "https://brainly.com"}, {"@type": "ListItem", "position": 3, "name": "Ramp Network", "url": "https://rampnetwork.com"}, {"@type": "ListItem", "position": 4, "name": "Booksy", "url": "https://booksy.com"}, {"@type": "ListItem", "position": 5, "name": "Viktor", "url": "https://viktor.com"}, {"@type": "ListItem", "position": 6, "name": "Spacelift", "url": "https://spacelift.io"}, {"@type": "ListItem", "position": 7, "name": "Packhelp", "url": "https://packhelp.com"}, {"@type": "ListItem", "position": 8, "name": "Infermedica", "url": "https://infermedica.com"}, {"@type": "ListItem", "position": 9, "name": "Nomagic", "url": "https://nomagic.ai"}, {"@type": "ListItem", "position": 10, "name": "Tylko", "url": "https://tylko.com"}, {"@type": "ListItem", "position": 11, "name": "Alokai", "url": "https://alokai.com"}, {"@type": "ListItem", "position": 12, "name": "Synerise", "url": "https://synerise.com"}, {"@type": "ListItem", "position": 13, "name": "Cosmose AI", "url": "https://cosmose.co"}, {"@type": "ListItem", "position": 14, "name": "Tidio", "url": "https://tidio.com"}, {"@type": "ListItem", "position": 15, "name": "Jutro Medical", "url": "https://jutromedical.com"}]}</script>
 </head>
 <body>
@@ -222,7 +222,7 @@
         <p>New entries, exits and movements, every quarter.</p>
       </div>
       <div class="fb-form">
-        <form class="follow" name="follow-poland" method="POST" action="/pl/thank-you.html" data-netlify="true" netlify-honeypot="bot-field" data-mailto="contact@uback.com">
+        <form class="follow" name="follow-poland" method="POST" action="/pl/thank-you.html" data-netlify="true" netlify-honeypot="bot-field" data-soon="1" novalidate>
           <input type="hidden" name="form-name" value="follow-poland">
           <input type="hidden" name="marche" value="pl">
           <p class="skip"><label>Ne pas remplir : <input name="bot-field"></label></p>
@@ -237,8 +237,11 @@
           <button class="btn navy" type="submit">Follow</button>
         </form>
         <p class="src">One e-mail per edition. One-click unsubscribe. No data passed on to third parties.</p>
+        <p class="soon-msg" role="status" hidden>Coming soon: subscriptions will open shortly.</p>
       </div>
       <script>
+      (function(){var s=document.querySelector('form[data-soon]');if(s){s.addEventListener('submit',function(ev){ev.preventDefault();
+        var m=s.parentNode.querySelector('.soon-msg');m.hidden=false;});}})();
       (function(){var f=document.querySelector('form[data-mailto]');if(!f)return;
       f.addEventListener('submit',function(ev){ev.preventDefault();
         var em=f.email.value,pr=f.profil.options[f.profil.selectedIndex].text;

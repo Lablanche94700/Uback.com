@@ -16,7 +16,8 @@ def next_ed(code):
     m = next(v for v in MARKETS if v['code'] == code and v['default'])
     return format_date(next_edition(m), 'en')
 SECTORS = json.load(open(os.path.join(ROOT, 'data', 'sectors.json'), encoding='utf-8'))
-FORM_MODE = 'mailto'                # 'mailto' (GitHub Pages) ou 'netlify' (Netlify Forms)
+FORM_MODE = 'soon'                  # 'soon' (inscriptions pas encore ouvertes : « Coming soon » au clic),
+                                    # 'mailto' (message prérempli vers FORM_EMAIL) ou 'netlify' (Netlify Forms)
 FORM_EMAIL = 'contact@uback.com'
 METHOD_URL = '/pl/method.html'      # page méthode anglaise (à remplacer par une page globale quand elle existera)
 THANKS_URL = '/pl/thank-you.html'
@@ -183,6 +184,7 @@ h1{margin:0;font-size:40px;line-height:1.08;font-weight:800;letter-spacing:-.03e
 .follow h2{margin:0 0 4px;font-size:20px;font-weight:800}
 .follow p{margin:0;font-size:14px;line-height:1.5;color:var(--body)}
 .follow p.fine{margin-top:6px;font-size:12.5px;color:var(--muted)}
+.follow p.soon-msg{margin:8px 0 0;display:inline-block;padding:5px 12px;border-radius:999px;background:var(--navy);color:#fff;font-size:13px;font-weight:600}
 .follow form{display:flex;flex-direction:column;gap:8px}
 .follow input,.follow select{min-height:44px;padding:10px 12px;border:1px solid var(--dash);border-radius:10px;font:inherit;font-size:15px;color:var(--navy);background:#fff;min-width:0}
 .follow button{min-height:44px;padding:0 22px;border:0;border-radius:10px;background:var(--navy);color:#fff;font:inherit;font-size:15px;font-weight:600;cursor:pointer}
@@ -265,6 +267,9 @@ document.documentElement.classList.add('js');
     if(!v){wasOpen=null;}
     none.hidden=total>0;
   });
+  // formulaire d'abonnement : inscriptions pas encore ouvertes → « Coming soon » au clic
+  var s=document.querySelector('form[data-soon]');
+  if(s){s.addEventListener('submit',function(ev){ev.preventDefault();document.getElementById('soon-msg').hidden=false;});}
   // formulaire d'abonnement (mailto)
   var f=document.querySelector('form[data-mailto]'); if(!f)return;
   f.addEventListener('submit',function(ev){ev.preventDefault();
@@ -384,7 +389,7 @@ page = f'''<!doctype html>
           <p class="fine">One e-mail per edition. One-click unsubscribe. No data passed on to third parties.</p>
         </div>
         <div class="fform">
-          <form name="follow-uback" method="POST" action="{THANKS_URL}" data-netlify="true" netlify-honeypot="bot-field"{' data-mailto="' + FORM_EMAIL + '"' if FORM_MODE == 'mailto' else ''}>
+          <form name="follow-uback" method="POST" action="{THANKS_URL}" data-netlify="true" netlify-honeypot="bot-field"{' data-mailto="' + FORM_EMAIL + '"' if FORM_MODE == 'mailto' else ''}{' data-soon="1" novalidate' if FORM_MODE == 'soon' else ''}>
             <input type="hidden" name="form-name" value="follow-uback">
             <p class="skip"><label>Do not fill: <input name="bot-field"></label></p>
             <label class="sr" for="email">Your e-mail</label>
@@ -397,6 +402,7 @@ page = f'''<!doctype html>
             </select>
             <button type="submit">Follow</button>
           </form>
+          <p class="soon-msg" id="soon-msg" role="status" hidden>Coming soon: subscriptions will open shortly.</p>
         </div>
       </div>
     </div>

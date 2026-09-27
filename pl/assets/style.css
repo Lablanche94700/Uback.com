@@ -160,6 +160,8 @@ section.navy p.lead{font-size:16px;color:#c7d0dc;max-width:860px;margin:0 0 24px
 .fb-text p{margin:0;font-size:14px;color:#4b5563}
 .fb-form{flex:0 1 560px;min-width:0}
 .fb-form .src{margin:8px 0 0}
+.soon-msg{margin:8px 0 0;display:inline-block;padding:5px 12px;border-radius:999px;background:var(--navy);color:#fff;font-size:13px;font-weight:600}
+.soon-msg[hidden]{display:none}
 form.follow{display:flex;gap:8px}
 form.follow input{flex:1;padding:11px 12px;border:1px solid #d9dee5;border-radius:8px;font-size:14px;font-family:inherit;min-width:0;background:#fff}
 form.follow select{padding:11px 12px;border:1px solid #d9dee5;border-radius:8px;font-size:14px;font-family:inherit;background:#fff}

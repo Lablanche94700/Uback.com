@@ -35,7 +35,8 @@ BASE = 'https://uback.com' + PREFIX
 # libellé d'édition : celui des données s'il existe (« Édition 0 – bêta »), sinon le trimestre de publication (« T4 2026 »)
 _y, _mo = D['date'].split('-')
 EDITION = D.get('edition') or f"{'T' if M['lang'] == 'fr' else 'Q'}{(int(_mo) - 1) // 3 + 1} {_y}"
-FORM_MODE = 'mailto'                # 'mailto' (GitHub Pages) ou 'netlify' (Netlify Forms)
+FORM_MODE = 'soon'                  # 'soon' (inscriptions pas encore ouvertes : « Bientôt disponible » au clic),
+                                    # 'mailto' (message prérempli vers FORM_EMAIL) ou 'netlify' (Netlify Forms)
 FORM_EMAIL = 'contact@uback.com'
 N = M['top_n']
 RANKED = D['classement'][:N]
@@ -113,6 +114,7 @@ TXT = {
   form_prefix='suivre-', email_lab='Votre e-mail', email_ph='votre@email.com', prof_aria='Votre profil',
   prof_inv='Investisseur', prof_ceo='Dirigeant de startup', prof_bank='Banque d’affaires / conseil', prof_other='Autre', fol_btn='Suivre',
   fol_fine='Un e-mail par édition. Désinscription en un clic. Aucune donnée transmise à des tiers.',
+  fol_soon='Bientôt disponible : les inscriptions ouvriront prochainement.',
   cad='Trimestriel', next='Prochaine édition : {next}',
   js_body='Bonjour,\\n\\nJe souhaite recevoir chaque nouvelle édition du classement Uback {name}.\\n\\nE-mail : \'+em+\'\\nProfil : \'+pr+\'\\n',
   js_subject='Suivre le classement Uback {name}',),
@@ -178,6 +180,7 @@ TXT = {
   form_prefix='follow-', email_lab='Your e-mail', email_ph='you@email.com', prof_aria='Your profile',
   prof_inv='Investor', prof_ceo='Startup manager', prof_bank='Investment bank / adviser', prof_other='Other', fol_btn='Follow',
   fol_fine='One e-mail per edition. One-click unsubscribe. No data passed on to third parties.',
+  fol_soon='Coming soon: subscriptions will open shortly.',
   cad='Quarterly', next='Next edition: {next}',
   js_body='Hello,\\n\\nI would like to receive every new edition of the Uback {name} ranking.\\n\\nE-mail: \'+em+\'\\nProfile: \'+pr+\'\\n',
   js_subject='Follow the Uback {name} ranking',),
@@ -414,7 +417,7 @@ index += f'''
         <p>{L['fol_p']}</p>
       </div>
       <div class="fb-form">
-        <form class="follow" name="{L['form_prefix']}{M['slug']}" method="POST" action="/{PT}" data-netlify="true" netlify-honeypot="bot-field"{' data-mailto="' + FORM_EMAIL + '"' if FORM_MODE == 'mailto' else ''}>
+        <form class="follow" name="{L['form_prefix']}{M['slug']}" method="POST" action="/{PT}" data-netlify="true" netlify-honeypot="bot-field"{' data-mailto="' + FORM_EMAIL + '"' if FORM_MODE == 'mailto' else ''}{' data-soon="1" novalidate' if FORM_MODE == 'soon' else ''}>
           <input type="hidden" name="form-name" value="{L['form_prefix']}{M['slug']}">
           <input type="hidden" name="marche" value="{M['code']}">
           <p class="skip"><label>Ne pas remplir : <input name="bot-field"></label></p>
@@ -429,8 +432,11 @@ index += f'''
           <button class="btn navy" type="submit">{L['fol_btn']}</button>
         </form>
         <p class="src">{L['fol_fine']}</p>
+        <p class="soon-msg" role="status" hidden>{L['fol_soon']}</p>
       </div>
       <script>
+      (function(){{var s=document.querySelector('form[data-soon]');if(s){{s.addEventListener('submit',function(ev){{ev.preventDefault();
+        var m=s.parentNode.querySelector('.soon-msg');m.hidden=false;}});}}}})();
       (function(){{var f=document.querySelector('form[data-mailto]');if(!f)return;
       f.addEventListener('submit',function(ev){{ev.preventDefault();
         var em=f.email.value,pr=f.profil.options[f.profil.selectedIndex].text;

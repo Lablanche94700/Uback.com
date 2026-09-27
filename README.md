@@ -85,6 +85,10 @@ Règle du jeu n° 3 : l'ordre n'est jamais modifié à la main. Une société pe
 
 ## Formulaire « Recevoir chaque nouvelle édition »
 
+**Inscriptions pas encore ouvertes** : `FORM_MODE = 'soon'` dans `tools/site.py` et `tools/build_home.py`. Le formulaire
+reste affiché, mais un clic sur « Suivre / Follow » affiche « Bientôt disponible / Coming soon » ; rien n'est envoyé.
+Pour ouvrir les inscriptions (futur branchement Mailchimp, par pays et par secteur), changer ce réglage puis régénérer.
+
 GitHub Pages ne traite pas les formulaires. En attendant Netlify, le formulaire ouvre la messagerie du visiteur avec un message prérempli vers `contact@uback.com` (`FORM_MODE = 'mailto'` dans le générateur). Sur Netlify, passer `FORM_MODE = 'netlify'` : le formulaire `suivre-maroc` est alors détecté automatiquement.
 
 ## Reste à faire
