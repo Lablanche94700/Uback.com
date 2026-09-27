@@ -7,7 +7,7 @@ Usage : python3 tools/build_site.py            (tous les marchés)
         python3 tools/build_site.py pl vn      (seulement ceux-là)
 Chaque marché écrit UNIQUEMENT dans son dossier, à partir de <code>/data/<data> (+ couche de traduction <overlay>).
 La racine (homepage monde : tools/build_home.py ; redirections, sitemap, robots, CNAME) est hors de ce script."""
-import os, sys, runpy, hashlib, json
+import os, sys, runpy, hashlib, json, datetime
 
 TOOLS = os.path.dirname(os.path.abspath(__file__))
 
@@ -20,6 +20,7 @@ NAMES = {'ma': {'fr': 'Maroc', 'en': 'Morocco'}, 'pl': {'fr': 'Pologne', 'en': '
 
 # Une entrée par version (marché × langue) ; les textes sont dans la langue de la version (lang).
 #   path         chemin sur uback.com ; default : version principale (liens depuis la homepage et le sélecteur de pays)
+#   cadence / publish_day / publish_months   calendrier : trimestriel, le 15, un pays par mois (VN janv., MA févr., PL mars…)
 #   data         fichier de référence (chiffres, sources) ; overlay : couche de traduction des textes (optionnelle)
 #   canonical    cette version écrit les champs de valorisation calculés dans le fichier de référence
 #   top_n        nombre de places du classement publié
@@ -32,6 +33,7 @@ NAMES = {'ma': {'fr': 'Maroc', 'en': 'Morocco'}, 'pl': {'fr': 'Pologne', 'en': '
 #   slug         nom du formulaire de suivi ; og / og_v : image de partage et sa version
 MARKETS = [
     {'code': 'ma', 'lang': 'en', 'path': '/ma', 'default': True, 'canonical': False,
+     'cadence': 'quarterly', 'publish_day': 15, 'publish_months': [2, 5, 8, 11],
      'data': 'classement-ma-2026-09.json', 'overlay': 'classement-ma-2026-09.en.json',
      'top_n': 20, 'slug': 'morocco', 'og': 'og-image-en.png', 'og_v': 1, 'partner_name': None,
      'name': 'Morocco', 'in': 'in Morocco', 'the': 'Morocco', 'adj_m': 'Moroccan', 'adj_f': 'Moroccan', 'adj_fp': 'Moroccan',
@@ -48,6 +50,7 @@ MARKETS = [
      'langs_soon': ['AR']},
 
     {'code': 'ma', 'lang': 'fr', 'path': '/ma/fr', 'default': False, 'canonical': True,
+     'cadence': 'quarterly', 'publish_day': 15, 'publish_months': [2, 5, 8, 11],
      'data': 'classement-ma-2026-09.json',
      'top_n': 20, 'slug': 'maroc', 'og': 'og-image.png', 'og_v': 3, 'partner_name': None,
      'name': 'Maroc', 'in': 'au Maroc', 'the': 'le Maroc', 'adj_m': 'marocain', 'adj_f': 'marocaine', 'adj_fp': 'marocaines',
@@ -64,6 +67,7 @@ MARKETS = [
      'langs_soon': ['AR']},
 
     {'code': 'pl', 'lang': 'en', 'path': '/pl', 'default': True, 'canonical': True,
+     'cadence': 'quarterly', 'publish_day': 15, 'publish_months': [3, 6, 9, 12],
      'data': 'classement-pl-2026-09.json',
      'top_n': 15, 'slug': 'poland', 'og': 'og-image.png', 'og_v': 2, 'partner_name': None,
      'name': 'Poland', 'in': 'in Poland', 'the': 'Poland', 'adj_m': 'Polish', 'adj_f': 'Polish', 'adj_fp': 'Polish',
@@ -80,6 +84,7 @@ MARKETS = [
      'langs_soon': ['PL']},
 
     {'code': 'vn', 'lang': 'en', 'path': '/vn', 'default': True, 'canonical': True,
+     'cadence': 'quarterly', 'publish_day': 15, 'publish_months': [1, 4, 7, 10],
      'data': 'classement-vn-2026-09.json',
      'top_n': 15, 'slug': 'vietnam', 'og': 'og-image.png', 'og_v': 2, 'partner_name': None,
      'name': 'Vietnam', 'in': 'in Vietnam', 'the': 'Vietnam', 'adj_m': 'Vietnamese', 'adj_f': 'Vietnamese', 'adj_fp': 'Vietnamese',
@@ -119,13 +124,36 @@ def switcher(m):
 # sans attendre l'expiration du cache des navigateurs
 CSS_V = hashlib.sha1(open(os.path.join(TOOLS, '..', 'ma', 'assets', 'style.css'), 'rb').read()).hexdigest()[:8]
 
-sys.path.insert(0, TOOLS)
-import valuation
+MONTHS = {'fr': ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'],
+          'en': ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']}
 
-wanted = set(sys.argv[1:])
-for m in MARKETS:
-    if wanted and m['code'] not in wanted:
-        continue
+def next_edition(market, today=None):
+    """Prochaine date de publication d'un marché (aujourd'hui compris si c'est le jour de publication)."""
+    today = today or datetime.date.today()
+    for year in (today.year, today.year + 1):
+        for month in sorted(market['publish_months']):
+            d = datetime.date(year, month, market['publish_day'])
+            if d >= today:
+                return d
+
+def format_date(d, lang):
+    """« November 15, 2026 » / « 15 novembre 2026 »."""
+    return f"{MONTHS[lang][d.month - 1]} {d.day}, {d.year}" if lang == 'en' else f"{d.day} {MONTHS[lang][d.month - 1]} {d.year}"
+
+def edition_label(d, lang):
+    """Libellé d'une édition trimestrielle : trimestre de sa date de publication (« Q4 2026 » / « T4 2026 »)."""
+    return f"{'T' if lang == 'fr' else 'Q'}{(d.month - 1) // 3 + 1} {d.year}"
+
+def main():
+    sys.path.insert(0, TOOLS)
+    import valuation
+    wanted = set(sys.argv[1:])
+    for m in MARKETS:
+        if wanted and m['code'] not in wanted:
+            continue
+        build(m, valuation)
+
+def build(m, valuation):
     if m['canonical']:
         # ordre de grandeur de valorisation : recalculé depuis "valuation_input" (règle dans tools/valuation.py)
         path = os.path.join(TOOLS, '..', m['code'], 'data', m['data'])
@@ -135,5 +163,11 @@ for m in MARKETS:
     m['variants'] = [{'lang': v['lang'], 'path': v['path'], 'default': v['default']} for v in MARKETS if v['code'] == m['code']]
     m['switcher'] = switcher(m)
     m['css_v'] = CSS_V
+    nxt = next_edition(m)
+    m['next_edition'] = format_date(nxt, m['lang'])
+    m['next_edition_label'] = edition_label(nxt, m['lang'])
     runpy.run_path(os.path.join(TOOLS, 'site.py'), init_globals={'M': m})
-    print('ok', m['path'])
+    print('ok', m['path'], '· next edition', nxt.isoformat())
+
+if __name__ == '__main__':
+    main()

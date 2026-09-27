@@ -61,15 +61,29 @@ pour que les réseaux sociaux rafraîchissent leur cache.
 
 Les pages de `ma/` ne se modifient pas à la main : on modifie le JSON ou le générateur, puis on relance `python3 tools/build_site.py` (Python 3 standard, aucune dépendance). Les gabarits écrivent des liens absolus (`/methode.html`) ; le générateur les place sous `/ma`.
 
+## Calendrier des éditions
+
+Classements pays : **trimestriels**, publiés le 15, un pays par mois pour que Uback publie chaque mois
+(Vietnam : janv., avr., juil., oct. ; Maroc : févr., mai, août, nov. ; Pologne : mars, juin, sept., déc.).
+Réglages `cadence`, `publish_day`, `publish_months` dans `MARKETS` (`tools/build_site.py`) ; la fonction
+`next_edition()` calcule la prochaine date, affichée sur les pages marchés et sur la homepage. La date affichée
+est celle du jour de la génération : relancer les deux scripts après chaque édition.
+Classements mondiaux par secteur : **semestriels** (1er janvier, 1er juillet).
+
+Libellé d'édition : celui du champ `edition` des données s'il existe (les éditions 0 gardent « Édition 0 – bêta »),
+sinon le trimestre de publication, « Q4 2026 » / « T4 2026 ».
+
 ## Mettre à jour le classement
 
-1. Modifier `ma/data/classement-ma-2026-09.json` (ou créer le fichier du mois suivant et changer son nom dans `tools/build_site.py`).
-2. Lancer `python3 tools/build_site.py`.
+1. Créer le fichier de l'édition (ex. `ma/data/classement-ma-2026-11.json`, sans champ `edition` pour obtenir « T4 2026 »)
+   et changer son nom dans `MARKETS` ; pour le Maroc, mettre aussi à jour la couche anglaise `*.en.json`.
+2. Lancer `python3 tools/build_site.py` puis `python3 tools/build_home.py`.
 3. Committer et pousser sur `main` : GitHub Pages republie en une à deux minutes.
+Entre deux éditions, le Radar peut être mis à jour au fil des levées annoncées.
 
 Règle du jeu n° 3 : l'ordre n'est jamais modifié à la main. Une société peut être exclue pour un motif d'éligibilité (tracé dans le JSON via `note`), jamais réordonnée.
 
-## Formulaire « Recevoir le classement chaque mois »
+## Formulaire « Recevoir chaque nouvelle édition »
 
 GitHub Pages ne traite pas les formulaires. En attendant Netlify, le formulaire ouvre la messagerie du visiteur avec un message prérempli vers `contact@uback.com` (`FORM_MODE = 'mailto'` dans le générateur). Sur Netlify, passer `FORM_MODE = 'netlify'` : le formulaire `suivre-maroc` est alors détecté automatiquement.
 

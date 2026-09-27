@@ -5,10 +5,16 @@ Usage : python3 tools/build_home.py
 - À droite : classements par pays (marchés domestiques) et régionaux.
 Tout le contenu est écrit en HTML statique (SEO) ; le JavaScript ne sert qu'à la recherche, aux onglets mobiles
 et à l'envoi du formulaire. Les sites marchés (/ma, /pl, /vn) sont générés par tools/build_site.py."""
-import html, json, os, unicodedata
+import html, json, os, sys, unicodedata
 from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from build_site import MARKETS, next_edition, format_date   # même calendrier que les pages marchés
+
+def next_ed(code):
+    m = next(v for v in MARKETS if v['code'] == code and v['default'])
+    return format_date(next_edition(m), 'en')
 SECTORS = json.load(open(os.path.join(ROOT, 'data', 'sectors.json'), encoding='utf-8'))
 FORM_MODE = 'mailto'                # 'mailto' (GitHub Pages) ou 'netlify' (Netlify Forms)
 FORM_EMAIL = 'contact@uback.com'
@@ -24,11 +30,11 @@ FLAGS = {
 
 # Classements par pays, groupés par région. live : (code, nom, sous-ligne, url) ; soon : noms à venir.
 REGIONS = [
- {'name': 'North Africa & Middle East', 'live': [('ma', 'Morocco', 'In English & French · by sector soon', '/ma/')],
+ {'name': 'North Africa & Middle East', 'live': [('ma', 'Morocco', 'In English & French · next edition ' + next_ed('ma'), '/ma/')],
   'soon': ['Tunisia', 'Egypt', 'UAE', 'Saudi Arabia']},
- {'name': 'Europe', 'live': [('pl', 'Poland', 'In English · by sector soon', '/pl/')],
+ {'name': 'Europe', 'live': [('pl', 'Poland', 'In English · next edition ' + next_ed('pl'), '/pl/')],
   'soon': ['France', 'Romania', 'Ukraine']},
- {'name': 'Asia', 'live': [('vn', 'Vietnam', 'In English · by sector soon', '/vn/')],
+ {'name': 'Asia', 'live': [('vn', 'Vietnam', 'In English · next edition ' + next_ed('vn'), '/vn/')],
   'soon': ['Indonesia', 'Philippines']},
  {'name': 'Sub-Saharan Africa', 'live': [], 'soon': ['Nigeria', 'Kenya', 'Senegal', 'Côte d’Ivoire']},
  {'name': 'Latin America', 'live': [], 'soon': ['Mexico', 'Colombia', 'Chile']},
@@ -78,9 +84,9 @@ JSONLD = {"@context": "https://schema.org", "@graph": [
      "logo": "https://uback.com/assets/favicon-192.png"},
     {"@type": "WebSite", "name": "Uback", "url": "https://uback.com/", "inLanguage": "en"},
     {"@type": "ItemList", "name": "Uback markets", "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Morocco — monthly ranking (English and French)", "url": "https://uback.com/ma/"},
-        {"@type": "ListItem", "position": 2, "name": "Poland — monthly ranking", "url": "https://uback.com/pl/"},
-        {"@type": "ListItem", "position": 3, "name": "Vietnam — monthly ranking", "url": "https://uback.com/vn/"}]}]}
+        {"@type": "ListItem", "position": 1, "name": "Morocco — quarterly ranking (English and French)", "url": "https://uback.com/ma/"},
+        {"@type": "ListItem", "position": 2, "name": "Poland — quarterly ranking", "url": "https://uback.com/pl/"},
+        {"@type": "ListItem", "position": 3, "name": "Vietnam — quarterly ranking", "url": "https://uback.com/vn/"}]}]}
 
 CSS = '''
 :root{--navy:#1E3A5F;--navy-dark:#142842;--gold:#C8A052;--bg:#F7F8FA;--line:#E4E8EE;--muted:#5A6B82;--body:#4A5A70;--dim:#6B7A8F;--dash:#C9D1DC}
@@ -176,6 +182,7 @@ h1{margin:0;font-size:40px;line-height:1.08;font-weight:800;letter-spacing:-.03e
 .follow .box{display:flex;flex-direction:column;gap:16px;padding:22px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:16px;box-shadow:0 1px 2px rgba(30,58,95,.04),0 8px 24px rgba(30,58,95,.06)}
 .follow h2{margin:0 0 4px;font-size:20px;font-weight:800}
 .follow p{margin:0;font-size:14px;line-height:1.5;color:var(--body)}
+.follow p.fine{margin-top:6px;font-size:12.5px;color:var(--muted)}
 .follow form{display:flex;flex-direction:column;gap:8px}
 .follow input,.follow select{min-height:44px;padding:10px 12px;border:1px solid var(--dash);border-radius:10px;font:inherit;font-size:15px;color:var(--navy);background:#fff;min-width:0}
 .follow button{min-height:44px;padding:0 22px;border:0;border-radius:10px;background:var(--navy);color:#fff;font:inherit;font-size:15px;font-weight:600;cursor:pointer}
@@ -262,7 +269,7 @@ document.documentElement.classList.add('js');
   var f=document.querySelector('form[data-mailto]'); if(!f)return;
   f.addEventListener('submit',function(ev){ev.preventDefault();
     var em=f.email.value,pr=f.profil.options[f.profil.selectedIndex].text;
-    var body='Hello,\\n\\nI would like to receive new Uback rankings.\\n\\nE-mail: '+em+'\\nProfile: '+pr+'\\n';
+    var body='Hello,\\n\\nI would like to receive every new edition of the Uback rankings.\\n\\nE-mail: '+em+'\\nProfile: '+pr+'\\n';
     window.location.href='mailto:'+f.dataset.mailto+'?subject='+encodeURIComponent('Follow Uback rankings')+'&body='+encodeURIComponent(body);
     setTimeout(function(){window.location.href=THANKS;},1500);});
 })();
@@ -354,7 +361,7 @@ page = f'''<!doctype html>
               <h2 id="countries-h">Country rankings</h2>
               <p class="intro">All sectors, then by sector.</p>
             </div>
-            <div class="freq navy"><b>Monthly</b><span>1st of each month</span></div>
+            <div class="freq navy"><b>Quarterly</b><span>One country every month</span></div>
           </div>
 {chr(10).join('          ' + region(r) for r in REGIONS)}
           <div class="regional">
@@ -372,8 +379,9 @@ page = f'''<!doctype html>
     <div class="wrap">
       <div class="box">
         <div class="ftxt">
-          <h2>Get the rankings</h2>
-          <p>Every new edition of the countries and sectors you follow. One-click unsubscribe. No data passed on to third parties.</p>
+          <h2>Get every new edition</h2>
+          <p>New entries, exits and movements, every quarter.</p>
+          <p class="fine">One e-mail per edition. One-click unsubscribe. No data passed on to third parties.</p>
         </div>
         <div class="fform">
           <form name="follow-uback" method="POST" action="{THANKS_URL}" data-netlify="true" netlify-honeypot="bot-field"{' data-mailto="' + FORM_EMAIL + '"' if FORM_MODE == 'mailto' else ''}>

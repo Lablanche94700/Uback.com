@@ -32,6 +32,9 @@ for c in D['classement']:
     if c.get('valuation_input'):
         c.update(valuation.estimate(c['valuation_input'], D['date'], M['lang']))
 BASE = 'https://uback.com' + PREFIX
+# libellé d'édition : celui des données s'il existe (« Édition 0 – bêta »), sinon le trimestre de publication (« T4 2026 »)
+_y, _mo = D['date'].split('-')
+EDITION = D.get('edition') or f"{'T' if M['lang'] == 'fr' else 'Q'}{(int(_mo) - 1) // 3 + 1} {_y}"
 FORM_MODE = 'mailto'                # 'mailto' (GitHub Pages) ou 'netlify' (Netlify Forms)
 FORM_EMAIL = 'contact@uback.com'
 N = M['top_n']
@@ -61,11 +64,11 @@ TXT = {
   founded='fondée en', l_sub='Sous-secteur', l_fund='Levées', l_conf='Confiance', raised=' cumulés',
   declare_cell='Déclarer une intention', b_levee='Levée en cours', b_suivie='Suivie par {{p}}', exit='Sortie', exit_by='Sortie – {{a}}',
   ld_name='Les {N} startups {adj_fp} les mieux valorisées – {date}',
-  ld_desc="Classement mensuel Uback des startups {adj_fp}, établi par IA à partir d'informations publiques. Uback ne valorise pas les sociétés : il les classe, et indique un ordre de grandeur estimé par IA.",
+  ld_desc="Classement trimestriel Uback des startups {adj_fp}, établi par IA à partir d'informations publiques. Uback ne valorise pas les sociétés : il les classe, et indique un ordre de grandeur estimé par IA.",
   title='Top {N} des startups {adj_fp} les mieux valorisées – {date} | Uback {name}',
-  desc="Classement mensuel des startups {adj_fp} non cotées ayant déjà levé des fonds, établi par IA à partir d'informations publiques. Uback ne valorise pas les sociétés : il les classe, et indique un ordre de grandeur estimé par IA.",
+  desc="Classement trimestriel des startups {adj_fp} non cotées ayant déjà levé des fonds, établi par IA à partir d'informations publiques. Uback ne valorise pas les sociétés : il les classe, et indique un ordre de grandeur estimé par IA.",
   h1='Les {N} startups {adj_fp} les mieux valorisées',
-  lead='Un classement mensuel des startups {adj_fp} non cotées ayant déjà levé des fonds, établi par intelligence artificielle à partir d’informations publiques. Uback ne valorise pas les sociétés : il les classe, et indique un ordre de grandeur estimé par IA.',
+  lead='Un classement trimestriel des startups {adj_fp} non cotées ayant déjà levé des fonds, établi par intelligence artificielle à partir d’informations publiques. Uback ne valorise pas les sociétés : il les classe, et indique un ordre de grandeur estimé par IA.',
   th_val='Valorisation estimée (IA, ordre de grandeur)', l_val='Valorisation (IA)',
   vb_hundreds_k='Centaines de k$', vb_millions='Millions $', vb_tens_m='Dizaines de M$', vb_hundreds_m='Centaines de M$',
   vb_unicorn='Licorne', vb_decacorn='Décacorne', vb_not_estimated='Non estimé',
@@ -81,7 +84,7 @@ TXT = {
   disc_b='Ce classement est une opinion, pas une évaluation.',
   disc='Il est établi à partir d’informations publiques (presse, annonces de levées de fonds), selon une méthode publiée, sans intervention humaine sur l’ordre. L’indice de confiance reflète la qualité des sources. Toute société peut <a href="/methode.html#correction">demander une correction</a> ou contester sa position. Seuil d’éligibilité : au moins {seuil} levés, sociétés non cotées, opérations principales {in_}.',
   reg_h2='Trois regards, jamais un seul',
-  reg_ai_h='Ce que pensent les IA', reg_ai='Chaque mois, la même question est posée à plusieurs IA. Les réponses sont fusionnées en un classement de consensus, avec un indice de confiance par position. L’édition 0 est établie par une seule IA ; le consensus arrive avec l’édition 1.',
+  reg_ai_h='Ce que pensent les IA', reg_ai='À chaque édition, la même question est posée à plusieurs IA. Les réponses sont fusionnées en un classement de consensus, avec un indice de confiance par position. L’édition 0 est établie par une seule IA ; le consensus arrive avec l’édition 1.',
   reg_hum_h='Ce que défendent les experts', reg_hum='Le partenaire agréé et des analystes contestent le classement : « pourquoi ce leader est absent », « pourquoi ce n° 3 est surévalué ». Les résumés sont gratuits.',
   reg_mon_h='Ce que veut l’argent', reg_mon='Les sociétés les plus convoitées : celles qui cumulent le plus d’intentions d’investissement payantes. Montants agrégés, jamais d’intention individuelle.',
   sect_h2='Classements par secteur', sect_sub='Quatre verticales au lancement, d’autres quand le test de faisabilité le permet.', sect_k='Bientôt · Top 10',
@@ -106,11 +109,12 @@ TXT = {
   born_h='Nées {in_}, établies ailleurs', born_p='Sociétés d’origine {adj_f} dont les opérations principales sont désormais à l’étranger : hors classement, avec le droit qui régit leurs titres.',
   based_h='Nées ailleurs, établies {in_}', based_p='Sociétés fondées à l’étranger dont les opérations principales sont {in_}.',
   out_h='Hors classement',
-  fol_h='Recevoir le classement chaque mois', fol_p='Gratuit. Les mouvements, les entrées, les désaccords entre IA, et l’ouverture des déclarations d’intention.',
+  fol_h='Recevoir chaque nouvelle édition', fol_p='Entrées, sorties et mouvements, chaque trimestre.',
   form_prefix='suivre-', email_lab='Votre e-mail', email_ph='votre@email.com', prof_aria='Votre profil',
   prof_inv='Investisseur', prof_ceo='Dirigeant de startup', prof_bank='Banque d’affaires / conseil', prof_other='Autre', fol_btn='Suivre',
-  fol_fine='Un e-mail par mois. Désinscription en un clic. Aucune donnée transmise à des tiers.',
-  js_body='Bonjour,\\n\\nJe souhaite recevoir chaque mois le classement Uback {name}.\\n\\nE-mail : \'+em+\'\\nProfil : \'+pr+\'\\n',
+  fol_fine='Un e-mail par édition. Désinscription en un clic. Aucune donnée transmise à des tiers.',
+  cad='Trimestriel', next='Prochaine édition : {next}',
+  js_body='Bonjour,\\n\\nJe souhaite recevoir chaque nouvelle édition du classement Uback {name}.\\n\\nE-mail : \'+em+\'\\nProfil : \'+pr+\'\\n',
   js_subject='Suivre le classement Uback {name}',),
 'en': dict(
   html_lang='en', locale='en_US', skip='Skip to content', home_aria='Uback, home', nav_aria='Main navigation',
@@ -125,11 +129,11 @@ TXT = {
   founded='founded', l_sub='Sub-sector', l_fund='Funding', l_conf='Confidence', raised=' raised',
   declare_cell='Declare an intent', b_levee='Raise in progress', b_suivie='Followed by {{p}}', exit='Exit', exit_by='Exit – {{a}}',
   ld_name='{name}’s top {N} funded startups – {date}',
-  ld_desc='Uback monthly ranking of non-listed {adj_fp} startups, established by AI from public information. We don’t value companies. We rank them, and give an AI-estimated order of magnitude.',
+  ld_desc='Uback quarterly ranking of non-listed {adj_fp} startups, established by AI from public information. We don’t value companies. We rank them, and give an AI-estimated order of magnitude.',
   title='{name}’s top {N} funded startups – {date} | Uback {name}',
-  desc='Monthly ranking of non-listed {adj_fp} startups that have already raised funds, established by AI from public information. We don’t value companies. We rank them, and give an AI-estimated order of magnitude.',
+  desc='Quarterly ranking of non-listed {adj_fp} startups that have already raised funds, established by AI from public information. We don’t value companies. We rank them, and give an AI-estimated order of magnitude.',
   h1='{name}’s top {N} funded startups',
-  lead='A monthly ranking of non-listed {adj_fp} startups that have already raised funds, established by artificial intelligence from public information. We don’t value companies. We rank them, and give an AI-estimated order of magnitude.',
+  lead='A quarterly ranking of non-listed {adj_fp} startups that have already raised funds, established by artificial intelligence from public information. We don’t value companies. We rank them, and give an AI-estimated order of magnitude.',
   th_val='Estimated valuation (AI, order of magnitude)', l_val='Valuation (AI)',
   vb_hundreds_k='Hundreds of k$', vb_millions='Millions $', vb_tens_m='Tens of M$', vb_hundreds_m='Hundreds of M$',
   vb_unicorn='Unicorn', vb_decacorn='Decacorn', vb_not_estimated='Not estimated',
@@ -145,7 +149,7 @@ TXT = {
   disc_b='This ranking is an opinion, not a valuation.',
   disc='It is based on public information (press, funding announcements), following a published method, with no human intervention on the order. The confidence index reflects the quality of the sources. Any company may <a href="/method.html#correction">request a correction</a> or dispute its position. Eligibility threshold: at least {seuil} raised, non-listed companies, main operations {in_}.',
   reg_h2='Three perspectives, never just one',
-  reg_ai_h='What the AIs think', reg_ai='Every month, the same question is put to several AIs. The answers are merged into a consensus ranking, with a confidence index for each position. Edition 0 is established by a single AI; the consensus arrives with Edition 1.',
+  reg_ai_h='What the AIs think', reg_ai='For every edition, the same question is put to several AIs. The answers are merged into a consensus ranking, with a confidence index for each position. Edition 0 is established by a single AI; the consensus arrives with Edition 1.',
   reg_hum_h='What the experts argue', reg_hum='The licensed partner and analysts challenge the ranking: “why is this leader missing”, “why is number 3 overrated”. Summaries are free.',
   reg_mon_h='What the money wants', reg_mon='The most sought-after companies: those gathering the most paid investment intentions. Aggregated amounts, never an individual intention.',
   sect_h2='Rankings by sector', sect_sub='Four verticals at launch, more when the feasibility test allows.', sect_k='Coming soon · Top 10',
@@ -170,15 +174,16 @@ TXT = {
   born_h='Born {in_}, based elsewhere', born_p='Companies of {adj_f} origin whose main operations are now abroad: not ranked, shown with the law governing their shares.',
   based_h='Born elsewhere, based {in_}', based_p='Companies founded abroad whose main operations are {in_}.',
   out_h='Not ranked',
-  fol_h='Get the ranking every month', fol_p='Free. Movements, new entries, disagreements between AIs, and the opening of intention declarations.',
+  fol_h='Get every new edition', fol_p='New entries, exits and movements, every quarter.',
   form_prefix='follow-', email_lab='Your e-mail', email_ph='you@email.com', prof_aria='Your profile',
   prof_inv='Investor', prof_ceo='Startup manager', prof_bank='Investment bank / adviser', prof_other='Other', fol_btn='Follow',
-  fol_fine='One e-mail a month. One-click unsubscribe. No data passed on to third parties.',
-  js_body='Hello,\\n\\nI would like to receive the Uback {name} ranking every month.\\n\\nE-mail: \'+em+\'\\nProfile: \'+pr+\'\\n',
+  fol_fine='One e-mail per edition. One-click unsubscribe. No data passed on to third parties.',
+  cad='Quarterly', next='Next edition: {next}',
+  js_body='Hello,\\n\\nI would like to receive every new edition of the Uback {name} ranking.\\n\\nE-mail: \'+em+\'\\nProfile: \'+pr+\'\\n',
   js_subject='Follow the Uback {name} ranking',),
 }
 V = dict(name=M['name'], in_=M['in'], In_=cap(M['in']), the=M['the'], adj_m=M['adj_m'], adj_f=M['adj_f'], adj_fp=M['adj_fp'],
-         N=N, cities=M['cities'], date=D['date_label'], seuil=e(D['seuil_levee']), partner_short=M['partner_short'])
+         N=N, next=M['next_edition'], cities=M['cities'], date=D['date_label'], seuil=e(D['seuil_levee']), partner_short=M['partner_short'])
 L = {k: v.format(**V) for k, v in TXT[M['lang']].items()}
 PM, PP, PL_, PT = L['p_method'], L['p_partner'], L['p_legal'], L['p_thanks']
 
@@ -361,7 +366,8 @@ index += f'''
       <h1>{L['h1']}</h1>
       <p class="lead">{L['lead']}</p>
       <div class="meta">
-        <span class="tag beta">{e(D['edition'])} · {e(D['date_label'])}</span>
+        <span class="tag beta">{e(EDITION)} · {e(D['date_label'])}</span>
+        <span class="tag cad">{L['cad']}</span><span>{L['next']}</span><span>·</span>
         <span>{L['m_consensus']}</span><span>·</span>
         <a href="/{PM}">{L['m_method']}</a><span>·</span>
         <span>{L['m_order']}</span>
@@ -548,7 +554,8 @@ if M['lang'] == 'fr':
 </ol>
 
 <h2>Comment le classement est établi</h2>
-<p>Chaque mois, la même question est posée à plusieurs intelligences artificielles pour chaque pays et chaque secteur : quelles sont les sociétés éligibles les mieux valorisées, dans l’ordre ? Les réponses sont fusionnées en un classement de consensus (par points : 1er = 20 points, 2e = 19, etc.). Un indice de confiance est affiché pour chaque position : quand les IA sont d’accord, le classement est solide ; quand elles divergent, la divergence devient elle-même une information.</p>
+<p>À chaque édition, la même question est posée à plusieurs intelligences artificielles pour chaque pays et chaque secteur : quelles sont les sociétés éligibles les mieux valorisées, dans l’ordre ? Les réponses sont fusionnées en un classement de consensus (par points : 1er = 20 points, 2e = 19, etc.). Un indice de confiance est affiché pour chaque position : quand les IA sont d’accord, le classement est solide ; quand elles divergent, la divergence devient elle-même une information.</p>
+<p><b>Un rythme trimestriel.</b> La valorisation d’une société non cotée ne bouge qu’à ses levées de fonds et à sa sortie : un classement trimestriel suffit à suivre le marché, et laisse aux IA le temps d’une analyse plus approfondie. Chaque pays est publié un mois sur trois, le 15, en décalé : Uback publie ainsi chaque mois. {V['In_']}, la prochaine édition paraît le {M['next_edition']}. Entre deux éditions, le Radar est mis à jour au fil des levées annoncées.</p>
 <p><b>Édition 0 (bêta).</b> Cette première édition a été établie par une seule IA (Claude, Anthropic), à partir d’une recherche documentaire sur la presse et les annonces de levées de fonds, chaque montant étant sourcé. L’indice de confiance y reflète la qualité des sources disponibles. Le consensus multi-IA s’applique à partir de l’édition 1.</p>
 
 <h2 id="valorisation">Ordre de grandeur de valorisation</h2>
@@ -633,7 +640,7 @@ if M['lang'] == 'fr':
 <h2>Droit de réponse</h2>
 <p>Toute société citée peut demander la correction ou le retrait d’une information la concernant à <a href="mailto:corrections@uback.com">corrections@uback.com</a>.</p>
 <h2>Données personnelles</h2>
-<p>Les adresses e-mail collectées via le formulaire de suivi servent uniquement à l’envoi du classement mensuel et des informations sur l’ouverture du service. Elles ne sont ni vendues ni transmises à des tiers. Désinscription possible à tout moment. Responsable du traitement : DEALING-ROOM SARL. Droits d’accès, de rectification et d’effacement : <a href="mailto:privacy@uback.com">privacy@uback.com</a>.</p>
+<p>Les adresses e-mail collectées via le formulaire de suivi servent uniquement à l’envoi de chaque nouvelle édition du classement et des informations sur l’ouverture du service. Elles ne sont ni vendues ni transmises à des tiers. Désinscription possible à tout moment. Responsable du traitement : DEALING-ROOM SARL. Droits d’accès, de rectification et d’effacement : <a href="mailto:privacy@uback.com">privacy@uback.com</a>.</p>
 <h2>Propriété intellectuelle</h2>
 <p>Les classements, textes et éléments graphiques du site sont la propriété de DEALING-ROOM SARL. La reproduction d’un classement est autorisée avec mention de la source et lien vers la page d’origine. Les noms de sociétés cités appartiennent à leurs propriétaires.</p>
 </div>
@@ -642,7 +649,7 @@ if M['lang'] == 'fr':
     PAGES[PT] = head(f"Merci | Uback {M['name']}", "Inscription confirmée.", f"/{PT}") + f'''
 <div class="wrap prose" style="padding:60px 24px">
 <h1>Merci, c’est noté.</h1>
-<p class="lead">Si votre messagerie s’est ouverte, envoyez simplement le message préparé : vous recevrez le classement {M['adj_m']} chaque mois, et un mot dès l’ouverture des déclarations d’intention.</p>
+<p class="lead">Si votre messagerie s’est ouverte, envoyez simplement le message préparé : vous recevrez chaque nouvelle édition du classement {M['adj_m']}, et un mot dès l’ouverture des déclarations d’intention.</p>
 <p>Sinon, écrivez-nous à <a href="mailto:{FORM_EMAIL}">{FORM_EMAIL}</a> avec pour objet « Suivre le classement Uback {M['name']} ».</p>
 <p><a class="btn navy" href="/">Retour au classement</a></p>
 </div>
@@ -667,7 +674,8 @@ else:
 </ol>
 
 <h2>How the ranking is built</h2>
-<p>Every month, the same question is put to several artificial intelligences for each country and each sector: which eligible companies are the most highly valued, in order? The answers are merged into a consensus ranking (by points: 1st = 20 points, 2nd = 19, and so on). A confidence index is shown for each position: when the AIs agree, the ranking is solid; when they diverge, the divergence itself becomes information.</p>
+<p>For every edition, the same question is put to several artificial intelligences for each country and each sector: which eligible companies are the most highly valued, in order? The answers are merged into a consensus ranking (by points: 1st = 20 points, 2nd = 19, and so on). A confidence index is shown for each position: when the AIs agree, the ranking is solid; when they diverge, the divergence itself becomes information.</p>
+<p><b>A quarterly rhythm.</b> The valuation of a non-listed company only moves when it raises funds or exits: a quarterly ranking is enough to follow the market, and gives the AIs time for a deeper analysis. Each country is published every third month, on the 15th, on a staggered calendar, so that Uback publishes every month. {V['In_']}, the next edition comes out on {M['next_edition']}. Between two editions, the Radar is updated as new rounds are announced.</p>
 <p><b>Edition 0 (beta).</b> This first edition was established by a single AI (Claude, Anthropic), from desk research on the press and funding announcements, each amount being sourced. The confidence index reflects the quality of the available sources. The multi-AI consensus applies from Edition 1.</p>
 
 <h2 id="valuation">Valuation order of magnitude</h2>
@@ -752,7 +760,7 @@ else:
 <h2>Right of reply</h2>
 <p>Any company mentioned may request the correction or removal of information about it at <a href="mailto:corrections@uback.com">corrections@uback.com</a>.</p>
 <h2>Personal data</h2>
-<p>E-mail addresses collected through the follow form are used only to send the monthly ranking and information about the opening of the service. They are neither sold nor passed on to third parties. You may unsubscribe at any time. Data controller: DEALING-ROOM SARL. Rights of access, rectification and erasure: <a href="mailto:privacy@uback.com">privacy@uback.com</a>.</p>
+<p>E-mail addresses collected through the follow form are used only to send every new edition of the ranking and information about the opening of the service. They are neither sold nor passed on to third parties. You may unsubscribe at any time. Data controller: DEALING-ROOM SARL. Rights of access, rectification and erasure: <a href="mailto:privacy@uback.com">privacy@uback.com</a>.</p>
 <h2>Intellectual property</h2>
 <p>The rankings, texts and graphic elements of the website are the property of DEALING-ROOM SARL. Reproducing a ranking is allowed with credit to the source and a link to the original page. Company names belong to their owners.</p>
 </div>
@@ -761,7 +769,7 @@ else:
     PAGES[PT] = head(f"Thank you | Uback {M['name']}", "Subscription confirmed.", f"/{PT}") + f'''
 <div class="wrap prose" style="padding:60px 24px">
 <h1>Thank you, it’s noted.</h1>
-<p class="lead">If your e-mail app opened, simply send the prepared message: you will receive the {M['adj_m']} ranking every month, and a word as soon as intention declarations open.</p>
+<p class="lead">If your e-mail app opened, simply send the prepared message: you will receive every new edition of the {M['adj_m']} ranking, and a word as soon as intention declarations open.</p>
 <p>Otherwise, write to us at <a href="mailto:{FORM_EMAIL}">{FORM_EMAIL}</a> with the subject “Follow the Uback {M['name']} ranking”.</p>
 <p><a class="btn navy" href="/">Back to the ranking</a></p>
 </div>
