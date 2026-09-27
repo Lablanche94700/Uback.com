@@ -298,10 +298,10 @@ def head(title, desc, path, extra=''):
     <nav class="main" id="nav" aria-label="{L['nav_aria']}">
       <a href="/#{L['id_rank']}">{L['nav_rank']}</a>
       <a href="/#{L['id_sect']}">{L['nav_sect']}</a>
-      <a href="/#backers">Backers</a>
-      <a href="/{PP}">{L['nav_partner']}</a>
-      <a href="{GI}">{L['nav_invest']}</a>
       <a href="{GM}">{L['nav_method']}</a>
+      <a href="/#backers">Backers</a>
+      <a href="{GI}">{L['nav_invest']}</a>
+      <a href="/{PP}">{L['nav_partner']}</a>
     </nav>
     <span class="spacer"></span>
     <span class="langs">{langs}</span>
