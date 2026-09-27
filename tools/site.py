@@ -305,7 +305,7 @@ def head(title, desc, path, extra=''):
     <span class="spacer"></span>
     <span class="langs">{langs}</span>
     <a class="btn" href="/#{L['id_follow']}">{L['follow']}</a>
-    <a class="btn gold" href="/#backers">{L['declare']}</a>
+    <a class="btn gold" href="{GI}#{L['id_opening']}">{L['declare']}</a>
   </div>
 </header>
 <main id="main">
