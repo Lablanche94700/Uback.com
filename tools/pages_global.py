@@ -87,7 +87,7 @@ METHOD = {
 <li><b>Uback n’est pas un intermédiaire financier.</b> Uback ne détient aucun mandat, ne négocie pas, ne donne pas de conseil et n’encaisse aucun fonds destiné à un investissement. Toute opération est proposée par le partenaire agréé du pays, sous sa propre responsabilité.</li>
 <li><b>Les données ne sortent pas.</b> Les intentions d’investissement sont confidentielles. Aucune donnée n’est vendue. Elles ne sont transmises qu’au partenaire agréé du pays, avec le consentement de l’investisseur.</li>
 </ol>
-<div class="callout" id="investir"><p><b>Investir.</b> Uback permet aux investisseurs de déclarer une intention d’investissement sur une société ou un secteur. La mécanique est décrite sur la page « Investir avec Uback ».</p></div>
+<div class="callout" id="investir"><p><b>Investir.</b> Uback permet aux investisseurs de déclarer une intention d’investissement sur une société ou un secteur. La mécanique est décrite sur la page « <a href="/fr/investir.html">Investir avec Uback</a> ».</p></div>
 
 <h2 id="correction">Corrections</h2>
 <p>Toute société citée peut signaler une information inexacte (montant, date, secteur, statut) ou contester son rang, via le <a href="/fr/correction.html">formulaire de correction</a>. Chaque demande reçoit une réponse motivée, et chaque correction de fait est tracée.</p>
@@ -179,7 +179,7 @@ METHOD = {
 <li><b>Uback is not a financial intermediary.</b> Uback holds no mandate, does not negotiate, gives no advice and collects no funds intended for investment. Any transaction is offered by the country’s licensed partner, under its own responsibility.</li>
 <li><b>Data stays in.</b> Investment intentions are confidential. No data is sold. It is passed only to the country’s licensed partner, with the investor’s consent.</li>
 </ol>
-<div class="callout" id="invest"><p><b>Invest.</b> Uback lets investors declare an investment intention on a company or a sector. How it works is described on the “Invest with Uback” page.</p></div>
+<div class="callout" id="invest"><p><b>Invest.</b> Uback lets investors declare an investment intention on a company or a sector. How it works is described on the “<a href="/invest.html">Invest with Uback</a>” page.</p></div>
 
 <h2 id="correction">Corrections</h2>
 <p>Any company mentioned may report inaccurate information (amount, date, sector, status) or dispute its rank, using the <a href="/correction.html">correction form</a>. Every request receives a reasoned reply, and every factual correction is recorded.</p>
@@ -223,6 +223,142 @@ LEGAL = {
 <p>E-mail addresses collected through the follow form are used only to send every new edition of the ranking and information about the opening of the service. They are neither sold nor passed on to third parties. You may unsubscribe at any time. Data controller: DEALING-ROOM SARL. Rights of access, rectification and erasure: <a href="mailto:privacy@uback.com">privacy@uback.com</a>.</p>
 <h2>Intellectual property</h2>
 <p>The rankings, texts and graphic elements of the website are the property of DEALING-ROOM SARL. Reproducing a ranking is allowed with credit to the source and a link to the original page. Company names belong to their owners.</p>
+</div>
+""",
+}
+
+# Page « Investir avec Uback » : « @OPENING@ » est remplacé selon l'état des inscriptions (FORM_MODE de build_home.py).
+INVEST = {
+'fr': """<div class="wrap prose">
+<h1>Investir avec Uback</h1>
+<p class="lead"><b>Le nombre fait la force.</b> Seul, un investisseur n’a pas accès au capital des meilleures startups d’un pays. Ensemble, les Backers d’Uback forment un pool d’investisseurs que ces sociétés ne peuvent pas ignorer.</p>
+
+<h2 id="principe">Le principe</h2>
+<p>Uback fonctionne comme un achat groupé. Vous déclarez votre intention d’investir dans une société classée, ou dans un secteur. Votre intention rejoint le pool des autres Backers. Quand leur nombre et leur montant cumulé atteignent un seuil, le partenaire agréé du pays présente cette demande à la société.</p>
+<p>Uback ne vend pas de titres et ne collecte aucun fonds. Il rassemble des intentions. L’investissement lui-même, s’il a lieu, est proposé par le partenaire agréé, sous sa responsabilité.</p>
+
+<h2 id="etapes">En quatre étapes</h2>
+<ol class="steps4">
+<li><b>Vous déclarez une intention.</b> Sur une société classée, ou sur un secteur d’un pays, avec une tranche de ticket.</li>
+<li><b>La masse critique est atteinte.</b> Les intentions s’additionnent dans le pool. Quand le seuil est franchi, le pool est transmis au partenaire agréé du pays.</li>
+<li><b>Le partenaire agréé structure.</b> Il contacte la société, lui présente la demande des Backers et vérifie si les attentes convergent : montant, valorisation, droits.</li>
+<li><b>Closing.</b> Si un accord est possible, le partenaire présente l’opération directement aux Backers concernés. Chacun décide librement d’y participer ou non. Les petits tickets sont regroupés dans un véhicule commun créé par le partenaire.</li>
+</ol>
+
+<h2 id="qui">Qui peut déclarer une intention</h2>
+<p>Les déclarations sont réservées :</p>
+<ul>
+<li>aux <b>investisseurs qui se déclarent avertis</b> : business angels, family offices, investisseurs de la diaspora, qui connaissent les risques de l’investissement dans des sociétés non cotées ;</li>
+<li>aux <b>entreprises</b> qui investissent pour leur propre compte (corporate venture, groupes industriels).</li>
+</ul>
+
+<h2>Ce que vous déclarez</h2>
+<ul>
+<li><b>Une cible.</b> Soit une société nommée, soit un secteur d’un pays. Sur un secteur, le partenaire peut vous présenter plusieurs sociétés.</li>
+<li><b>Une tranche de ticket</b>, de 25 k$ à 10 M$.</li>
+<li><b>Une intention, pas un engagement.</b> Déclarer ne vous oblige pas à investir. La décision finale vous appartient toujours.</li>
+</ul>
+
+<h2 id="prix">Pourquoi une intention est payante</h2>
+<p>Une intention gratuite ne vaut rien aux yeux d’une startup. Le paiement prouve que la demande est sérieuse, et c’est ce qui donne du poids au partenaire quand il contacte la société.</p>
+<p>Le prix dépend du pays et de la tranche de ticket. Il sera affiché à l’ouverture des déclarations dans chaque pays. Le montant payé rémunère la déclaration : ce n’est ni un acompte, ni un investissement, et il n’est pas remboursable.</p>
+
+<h2 id="duree">Une intention sans date limite, et déplaçable</h2>
+<p><b>Votre intention reste valable tant qu’elle n’a pas abouti</b>, sans limite de durée.</p>
+<p>Vous pouvez la déplacer à tout moment vers une autre société ou un autre secteur. Elle quitte alors son pool et rejoint le nouveau. Le partenaire peut aussi vous suggérer un déplacement, quand une autre société correspond mieux à votre intention. La décision reste la vôtre.</p>
+<p>Si le partenaire présente le pool à une société et qu’aucun accord n’est trouvé, votre intention ne se perd pas. Vous la conservez et pouvez la déplacer.</p>
+
+<h2>Les compteurs</h2>
+<p>Chaque société, chaque secteur et chaque pays affiche le nombre de Backers et le montant cumulé de son pool. Pour préserver la confidentialité, ces chiffres sont arrondis par tranches.</p>
+
+<h2>Pourquoi seulement des sociétés déjà financées</h2>
+<p><a href="/fr/methode.html#eligibilite">Uback ne classe que des sociétés qui ont levé au moins 1 M$, dont au moins un tour en fonds propres.</a> Des investisseurs professionnels sont donc déjà au capital et ont négocié un pacte d’associés. Les Backers qui entrent à leur tour ne partent pas d’une page blanche.</p>
+
+<h2>Le partenaire agréé</h2>
+<p>Dans chaque pays, Uback confie les pools à un seul partenaire : une boutique de fusions-acquisitions ou une société spécialisée en levée de fonds, agréée par le régulateur local. Il est présenté sur la page du pays.</p>
+<p>Le partenaire ne reçoit vos coordonnées qu’avec votre consentement, et seulement quand votre pool lui est transmis.</p>
+
+<div class="callout warn" id="risques">
+<h2>Les risques</h2>
+<p>Investir dans une société non cotée comporte un risque de perte totale du capital investi. Les titres sont peu liquides : il peut être impossible de les revendre pendant plusieurs années. N’investissez que des sommes dont vous pouvez supporter la perte.</p>
+</div>
+
+<h2>Ce qu’Uback ne fait pas</h2>
+<ul>
+<li>Uback ne garantit pas qu’une opération aura lieu.</li>
+<li>Uback ne négocie pas, ne conseille pas et ne détient aucun mandat.</li>
+<li>Uback n’encaisse aucun fonds destiné à un investissement.</li>
+<li>Uback ne vend et ne transmet vos données à personne d’autre que le partenaire du pays.</li>
+</ul>
+
+<h2 id="ouverture">Où en est-on ?</h2>
+<p>Uback est en bêta publique. Dans chaque pays, les déclarations d’intention ouvriront dès la signature du partenaire agréé. @OPENING@</p>
+</div>
+""",
+'en': """<div class="wrap prose">
+<h1>Invest with Uback</h1>
+<p class="lead"><b>Strength in numbers.</b> On their own, investors rarely get access to the best startups in a country. Together, Uback’s Backers form an investor pool these companies cannot ignore.</p>
+
+<h2 id="principle">The principle</h2>
+<p>Uback works like group buying. You declare your intention to invest in a ranked company, or in a sector. Your intention joins the pool of other Backers. When their number and combined amount reach a threshold, the country’s licensed partner presents this demand to the company.</p>
+<p>Uback does not sell securities and does not collect any funds. It brings intentions together. The investment itself, if it happens, is offered by the licensed partner, under its own responsibility.</p>
+
+<h2 id="steps">Four steps</h2>
+<ol class="steps4">
+<li><b>You declare an intention.</b> On a ranked company, or on a sector in a country, with a ticket range.</li>
+<li><b>Critical mass is reached.</b> Intentions add up in the pool. Once the threshold is crossed, the pool is passed to the country’s licensed partner.</li>
+<li><b>The licensed partner structures.</b> It contacts the company, presents the Backers’ demand and checks whether expectations match: amount, valuation, rights.</li>
+<li><b>Closing.</b> If an agreement is possible, the partner presents the transaction directly to the Backers concerned. Each one freely decides whether to take part. Small tickets are pooled in a common vehicle set up by the partner.</li>
+</ol>
+
+<h2 id="who">Who can declare an intention</h2>
+<p>Declarations are reserved for:</p>
+<ul>
+<li><b>investors who declare themselves experienced</b>: business angels, family offices, diaspora investors, who understand the risks of investing in non-listed companies;</li>
+<li><b>companies</b> investing on their own account (corporate venture, industrial groups).</li>
+</ul>
+
+<h2>What you declare</h2>
+<ul>
+<li><b>A target.</b> Either a named company, or a sector in a country. For a sector, the partner may present several companies to you.</li>
+<li><b>A ticket range</b>, from $25k to $10M.</li>
+<li><b>An intention, not a commitment.</b> Declaring does not oblige you to invest. The final decision is always yours.</li>
+</ul>
+
+<h2 id="price">Why an intention is paid</h2>
+<p>A free intention means nothing to a startup. Payment proves the demand is serious, and that is what gives the partner weight when it approaches the company.</p>
+<p>The price depends on the country and the ticket range. It will be shown when declarations open in each country. The amount paid covers the declaration: it is neither a deposit nor an investment, and it is non-refundable.</p>
+
+<h2 id="duration">An intention with no expiry date, that you can move</h2>
+<p><b>Your intention remains valid until it succeeds</b>, with no time limit.</p>
+<p>You can move it at any time to another company or another sector. It then leaves its pool and joins the new one. The partner may also suggest a move, when another company better matches your intention. The decision remains yours.</p>
+<p>If the partner presents the pool to a company and no agreement is reached, your intention is not lost. You keep it and can move it.</p>
+
+<h2>Counters</h2>
+<p>Each company, sector and country shows the number of Backers and the combined amount of its pool. To protect confidentiality, these figures are rounded into ranges.</p>
+
+<h2>Why only companies that have already raised funds</h2>
+<p><a href="/method.html#eligibility">Uback only ranks companies that have raised at least $1M, including one equity round.</a> Professional investors are therefore already on the cap table and have negotiated a shareholders’ agreement. Backers who come in after them do not start from a blank page.</p>
+
+<h2>The licensed partner</h2>
+<p>In each country, Uback entrusts pools to a single partner: an M&amp;A boutique or a fundraising firm, licensed by the local regulator. It is introduced on the country page.</p>
+<p>The partner only receives your contact details with your consent, and only when your pool is passed on to it.</p>
+
+<div class="callout warn" id="risks">
+<h2>Risks</h2>
+<p>Investing in a non-listed company carries a risk of losing all the capital invested. The shares are illiquid: it may be impossible to sell them for several years. Only invest money you can afford to lose.</p>
+</div>
+
+<h2>What Uback does not do</h2>
+<ul>
+<li>Uback does not guarantee that a transaction will take place.</li>
+<li>Uback does not negotiate, advise or hold any mandate.</li>
+<li>Uback does not collect any funds intended for investment.</li>
+<li>Uback does not sell or pass your data to anyone other than the country’s partner.</li>
+</ul>
+
+<h2 id="opening">Where are we?</h2>
+<p>Uback is in public beta. In each country, investment intentions will open as soon as the licensed partner is signed. @OPENING@</p>
 </div>
 """,
 }

@@ -11,7 +11,7 @@ from urllib.parse import quote
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_site import MARKETS, next_edition, format_date, months_txt   # même calendrier que les pages marchés
-from pages_global import METHOD, LEGAL
+from pages_global import METHOD, LEGAL, INVEST
 
 def next_ed(code):
     m = next(v for v in MARKETS if v['code'] == code and v['default'])
@@ -417,6 +417,7 @@ page = f'''<!doctype html>
     <div class="foot-links">
       <span>© 2026 Uback</span>
       <a href="{METHOD_URL}">Method</a>
+      <a href="/invest.html">Invest</a>
       <a href="/correction.html">Request a correction</a>
       <a href="/legal-notice.html">Legal notice</a>
       <a href="mailto:contact@uback.com">contact@uback.com</a>
@@ -436,6 +437,7 @@ print('ok index.html', N_FAM, 'families,', N_SEG, 'segments')
 # ---------------------------------------------------------------- pages globales (communes à tous les pays)
 # Méthode et mentions légales, en anglais et en français (texte : tools/pages_global.py), avec la charte de la homepage.
 GLOBAL = {'method': {'en': 'method.html', 'fr': 'fr/methode.html'}, 'legal': {'en': 'legal-notice.html', 'fr': 'mentions-legales.html'},
+          'invest': {'en': 'invest.html', 'fr': 'fr/investir.html'},
           'correction': {'en': 'correction.html', 'fr': 'fr/correction.html'}, 'thanks': {'en': 'thank-you.html', 'fr': 'fr/merci.html'}}
 G_UI = {
  'en': dict(skip='Skip to content', sectors='Sectors', countries='Countries', method='Method', contact='Contact',
@@ -443,6 +445,9 @@ G_UI = {
             beta_l='Contact us', legal='Legal notice', corr='Request a correction', disc='Rankings are editorial content, not investment advice.',
             cal_country='Country', cal_months='Published on the 15th', cal_next='Next edition',
             t_method='Method and rules of the game | Uback', d_method='How Uback ranks non-listed startups in descending order of AI-estimated valuation: consensus, confidence index, order of magnitude, eligibility, how human input is taken into account, corrections.',
+            invest='Invest', t_invest='Invest with Uback | Uback', d_invest='Declare an investment intention on a ranked startup or a sector. Backers’ intentions form a pool; above a threshold, the country’s licensed partner presents the demand to the company.',
+            opening_soon='In the meantime, write to <a href="mailto:contact@uback.com?subject=Intentions%20opening">contact@uback.com</a> to be notified when they open.',
+            opening_form='In the meantime, you can <a href="/#follow">sign up to be notified when they open</a>.',
             t_correction='Request a correction | Uback', d_correction='Report inaccurate information or dispute a rank in a Uback ranking.',
             t_thanks='Thank you | Uback', d_thanks='Request prepared.',
             t_legal='Legal notice | Uback', d_legal='Legal notice of the Uback website.'),
@@ -451,6 +456,9 @@ G_UI = {
             beta_l='Nous écrire', legal='Mentions légales', corr='Demander une correction', disc='Les classements sont des contenus éditoriaux, pas des conseils en investissement.',
             cal_country='Pays', cal_months='Publié le 15', cal_next='Prochaine édition',
             t_method='Méthode et règles du jeu | Uback', d_method='Comment Uback classe les startups non cotées par ordre décroissant de valorisation estimée par IA : consensus, indice de confiance, ordre de grandeur, éligibilité, prise en compte des avis humains, corrections.',
+            invest='Investir', t_invest='Investir avec Uback | Uback', d_invest='Déclarez une intention d’investissement sur une startup classée ou un secteur. Les intentions des Backers forment un pool ; au-delà d’un seuil, le partenaire agréé du pays présente la demande à la société.',
+            opening_soon='En attendant, écrivez-nous à <a href="mailto:contact@uback.com?subject=Ouverture%20des%20intentions">contact@uback.com</a> pour être prévenu de l’ouverture.',
+            opening_form='En attendant, vous pouvez <a href="/#follow">vous inscrire pour être prévenu de l’ouverture</a>.',
             t_correction='Demander une correction | Uback', d_correction='Signalez une information inexacte ou contestez un rang dans un classement Uback.',
             t_thanks='Merci | Uback', d_thanks='Demande préparée.',
             t_legal='Mentions légales | Uback', d_legal='Mentions légales du site Uback.'),
@@ -470,6 +478,13 @@ G_CSS = '''
 .prose .table-wrap table{min-width:520px}
 .callout{margin:20px 0;padding:14px 18px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:10px}
 .callout p{margin:0}
+.callout.warn{border-left-color:var(--navy);background:var(--bg)}
+.callout.warn h2{margin:0 0 6px;font-size:18px}
+.prose .steps4{list-style:none;counter-reset:st;padding:0;display:grid;gap:12px;margin:12px 0}
+.steps4 li{counter-increment:st;position:relative;margin:0;padding:16px 18px 16px 58px;border-radius:12px;background:var(--navy);color:#DCE3EC}
+.steps4 li::before{content:counter(st);position:absolute;left:18px;top:10px;font-size:28px;font-weight:800;color:var(--gold)}
+.steps4 li b{color:#fff}
+@media (min-width:900px){.steps4{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .cform{display:grid;gap:16px;max-width:640px;margin-top:24px}
 .cform label{display:block;font-size:14px;font-weight:600;color:var(--navy);margin-bottom:6px}
 .cform .req{color:var(--gold)}
@@ -557,6 +572,7 @@ def global_page(key, lang, body):
     <div class="foot-links">
       <span>© 2026 Uback</span>
       <a href="{method_url}">{u['method']}</a>
+      <a href="/{GLOBAL['invest'][lang]}">{u['invest']}</a>
       <a href="/{GLOBAL['correction'][lang]}">{u['corr']}</a>
       <a href="/{GLOBAL['legal'][lang]}">{u['legal']}</a>
       <a href="mailto:contact@uback.com">contact@uback.com</a>
@@ -676,7 +692,9 @@ def thanks_body(lang):
 </div>
 '''
 
-BODIES = {'method': METHOD, 'legal': LEGAL,
+# « Où en est-on ? » : inscriptions désactivées (FORM_MODE 'soon') → simple lien e-mail, jamais de formulaire inactif
+OPENING = {l: G_UI[l]['opening_soon' if FORM_MODE == 'soon' else 'opening_form'] for l in ('en', 'fr')}
+BODIES = {'method': METHOD, 'legal': LEGAL, 'invest': {l: INVEST[l].replace('@OPENING@', OPENING[l]) for l in ('en', 'fr')},
           'correction': {l: correction_body(l) for l in ('en', 'fr')}, 'thanks': {l: thanks_body(l) for l in ('en', 'fr')}}
 for key, texts in BODIES.items():
     for lang in ('en', 'fr'):

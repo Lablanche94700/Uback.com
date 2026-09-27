@@ -176,6 +176,13 @@ footer a{color:var(--muted)}
 .prose .table-wrap table{min-width:520px}
 .callout{margin:20px 0;padding:14px 18px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:10px}
 .callout p{margin:0}
+.callout.warn{border-left-color:var(--navy);background:var(--bg)}
+.callout.warn h2{margin:0 0 6px;font-size:18px}
+.prose .steps4{list-style:none;counter-reset:st;padding:0;display:grid;gap:12px;margin:12px 0}
+.steps4 li{counter-increment:st;position:relative;margin:0;padding:16px 18px 16px 58px;border-radius:12px;background:var(--navy);color:#DCE3EC}
+.steps4 li::before{content:counter(st);position:absolute;left:18px;top:10px;font-size:28px;font-weight:800;color:var(--gold)}
+.steps4 li b{color:#fff}
+@media (min-width:900px){.steps4{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .cform{display:grid;gap:16px;max-width:640px;margin-top:24px}
 .cform label{display:block;font-size:14px;font-weight:600;color:var(--navy);margin-bottom:6px}
 .cform .req{color:var(--gold)}
@@ -290,7 +297,7 @@ footer a{color:var(--muted)}
 <li><b>Uback is not a financial intermediary.</b> Uback holds no mandate, does not negotiate, gives no advice and collects no funds intended for investment. Any transaction is offered by the country’s licensed partner, under its own responsibility.</li>
 <li><b>Data stays in.</b> Investment intentions are confidential. No data is sold. It is passed only to the country’s licensed partner, with the investor’s consent.</li>
 </ol>
-<div class="callout" id="invest"><p><b>Invest.</b> Uback lets investors declare an investment intention on a company or a sector. How it works is described on the “Invest with Uback” page.</p></div>
+<div class="callout" id="invest"><p><b>Invest.</b> Uback lets investors declare an investment intention on a company or a sector. How it works is described on the “<a href="/invest.html">Invest with Uback</a>” page.</p></div>
 
 <h2 id="correction">Corrections</h2>
 <p>Any company mentioned may report inaccurate information (amount, date, sector, status) or dispute its rank, using the <a href="/correction.html">correction form</a>. Every request receives a reasoned reply, and every factual correction is recorded.</p>
@@ -308,6 +315,7 @@ footer a{color:var(--muted)}
     <div class="foot-links">
       <span>© 2026 Uback</span>
       <a href="/method.html">Method</a>
+      <a href="/invest.html">Invest</a>
       <a href="/correction.html">Request a correction</a>
       <a href="/legal-notice.html">Legal notice</a>
       <a href="mailto:contact@uback.com">contact@uback.com</a>

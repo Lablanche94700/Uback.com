@@ -27,6 +27,24 @@ if M.get('overlay'):
         if vi:
             vi = c['valuation_input'] = copy.deepcopy(vi)
             vi['round_label'], vi['adjust_reason'] = t.get('round_label'), t.get('adjust_reason', '')
+_MONTH = {'janv': 1, 'janvier': 1, 'jan': 1, 'january': 1, 'févr': 2, 'février': 2, 'feb': 2, 'february': 2,
+          'mars': 3, 'mar': 3, 'march': 3, 'avr': 4, 'avril': 4, 'apr': 4, 'april': 4, 'mai': 5, 'may': 5,
+          'juin': 6, 'jun': 6, 'june': 6, 'juil': 7, 'juillet': 7, 'jul': 7, 'july': 7, 'août': 8, 'aug': 8, 'august': 8,
+          'sept': 9, 'septembre': 9, 'sep': 9, 'september': 9, 'oct': 10, 'octobre': 10, 'october': 10,
+          'nov': 11, 'novembre': 11, 'november': 11, 'déc': 12, 'décembre': 12, 'dec': 12, 'december': 12}
+
+def last_round_date(txt):
+    """Date la plus récente citée dans « dernière levée » : (année, mois), mois = 0 si seule l'année est connue ; None sinon."""
+    best = None
+    for m in re.finditer(r'(?:([A-Za-zÀ-ÿ]+)\.?\s+)?~?((?:19|20)\d\d)\b', txt):
+        d = (int(m.group(2)), _MONTH.get((m.group(1) or '').lower(), 0))
+        best = d if best is None or d > best else best
+    return best
+
+# Radar : trié par date de dernière levée décroissante, pour toutes les éditions (méthode publiée)
+D['radar'] = sorted(D['radar'], key=lambda r: (0, tuple(-x for x in last_round_date(r['derniere_levee'])))
+                    if last_round_date(r['derniere_levee']) else (1,))
+
 for c in D['classement']:
     # justification de la valorisation dans la langue de la page (même règle, mêmes chiffres)
     if c.get('valuation_input'):
@@ -118,7 +136,7 @@ TXT = {
   ed0='Édition 0 : établie par Claude (Anthropic) ; consensus de plusieurs IA lors d’une prochaine édition. ',
   tip_round='Dernier tour en fonds propres connu : ', tip_pub='Valorisation publiée : ', tip_conf='Indice de confiance : ',
   tc_high='Élevé', tc_medium='Moyen', tc_low='Faible', tip_none='Aucun tour en fonds propres au montant publié.', tip_more='Méthode',
-  id_invest='investir',
+  id_invest='investir', id_steps='etapes', id_opening='ouverture', f_invest='Investir',
   loc_partner='<b>Partenaire recherché.</b> {partner_short}.', loc_src='<b>Sources.</b>',
   loc_more='Méthode et règles du jeu, communes à tous les pays →',
   fol_h='Recevoir chaque nouvelle édition', fol_p='Entrées, sorties et mouvements, chaque trimestre.',
@@ -194,7 +212,7 @@ TXT = {
   ed0='Edition 0: produced by Claude (Anthropic); a consensus of several AI models will apply in a future edition. ',
   tip_round='Last known equity round: ', tip_pub='Published valuation: ', tip_conf='Confidence index: ',
   tc_high='High', tc_medium='Medium', tc_low='Low', tip_none='No equity round with a disclosed amount.', tip_more='Method',
-  id_invest='invest',
+  id_invest='invest', id_steps='steps', id_opening='opening', f_invest='Invest',
   loc_partner='<b>Partner sought.</b> {partner_short}.', loc_src='<b>Sources.</b>',
   loc_more='Method and rules, common to all countries →',
   fol_h='Get every new edition', fol_p='New entries, exits and movements, every quarter.',
@@ -214,6 +232,7 @@ PP, PT = L['p_partner'], L['p_thanks']
 GM = '@ROOT@fr/methode.html' if M['lang'] == 'fr' else '@ROOT@method.html'
 GL = '@ROOT@mentions-legales.html' if M['lang'] == 'fr' else '@ROOT@legal-notice.html'
 GC = '@ROOT@fr/correction.html' if M['lang'] == 'fr' else '@ROOT@correction.html'   # formulaire de correction (global)
+GI = '@ROOT@fr/investir.html' if M['lang'] == 'fr' else '@ROOT@invest.html'         # page « Investir avec Uback » (globale)
 
 def src(url, label='source', style=''):
     return f'<a href="{e(url)}"{style} rel="nofollow noopener" target="_blank">{label}</a>'
@@ -300,6 +319,7 @@ FOOT = f'''
       <span class="brand"><span class="u">U</span>Uback</span>
       <span>Powered by AI</span>
       <span>·</span><a href="{GM}">{L['f_method']}</a>
+      <span>·</span><a href="{GI}">{L['f_invest']}</a>
       <span>·</span><a href="/{PP}">{L['f_partner']}</a>
       <span>·</span><a href="{GC}">{L['f_corr']}</a>
       <span>·</span><a href="{GL}">{L['f_legal']}</a>
@@ -357,7 +377,8 @@ def invest(c):
     acces : defaut | levee (levée en cours) | travaillee (suivie par le partenaire du marché) | sortie (rachat, sans bouton).
     L'état par défaut n'affiche aucun libellé ; « travaillee » n'est jamais affiché sans partenaire signé."""
     a = c.get('acces') or 'defaut'
-    btn = f'<a class="btn" href="/#backers">{L["declare_cell"]}</a>'
+    # aucun partenaire signé : le bouton mène à « Où en est-on ? » de la page Investir
+    btn = f'<a class="btn" href="{GI}#{L["id_opening"]}">{L["declare_cell"]}</a>'
     if a == 'sortie':
         who = (c.get('acquereur') or '').strip()
         return f'<span class="exit">{L["exit_by"].format(a=e(who)) if who else L["exit"]}</span>'
@@ -532,7 +553,7 @@ index += f'''
     <p class="steps-note">{L['steps_note']}</p>
     <div class="cta-row">
       <a class="btn gold" href="#{L['id_follow']}">{L['cta_notify']}</a>
-      <a class="btn ghost" href="{GM}#{L['id_invest']}">{L['cta_after']}</a>
+      <a class="btn ghost" href="{GI}#{L['id_steps']}">{L['cta_after']}</a>
       <span>{L['cta_line']}</span>
     </div>
   </div>
