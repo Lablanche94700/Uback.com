@@ -85,10 +85,12 @@ JSONLD = {"@context": "https://schema.org", "@graph": [
      "description": "AI rankings of funded, non-listed startups, by global sector and by country. We don’t value companies. We rank them, and give an AI-estimated order of magnitude.",
      "logo": "https://uback.com/assets/favicon-192.png"},
     {"@type": "WebSite", "name": "Uback", "url": "https://uback.com/", "inLanguage": "en"},
+    # liste des marchés en ligne : calculée depuis REGIONS, jamais écrite à la main
     {"@type": "ItemList", "name": "Uback markets", "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Morocco — quarterly ranking (English and French)", "url": "https://uback.com/ma/"},
-        {"@type": "ListItem", "position": 2, "name": "Poland — quarterly ranking", "url": "https://uback.com/pl/"},
-        {"@type": "ListItem", "position": 3, "name": "Vietnam — quarterly ranking", "url": "https://uback.com/vn/"}]}]}
+        {"@type": "ListItem", "position": i, "name": f"{n} — quarterly ranking", "url": f"https://uback.com{url}"}
+        for i, (c, n, sub, url) in enumerate([x for r in REGIONS for x in r['live']], 1)]}]}
+LIVE_NAMES = [n for r in REGIONS for (c, n, sub, url) in r['live']]
+LIVE_TXT = ', '.join(LIVE_NAMES[:-1]) + ' and ' + LIVE_NAMES[-1] if len(LIVE_NAMES) > 1 else LIVE_NAMES[0]
 
 CSS = '''
 :root{--navy:#1E3A5F;--navy-dark:#142842;--gold:#C8A052;--bg:#F7F8FA;--line:#E4E8EE;--muted:#5A6B82;--body:#4A5A70;--dim:#6B7A8F;--dash:#C9D1DC}
@@ -287,7 +289,7 @@ page = f'''<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Uback — Funded startups, ranked by AI</title>
-<meta name="description" content="{e(DESC)} Country rankings in Morocco, Poland and Vietnam.">
+<meta name="description" content="{e(DESC)} Country rankings in {e(LIVE_TXT)}.">
 <link rel="canonical" href="https://uback.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Uback">
@@ -367,7 +369,7 @@ page = f'''<!doctype html>
               <h2 id="countries-h">Country rankings</h2>
               <p class="intro">All sectors, then by sector.</p>
             </div>
-            <div class="freq navy"><b>Quarterly</b><span>One country every month</span></div>
+            <div class="freq navy"><b>Quarterly</b></div>
           </div>
 {chr(10).join('          ' + region(r) for r in REGIONS)}
           <div class="regional">
