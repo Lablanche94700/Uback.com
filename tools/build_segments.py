@@ -13,7 +13,7 @@ from urllib.parse import quote
 TOOLS = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(TOOLS)
 sys.path.insert(0, TOOLS)
-from build_site import MARKETS, FLAGS as MKT_FLAGS, NAMES, CSS_V, format_date
+from build_site import CSS_V, format_date
 from valuation import BRACKETS, bracket_index, money, month
 from flags import flag
 
@@ -26,6 +26,7 @@ FORM_MODE = 'soon'                  # même réglage que les pages pays : inscri
 REGIONS = [('north-america', 'North America'), ('latin-america', 'Latin America'), ('europe', 'Europe'),
            ('mena', 'Middle East & North Africa'), ('sub-saharan-africa', 'Sub-Saharan Africa'), ('asia-pacific', 'Asia-Pacific')]
 REGION_NAME = dict(REGIONS)
+SECTORS = json.load(open(os.path.join(ROOT, 'data', 'sectors.json'), encoding='utf-8'))   # familles > secteurs > segments
 CONF = {'high': 3, 'medium': 2, 'low': 1}
 CONF_TXT = {'high': 'High', 'medium': 'Medium', 'low': 'Low'}
 CONF_LAB = {3: 'Solid sources', 2: 'Partial sources', 1: 'Weak sources'}
@@ -156,18 +157,21 @@ def radar_li(r):
         txt += f"; {rd['detail']}"
     return f'<li data-region="{r["region"]}"><span><b>{e(r["name"])}</b> · {where(r)}</span><span>{e(txt)}</span></li>'
 
-def switcher():
-    """Sélecteur de pays, comme sur les pages pays (version anglaise de chaque pays si elle existe)."""
-    items, seen = '', []
-    for o in MARKETS:
-        if o['code'] in seen:
+def switcher(d):
+    """Sélecteur de la famille (ex. « Fintech ») : les segments publiés de la famille, groupés par secteur,
+    pour passer d'un segment à l'autre sans repasser par la homepage. Publié = un fichier data/segments/<slug>.json."""
+    fam = next(f for f in SECTORS['families'] if f['name'] == d['path'][0])
+    items = ''
+    for sec in fam['sectors']:
+        segs = [g for g in sec['segments'] if os.path.exists(os.path.join(ROOT, 'data', 'segments', g['slug'] + '.json'))]
+        if not segs:
             continue
-        seen.append(o['code'])
-        vs = [v for v in MARKETS if v['code'] == o['code']]
-        v = next((x for x in vs if x['lang'] == 'en'), next(x for x in vs if x['default']))
-        items += f'<a href="{v["path"]}/">{MKT_FLAGS[o["code"]]}{NAMES[o["code"]]["en"]}<span class="l">{v["lang"].upper()}</span></a>'
-    return (f'<details class="mkt"><summary class="market" aria-label="Change country">Worldwide</summary>'
-            f'<div class="menu">{items}<hr><a href="/">All markets</a></div></details>')
+        items += f'<span class="grp">{e(sec["name"])}</span>'
+        for g in segs:
+            cur = ' aria-current="page"' if g['slug'] == d['segment_id'] else ''
+            items += f'<a class="seg" href="/segments/{g["slug"]}/"{cur}>{e(g["name"])}</a>'
+    return (f'<details class="mkt"><summary class="market" aria-label="Change segment">{e(fam["name"])}</summary>'
+            f'<div class="menu">{items}<hr><a href="/#sectors">All sectors</a><a href="/#countries">Country rankings</a></div></details>')
 
 def og_html(d, n):
     t = d['texts']
@@ -239,6 +243,8 @@ JS = '''
   }
   function fromHash(){var m=location.hash.match(/^#region=([a-z-]+)$/);return m?m[1]:null;}
   btns.forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.region,true);});});
+  document.querySelectorAll('.mkt a.seg').forEach(function(a){a.addEventListener('click',function(){
+    if(/^#region=/.test(location.hash)){a.href=a.href.split('#')[0]+location.hash;}});});
   window.addEventListener('hashchange',function(){var r=fromHash();if(r)apply(r,false);});
   var start=fromHash();
   apply(start||'world',false);
@@ -318,7 +324,7 @@ def build(path):
 <header class="hdr">
   <div class="wrap">
     <a class="brand" href="/" aria-label="Uback, home"><span class="u">U</span>Uback</a>
-    {switcher()}
+    {switcher(d)}
     <button class="menu-toggle" aria-label="Menu" aria-expanded="false" onclick="var n=document.getElementById('nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>

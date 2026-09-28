@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/segments/assets/style.css?v=9a2e534e">
+<link rel="stylesheet" href="/segments/assets/style.css?v=ac86aecc">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "The world’s most valuable cross-border remittance companies – Edition 0 (beta)", "description": "Companies moving money across borders for individuals, and the payout networks that deliver those transfers worldwide. Ranked worldwide by AI-estimated valuation. The market sets the value; our AI estimates it.", "itemListOrder": "https://schema.org/ItemListOrderDescending", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Zepz (WorldRemit, Sendwave)"}, {"@type": "ListItem", "position": 2, "name": "Félix"}, {"@type": "ListItem", "position": 3, "name": "Thunes"}, {"@type": "ListItem", "position": 4, "name": "Nium"}, {"@type": "ListItem", "position": 5, "name": "TerraPay"}, {"@type": "ListItem", "position": 6, "name": "Aspora"}, {"@type": "ListItem", "position": 7, "name": "OpenFX"}, {"@type": "ListItem", "position": 8, "name": "Paysend"}, {"@type": "ListItem", "position": 9, "name": "LemFi"}, {"@type": "ListItem", "position": 10, "name": "Chipper Cash"}]}</script>
 <!-- Généré par tools/build_segments.py à partir de data/segments/cross-border-remittances.json : ne pas modifier à la main. -->
 </head>
@@ -29,7 +29,7 @@
 <header class="hdr">
   <div class="wrap">
     <a class="brand" href="/" aria-label="Uback, home"><span class="u">U</span>Uback</a>
-    <details class="mkt"><summary class="market" aria-label="Change country">Worldwide</summary><div class="menu"><a href="/ma/"><svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" fill="#C1272D"/><polygon points="24,8.5 26.6,16.4 34.4,11.6 20,20.9 29.6,20.9 18.2,11.6 26,16.4" fill="none" stroke="#006233" stroke-width="1.6" stroke-linejoin="round" transform="translate(-2.2 1.2)"/></svg>Morocco<span class="l">EN</span></a><a href="/pl/"><svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="16" fill="#FFFFFF"/><rect y="16" width="48" height="16" fill="#DC143C"/><rect x=".5" y=".5" width="47" height="31" fill="none" stroke="#E4E8EE"/></svg>Poland<span class="l">EN</span></a><a href="/vn/"><svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" fill="#DA251D"/><polygon points="24,7 26.47,14.6 34.46,14.6 28,19.3 30.47,26.9 24,22.2 17.53,26.9 20,19.3 13.54,14.6 21.53,14.6" fill="#FFFF00"/></svg>Vietnam<span class="l">EN</span></a><hr><a href="/">All markets</a></div></details>
+    <details class="mkt"><summary class="market" aria-label="Change segment">Fintech</summary><div class="menu"><span class="grp">Banking</span><a class="seg" href="/segments/consumer-neobanks/">Consumer neobanks</a><a class="seg" href="/segments/business-accounts/">Business accounts</a><span class="grp">Payments</span><a class="seg" href="/segments/online-payments-and-acquiring/">Online payments &amp; acquiring</a><a class="seg" href="/segments/buy-now-pay-later/">Buy now, pay later</a><a class="seg" href="/segments/cross-border-remittances/" aria-current="page">Cross-border remittances</a><a class="seg" href="/segments/mobile-wallets/">Mobile wallets</a><span class="grp">Crypto &amp; digital assets</span><a class="seg" href="/segments/crypto-exchanges/">Crypto exchanges</a><a class="seg" href="/segments/cold-wallets/">Cold wallets</a><a class="seg" href="/segments/stablecoins/">Stablecoins</a><a class="seg" href="/segments/institutional-custody/">Institutional custody</a><a class="seg" href="/segments/blockchain-infrastructure/">Blockchain infrastructure</a><span class="grp">Lending</span><a class="seg" href="/segments/sme-lending/">SME lending</a><hr><a href="/#sectors">All sectors</a><a href="/#countries">Country rankings</a></div></details>
     <button class="menu-toggle" aria-label="Menu" aria-expanded="false" onclick="var n=document.getElementById('nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
@@ -304,6 +304,8 @@
   }
   function fromHash(){var m=location.hash.match(/^#region=([a-z-]+)$/);return m?m[1]:null;}
   btns.forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.region,true);});});
+  document.querySelectorAll('.mkt a.seg').forEach(function(a){a.addEventListener('click',function(){
+    if(/^#region=/.test(location.hash)){a.href=a.href.split('#')[0]+location.hash;}});});
   window.addEventListener('hashchange',function(){var r=fromHash();if(r)apply(r,false);});
   var start=fromHash();
   apply(start||'world',false);
