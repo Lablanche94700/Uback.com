@@ -1,3 +1,14 @@
 {
-  "consumer-neobanks": "c6670dc6"
+  "blockchain-infrastructure": "ccce3b43",
+  "business-accounts": "faded826",
+  "buy-now-pay-later": "47902a94",
+  "cold-wallets": "0c902ed0",
+  "consumer-neobanks": "c6670dc6",
+  "cross-border-remittances": "b3d0c1f1",
+  "crypto-exchanges": "f0b61455",
+  "institutional-custody": "f9609c77",
+  "mobile-wallets": "d4058218",
+  "online-payments-and-acquiring": "63f0b386",
+  "sme-lending": "42be0391",
+  "stablecoins": "56a33ac4"
 }

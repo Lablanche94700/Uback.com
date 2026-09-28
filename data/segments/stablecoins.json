@@ -1,0 +1,384 @@
+{
+ "segment_id": "stablecoins",
+ "path": [
+  "Fintech",
+  "Crypto & digital assets",
+  "Stablecoins"
+ ],
+ "name": "Stablecoins",
+ "edition": 0,
+ "edition_label": "Edition 0 (beta)",
+ "published": "2026-09-29",
+ "next_edition": "2027-01-01",
+ "cadence": "Twice a year",
+ "kpi_definitions": [
+  {
+   "id": "circulation",
+   "label": "Stablecoins in circulation"
+  },
+  {
+   "id": "volume",
+   "label": "Volume"
+  },
+  {
+   "id": "profit",
+   "label": "Profit"
+  }
+ ],
+ "established_by": "Claude (Anthropic)",
+ "texts": {
+  "title": "The world's most valuable stablecoins, ranked by AI | Uback",
+  "description": "Uback ranks the world's non-listed stablecoin issuers and infrastructure by AI-estimated valuation: Tether, Paxos, Rain, Ethena, Yellow Card and more. Edition 0 (beta).",
+  "h1": "The world’s most valuable stablecoins",
+  "intro": "Companies that issue fiat-backed or synthetic stablecoins, or whose main activity is stablecoin issuance and infrastructure. Ranked worldwide by AI-estimated valuation. The market sets the value; our AI estimates it.",
+  "not_in_segment": "Crypto exchanges, institutional custody, general blockchain infrastructure, cross-border remittances and consumer stablecoin apps each have their own segment. A company appears in one segment only.",
+  "activity": "stablecoin issuance and infrastructure",
+  "og_title": "The world’s most valuable<br>stablecoins",
+  "sources": "Financial Times (via The Block), CoinDesk, The Block, Fortune, FinTech Futures, Tech Funding News, PYMNTS, PR Newswire, DefiLlama, company announcements."
+ },
+ "ranked": [
+  {
+   "rank": 1,
+   "name": "Tether",
+   "country": "El Salvador",
+   "country_code": "SV",
+   "region": "latin-america",
+   "tranche": "decacorn",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2024-11",
+    "amount_usd": 600000000.0,
+    "amount_label": "up to USD 600M for ~5% (reported)",
+    "type": "Minority stake sale",
+    "investors": "Cantor Fitzgerald"
+   },
+   "published_valuation": null,
+   "estimate_usd": 200000000000.0,
+   "note_internal": "Raise at USD 500B targeted since Sep 2025 (cut from USD 15-20B to ~5B in Feb 2026), never reported closed as of Sep 2026. Estimate ~20x 2025 net profit (USD 10B, down from 13B).",
+   "kpis": {
+    "circulation": {
+     "value_text": "USDT $183B",
+     "period": "2026 (KPMG audit, Aug 2026)",
+     "source": "https://fortune.com/2026/08/17/tether-gold-ai-push-kpmg-audit-reserves-paolo-ardoino-interview/"
+    },
+    "volume": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "profit": {
+     "value_text": "Net profit $10B+",
+     "period": "FY2025",
+     "source": "https://www.theblock.co/news/business/2026-02-04-tether-floats-5-billion-raise-after-investor-pushback-on-500-billion-valuation-target-ft-388404"
+    }
+   },
+   "sources": [
+    "https://www.theblock.co/news/business/2026-02-04-tether-floats-5-billion-raise-after-investor-pushback-on-500-billion-valuation-target-ft-388404",
+    "https://www.theblock.co/post/327961/lutnick-cantor-fitzgerald-negotiated-a-5-ownership-stake-in-tether-wsj",
+    "https://www.pymnts.com/cryptocurrency/2026/tether-sets-2-week-deadline-for-500-billion-valuation-deal/"
+   ]
+  },
+  {
+   "rank": 2,
+   "name": "Paxos",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2021-04",
+    "amount_usd": 300000000.0,
+    "type": "Series D",
+    "investors": "Oak HC/FT, Declaration Partners, PayPal Ventures"
+   },
+   "published_valuation": {
+    "value_usd": 2400000000.0,
+    "date": "2021-04"
+   },
+   "estimate_usd": 4000000000.0,
+   "note_internal": "Issuer of PYUSD (for PayPal), USDG, USDP, PAXG. Uplift vs 2021 for stablecoin boom and OCC national trust charter approval (Dec 2025); acquired Fordefi (Nov 2025). No fresh priced round.",
+   "kpis": {
+    "circulation": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "volume": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "profit": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.paxos.com/newsroom/paxos-raises-300-million-in-series-d-funding-at-2-4-billion-valuation",
+    "https://www.bankingdive.com/news/occ-national-trust-bank-charter-approve-circle-paxos-ripple-bitgo-gould-crypto/807799/"
+   ]
+  },
+  {
+   "rank": 3,
+   "name": "Rain",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2026-01",
+    "amount_usd": 250000000.0,
+    "type": "Series C",
+    "investors": "ICONIQ (Sapphire, Dragonfly, Bessemer, Lightspeed)"
+   },
+   "published_valuation": {
+    "value_usd": 1950000000.0,
+    "date": "2026-01"
+   },
+   "estimate_usd": 2200000000.0,
+   "note_internal": "Stablecoin card and payout infrastructure; boundary with payments/spend segments to watch. Slight uplift for growth since Jan 2026.",
+   "kpis": {
+    "circulation": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "volume": {
+     "value_text": "Annual transaction volume above $3B",
+     "period": "early 2026",
+     "source": "https://en.wikipedia.org/wiki/Rain_(platform)"
+    },
+    "profit": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://techfundingnews.com/unicorn-alert-rain-secures-250m-at-1-95b-valuation-to-build-the-global-backbone-for-stablecoin-payments/",
+    "https://en.wikipedia.org/wiki/Rain_(platform)"
+   ]
+  },
+  {
+   "rank": 4,
+   "name": "Ethena Labs",
+   "country": "Portugal",
+   "country_code": "PT",
+   "region": "europe",
+   "tranche": "hundreds_m",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2024-02",
+    "amount_usd": 14000000.0,
+    "type": "Strategic round (SAFE with token warrants)",
+    "investors": "Dragonfly, Maelstrom"
+   },
+   "published_valuation": {
+    "value_usd": 300000000.0,
+    "date": "2024-02"
+   },
+   "estimate_usd": 800000000.0,
+   "note_internal": "Synthetic dollar USDe. Later raises were token sales (USD 100M ENA, Dec 2024), not equity. USDe supply fell from USD 14B+ (2025) to ~5-6B after Oct 2025 deleveraging; ENA -82% from ATH. Company value vs token value unclear.",
+   "kpis": {
+    "circulation": {
+     "value_text": "USDe TVL $5.34B",
+     "period": "Sep 2026",
+     "source": "https://defillama.com/protocol/ethena"
+    },
+    "volume": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "profit": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.theblock.co/post/277565/ethena-usde-stablecoin-funding-valuation-paypal-brevan-howard-others",
+    "https://stablecoininsider.org/ethena-usde-q1-2026-report/",
+    "https://defillama.com/protocol/ethena"
+   ]
+  },
+  {
+   "rank": 5,
+   "name": "Yellow Card",
+   "country": "Nigeria",
+   "country_code": "NG",
+   "region": "sub-saharan-africa",
+   "tranche": "hundreds_m",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2026-08",
+    "amount_usd": 40000000.0,
+    "type": "Strategic equity round",
+    "investors": "SC Ventures, Sony Innovation Fund, Polychain, Blockchain Capital"
+   },
+   "published_valuation": null,
+   "estimate_usd": 400000000.0,
+   "note_internal": "Valuation said to be above the 2022 USD 200M and below USD 1B. Pivoted from exchange to B2B stablecoin rails for banks across 22 jurisdictions; country = largest African market (assumption, HQ not stated).",
+   "kpis": {
+    "circulation": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "volume": {
+     "value_text": "$10B+ cumulative transactions",
+     "period": "since 2016 (Aug 2026)",
+     "source": "https://www.coindesk.com/business/2026/08/05/yellow-card-raises-usd40-million-to-link-banks-to-stablecoin-processing"
+    },
+    "profit": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.coindesk.com/business/2026/08/05/yellow-card-raises-usd40-million-to-link-banks-to-stablecoin-processing"
+   ]
+  },
+  {
+   "rank": 6,
+   "name": "Agora",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "hundreds_m",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2025-07",
+    "amount_usd": 50000000.0,
+    "type": "Series A",
+    "investors": "Paradigm, Dragonfly"
+   },
+   "published_valuation": null,
+   "estimate_usd": 320000000.0,
+   "note_internal": "AUSD issuer + white-label stablecoin platform (reserves VanEck, custody State Street). Valuation undisclosed.",
+   "kpis": {
+    "circulation": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "volume": {
+     "value_text": "Tens of billions cumulative",
+     "period": "Oct 2024 – Jul 2025",
+     "source": "https://www.fintechfutures.com/venture-capital-funding/agora-raises-50m-series-a-debuts-white-label-stablecoin-product"
+    },
+    "profit": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.fintechfutures.com/venture-capital-funding/agora-raises-50m-series-a-debuts-white-label-stablecoin-product",
+    "https://www.theblock.co/post/362005/paradigm-50-million-stablecoin-agora"
+   ]
+  },
+  {
+   "rank": 7,
+   "name": "M0",
+   "country": "Switzerland",
+   "country_code": "CH",
+   "region": "europe",
+   "tranche": "hundreds_m",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2025-08",
+    "amount_usd": 40000000.0,
+    "type": "Series B",
+    "investors": "Polychain, Ribbit Capital, Endeavor Catalyst"
+   },
+   "published_valuation": null,
+   "estimate_usd": 280000000.0,
+   "note_internal": "Stablecoin issuance network (powers Bridge, MetaMask stablecoins). USD 250M valuation cited by a single secondary site, unconfirmed.",
+   "kpis": {
+    "circulation": {
+     "value_text": "$300M+ supply across M0-powered stablecoins",
+     "period": "Aug 2025",
+     "source": "https://www.m0.org/press-releases/m0-raises-series-b-with-investment-from-polychain-and-ribbit-capital-bringing-total-funding-to-100m"
+    },
+    "volume": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "profit": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.m0.org/press-releases/m0-raises-series-b-with-investment-from-polychain-and-ribbit-capital-bringing-total-funding-to-100m",
+    "https://www.coindesk.com/business/2025/08/28/startup-mo-raises-usd40m-series-b-as-vcs-pile-into-stablecoins-report"
+   ]
+  }
+ ],
+ "radar": [
+  {
+   "name": "Velocity",
+   "country": "United Kingdom",
+   "country_code": "GB",
+   "region": "europe",
+   "last_equity_round": {
+    "date": "2026-07",
+    "amount_usd": 38000000.0
+   }
+  },
+  {
+   "name": "Latitude",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2026-09",
+    "amount_usd": 35000000.0
+   }
+  },
+  {
+   "name": "Stable",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2025-07",
+    "amount_usd": 28000000.0
+   }
+  },
+  {
+   "name": "Cyclops",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2026-07",
+    "amount_usd": 20000000.0
+   }
+  },
+  {
+   "name": "XFX",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2026-03",
+    "amount_usd": 17000000.0
+   }
+  }
+ ],
+ "listed_benchmarks": [
+  {
+   "name": "Circle",
+   "listing": "NYSE · CRCL",
+   "country": "United States"
+  }
+ ]
+}

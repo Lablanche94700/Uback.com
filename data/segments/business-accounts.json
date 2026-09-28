@@ -1,0 +1,511 @@
+{
+ "segment_id": "business-accounts",
+ "path": [
+  "Fintech",
+  "Banking",
+  "Business accounts"
+ ],
+ "name": "Business accounts",
+ "edition": 0,
+ "edition_label": "Edition 0 (beta)",
+ "published": "2026-09-29",
+ "next_edition": "2027-01-01",
+ "cadence": "Twice a year",
+ "kpi_definitions": [
+  {
+   "id": "customers",
+   "label": "Business customers"
+  },
+  {
+   "id": "revenue",
+   "label": "Revenue",
+   "prefix": true
+  },
+  {
+   "id": "profit",
+   "label": "Profit"
+  }
+ ],
+ "established_by": "Claude (Anthropic)",
+ "texts": {
+  "title": "The world's most valuable business accounts, ranked by AI | Uback",
+  "description": "Uback ranks the world's non-listed business account providers by AI-estimated valuation: Airwallex, Mercury, Qonto, Tide, Moniepoint and more. Edition 0.",
+  "h1": "The world’s most valuable business accounts",
+  "intro": "Digital-first banks and account providers whose main customers are SMEs, freelancers and startups: business current accounts, cards and multi-currency accounts. Ranked worldwide by AI-estimated valuation. The market sets the value; our AI estimates it.",
+  "not_in_segment": "Consumer neobanks, spend management, SME lending, SME accounting and online payments each have their own segment. A company appears in one segment only.",
+  "activity": "business accounts, cards and multi-currency accounts for SMEs",
+  "og_title": "The world’s most valuable<br>business accounts",
+  "sources": "CNBC, Business Wire, PR Newswire, Crunchbase News, Sacra, Fintech Futures, FinTech Global, EU-Startups, Bloomberg Línea, Banking Dive, Bourse des Crédits, Tech Times, company announcements."
+ },
+ "ranked": [
+  {
+   "rank": 1,
+   "name": "Airwallex",
+   "country": "Singapore",
+   "country_code": "SG",
+   "region": "asia-pacific",
+   "tranche": "decacorn",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2026-06",
+    "amount_usd": 320000000.0,
+    "type": "Series H",
+    "investors": "led by Addition"
+   },
+   "published_valuation": {
+    "value_usd": 11000000000.0,
+    "date": "2026-06"
+   },
+   "estimate_usd": 11500000000.0,
+   "note_internal": "Founded in Melbourne; dual HQ Singapore and San Francisco. Axios reported a $12B mark (May 2026), unconfirmed.",
+   "kpis": {
+    "customers": {
+     "value_text": "676,000+ businesses",
+     "period": "Jun 2026",
+     "source": "https://www.businesswire.com/news/home/20260625434997/en/Airwallex-Secures-$320-Million-in-Series-H-Funding-Valuation-Hits-$11-Billion"
+    },
+    "revenue": {
+     "value_text": "$1.3B annualized",
+     "period": "Mar 2026",
+     "source": "https://www.businesswire.com/news/home/20260625434997/en/Airwallex-Secures-$320-Million-in-Series-H-Funding-Valuation-Hits-$11-Billion"
+    },
+    "profit": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.businesswire.com/news/home/20260625434997/en/Airwallex-Secures-$320-Million-in-Series-H-Funding-Valuation-Hits-$11-Billion",
+    "https://www.cnbc.com/2026/06/26/airwallex-series-h-funding-11-billion-valuation-ai-finance.html"
+   ]
+  },
+  {
+   "rank": 2,
+   "name": "Mercury",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2026-05",
+    "amount_usd": 200000000.0,
+    "type": "Series D",
+    "investors": "led by TCV"
+   },
+   "published_valuation": {
+    "value_usd": 5200000000.0,
+    "date": "2026-05"
+   },
+   "estimate_usd": 5200000000.0,
+   "note_internal": "",
+   "kpis": {
+    "customers": {
+     "value_text": "300,000+ companies",
+     "period": "Feb 2026",
+     "source": "https://news.crunchbase.com/venture/fintech-funding-digital-banking-startup-mercury-lands-200m/"
+    },
+    "revenue": {
+     "value_text": "$650M annualized",
+     "period": "Sep 2025",
+     "source": "https://news.crunchbase.com/venture/fintech-funding-digital-banking-startup-mercury-lands-200m/"
+    },
+    "profit": {
+     "value_text": "GAAP profitable, four consecutive years",
+     "period": "2025",
+     "source": "https://news.crunchbase.com/venture/fintech-funding-digital-banking-startup-mercury-lands-200m/"
+    }
+   },
+   "sources": [
+    "https://news.crunchbase.com/venture/fintech-funding-digital-banking-startup-mercury-lands-200m/",
+    "https://www.cnbc.com/2026/05/20/fintech-mercury-valuation-fundraise-bank-charter.html"
+   ]
+  },
+  {
+   "rank": 3,
+   "name": "Qonto",
+   "country": "France",
+   "country_code": "FR",
+   "region": "europe",
+   "tranche": "unicorn",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2022-01",
+    "amount_usd": 552000000.0,
+    "amount_label": "EUR 486M (~USD 552M)",
+    "type": "Series D",
+    "investors": "led by Tiger Global and TCV"
+   },
+   "published_valuation": {
+    "value_usd": 5000000000.0,
+    "date": "2022-01",
+    "label": "EUR 4.4bn (~USD 5bn)"
+   },
+   "estimate_usd": 4500000000.0,
+   "note_internal": "2022 mark is stale; estimate from 2025 revenue and profit (growth slowed to ~10%, profit down 36%). Banking licence applied for (2025).",
+   "kpis": {
+    "customers": {
+     "value_text": "600,000 customers",
+     "period": "2026",
+     "source": "https://qonto.com/en/press"
+    },
+    "revenue": {
+     "value_text": "€495.4M",
+     "period": "FY2025",
+     "source": "https://www.boursedescredits.com/actualite-resultats-2025-fintech-francaise-qonto-confirme-rentabilite-voit-benefice-reculer-36-29808.php"
+    },
+    "profit": {
+     "value_text": "Net profit €92.8M",
+     "period": "FY2025",
+     "source": "https://www.boursedescredits.com/actualite-resultats-2025-fintech-francaise-qonto-confirme-rentabilite-voit-benefice-reculer-36-29808.php"
+    }
+   },
+   "sources": [
+    "https://en.wikipedia.org/wiki/Qonto",
+    "https://www.boursedescredits.com/actualite-resultats-2025-fintech-francaise-qonto-confirme-rentabilite-voit-benefice-reculer-36-29808.php"
+   ]
+  },
+  {
+   "rank": 4,
+   "name": "Tide",
+   "country": "United Kingdom",
+   "country_code": "GB",
+   "region": "europe",
+   "tranche": "unicorn",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2025-09",
+    "amount_usd": 120000000.0,
+    "type": "Primary and secondary investment",
+    "investors": "led by TPG (The Rise Funds)"
+   },
+   "published_valuation": {
+    "value_usd": 1500000000.0,
+    "date": "2025-09"
+   },
+   "estimate_usd": 1600000000.0,
+   "note_internal": "Member base up from 1.6M to 2M since the round; more than half now in India.",
+   "kpis": {
+    "customers": {
+     "value_text": "2M members",
+     "period": "May 2026",
+     "source": "https://www.businesswire.com/news/home/20260526076712/en/Tide-Crosses-2-Million-Members-Worldwide---Big-Step-Forward-in-Mission-to-Support-and-Grow-Small-Businesses"
+    },
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "profit": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.tpg.com/news-and-insights/tide-secures-strategic-investment-from-leading-global-investor-tpg",
+    "https://www.businesswire.com/news/home/20260526076712/en/Tide-Crosses-2-Million-Members-Worldwide---Big-Step-Forward-in-Mission-to-Support-and-Grow-Small-Businesses"
+   ]
+  },
+  {
+   "rank": 5,
+   "name": "Moniepoint",
+   "country": "Nigeria",
+   "country_code": "NG",
+   "region": "sub-saharan-africa",
+   "tranche": "unicorn",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2025-10",
+    "amount_usd": 90000000.0,
+    "type": "Series C extension (total Series C USD 200M+)",
+    "investors": "DPI (ADP III), Google Africa Investment Fund, Visa, LeapFrog, IFC"
+   },
+   "published_valuation": {
+    "value_usd": 1000000000.0,
+    "date": "2024-10",
+    "label": "over USD 1bn (unicorn)"
+   },
+   "estimate_usd": 1400000000.0,
+   "note_internal": "Exact valuation never disclosed; mixes SME banking/POS with personal banking. Profitable per company.",
+   "kpis": {
+    "customers": {
+     "value_text": "10M+ business and personal customers",
+     "period": "Oct 2025",
+     "source": "https://fintech.global/2025/10/21/moniepoint-bags-200m-series-c-to-expand-financial-inclusion/"
+    },
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "profit": {
+     "value_text": "Profitable (company statement)",
+     "period": "2025",
+     "source": "https://fintech.global/2025/10/21/moniepoint-bags-200m-series-c-to-expand-financial-inclusion/"
+    }
+   },
+   "sources": [
+    "https://fintech.global/2025/10/21/moniepoint-bags-200m-series-c-to-expand-financial-inclusion/",
+    "https://en.wikipedia.org/wiki/Moniepoint_Inc."
+   ]
+  },
+  {
+   "rank": 6,
+   "name": "Finom",
+   "country": "Netherlands",
+   "country_code": "NL",
+   "region": "europe",
+   "tranche": "hundreds_m",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2025-06",
+    "amount_usd": 133000000.0,
+    "amount_label": "EUR 115M (~USD 133M)",
+    "type": "Series C",
+    "investors": "led by AVP; Headline, General Catalyst, Northzone"
+   },
+   "published_valuation": null,
+   "estimate_usd": 600000000.0,
+   "note_internal": "Valuation undisclosed; estimate inferred from Series C size and 125k customers.",
+   "kpis": {
+    "customers": {
+     "value_text": "125,000+ customers",
+     "period": "Jun 2025",
+     "source": "https://www.eu-startups.com/2025/06/on-million-customers-by-the-end-of-2026-thats-the-goal-of-dutch-fintech-startup-finom-as-they-announce-e115-million-in-funding/"
+    },
+    "revenue": {
+     "value_text": "Doubled in 2024 (amount not disclosed)",
+     "period": "2024",
+     "source": "https://www.eu-startups.com/2025/06/on-million-customers-by-the-end-of-2026-thats-the-goal-of-dutch-fintech-startup-finom-as-they-announce-e115-million-in-funding/"
+    },
+    "profit": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.eu-startups.com/2025/06/on-million-customers-by-the-end-of-2026-thats-the-goal-of-dutch-fintech-startup-finom-as-they-announce-e115-million-in-funding/"
+   ]
+  },
+  {
+   "rank": 7,
+   "name": "Novo",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "hundreds_m",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2022-11",
+    "amount_usd": 35000000.0,
+    "type": "Equity round",
+    "investors": "led by GGV Capital"
+   },
+   "published_valuation": {
+    "value_usd": 720000000.0,
+    "date": "2022-11",
+    "label": "USD 720M pre-money"
+   },
+   "estimate_usd": 500000000.0,
+   "note_internal": "2022 mark likely stale (revenue ~$20M projected for 2022); no newer data found.",
+   "kpis": {
+    "customers": {
+     "value_text": "180,000+ small businesses",
+     "period": "Nov 2022",
+     "source": "https://refreshmiami.com/news/novo-nabs-35m-from-ggv-capital-to-expand-small-business-banking-platform/"
+    },
+    "revenue": {
+     "value_text": "$20M projected",
+     "period": "2022",
+     "source": "https://refreshmiami.com/news/novo-nabs-35m-from-ggv-capital-to-expand-small-business-banking-platform/"
+    },
+    "profit": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://refreshmiami.com/news/novo-nabs-35m-from-ggv-capital-to-expand-small-business-banking-platform/",
+    "https://www.fintechfutures.com/baas/us-sme-banking-platform-novo-raises-90m-in-series-b-funding"
+   ]
+  },
+  {
+   "rank": 8,
+   "name": "Aspire",
+   "country": "Singapore",
+   "country_code": "SG",
+   "region": "asia-pacific",
+   "tranche": "hundreds_m",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2023-02",
+    "amount_usd": 100000000.0,
+    "type": "Series C",
+    "investors": "led by Lightspeed and Sequoia Capital SEA"
+   },
+   "published_valuation": null,
+   "estimate_usd": 400000000.0,
+   "note_internal": "Valuation undisclosed; profitable since Q2 2023; data mostly 2023.",
+   "kpis": {
+    "customers": {
+     "value_text": "15,000+ businesses",
+     "period": "2023",
+     "source": "https://aspireapp.com/blog/aspire-grows-revenue-3x-yoy-hits-profitability-3-months-after-closing-us-100m-series-c"
+    },
+    "revenue": {
+     "value_text": "Tripled year-on-year (amount not disclosed)",
+     "period": "2023",
+     "source": "https://aspireapp.com/blog/aspire-grows-revenue-3x-yoy-hits-profitability-3-months-after-closing-us-100m-series-c"
+    },
+    "profit": {
+     "value_text": "Profitable",
+     "period": "since Q2 2023",
+     "source": "https://aspireapp.com/blog/aspire-grows-revenue-3x-yoy-hits-profitability-3-months-after-closing-us-100m-series-c"
+    }
+   },
+   "sources": [
+    "https://aspireapp.com/blog/aspire-closes-us-100m-series-c-round-led-by-lightspeed-and-sequoia-capital-sea",
+    "https://aspireapp.com/blog/aspire-grows-revenue-3x-yoy-hits-profitability-3-months-after-closing-us-100m-series-c"
+   ]
+  },
+  {
+   "rank": 9,
+   "name": "Cora",
+   "country": "Brazil",
+   "country_code": "BR",
+   "region": "latin-america",
+   "tranche": "hundreds_m",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2021",
+    "amount_usd": 116000000.0,
+    "type": "Series B",
+    "investors": "led by Greenoaks; Tiger Global, Tencent"
+   },
+   "published_valuation": null,
+   "estimate_usd": 350000000.0,
+   "note_internal": "Valuation undisclosed; 1.7M customers and breakeven support a hundreds_m estimate.",
+   "kpis": {
+    "customers": {
+     "value_text": "1.7M customers",
+     "period": "Q1 2026",
+     "source": "https://www.bloomberglinea.com.br/startups/cora-apoiada-por-fundos-dos-eua-entra-em-maquininhas-apos-crescer-em-contas-pj/"
+    },
+    "revenue": {
+     "value_text": "~50% YoY growth (amount not disclosed)",
+     "period": "Q1 2026",
+     "source": "https://www.bloomberglinea.com.br/startups/cora-apoiada-por-fundos-dos-eua-entra-em-maquininhas-apos-crescer-em-contas-pj/"
+    },
+    "profit": {
+     "value_text": "Breakeven",
+     "period": "2026",
+     "source": "https://www.bloomberglinea.com.br/startups/cora-apoiada-por-fundos-dos-eua-entra-em-maquininhas-apos-crescer-em-contas-pj/"
+    }
+   },
+   "sources": [
+    "https://www.bloomberglinea.com.br/startups/cora-apoiada-por-fundos-dos-eua-entra-em-maquininhas-apos-crescer-em-contas-pj/"
+   ]
+  }
+ ],
+ "radar": [
+  {
+   "name": "Slash",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2026-04",
+    "amount_usd": 100000000.0
+   }
+  },
+  {
+   "name": "Relay",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2024-05",
+    "amount_usd": 32200000.0,
+    "detail": "May 2026: USD 50M growth investment from General Catalyst Customer Value Fund (non-equity)"
+   }
+  },
+  {
+   "name": "Rho",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2021-12",
+    "amount_usd": 75000000.0,
+    "detail": "secondary market ask ~USD 350M (Mar 2026), unconfirmed"
+   }
+  },
+  {
+   "name": "Open",
+   "country": "India",
+   "country_code": "IN",
+   "region": "asia-pacific",
+   "last_equity_round": {
+    "date": "2022-05",
+    "amount_usd": 50000000.0,
+    "detail": "Series D led by IIFL; unicorn status"
+   }
+  },
+  {
+   "name": "Found",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2024-06",
+    "amount_usd": 46000000.0
+   }
+  },
+  {
+   "name": "Baselane",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2025-10",
+    "amount_usd": 34400000.0
+   }
+  },
+  {
+   "name": "NorthOne",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2022-10",
+    "amount_usd": 67000000.0
+   }
+  },
+  {
+   "name": "Lili",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2021",
+    "amount_usd": 55000000.0
+   }
+  }
+ ],
+ "listed_benchmarks": [
+  {
+   "name": "Wise",
+   "listing": "LSE · WISE",
+   "country": "United Kingdom"
+  },
+  {
+   "name": "Payoneer",
+   "listing": "Nasdaq · PAYO",
+   "country": "United States"
+  }
+ ]
+}

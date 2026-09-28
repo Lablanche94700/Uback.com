@@ -38,6 +38,31 @@ SVG = {
  'FR': _v('#0055A4', '#fff', '#EF4135'),
  'AE': _h('#00732F', '#fff', '#000') + '<rect width="12" height="32" fill="#FF0000"/>',
  'NG': _v('#008751', '#fff', '#008751'),
+ 'IL': '<rect width="48" height="32" fill="#fff"/><rect y="4" width="48" height="4" fill="#0038B8"/><rect y="24" width="48" height="4" fill="#0038B8"/>'
+       '<path d="M24,10.5 29,19 19,19ZM24,21.5 19,13 29,13Z" fill="none" stroke="#0038B8" stroke-width="1.3"/>',
+ 'NO': '<rect width="48" height="32" fill="#BA0C2F"/><path d="M17,0v32M0,16h48" stroke="#fff" stroke-width="8"/><path d="M17,0v32M0,16h48" stroke="#00205B" stroke-width="4"/>',
+ 'SG': _h('#EF3340', '#fff') + '<circle cx="11" cy="8" r="5" fill="#fff"/><circle cx="13" cy="8" r="4.5" fill="#EF3340"/>',
+ 'ID': _h('#CE1126', '#fff'),
+ 'CO': '<rect width="48" height="16" fill="#FCD116"/><rect y="16" width="48" height="8" fill="#003893"/><rect y="24" width="48" height="8" fill="#CE1126"/>',
+ 'IT': _v('#009246', '#fff', '#CE2B37'),
+ 'CH': '<rect width="48" height="32" fill="#DA291C"/><path d="M24,8v16M16,16h16" stroke="#fff" stroke-width="5"/>',
+ 'BE': _v('#000', '#FDDA24', '#EF3340'),
+ 'TW': '<rect width="48" height="32" fill="#FE0000"/><rect width="24" height="16" fill="#000095"/><circle cx="12" cy="8" r="4" fill="#fff"/>',
+ 'CN': '<rect width="48" height="32" fill="#EE1C25"/><polygon points="8,3 9.8,8.5 15.5,8.5 10.9,11.9 12.6,17.4 8,14 3.4,17.4 5.1,11.9 .5,8.5 6.2,8.5" fill="#FFFF00" transform="translate(1 1)"/>',
+ 'KR': '<rect width="48" height="32" fill="#fff"/><path d="M16,16a8,8 0 0 1 16,0Z" fill="#CD2E3A"/><path d="M16,16a8,8 0 0 0 16,0Z" fill="#0047A0"/>'
+       '<path d="M5,6 10,2M6,8 11,4M37,26 42,30M38,28 43,32M5,26 10,30M37,6 42,2" stroke="#000" stroke-width="1.6"/>',
+ 'AT': _h('#ED2939', '#fff', '#ED2939'),
+ 'BH': '<rect width="48" height="32" fill="#CE1126"/><polygon points="0,0 14,0 19,3.2 14,6.4 19,9.6 14,12.8 19,16 14,19.2 19,22.4 14,25.6 19,28.8 14,32 0,32" fill="#fff"/>',
+ 'KE': _h('#000', '#BB0000', '#006600') + '<rect y="10" width="48" height="1.6" fill="#fff"/><rect y="20.4" width="48" height="1.6" fill="#fff"/>'
+       '<ellipse cx="24" cy="16" rx="4" ry="8" fill="#BB0000" stroke="#000" stroke-width="1"/>',
+ 'BD': '<rect width="48" height="32" fill="#006A4E"/><circle cx="21.5" cy="16" r="8" fill="#F42A41"/>',
+ 'SN': _v('#00853F', '#FDEF42', '#E31B23') + '<polygon points="24,11 25.5,15 29.5,15 26.3,17.5 27.4,21.5 24,19 20.6,21.5 21.7,17.5 18.5,15 22.5,15" fill="#00853F"/>',
+ 'TH': '<rect width="48" height="32" fill="#A51931"/><rect y="5.33" width="48" height="21.33" fill="#F4F5F8"/><rect y="10.67" width="48" height="10.67" fill="#2D2A4A"/>',
+ 'GR': _h(*['#0D5EAF', '#fff'] * 4, '#0D5EAF') + '<rect width="17.8" height="17.8" fill="#0D5EAF"/><path d="M8.9,0v17.8M0,8.9h17.8" stroke="#fff" stroke-width="3.6"/>',
+ 'EC': '<rect width="48" height="16" fill="#FFDD00"/><rect y="16" width="48" height="8" fill="#034EA2"/><rect y="24" width="48" height="8" fill="#ED1C24"/><circle cx="24" cy="16" r="4" fill="#8C5A2B"/>',
+ 'IE': _v('#169B62', '#fff', '#FF883E'),
+ 'SV': _h('#0047AB', '#fff', '#0047AB') + '<circle cx="24" cy="16" r="3.2" fill="none" stroke="#C9A227" stroke-width="1.2"/>',
+ 'PT': '<rect width="48" height="32" fill="#FF0000"/><rect width="19.2" height="32" fill="#006600"/><circle cx="19.2" cy="16" r="6" fill="#FFE900"/><circle cx="19.2" cy="16" r="3.6" fill="#FF0000"/>',
 }
 
 def flag(code, cls='flag-s'):

@@ -213,6 +213,9 @@ def og_image(d, n, out_dir):
             subprocess.run([EDGE, '--headless=new', '--disable-gpu', '--hide-scrollbars', '--force-device-scale-factor=1',
                             '--window-size=1200,630', '--virtual-time-budget=5000', f'--screenshot={png}',
                             'file:///' + f.replace('\\', '/')], capture_output=True)
+        if not os.path.exists(png):
+            print('  ! image de partage non rendue (Edge n’a rien produit) : relancer le script')
+            return v
         cache[d['segment_id']] = v
         open(OG_CACHE, 'w', encoding='utf-8', newline='\n').write(json.dumps(cache, indent=2, sort_keys=True) + '\n')
         print('  image de partage rendue')

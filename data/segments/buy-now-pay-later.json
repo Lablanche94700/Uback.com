@@ -1,0 +1,550 @@
+{
+ "segment_id": "buy-now-pay-later",
+ "path": [
+  "Fintech",
+  "Payments",
+  "Buy now, pay later"
+ ],
+ "name": "Buy now, pay later",
+ "edition": 0,
+ "edition_label": "Edition 0 (beta)",
+ "published": "2026-09-29",
+ "next_edition": "2027-01-01",
+ "cadence": "Twice a year",
+ "kpi_definitions": [
+  {
+   "id": "volume",
+   "label": "Transaction volume"
+  },
+  {
+   "id": "revenue",
+   "label": "Revenue",
+   "prefix": true
+  },
+  {
+   "id": "profit",
+   "label": "Profit"
+  }
+ ],
+ "established_by": "Claude (Anthropic)",
+ "texts": {
+  "title": "The world's most valuable buy now, pay later providers, ranked by AI | Uback",
+  "description": "Uback ranks the world's non-listed buy now, pay later providers by AI-estimated valuation: Tabby, Tamara, Atome, Sunbit, Zilch and more. Edition 0 (beta).",
+  "h1": "The world’s most valuable buy now, pay later providers",
+  "intro": "Consumer point-of-sale instalment providers that let shoppers split payments at checkout, online and in store. Ranked worldwide by AI-estimated valuation. The market sets the value; our AI estimates it.",
+  "not_in_segment": "B2B BNPL and invoice financing, general consumer credit, card acquiring and neobanks each have their own segment. A company appears in one segment only.",
+  "activity": "split payments at checkout, online and in store",
+  "og_title": "The world’s most valuable<br>buy now, pay later providers",
+  "sources": "TechCrunch, FinTech Futures, Argaam, AGBI, City A.M., Sifted, Maddyness, DealStreetAsia, Fintech News Singapore, Crowdfund Insider, Entrackr, Inc42, fwdstart, Sacra, company announcements."
+ },
+ "ranked": [
+  {
+   "rank": 1,
+   "name": "Tabby",
+   "country": "Saudi Arabia",
+   "country_code": "SA",
+   "region": "mena",
+   "tranche": "unicorn",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2025-10",
+    "amount_usd": null,
+    "amount_label": "undisclosed",
+    "type": "Secondary share sale",
+    "investors": "HSG, Boyu Capital",
+    "detail": "last primary round Feb 2025: USD 160M Series E at USD 3.3B, led by Blue Pool Capital and Hassana"
+   },
+   "published_valuation": {
+    "value_usd": 4500000000.0,
+    "date": "2025-10"
+   },
+   "estimate_usd": 5000000000.0,
+   "note_internal": "Tadawul IPO in preparation (not listed as of Sep 2026). Profitable; annualised volume grew from $10B (Feb 2025) to $18B (Jul 2026).",
+   "kpis": {
+    "volume": {
+     "value_text": "$18B annualised sales volume",
+     "period": "Jul 2026",
+     "source": "https://www.fwdstart.me/p/tabby-launches-tabby-cash-its-first-product-on-the-uae-wallet-licence-as-it-pushes-beyond-bnpl"
+    },
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "profit": {
+     "value_text": "Profitable (amount not disclosed)",
+     "period": "Feb 2025",
+     "source": "https://techcrunch.com/2025/02/11/tabby-lands-160m-at-a-3-3b-valuation-as-it-expands-beyond-bnpl/"
+    }
+   },
+   "sources": [
+    "https://tabby.ai/en-AE/newsroom/secondary-share-sale",
+    "https://techcrunch.com/2025/02/11/tabby-lands-160m-at-a-3-3b-valuation-as-it-expands-beyond-bnpl/",
+    "https://www.fwdstart.me/p/tabby-launches-tabby-cash-its-first-product-on-the-uae-wallet-licence-as-it-pushes-beyond-bnpl"
+   ]
+  },
+  {
+   "rank": 2,
+   "name": "Tamara",
+   "country": "Saudi Arabia",
+   "country_code": "SA",
+   "region": "mena",
+   "tranche": "unicorn",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2023-12",
+    "amount_usd": 340000000.0,
+    "type": "Series C",
+    "investors": "Sanabil Investments, SNB Capital"
+   },
+   "published_valuation": {
+    "value_usd": 1000000000.0,
+    "date": "2023-12"
+   },
+   "estimate_usd": 2500000000.0,
+   "note_internal": "Only 'USD 1B+' published (2023). Strong swing to profit: SAR 193M in 2025, SAR 123M in Q1 2026 alone; USD 2.4B asset-backed facility Sep 2025 (debt).",
+   "kpis": {
+    "volume": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "revenue": {
+     "value_text": "Net finance commission income SAR 762.8M",
+     "period": "FY2025",
+     "source": "https://www.argaam.com/en/financial-reports/company-report/18234/2025/1"
+    },
+    "profit": {
+     "value_text": "Net profit SAR 193.4M",
+     "period": "FY2025",
+     "source": "https://www.argaam.com/en/financial-reports/company-report/18234/2025/1"
+    }
+   },
+   "sources": [
+    "https://www.fintechfutures.com/bnpl-payments/saudi-bnpl-fintech-tamara-lands-340m-series-c-funding-at-1bn-valuation",
+    "https://www.argaam.com/en/financial-reports/company-report/18234/2025/1",
+    "https://www.argaam.com/en/financial-reports/company-report/18234/2026/70"
+   ]
+  },
+  {
+   "rank": 3,
+   "name": "Atome Financial",
+   "country": "Singapore",
+   "country_code": "SG",
+   "region": "asia-pacific",
+   "tranche": "unicorn",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2026-05",
+    "amount_usd": 149000000.0,
+    "type": "Capital injection",
+    "investors": "Advance Intelligence Group (parent)",
+    "detail": "Sep 2026: Grab agreed to buy 60% for USD 1.49B (incl. USD 260M growth capital), closing expected by Q3 2027"
+   },
+   "published_valuation": null,
+   "estimate_usd": 2450000000.0,
+   "note_internal": "Grab 60% for $1.49B implies ~$2.5B post-money (my calc, not published). Pending: if closed, exit from ranking. Outside equity sits at parent AIG level.",
+   "kpis": {
+    "volume": {
+     "value_text": "GMV over $2B",
+     "period": "FY2024",
+     "source": "https://fintechnews.sg/131175/funding/atome-financial-capital-injection/"
+    },
+    "revenue": {
+     "value_text": "Operating income $236M",
+     "period": "FY2024",
+     "source": "https://fintechnews.sg/131175/funding/atome-financial-capital-injection/"
+    },
+    "profit": {
+     "value_text": "First full-year profit",
+     "period": "FY2024",
+     "source": "https://fintechnews.sg/131175/funding/atome-financial-capital-injection/"
+    }
+   },
+   "sources": [
+    "https://www.crowdfundinsider.com/2026/09/310821-grab-holdings-to-acquire-60-of-atome-financial-for-1-49-billion/",
+    "https://fintechnews.sg/131175/funding/atome-financial-capital-injection/"
+   ]
+  },
+  {
+   "rank": 4,
+   "name": "Sunbit",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2021-05",
+    "amount_usd": 130000000.0,
+    "type": "Series D",
+    "investors": "not specified"
+   },
+   "published_valuation": {
+    "value_usd": 1100000000.0,
+    "date": "2021-05"
+   },
+   "estimate_usd": 1500000000.0,
+   "note_internal": "Old valuation; revenue $343M in 2025, positive operating income, $200M ABS Aug 2025.",
+   "kpis": {
+    "volume": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "revenue": {
+     "value_text": "$343M",
+     "period": "FY2025",
+     "source": "https://stockanalysis.com/private/sunbit/"
+    },
+    "profit": {
+     "value_text": "Positive operating income",
+     "period": "2025",
+     "source": "https://stockanalysis.com/private/sunbit/"
+    }
+   },
+   "sources": [
+    "https://stockanalysis.com/private/sunbit/",
+    "https://labusinessjournal.com/technology/sunbit-raises-130-million-series-d/"
+   ]
+  },
+  {
+   "rank": 5,
+   "name": "Akulaku",
+   "country": "Indonesia",
+   "country_code": "ID",
+   "region": "asia-pacific",
+   "tranche": "unicorn",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2022-12",
+    "amount_usd": 200000000.0,
+    "type": "Strategic investment",
+    "investors": "MUFG"
+   },
+   "published_valuation": {
+    "value_usd": 2000000000.0,
+    "date": "2022-12"
+   },
+   "estimate_usd": 1400000000.0,
+   "note_internal": "USD 2B figure reported by a single secondary source. Confidential HK IPO filing reported Sep 2026 (target $300-500M). Thin profit (Rp 108B in 2025).",
+   "kpis": {
+    "volume": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "profit": {
+     "value_text": "Net profit Rp 108B",
+     "period": "FY2025",
+     "source": "https://www.rancakmedia.com/finance/98506/fintech-akulaku-reportedly-files-hong-kong-ipo-targets-500m/"
+    }
+   },
+   "sources": [
+    "https://www.rancakmedia.com/finance/98506/fintech-akulaku-reportedly-files-hong-kong-ipo-targets-500m/"
+   ]
+  },
+  {
+   "rank": 6,
+   "name": "Kredivo",
+   "country": "Indonesia",
+   "country_code": "ID",
+   "region": "asia-pacific",
+   "tranche": "unicorn",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2025-12",
+    "amount_usd": 100000000.0,
+    "amount_label": "USD 100M+",
+    "type": "Secondary share sale",
+    "investors": "Mizuho",
+    "detail": "last primary round Mar 2023: USD 270M Series D led by Mizuho"
+   },
+   "published_valuation": null,
+   "estimate_usd": 1300000000.0,
+   "note_internal": "Valuation never disclosed; 2022 SPAC at $2.5B withdrawn. Estimate largely inferred.",
+   "kpis": {
+    "volume": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "profit": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.dealstreetasia.com/stories/kredivo-new-round-466109",
+    "https://techcrunch.com/2023/03/22/kredivo-series-d/amp"
+   ]
+  },
+  {
+   "rank": 7,
+   "name": "Zilch",
+   "country": "United Kingdom",
+   "country_code": "GB",
+   "region": "europe",
+   "tranche": "hundreds_m",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2025-11",
+    "amount_usd": 175000000.0,
+    "amount_label": "USD 175M (equity and debt, split undisclosed)",
+    "type": "Equity and debt raise",
+    "investors": "KKCG, BNF Capital"
+   },
+   "published_valuation": {
+    "value_usd": 2000000000.0,
+    "date": "2021-11"
+   },
+   "estimate_usd": 900000000.0,
+   "note_internal": "2021 $2B valuation stale; BNPL comps de-rated (Klarna). Revenue £110M, still loss-making on annual basis. IPO talk 2026.",
+   "kpis": {
+    "volume": {
+     "value_text": "GMV £1.9B",
+     "period": "FY2025 (reported Aug 2025)",
+     "source": "https://www.cityam.com/zilch-hikes-provisions-amid-record-year-for-customer-growth/"
+    },
+    "revenue": {
+     "value_text": "£110.3M",
+     "period": "FY2025 (reported Aug 2025)",
+     "source": "https://www.cityam.com/zilch-hikes-provisions-amid-record-year-for-customer-growth/"
+    },
+    "profit": {
+     "value_text": "Net loss £10.5M",
+     "period": "FY2025 (reported Aug 2025)",
+     "source": "https://www.cityam.com/zilch-hikes-provisions-amid-record-year-for-customer-growth/"
+    }
+   },
+   "sources": [
+    "https://www.fintechfutures.com/venture-capital-funding/zilch-secures-175m-raise-ahead-of-potential-2026-ipo",
+    "https://www.cityam.com/zilch-hikes-provisions-amid-record-year-for-customer-growth/"
+   ]
+  },
+  {
+   "rank": 8,
+   "name": "Addi",
+   "country": "Colombia",
+   "country_code": "CO",
+   "region": "latin-america",
+   "tranche": "hundreds_m",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2026-07",
+    "amount_usd": 85000000.0,
+    "type": "Series D",
+    "investors": "Citius, BTG Pactual, GIC, Monashees"
+   },
+   "published_valuation": null,
+   "estimate_usd": 700000000.0,
+   "note_internal": "Valuation undisclosed. $150M ARR, four profitable quarters, 3M customers.",
+   "kpis": {
+    "volume": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "revenue": {
+     "value_text": "$150M ARR",
+     "period": "Jul 2026",
+     "source": "https://business.blab.com/2026-07-23-colombian-fintech-addi-raises-630-million-in-debt-and-equity-to-expand-buy-now-pay-later-platform"
+    },
+    "profit": {
+     "value_text": "Four consecutive profitable quarters",
+     "period": "Jul 2026",
+     "source": "https://business.blab.com/2026-07-23-colombian-fintech-addi-raises-630-million-in-debt-and-equity-to-expand-buy-now-pay-later-platform"
+    }
+   },
+   "sources": [
+    "https://www.fintechfutures.com/venture-capital-funding/colombia-bnpl-addi-85m-series-d",
+    "https://business.blab.com/2026-07-23-colombian-fintech-addi-raises-630-million-in-debt-and-equity-to-expand-buy-now-pay-later-platform"
+   ]
+  },
+  {
+   "rank": 9,
+   "name": "Alma",
+   "country": "France",
+   "country_code": "FR",
+   "region": "europe",
+   "tranche": "hundreds_m",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2022-02",
+    "amount_usd": null,
+    "amount_label": "EUR 115M",
+    "type": "Series C",
+    "investors": "Cathay Innovation, Eurazeo, Tencent"
+   },
+   "published_valuation": null,
+   "estimate_usd": 650000000.0,
+   "note_internal": "Valuation undisclosed ('approaching unicorn' in 2022). Profitable 2025, ARR €114M, GMV €2.5B.",
+   "kpis": {
+    "volume": {
+     "value_text": "GMV €2.5B",
+     "period": "FY2025",
+     "source": "https://www.maddyness.com/2026/03/16/paiement-fractionne-alma-devient-profitable-avec-plus-de-100-millions-deuros-de-chiffre-daffaires/"
+    },
+    "revenue": {
+     "value_text": "€114M ARR",
+     "period": "FY2025",
+     "source": "https://www.maddyness.com/2026/03/16/paiement-fractionne-alma-devient-profitable-avec-plus-de-100-millions-deuros-de-chiffre-daffaires/"
+    },
+    "profit": {
+     "value_text": "First net profit (amount not disclosed)",
+     "period": "FY2025",
+     "source": "https://www.maddyness.com/2026/03/16/paiement-fractionne-alma-devient-profitable-avec-plus-de-100-millions-deuros-de-chiffre-daffaires/"
+    }
+   },
+   "sources": [
+    "https://www.maddyness.com/2026/03/16/paiement-fractionne-alma-devient-profitable-avec-plus-de-100-millions-deuros-de-chiffre-daffaires/",
+    "https://business-cool.com/actualites/actu-business/alma-annonce-levee-de-115-millions-euros/"
+   ]
+  },
+  {
+   "rank": 10,
+   "name": "Snapmint",
+   "country": "India",
+   "country_code": "IN",
+   "region": "asia-pacific",
+   "tranche": "hundreds_m",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2025-10",
+    "amount_usd": 125000000.0,
+    "type": "Series B",
+    "investors": "General Atlantic"
+   },
+   "published_valuation": null,
+   "estimate_usd": 550000000.0,
+   "note_internal": "Valuation undisclosed; GA holds 18.8% post-round. Profitable, revenue guided to double in FY26.",
+   "kpis": {
+    "volume": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "revenue": {
+     "value_text": "Rs 158.5 crore",
+     "period": "FY2025 (to Mar 2025)",
+     "source": "https://entrackr.com/news/bnpl-startup-snapmint-raises-125-mn-led-by-general-atlantic-10609243"
+    },
+    "profit": {
+     "value_text": "Net profit Rs 15 crore",
+     "period": "FY2025 (to Mar 2025)",
+     "source": "https://entrackr.com/news/bnpl-startup-snapmint-raises-125-mn-led-by-general-atlantic-10609243"
+    }
+   },
+   "sources": [
+    "https://entrackr.com/news/bnpl-startup-snapmint-raises-125-mn-led-by-general-atlantic-10609243",
+    "https://inc42.com/buzz/snapmint-raises-125-mn-to-expand-its-merchant-network/"
+   ]
+  },
+  {
+   "rank": 11,
+   "name": "Scalapay",
+   "country": "Italy",
+   "country_code": "IT",
+   "region": "europe",
+   "tranche": "hundreds_m",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2022-05",
+    "amount_usd": 27000000.0,
+    "type": "Strategic investment",
+    "investors": "Poste Italiane",
+    "detail": "Feb 2022: USD 497M Series B led by Tencent and Willoughby Capital (unicorn status)"
+   },
+   "published_valuation": null,
+   "estimate_usd": 500000000.0,
+   "note_internal": "2022 unicorn round (incl. debt) far above current fundamentals: revenue ~$62M in 2024, monthly breakeven 2025. No equity since 2022.",
+   "kpis": {
+    "volume": {
+     "value_text": "Over $1.5B",
+     "period": "FY2024",
+     "source": "https://sacra.com/c/scalapay/"
+    },
+    "revenue": {
+     "value_text": "$61.6M",
+     "period": "FY2024",
+     "source": "https://sacra.com/c/scalapay/"
+    },
+    "profit": {
+     "value_text": "Monthly breakeven",
+     "period": "2025",
+     "source": "https://sacra.com/c/scalapay/"
+    }
+   },
+   "sources": [
+    "https://en.wikipedia.org/wiki/Scalapay",
+    "https://sacra.com/c/scalapay/"
+   ]
+  }
+ ],
+ "radar": [
+  {
+   "name": "Aplazo",
+   "country": "Mexico",
+   "country_code": "MX",
+   "region": "latin-america",
+   "last_equity_round": {
+    "date": "2024-05",
+    "amount_usd": 45000000.0,
+    "detail": "Series B led by QED Investors (USD 70M incl. earlier tranches)"
+   }
+  }
+ ],
+ "listed_benchmarks": [
+  {
+   "name": "Klarna",
+   "listing": "NYSE · KLAR",
+   "country": "Sweden"
+  },
+  {
+   "name": "Affirm",
+   "listing": "Nasdaq · AFRM",
+   "country": "United States"
+  },
+  {
+   "name": "Block (Afterpay)",
+   "listing": "NYSE · XYZ",
+   "country": "United States"
+  },
+  {
+   "name": "Sezzle",
+   "listing": "Nasdaq · SEZL",
+   "country": "United States"
+  },
+  {
+   "name": "Zip Co",
+   "listing": "ASX · ZIP",
+   "country": "Australia"
+  },
+  {
+   "name": "Katapult",
+   "listing": "Nasdaq · KPLT",
+   "country": "United States"
+  },
+  {
+   "name": "Net Protections",
+   "listing": "TSE · 7383",
+   "country": "Japan"
+  },
+  {
+   "name": "valU",
+   "listing": "EGX · VALU",
+   "country": "Egypt"
+  }
+ ]
+}

@@ -1,0 +1,521 @@
+{
+ "segment_id": "cross-border-remittances",
+ "path": [
+  "Fintech",
+  "Payments",
+  "Cross-border remittances"
+ ],
+ "name": "Cross-border remittances",
+ "edition": 0,
+ "edition_label": "Edition 0 (beta)",
+ "published": "2026-09-29",
+ "next_edition": "2027-01-01",
+ "cadence": "Twice a year",
+ "kpi_definitions": [
+  {
+   "id": "revenue",
+   "label": "Revenue",
+   "prefix": true
+  },
+  {
+   "id": "volume",
+   "label": "Volume"
+  },
+  {
+   "id": "customers",
+   "label": "Customers"
+  }
+ ],
+ "established_by": "Claude (Anthropic)",
+ "texts": {
+  "title": "The world's most valuable cross-border remittance companies, ranked by AI | Uback",
+  "description": "Uback ranks the world's non-listed cross-border remittance players by AI-estimated valuation: Zepz, Félix, Thunes, Nium, TerraPay and more. Edition 0.",
+  "h1": "The world’s most valuable cross-border remittance companies",
+  "intro": "Companies moving money across borders for individuals, and the payout networks that deliver those transfers worldwide. Ranked worldwide by AI-estimated valuation. The market sets the value; our AI estimates it.",
+  "not_in_segment": "Online payments and acquiring, business accounts, mobile wallets, stablecoin issuers and crypto exchanges each have their own segment. A company appears in one segment only.",
+  "activity": "cross-border money transfers and payout networks",
+  "og_title": "The world’s most valuable<br>cross-border remittance companies",
+  "sources": "TechCrunch, Crunchbase News, CoinDesk, FinTech Futures, TechCabal, Disrupt Africa, EU-Startups, Tech Funding News, The Paypers, Fintech News Singapore, PR Newswire, IFC, company announcements."
+ },
+ "ranked": [
+  {
+   "rank": 1,
+   "name": "Zepz (WorldRemit, Sendwave)",
+   "country": "United Kingdom",
+   "country_code": "GB",
+   "region": "europe",
+   "tranche": "unicorn",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2024-10",
+    "amount_usd": 267000000.0,
+    "type": "Series F",
+    "investors": "Accel (lead), Leapfrog, TCV, IFC"
+   },
+   "published_valuation": null,
+   "estimate_usd": 1600000000.0,
+   "note_internal": "USD 5B valuation (2021 Series E) is stale; Series F valuation undisclosed, likely well below after 2023–24 restructuring. EUR 152M HSBC debt facility Apr 2025.",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "volume": {
+     "value_text": "8M transactions per month",
+     "period": "2025",
+     "source": "https://www.eu-startups.com/2025/04/zepz-secures-e152-million-financing-to-enhance-global-remittances-across-worldremit-and-sendwave/"
+    },
+    "customers": {
+     "value_text": "9M+ users",
+     "period": "2025",
+     "source": "https://www.eu-startups.com/2025/04/zepz-secures-e152-million-financing-to-enhance-global-remittances-across-worldremit-and-sendwave/"
+    }
+   },
+   "sources": [
+    "https://www.fintechfutures.com/venture-capital-funding/zepz-secures-267m-series-f-led-by-accel",
+    "https://www.eu-startups.com/2025/04/zepz-secures-e152-million-financing-to-enhance-global-remittances-across-worldremit-and-sendwave/"
+   ]
+  },
+  {
+   "rank": 2,
+   "name": "Félix",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2026-09",
+    "amount_usd": 87000000.0,
+    "type": "Series C",
+    "investors": "a16z (equity), General Catalyst (USD 113M credit facility)",
+    "detail": "USD 200M round in total, incl. USD 113M debt"
+   },
+   "published_valuation": {
+    "value_usd": 1400000000.0,
+    "date": "2026-09"
+   },
+   "estimate_usd": 1400000000.0,
+   "note_internal": "USD 1.4B reported by secondary outlets; Crunchbase News only says valuation tripled since Series B (reported USD 484.5M). WhatsApp remittances US→LatAm, stablecoin settlement.",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "volume": {
+     "value_text": "$8B+ processed to date",
+     "period": "to Sep 2026",
+     "source": "https://news.crunchbase.com/venture/fintech-whatsapp-remittance-startup-felix-raises-200m-a16z-general-catalyst/"
+    },
+    "customers": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://news.crunchbase.com/venture/fintech-whatsapp-remittance-startup-felix-raises-200m-a16z-general-catalyst/",
+    "https://fintech.garden/news/2026-09-02-felix-pago-closes-200m-round-at-14b-valuation-plans-to-add-lending-and-ai-servic/"
+   ]
+  },
+  {
+   "rank": 3,
+   "name": "Thunes",
+   "country": "Singapore",
+   "country_code": "SG",
+   "region": "asia-pacific",
+   "tranche": "unicorn",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2025-04",
+    "amount_usd": 150000000.0,
+    "type": "Series D",
+    "investors": "Apis Partners, Vitruvian Partners"
+   },
+   "published_valuation": null,
+   "estimate_usd": 1300000000.0,
+   "note_internal": "Valuation undisclosed ('substantial increase over last round'). Profitable, EBITDA-positive; B2B payout network in 130+ countries.",
+   "kpis": {
+    "revenue": {
+     "value_text": "$150M run-rate",
+     "period": "Apr 2025",
+     "source": "https://www.prnewswire.com/news-releases/thunes-raises-usd-150-million-in-series-d-led-by-apis-partners-and-vitruvian-partners-302439055.html"
+    },
+    "volume": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.prnewswire.com/news-releases/thunes-raises-usd-150-million-in-series-d-led-by-apis-partners-and-vitruvian-partners-302439055.html"
+   ]
+  },
+  {
+   "rank": 4,
+   "name": "Nium",
+   "country": "Singapore",
+   "country_code": "SG",
+   "region": "asia-pacific",
+   "tranche": "unicorn",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2024-06",
+    "amount_usd": 50000000.0,
+    "type": "Series E",
+    "investors": "Brunei Investment Agency (lead), BOND, NewView, Tribe"
+   },
+   "published_valuation": {
+    "value_usd": 1400000000.0,
+    "date": "2024-06"
+   },
+   "estimate_usd": 1200000000.0,
+   "note_internal": "Down-round (from USD 2.1B in 2021); still loss-making (S$88.1M net loss 2024); IPO pushed to late 2026 or later.",
+   "kpis": {
+    "revenue": {
+     "value_text": "S$167.2M",
+     "period": "FY2024",
+     "source": "https://fintechnews.sg/125120/payments/nium-loss-2024/"
+    },
+    "volume": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.nium.com/newsroom/nium-raises-us50-million-in-series-e-round-to-expand-real-time-payments-global-infrastructure",
+    "https://fintechnews.sg/125120/payments/nium-loss-2024/"
+   ]
+  },
+  {
+   "rank": 5,
+   "name": "TerraPay",
+   "country": "Netherlands",
+   "country_code": "NL",
+   "region": "europe",
+   "tranche": "hundreds_m",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2023-04",
+    "amount_usd": null,
+    "amount_label": "undisclosed share of USD 100M+ equity and debt",
+    "type": "Series B",
+    "investors": "IFC (lead), Prime Ventures, Partech Africa, DFC"
+   },
+   "published_valuation": null,
+   "estimate_usd": 600000000.0,
+   "note_internal": "No valuation ever published; said to be profitable; USD 75M IFC-led debt package Jul 2024. Estimate inferred from peers (Thunes).",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "volume": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.terrapay.com/media/terrapay-a-leading-global-payments-infrastructure-company-has-successfully-closed-its-series-b-equity-financing-round-raising-in-excess-of-100-million-in-equity-and-debt-financing/",
+    "https://www.ifc.org/en/pressroom/2024/ifc-deepens-partnership-with-terrapay-to-boost-access-to-international-remittances-in-africa"
+   ]
+  },
+  {
+   "rank": 6,
+   "name": "Aspora",
+   "country": "United Kingdom",
+   "country_code": "GB",
+   "region": "europe",
+   "tranche": "hundreds_m",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2025-06",
+    "amount_usd": 50000000.0,
+    "type": "Series B",
+    "investors": "Sequoia (lead), Greylock, Hummingbird, Quantum Light, Y Combinator"
+   },
+   "published_valuation": {
+    "value_usd": 500000000.0,
+    "date": "2025-06"
+   },
+   "estimate_usd": 550000000.0,
+   "note_internal": "Remittances for the Indian diaspora (ex-Vance). Possible later raise reported (USD 93M in 6 months), unconfirmed.",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "volume": {
+     "value_text": "$4B",
+     "period": "to Nov 2025",
+     "source": "https://techcrunch.com/2025/11/17/sequoia-backed-fintech-aspora-will-let-indian-diaspora-pay-bills-back-home/"
+    },
+    "customers": {
+     "value_text": "800,000",
+     "period": "Nov 2025",
+     "source": "https://techcrunch.com/2025/11/17/sequoia-backed-fintech-aspora-will-let-indian-diaspora-pay-bills-back-home/"
+    }
+   },
+   "sources": [
+    "https://techcrunch.com/2025/11/17/sequoia-backed-fintech-aspora-will-let-indian-diaspora-pay-bills-back-home/"
+   ]
+  },
+  {
+   "rank": 7,
+   "name": "OpenFX",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "hundreds_m",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2026-03",
+    "amount_usd": 94000000.0,
+    "type": "Equity round",
+    "investors": "Accel, Lightspeed Faction, M13, Northzone, Pantera"
+   },
+   "published_valuation": {
+    "value_usd": 500000000.0,
+    "date": "2026-03"
+   },
+   "estimate_usd": 500000000.0,
+   "note_internal": "B2B cross-border FX on stablecoin rails; founded 2024, fast volume growth.",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "volume": {
+     "value_text": "$45B+ annualized",
+     "period": "Mar 2026",
+     "source": "https://www.coindesk.com/business/2026/03/31/forex-startup-openfx-raises-usd94-million-to-expand-stablecoin-powered-cross-border-payments"
+    },
+    "customers": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.coindesk.com/business/2026/03/31/forex-startup-openfx-raises-usd94-million-to-expand-stablecoin-powered-cross-border-payments"
+   ]
+  },
+  {
+   "rank": 8,
+   "name": "Paysend",
+   "country": "United Kingdom",
+   "country_code": "GB",
+   "region": "europe",
+   "tranche": "hundreds_m",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2023-12",
+    "amount_usd": 65000000.0,
+    "type": "Equity round",
+    "investors": "Mastercard, TelevisaUnivision, Infravia, One Peak",
+    "detail": "Apr 2026: USD 25M follow-on from Claret Capital"
+   },
+   "published_valuation": null,
+   "estimate_usd": 480000000.0,
+   "note_internal": "Valuation never published. Claret Capital's USD 25M (Apr 2026) may be growth debt rather than equity.",
+   "kpis": {
+    "revenue": {
+     "value_text": "$100M+",
+     "period": "2026",
+     "source": "https://techfundingnews.com/paysend-raises-25m-claret-capital-cross-border-payments/"
+    },
+    "volume": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "12M+",
+     "period": "2026",
+     "source": "https://techfundingnews.com/paysend-raises-25m-claret-capital-cross-border-payments/"
+    }
+   },
+   "sources": [
+    "https://www.fintechfutures.com/paytech/uk-fintech-paysend-lands-65m-in-fresh-funding-round",
+    "https://techfundingnews.com/paysend-raises-25m-claret-capital-cross-border-payments/"
+   ]
+  },
+  {
+   "rank": 9,
+   "name": "LemFi",
+   "country": "United Kingdom",
+   "country_code": "GB",
+   "region": "europe",
+   "tranche": "hundreds_m",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2025-01",
+    "amount_usd": 53000000.0,
+    "type": "Series B",
+    "investors": "Highland Europe (lead), Left Lane, Palm Drive, Endeavor Catalyst, YC"
+   },
+   "published_valuation": null,
+   "estimate_usd": 450000000.0,
+   "note_internal": "EUR 30M Series B extension reported May 2026, not confirmed. Valuation undisclosed; strong volume growth.",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "volume": {
+     "value_text": "$1B+ per month",
+     "period": "2025",
+     "source": "https://thepaypers.com/fintech/news/lemfi-reportedly-set-to-secure-eur-30-mln-extension-to-series-b-round"
+    },
+    "customers": {
+     "value_text": "2M+",
+     "period": "2026",
+     "source": "https://disruptafrica.com/2026/04/30/lemfi-commits-100m-to-global-expansion-strengthening-financial-access-across-africa-and-beyond/"
+    }
+   },
+   "sources": [
+    "https://thepaypers.com/fintech/news/lemfi-reportedly-set-to-secure-eur-30-mln-extension-to-series-b-round",
+    "https://disruptafrica.com/2026/04/30/lemfi-commits-100m-to-global-expansion-strengthening-financial-access-across-africa-and-beyond/"
+   ]
+  },
+  {
+   "rank": 10,
+   "name": "Chipper Cash",
+   "country": "Nigeria",
+   "country_code": "NG",
+   "region": "sub-saharan-africa",
+   "tranche": "hundreds_m",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2021-11",
+    "amount_usd": 150000000.0,
+    "type": "Series C extension",
+    "investors": "FTX (lead), SVB Capital, Ribbit, Bezos Expeditions"
+   },
+   "published_valuation": {
+    "value_usd": 2200000000.0,
+    "date": "2021-11"
+   },
+   "estimate_usd": 400000000.0,
+   "note_internal": "2021 USD 2.2B valuation obsolete; Forbes (2023) reported USD 250–500M. First cash-flow-positive quarter Q4 2025. HQ San Francisco, operations across Africa.",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "volume": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.fintechfutures.com/branches-atms/chipper-cash-lands-unicorn-status-with-150m-series-c-extension",
+    "https://techcabal.com/2026/01/21/chipper-cash-posts-first-quarter-without-cash-burn/"
+   ]
+  }
+ ],
+ "radar": [
+  {
+   "name": "Taptap Send",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2021-12",
+    "amount_usd": 65000000.0
+   }
+  },
+  {
+   "name": "NALA",
+   "country": "United Kingdom",
+   "country_code": "GB",
+   "region": "europe",
+   "last_equity_round": {
+    "date": "2024-07",
+    "amount_usd": 40000000.0
+   }
+  },
+  {
+   "name": "TransferGo",
+   "country": "United Kingdom",
+   "country_code": "GB",
+   "region": "europe",
+   "last_equity_round": {
+    "date": "2024",
+    "amount_label": "USD 10M (reported)"
+   }
+  },
+  {
+   "name": "Afriex",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2022-04",
+    "amount_usd": 10000000.0
+   }
+  }
+ ],
+ "listed_benchmarks": [
+  {
+   "name": "Wise",
+   "listing": "LSE · WISE",
+   "country": "United Kingdom"
+  },
+  {
+   "name": "Remitly",
+   "listing": "Nasdaq · RELY",
+   "country": "United States"
+  },
+  {
+   "name": "Western Union",
+   "listing": "NYSE · WU",
+   "country": "United States"
+  },
+  {
+   "name": "Euronet Worldwide (Ria)",
+   "listing": "Nasdaq · EEFT",
+   "country": "United States"
+  },
+  {
+   "name": "dLocal",
+   "listing": "Nasdaq · DLO",
+   "country": "Uruguay"
+  },
+  {
+   "name": "Payoneer",
+   "listing": "Nasdaq · PAYO",
+   "country": "United States"
+  }
+ ]
+}
