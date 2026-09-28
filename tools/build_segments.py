@@ -157,24 +157,32 @@ def radar_li(r):
         txt += f"; {rd['detail']}"
     return f'<li data-region="{r["region"]}"><span><b>{e(r["name"])}</b> · {where(r)}</span><span>{e(txt)}</span></li>'
 
-def switcher(d):
-    """Sélecteur de la famille (ex. « Fintech ») : les segments publiés de la famille, groupés par secteur,
+def family_slug(name):
+    """« Fintech » → « fintech » (adresse de la page famille : /sectors/<slug>/)."""
+    return re.sub(r'[^a-z0-9]+', '-', name.lower()).strip('-')
+
+def published(g):
+    return os.path.exists(os.path.join(ROOT, 'data', 'segments', g['slug'] + '.json'))
+
+def switcher(family, current=None):
+    """Sélecteur de la famille (ex. « Fintech ») : la page de la famille, puis ses segments publiés groupés par secteur,
     pour passer d'un segment à l'autre sans repasser par la homepage. Publié = un fichier data/segments/<slug>.json."""
-    fam = next(f for f in SECTORS['families'] if f['name'] == d['path'][0])
-    items = ''
+    fam = next(f for f in SECTORS['families'] if f['name'] == family)
+    cur = ' aria-current="page"' if current is None else ''
+    items = f'<a href="/sectors/{family_slug(fam["name"])}/"{cur}>All {e(fam["name"])} rankings</a>'
     for sec in fam['sectors']:
-        segs = [g for g in sec['segments'] if os.path.exists(os.path.join(ROOT, 'data', 'segments', g['slug'] + '.json'))]
+        segs = [g for g in sec['segments'] if published(g)]
         if not segs:
             continue
         items += f'<span class="grp">{e(sec["name"])}</span>'
         for g in segs:
-            cur = ' aria-current="page"' if g['slug'] == d['segment_id'] else ''
+            cur = ' aria-current="page"' if g['slug'] == current else ''
             items += f'<a class="seg" href="/segments/{g["slug"]}/"{cur}>{e(g["name"])}</a>'
     return (f'<details class="mkt"><summary class="market" aria-label="Change segment">{e(fam["name"])}</summary>'
             f'<div class="menu">{items}<hr><a href="/#sectors">All sectors</a><a href="/#countries">Country rankings</a></div></details>')
 
-def og_html(d, n):
-    t = d['texts']
+def og_html(kicker, title_html, foot_html):
+    """Image de partage 1200 × 630, même charte pour les segments et les familles."""
     return f'''<!doctype html>
 <html lang="en">
 <head>
@@ -194,20 +202,19 @@ h1{{position:absolute;left:64px;top:262px;margin:0;font-size:62px;line-height:1.
 </head>
 <body>
 <div class="top"><div class="logo"><span class="u">U</span>Uback</div><div class="market">WORLDWIDE</div></div>
-<div class="kicker">{e(' › '.join(d['path'][:-1]))} · {n} companies ranked</div>
-<h1>{t['og_title']}</h1>
-<div class="foot">{e(d['edition_label'])} · {e(format_date(datetime.date.fromisoformat(d['published']), 'en'))}<br>The market sets the value; our AI estimates it.</div>
+<div class="kicker">{kicker}</div>
+<h1>{title_html}</h1>
+<div class="foot">{foot_html}</div>
 </body>
 </html>
 '''
 
-def og_image(d, n, out_dir):
-    """Image de partage (titre + nombre de sociétés classées) ; version = empreinte du contenu, rendue seulement si elle change."""
-    src = og_html(d, n)
+def og_image(key, src, out_dir):
+    """Rend l'image de partage (src = og_html(...)) ; version = empreinte du contenu, rendue seulement si elle change."""
     v = hashlib.sha1(src.encode('utf-8')).hexdigest()[:8]
     png = os.path.join(out_dir, 'og-image.png')
     cache = json.load(open(OG_CACHE, encoding='utf-8')) if os.path.exists(OG_CACHE) else {}
-    if cache.get(d['segment_id']) != v or not os.path.exists(png):
+    if cache.get(key) != v or not os.path.exists(png):
         if not os.path.exists(EDGE):
             print('  ! image de partage non rendue (Edge introuvable)')
             return v
@@ -220,10 +227,80 @@ def og_image(d, n, out_dir):
         if not os.path.exists(png):
             print('  ! image de partage non rendue (Edge n’a rien produit) : relancer le script')
             return v
-        cache[d['segment_id']] = v
+        cache[key] = v
         open(OG_CACHE, 'w', encoding='utf-8', newline='\n').write(json.dumps(cache, indent=2, sort_keys=True) + '\n')
         print('  image de partage rendue')
     return v
+
+def page_top(title, desc, url, og_img, sw, nav, follow_label, follow_href, extra):
+    """Début de page commun aux classements mondiaux (segments et familles) : <head>, bandeau bêta, en-tête."""
+    links = '\n'.join(f'      <a href="{h}">{l}</a>' for h, l in nav)
+    return f'''<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{e(title)}</title>
+<meta name="description" content="{e(desc)}">
+<link rel="canonical" href="{url}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Uback">
+<meta property="og:title" content="{e(title)}">
+<meta property="og:description" content="{e(desc)}">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="{og_img}">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/favicon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/segments/assets/style.css?v={CSS_V}">
+{extra}
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="beta"><div class="wrap"><b>Beta · prototype</b><span class="beta-t">— This site is under construction: rankings, texts and features change every week.</span><a href="mailto:contact@uback.com">Contact us</a></div></div>
+<header class="hdr">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Uback, home"><span class="u">U</span>Uback</a>
+    {sw}
+    <button class="menu-toggle" aria-label="Menu" aria-expanded="false" onclick="var n=document.getElementById('nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="main" id="nav" aria-label="Main navigation">
+{links}
+    </nav>
+    <span class="spacer"></span>
+    <span class="langs"><span class="on">EN</span></span>
+    <a class="btn" href="{follow_href}">{follow_label}</a>
+    <a class="btn gold" href="{GI}#opening">Declare an intention</a>
+  </div>
+</header>
+<main id="main">
+'''
+
+def page_bottom(script=''):
+    return f'''</main>
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <span class="brand"><span class="u">U</span>Uback</span>
+      <span>Powered by AI</span>
+      <span>·</span><a href="{GM}">Method and rules</a>
+      <span>·</span><a href="{GI}">Invest</a>
+      <span>·</span><a href="{GC}">Request a correction</a>
+      <span>·</span><a href="{GL}">Legal notice</a>
+      <span class="spacer"></span>
+      <span>Uback.com · {datetime.date.today().year}</span>
+    </div>
+    <p>Uback is a content publisher. It provides no investment advice, receives no mandate and takes part in no transaction. Introductions are made by licensed partners, currently being selected. Investing in non-listed companies carries a risk of losing all the capital invested.</p>
+  </div>
+</footer>
+{script}</body>
+</html>
+'''
 
 JS = '''
 (function(){
@@ -263,7 +340,9 @@ def build(path):
     N, M_ = len(ranked), len(radar)
     out = os.path.join(ROOT, 'segments', sid)
     os.makedirs(out, exist_ok=True)
-    og_v = og_image(d, N, out)
+    og_v = og_image(sid, og_html(f"{e(' › '.join(d['path'][:-1]))} · {N} companies ranked", t['og_title'],
+                                 f"{e(d['edition_label'])} · {e(format_date(datetime.date.fromisoformat(d['published']), 'en'))}"
+                                 '<br>The market sets the value; our AI estimates it.'), out)
     url = f'https://uback.com/segments/{sid}/'
     published = format_date(datetime.date.fromisoformat(d['published']), 'en')
     nxt = format_date(datetime.date.fromisoformat(d['next_edition']), 'en')
@@ -293,56 +372,11 @@ def build(path):
     ed0 = (f"Edition 0: produced by {e(d['established_by'])}; a consensus of several AI models will apply in a future edition. "
            if d['edition'] == 0 else '')
 
-    page = f'''<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{e(t['title'])}</title>
-<meta name="description" content="{e(t['description'])}">
-<link rel="canonical" href="{url}">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Uback">
-<meta property="og:title" content="{e(t['title'])}">
-<meta property="og:description" content="{e(t['description'])}">
-<meta property="og:url" content="{url}">
-<meta property="og:image" content="{url}og-image.png?v={og_v}">
-<meta property="og:locale" content="en_US">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/assets/favicon-192.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/segments/assets/style.css?v={CSS_V}">
-<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>
-<!-- Généré par tools/build_segments.py à partir de data/segments/{sid}.json : ne pas modifier à la main. -->
-</head>
-<body>
-<a class="skip" href="#main">Skip to content</a>
-<div class="beta"><div class="wrap"><b>Beta · prototype</b><span class="beta-t">— This site is under construction: rankings, texts and features change every week.</span><a href="mailto:contact@uback.com">Contact us</a></div></div>
-<header class="hdr">
-  <div class="wrap">
-    <a class="brand" href="/" aria-label="Uback, home"><span class="u">U</span>Uback</a>
-    {switcher(d)}
-    <button class="menu-toggle" aria-label="Menu" aria-expanded="false" onclick="var n=document.getElementById('nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
-    <nav class="main" id="nav" aria-label="Main navigation">
-      <a href="#ranking">Ranking</a>
-      <a href="#regions">Regions</a>
-      <a href="{GM}">Method</a>
-      <a href="#backers">Backers</a>
-      <a href="{GI}">Invest</a>
-    </nav>
-    <span class="spacer"></span>
-    <span class="langs"><span class="on">EN</span></span>
-    <a class="btn" href="#follow">Follow this ranking</a>
-    <a class="btn gold" href="{GI}#opening">Declare an intention</a>
-  </div>
-</header>
-<main id="main">
-
+    page = page_top(t['title'], t['description'], url, f'{url}og-image.png?v={og_v}', switcher(d['path'][0], sid),
+                    [('#ranking', 'Ranking'), ('#regions', 'Regions'), (GM, 'Method'), ('#backers', 'Backers'), (GI, 'Invest')],
+                    'Follow this ranking', '#follow',
+                    f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>\n'
+                    f'<!-- Généré par tools/build_segments.py à partir de data/segments/{sid}.json : ne pas modifier à la main. -->') + f'''
 <div class="wrap">
   <div class="hero">
     <div>
@@ -489,26 +523,7 @@ def build(path):
   </div>
 </section>
 
-</main>
-<footer>
-  <div class="wrap">
-    <div class="row">
-      <span class="brand"><span class="u">U</span>Uback</span>
-      <span>Powered by AI</span>
-      <span>·</span><a href="{GM}">Method and rules</a>
-      <span>·</span><a href="{GI}">Invest</a>
-      <span>·</span><a href="{GC}">Request a correction</a>
-      <span>·</span><a href="{GL}">Legal notice</a>
-      <span class="spacer"></span>
-      <span>Uback.com · {datetime.date.today().year}</span>
-    </div>
-    <p>Uback is a content publisher. It provides no investment advice, receives no mandate and takes part in no transaction. Introductions are made by licensed partners, currently being selected. Investing in non-listed companies carries a risk of losing all the capital invested.</p>
-  </div>
-</footer>
-<script>{js}</script>
-</body>
-</html>
-'''
+''' + page_bottom(f'<script>{js}</script>\n')
     # garde-fou : les champs internes ne doivent jamais apparaître dans la page
     for c in ranked:
         if c.get('note_internal') and c['note_internal'] in page:
@@ -518,15 +533,136 @@ def build(path):
     open(os.path.join(out, 'index.html'), 'w', encoding='utf-8', newline='\n').write(page)
     by_region = ', '.join(f"{title} {sum(c['region'] == code for c in ranked)}" for code, title in REGIONS)
     print(f'ok /segments/{sid}/ · {N} ranked ({by_region}) · {M_} on radar')
+    return d
+
+def build_family(fam, datas):
+    """Page d'une famille (/sectors/<slug>/) : tous ses segments, publiés ou à venir, et les licornes et décacornes
+    de ses classements. Aucun classement entre segments : chaque société n'est classée que dans le sien."""
+    slug = family_slug(fam['name'])
+    out = os.path.join(ROOT, 'sectors', slug)
+    os.makedirs(out, exist_ok=True)
+    url = f'https://uback.com/sectors/{slug}/'
+    name, name_l = fam['name'], fam['name'].lower()
+    pub = [datas[g['slug']] for sec in fam['sectors'] for g in sec['segments'] if g['slug'] in datas]
+    total = sum(len(sec['segments']) for sec in fam['sectors'])
+    ranked = [(c, d) for d in pub for c in d['ranked']]
+    nxt = format_date(min(datetime.date.fromisoformat(d['next_edition']) for d in pub), 'en')
+    labels = {d['edition_label'] for d in pub}
+    edition = labels.pop() if len(labels) == 1 else 'Edition 0 (beta)'
+    names = [d['name'] for d in pub]
+    title = f'{name} startup rankings, segment by segment | Uback'
+    desc = (f'Uback ranks the world’s non-listed {name_l} startups by AI-estimated valuation, segment by segment: '
+            f'{", ".join(names[:4])} and more.')
+
+    # segments, groupés par secteur : publiés (lien, n° 1, tranche) ou à venir
+    blocks = ''
+    for sec in fam['sectors']:
+        cards = ''
+        for g in sec['segments']:
+            d = datas.get(g['slug'])
+            if d:
+                top = d['ranked'][0]
+                cards += (f'<a class="card fam-seg" href="/segments/{g["slug"]}/"><span class="k">{len(d["ranked"])} ranked</span>'
+                          f'<h3>{e(g["name"])}</h3><p>#1: {e(top["name"])} · {VB[top["tranche"]]}</p></a>')
+            else:
+                cards += f'<div class="card fam-seg soon"><span class="k">Coming soon</span><h3>{e(g["name"])}</h3></div>'
+        n_pub = sum(g['slug'] in datas for g in sec['segments'])
+        blocks += (f'<div class="fam-sec"><h3 class="fam-h">{e(sec["name"])} <span>{n_pub} of {len(sec["segments"])} published</span></h3>'
+                   f'<div class="grid4">{cards}</div></div>')
+
+    # licornes et décacornes des classements publiés : par tranche, ordre alphabétique (pas de classement entre segments)
+    def corn_list(tranche):
+        items = sorted(((c, d) for c, d in ranked if c['tranche'] == tranche), key=lambda x: x[0]['name'].lower())
+        return len(items), ''.join(
+            f'<a class="pill corn" href="/segments/{d["segment_id"]}/">{e(c["name"])}<span> · {e(d["name"])}</span></a>' for c, d in items)
+    n_deca, deca = corn_list('decacorn')
+    n_uni, uni = corn_list('unicorn')
+    countries = len({c['country'] for c, d in ranked})
+
+    og_v = og_image(f'family-{slug}', og_html(f'{e(name)} · {len(pub)} segments published',
+                                              f'The world’s most valuable<br>{e(name_l)} startups',
+                                              f'{len(ranked)} companies ranked · {e(edition)}<br>The market sets the value; our AI estimates it.'), out)
+    jsonld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": title, "description": desc, "url": url,
+              "mainEntity": {"@type": "ItemList", "itemListElement": [
+                  {"@type": "ListItem", "position": i, "name": d['texts']['h1'], "url": f"https://uback.com/segments/{d['segment_id']}/"}
+                  for i, d in enumerate(pub, 1)]}}
+    page = page_top(title, desc, url, f'{url}og-image.png?v={og_v}', switcher(name),
+                    [('#segments', 'Segments'), ('#unicorns', 'Unicorns'), (GM, 'Method'), (GI, 'Invest')],
+                    'Follow the rankings', '/#follow',
+                    f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>\n'
+                    f'<!-- Généré par tools/build_segments.py à partir de data/sectors.json et data/segments/ : ne pas modifier à la main. -->') + f'''
+<div class="wrap">
+  <div class="hero">
+    <div>
+      <div class="kicker">Global sector rankings · {e(name)}</div>
+      <h1>The world’s most valuable {e(name_l)} startups, segment by segment</h1>
+      <p class="lead">Each segment ranks non-listed startups worldwide against their direct competitors, by AI-estimated valuation. The market sets the value; our AI estimates it.</p>
+      <div class="meta">
+        <span class="tag beta">{e(edition)} · {len(pub)} of {total} segments published</span>
+        <span class="tag cad">Twice a year</span><span>Next edition: {nxt}</span><span>·</span>
+        <a href="{GM}">Published method</a><span>·</span>
+        <span>Order never changed by a human</span>
+      </div>
+      <p class="notin"><b>One company, one segment.</b> Each company is ranked in the segment of its main activity only, against its direct competitors. There is no ranking across segments. <a href="{GM}#eligibility">Method</a></p>
+    </div>
+    <div class="panel">
+      <div class="k">{e(name)} at a glance</div>
+      <div class="stats">
+        <div><b>{len(pub)}</b><span>segments published</span></div>
+        <div><b>{len(ranked)}</b><span>companies ranked</span></div>
+        <div><b>{countries}</b><span>countries in the rankings</span></div>
+        <div><b>{n_deca + n_uni}</b><span>unicorns and decacorns</span></div>
+      </div>
+      <div class="fine">Counts cover published segments only. Each company appears in one segment. Intention counters will be shown above a threshold of amount and number of Backers.</div>
+    </div>
+  </div>
+</div>
+
+<section id="segments" style="padding-top:8px">
+  <div class="wrap">
+    <div class="sec-head"><h2>{e(name)} segments</h2><span class="sub">{len(pub)} of {total} published · the others open edition by edition.</span></div>
+    {blocks}
+  </div>
+</section>
+
+<section class="soft" id="unicorns">
+  <div class="wrap">
+    <div class="sec-head"><h2>Decacorns and unicorns in the {e(name_l)} rankings</h2><span class="sub">Grouped by valuation range, in alphabetical order. Each company is ranked only within its own segment.</span></div>
+    <div class="box line">
+      <h3>Decacorns · estimated at $10B or more <span class="cnt">{n_deca}</span></h3>
+      <div class="pills-wrap">{deca}</div>
+      <h3 style="margin-top:22px">Unicorns · estimated between $1B and $10B <span class="cnt">{n_uni}</span></h3>
+      <div class="pills-wrap">{uni}</div>
+    </div>
+    <p class="read-more"><a href="{GM}#estimation">How valuations are estimated →</a></p>
+  </div>
+</section>
+''' + page_bottom()
+    for c, d in ranked:
+        if c.get('note_internal') and c['note_internal'] in page:
+            raise DataError(f"{c['name']} : note_internal présente dans la page famille")
+    if 'estimate_usd' in page or 'note_internal' in page:
+        raise DataError('champ interne présent dans la page famille')
+    open(os.path.join(out, 'index.html'), 'w', encoding='utf-8', newline='\n').write(page)
+    print(f'ok /sectors/{slug}/ · {len(pub)}/{total} segments · {len(ranked)} ranked · {n_deca} decacorns · {n_uni} unicorns')
 
 def main():
     # feuille de style : même source que les pages pays
     os.makedirs(os.path.join(ROOT, 'segments', 'assets'), exist_ok=True)
     shutil.copyfile(os.path.join(ROOT, 'ma', 'assets', 'style.css'), os.path.join(ROOT, 'segments', 'assets', 'style.css'))
     wanted = set(sys.argv[1:])
+    datas = {}
     for p in sorted(glob.glob(os.path.join(ROOT, 'data', 'segments', '*.json'))):
-        if not wanted or os.path.splitext(os.path.basename(p))[0] in wanted:
-            build(p)
+        slug = os.path.splitext(os.path.basename(p))[0]
+        if not wanted or slug in wanted:
+            datas[slug] = build(p)
+        else:                                   # page non régénérée : ses données servent quand même à la page famille
+            datas[slug] = json.load(open(p, encoding='utf-8'))
+            check(datas[slug])
+    # pages famille (/sectors/<slug>/) : toute famille qui a au moins un segment publié
+    for fam in SECTORS['families']:
+        if any(g['slug'] in datas for sec in fam['sectors'] for g in sec['segments']):
+            build_family(fam, datas)
 
 if __name__ == '__main__':
     main()

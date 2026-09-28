@@ -72,6 +72,9 @@ identifiant `FAMILLE-nn-nn`, slug anglais stable. Un segment est publié automat
 pays (feuille `ma/assets/style.css`, copiée dans `segments/assets/`) ; filtres par zone (`#region=europe`…), rangs mondiaux
 conservés. Le script échoue si le rang ne suit pas l'estimation interne (`estimate_usd`, décroissante) ou si une tranche
 ne correspond pas à l'estimation ; `estimate_usd` et `note_internal` ne sont jamais affichés (vérifié à chaque génération).
+Pages famille : le même script génère `/sectors/<famille>/` (ex. `/sectors/fintech/`) pour toute famille ayant au
+moins un segment publié : segments par secteur (publiés ou à venir), licornes et décacornes par ordre alphabétique
+(jamais de classement entre segments). Le menu « Fintech » des pages segment y renvoie. Ajouter la page au sitemap.
 Drapeaux : `tools/flags.py` (ajouter un pays si besoin). Image de partage rendue automatiquement (Edge) quand son
 contenu change ; empreinte dans `tools/og-segments.json`. Après génération : relancer `tools/build_home.py`
 et ajouter la page dans `sitemap.xml`.
