@@ -5,7 +5,7 @@ Usage : python3 tools/build_home.py
 - À droite : classements par pays (marchés domestiques) et régionaux.
 Tout le contenu est écrit en HTML statique (SEO) ; le JavaScript ne sert qu'à la recherche, aux onglets mobiles
 et à l'envoi du formulaire. Les sites marchés (/ma, /pl, /vn) sont générés par tools/build_site.py."""
-import html, json, os, sys, unicodedata
+import html, json, os, re, sys, unicodedata
 from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -64,6 +64,13 @@ def segment(g):
         return f'<a class="pill pub" href="{e(g["url"])}" data-n="{e(norm(g["name"]))}">{e(g["name"])}</a>'
     return soon_pill(g['name'], f' data-n="{e(norm(g["name"]))}"')
 
+def fam_link(f):
+    """Lien vers la page de la famille (/sectors/<slug>/, générée par tools/build_segments.py) dès qu'elle a un segment publié."""
+    if not any(g.get('status') == 'published' for s in f['sectors'] for g in s['segments']):
+        return ''
+    slug = re.sub(r'[^a-z0-9]+', '-', f['name'].lower()).strip('-')
+    return f'<a class="fam-link" href="/sectors/{slug}/">All {e(f["name"])} rankings <span aria-hidden="true">→</span></a>'
+
 def family(f):
     n_sec = len(f['sectors'])
     n_seg = sum(len(s['segments']) for s in f['sectors'])
@@ -73,7 +80,7 @@ def family(f):
     return (f'<details class="fam" data-n="{e(norm(f["name"]))}"{" open" if f["id"] == OPEN_FAMILY else ""}>'
             f'<summary><span class="chev" aria-hidden="true"></span><b>{e(f["name"])}</b>'
             f'<span class="cnt">{n_sec} sectors · {n_seg} segments</span></summary>'
-            f'<div class="fam-body">{body}</div></details>')
+            f'<div class="fam-body">{body}{fam_link(f)}</div></details>')
 
 def region(r):
     live = ''.join(
@@ -183,6 +190,8 @@ h1{margin:0;font-size:38px;line-height:1.08;font-weight:800;letter-spacing:-.03e
 .pill.soon:hover,.pill.soon:focus,.pill.soon.show{border-style:solid;border-color:var(--gold);outline:none}
 .pill.pub{background:var(--navy);color:#fff;border:1.5px solid var(--navy)}
 .pill.pub:hover{background:var(--navy-dark);color:#fff}
+.fam-link{display:inline-flex;align-items:center;gap:6px;min-height:44px;margin-top:6px;font-size:14px;font-weight:600;color:var(--navy);text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:5px}
+.fam-link:hover{text-decoration-color:var(--navy)}
 .pill.static{min-height:26px;padding:2px 10px;font-size:12px}
 .tip{display:none;position:absolute;left:50%;bottom:calc(100% + 6px);transform:translateX(-50%);background:var(--navy);color:#fff;font-size:11px;font-weight:600;padding:4px 8px;border-radius:6px;white-space:nowrap;z-index:5;pointer-events:none}
 .pill.soon:hover .tip,.pill.soon:focus .tip,.pill.soon.show .tip{display:block}
