@@ -130,6 +130,13 @@ button.card.reg{font:inherit;color:inherit;text-align:left;cursor:pointer;paddin
 .slot{margin:10px 0 0;padding:14px;border:1px dashed #d9dee5;border-radius:10px;font-size:13px;color:var(--muted);text-align:center}
 @media (max-width:1024px){.regions{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media (max-width:760px){.regions{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* « How to read this ranking » : échelle des tranches, de la plus basse à la plus haute */
+.scale{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.scale li{padding:4px 9px;border-radius:6px;font-size:12px;font-weight:600;background:var(--soft);color:var(--navy)}
+.scale li:nth-child(5),.scale li:nth-child(6){background:var(--navy);color:#fff}
+.read-list{list-style:none;margin:0;padding:0;font-size:14px;color:#4b5563}
+.read-list li{margin:0 0 6px}.read-list b{color:var(--navy)}
+.read-more{margin:16px 0 0;font-size:14px;font-weight:600}
 /* cards */
 .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}

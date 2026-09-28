@@ -62,10 +62,6 @@ RANKED = D['classement'][:N]
 e = html.escape
 cap = lambda s: s[:1].upper() + s[1:]
 
-LOGO_SVG = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8A052" stroke-width="2" aria-hidden="true">{}</svg>'
-IC_AI = LOGO_SVG.format('<rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M12 18v2M7 9h4M7 13h10"/>')
-IC_HUM = LOGO_SVG.format('<path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/><circle cx="12" cy="8" r="4"/>')
-IC_MON = LOGO_SVG.format('<path d="M12 3v18M7 8h7a3 3 0 0 1 0 6H8a3 3 0 0 0 0 6h9"/>')
 
 # ---------------------------------------------------------------- textes d'interface
 # {name} Maroc · {in_} au Maroc · {In_} Au Maroc · {the} le Maroc · {adj_m} marocain · {adj_f} marocaine
@@ -103,10 +99,11 @@ TXT = {
   th_co='Société', th_sub='Sous-secteur', th_fund='Levées connues', th_conf='Confiance', th_invest='Investir',
   disc_b='Ce classement est une opinion, pas une évaluation.',
   disc='Il est établi à partir d’informations publiques (presse, annonces de levées de fonds), selon une méthode publiée, sans intervention humaine sur l’ordre. L’indice de confiance reflète la qualité des sources. Toute société peut <a href="@ROOT@fr/methode.html#correction">demander une correction</a> ou contester sa position. Seuil d’éligibilité : au moins {seuil} levés, sociétés non cotées, opérations principales {in_}.',
-  reg_h2='Trois regards, jamais un seul',
-  reg_ai_h='Ce que pensent les IA', reg_ai='À chaque édition, la même question est posée à plusieurs IA. Les réponses sont fusionnées en un classement de consensus, avec un indice de confiance par position. L’édition 0 est établie par une seule IA ; le consensus arrivera lors d’une prochaine édition.',
-  reg_hum_h='Ce que défendent les experts', reg_hum='Des analystes pourront bientôt publier leur propre lecture d’un classement. Les IA peuvent en tenir compte ; elles seules décident de l’ordre.',
-  reg_mon_h='Ce que veut l’argent', reg_mon='Les sociétés les plus convoitées : celles qui cumulent le plus d’intentions d’investissement payantes. Montants agrégés, jamais d’intention individuelle.',
+  read_h2='Comment lire ce classement',
+  read_rank_h='Rang', read_rank='Les sociétés sont classées par valorisation estimée par IA, la plus élevée en tête. Le marché fixe la valeur ; notre IA l’estime.',
+  read_range_h='Tranche', read_range='Un ordre de grandeur, jamais un chiffre.',
+  read_conf_h='Confiance', read_high='<b>Élevé :</b> valorisation ou tour publié de moins de 24 mois.', read_med='<b>Moyen :</b> données plus anciennes.',
+  read_low='<b>Faible :</b> source unique ou non confirmée.', read_more='Méthode complète →',
   sect_h2='Classements par secteur', sect_sub='Quatre verticales au lancement, d’autres quand le test de faisabilité le permet.', sect_k='Bientôt · Top 10',
   inv_h2='Investir {in_}, à plusieurs, depuis {cities}',
   inv_lead='Uback agrège les intentions d’investissement des business angels, family offices, corporates et investisseurs de la diaspora. Vous investissez aux côtés d’investisseurs professionnels déjà au capital, qui ont négocié un pacte d’associés : vous ne partez pas d’une page blanche.',
@@ -179,10 +176,11 @@ TXT = {
   th_co='Company', th_sub='Sub-sector', th_fund='Known funding', th_conf='Confidence', th_invest='Invest',
   disc_b='This ranking is an opinion, not a valuation.',
   disc='It is based on public information (press, funding announcements), following a published method, with no human intervention on the order. The confidence index reflects the quality of the sources. Any company may <a href="@ROOT@method.html#correction">request a correction</a> or dispute its position. Eligibility threshold: at least {seuil} raised, non-listed companies, main operations {in_}.',
-  reg_h2='Three perspectives, never just one',
-  reg_ai_h='What the AIs think', reg_ai='For every edition, the same question is put to several AIs. The answers are merged into a consensus ranking, with a confidence index for each position. Edition 0 is established by a single AI; the consensus will come in a future edition.',
-  reg_hum_h='What the experts argue', reg_hum='Analysts will soon be able to publish their own reading of a ranking. The AIs may take it into account; they alone decide the order.',
-  reg_mon_h='What the money wants', reg_mon='The most sought-after companies: those gathering the most paid investment intentions. Aggregated amounts, never an individual intention.',
+  read_h2='How to read this ranking',
+  read_rank_h='Rank', read_rank='Companies are ranked by AI-estimated valuation, highest first. The market sets the value; our AI estimates it.',
+  read_range_h='Range', read_range='An order of magnitude, never a figure.',
+  read_conf_h='Confidence', read_high='<b>High:</b> recent published valuation or round (under 24 months).', read_med='<b>Medium:</b> older data.',
+  read_low='<b>Low:</b> single or unconfirmed source.', read_more='Full method →',
   sect_h2='Rankings by sector', sect_sub='Four verticals at launch, more when the feasibility test allows.', sect_k='Coming soon · Top 10',
   inv_h2='Invest {in_}, together, from {cities}',
   inv_lead='Uback aggregates investment intentions from business angels, family offices, corporates and diaspora investors. You invest alongside professional investors already on the cap table, who have negotiated a shareholders’ agreement: you don’t start from a blank page.',
@@ -516,14 +514,16 @@ index += f'''
   </div>
 </section>
 
-<section class="soft" id="regards">
+<section class="soft" id="read">
   <div class="wrap">
-    <div class="sec-head"><h2>{L['reg_h2']}</h2></div>
+    <div class="sec-head"><h2>{L['read_h2']}</h2></div>
     <div class="grid3">
-      <div class="card"><div class="ic">{IC_AI}</div><h3>{L['reg_ai_h']}</h3><p>{L['reg_ai']}</p></div>
-      <div class="card"><div class="ic">{IC_HUM}</div><h3>{L['reg_hum_h']}</h3><p>{L['reg_hum']}</p></div>
-      <div class="card"><div class="ic">{IC_MON}</div><h3>{L['reg_mon_h']}</h3><p>{L['reg_mon']}</p></div>
+      <div class="card"><h3>{L['read_rank_h']}</h3><p>{L['read_rank']}</p></div>
+      <div class="card"><h3>{L['read_range_h']}</h3><p>{L['read_range']}</p>
+        <ol class="scale">{''.join(f'<li>{L["vb_" + b]}</li>' for b in valuation.BRACKETS)}</ol></div>
+      <div class="card"><h3>{L['read_conf_h']}</h3><ul class="read-list"><li>{L['read_high']}</li><li>{L['read_med']}</li><li>{L['read_low']}</li></ul></div>
     </div>
+    <p class="read-more"><a href="{GM}#estimation">{L['read_more']}</a></p>
   </div>
 </section>
 

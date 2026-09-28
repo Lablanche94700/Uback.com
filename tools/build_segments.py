@@ -385,14 +385,16 @@ def build(path):
   </div>
 </section>
 
-<section class="soft" id="regards">
+<section class="soft" id="read">
   <div class="wrap">
-    <div class="sec-head"><h2>Three perspectives, never just one</h2></div>
+    <div class="sec-head"><h2>How to read this ranking</h2></div>
     <div class="grid3">
-      <div class="card"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8A052" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M12 18v2M7 9h4M7 13h10"/></svg></div><h3>What the AIs think</h3><p>For every edition, the same question is put to several AIs. The answers are merged into a consensus ranking, with a confidence index for each position. Edition 0 is established by a single AI; the consensus will come in a future edition.</p></div>
-      <div class="card"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8A052" stroke-width="2" aria-hidden="true"><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/><circle cx="12" cy="8" r="4"/></svg></div><h3>What the experts argue</h3><p>Analysts will soon be able to publish their own reading of a ranking. The AIs may take it into account; they alone decide the order.</p></div>
-      <div class="card"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8A052" stroke-width="2" aria-hidden="true"><path d="M12 3v18M7 8h7a3 3 0 0 1 0 6H8a3 3 0 0 0 0 6h9"/></svg></div><h3>What the money wants</h3><p>The most sought-after companies: those gathering the most paid investment intentions. Aggregated amounts, never an individual intention.</p></div>
+      <div class="card"><h3>Rank</h3><p>Companies are ranked by AI-estimated valuation, highest first. The market sets the value; our AI estimates it.</p></div>
+      <div class="card"><h3>Range</h3><p>An order of magnitude, never a figure.</p>
+        <ol class="scale">{''.join(f'<li>{VB[b]}</li>' for b in BRACKETS)}</ol></div>
+      <div class="card"><h3>Confidence</h3><ul class="read-list"><li><b>High:</b> recent published valuation or round (under 24 months).</li><li><b>Medium:</b> older data.</li><li><b>Low:</b> single or unconfirmed source.</li></ul></div>
     </div>
+    <p class="read-more"><a href="{GM}#estimation">Full method →</a></p>
   </div>
 </section>
 
