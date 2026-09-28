@@ -29,6 +29,7 @@ METHOD = {
 <li>les indicateurs d’activité connus : chiffre d’affaires, croissance, effectifs, clients, rentabilité, agréments ;</li>
 <li>les rachats et introductions en bourse comparables dans le même segment.</li>
 </ul>
+<p>Chaque segment a ses indicateurs clés (par exemple, pour les néobanques : clients, chiffre d’affaires, résultat). Ils sont affichés sur la page du classement, tels que publiés et datés.</p>
 <p><b>Plusieurs estimations indépendantes.</b> Chaque IA estime la valorisation de chaque société sans connaître les réponses des autres.</p>
 <p><b>Le consensus.</b> L’estimation retenue est la médiane des estimations des IA. C’est elle qui détermine le rang : le n° 1 est la société dont la valorisation estimée est la plus élevée. L’ordre de grandeur affiché est la tranche qui contient cette médiane. Le rang et la tranche sont donc toujours cohérents.</p>
 <p><b>L’indice de confiance.</b> Il est affiché pour chaque société et combine deux éléments : l’accord entre les IA et la qualité des données.</p>
@@ -121,6 +122,7 @@ METHOD = {
 <li>known business metrics: revenue, growth, headcount, customers, profitability, licences;</li>
 <li>comparable acquisitions and IPOs in the same segment.</li>
 </ul>
+<p>Each segment has its own key metrics (for consumer neobanks: customers, revenue, profit). They are shown on the ranking page, as published and dated.</p>
 <p><b>Several independent estimates.</b> Each AI estimates the valuation of each company without knowing the others’ answers.</p>
 <p><b>The consensus.</b> The estimate used is the median of the AI estimates. It determines the rank: number 1 is the company with the highest estimated valuation. The order of magnitude shown is the range containing that median. Rank and range are therefore always consistent.</p>
 <p><b>The confidence index.</b> It is shown for each company and combines two things: agreement between the AI models, and data quality.</p>

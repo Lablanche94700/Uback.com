@@ -94,6 +94,30 @@ def last_round(c):
     rd = c['last_equity_round']
     return ' · '.join(p for p in (rd.get('type'), amount(rd), month(rd['date'], 'en')) if p)
 
+ND = 'not disclosed'
+
+def kpi_line(c, defs):
+    """Indicateurs clés du segment (ordre de kpi_definitions), tels que publiés et datés, jamais recalculés.
+    Période affichée une seule fois si elle est commune, sinon à côté de chaque valeur ; non publiée : « Label: n/d »."""
+    if not defs:
+        return ''
+    shown, periods = [], []
+    for d in defs:
+        v = (c.get('kpis') or {}).get(d['id']) or {}
+        if not v.get('value_text') or v['value_text'] == ND:
+            shown.append((f"{d['label']}: n/d", None, True))
+        else:
+            txt = (d['label'] + ' ' if d.get('prefix') else '') + v['value_text']
+            shown.append((txt, v.get('period'), False))
+            periods.append(v.get('period'))
+    if not periods:
+        return '<span class="kpi"><span class="nd">Key metrics not disclosed</span></span>'
+    common = periods[0] if len(set(periods)) == 1 and periods[0] else None
+    parts = [f'<span class="nd">{e(t)}</span>' if nd else e(t if common or not per else f'{t} ({per})') for t, per, nd in shown]
+    if common:
+        parts.append(e(common))
+    return '<span class="kpi">' + ' · '.join(parts) + '</span>'
+
 def val(c):
     tid = f"vb-{c['rank']}"
     toggle = "var p=this.parentNode;this.setAttribute('aria-expanded',p.classList.toggle('open'))"   # tap sur mobile
@@ -110,14 +134,16 @@ def conf(c):
 def where(x):
     return f'{flag(x.get("country_code"))}{e(x["country"])} · {e(REGION_NAME[x["region"]])}'
 
-def row(c):
+def row(c, defs=()):
     top = ' top' if c['rank'] == 1 else ''
-    srcs = ' · '.join(f'<a href="{e(u)}" rel="nofollow noopener" target="_blank">{i}</a>' for i, u in enumerate(c['sources'], 1))
+    urls = list(c['sources'])
+    urls += [u for u in dict.fromkeys(v.get('source') for v in (c.get('kpis') or {}).values()) if u and u not in urls]   # sources des KPIs
+    srcs = ' · '.join(f'<a href="{e(u)}" rel="nofollow noopener" target="_blank">{i}</a>' for i, u in enumerate(urls, 1))
     report = f'<a class="report" href="{GC}?company={quote(c["name"])}&amp;country=global">Is this your company? Report an error</a>'
     return f'''<tr class="r{top}" data-region="{c['region']}">
 <td class="rank">{c['rank']}</td>
 <td><span class="co">{e(c['name'])}<small>{where(c)}</small></span><span class="src">Sources: {srcs}</span>{report}</td>
-<td data-l="Last round">{e(last_round(c))}</td>
+<td data-l="Last round · Key metrics">{e(last_round(c))}{kpi_line(c, defs)}</td>
 <td data-l="Valuation (AI)">{val(c)}</td>
 <td data-l="Confidence">{conf(c)}</td>
 <td class="act"><a class="btn" href="{GI}#opening">Declare an intent</a></td>
@@ -245,6 +271,10 @@ def build(path):
         txt = f'#1 in region: {e(rk[0]["name"])} (#{rk[0]["rank"]} worldwide)' if rk else 'No ranked company yet'
         cards.append(card(code, title, rk, rd, txt))
 
+    defs = d.get('kpi_definitions') or []
+    kpi_note = (f'<p class="kpi-note">Key metrics for this segment: {e(", ".join(k["label"].lower() for k in defs))}. '
+                'Figures as published by each company or the press, dated, not recalculated. '
+                'The AIs weigh them alongside funding history and comparables.</p>') if defs else ''
     countries = len({c['country'] for c in ranked})
     jsonld = {"@context": "https://schema.org", "@type": "ItemList",
               "name": f"{t['h1']} – {d['edition_label']}", "description": t['intro'],
@@ -317,6 +347,7 @@ def build(path):
         <a href="{GM}">Published method</a><span>·</span>
         <span>Order never changed by a human</span>
       </div>
+      {kpi_note}
       <p class="notin"><b>Not in this segment.</b> {e(t['not_in_segment'])} <a href="{GM}#eligibility">Method</a></p>
     </div>
     <div class="panel">
@@ -351,9 +382,9 @@ def build(path):
     </div>
     <p class="filter-h" id="filter-h" aria-live="polite">World · {N} ranked companies</p>
     <table class="tbl">
-      <thead><tr><th>#</th><th>Company</th><th>Last round</th><th>Estimated valuation (AI, order of magnitude)</th><th>Confidence</th><th class="th-inv">Invest</th></tr></thead>
+      <thead><tr><th>#</th><th>Company</th><th>Last round · Key metrics</th><th>Estimated valuation (AI, order of magnitude)</th><th>Confidence</th><th class="th-inv">Invest</th></tr></thead>
       <tbody>
-      {''.join(row(c) for c in ranked)}
+      {''.join(row(c, defs) for c in ranked)}
       </tbody>
     </table>
     <p class="list-empty" id="no-rank" hidden>No ranked company in this region yet: see the <a href="#radar">Radar</a>.</p>
