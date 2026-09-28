@@ -47,6 +47,7 @@ tools/build_site.py     ← réglages de chaque marché (langue, top_n, pays, di
 tools/site.py           ← gabarit unique de tous les marchés ; textes d'interface en français et en anglais (TXT)
 tools/og-image-<code>.html ← source de <code>/assets/og-image.png (image de partage 1200×630)
 tools/pages_global.py   ← texte de la méthode et des mentions légales globales (français / anglais)
+tools/build_segments.py ← classements mondiaux par segment (/segments/<slug>/, depuis data/segments/<slug>.json)
 tools/build_home.py     ← génère index.html et les pages globales ; homepage : classements mondiaux par secteur (depuis data/sectors.json)
                           et classements par pays / régionaux (liste REGIONS en tête du script)
 ```
@@ -61,8 +62,19 @@ Ajouter un marché : créer `<code>/data/classement-<code>-AAAA-MM.json` (mêmes
 `python3 tools/build_home.py` réécrit `index.html` (HTML statique, tous les noms de familles, secteurs et segments
 présents pour le référencement ; le JavaScript ne sert qu'à la recherche, aux onglets mobiles et au formulaire).
 Arborescence : `data/sectors.json`, trois niveaux fixes (famille > secteur > segment) ; seul le segment est classé ;
-identifiant `FAMILLE-nn-nn`, slug anglais stable. Chaque segment a `"status": "soon"` ; pour publier un classement,
-passer à `"status": "published"` et ajouter `"url"`, puis relancer le script (le segment devient un lien).
+identifiant `FAMILLE-nn-nn`, slug anglais stable. Un segment est publié automatiquement (lien vers
+`/segments/<slug>/`) dès qu'un fichier `data/segments/<slug>.json` existe.
+
+## Classements mondiaux par segment
+
+`python3 tools/build_segments.py` génère `/segments/<slug>/index.html` pour chaque `data/segments/<slug>.json`
+(exemple : `consumer-neobanks.json`). Un nouveau segment = un nouveau JSON, sans nouveau code. Même charte que les pages
+pays (feuille `ma/assets/style.css`, copiée dans `segments/assets/`) ; filtres par zone (`#region=europe`…), rangs mondiaux
+conservés. Le script échoue si le rang ne suit pas l'estimation interne (`estimate_usd`, décroissante) ou si une tranche
+ne correspond pas à l'estimation ; `estimate_usd` et `note_internal` ne sont jamais affichés (vérifié à chaque génération).
+Drapeaux : `tools/flags.py` (ajouter un pays si besoin). Image de partage rendue automatiquement (Edge) quand son
+contenu change ; empreinte dans `tools/og-segments.json`. Après génération : relancer `tools/build_home.py`
+et ajouter la page dans `sitemap.xml`.
 
 Image de partage : modifier `tools/og-image-ma.html` (édition, mois), la capturer en 1200×630
 (`msedge --headless=new --window-size=1200,630 --screenshot=og.png tools/og-image-ma.html`),

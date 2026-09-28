@@ -52,6 +52,13 @@ def soon_pill(label, extra=''):
     return (f'<span class="pill soon" tabindex="0" aria-disabled="true"{extra}>{e(label)}'
             f'<span class="tip" role="tooltip">Coming soon</span></span>')
 
+# segments publiés : ceux qui ont un fichier data/segments/<slug>.json (page générée par tools/build_segments.py)
+for _f in SECTORS['families']:
+    for _s in _f['sectors']:
+        for _g in _s['segments']:
+            if os.path.exists(os.path.join(ROOT, 'data', 'segments', _g['slug'] + '.json')):
+                _g['status'], _g['url'] = 'published', f"/segments/{_g['slug']}/"
+
 def segment(g):
     if g.get('status') == 'published' and g.get('url'):
         return f'<a class="pill pub" href="{e(g["url"])}" data-n="{e(norm(g["name"]))}">{e(g["name"])}</a>'
