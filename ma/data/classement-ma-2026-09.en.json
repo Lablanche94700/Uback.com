@@ -20,7 +20,7 @@
       "leve_cumule": "USD 17–19.5M",
       "derniere_levee": "Series A · USD 12M · Oct 2025 (SPE Capital, Orange Ventures)",
       "juridiction": "Morocco (Chari Group); operations in Morocco, Tunisia, Côte d'Ivoire",
-      "note": "USD 100M valuation cited at the 2022 bridge round (TechCrunch). Licensed as a payment institution by Bank Al-Maghrib in 2025.",
+      "note": "Licensed as a payment institution by Bank Al-Maghrib in 2025.",
       "round_label": "Series A",
       "adjust_reason": ""
     },
@@ -120,7 +120,7 @@
       "leve_cumule": "USD ~3M (MAD 30M)",
       "derniere_levee": "MAD 10M · May 2022 (Azur Innovation Fund); 3rd round under negotiation (2026)",
       "juridiction": "Morocco",
-      "note": "USD 20M valuation cited by the press in 2022; profitable company, revenue > MAD 60M.",
+      "note": "Profitable company, revenue > MAD 60M.",
       "round_label": null,
       "adjust_reason": "profitable company, revenue above MAD 60M cited by the press"
     },

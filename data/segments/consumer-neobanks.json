@@ -123,7 +123,7 @@
      "sources": ["https://techfundingnews.com/zopa-secures-87m-at-over-1b-valuation-5-facts-about-uk-neobank-unicorn/"]},
     {"rank": 17, "name": "KOHO", "country": "Canada", "country_code": "CA", "region": "north-america",
      "tranche": "hundreds_m", "confidence": "high",
-     "last_equity_round": {"date": "2026-06", "amount_usd": 95e6, "amount_label": "CAD 130M", "type": "Equity round", "investors": "led by Mubadala and Savano"},
+     "last_equity_round": {"date": "2026-06", "amount_usd": 95e6, "amount_label": "CAD 130M (~USD 95M)", "type": "Equity round", "investors": "led by Mubadala and Savano"},
      "published_valuation": {"value_usd": 0.97e9, "date": "2026-06", "label": "CAD 1.33bn (~USD 0.97bn)"},
      "estimate_usd": 0.97e9, "note_internal": "",
      "sources": ["https://www.businesswire.com/news/home/20260611435869/en/KOHO-Raises-$130-Million-at-$1.33B-Valuation-to-Fund-Growth-and-Continue-Pursuit-of-Bank-License"]},

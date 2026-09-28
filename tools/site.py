@@ -95,7 +95,7 @@ TXT = {
   vc_high='Confiance élevée', vc_medium='Confiance moyenne', vc_low='Confiance faible',
   report='Vous êtes cette société ? Signalez une erreur', report_subject='Signalement d’erreur – {{co}} – Uback {name}',
   val_disc='Les ordres de grandeur de valorisation sont des estimations éditoriales indicatives, produites par IA à partir d’informations publiques (montants levés, valorisations publiées, indicateurs cités). Ils ne constituent ni une évaluation financière, ni une offre, ni un conseil en investissement.',
-  m_consensus='Claude · consensus multi-IA à partir de l’édition 1', m_method='Méthode publiée', m_order='Ordre jamais modifié par un humain',
+  m_consensus='Claude · consensus multi-IA lors d’une prochaine édition', m_method='Méthode publiée', m_order='Ordre jamais modifié par un humain',
   glance='Le marché en un coup d’œil', s_ranked='sociétés classées', s_radar='sociétés sur le radar', s_raised='levés en 2025', s_rounds='tours en 2025',
   sources='Sources : ', counters=' Les compteurs d’intentions s’afficheront au-delà d’un seuil de montant et de nombre de Backers.',
   listed='Repères cotés', listed_note='Hors classement : aucune intention possible sur une société cotée.',
@@ -104,14 +104,14 @@ TXT = {
   disc_b='Ce classement est une opinion, pas une évaluation.',
   disc='Il est établi à partir d’informations publiques (presse, annonces de levées de fonds), selon une méthode publiée, sans intervention humaine sur l’ordre. L’indice de confiance reflète la qualité des sources. Toute société peut <a href="@ROOT@fr/methode.html#correction">demander une correction</a> ou contester sa position. Seuil d’éligibilité : au moins {seuil} levés, sociétés non cotées, opérations principales {in_}.',
   reg_h2='Trois regards, jamais un seul',
-  reg_ai_h='Ce que pensent les IA', reg_ai='À chaque édition, la même question est posée à plusieurs IA. Les réponses sont fusionnées en un classement de consensus, avec un indice de confiance par position. L’édition 0 est établie par une seule IA ; le consensus arrive avec l’édition 1.',
-  reg_hum_h='Ce que défendent les experts', reg_hum='Le partenaire agréé et des analystes contestent le classement : « pourquoi ce leader est absent », « pourquoi ce n° 3 est surévalué ». Les résumés sont gratuits.',
+  reg_ai_h='Ce que pensent les IA', reg_ai='À chaque édition, la même question est posée à plusieurs IA. Les réponses sont fusionnées en un classement de consensus, avec un indice de confiance par position. L’édition 0 est établie par une seule IA ; le consensus arrivera lors d’une prochaine édition.',
+  reg_hum_h='Ce que défendent les experts', reg_hum='Des analystes pourront bientôt publier leur propre lecture d’un classement. Les IA peuvent en tenir compte ; elles seules décident de l’ordre.',
   reg_mon_h='Ce que veut l’argent', reg_mon='Les sociétés les plus convoitées : celles qui cumulent le plus d’intentions d’investissement payantes. Montants agrégés, jamais d’intention individuelle.',
   sect_h2='Classements par secteur', sect_sub='Quatre verticales au lancement, d’autres quand le test de faisabilité le permet.', sect_k='Bientôt · Top 10',
   inv_h2='Investir {in_}, à plusieurs, depuis {cities}',
   inv_lead='Uback agrège les intentions d’investissement des business angels, family offices, corporates et investisseurs de la diaspora. Vous entrez au capital aux côtés d’investisseurs professionnels déjà présents. Vous bénéficiez du même pacte d’associés.',
   steps_h='Le nombre fait la force', steps_sub='Seul, un petit ticket n’ouvre aucune porte. Regroupés, les Backers pèsent.',
-  s1h='Déclarez une intention', s1='Sur une société ou sur un secteur, avec un ticket minimum et maximum. Payante, pour qualifier le sérieux&nbsp;; transférable tant qu’elle n’est pas transformée.',
+  s1h='Déclarez une intention', s1='Sur une société ou sur un secteur, avec une fourchette de ticket. Payante, pour qualifier le sérieux&nbsp;; transférable tant qu’elle n’est pas transformée.',
   s2h='La masse critique est atteinte', s2='Quand le nombre de Backers et le cumul de leurs intentions franchissent un seuil, le partenaire agréé contacte la société et lui présente cette demande.',
   s3h='Le partenaire agréé structure', s3='Si les attentes de la société et celles des Backers convergent, il construit une opération et la présente directement aux Backers concernés.',
   s4h='Closing', s4='Levée ou cession de titres existants&nbsp;: les petits tickets sont regroupés dans un véhicule commun créé par le partenaire agréé. Chaque Backer décide d’y participer ou non.',
@@ -171,7 +171,7 @@ TXT = {
   vc_high='High confidence', vc_medium='Medium confidence', vc_low='Low confidence',
   report='Is this your company? Report an error', report_subject='Error report – {{co}} – Uback {name}',
   val_disc='Valuation orders of magnitude are indicative editorial estimates, produced by AI from public information (amounts raised, published valuations, reported indicators). They are neither a financial valuation, nor an offer, nor investment advice.',
-  m_consensus='Claude · multi-AI consensus from Edition 1', m_method='Published method', m_order='Order never changed by a human',
+  m_consensus='Claude · multi-AI consensus in a future edition', m_method='Published method', m_order='Order never changed by a human',
   glance='The market at a glance', s_ranked='companies ranked', s_radar='companies on the radar', s_raised='raised in 2025', s_rounds='rounds in 2025',
   sources='Sources: ', counters=' Intention counters will be shown above a threshold of amount and number of Backers.',
   listed='Listed benchmarks', listed_note='Not ranked: no intention is possible on a listed company.',
@@ -180,14 +180,14 @@ TXT = {
   disc_b='This ranking is an opinion, not a valuation.',
   disc='It is based on public information (press, funding announcements), following a published method, with no human intervention on the order. The confidence index reflects the quality of the sources. Any company may <a href="@ROOT@method.html#correction">request a correction</a> or dispute its position. Eligibility threshold: at least {seuil} raised, non-listed companies, main operations {in_}.',
   reg_h2='Three perspectives, never just one',
-  reg_ai_h='What the AIs think', reg_ai='For every edition, the same question is put to several AIs. The answers are merged into a consensus ranking, with a confidence index for each position. Edition 0 is established by a single AI; the consensus arrives with Edition 1.',
-  reg_hum_h='What the experts argue', reg_hum='The licensed partner and analysts challenge the ranking: “why is this leader missing”, “why is number 3 overrated”. Summaries are free.',
+  reg_ai_h='What the AIs think', reg_ai='For every edition, the same question is put to several AIs. The answers are merged into a consensus ranking, with a confidence index for each position. Edition 0 is established by a single AI; the consensus will come in a future edition.',
+  reg_hum_h='What the experts argue', reg_hum='Analysts will soon be able to publish their own reading of a ranking. The AIs may take it into account; they alone decide the order.',
   reg_mon_h='What the money wants', reg_mon='The most sought-after companies: those gathering the most paid investment intentions. Aggregated amounts, never an individual intention.',
   sect_h2='Rankings by sector', sect_sub='Four verticals at launch, more when the feasibility test allows.', sect_k='Coming soon · Top 10',
   inv_h2='Invest {in_}, together, from {cities}',
   inv_lead='Uback aggregates investment intentions from business angels, family offices, corporates and diaspora investors. You invest alongside professional investors already on the cap table. You benefit from the same shareholders’ agreement.',
   steps_h='Strength in numbers', steps_sub='Alone, a small ticket opens no doors. Together, Backers carry weight.',
-  s1h='Declare an intention', s1='On a company or a sector, with a minimum and maximum ticket. Paid, to show you are serious; transferable as long as it has not been converted.',
+  s1h='Declare an intention', s1='On a company or a sector, with a ticket range. Paid, to show you are serious; transferable as long as it has not been converted.',
   s2h='Critical mass is reached', s2='When the number of Backers and the total of their intentions cross a threshold, the licensed partner contacts the company and presents this demand.',
   s3h='The licensed partner structures', s3='If the company’s expectations and the Backers’ converge, the partner builds a transaction and presents it directly to the Backers concerned.',
   s4h='Closing', s4='Capital raise or sale of existing shares: small tickets are pooled in a common vehicle set up by the licensed partner. Each Backer decides whether to take part.',
@@ -644,7 +644,7 @@ if M['lang'] == 'fr':
 </ul>
 
 <h2 id="challengers">Pour les dirigeants : les Challengers</h2>
-<p>Une société éligible qui ne figure pas dans le classement pourra, contre paiement, s’afficher dans une liste séparée et étiquetée « Challengers », pour une durée déterminée, avec un mémo accessible aux Backers vérifiés. Le référencement n’a aucun effet sur le classement. Ouverture après la signature du partenaire.</p>
+<p>Une société immatriculée, en cours de levée de fonds, qui ne figure pas dans le classement pourra, contre paiement, s’afficher dans une liste séparée et étiquetée « Challengers », pour une durée déterminée, avec un mémo accessible aux Backers vérifiés. Le référencement n’a aucun effet sur le classement. Ouverture après la signature du partenaire.</p>
 
 <h2>Nous contacter</h2>
 <p>Écrivez à <a href="mailto:partner@uback.com">partner@uback.com</a>. Nous vous enverrons le dossier partenaire (modèle économique, contrat type, calendrier) et conviendrons d’un échange.</p>
@@ -687,7 +687,7 @@ else:
 </ul>
 
 <h2 id="challengers">For managers: the Challengers</h2>
-<p>An eligible company that is not in the ranking will be able, for a fee, to appear in a separate list labelled “Challengers”, for a set period, with a memo available to verified Backers. The listing has no effect on the ranking. Opens once the partner signs.</p>
+<p>A registered company raising funds that is not in the ranking will be able, for a fee, to appear in a separate list labelled “Challengers”, for a set period, with a memo available to verified Backers. The listing has no effect on the ranking. Opens once the partner signs.</p>
 
 <h2>Contact us</h2>
 <p>Write to <a href="mailto:partner@uback.com">partner@uback.com</a>. We will send you the partner pack (business model, standard contract, timeline) and arrange a call.</p>

@@ -88,6 +88,12 @@ def tip_facts(c):
     lines.append('Confidence index: ' + CONF_TXT[c['confidence']])
     return '<br>'.join(e(x) for x in lines)
 
+def last_round(c):
+    """Colonne « Last round » : type, montant et date du dernier tour, rien d'autre (les valorisations publiées
+    ne s'affichent que dans l'infobulle de la tranche)."""
+    rd = c['last_equity_round']
+    return ' · '.join(p for p in (rd.get('type'), amount(rd), month(rd['date'], 'en')) if p)
+
 def val(c):
     tid = f"vb-{c['rank']}"
     toggle = "var p=this.parentNode;this.setAttribute('aria-expanded',p.classList.toggle('open'))"   # tap sur mobile
@@ -111,6 +117,7 @@ def row(c):
     return f'''<tr class="r{top}" data-region="{c['region']}">
 <td class="rank">{c['rank']}</td>
 <td><span class="co">{e(c['name'])}<small>{where(c)}</small></span><span class="src">Sources: {srcs}</span>{report}</td>
+<td data-l="Last round">{e(last_round(c))}</td>
 <td data-l="Valuation (AI)">{val(c)}</td>
 <td data-l="Confidence">{conf(c)}</td>
 <td class="act"><a class="btn" href="{GI}#opening">Declare an intent</a></td>
@@ -306,7 +313,7 @@ def build(path):
       <div class="meta">
         <span class="tag beta">{e(d['edition_label'])} · Published {published}</span>
         <span class="tag cad">{e(d['cadence'])}</span><span>Next edition: {nxt}</span><span>·</span>
-        <span>Claude · multi-AI consensus from Edition 1</span><span>·</span>
+        <span>Claude · multi-AI consensus in a future edition</span><span>·</span>
         <a href="{GM}">Published method</a><span>·</span>
         <span>Order never changed by a human</span>
       </div>
@@ -344,7 +351,7 @@ def build(path):
     </div>
     <p class="filter-h" id="filter-h" aria-live="polite">World · {N} ranked companies</p>
     <table class="tbl">
-      <thead><tr><th>#</th><th>Company</th><th>Estimated valuation (AI, order of magnitude)</th><th>Confidence</th><th class="th-inv">Invest</th></tr></thead>
+      <thead><tr><th>#</th><th>Company</th><th>Last round</th><th>Estimated valuation (AI, order of magnitude)</th><th>Confidence</th><th class="th-inv">Invest</th></tr></thead>
       <tbody>
       {''.join(row(c) for c in ranked)}
       </tbody>
@@ -382,8 +389,8 @@ def build(path):
   <div class="wrap">
     <div class="sec-head"><h2>Three perspectives, never just one</h2></div>
     <div class="grid3">
-      <div class="card"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8A052" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M12 18v2M7 9h4M7 13h10"/></svg></div><h3>What the AIs think</h3><p>For every edition, the same question is put to several AIs. The answers are merged into a consensus ranking, with a confidence index for each position. Edition 0 is established by a single AI; the consensus arrives with Edition 1.</p></div>
-      <div class="card"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8A052" stroke-width="2" aria-hidden="true"><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/><circle cx="12" cy="8" r="4"/></svg></div><h3>What the experts argue</h3><p>Licensed partners and analysts challenge the ranking: “why is this leader missing”, “why is number 3 overrated”. Summaries are free.</p></div>
+      <div class="card"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8A052" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M12 18v2M7 9h4M7 13h10"/></svg></div><h3>What the AIs think</h3><p>For every edition, the same question is put to several AIs. The answers are merged into a consensus ranking, with a confidence index for each position. Edition 0 is established by a single AI; the consensus will come in a future edition.</p></div>
+      <div class="card"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8A052" stroke-width="2" aria-hidden="true"><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/><circle cx="12" cy="8" r="4"/></svg></div><h3>What the experts argue</h3><p>Analysts will soon be able to publish their own reading of a ranking. The AIs may take it into account; they alone decide the order.</p></div>
       <div class="card"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8A052" stroke-width="2" aria-hidden="true"><path d="M12 3v18M7 8h7a3 3 0 0 1 0 6H8a3 3 0 0 0 0 6h9"/></svg></div><h3>What the money wants</h3><p>The most sought-after companies: those gathering the most paid investment intentions. Aggregated amounts, never an individual intention.</p></div>
     </div>
   </div>
@@ -398,7 +405,7 @@ def build(path):
       <p>Alone, a small ticket opens no doors. Together, Backers carry weight.</p>
     </div>
     <div class="grid4">
-      <div class="card dark"><span class="num">1</span><h3>Declare an intention</h3><p>On a company or a sector, with a minimum and maximum ticket. Paid, to show you are serious; transferable as long as it has not been converted.</p></div>
+      <div class="card dark"><span class="num">1</span><h3>Declare an intention</h3><p>On a company or a sector, with a ticket range. Paid, to show you are serious; transferable as long as it has not been converted.</p></div>
       <div class="card dark"><span class="num">2</span><h3>Critical mass is reached</h3><p>When the number of Backers and the total of their intentions cross a threshold, the licensed partner contacts the company and presents this demand.</p></div>
       <div class="card dark"><span class="num">3</span><h3>The licensed partner structures</h3><p>If the company’s expectations and the Backers’ converge, the partner builds a transaction and presents it directly to the Backers concerned.</p></div>
       <div class="card dark"><span class="num">4</span><h3>Closing</h3><p>Capital raise or sale of existing shares: small tickets are pooled in a common vehicle set up by the licensed partner. Each Backer decides whether to take part.</p></div>
@@ -416,7 +423,7 @@ def build(path):
   <div class="wrap">
     <div class="box line">
       <h3 id="challengers">Challengers</h3>
-      <p>An eligible company that is not in the ranking will be able, for a fee, to appear in a separate list labelled “Challengers”, for a set period, with a memo available to verified Backers. The listing has no effect on the ranking. Not open yet.</p>
+      <p>A registered company raising funds that is not in the ranking will be able, for a fee, to appear in a separate list labelled “Challengers”, for a set period, with a memo available to verified Backers. The listing has no effect on the ranking. Not open yet.</p>
       <div class="slot">Sponsored space · no Challenger listed yet</div>
       <h3 style="margin-top:22px">Radar · known eligible companies, not ranked</h3>
       <p>Sorted by date of last round, with no judgement and no AI call.</p>
@@ -453,7 +460,7 @@ def build(path):
       <span class="spacer"></span>
       <span>Uback.com · {datetime.date.today().year}</span>
     </div>
-    <p>Uback is a content publisher. It provides no investment advice, receives no mandate and takes part in no transaction. Introductions are made by a licensed partner in each company’s country, currently being selected. Investing in non-listed companies carries a risk of losing all the capital invested.</p>
+    <p>Uback is a content publisher. It provides no investment advice, receives no mandate and takes part in no transaction. Introductions are made by licensed partners, currently being selected. Investing in non-listed companies carries a risk of losing all the capital invested.</p>
   </div>
 </footer>
 <script>{js}</script>

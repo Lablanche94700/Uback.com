@@ -20,7 +20,7 @@
       "source": "https://www.unquote.com/cee/news/3024909/docplanner-raises-finance-valuing-business-at-usd-1bn",
       "confiance": 2,
       "juridiction": "HQ Warsaw; operations in Poland and 13 other countries",
-      "note": "Valued at USD 1bn in Aug 2021 (Unquote). A reported EUR 140M round in Oct 2024 is unconfirmed (single source) and not counted.",
+      "note": "A reported EUR 140M round in Oct 2024 is unconfirmed (single source) and not counted.",
       "valuation_input": {
         "published_usd": 1000000000,
         "published_date": "2021-08",
@@ -449,7 +449,7 @@
       "source": "https://en.ain.ua/2023/04/27/polish-founded-cosmose-ai-raises-strategic-investment-from-near-foundation/",
       "confiance": 1,
       "juridiction": "Legal seat not verified; engineering in Warsaw, markets in Asia",
-      "note": "Seed amount (USD 12M) not verified. A USD 500M valuation (2023) comes from a single weak source.",
+      "note": "Seed amount (USD 12M) not verified.",
       "valuation_input": {
         "published_usd": 500000000,
         "published_date": "2023-04",
@@ -482,7 +482,7 @@
       "source": "https://www.pymnts.com/artificial-intelligence-2/2024/synerise-raises-8-5-million-to-expand-ai-driven-behavioral-modeling-solutions/",
       "confiance": 3,
       "juridiction": "Poland (Synerise S.A.)",
-      "note": "Equity only; EIB debt not counted. Valued above USD 120M in Jul 2024. The 2022 USD 23M round included a secondary component; pre-2022 rounds not itemised.",
+      "note": "Equity only; EIB debt not counted. The 2022 USD 23M round included a secondary component; pre-2022 rounds not itemised.",
       "valuation_input": {
         "published_usd": 120000000,
         "published_date": "2024-07",

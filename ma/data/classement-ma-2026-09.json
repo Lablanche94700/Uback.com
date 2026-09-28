@@ -85,7 +85,7 @@
       "source": "https://techcrunch.com/2022/01/20/moroccos-chari-valued-at-100m-in-bridge-round-as-it-looks-to-pilot-bnpl-services/",
       "confiance": 3,
       "juridiction": "Maroc (Chari Group) ; opérations Maroc, Tunisie, Côte d'Ivoire",
-      "note": "Valorisation de 100 M$ citée lors du tour relais de 2022 (TechCrunch). Établissement de paiement agréé Bank Al-Maghrib en 2025.",
+      "note": "Établissement de paiement agréé Bank Al-Maghrib en 2025.",
       "valuation_input": {
         "published_usd": 100000000.0,
         "published_date": "2022-01",
@@ -349,7 +349,7 @@
       "source": "https://www.challenge.ma/cloudfret-une-troisieme-levee-de-fonds-en-vue-320474/",
       "confiance": 2,
       "juridiction": "Maroc",
-      "note": "Valorisation de 20 M$ citée par la presse en 2022 ; société rentable, chiffre d'affaires > 60 MDH.",
+      "note": "Société rentable, chiffre d'affaires > 60 MDH.",
       "valuation_input": {
         "published_usd": 20000000.0,
         "published_date": "2022-01",
