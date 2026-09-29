@@ -33,6 +33,9 @@ CONF_LAB = {3: 'Solid sources', 2: 'Partial sources', 1: 'Weak sources'}
 VB = {'hundreds_k': 'Hundreds of k$', 'millions': 'Millions $', 'tens_m': 'Tens of M$', 'hundreds_m': 'Hundreds of M$',
       'unicorn': 'Unicorn', 'decacorn': 'Decacorn'}
 GM, GI, GC, GL = '/method.html', '/invest.html', '/correction.html', '/legal-notice.html'
+# société ouverte aux Backers (champ facultatif open_to_backers) : badge, phrase d'explication
+OPEN = {'secondary': ('Shareholder selling', 'A shareholder has told Uback they are considering a sale.'),
+        'raise': ('Raising soon', 'The company has told Uback it plans to raise funds soon.')}
 
 
 class DataError(Exception):
@@ -56,6 +59,10 @@ def check(d):
     for a, b in zip(order, order[1:]):
         if BRACKETS.index(b['tranche']) > BRACKETS.index(a['tranche']):
             raise DataError(f"{b['name']} (rang {b['rank']}) a une tranche plus haute que {a['name']} (rang {a['rank']})")
+    for c in ranked:
+        o = c.get('open_to_backers')
+        if o is not None and (o.get('type') not in OPEN or not re.fullmatch(r'(19|20)\d\d-(0[1-9]|1[0-2])', str(o.get('since', '')))):
+            raise DataError(f"{c['name']} : open_to_backers invalide (type secondary|raise, since AAAA-MM) : {o}")
     for r in d['radar']:
         if r['region'] not in REGION_NAME:
             raise DataError(f"Radar, {r['name']} : zone inconnue « {r['region']} »")
@@ -135,7 +142,17 @@ def conf(c):
 def where(x):
     return f'{flag(x.get("country_code"))}{e(x["country"])} · {e(REGION_NAME[x["region"]])}'
 
-def row(c, defs=()):
+def open_cell(c, sid):
+    """Cellule « Open to Backers » : vide par défaut (l'intérêt porte sur le pool du segment)."""
+    o = c.get('open_to_backers')
+    if not o:
+        return ''
+    badge, note = OPEN[o['type']]
+    href = f"{GI}?pool=company&amp;company={quote(c['name'])}&amp;segment={sid}#opening"
+    return (f'<span class="inv-badge gold">{badge}</span><span class="inv-note">{note}</span>'
+            f'<a class="btn" href="{href}">Declare an intent</a>')
+
+def row(c, defs=(), sid='', show_inv=False):
     top = ' top' if c['rank'] == 1 else ''
     urls = list(c['sources'])
     urls += [u for u in dict.fromkeys(v.get('source') for v in (c.get('kpis') or {}).values()) if u and u not in urls]   # sources des KPIs
@@ -147,7 +164,7 @@ def row(c, defs=()):
 <td data-l="Last round · Key metrics">{e(last_round(c))}{kpi_line(c, defs)}</td>
 <td data-l="Valuation (AI)">{val(c)}</td>
 <td data-l="Confidence">{conf(c)}</td>
-<td class="act"><a class="btn" href="{GI}#opening">Declare an intent</a></td>
+{f'<td class="act">{open_cell(c, sid)}</td>' if show_inv else ''}
 </tr>'''
 
 def radar_li(r):
@@ -232,7 +249,7 @@ def og_image(key, src, out_dir):
         print('  image de partage rendue')
     return v
 
-def page_top(title, desc, url, og_img, sw, nav, follow_label, follow_href, extra):
+def page_top(title, desc, url, og_img, sw, nav, follow_label, follow_href, extra, declare_href=f'{GI}#opening'):
     """Début de page commun aux classements mondiaux (segments et familles) : <head>, bandeau bêta, en-tête."""
     links = '\n'.join(f'      <a href="{h}">{l}</a>' for h, l in nav)
     return f'''<!doctype html>
@@ -275,7 +292,7 @@ def page_top(title, desc, url, og_img, sw, nav, follow_label, follow_href, extra
     <span class="spacer"></span>
     <span class="langs"><span class="on">EN</span></span>
     <a class="btn" href="{follow_href}">{follow_label}</a>
-    <a class="btn gold" href="{GI}#opening">Declare an intention</a>
+    <a class="btn gold" href="{declare_href}">Declare an interest</a>
   </div>
 </header>
 <main id="main">
@@ -360,6 +377,8 @@ def build(path):
         cards.append(card(code, title, rk, rd, txt))
 
     defs = d.get('kpi_definitions') or []
+    show_inv = any(c.get('open_to_backers') for c in ranked)          # colonne masquée si aucune société ouverte
+    pool = f'{GI}?pool=segment&amp;segment={sid}#opening'              # intérêt pour le pool du segment
     kpi_note = (f'<p class="kpi-note">Key metrics for this segment: {e(", ".join(k["label"].lower() for k in defs))}. '
                 'Figures as published by each company or the press, dated, not recalculated. '
                 'The AIs weigh them alongside funding history and comparables.</p>') if defs else ''
@@ -376,7 +395,8 @@ def build(path):
                     [('#ranking', 'Ranking'), ('#regions', 'Regions'), (GM, 'Method'), ('#backers', 'Backers'), (GI, 'Invest')],
                     'Follow this ranking', '#follow',
                     f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>\n'
-                    f'<!-- Généré par tools/build_segments.py à partir de data/segments/{sid}.json : ne pas modifier à la main. -->') + f'''
+                    f'<!-- Généré par tools/build_segments.py à partir de data/segments/{sid}.json : ne pas modifier à la main. -->',
+                    pool) + f'''
 <div class="wrap">
   <div class="hero">
     <div>
@@ -390,6 +410,7 @@ def build(path):
         <a href="{GM}">Published method</a><span>·</span>
         <span>Order never changed by a human</span>
       </div>
+      <p class="hero-cta"><a class="btn gold" href="{pool}">Declare an interest in {e(d['name'])}</a></p>
       {kpi_note}
       <p class="notin"><b>Not in this segment.</b> {e(t['not_in_segment'])} <a href="{GM}#eligibility">Method</a></p>
     </div>
@@ -425,9 +446,9 @@ def build(path):
     </div>
     <p class="filter-h" id="filter-h" aria-live="polite">World · {N} ranked companies</p>
     <table class="tbl">
-      <thead><tr><th>#</th><th>Company</th><th>Last round · Key metrics</th><th>Estimated valuation (AI, order of magnitude)</th><th>Confidence</th><th class="th-inv">Invest</th></tr></thead>
+      <thead><tr><th>#</th><th>Company</th><th>Last round · Key metrics</th><th>Estimated valuation (AI, order of magnitude)</th><th>Confidence</th>{'<th class="th-inv">Open to Backers</th>' if show_inv else ''}</tr></thead>
       <tbody>
-      {''.join(row(c, defs) for c in ranked)}
+      {''.join(row(c, defs, sid, show_inv) for c in ranked)}
       </tbody>
     </table>
     <p class="list-empty" id="no-rank" hidden>No ranked company in this region yet: see the <a href="#radar">Radar</a>.</p>
@@ -481,7 +502,7 @@ def build(path):
       <p>Alone, a small ticket opens no doors. Together, Backers carry weight.</p>
     </div>
     <div class="grid4">
-      <div class="card dark"><span class="num">1</span><h3>Declare an intention</h3><p>On a company or a sector, with a ticket range. Paid, to show you are serious; transferable as long as it has not been converted.</p></div>
+      <div class="card dark"><span class="num">1</span><h3>Declare an interest</h3><p>In this segment, with a ticket range. On a specific company only when it is open to Backers. Paid, to show you are serious; you can move it to another pool at any time.</p></div>
       <div class="card dark"><span class="num">2</span><h3>Critical mass is reached</h3><p>When the number of Backers and the total of their intentions cross a threshold, the licensed partner contacts the company and presents this demand.</p></div>
       <div class="card dark"><span class="num">3</span><h3>The licensed partner structures</h3><p>If the company’s expectations and the Backers’ converge, the partner builds a transaction and presents it directly to the Backers concerned.</p></div>
       <div class="card dark"><span class="num">4</span><h3>Closing</h3><p>Capital raise or sale of existing shares: small tickets are pooled in a common vehicle set up by the licensed partner. Each Backer decides whether to take part.</p></div>
@@ -490,7 +511,7 @@ def build(path):
     <div class="cta-row">
       <a class="btn gold" href="#follow">Get notified when intentions open</a>
       <a class="btn ghost" href="{GI}#steps">What happens after my declaration?</a>
-      <span>Intention declarations open once the licensed partner signs · price per ticket band · valid 12 months · transferable credit</span>
+      <span>Intention declarations open once the licensed partner signs · price per ticket band · no expiry · can be moved to another pool</span>
     </div>
   </div>
 </section>
@@ -590,7 +611,8 @@ def build_family(fam, datas):
                     [('#segments', 'Segments'), ('#unicorns', 'Unicorns'), (GM, 'Method'), (GI, 'Invest')],
                     'Follow the rankings', '/#follow',
                     f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>\n'
-                    f'<!-- Généré par tools/build_segments.py à partir de data/sectors.json et data/segments/ : ne pas modifier à la main. -->') + f'''
+                    f'<!-- Généré par tools/build_segments.py à partir de data/sectors.json et data/segments/ : ne pas modifier à la main. -->',
+                    f'{GI}?pool=segment#opening') + f'''
 <div class="wrap">
   <div class="hero">
     <div>

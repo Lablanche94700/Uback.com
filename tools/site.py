@@ -73,12 +73,13 @@ TXT = {
   p_method='methode.html', p_partner='partenaire.html', p_legal='mentions-legales.html', p_thanks='merci.html',
   id_rank='classement', id_sect='secteurs', id_follow='suivre', id_born='nees-ici', id_after='apres',
   nav_rank='Classement', nav_sect='Secteurs', nav_partner='Partenaire', nav_invest='Investir', nav_method='Méthode',
-  soon='Bientôt disponible', follow='Suivre {the}', declare='Déclarer une intention',
+  soon='Bientôt disponible', follow='Suivre {the}', declare='Déclarer un intérêt', hero_cta='Déclarer un intérêt pour {startups}',
   f_method='Méthode et règles du jeu', f_partner='Devenir partenaire', f_corr='Demander une correction', f_legal='Mentions légales',
   f_disc='Uback est un éditeur de contenu. Il ne fournit aucun conseil en investissement, ne reçoit aucun mandat et n’intervient dans aucune transaction. Les mises en relation sont réalisées par un partenaire agréé, en cours de sélection {in_}. Investir dans des sociétés non cotées comporte un risque de perte totale du capital investi.',
   conf3='Sources solides', conf2='Sources partielles', conf1='Sources faibles',
   founded='fondée en', l_sub='Sous-secteur', l_fund='Levées', l_conf='Confiance', raised=' cumulés',
-  declare_cell='Déclarer une intention', b_levee='Levée en cours', b_suivie='Suivie par {{p}}', exit='Sortie', exit_by='Sortie – {{a}}',
+  declare_cell='Déclarer une intention', b_levee='Levée prévue', b_cession='Cession d’actionnaire',
+  n_levee='La société a informé Uback qu’elle prévoit de lever prochainement.', n_cession='Un actionnaire a informé Uback qu’il envisage de céder.', b_suivie='Suivie par {{p}}', exit='Sortie', exit_by='Sortie – {{a}}',
   ld_name='Les {N} startups {adj_fp} les mieux valorisées – {date}',
   ld_desc="Classement trimestriel Uback des startups {adj_fp}, établi par IA à partir d'informations publiques. Le marché fixe la valeur ; notre IA l’estime.",
   title='Top {N} des startups {adj_fp} les mieux valorisées – {date} | Uback {name}',
@@ -96,7 +97,7 @@ TXT = {
   sources='Sources : ', counters=' Les compteurs d’intentions s’afficheront au-delà d’un seuil de montant et de nombre de Backers.',
   listed='Repères cotés', listed_note='Hors classement : aucune intention possible sur une société cotée.',
   h2_rank='Classement national · tous secteurs', t_born='Nées ici, établies ailleurs', first_ed='Première édition : pas encore de mouvements.',
-  th_co='Société', th_sub='Sous-secteur', th_fund='Levées connues', th_conf='Confiance', th_invest='Investir',
+  th_co='Société', th_sub='Sous-secteur', th_fund='Levées connues', th_conf='Confiance', th_invest='Ouverte aux Backers',
   disc_b='Ce classement est une opinion, pas une évaluation.',
   disc='Il est établi à partir d’informations publiques (presse, annonces de levées de fonds), selon une méthode publiée, sans intervention humaine sur l’ordre. L’indice de confiance reflète la qualité des sources. Toute société peut <a href="@ROOT@fr/methode.html#correction">demander une correction</a> ou contester sa position. Seuil d’éligibilité : au moins {seuil} levés, sociétés non cotées, opérations principales {in_}.',
   read_h2='Comment lire ce classement',
@@ -108,13 +109,13 @@ TXT = {
   inv_h2='Investir {in_}, à plusieurs, depuis {cities}',
   inv_lead='Uback agrège les intentions d’investissement des business angels, family offices, corporates et investisseurs de la diaspora. Vous investissez aux côtés d’investisseurs professionnels déjà au capital, qui ont négocié un pacte d’associés : vous ne partez pas d’une page blanche.',
   steps_h='Le nombre fait la force', steps_sub='Seul, un petit ticket n’ouvre aucune porte. Regroupés, les Backers pèsent.',
-  s1h='Déclarez une intention', s1='Sur une société ou sur un secteur, avec une fourchette de ticket. Payante, pour qualifier le sérieux&nbsp;; transférable tant qu’elle n’est pas transformée.',
+  s1h='Déclarez un intérêt', s1='Sur le pays ou un secteur, avec une fourchette de ticket. Sur une société seulement si elle est ouverte aux Backers. Payante, pour qualifier le sérieux&nbsp;; déplaçable à tout moment vers un autre pool.',
   s2h='La masse critique est atteinte', s2='Quand le nombre de Backers et le cumul de leurs intentions franchissent un seuil, le partenaire agréé contacte la société et lui présente cette demande.',
   s3h='Le partenaire agréé structure', s3='Si les attentes de la société et celles des Backers convergent, il construit une opération et la présente directement aux Backers concernés.',
   s4h='Closing', s4='Levée ou cession de titres existants&nbsp;: les petits tickets sont regroupés dans un véhicule commun créé par le partenaire agréé. Chaque Backer décide d’y participer ou non.',
   steps_note='Uback ne conseille pas, ne négocie pas, n’encaisse rien. Chaque opération est menée par le partenaire agréé, sous le droit indiqué sur la fiche de la société.',
   cta_notify='Être prévenu à l’ouverture des intentions', cta_after='Que se passe-t-il après ma déclaration ?',
-  cta_line='Ouverture des déclarations d’intention dès la signature du partenaire agréé · prix par tranche de ticket · validité 12 mois · crédit transférable',
+  cta_line='Ouverture des déclarations d’intention dès la signature du partenaire agréé · prix par tranche de ticket · sans date limite · déplaçable vers un autre pool',
   ph_k='Le partenaire Uback {in_}', ph_h2='Mises en relation assurées par un partenaire agréé, en cours de sélection',
   ph_p='{partner_short}, seul habilité à contacter les sociétés et à structurer les deals. Uback reste un média : il classe et agrège les intentions, il n’intervient dans aucune transaction.',
   ph_s1='dossiers travaillés', ph_s2='deals conclus', ph_s3='délai moyen de réponse',
@@ -150,12 +151,13 @@ TXT = {
   p_method='method.html', p_partner='partner.html', p_legal='legal-notice.html', p_thanks='thank-you.html',
   id_rank='ranking', id_sect='sectors', id_follow='follow', id_born='born-here', id_after='after',
   nav_rank='Ranking', nav_sect='Sectors', nav_partner='Partner', nav_invest='Invest', nav_method='Method',
-  soon='Coming soon', follow='Follow {the}', declare='Declare an intention',
+  soon='Coming soon', follow='Follow {the}', declare='Declare an interest', hero_cta='Declare an interest in {startups}',
   f_method='Method and rules', f_partner='Become a partner', f_corr='Request a correction', f_legal='Legal notice',
   f_disc='Uback is a content publisher. It provides no investment advice, receives no mandate and takes part in no transaction. Introductions are made by a licensed partner, currently being selected {in_}. Investing in non-listed companies carries a risk of losing all the capital invested.',
   conf3='Solid sources', conf2='Partial sources', conf1='Weak sources',
   founded='founded', l_sub='Sub-sector', l_fund='Funding', l_conf='Confidence', raised=' raised',
-  declare_cell='Declare an intent', b_levee='Raise in progress', b_suivie='Followed by {{p}}', exit='Exit', exit_by='Exit – {{a}}',
+  declare_cell='Declare an intent', b_levee='Raising soon', b_cession='Shareholder selling',
+  n_levee='The company has told Uback it plans to raise funds soon.', n_cession='A shareholder has told Uback they are considering a sale.', b_suivie='Followed by {{p}}', exit='Exit', exit_by='Exit – {{a}}',
   ld_name='{name}’s top {N} funded startups – {date}',
   ld_desc='Uback quarterly ranking of non-listed {adj_fp} startups, established by AI from public information. The market sets the value; our AI estimates it.',
   title='{name}’s top {N} funded startups – {date} | Uback {name}',
@@ -173,7 +175,7 @@ TXT = {
   sources='Sources: ', counters=' Intention counters will be shown above a threshold of amount and number of Backers.',
   listed='Listed benchmarks', listed_note='Not ranked: no intention is possible on a listed company.',
   h2_rank='National ranking · all sectors', t_born='Born here, based elsewhere', first_ed='First edition: no movements yet.',
-  th_co='Company', th_sub='Sub-sector', th_fund='Known funding', th_conf='Confidence', th_invest='Invest',
+  th_co='Company', th_sub='Sub-sector', th_fund='Known funding', th_conf='Confidence', th_invest='Open to Backers',
   disc_b='This ranking is an opinion, not a valuation.',
   disc='It is based on public information (press, funding announcements), following a published method, with no human intervention on the order. The confidence index reflects the quality of the sources. Any company may <a href="@ROOT@method.html#correction">request a correction</a> or dispute its position. Eligibility threshold: at least {seuil} raised, non-listed companies, main operations {in_}.',
   read_h2='How to read this ranking',
@@ -185,13 +187,13 @@ TXT = {
   inv_h2='Invest {in_}, together, from {cities}',
   inv_lead='Uback aggregates investment intentions from business angels, family offices, corporates and diaspora investors. You invest alongside professional investors already on the cap table, who have negotiated a shareholders’ agreement: you don’t start from a blank page.',
   steps_h='Strength in numbers', steps_sub='Alone, a small ticket opens no doors. Together, Backers carry weight.',
-  s1h='Declare an intention', s1='On a company or a sector, with a ticket range. Paid, to show you are serious; transferable as long as it has not been converted.',
+  s1h='Declare an interest', s1='In the country or a sector, with a ticket range. On a specific company only when it is open to Backers. Paid, to show you are serious; you can move it to another pool at any time.',
   s2h='Critical mass is reached', s2='When the number of Backers and the total of their intentions cross a threshold, the licensed partner contacts the company and presents this demand.',
   s3h='The licensed partner structures', s3='If the company’s expectations and the Backers’ converge, the partner builds a transaction and presents it directly to the Backers concerned.',
   s4h='Closing', s4='Capital raise or sale of existing shares: small tickets are pooled in a common vehicle set up by the licensed partner. Each Backer decides whether to take part.',
   steps_note='Uback does not advise, does not negotiate, collects nothing. Each transaction is run by the licensed partner, under the law shown on the company’s profile.',
   cta_notify='Get notified when intentions open', cta_after='What happens after my declaration?',
-  cta_line='Intention declarations open once the licensed partner signs · price per ticket band · valid 12 months · transferable credit',
+  cta_line='Intention declarations open once the licensed partner signs · price per ticket band · no expiry · can be moved to another pool',
   ph_k='The Uback partner {in_}', ph_h2='Introductions made by a licensed partner, currently being selected',
   ph_p='{partner_short}, the only party entitled to contact companies and structure deals. Uback remains a media: it ranks and aggregates intentions, it takes part in no transaction.',
   ph_s1='deals worked on', ph_s2='deals closed', ph_s3='average response time',
@@ -223,7 +225,8 @@ TXT = {
   js_subject='Follow the Uback {name} ranking',),
 }
 V = dict(name=M['name'], in_=M['in'], In_=cap(M['in']), the=M['the'], adj_m=M['adj_m'], adj_f=M['adj_f'], adj_fp=M['adj_fp'],
-         N=N, next=M['next_edition'], months=M['months_txt'], cities=M['cities'], date=D['date_label'], seuil=e(D['seuil_levee']), partner_short=M['partner_short'])
+         N=N, next=M['next_edition'], months=M['months_txt'], cities=M['cities'], date=D['date_label'], seuil=e(D['seuil_levee']), partner_short=M['partner_short'],
+         startups=M['startups_label'])
 L = {k: v.format(**V) for k, v in TXT[M['lang']].items()}
 PP, PT = L['p_partner'], L['p_thanks']
 # méthode et mentions légales : pages globales, communes à tous les pays (générées par tools/build_home.py)
@@ -231,6 +234,7 @@ GM = '@ROOT@fr/methode.html' if M['lang'] == 'fr' else '@ROOT@method.html'
 GL = '@ROOT@mentions-legales.html' if M['lang'] == 'fr' else '@ROOT@legal-notice.html'
 GC = '@ROOT@fr/correction.html' if M['lang'] == 'fr' else '@ROOT@correction.html'   # formulaire de correction (global)
 GI = '@ROOT@fr/investir.html' if M['lang'] == 'fr' else '@ROOT@invest.html'         # page « Investir avec Uback » (globale)
+POOL = f"{GI}?pool=country&amp;country={M['code']}#{L['id_opening']}"              # intérêt pour le pool du pays
 
 def src(url, label='source', style=''):
     return f'<a href="{e(url)}"{style} rel="nofollow noopener" target="_blank">{label}</a>'
@@ -304,7 +308,7 @@ def head(title, desc, path, extra=''):
     <span class="spacer"></span>
     <span class="langs">{langs}</span>
     <a class="btn" href="/#{L['id_follow']}">{L['follow']}</a>
-    <a class="btn gold" href="{GI}#{L['id_opening']}">{L['declare']}</a>
+    <a class="btn gold" href="{POOL}">{L['declare']}</a>
   </div>
 </header>
 <main id="main">
@@ -372,20 +376,23 @@ def val(c):
             f'<a class="tip-more" href="{GM}#estimation">{L["tip_more"]}</a></span></span>')
 
 def invest(c):
-    """Colonne « Investir » : bouton d'intention, précédé d'un badge d'état s'il y a lieu.
-    acces : defaut | levee (levée en cours) | travaillee (suivie par le partenaire du marché) | sortie (rachat, sans bouton).
-    L'état par défaut n'affiche aucun libellé ; « travaillee » n'est jamais affiché sans partenaire signé."""
+    """Colonne « Ouverte aux Backers ». Par défaut, l'intérêt porte sur le pool du pays (bouton de l'en-tête et du hero) :
+    une intention sur une société n'apparaît que si elle est ouverte aux Backers.
+    acces : defaut (rien) | travaillee (badge « Suivie par » si partenaire signé, sans bouton)
+            | levee (la société prévoit de lever) | cession (un actionnaire envisage de céder) : badge, phrase, bouton
+            | sortie (rachat : mention, sans bouton).
+    La colonne n'est affichée que si au moins une société a un contenu (SHOW_INV)."""
     a = c.get('acces') or 'defaut'
-    # aucun partenaire signé : le bouton mène à « Où en est-on ? » de la page Investir
-    btn = f'<a class="btn" href="{GI}#{L["id_opening"]}">{L["declare_cell"]}</a>'
     if a == 'sortie':
         who = (c.get('acquereur') or '').strip()
         return f'<span class="exit">{L["exit_by"].format(a=e(who)) if who else L["exit"]}</span>'
-    if a == 'levee':
-        return f'<span class="inv-badge gold">{L["b_levee"]}</span>{btn}'
+    if a in ('levee', 'cession'):
+        href = f"{GI}?pool=company&amp;company={quote(c['nom'])}&amp;country={M['code']}#{L['id_opening']}"
+        return (f'<span class="inv-badge gold">{L["b_" + a]}</span><span class="inv-note">{L["n_" + a]}</span>'
+                f'<a class="btn" href="{href}">{L["declare_cell"]}</a>')
     if a == 'travaillee' and M.get('partner_name'):
-        return f'<span class="inv-badge line">{L["b_suivie"].format(p=e(M["partner_name"]))}</span>{btn}'
-    return btn
+        return f'<span class="inv-badge line">{L["b_suivie"].format(p=e(M["partner_name"]))}</span>'
+    return ''
 
 def row(c):
     top = ' class="top"' if c['rang'] == 1 else ''
@@ -402,8 +409,10 @@ def row(c):
 <td data-l="{L['l_fund']}">{e(c['leve_cumule'])}{L['raised']}<br><span class="src">{e(c['derniere_levee'])} · {src(c['source'])}</span></td>
 <td data-l="{L['l_val']}">{val(c)}</td>
 <td data-l="{L['l_conf']}">{conf(c['confiance'])}</td>
-<td class="act">{invest(c)}</td>
+{f'<td class="act">{invest(c)}</td>' if SHOW_INV else ''}
 </tr>'''
+
+SHOW_INV = any(invest(c) for c in RANKED)
 
 def li(r, sub=None):
     extra = f'<br><span class="src">{e(r[sub])}</span>' if sub else ''
@@ -441,6 +450,7 @@ index += f'''
         <a href="{GM}">{L['m_method']}</a><span>·</span>
         <span>{L['m_order']}</span>
       </div>
+      <p class="hero-cta"><a class="btn gold" href="{POOL}">{L['hero_cta']}</a></p>
     </div>
     <div class="panel">
       <div class="k">{L['glance']}</div>
@@ -470,7 +480,7 @@ index += f'''
       <span class="sub">{L['first_ed']}</span>
     </div>
     <table class="tbl">
-      <thead><tr><th>#</th><th>{L['th_co']}</th><th>{L['th_sub']}</th><th>{L['th_fund']}</th><th>{L['th_val']}</th><th>{L['th_conf']}</th><th class="th-inv">{L['th_invest']}</th></tr></thead>
+      <thead><tr><th>#</th><th>{L['th_co']}</th><th>{L['th_sub']}</th><th>{L['th_fund']}</th><th>{L['th_val']}</th><th>{L['th_conf']}</th>{f'<th class="th-inv">' + L['th_invest'] + '</th>' if SHOW_INV else ''}</tr></thead>
       <tbody>
       {''.join(row(c) for c in RANKED)}
       </tbody>

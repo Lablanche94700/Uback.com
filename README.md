@@ -75,6 +75,10 @@ ne correspond pas à l'estimation ; `estimate_usd` et `note_internal` ne sont ja
 Pages famille : le même script génère `/sectors/<famille>/` (ex. `/sectors/fintech/`) pour toute famille ayant au
 moins un segment publié : segments par secteur (publiés ou à venir), licornes et décacornes par ordre alphabétique
 (jamais de classement entre segments). Le menu « Fintech » des pages segment y renvoie. Ajouter la page au sitemap.
+Intentions : par défaut, l'intérêt porte sur le pool du segment (bouton or de l'en-tête et du hero, lien
+`/invest.html?pool=segment&segment=<slug>#opening`). Une intention sur une société n'apparaît que si elle est ouverte aux
+Backers : champ facultatif `"open_to_backers": {"type": "secondary" | "raise", "since": "AAAA-MM"}` (actionnaire qui envisage
+de céder, ou levée prévue ; vérifié par `check()`). La colonne « Open to Backers » n'est affichée que si au moins une société l'a.
 Drapeaux : `tools/flags.py` (ajouter un pays si besoin). Image de partage rendue automatiquement (Edge) quand son
 contenu change ; empreinte dans `tools/og-segments.json`. Après génération : relancer `tools/build_home.py`
 et ajouter la page dans `sitemap.xml`.
@@ -105,6 +109,11 @@ sinon le trimestre de publication, « Q4 2026 » / « T4 2026 ».
 2. Lancer `python3 tools/build_site.py` puis `python3 tools/build_home.py`.
 3. Committer et pousser sur `main` : GitHub Pages republie en une à deux minutes.
 Entre deux éditions, le Radar peut être mis à jour au fil des levées annoncées.
+
+Colonne « Ouverte aux Backers » des pages pays, champ `acces` de chaque société : `defaut` (rien : l'intérêt porte sur le
+pool du pays, `startups_label` dans `MARKETS`), `travaillee` (badge « Suivie par » si partenaire signé), `levee` (la société
+prévoit de lever) et `cession` (un actionnaire envisage de céder) : badge, phrase et bouton d'intention sur la société ;
+`sortie` (rachat, sans bouton). La colonne est masquée si aucune société n'a de contenu.
 
 Règle du jeu n° 3 : l'ordre n'est jamais modifié à la main. Une société peut être exclue pour un motif d'éligibilité (tracé dans le JSON via `note`), jamais réordonnée.
 

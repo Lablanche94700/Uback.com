@@ -30,12 +30,14 @@ NAMES = {'ma': {'fr': 'Maroc', 'en': 'Morocco'}, 'pl': {'fr': 'Pologne', 'en': '
 #   deals_phrase taille du marché, page partenaire ; press : sources de presse, page méthode
 #   sectors      4 verticales (titre, description) ; sectors_soon : les suivantes
 #   langs_soon   langues annoncées mais pas encore disponibles (grisées dans l'en-tête)
+#   startups_label  pool du pays (« Declare an interest in Moroccan startups »)
 #   slug         nom du formulaire de suivi ; og / og_v : image de partage et sa version
 MARKETS = [
     {'code': 'ma', 'lang': 'en', 'path': '/ma', 'default': True, 'canonical': False,
      'cadence': 'quarterly', 'publish_day': 15, 'publish_months': [2, 5, 8, 11],
      'data': 'classement-ma-2026-09.json', 'overlay': 'classement-ma-2026-09.en.json',
      'top_n': 20, 'slug': 'morocco', 'og': 'og-image-en.png', 'og_v': 3, 'partner_name': None,
+     'startups_label': 'Moroccan startups',
      'name': 'Morocco', 'in': 'in Morocco', 'the': 'Morocco', 'adj_m': 'Moroccan', 'adj_f': 'Moroccan', 'adj_fp': 'Moroccan',
      'cities': 'Paris, Dubai or Montreal',
      'partner_short': 'Investment adviser licensed by the AMMC (Moroccan Capital Market Authority) or investment bank',
@@ -53,6 +55,7 @@ MARKETS = [
      'cadence': 'quarterly', 'publish_day': 15, 'publish_months': [2, 5, 8, 11],
      'data': 'classement-ma-2026-09.json',
      'top_n': 20, 'slug': 'maroc', 'og': 'og-image.png', 'og_v': 5, 'partner_name': None,
+     'startups_label': 'les startups marocaines',
      'name': 'Maroc', 'in': 'au Maroc', 'the': 'le Maroc', 'adj_m': 'marocain', 'adj_f': 'marocaine', 'adj_fp': 'marocaines',
      'cities': 'Paris, Dubaï ou Montréal',
      'partner_short': 'Conseiller en investissements financiers agréé par l’AMMC ou banque d’affaires',
@@ -70,6 +73,7 @@ MARKETS = [
      'cadence': 'quarterly', 'publish_day': 15, 'publish_months': [3, 6, 9, 12],
      'data': 'classement-pl-2026-09.json',
      'top_n': 15, 'slug': 'poland', 'og': 'og-image.png', 'og_v': 3, 'partner_name': None,
+     'startups_label': 'Polish startups',
      'name': 'Poland', 'in': 'in Poland', 'the': 'Poland', 'adj_m': 'Polish', 'adj_f': 'Polish', 'adj_fp': 'Polish',
      'cities': 'London, Chicago or Berlin',
      'partner_short': 'Investment firm licensed by the KNF (Polish Financial Supervision Authority) or investment bank',
@@ -87,6 +91,7 @@ MARKETS = [
      'cadence': 'quarterly', 'publish_day': 15, 'publish_months': [1, 4, 7, 10],
      'data': 'classement-vn-2026-09.json',
      'top_n': 15, 'slug': 'vietnam', 'og': 'og-image.png', 'og_v': 4, 'partner_name': None,
+     'startups_label': 'Vietnamese startups',
      'name': 'Vietnam', 'in': 'in Vietnam', 'the': 'Vietnam', 'adj_m': 'Vietnamese', 'adj_f': 'Vietnamese', 'adj_fp': 'Vietnamese',
      'cities': 'Singapore, Paris or California',
      'partner_short': 'Securities or fund management company licensed by the SSC (State Securities Commission of Vietnam) or investment bank',
