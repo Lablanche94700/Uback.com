@@ -278,7 +278,7 @@ def page_top(title, desc, url, og_img, sw, nav, follow_label, follow_href, extra
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="beta"><div class="wrap"><b>Beta · prototype</b><span class="beta-t">— This site is under construction: rankings, texts and features change every week.</span><a href="mailto:contact@uback.com">Contact us</a></div></div>
+<div class="beta"><div class="wrap"><b>Beta · prototype</b><span class="beta-t">— This site is under construction: rankings, texts and features change every week.</span></div></div>
 <header class="hdr">
   <div class="wrap">
     <a class="brand" href="/" aria-label="Uback, home"><span class="u">U</span>Uback</a>

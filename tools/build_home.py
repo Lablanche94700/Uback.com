@@ -336,7 +336,7 @@ page = f'''<!doctype html>
 </head>
 <body>
 
-<div class="beta"><div class="wrap"><b>Beta · prototype</b><span class="beta-t">— This site is under construction: rankings, texts and features change every week.</span><a href="mailto:contact@uback.com">Contact us</a></div></div>
+<div class="beta"><div class="wrap"><b>Beta · prototype</b><span class="beta-t">— This site is under construction: rankings, texts and features change every week.</span></div></div>
 <header>
   <div class="wrap">
     <a class="logo" href="/" aria-label="Uback, home"><span class="u" aria-hidden="true">U</span>Uback</a>
@@ -345,7 +345,6 @@ page = f'''<!doctype html>
       <a class="nav-wide" href="#countries">Countries</a>
       <a href="/invest.html">Invest</a>
       <a href="{METHOD_URL}">Method</a>
-      <a href="mailto:contact@uback.com">Contact</a>
     </nav>
   </div>
 </header>
@@ -481,9 +480,9 @@ GLOBAL = {'method': {'en': 'method.html', 'fr': 'fr/methode.html'}, 'legal': {'e
           'invest': {'en': 'invest.html', 'fr': 'fr/investir.html'},
           'correction': {'en': 'correction.html', 'fr': 'fr/correction.html'}, 'thanks': {'en': 'thank-you.html', 'fr': 'fr/merci.html'}}
 G_UI = {
- 'en': dict(skip='Skip to content', sectors='Sectors', countries='Countries', method='Method', contact='Contact',
+ 'en': dict(skip='Skip to content', sectors='Sectors', countries='Countries', method='Method',
             beta='Beta · prototype', beta_t='— This site is under construction: rankings, texts and features change every week.',
-            beta_l='Contact us', legal='Legal notice', corr='Request a correction', disc='Rankings are editorial content, not investment advice.',
+            legal='Legal notice', corr='Request a correction', disc='Rankings are editorial content, not investment advice.',
             cal_country='Country', cal_months='Published on the 15th', cal_next='Next edition',
             t_method='Method and rules of the game | Uback', d_method='How Uback ranks non-listed startups in descending order of AI-estimated valuation: consensus, confidence index, order of magnitude, eligibility, how human input is taken into account, corrections.',
             invest='Invest', t_invest='Invest with Uback | Uback', d_invest='Declare an investment intention on a sector, a country, or a company open to Backers. Backers’ intentions form a pool; once it reaches its critical mass, the pool is passed to the licensed partner, who presents the demand to the company.',
@@ -492,9 +491,9 @@ G_UI = {
             t_correction='Request a correction | Uback', d_correction='Report inaccurate information or dispute a rank in a Uback ranking.',
             t_thanks='Thank you | Uback', d_thanks='Request prepared.',
             t_legal='Legal notice | Uback', d_legal='Legal notice of the Uback website.'),
- 'fr': dict(skip='Aller au contenu', sectors='Secteurs', countries='Pays', method='Méthode', contact='Contact',
+ 'fr': dict(skip='Aller au contenu', sectors='Secteurs', countries='Pays', method='Méthode',
             beta='Bêta · prototype', beta_t='— Ce site est en construction : classements, textes et fonctionnalités évoluent chaque semaine.',
-            beta_l='Nous écrire', legal='Mentions légales', corr='Demander une correction', disc='Les classements sont des contenus éditoriaux, pas des conseils en investissement.',
+            legal='Mentions légales', corr='Demander une correction', disc='Les classements sont des contenus éditoriaux, pas des conseils en investissement.',
             cal_country='Pays', cal_months='Publié le 15', cal_next='Prochaine édition',
             t_method='Méthode et règles du jeu | Uback', d_method='Comment Uback classe les startups non cotées par ordre décroissant de valorisation estimée par IA : consensus, indice de confiance, ordre de grandeur, éligibilité, prise en compte des avis humains, corrections.',
             invest='Investir', t_invest='Investir avec Uback | Uback', d_invest='Déclarez une intention d’investissement sur un secteur, un pays, ou une société ouverte aux Backers. Les intentions des Backers forment un pool ; quand il atteint sa masse critique, le pool est transmis au partenaire agréé, qui présente la demande à la société.',
@@ -540,7 +539,6 @@ G_CSS = '''
 .langsw a{color:var(--muted);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
 .langsw .on{color:var(--navy)}
 @media (max-width:899px){.prose h1{font-size:32px}.prose table{font-size:14px}}
-@media (max-width:439px){nav .nav-m{display:none}}
 '''
 
 def calendar(lang):
@@ -592,7 +590,7 @@ def global_page(key, lang, body):
 </head>
 <body>
 
-<div class="beta"><div class="wrap"><b>{u['beta']}</b><span class="beta-t">{u['beta_t']}</span><a href="mailto:contact@uback.com">{u['beta_l']}</a></div></div>
+<div class="beta"><div class="wrap"><b>{u['beta']}</b><span class="beta-t">{u['beta_t']}</span></div></div>
 <header>
   <div class="wrap">
     <a class="logo" href="/" aria-label="Uback, home"><span class="u" aria-hidden="true">U</span>Uback</a>
@@ -600,8 +598,7 @@ def global_page(key, lang, body):
       <a class="nav-wide" href="/#sectors">{u['sectors']}</a>
       <a class="nav-wide" href="/#countries">{u['countries']}</a>
       <a href="/{GLOBAL['invest'][lang]}"{cur('invest')}>{u['invest']}</a>
-      <a class="nav-m" href="{method_url}"{cur('method')}>{u['method']}</a>
-      <a href="mailto:contact@uback.com">{u['contact']}</a>
+      <a href="{method_url}"{cur('method')}>{u['method']}</a>
       {sw}
     </nav>
   </div>

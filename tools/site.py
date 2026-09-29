@@ -69,7 +69,7 @@ cap = lambda s: s[:1].upper() + s[1:]
 TXT = {
 'fr': dict(
   html_lang='fr', locale='fr_FR', skip='Aller au contenu', home_aria='Uback, accueil', nav_aria='Navigation principale',
-  beta_b='Bêta · prototype', beta_t='Ce site est en construction : classements, textes et fonctionnalités évoluent chaque semaine.', beta_link='Nous écrire',
+  beta_b='Bêta · prototype', beta_t='Ce site est en construction : classements, textes et fonctionnalités évoluent chaque semaine.',
   p_method='methode.html', p_partner='partenaire.html', p_legal='mentions-legales.html', p_thanks='merci.html',
   id_rank='classement', id_sect='secteurs', id_follow='suivre', id_born='nees-ici', id_after='apres',
   nav_rank='Classement', nav_sect='Secteurs', nav_partner='Partenaire', nav_invest='Investir', nav_method='Méthode',
@@ -147,7 +147,7 @@ TXT = {
   js_subject='Suivre le classement Uback {name}',),
 'en': dict(
   html_lang='en', locale='en_US', skip='Skip to content', home_aria='Uback, home', nav_aria='Main navigation',
-  beta_b='Beta · prototype', beta_t='This site is under construction: rankings, texts and features change every week.', beta_link='Contact us',
+  beta_b='Beta · prototype', beta_t='This site is under construction: rankings, texts and features change every week.',
   p_method='method.html', p_partner='partner.html', p_legal='legal-notice.html', p_thanks='thank-you.html',
   id_rank='ranking', id_sect='sectors', id_follow='follow', id_born='born-here', id_after='after',
   nav_rank='Ranking', nav_sect='Sectors', nav_partner='Partner', nav_invest='Invest', nav_method='Method',
@@ -289,7 +289,7 @@ def head(title, desc, path, extra=''):
 </head>
 <body>
 <a class="skip" href="#main">{L['skip']}</a>
-<div class="beta"><div class="wrap"><b>{L['beta_b']}</b><span class="beta-t">— {L['beta_t']}</span><a href="mailto:contact@uback.com">{L['beta_link']}</a></div></div>
+<div class="beta"><div class="wrap"><b>{L['beta_b']}</b><span class="beta-t">— {L['beta_t']}</span></div></div>
 <header class="hdr">
   <div class="wrap">
     <a class="brand" href="@ROOT@" aria-label="{L['home_aria']}"><span class="u">U</span>Uback</a>
