@@ -227,8 +227,10 @@ h1{margin:0;font-size:38px;line-height:1.08;font-weight:800;letter-spacing:-.03e
 .fam summary:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:6px}
 .chev{width:8px;height:8px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(-45deg);transition:transform .15s;flex-shrink:0;margin:0 4px}
 .fam[open] .chev{transform:rotate(45deg)}
-.fam summary b{font-size:16px}
+.fam summary b{font-size:16px;line-height:1.3}
 .fam .cnt{margin-left:auto;font-size:12px;color:var(--muted);white-space:nowrap}
+/* petits écrans : le compteur passe sous le nom de la famille (aligné sur le nom) */
+@media (max-width:419px){.fam summary{flex-wrap:wrap;row-gap:0;padding:8px 2px}.fam summary b{flex:1 1 0;min-width:0}.fam .cnt{flex-basis:100%;margin-left:26px}}
 .fam-body{padding:2px 0 16px 24px}
 .sect{margin-top:10px}
 .sect-h{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
