@@ -1,0 +1,680 @@
+{
+ "segment_id": "ai-drug-discovery",
+ "path": [
+  "Healthtech",
+  "Biotech",
+  "AI drug discovery"
+ ],
+ "name": "AI drug discovery",
+ "edition": 0,
+ "edition_label": "Edition 0 (beta)",
+ "published": "2026-09-29",
+ "next_edition": "2027-01-01",
+ "cadence": "Twice a year",
+ "kpi_definitions": [
+  {
+   "id": "pipeline",
+   "label": "Clinical pipeline"
+  },
+  {
+   "id": "partnerships",
+   "label": "Pharma partnerships"
+  },
+  {
+   "id": "revenue",
+   "label": "Revenue",
+   "prefix": true
+  }
+ ],
+ "established_by": "Claude (Anthropic)",
+ "texts": {
+  "title": "The world's most valuable AI drug discovery startups, ranked by AI | Uback",
+  "description": "Uback ranks the world's non-listed AI drug discovery startups by AI-estimated valuation: Chai Discovery, Earendil Labs, Xaira, Enveda, Pathos AI and more. Edition 0 (beta).",
+  "h1": "The world’s most valuable AI drug discovery startups",
+  "intro": "AI-first biotechs and drug design platforms that use machine learning to discover and develop new medicines. Ranked worldwide by AI-estimated valuation. The market sets the value; our AI estimates it.",
+  "not_in_segment": "Gene and cell therapy developers, AI for imaging and pathology, in-vitro diagnostics and clinical software each have their own segment. A company appears in one segment only.",
+  "activity": "AI-first drug discovery and molecular design",
+  "og_title": "The world’s most valuable<br>AI drug discovery startups",
+  "sources": "Endpoints News, Fierce Biotech, BioSpace, STAT, BioXconomy, SiliconANGLE, TechCrunch, BusinessWire, PR Newswire, Contrary Research, Wikipedia, company announcements."
+ },
+ "ranked": [
+  {
+   "rank": 1,
+   "name": "Chai Discovery",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2026-07",
+    "amount_usd": 400000000.0,
+    "type": "Series C",
+    "investors": "led by Index Ventures, with Kleiner Perkins, Sequoia Capital, Dimension"
+   },
+   "published_valuation": {
+    "value_usd": 3800000000.0,
+    "date": "2026-07"
+   },
+   "estimate_usd": 4000000000.0,
+   "note_internal": "Published $3.8B post-money in Jul 2026, tripling the Dec 2025 mark in seven months; slight premium for momentum and pharma deployments (Lilly, Pfizer).",
+   "kpis": {
+    "pipeline": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "partnerships": {
+     "value_text": "Models deployed with Eli Lilly and Pfizer",
+     "period": "2026",
+     "source": "https://finance.yahoo.com/technology/ai/articles/chai-discovery-announces-400m-series-130000731.html"
+    },
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://finance.yahoo.com/technology/ai/articles/chai-discovery-announces-400m-series-130000731.html",
+    "https://endpoints.news/chai-discovery-gets-400m-tripling-valuation-from-seven-months-ago/"
+   ]
+  },
+  {
+   "rank": 2,
+   "name": "Earendil Labs",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2026-03",
+    "amount_usd": 787000000.0,
+    "amount_label": "USD 787M (several financing rounds)",
+    "type": "Equity financing",
+    "investors": "Dimension Capital, DST Global, INCE Capital, Sanofi, Biotech Development Fund"
+   },
+   "published_valuation": null,
+   "estimate_usd": 3500000000.0,
+   "note_internal": "No published valuation; $787M raised in 2026 implies ~$3-5B post-money; one aggregator cites a $4.5-5.5B IPO range (unconfirmed). Affiliate Helixon Therapeutics runs R&D in China.",
+   "kpis": {
+    "pipeline": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "partnerships": {
+     "value_text": "Sanofi worldwide licence for bispecifics HXN-1002/HXN-1003 plus broader AI collaboration",
+     "period": "2025",
+     "source": "https://www.prnewswire.com/news-releases/earendil-labs-announces-787-million-in-financing-to-scale-ai-driven-biologics-discovery-and-development-302719748.html"
+    },
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.prnewswire.com/news-releases/earendil-labs-announces-787-million-in-financing-to-scale-ai-driven-biologics-discovery-and-development-302719748.html",
+    "https://wewillcure.com/insights/news/ai-and-machine-learning/ai-drug-discovery-venture-funding-tracker-2026"
+   ]
+  },
+  {
+   "rank": 3,
+   "name": "Xaira Therapeutics",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2024-04",
+    "amount_usd": 1000000000.0,
+    "amount_label": "USD 1B+ committed",
+    "type": "Launch financing",
+    "investors": "ARCH Venture Partners, Foresite Labs, F-Prime, NEA, Sequoia, Lux, Lightspeed"
+   },
+   "published_valuation": null,
+   "estimate_usd": 3000000000.0,
+   "note_internal": "No disclosed valuation; $1B+ launch capital (2024) implies multi-billion post-money; third-party estimates $2.7-3.5B. Still pre-partnership, no disclosed clinical asset.",
+   "kpis": {
+    "pipeline": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "partnerships": {
+     "value_text": "Seeking first pharma partners",
+     "period": "2026",
+     "source": "https://www.biospace.com/business/secretive-ai-drug-hunter-xaira-dips-toe-into-dealmaking-with-hunt-for-partners"
+    },
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.fiercebiotech.com/biotech/new-ai-drug-discovery-powerhouse-xaira-rises-1b-funding",
+    "https://www.biospace.com/business/secretive-ai-drug-hunter-xaira-dips-toe-into-dealmaking-with-hunt-for-partners"
+   ]
+  },
+  {
+   "rank": 4,
+   "name": "Enveda",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2026-09",
+    "amount_usd": 311000000.0,
+    "type": "Series E",
+    "investors": "led by Catalio Capital Management, with Iconiq"
+   },
+   "published_valuation": {
+    "value_usd": 2000000000.0,
+    "date": "2026-09"
+   },
+   "estimate_usd": 2000000000.0,
+   "note_internal": "Series E at $2B (Sep 2026), double the Sep 2025 unicorn mark. AI-enabled discovery of natural-product-derived small molecules, several assets in clinic.",
+   "kpis": {
+    "pipeline": {
+     "value_text": "Lead ENV-294 in Phase 1b (atopic dermatitis)",
+     "period": "Sep 2025",
+     "source": "https://www.businesswire.com/news/home/20250904184822/en/Enveda-Raises-$150M-Series-D-Funding-to-Reach-Unicorn-Status-Enrolls-First-Patient-in-Lead-Program-and-Adds-Mikael-Dolsten-to-Board-of-Directors"
+    },
+    "partnerships": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://theaiinsider.tech/2026/09/25/enveda-raises-311m-series-e-at-2b-valuation-to-advance-ai-discovered-natural-medicines/",
+    "https://www.businesswire.com/news/home/20250904184822/en/Enveda-Raises-$150M-Series-D-Funding-to-Reach-Unicorn-Status-Enrolls-First-Patient-in-Lead-Program-and-Adds-Mikael-Dolsten-to-Board-of-Directors"
+   ]
+  },
+  {
+   "rank": 5,
+   "name": "Pathos AI",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2025-05",
+    "amount_usd": 365000000.0,
+    "type": "Series D",
+    "investors": "new and existing investors (incl. NEA, General Atlantic)"
+   },
+   "published_valuation": {
+    "value_usd": 1600000000.0,
+    "date": "2025-05"
+   },
+   "estimate_usd": 1800000000.0,
+   "note_internal": "Series D post-money $1.6B (May 2025); modest uplift for clinical progress. AI-driven oncology drug development (in-licensed assets + foundation model).",
+   "kpis": {
+    "pipeline": {
+     "value_text": "Clinical-stage oncology pipeline, incl. a Novo Nordisk-licensed solid tumour drug",
+     "period": "2025",
+     "source": "https://www.fiercebiotech.com/biotech/pathos-ai-secures-365m-series-d-fund-trial-novo-nordisk-solid-tumor-drug"
+    },
+    "partnerships": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://finance.yahoo.com/news/pathos-ai-raises-365m-oncology-083849368.html",
+    "https://siliconangle.com/2025/05/15/ai-powered-drug-development-startup-pathos-ai-closes-365m-investment/"
+   ]
+  },
+  {
+   "rank": 6,
+   "name": "Formation Bio",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2024-06",
+    "amount_usd": 372000000.0,
+    "type": "Series D",
+    "investors": "led by Andreessen Horowitz and Sanofi"
+   },
+   "published_valuation": null,
+   "estimate_usd": 1500000000.0,
+   "note_internal": "Valuation undisclosed ('material step up' from Series C); $372M round implies ~$1.5-2B. No equity round since mid-2024.",
+   "kpis": {
+    "pipeline": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "partnerships": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.prnewswire.com/news-releases/formation-bio-secures-372mm-series-d-funding-to-grow-drug-pipeline-and-continue-expanding-ai-driven-drug-development-platform-302182347.html",
+    "https://techcrunch.com/2024/06/26/formation-bio-raises-372m-to-boost-drug-development-with-ai/"
+   ]
+  },
+  {
+   "rank": 7,
+   "name": "Iambic Therapeutics",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2025-11",
+    "amount_usd": 100000000.0,
+    "amount_label": "over USD 100M",
+    "type": "Equity round",
+    "investors": "Sequoia, ARK, Regeneron Ventures, Mubadala, Qatar Investment Authority and others"
+   },
+   "published_valuation": null,
+   "estimate_usd": 1300000000.0,
+   "note_internal": "Filed S-1 for Nasdaq IPO (ticker IAM) on 21 Sep 2026, not yet priced: still private. $462M raised; Takeda deal worth up to $1.7B+ and AbbVie deal support ~$1.3B.",
+   "kpis": {
+    "pipeline": {
+     "value_text": "IAM1363 (HER2) in Phase I/Ib; KIF18A and CDK2/4 programs due in clinic by end-2026",
+     "period": "Sep 2026",
+     "source": "https://www.bioxconomy.com/investment/ai-drug-hunter-iambic-files-for-nasdaq-ipo"
+    },
+    "partnerships": {
+     "value_text": "Takeda (up to $1.7B+), AbbVie, Revolution Medicines, Lundbeck",
+     "period": "2026",
+     "source": "https://www.bioxconomy.com/investment/ai-drug-hunter-iambic-files-for-nasdaq-ipo"
+    },
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.businesswire.com/news/home/20251110232927/en/Iambic-Raises-Over-$100-Million-in-an-Oversubscribed-Round-to-Advance-Its-Portfolio-of-AI-Discovered-Therapeutics-and-Leading-Platform-Technologies",
+    "https://www.bioxconomy.com/investment/ai-drug-hunter-iambic-files-for-nasdaq-ipo"
+   ]
+  },
+  {
+   "rank": 8,
+   "name": "insitro",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2021-03",
+    "amount_usd": 400000000.0,
+    "type": "Series C",
+    "investors": "led by Canada Pension Plan Investment Board"
+   },
+   "published_valuation": {
+    "value_usd": 2400000000.0,
+    "date": "2021-03"
+   },
+   "estimate_usd": 1200000000.0,
+   "note_internal": "2021 peak mark $2.4B discounted: 22% layoffs in May 2025 and no clinical trial started then; still acquiring (CombinAbleAI, Jan 2026).",
+   "kpis": {
+    "pipeline": {
+     "value_text": "No clinical trial started",
+     "period": "May 2025",
+     "source": "https://www.statnews.com/2025/05/08/insitro-ai-biotech-daphne-koller-staff-layoffs/"
+    },
+    "partnerships": {
+     "value_text": "~$150M non-dilutive pharma partnership funding (cumulative)",
+     "period": "Jan 2026",
+     "source": "https://www.insitro.com/news/combinabletherml/"
+    },
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.insitro.com/news/combinabletherml/",
+    "https://www.statnews.com/2025/05/08/insitro-ai-biotech-daphne-koller-staff-layoffs/"
+   ]
+  },
+  {
+   "rank": 9,
+   "name": "Owkin",
+   "country": "France",
+   "country_code": "FR",
+   "region": "europe",
+   "tranche": "hundreds_m",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2021-11",
+    "amount_usd": 180000000.0,
+    "type": "Strategic equity",
+    "investors": "Sanofi"
+   },
+   "published_valuation": {
+    "value_usd": 1000000000.0,
+    "date": "2021-11",
+    "label": "over USD 1B (unicorn)"
+   },
+   "estimate_usd": 800000000.0,
+   "note_internal": "2021 unicorn mark via Sanofi; no equity since, diagnostics spun out as Waiv (Mar 2026). Pivot to agentic AI (K Pro) licensed to AstraZeneca and Sanofi.",
+   "kpis": {
+    "pipeline": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "partnerships": {
+     "value_text": "K Pro licences with AstraZeneca and Sanofi",
+     "period": "2026",
+     "source": "https://en.wikipedia.org/wiki/Owkin"
+    },
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://en.wikipedia.org/wiki/Owkin",
+    "https://www.owkin.com/newsfeed/owkin-creates-new-spin-out-waiv-formerly-owkin-dx-with-33m-financing"
+   ]
+  },
+  {
+   "rank": 10,
+   "name": "Basecamp Research",
+   "country": "United Kingdom",
+   "country_code": "GB",
+   "region": "europe",
+   "tranche": "hundreds_m",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2026-09",
+    "amount_usd": 140000000.0,
+    "type": "Series C",
+    "investors": "led by S32, with Nvidia and Anthology Fund"
+   },
+   "published_valuation": null,
+   "estimate_usd": 700000000.0,
+   "note_internal": "Valuation undisclosed; $140M Series C (Sep 2026) at 15-25% dilution implies ~$0.6-0.9B. Biology foundation model (EDEN), pivoting to in-vivo cell therapies.",
+   "kpis": {
+    "pipeline": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "partnerships": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://siliconangle.com/2026/09/23/ai-drug-discovery-startup-basecamp-research-raises-140m/"
+   ]
+  },
+  {
+   "rank": 11,
+   "name": "Genesis Molecular AI",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "hundreds_m",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2026-05",
+    "amount_usd": 40000000.0,
+    "type": "Strategic equity",
+    "investors": "Incyte"
+   },
+   "published_valuation": null,
+   "estimate_usd": 600000000.0,
+   "note_internal": "Formerly Genesis Therapeutics; $296M raised, last priced VC round $200M Series B (Aug 2023, a16z). No valuation disclosed.",
+   "kpis": {
+    "pipeline": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "partnerships": {
+     "value_text": "Incyte collaboration expanded, with USD 40M equity investment",
+     "period": "May 2026",
+     "source": "https://research.contrary.com/company/genesis-molecular-ai"
+    },
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://research.contrary.com/company/genesis-molecular-ai",
+    "https://investor.incyte.com/news-releases/news-release-details/incyte-and-genesis-expand-molecular-ai-collaboration-accelerate"
+   ]
+  },
+  {
+   "rank": 12,
+   "name": "Cradle",
+   "country": "Netherlands",
+   "country_code": "NL",
+   "region": "europe",
+   "tranche": "hundreds_m",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2024-11",
+    "amount_usd": 73000000.0,
+    "type": "Series B",
+    "investors": "led by IVP, with Index Ventures and Kindred Capital"
+   },
+   "published_valuation": null,
+   "estimate_usd": 400000000.0,
+   "note_internal": "AI protein-engineering software for pharma/biotech; valuation undisclosed, $73M Series B implies ~$0.3-0.5B.",
+   "kpis": {
+    "pipeline": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "partnerships": {
+     "value_text": "21+ customers incl. Novo Nordisk, J&J Innovative Medicine, Grifols",
+     "period": "Nov 2024",
+     "source": "https://www.cradle.bio/blog/series-b"
+    },
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.cradle.bio/blog/series-b",
+    "https://european-biotechnology.com/latest-news/cradle-secures-73m-series-b-to-accelerate-ai-driven-protein-engineering/"
+   ]
+  },
+  {
+   "rank": 13,
+   "name": "Aqemia",
+   "country": "France",
+   "country_code": "FR",
+   "region": "europe",
+   "tranche": "hundreds_m",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2024-12",
+    "amount_usd": 38000000.0,
+    "type": "Series A extension",
+    "investors": "led by Cathay Innovation, with Wendel, Bpifrance, Eurazeo, Elaia"
+   },
+   "published_valuation": null,
+   "estimate_usd": 300000000.0,
+   "note_internal": "$100M raised in total; valuation undisclosed, estimate from round sizes. AI + quantum-physics small-molecule discovery (Sanofi partner).",
+   "kpis": {
+    "pipeline": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "partnerships": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.businesswire.com/news/home/20241210380168/en/AQEMIA-Hits-$100-Million-Funding-Milestone-Paving-Way-to-Clinical-Trials-and-Global-Expansion-Starting-with-London-UK"
+   ]
+  }
+ ],
+ "radar": [
+  {
+   "name": "Proxima (formerly VantAI)",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2026-01",
+    "amount_usd": 80000000.0
+   }
+  },
+  {
+   "name": "Latent Labs",
+   "country": "United Kingdom",
+   "country_code": "GB",
+   "region": "europe",
+   "last_equity_round": {
+    "date": "2025-02",
+    "amount_usd": 40000000.0
+   }
+  },
+  {
+   "name": "MindRank AI",
+   "country": "China",
+   "country_code": "CN",
+   "region": "asia-pacific",
+   "last_equity_round": {
+    "date": "2026-07",
+    "amount_usd": 52000000.0
+   }
+  },
+  {
+   "name": "Drug Farm",
+   "country": "China",
+   "country_code": "CN",
+   "region": "asia-pacific",
+   "last_equity_round": {
+    "date": "2026-07",
+    "amount_usd": 55000000.0
+   }
+  },
+  {
+   "name": "Galux",
+   "country": "South Korea",
+   "country_code": "KR",
+   "region": "asia-pacific",
+   "last_equity_round": {
+    "date": "2026-02",
+    "amount_usd": 29000000.0
+   }
+  },
+  {
+   "name": "Converge Bio",
+   "country": "Israel",
+   "country_code": "IL",
+   "region": "mena",
+   "last_equity_round": {
+    "date": "2026-01",
+    "amount_usd": 25000000.0
+   }
+  },
+  {
+   "name": "Boltz",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2026-01",
+    "amount_usd": 28000000.0
+   }
+  },
+  {
+   "name": "Bioptimus",
+   "country": "France",
+   "country_code": "FR",
+   "region": "europe",
+   "last_equity_round": {
+    "date": "2025-01",
+    "amount_usd": 41000000.0
+   }
+  }
+ ],
+ "listed_benchmarks": [
+  {
+   "name": "Insilico Medicine",
+   "listing": "HKEX · 3696",
+   "country": "Hong Kong"
+  },
+  {
+   "name": "XtalPi",
+   "listing": "HKEX · 2228",
+   "country": "China"
+  },
+  {
+   "name": "Recursion Pharmaceuticals",
+   "listing": "NASDAQ · RXRX",
+   "country": "United States"
+  },
+  {
+   "name": "Generate:Biomedicines",
+   "listing": "NASDAQ · GENB",
+   "country": "United States"
+  },
+  {
+   "name": "Schrödinger",
+   "listing": "NASDAQ · SDGR",
+   "country": "United States"
+  },
+  {
+   "name": "Absci",
+   "listing": "NASDAQ · ABSI",
+   "country": "United States"
+  }
+ ]
+}

@@ -63,7 +63,22 @@ SVG = {
  'IE': _v('#169B62', '#fff', '#FF883E'),
  'SV': _h('#0047AB', '#fff', '#0047AB') + '<circle cx="24" cy="16" r="3.2" fill="none" stroke="#C9A227" stroke-width="1.2"/>',
  'PT': '<rect width="48" height="32" fill="#FF0000"/><rect width="19.2" height="32" fill="#006600"/><circle cx="19.2" cy="16" r="6" fill="#FFE900"/><circle cx="19.2" cy="16" r="3.6" fill="#FF0000"/>',
+ 'PL': _h('#fff', '#DC143C'),
+ 'SE': '<rect width="48" height="32" fill="#006AA7"/><path d="M17,0v32M0,16h48" stroke="#FECC02" stroke-width="5"/>',
+ 'GH': _h('#CE1126', '#FCD116', '#006B3F') + '<polygon points="24,11.5 25.4,15 29,15 26.1,17.1 27.2,20.5 24,18.4 20.8,20.5 21.9,17.1 19,15 22.6,15" fill="#000"/>',
+ 'JO': _h('#000', '#fff', '#007A3D') + '<polygon points="0,0 22,16 0,32" fill="#CE1126"/><circle cx="7" cy="16" r="1.8" fill="#fff"/>',
+ 'PK': '<rect width="48" height="32" fill="#01411C"/><rect width="12" height="32" fill="#fff"/>'
+       '<circle cx="31" cy="16" r="8" fill="#fff"/><circle cx="33.5" cy="14" r="7" fill="#01411C"/><circle cx="36" cy="11" r="1.6" fill="#fff"/>',
+ # Australie, Nouvelle-Zélande : Union Jack en quart supérieur gauche, étoiles simplifiées
+ 'AU': '<rect width="48" height="32" fill="#012169"/><g transform="scale(.5)">' + '{UJ}' + '</g>'
+       '<circle cx="12" cy="24.5" r="2.4" fill="#fff"/><circle cx="37" cy="7" r="1.3" fill="#fff"/><circle cx="32" cy="15" r="1.3" fill="#fff"/>'
+       '<circle cx="42" cy="13" r="1.3" fill="#fff"/><circle cx="37" cy="26" r="1.5" fill="#fff"/>',
+ 'NZ': '<rect width="48" height="32" fill="#012169"/><g transform="scale(.5)">' + '{UJ}' + '</g>'
+       '<g fill="#C8102E" stroke="#fff" stroke-width=".6"><circle cx="37" cy="8" r="1.5"/><circle cx="32" cy="15" r="1.5"/>'
+       '<circle cx="41" cy="14" r="1.5"/><circle cx="37" cy="25" r="1.7"/></g>',
 }
+for _c in ('AU', 'NZ'):
+    SVG[_c] = SVG[_c].replace('{UJ}', SVG['GB'])
 
 def flag(code, cls='flag-s'):
     """Drapeau en ligne (décoratif : le nom du pays est toujours écrit à côté)."""

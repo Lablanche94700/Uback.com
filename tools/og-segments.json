@@ -1,15 +1,23 @@
 {
+  "ai-drug-discovery": "379bc759",
+  "appointment-booking": "0f3af483",
   "blockchain-infrastructure": "ccce3b43",
   "business-accounts": "faded826",
   "buy-now-pay-later": "47902a94",
+  "clinic-management": "4e2cae07",
+  "clinical-software": "5e3219a3",
   "cold-wallets": "0c902ed0",
   "consumer-neobanks": "c6670dc6",
   "cross-border-remittances": "b3d0c1f1",
   "crypto-exchanges": "f0b61455",
   "family-fintech": "3768fcfe",
+  "family-healthtech": "8f16eb34",
+  "gene-and-cell-therapies": "79f6055c",
   "institutional-custody": "f9609c77",
   "mobile-wallets": "d4058218",
   "online-payments-and-acquiring": "63f0b386",
+  "online-pharmacy": "52073439",
   "sme-lending": "42be0391",
-  "stablecoins": "56a33ac4"
+  "stablecoins": "56a33ac4",
+  "telemedicine": "772e2fe8"
 }
