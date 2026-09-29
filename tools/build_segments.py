@@ -600,7 +600,7 @@ def build_family(fam, datas):
     n_uni, uni = corn_list('unicorn')
     countries = len({c['country'] for c, d in ranked})
 
-    og_v = og_image(f'family-{slug}', og_html(f'{e(name)} · {len(pub)} segments published',
+    og_v = og_image(f'family-{slug}', og_html(f'{e(name)} · {len(pub)} segment{"s" if len(pub) > 1 else ""} published',
                                               f'The world’s most valuable<br>{e(name_l)} startups',
                                               f'{len(ranked)} companies ranked · {e(edition)}<br>The market sets the value; our AI estimates it.'), out)
     jsonld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": title, "description": desc, "url": url,
@@ -630,7 +630,7 @@ def build_family(fam, datas):
     <div class="panel">
       <div class="k">{e(name)} at a glance</div>
       <div class="stats">
-        <div><b>{len(pub)}</b><span>segments published</span></div>
+        <div><b>{len(pub)}</b><span>segment{'s' if len(pub) > 1 else ''} published</span></div>
         <div><b>{len(ranked)}</b><span>companies ranked</span></div>
         <div><b>{countries}</b><span>countries in the rankings</span></div>
         <div><b>{n_deca + n_uni}</b><span>unicorns and decacorns</span></div>

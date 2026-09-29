@@ -1,0 +1,921 @@
+{
+ "segment_id": "coding-agents",
+ "path": [
+  "Artificial intelligence",
+  "Agents",
+  "Coding agents"
+ ],
+ "name": "Coding agents",
+ "edition": 0,
+ "edition_label": "Edition 0 (beta)",
+ "published": "2026-09-29",
+ "next_edition": "2027-01-01",
+ "cadence": "Twice a year",
+ "kpi_definitions": [
+  {
+   "id": "revenue",
+   "label": "Revenue / ARR",
+   "prefix": true
+  },
+  {
+   "id": "users",
+   "label": "Users / customers"
+  }
+ ],
+ "established_by": "Claude (Anthropic)",
+ "texts": {
+  "title": "The world's most valuable AI coding startups, ranked by AI | Uback",
+  "description": "Uback ranks the world's non-listed AI coding agents by AI-estimated valuation: Cognition, Lovable, Replit, Poolside, Factory and more. Edition 0 (beta).",
+  "h1": "The world’s most valuable AI coding startups",
+  "intro": "Autonomous software-engineering agents, AI coding assistants, AI app builders (vibe coding) and AI code review. Ranked worldwide by AI-estimated valuation. The market sets the value; our AI estimates it.",
+  "not_in_segment": "Foundation-model labs (OpenAI, Anthropic, Mistral, Reflection AI), big-tech assistants (GitHub Copilot) and developer clouds (Vercel) sit outside this segment. Acquired companies are no longer ranked: Cursor (SpaceX, 2026), Windsurf (Cognition), Graphite, Tabnine, Kilo Code, Codegen, Base44. A company appears in one segment only.",
+  "activity": "AI agents and tools that write, review and ship software",
+  "og_title": "The world’s most valuable<br>AI coding startups",
+  "sources": "TechCrunch, Bloomberg, Reuters, The Next Web, BusinessWire, Dealroom, Sacra, Inc42, Entrackr, Calcalist, company announcements."
+ },
+ "ranked": [
+  {
+   "rank": 1,
+   "name": "Cognition",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "decacorn",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2026-09",
+    "amount_usd": 2000000000.0,
+    "type": "Series E",
+    "investors": "a16z, Accel, Founders Fund, General Catalyst, Avenir"
+   },
+   "published_valuation": {
+    "value_usd": 48000000000.0,
+    "date": "2026-09"
+   },
+   "estimate_usd": 48000000000.0,
+   "note_internal": "Published post-money one month old ($26B in May 2026). Devin + Windsurf (acquired Jul 2025, renamed Devin Desktop).",
+   "kpis": {
+    "revenue": {
+     "value_text": "annualised run-rate USD 900M",
+     "period": "Sep 2026",
+     "source": "https://techcrunch.com/2026/09/08/cognition-hits-48b-valuation-signaling-investors-believe-ai-coding-is-far-from-a-winner-take-all-market/"
+    },
+    "users": {
+     "value_text": "enterprise customers incl. Goldman Sachs, Santander, Mercedes-Benz",
+     "period": "2026",
+     "source": "https://techcrunch.com/2026/05/27/ai-coding-startup-cognition-raises-1b-at-25b-pre-money-valuation/"
+    }
+   },
+   "sources": [
+    "https://techcrunch.com/2026/09/08/cognition-hits-48b-valuation-signaling-investors-believe-ai-coding-is-far-from-a-winner-take-all-market/",
+    "https://techcrunch.com/2026/05/27/ai-coding-startup-cognition-raises-1b-at-25b-pre-money-valuation/"
+   ]
+  },
+  {
+   "rank": 2,
+   "name": "Lovable",
+   "country": "Sweden",
+   "country_code": "SE",
+   "region": "europe",
+   "tranche": "decacorn",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2026-08",
+    "amount_usd": 400000000.0,
+    "type": "Series C",
+    "investors": "led by Menlo Ventures, co-led by Scaleup Europe Fund (EQT); Accel, CapitalG, Balderton, Tencent"
+   },
+   "published_valuation": {
+    "value_usd": 13300000000.0,
+    "date": "2026-08"
+   },
+   "estimate_usd": 13300000000.0,
+   "note_internal": "Published mark 1.5 months old, doubled since Dec 2025 ($6.6B). AI app builder (vibe coding).",
+   "kpis": {
+    "revenue": {
+     "value_text": "annualised revenue USD 500M",
+     "period": "Jun 2026",
+     "source": "https://techcrunch.com/2026/08/12/lovable-confirms-new-13-3b-valuation-raises-another-400m/"
+    },
+    "users": {
+     "value_text": "60M+ projects created",
+     "period": "Aug 2026",
+     "source": "https://lovable.dev/blog/series-c"
+    }
+   },
+   "sources": [
+    "https://techcrunch.com/2026/08/12/lovable-confirms-new-13-3b-valuation-raises-another-400m/",
+    "https://lovable.dev/blog/series-c"
+   ]
+  },
+  {
+   "rank": 3,
+   "name": "Replit",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "decacorn",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2026-03",
+    "amount_usd": 400000000.0,
+    "type": "Series D",
+    "investors": "led by Georgian, with G Squared, Prysm, a16z, Coatue, QIA"
+   },
+   "published_valuation": {
+    "value_usd": 9000000000.0,
+    "date": "2026-03"
+   },
+   "estimate_usd": 10500000000.0,
+   "note_internal": "Published $9B is 6 months old; tripled in 6 months before that, target $1B ARR end-2026 and peers (Lovable, Cognition) re-rated since: adjusted up one bracket.",
+   "kpis": {
+    "revenue": {
+     "value_text": "annualised revenue USD 150M",
+     "period": "Sep 2025",
+     "source": "https://replit.com/news/funding-announcement"
+    },
+    "users": {
+     "value_text": "50M+ registered users",
+     "period": "Mar 2026",
+     "source": "https://techcrunch.com/2026/03/11/replit-snags-9b-valuation-6-months-after-hitting-3b"
+    }
+   },
+   "sources": [
+    "https://techcrunch.com/2026/03/11/replit-snags-9b-valuation-6-months-after-hitting-3b",
+    "https://replit.com/news/funding-announcement"
+   ]
+  },
+  {
+   "rank": 4,
+   "name": "Poolside",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2024-10",
+    "amount_usd": 500000000.0,
+    "type": "Series B",
+    "investors": "led by Bain Capital Ventures, with DST Global, eBay, Nvidia"
+   },
+   "published_valuation": {
+    "value_usd": 12000000000.0,
+    "date": "2026-08",
+    "label": "USD 12bn (reported, not confirmed by the company)"
+   },
+   "estimate_usd": 7000000000.0,
+   "note_internal": "Reported Nvidia deal Aug 2026: $6B licence, ~109 staff to Nvidia, $1B equity at $12B in the remainder, payouts to investors. Remaining company thinner: discounted. Coding models and agents for enterprises and government; Paris hub.",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "users": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.bloomberg.com/news/articles/2026-08-20/nvidia-to-pay-ai-startup-poolside-a-6-billion-license-newcomer-says",
+    "https://thenextweb.com/news/nvidia-poolside-6bn-model-factory-licence"
+   ]
+  },
+  {
+   "rank": 5,
+   "name": "Factory",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2026-09",
+    "amount_usd": 200000000.0,
+    "type": "Growth round",
+    "investors": "Blackstone, Khosla Ventures, Sequoia, Insight Partners, NEA"
+   },
+   "published_valuation": {
+    "value_usd": 5000000000.0,
+    "date": "2026-09"
+   },
+   "estimate_usd": 5000000000.0,
+   "note_internal": "Published mark two weeks old, tripled since Apr 2026 ($1.5B).",
+   "kpis": {
+    "revenue": {
+     "value_text": "revenue doubled month on month for six months",
+     "period": "Apr 2026",
+     "source": "https://factory.ai/news/series-c"
+    },
+    "users": {
+     "value_text": "customers incl. Nvidia, Adobe, EY, Palo Alto Networks",
+     "period": "Sep 2026",
+     "source": "https://thenextweb.com/news/factory-200m-5bn-valuation-ai-coding-agents"
+    }
+   },
+   "sources": [
+    "https://factory.com/news/5-billion-valuation",
+    "https://thenextweb.com/news/factory-200m-5bn-valuation-ai-coding-agents"
+   ]
+  },
+  {
+   "rank": 6,
+   "name": "Emergent",
+   "country": "India",
+   "country_code": "IN",
+   "region": "asia-pacific",
+   "tranche": "unicorn",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2026-07",
+    "amount_usd": 130000000.0,
+    "type": "Series C",
+    "investors": "led by Creaegis, with Khosla Ventures, SoftBank Vision Fund 2, Lightspeed, Y Combinator"
+   },
+   "published_valuation": {
+    "value_usd": 1500000000.0,
+    "date": "2026-07"
+   },
+   "estimate_usd": 1600000000.0,
+   "note_internal": "Published $1.5B 2 months old; ARR $120M implies a low multiple vs peers: slight premium. Bengaluru + San Francisco.",
+   "kpis": {
+    "revenue": {
+     "value_text": "USD 120M",
+     "period": "Jul 2026",
+     "source": "https://techcrunch.com/2026/07/15/indian-ai-coding-startup-emergent-becomes-a-unicorn-just-over-a-year-after-launch/"
+    },
+    "users": {
+     "value_text": "200,000+ paying customers",
+     "period": "Jul 2026",
+     "source": "https://techcrunch.com/2026/07/15/indian-ai-coding-startup-emergent-becomes-a-unicorn-just-over-a-year-after-launch/"
+    }
+   },
+   "sources": [
+    "https://techcrunch.com/2026/07/15/indian-ai-coding-startup-emergent-becomes-a-unicorn-just-over-a-year-after-launch/",
+    "https://entrackr.com/news/emergent-becomes-third-ai-unicorn-of-2026-with-130-mn-series-c-led-by-creaegis-12166031"
+   ]
+  },
+  {
+   "rank": 7,
+   "name": "CodeRabbit",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2026-08",
+    "amount_usd": 143000000.0,
+    "type": "Series C",
+    "investors": "co-led by Atomico and Smash Capital, with CRV, Scale Venture Partners, Datadog"
+   },
+   "published_valuation": {
+    "value_usd": 1500000000.0,
+    "date": "2026-08"
+   },
+   "estimate_usd": 1500000000.0,
+   "note_internal": "Published mark 1.5 months old. AI code review.",
+   "kpis": {
+    "revenue": {
+     "value_text": "revenue up more than 5x year on year",
+     "period": "Aug 2026",
+     "source": "https://www.businesswire.com/news/home/20260812311754/en/CodeRabbit-Raises-$143-Million-at-$1.5-Billion-Valuation-and-Introduces-Agentic-Change-Management"
+    },
+    "users": {
+     "value_text": "17,000+ customers",
+     "period": "Aug 2026",
+     "source": "https://www.businesswire.com/news/home/20260812311754/en/CodeRabbit-Raises-$143-Million-at-$1.5-Billion-Valuation-and-Introduces-Agentic-Change-Management"
+    }
+   },
+   "sources": [
+    "https://www.businesswire.com/news/home/20260812311754/en/CodeRabbit-Raises-$143-Million-at-$1.5-Billion-Valuation-and-Introduces-Agentic-Change-Management"
+   ]
+  },
+  {
+   "rank": 8,
+   "name": "Blitzy",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2026-05",
+    "amount_usd": 200000000.0,
+    "type": "Growth round",
+    "investors": "led by Northzone, with PSG, Battery Ventures, Jump Capital, NFX"
+   },
+   "published_valuation": {
+    "value_usd": 1400000000.0,
+    "date": "2026-05"
+   },
+   "estimate_usd": 1400000000.0,
+   "note_internal": "Published mark 5 months old. Autonomous software development for large enterprises.",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "users": {
+     "value_text": "dozens of Global 2000 enterprises",
+     "period": "May 2026",
+     "source": "https://www.businesswire.com/news/home/20260505342338/en/"
+    }
+   },
+   "sources": [
+    "https://www.businesswire.com/news/home/20260505342338/en/"
+   ]
+  },
+  {
+   "rank": 9,
+   "name": "Code Metal",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2026-02",
+    "amount_usd": 125000000.0,
+    "type": "Series B",
+    "investors": "led by Salesforce Ventures, with Accel, B Capital, J2, RTX Ventures"
+   },
+   "published_valuation": {
+    "value_usd": 1250000000.0,
+    "date": "2026-02"
+   },
+   "estimate_usd": 1250000000.0,
+   "note_internal": "Published mark 7 months old. Verified AI code generation/translation for defense and industrial edge hardware.",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "users": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.finsmes.com/2026/02/code-metal-raises-125m-in-series-b-funding-at-1-25b-valuation.html"
+   ]
+  },
+  {
+   "rank": 10,
+   "name": "Magic",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "hundreds_m",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2024-08",
+    "amount_usd": 320000000.0,
+    "type": "Equity round",
+    "investors": "Eric Schmidt, Jane Street, Sequoia, Atlassian, CapitalG"
+   },
+   "published_valuation": {
+    "value_usd": 1500000000.0,
+    "date": "2024-08",
+    "label": "about USD 1.5bn (reported)"
+   },
+   "estimate_usd": 900000000.0,
+   "note_internal": "Reported 2024 mark, never confirmed; still no commercial product two years on and no new round: discounted below $1B.",
+   "kpis": {
+    "revenue": {
+     "value_text": "no commercial product yet",
+     "period": null,
+     "source": null
+    },
+    "users": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://techcrunch.com/2024/08/29/generative-ai-coding-startup-magic-lands-320m-investment-from-eric-schmidt-atlassian-and-others/"
+   ]
+  },
+  {
+   "rank": 11,
+   "name": "StackBlitz (Bolt.new)",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "hundreds_m",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2025-01",
+    "amount_usd": 105500000.0,
+    "type": "Series B",
+    "investors": "led by Emergence and GV, with Madrona, Conviction, Mantis"
+   },
+   "published_valuation": {
+    "value_usd": 700000000.0,
+    "date": "2025-01",
+    "label": "about USD 700M (reported)"
+   },
+   "estimate_usd": 750000000.0,
+   "note_internal": "Reported Jan 2025 mark; no new round while Lovable/Emergent raced ahead, but still growing (Microsoft partnership May 2026, first acquisition Sep 2026): roughly flat.",
+   "kpis": {
+    "revenue": {
+     "value_text": "USD 40M",
+     "period": "Mar 2025",
+     "source": "https://sacra.com/c/bolt-new/"
+    },
+    "users": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://sacra.com/c/bolt-new/",
+    "https://bolt.new/blog/bolt-microsoft-partnership"
+   ]
+  },
+  {
+   "rank": 12,
+   "name": "Augment Code",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "hundreds_m",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2024-04",
+    "amount_usd": 227000000.0,
+    "type": "Series B",
+    "investors": "Sutter Hill, Index Ventures, Innovation Endeavors, Lightspeed"
+   },
+   "published_valuation": {
+    "value_usd": 977000000.0,
+    "date": "2024-04"
+   },
+   "estimate_usd": 700000000.0,
+   "note_internal": "2024 mark (29 months old) discounted: no round since while competition intensified. Enterprise customers (DXC, Pure Storage).",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "users": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.augmentcode.com/blog/augment-inc-raises-227-million"
+   ]
+  },
+  {
+   "rank": 13,
+   "name": "8090",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "hundreds_m",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2026-06",
+    "amount_usd": 135000000.0,
+    "type": "Series A",
+    "investors": "led by Salesforce Ventures, with WndrCo, Craft Ventures, The Production Board"
+   },
+   "published_valuation": null,
+   "estimate_usd": 600000000.0,
+   "note_internal": "Valuation undisclosed; post-money range from round size $540-900M, taken near the low end (no revenue disclosed). Enterprise coding agent 'Software Factory'; CEO Chamath Palihapitiya.",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "users": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://techcrunch.com/2026/06/29/chamath-palihapitiya-raises-135m-series-a-for-his-ai-coding-startup-takes-ceo-role/"
+   ]
+  },
+  {
+   "rank": 14,
+   "name": "Tessl",
+   "country": "United Kingdom",
+   "country_code": "GB",
+   "region": "europe",
+   "tranche": "hundreds_m",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2024-11",
+    "amount_usd": 100000000.0,
+    "type": "Series A",
+    "investors": "led by Index Ventures, with Accel, GV, boldstart"
+   },
+   "published_valuation": {
+    "value_usd": 750000000.0,
+    "date": "2024-11",
+    "label": "about USD 750M (reported)"
+   },
+   "estimate_usd": 500000000.0,
+   "note_internal": "Reported 2024 mark, discounted: no traction figures disclosed and no new round in 22 months.",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "users": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://techcrunch.com/2024/11/14/tessl-raises-125m-at-at-500m-valuation-to-build-ai-that-writes-and-maintains-code/"
+   ]
+  },
+  {
+   "rank": 15,
+   "name": "Qodo",
+   "country": "Israel",
+   "country_code": "IL",
+   "region": "mena",
+   "tranche": "hundreds_m",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2026-03",
+    "amount_usd": 70000000.0,
+    "type": "Series B",
+    "investors": "led by Qumra Capital, with TLV Partners, Square Peg, Susa Ventures"
+   },
+   "published_valuation": null,
+   "estimate_usd": 350000000.0,
+   "note_internal": "Valuation undisclosed; from round size (~20% dilution). Code review/verification. Tel Aviv + New York.",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "users": {
+     "value_text": "customers incl. Nvidia, Walmart, Red Hat, Intuit",
+     "period": "Mar 2026",
+     "source": "https://techcrunch.com/2026/03/30/qodo-bets-on-code-verification-as-ai-coding-scales-raises-70m/"
+    }
+   },
+   "sources": [
+    "https://techcrunch.com/2026/03/30/qodo-bets-on-code-verification-as-ai-coding-scales-raises-70m/"
+   ]
+  },
+  {
+   "rank": 16,
+   "name": "Entire",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "hundreds_m",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2026-02",
+    "amount_usd": 60000000.0,
+    "type": "Seed",
+    "investors": "led by Felicis"
+   },
+   "published_valuation": {
+    "value_usd": 300000000.0,
+    "date": "2026-02"
+   },
+   "estimate_usd": 300000000.0,
+   "note_internal": "Published seed valuation. Platform for agent-written code by ex-GitHub CEO Thomas Dohmke.",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "users": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://techcrunch.com/2026/02/10/former-github-ceo-raises-record-60m-dev-tool-seed-round-at-300m-valuation/"
+   ]
+  },
+  {
+   "rank": 17,
+   "name": "Warp",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "hundreds_m",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2023-06",
+    "amount_usd": 50000000.0,
+    "type": "Series B",
+    "investors": "led by Sequoia"
+   },
+   "published_valuation": null,
+   "estimate_usd": 280000000.0,
+   "note_internal": "Valuation never disclosed; from 2023 Series B size, agentic terminal with ~1M developers, open-sourced 2026-04 with OpenAI as sponsor.",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "users": {
+     "value_text": "close to 1M developers",
+     "period": "Apr 2026",
+     "source": "https://www.warp.dev/newsroom/2026/4/28/warp-open-sources-its-agentic-development-environment"
+    }
+   },
+   "sources": [
+    "https://www.warp.dev/newsroom/2026/4/28/warp-open-sources-its-agentic-development-environment",
+    "https://en.wikipedia.org/wiki/Warp_(terminal)"
+   ]
+  },
+  {
+   "rank": 18,
+   "name": "Rocket",
+   "country": "India",
+   "country_code": "IN",
+   "region": "asia-pacific",
+   "tranche": "hundreds_m",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2025-09",
+    "amount_usd": 15000000.0,
+    "type": "Seed",
+    "investors": "co-led by Salesforce Ventures and Accel"
+   },
+   "published_valuation": {
+    "value_usd": 60000000.0,
+    "date": "2025-09",
+    "label": "about USD 60M (reported)"
+   },
+   "estimate_usd": 250000000.0,
+   "note_internal": "Anchor tens of M$; adjusted up one bracket: reported talks (Jun 2026) to raise $40-50M at ~$500M. Rocket.new, Surat + Palo Alto.",
+   "kpis": {
+    "revenue": {
+     "value_text": "about USD 4.5M revenue",
+     "period": "Jun 2026",
+     "source": "https://inc42.com/buzz/vibe-coding-startup-rocket-eyes-fresh-funding-in-sig-led-round/"
+    },
+    "users": {
+     "value_text": "400,000+ users in 180 countries",
+     "period": "Jun 2026",
+     "source": "https://inc42.com/buzz/vibe-coding-startup-rocket-eyes-fresh-funding-in-sig-led-round/"
+    }
+   },
+   "sources": [
+    "https://techcrunch.com/2025/09/22/rocket-new-one-of-indias-first-vibe-coding-startups-snags-15m-from-accel-salesforce-ventures/",
+    "https://inc42.com/buzz/vibe-coding-startup-rocket-eyes-fresh-funding-in-sig-led-round/"
+   ]
+  },
+  {
+   "rank": 19,
+   "name": "Greptile",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "hundreds_m",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2025-09",
+    "amount_usd": 25000000.0,
+    "type": "Series A",
+    "investors": "led by Benchmark, with Y Combinator, Initialized"
+   },
+   "published_valuation": {
+    "value_usd": 180000000.0,
+    "date": "2025-07",
+    "label": "about USD 180M (reported)"
+   },
+   "estimate_usd": 200000000.0,
+   "note_internal": "Reported $180M (TechCrunch sources); slight premium for growth (2,000+ customers). AI code review.",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "users": {
+     "value_text": "2,000+ customers",
+     "period": "Jan 2026",
+     "source": "https://www.gatech.edu/news/2026/01/05/y-combinator-backing-and-30m-investment-take-startup-greptile-next-level"
+    }
+   },
+   "sources": [
+    "https://www.greptile.com/blog/series-a",
+    "https://techcrunch.com/2025/07/18/benchmark-in-talks-to-lead-series-a-for-greptile-valuing-ai-code-reviewer-at-180m-sources-say/"
+   ]
+  },
+  {
+   "rank": 20,
+   "name": "YouWare",
+   "country": "China",
+   "country_code": "CN",
+   "region": "asia-pacific",
+   "tranche": "hundreds_m",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2025-11",
+    "amount_usd": null,
+    "amount_label": "USD 50M (cumulative)",
+    "type": "Pre-seed",
+    "investors": "IDG Capital, 5Y Capital"
+   },
+   "published_valuation": {
+    "value_usd": 200000000.0,
+    "date": "2025-11",
+    "label": "about USD 200M (reported)"
+   },
+   "estimate_usd": 190000000.0,
+   "note_internal": "Single secondary source for the $200M mark. Vibe-coding platform for creators, Shenzhen.",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "users": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://pulse2.com/youware-200-million-valuation-reached-and-mobile-app-launched/"
+   ]
+  }
+ ],
+ "radar": [
+  {
+   "name": "HyperDev",
+   "country": "South Africa",
+   "country_code": "ZA",
+   "region": "sub-saharan-africa",
+   "last_equity_round": {
+    "date": "2026-07",
+    "amount_usd": 1000000.0
+   }
+  },
+  {
+   "name": "Baz",
+   "country": "Israel",
+   "country_code": "IL",
+   "region": "mena",
+   "last_equity_round": {
+    "date": "2026-06",
+    "amount_usd": 9000000.0
+   }
+  },
+  {
+   "name": "Rork",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2026-04",
+    "amount_usd": 15000000.0
+   }
+  },
+  {
+   "name": "Momentic",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2025-11",
+    "amount_usd": 15000000.0
+   }
+  },
+  {
+   "name": "OpenHands",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2025-11",
+    "amount_usd": 18800000.0
+   }
+  },
+  {
+   "name": "Relace",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2025-10",
+    "amount_usd": 23000000.0
+   }
+  },
+  {
+   "name": "Macroscope",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2025-09",
+    "amount_usd": 30000000.0
+   }
+  },
+  {
+   "name": "Anything",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2025-09",
+    "amount_usd": 11000000.0
+   }
+  },
+  {
+   "name": "Zed",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2025-08",
+    "amount_usd": 32000000.0
+   }
+  },
+  {
+   "name": "Cline",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2025-07",
+    "amount_usd": 27000000.0
+   }
+  },
+  {
+   "name": "CodeAnt AI",
+   "country": "India",
+   "country_code": "IN",
+   "region": "asia-pacific",
+   "last_equity_round": {
+    "date": "2025-05",
+    "amount_usd": 2000000.0
+   }
+  }
+ ],
+ "listed_benchmarks": [
+  {
+   "name": "SpaceX (owns Cursor)",
+   "listing": "Nasdaq · SPCX",
+   "country": "United States"
+  },
+  {
+   "name": "Microsoft (GitHub Copilot)",
+   "listing": "Nasdaq · MSFT",
+   "country": "United States"
+  },
+  {
+   "name": "Alphabet (Jules, Gemini Code Assist)",
+   "listing": "Nasdaq · GOOGL",
+   "country": "United States"
+  },
+  {
+   "name": "Atlassian",
+   "listing": "Nasdaq · TEAM",
+   "country": "United States"
+  },
+  {
+   "name": "GitLab",
+   "listing": "Nasdaq · GTLB",
+   "country": "United States"
+  },
+  {
+   "name": "JFrog",
+   "listing": "Nasdaq · FROG",
+   "country": "Israel"
+  },
+  {
+   "name": "Wix (owns Base44)",
+   "listing": "Nasdaq · WIX",
+   "country": "Israel"
+  },
+  {
+   "name": "Figma (Figma Make)",
+   "listing": "NYSE · FIG",
+   "country": "United States"
+  }
+ ]
+}
