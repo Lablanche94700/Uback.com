@@ -71,6 +71,36 @@ def fam_link(f):
     slug = re.sub(r'[^a-z0-9]+', '-', f['name'].lower()).strip('-')
     return f'<a class="fam-link" href="/sectors/{slug}/">All {e(f["name"])} rankings <span aria-hidden="true">→</span></a>'
 
+def fam_slug(name):
+    return re.sub(r'[^a-z0-9]+', '-', name.lower()).strip('-')
+
+# Menu « Rankings » de l'en-tête (homepage et pages globales) : familles publiées (page /sectors/<famille>/) et pays en ligne,
+# calculés depuis data/sectors.json, data/segments/ et REGIONS. Même mécanisme que les sélecteurs des pages pays et segment
+# (<details>, sans JavaScript) ; un petit script le referme au clic à l'extérieur ou avec Échap.
+RK_UI = {'en': dict(t='Rankings', sec='By sector', cty='By country', all_s='All sectors', all_c='All countries'),
+         'fr': dict(t='Classements', sec='Par secteur', cty='Par pays', all_s='Tous les secteurs', all_c='Tous les pays')}
+
+def rankings_menu(lang):
+    u = RK_UI[lang]
+    fams = ''.join(f'<a href="/sectors/{fam_slug(f["name"])}/">{e(f["name"])}</a>' for f in FAMS
+                   if any(g.get('status') == 'published' for s in f['sectors'] for g in s['segments']))
+    ctys = ''
+    for r in REGIONS:
+        for code, name, sub, url in r['live']:
+            if lang == 'fr':                      # version française du pays si elle existe, sinon sa version principale
+                v = next((m for m in MARKETS if m['code'] == code and m['lang'] == 'fr'), None)
+                name, url = NAMES[code]['fr'], (v['path'] + '/' if v else url)
+            ctys += f'<a href="{url}">{FLAGS[code]}{e(name)}</a>'
+    return (f'<details class="rk"><summary>{u["t"]}</summary><div class="rk-menu">'
+            f'<div class="rk-col"><span class="rk-h">{u["sec"]}</span>{fams}<a class="rk-all" href="/#sectors">{u["all_s"]} <span aria-hidden="true">→</span></a></div>'
+            f'<div class="rk-col"><span class="rk-h">{u["cty"]}</span>{ctys}<a class="rk-all" href="/#countries">{u["all_c"]} <span aria-hidden="true">→</span></a></div>'
+            f'</div></details>' + RK_JS)
+
+RK_JS = ('<script>(function(){var d=document.querySelector("details.rk");if(!d)return;'
+         'document.addEventListener("click",function(ev){if(d.open&&!d.contains(ev.target))d.open=false;});'
+         'document.addEventListener("keydown",function(ev){if(ev.key==="Escape"&&d.open){d.open=false;d.querySelector("summary").focus();}});'
+         'd.querySelectorAll(".rk-menu a").forEach(function(a){a.addEventListener("click",function(){d.open=false;});});})();</script>')
+
 def family(f):
     n_sec = len(f['sectors'])
     n_seg = sum(len(s['segments']) for s in f['sectors'])
@@ -127,7 +157,25 @@ header .wrap{height:64px;display:flex;align-items:center;justify-content:space-b
 .logo .u{width:34px;height:34px;border-radius:8px;background:var(--navy);color:var(--gold);display:inline-flex;align-items:center;justify-content:center;font-size:20px;letter-spacing:0}
 nav{display:flex;gap:20px;align-items:center;font-size:15px;font-weight:500}
 nav a{text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
-nav .nav-wide{display:none}
+.rk{position:relative}
+.rk summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;min-height:44px;color:var(--navy)}
+.rk summary::-webkit-details-marker{display:none}
+.rk summary::after{content:"";width:6px;height:6px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin-top:-4px}
+.rk[open] summary::after{transform:rotate(-135deg);margin-top:3px}
+.rk summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.rk-menu{position:absolute;top:calc(100% + 6px);right:-16px;z-index:60;display:grid;grid-template-columns:max-content max-content;gap:4px 32px;padding:16px 18px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 30px rgba(30,58,95,.14);white-space:nowrap}
+.rk-col{display:flex;flex-direction:column}
+.rk-h{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
+.rk-menu a{display:flex;align-items:center;gap:10px;min-height:40px;padding:0 8px;margin:0 -8px;border-radius:8px;font-size:15px;font-weight:500;color:var(--navy);text-decoration:none}
+.rk-menu a:hover{background:var(--bg)}
+.rk-menu .flag{width:21px;height:14px;border-radius:2px}
+.rk-menu a.rk-all{margin-top:4px;font-size:14px;font-weight:600;text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:5px}
+/* pages globales (sélecteur de langue en plus) : sur petit écran, le menu passe sous le logo */
+@media (max-width:479px){header.hdr-lang .wrap{height:auto;flex-wrap:wrap;row-gap:0;padding-top:8px;padding-bottom:4px}header.hdr-lang nav{width:100%;justify-content:space-between;gap:10px}}
+@media (max-width:379px){header .wrap{height:auto;flex-wrap:wrap;row-gap:0;padding-top:8px;padding-bottom:4px}header nav{width:100%;justify-content:space-between;gap:10px}}
+@media (max-width:359px){header nav{font-size:13px;gap:4px}.langsw{font-size:12px}}
+@media (max-width:719px){header .wrap{position:relative}.rk{position:static}
+  .rk-menu{left:16px;right:16px;top:calc(100% - 4px);grid-template-columns:1fr;gap:14px;white-space:normal}}
 
 .hero{padding:56px 0 32px}
 .hero .wrap{display:flex;flex-direction:column;gap:20px}
@@ -239,7 +287,6 @@ footer a{color:var(--muted)}
   .logo{font-size:24px;gap:12px}
   .logo .u{width:38px;height:38px;border-radius:9px;font-size:22px}
   nav{gap:28px}
-  nav .nav-wide{display:inline-flex}
   .hero{padding:104px 0 64px}
   .hero .wrap{align-items:center;text-align:center;gap:28px}
   .eyebrow{font-size:13px}.eyebrow i{width:24px}.eyebrow i.r{display:block}
@@ -271,6 +318,10 @@ document.documentElement.classList.add('js');
     main.setAttribute('data-view',b.dataset.view);
     tabs.forEach(function(t){t.setAttribute('aria-selected',t===b?'true':'false');});
   });});
+  // lien #sectors / #countries (menu Rankings) : affiche l'onglet correspondant sur mobile
+  function syncView(){var v=location.hash.slice(1);if(v!=='sectors'&&v!=='countries')return;
+    main.setAttribute('data-view',v);tabs.forEach(function(t){t.setAttribute('aria-selected',t.dataset.view===v?'true':'false');});}
+  syncView();window.addEventListener('hashchange',syncView);
   // info-bulle « Coming soon » au tap
   document.querySelectorAll('.pill.soon').forEach(function(p){p.addEventListener('click',function(){
     document.querySelectorAll('.pill.soon.show').forEach(function(o){if(o!==p)o.classList.remove('show');});
@@ -341,8 +392,7 @@ page = f'''<!doctype html>
   <div class="wrap">
     <a class="logo" href="/" aria-label="Uback, home"><span class="u" aria-hidden="true">U</span>Uback</a>
     <nav aria-label="Main">
-      <a class="nav-wide" href="#sectors">Sectors</a>
-      <a class="nav-wide" href="#countries">Countries</a>
+      {rankings_menu('en')}
       <a href="/invest.html">Invest</a>
       <a href="{METHOD_URL}">Method</a>
     </nav>
@@ -591,12 +641,11 @@ def global_page(key, lang, body):
 <body>
 
 <div class="beta"><div class="wrap"><b>{u['beta']}</b><span class="beta-t">{u['beta_t']}</span></div></div>
-<header>
+<header class="hdr-lang">
   <div class="wrap">
     <a class="logo" href="/" aria-label="Uback, home"><span class="u" aria-hidden="true">U</span>Uback</a>
     <nav aria-label="Main">
-      <a class="nav-wide" href="/#sectors">{u['sectors']}</a>
-      <a class="nav-wide" href="/#countries">{u['countries']}</a>
+      {rankings_menu(lang)}
       <a href="/{GLOBAL['invest'][lang]}"{cur('invest')}>{u['invest']}</a>
       <a href="{method_url}"{cur('method')}>{u['method']}</a>
       {sw}

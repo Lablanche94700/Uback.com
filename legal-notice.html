@@ -42,7 +42,25 @@ header .wrap{height:64px;display:flex;align-items:center;justify-content:space-b
 .logo .u{width:34px;height:34px;border-radius:8px;background:var(--navy);color:var(--gold);display:inline-flex;align-items:center;justify-content:center;font-size:20px;letter-spacing:0}
 nav{display:flex;gap:20px;align-items:center;font-size:15px;font-weight:500}
 nav a{text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
-nav .nav-wide{display:none}
+.rk{position:relative}
+.rk summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;min-height:44px;color:var(--navy)}
+.rk summary::-webkit-details-marker{display:none}
+.rk summary::after{content:"";width:6px;height:6px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin-top:-4px}
+.rk[open] summary::after{transform:rotate(-135deg);margin-top:3px}
+.rk summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.rk-menu{position:absolute;top:calc(100% + 6px);right:-16px;z-index:60;display:grid;grid-template-columns:max-content max-content;gap:4px 32px;padding:16px 18px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 30px rgba(30,58,95,.14);white-space:nowrap}
+.rk-col{display:flex;flex-direction:column}
+.rk-h{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
+.rk-menu a{display:flex;align-items:center;gap:10px;min-height:40px;padding:0 8px;margin:0 -8px;border-radius:8px;font-size:15px;font-weight:500;color:var(--navy);text-decoration:none}
+.rk-menu a:hover{background:var(--bg)}
+.rk-menu .flag{width:21px;height:14px;border-radius:2px}
+.rk-menu a.rk-all{margin-top:4px;font-size:14px;font-weight:600;text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:5px}
+/* pages globales (sélecteur de langue en plus) : sur petit écran, le menu passe sous le logo */
+@media (max-width:479px){header.hdr-lang .wrap{height:auto;flex-wrap:wrap;row-gap:0;padding-top:8px;padding-bottom:4px}header.hdr-lang nav{width:100%;justify-content:space-between;gap:10px}}
+@media (max-width:379px){header .wrap{height:auto;flex-wrap:wrap;row-gap:0;padding-top:8px;padding-bottom:4px}header nav{width:100%;justify-content:space-between;gap:10px}}
+@media (max-width:359px){header nav{font-size:13px;gap:4px}.langsw{font-size:12px}}
+@media (max-width:719px){header .wrap{position:relative}.rk{position:static}
+  .rk-menu{left:16px;right:16px;top:calc(100% - 4px);grid-template-columns:1fr;gap:14px;white-space:normal}}
 
 .hero{padding:56px 0 32px}
 .hero .wrap{display:flex;flex-direction:column;gap:20px}
@@ -154,7 +172,6 @@ footer a{color:var(--muted)}
   .logo{font-size:24px;gap:12px}
   .logo .u{width:38px;height:38px;border-radius:9px;font-size:22px}
   nav{gap:28px}
-  nav .nav-wide{display:inline-flex}
   .hero{padding:104px 0 64px}
   .hero .wrap{align-items:center;text-align:center;gap:28px}
   .eyebrow{font-size:13px}.eyebrow i{width:24px}.eyebrow i.r{display:block}
@@ -216,12 +233,11 @@ footer a{color:var(--muted)}
 <body>
 
 <div class="beta"><div class="wrap"><b>Beta · prototype</b><span class="beta-t">— This site is under construction: rankings, texts and features change every week.</span></div></div>
-<header>
+<header class="hdr-lang">
   <div class="wrap">
     <a class="logo" href="/" aria-label="Uback, home"><span class="u" aria-hidden="true">U</span>Uback</a>
     <nav aria-label="Main">
-      <a class="nav-wide" href="/#sectors">Sectors</a>
-      <a class="nav-wide" href="/#countries">Countries</a>
+      <details class="rk"><summary>Rankings</summary><div class="rk-menu"><div class="rk-col"><span class="rk-h">By sector</span><a href="/sectors/fintech/">Fintech</a><a href="/sectors/healthtech/">Healthtech</a><a href="/sectors/business-software/">Business software</a><a href="/sectors/artificial-intelligence/">Artificial intelligence</a><a class="rk-all" href="/#sectors">All sectors <span aria-hidden="true">→</span></a></div><div class="rk-col"><span class="rk-h">By country</span><a href="/ma/"><svg class="flag" viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" fill="#C1272D"/><polygon points="24,8.5 26.6,16.4 34.4,11.6 20,20.9 29.6,20.9 18.2,11.6 26,16.4" fill="none" stroke="#006233" stroke-width="1.6" stroke-linejoin="round" transform="translate(-2.2 1.2)"/></svg>Morocco</a><a href="/pl/"><svg class="flag" viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="16" fill="#FFFFFF"/><rect y="16" width="48" height="16" fill="#DC143C"/><rect x=".5" y=".5" width="47" height="31" fill="none" stroke="#E4E8EE"/></svg>Poland</a><a href="/vn/"><svg class="flag" viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" fill="#DA251D"/><polygon points="24,7 26.47,14.6 34.46,14.6 28,19.3 30.47,26.9 24,22.2 17.53,26.9 20,19.3 13.54,14.6 21.53,14.6" fill="#FFFF00"/></svg>Vietnam</a><a class="rk-all" href="/#countries">All countries <span aria-hidden="true">→</span></a></div></div></details><script>(function(){var d=document.querySelector("details.rk");if(!d)return;document.addEventListener("click",function(ev){if(d.open&&!d.contains(ev.target))d.open=false;});document.addEventListener("keydown",function(ev){if(ev.key==="Escape"&&d.open){d.open=false;d.querySelector("summary").focus();}});d.querySelectorAll(".rk-menu a").forEach(function(a){a.addEventListener("click",function(){d.open=false;});});})();</script>
       <a href="/invest.html">Invest</a>
       <a href="/method.html">Method</a>
       <span class="langsw"><span class="on">EN</span><span>·</span><a href="/mentions-legales.html" hreflang="fr">FR</a></span>

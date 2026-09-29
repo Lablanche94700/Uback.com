@@ -65,6 +65,10 @@ Arborescence : `data/sectors.json`, trois niveaux fixes (famille > secteur > seg
 identifiant `FAMILLE-nn-nn`, slug anglais stable. Un segment est publié automatiquement (lien vers
 `/segments/<slug>/`) dès qu'un fichier `data/segments/<slug>.json` existe.
 
+En-tête de la homepage et des pages globales : menu « Rankings » / « Classements » (familles publiées → `/sectors/<famille>/`,
+pays en ligne → leur page, plus « All sectors » / « All countries » vers la homepage), calculé à chaque génération
+(`rankings_menu()` dans `tools/build_home.py`).
+
 ## Classements mondiaux par segment
 
 `python3 tools/build_segments.py` génère `/segments/<slug>/index.html` pour chaque `data/segments/<slug>.json`
