@@ -79,6 +79,9 @@ Intentions : par défaut, l'intérêt porte sur le pool du segment (bouton or de
 `/invest.html?pool=segment&segment=<slug>#opening`). Une intention sur une société n'apparaît que si elle est ouverte aux
 Backers : champ facultatif `"open_to_backers": {"type": "secondary" | "raise", "since": "AAAA-MM"}` (actionnaire qui envisage
 de céder, ou levée prévue ; vérifié par `check()`). La colonne « Open to Backers » n'est affichée que si au moins une société l'a.
+Règle affichée partout (page Invest, sections Backers) : un intérêt sur un secteur ou un pays peut indiquer une société
+préférée (signal transmis avec le pool, pas de pool société) ; une intention est valable à vie tant que son pool n'est pas
+transmis au partenaire (masse critique = montant plancher estimé par l'IA pour chaque pool), puis engagée et non déplaçable.
 Drapeaux : `tools/flags.py` (ajouter un pays si besoin). Image de partage rendue automatiquement (Edge) quand son
 contenu change ; empreinte dans `tools/og-segments.json`. Après génération : relancer `tools/build_home.py`
 et ajouter la page dans `sitemap.xml`.

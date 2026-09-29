@@ -109,13 +109,13 @@ TXT = {
   inv_h2='Investir {in_}, à plusieurs, depuis {cities}',
   inv_lead='Uback agrège les intentions d’investissement des business angels, family offices, corporates et investisseurs de la diaspora. Vous investissez aux côtés d’investisseurs professionnels déjà au capital, qui ont négocié un pacte d’associés : vous ne partez pas d’une page blanche.',
   steps_h='Le nombre fait la force', steps_sub='Seul, un petit ticket n’ouvre aucune porte. Regroupés, les Backers pèsent.',
-  s1h='Déclarez un intérêt', s1='Sur le pays ou un secteur, avec une fourchette de ticket. Sur une société seulement si elle est ouverte aux Backers. Payante, pour qualifier le sérieux&nbsp;; déplaçable à tout moment vers un autre pool.',
-  s2h='La masse critique est atteinte', s2='Quand le nombre de Backers et le cumul de leurs intentions franchissent un seuil, le partenaire agréé contacte la société et lui présente cette demande.',
+  s1h='Déclarez un intérêt', s1='Sur le pays ou l’un de ses secteurs, avec une fourchette de ticket, et si vous le souhaitez une société préférée. Payante, pour qualifier le sérieux&nbsp;; valable à vie et déplaçable vers un autre pool tant que son pool n’est pas transmis au partenaire.',
+  s2h='La masse critique est atteinte', s2='Quand le montant cumulé du pool atteint sa masse critique, un montant plancher estimé par l’IA, le pool est transmis au partenaire agréé, qui présente cette demande à la société.',
   s3h='Le partenaire agréé structure', s3='Si les attentes de la société et celles des Backers convergent, il construit une opération et la présente directement aux Backers concernés.',
   s4h='Closing', s4='Levée ou cession de titres existants&nbsp;: les petits tickets sont regroupés dans un véhicule commun créé par le partenaire agréé. Chaque Backer décide d’y participer ou non.',
   steps_note='Uback ne conseille pas, ne négocie pas, n’encaisse rien. Chaque opération est menée par le partenaire agréé, sous le droit indiqué sur la fiche de la société.',
   cta_notify='Être prévenu à l’ouverture des intentions', cta_after='Que se passe-t-il après ma déclaration ?',
-  cta_line='Ouverture des déclarations d’intention dès la signature du partenaire agréé · prix par tranche de ticket · sans date limite · déplaçable vers un autre pool',
+  cta_line='Ouverture des déclarations d’intention dès la signature du partenaire agréé · prix par tranche de ticket · valable à vie · déplaçable jusqu’à la transmission du pool',
   ph_k='Le partenaire Uback {in_}', ph_h2='Mises en relation assurées par un partenaire agréé, en cours de sélection',
   ph_p='{partner_short}, seul habilité à contacter les sociétés et à structurer les deals. Uback reste un média : il classe et agrège les intentions, il n’intervient dans aucune transaction.',
   ph_s1='dossiers travaillés', ph_s2='deals conclus', ph_s3='délai moyen de réponse',
@@ -187,13 +187,13 @@ TXT = {
   inv_h2='Invest {in_}, together, from {cities}',
   inv_lead='Uback aggregates investment intentions from business angels, family offices, corporates and diaspora investors. You invest alongside professional investors already on the cap table, who have negotiated a shareholders’ agreement: you don’t start from a blank page.',
   steps_h='Strength in numbers', steps_sub='Alone, a small ticket opens no doors. Together, Backers carry weight.',
-  s1h='Declare an interest', s1='In the country or a sector, with a ticket range. On a specific company only when it is open to Backers. Paid, to show you are serious; you can move it to another pool at any time.',
-  s2h='Critical mass is reached', s2='When the number of Backers and the total of their intentions cross a threshold, the licensed partner contacts the company and presents this demand.',
+  s1h='Declare an interest', s1='In the country or one of its sectors, with a ticket range, and if you wish a preferred company. Paid, to show you are serious; valid for life, and movable to another pool until its pool is passed to the partner.',
+  s2h='Critical mass is reached', s2='When the pool’s combined amount reaches its critical mass, a floor amount estimated by the AI, the pool is passed to the licensed partner, who presents this demand to the company.',
   s3h='The licensed partner structures', s3='If the company’s expectations and the Backers’ converge, the partner builds a transaction and presents it directly to the Backers concerned.',
   s4h='Closing', s4='Capital raise or sale of existing shares: small tickets are pooled in a common vehicle set up by the licensed partner. Each Backer decides whether to take part.',
   steps_note='Uback does not advise, does not negotiate, collects nothing. Each transaction is run by the licensed partner, under the law shown on the company’s profile.',
   cta_notify='Get notified when intentions open', cta_after='What happens after my declaration?',
-  cta_line='Intention declarations open once the licensed partner signs · price per ticket band · no expiry · can be moved to another pool',
+  cta_line='Intention declarations open once the licensed partner signs · price per ticket band · valid for life · movable until the pool is passed on',
   ph_k='The Uback partner {in_}', ph_h2='Introductions made by a licensed partner, currently being selected',
   ph_p='{partner_short}, the only party entitled to contact companies and structure deals. Uback remains a media: it ranks and aggregates intentions, it takes part in no transaction.',
   ph_s1='deals worked on', ph_s2='deals closed', ph_s3='average response time',
@@ -637,7 +637,7 @@ if M['lang'] == 'fr':
 <ul>
 <li><b>Des investisseurs que vous ne trouveriez pas seul.</b> Les intentions déclarées sur votre marché vous sont réservées : montants, secteurs, sociétés convoitées, avec l’identité des Backers qui ont consenti à être mis en relation.</li>
 <li><b>De la visibilité.</b> Votre nom, votre statut réglementaire et votre numéro d’immatriculation apparaissent sur chaque classement du pays (« Mises en relation assurées par… »), et sur votre page partenaire.</li>
-<li><b>Un tableau de bord.</b> Alertes quand les intentions sur une société ou un secteur franchissent le seuil, suivi des dossiers, trace de chaque contact.</li>
+<li><b>Un tableau de bord.</b> Alertes quand un pool (pays, secteur ou société ouverte aux Backers) atteint sa masse critique, suivi des dossiers, trace de chaque contact.</li>
 <li><b>Un kit de prospection trimestriel.</b> Une synthèse des intentions de votre marché, à envoyer à vos propres clients.</li>
 <li><b>Une voix.</b> Vous pouvez publier des notes sous votre nom sur votre marché.</li>
 </ul>
@@ -680,7 +680,7 @@ else:
 <ul>
 <li><b>Investors you would not find on your own.</b> The intentions declared on your market are reserved for you: amounts, sectors, sought-after companies, with the identity of the Backers who agreed to be introduced.</li>
 <li><b>Visibility.</b> Your name, regulatory status and registration number appear on every ranking of the country (“Introductions made by…”), and on your partner page.</li>
-<li><b>A dashboard.</b> Alerts when intentions on a company or a sector cross the threshold, deal tracking, a record of every contact.</li>
+<li><b>A dashboard.</b> Alerts when a pool (country, sector or company open to Backers) reaches its critical mass, deal tracking, a record of every contact.</li>
 <li><b>A quarterly prospecting kit.</b> A summary of the intentions on your market, to send to your own clients.</li>
 <li><b>A voice.</b> You can publish notes under your name on your market.</li>
 </ul>

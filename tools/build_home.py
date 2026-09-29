@@ -486,7 +486,7 @@ G_UI = {
             beta_l='Contact us', legal='Legal notice', corr='Request a correction', disc='Rankings are editorial content, not investment advice.',
             cal_country='Country', cal_months='Published on the 15th', cal_next='Next edition',
             t_method='Method and rules of the game | Uback', d_method='How Uback ranks non-listed startups in descending order of AI-estimated valuation: consensus, confidence index, order of magnitude, eligibility, how human input is taken into account, corrections.',
-            invest='Invest', t_invest='Invest with Uback | Uback', d_invest='Declare an investment intention on a sector, a country, or a company open to Backers. Backers’ intentions form a pool; above a threshold, the country’s licensed partner presents the demand to the company.',
+            invest='Invest', t_invest='Invest with Uback | Uback', d_invest='Declare an investment intention on a sector, a country, or a company open to Backers. Backers’ intentions form a pool; once it reaches its critical mass, the pool is passed to the licensed partner, who presents the demand to the company.',
             opening_soon='In the meantime, write to <a href="mailto:contact@uback.com?subject=Intentions%20opening">contact@uback.com</a> to be notified when they open.',
             opening_form='In the meantime, you can <a href="/#follow">sign up to be notified when they open</a>.',
             t_correction='Request a correction | Uback', d_correction='Report inaccurate information or dispute a rank in a Uback ranking.',
@@ -497,7 +497,7 @@ G_UI = {
             beta_l='Nous écrire', legal='Mentions légales', corr='Demander une correction', disc='Les classements sont des contenus éditoriaux, pas des conseils en investissement.',
             cal_country='Pays', cal_months='Publié le 15', cal_next='Prochaine édition',
             t_method='Méthode et règles du jeu | Uback', d_method='Comment Uback classe les startups non cotées par ordre décroissant de valorisation estimée par IA : consensus, indice de confiance, ordre de grandeur, éligibilité, prise en compte des avis humains, corrections.',
-            invest='Investir', t_invest='Investir avec Uback | Uback', d_invest='Déclarez une intention d’investissement sur un secteur, un pays, ou une société ouverte aux Backers. Les intentions des Backers forment un pool ; au-delà d’un seuil, le partenaire agréé du pays présente la demande à la société.',
+            invest='Investir', t_invest='Investir avec Uback | Uback', d_invest='Déclarez une intention d’investissement sur un secteur, un pays, ou une société ouverte aux Backers. Les intentions des Backers forment un pool ; quand il atteint sa masse critique, le pool est transmis au partenaire agréé, qui présente la demande à la société.',
             opening_soon='En attendant, écrivez-nous à <a href="mailto:contact@uback.com?subject=Ouverture%20des%20intentions">contact@uback.com</a> pour être prévenu de l’ouverture.',
             opening_form='En attendant, vous pouvez <a href="/#follow">vous inscrire pour être prévenu de l’ouverture</a>.',
             t_correction='Demander une correction | Uback', d_correction='Signalez une information inexacte ou contestez un rang dans un classement Uback.',
@@ -746,8 +746,10 @@ POOL_COUNTRIES = {
     'fr': {m['code']: ('des ' + m['startups_label'][4:] if m['startups_label'].startswith('les ') else m['startups_label'])
            if m['lang'] == 'fr' else NAMES[m['code']]['fr'] for m in MARKETS if m['default'] or m['lang'] == 'fr'},
 }
-POOL_TXT = {'en': {'lead': 'You are about to join ', 'seg': 'the {} pool.', 'cty': 'the {} pool.', 'co': 'the pool for {}.'},
-            'fr': {'lead': 'Vous êtes sur le point de rejoindre ', 'seg': 'le pool {}.', 'cty': 'le pool {}.', 'co': 'le pool de la société {}.'}}
+POOL_TXT = {'en': {'lead': 'You are about to join ', 'seg': 'the {} pool.', 'cty': 'the {} pool.', 'co': 'the pool for {}.',
+                   'pref': 'You can also name a preferred company in it.'},
+            'fr': {'lead': 'Vous êtes sur le point de rejoindre ', 'seg': 'le pool {}.', 'cty': 'le pool {}.', 'co': 'le pool de la société {}.',
+                   'pref': 'Vous pourrez aussi indiquer une société préférée.'}}
 
 def pool_ctx(lang):
     """Ligne de contexte (masquée par défaut) + script : texte seulement (textContent), jamais d'HTML injecté ;
@@ -758,7 +760,9 @@ def pool_ctx(lang):
             'if(p==="segment"&&D.seg[q.get("segment")])t=T.seg.split("{}").join(D.seg[q.get("segment")]);'
             'else if(p==="country"&&D.cty[q.get("country")])t=T.cty.split("{}").join(D.cty[q.get("country")]);'
             'else if(p==="company"&&q.get("company"))t=T.co.split("{}").join(q.get("company").slice(0,80));'
-            'if(!t)return;var el=document.getElementById("pool-ctx");el.textContent=T.lead+t;el.hidden=false;'
+            'if(!t)return;var el=document.getElementById("pool-ctx");el.textContent=T.lead+t;'
+            'if(p!=="company"){var b=document.createElement("br"),s=document.createElement("span");s.textContent=T.pref;el.appendChild(b);el.appendChild(s);}'
+            'el.hidden=false;'
             'if(location.hash)el.scrollIntoView();})();</script>')
 
 BODIES = {'method': METHOD, 'legal': LEGAL, 'invest': {l: INVEST[l].replace('@OPENING@', OPENING[l]).replace('@POOLCTX@', pool_ctx(l)) for l in ('en', 'fr')},
