@@ -10,6 +10,7 @@
   "consumer-neobanks": "c6670dc6",
   "cross-border-remittances": "b3d0c1f1",
   "crypto-exchanges": "f0b61455",
+  "family-business-software": "b696bdca",
   "family-fintech": "3768fcfe",
   "family-healthtech": "8f16eb34",
   "gene-and-cell-therapies": "79f6055c",
@@ -17,7 +18,10 @@
   "mobile-wallets": "d4058218",
   "online-payments-and-acquiring": "63f0b386",
   "online-pharmacy": "52073439",
+  "payroll": "59751ef5",
+  "recruiting": "da583d86",
   "sme-lending": "42be0391",
   "stablecoins": "56a33ac4",
+  "talent-management": "5c98de19",
   "telemedicine": "772e2fe8"
 }

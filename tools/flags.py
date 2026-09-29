@@ -76,6 +76,10 @@ SVG = {
  'NZ': '<rect width="48" height="32" fill="#012169"/><g transform="scale(.5)">' + '{UJ}' + '</g>'
        '<g fill="#C8102E" stroke="#fff" stroke-width=".6"><circle cx="37" cy="8" r="1.5"/><circle cx="32" cy="15" r="1.5"/>'
        '<circle cx="41" cy="14" r="1.5"/><circle cx="37" cy="25" r="1.7"/></g>',
+ 'CL': '<rect width="48" height="32" fill="#fff"/><rect y="16" width="48" height="16" fill="#D52B1E"/><rect width="16" height="16" fill="#0039A6"/>'
+       '<polygon points="8,3.5 9.4,7.1 13.2,7.1 10.1,9.4 11.3,13 8,10.8 4.7,13 5.9,9.4 2.8,7.1 6.6,7.1" fill="#fff"/>',
+ 'ES': '<rect width="48" height="32" fill="#AA151B"/><rect y="8" width="48" height="16" fill="#F1BF00"/>',
+ 'JP': '<rect width="48" height="32" fill="#fff"/><circle cx="24" cy="16" r="9.6" fill="#BC002D"/>',
 }
 for _c in ('AU', 'NZ'):
     SVG[_c] = SVG[_c].replace('{UJ}', SVG['GB'])
