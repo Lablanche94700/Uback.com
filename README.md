@@ -66,7 +66,8 @@ identifiant `FAMILLE-nn-nn`, slug anglais stable. Un segment est publié automat
 `/segments/<slug>/`) dès qu'un fichier `data/segments/<slug>.json` existe.
 
 En-tête de la homepage et des pages globales : menu « Rankings » / « Classements » (familles publiées → `/sectors/<famille>/`,
-pays en ligne → leur page, plus « All sectors » / « All countries » vers la homepage), calculé à chaque génération
+pays en ligne → leur page, plus « All sectors » / « All countries » vers la homepage, et la Méthode mise en avant en bas
+du menu) ; l'en-tête ne compte que deux entrées, Rankings et Invest. Calculé à chaque génération
 (`rankings_menu()` dans `tools/build_home.py`).
 
 ## Classements mondiaux par segment

@@ -77,10 +77,12 @@ def fam_slug(name):
 # Menu « Rankings » de l'en-tête (homepage et pages globales) : familles publiées (page /sectors/<famille>/) et pays en ligne,
 # calculés depuis data/sectors.json, data/segments/ et REGIONS. Même mécanisme que les sélecteurs des pages pays et segment
 # (<details>, sans JavaScript) ; un petit script le referme au clic à l'extérieur ou avec Échap.
-RK_UI = {'en': dict(t='Rankings', sec='By sector', cty='By country', all_s='All sectors', all_c='All countries'),
-         'fr': dict(t='Classements', sec='Par secteur', cty='Par pays', all_s='Tous les secteurs', all_c='Tous les pays')}
+RK_UI = {'en': dict(t='Rankings', sec='By sector', cty='By country', all_s='All sectors', all_c='All countries',
+                    m='Method', m_sub='How the AI ranks startups and estimates their valuation', m_url='/method.html'),
+         'fr': dict(t='Classements', sec='Par secteur', cty='Par pays', all_s='Tous les secteurs', all_c='Tous les pays',
+                    m='Méthode', m_sub='Comment l’IA classe les startups et estime leur valorisation', m_url='/fr/methode.html')}
 
-def rankings_menu(lang):
+def rankings_menu(lang, current=None):
     u = RK_UI[lang]
     fams = ''.join(f'<a href="/sectors/{fam_slug(f["name"])}/">{e(f["name"])}</a>' for f in FAMS
                    if any(g.get('status') == 'published' for s in f['sectors'] for g in s['segments']))
@@ -94,6 +96,10 @@ def rankings_menu(lang):
     return (f'<details class="rk"><summary>{u["t"]}</summary><div class="rk-menu">'
             f'<div class="rk-col"><span class="rk-h">{u["sec"]}</span>{fams}<a class="rk-all" href="/#sectors">{u["all_s"]} <span aria-hidden="true">→</span></a></div>'
             f'<div class="rk-col"><span class="rk-h">{u["cty"]}</span>{ctys}<a class="rk-all" href="/#countries">{u["all_c"]} <span aria-hidden="true">→</span></a></div>'
+            # la méthode, mise en avant en bas du menu (bandeau sur toute la largeur)
+            f'<a class="rk-method" href="{u["m_url"]}"{" aria-current=\"page\"" if current == "method" else ""}>'
+            f'<span class="rk-ic" aria-hidden="true"></span><span><b>{u["m"]}</b><small>{u["m_sub"]}</small></span>'
+            f'<span class="rk-go" aria-hidden="true">→</span></a>'
             f'</div></details>' + RK_JS)
 
 RK_JS = ('<script>(function(){var d=document.querySelector("details.rk");if(!d)return;'
@@ -169,10 +175,15 @@ nav a{text-decoration:none;display:inline-flex;align-items:center;min-height:44p
 .rk-menu a{display:flex;align-items:center;gap:10px;min-height:40px;padding:0 8px;margin:0 -8px;border-radius:8px;font-size:15px;font-weight:500;color:var(--navy);text-decoration:none}
 .rk-menu a:hover{background:var(--bg)}
 .rk-menu .flag{width:21px;height:14px;border-radius:2px}
+.rk-menu a.rk-method{grid-column:1/-1;display:flex;align-items:center;gap:12px;margin:12px -8px 0;padding:12px 14px;min-height:0;border-radius:10px;background:#FBF6EA;border:1px solid #EAD9B0;white-space:normal}
+.rk-menu a.rk-method:hover,.rk-menu a.rk-method[aria-current]{background:#F6ECD2;border-color:var(--gold)}
+.rk-method b{display:block;font-size:15px;font-weight:700;color:var(--navy)}
+.rk-method small{display:block;margin-top:2px;font-size:12.5px;font-weight:500;line-height:1.4;color:var(--muted)}
+.rk-ic{flex:0 0 30px;height:30px;border-radius:8px;background:var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M4 19h16M7 15V9M12 15V5M17 15v-4'/%3E%3C/svg%3E") center/18px no-repeat}
+.rk-go{margin-left:auto;font-size:18px;font-weight:600;color:var(--gold)}
 .rk-menu a.rk-all{margin-top:4px;font-size:14px;font-weight:600;text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:5px}
 /* pages globales (sélecteur de langue en plus) : sur petit écran, le menu passe sous le logo */
-@media (max-width:479px){header.hdr-lang .wrap{height:auto;flex-wrap:wrap;row-gap:0;padding-top:8px;padding-bottom:4px}header.hdr-lang nav{width:100%;justify-content:space-between;gap:10px}}
-@media (max-width:379px){header .wrap{height:auto;flex-wrap:wrap;row-gap:0;padding-top:8px;padding-bottom:4px}header nav{width:100%;justify-content:space-between;gap:10px}}
+@media (max-width:419px){header.hdr-lang .wrap{height:auto;flex-wrap:wrap;row-gap:0;padding-top:8px;padding-bottom:4px}header.hdr-lang nav{width:100%;justify-content:space-between;gap:10px}}
 @media (max-width:359px){header nav{font-size:13px;gap:4px}.langsw{font-size:12px}}
 @media (max-width:719px){header .wrap{position:relative}.rk{position:static}
   .rk-menu{left:16px;right:16px;top:calc(100% - 4px);grid-template-columns:1fr;gap:14px;white-space:normal}}
@@ -396,7 +407,6 @@ page = f'''<!doctype html>
     <nav aria-label="Main">
       {rankings_menu('en')}
       <a href="/invest.html">Invest</a>
-      <a href="{METHOD_URL}">Method</a>
     </nav>
   </div>
 </header>
@@ -647,9 +657,8 @@ def global_page(key, lang, body):
   <div class="wrap">
     <a class="logo" href="/" aria-label="Uback, home"><span class="u" aria-hidden="true">U</span>Uback</a>
     <nav aria-label="Main">
-      {rankings_menu(lang)}
+      {rankings_menu(lang, key)}
       <a href="/{GLOBAL['invest'][lang]}"{cur('invest')}>{u['invest']}</a>
-      <a href="{method_url}"{cur('method')}>{u['method']}</a>
       {sw}
     </nav>
   </div>
