@@ -24,6 +24,9 @@ correction.html, fr/correction.html ← formulaire de correction global (CORRECT
                           'mailto' → message structuré « Champ : valeur » vers contact@uback.com ; 'netlify' → formulaire
                           natif « correction ») ; préremplissable : ?company=…&country=ma
 thank-you.html, fr/merci.html ← confirmation du formulaire de correction (noindex)
+partner.html, fr/partenaire.html ← page partenaire UNIQUE (règle n° 1 : partenaires locaux, un par pays, chacun avec un ou
+                          plusieurs secteurs ; success fee partagé sur les opérations transfrontalières) ; le pays s'adapte à
+                          la page d'appel (?country=ma, sinon la page d'origine) ; blocs pays calculés depuis MARKETS
 contact.html, fr/contact.html ← formulaire de contact (« Contact us » du pied de page), même envoi que la correction
                           (message structuré « Champ : valeur » vers contact@uback.com, puis page de remerciement)
                         (ces pages sont générées par tools/build_home.py, texte de la méthode dans tools/pages_global.py)
@@ -41,7 +44,7 @@ ma/                     ← site Maroc, entièrement généré : anglais à la r
                           les anciennes pages françaises de /ma/ redirigent vers /ma/fr/
   index.html            ← accueil : classement, radar, Backers, partenaire, encadré « La méthode au Maroc »
                           (calendrier, seuil, partenaire recherché, sources) qui renvoie à la méthode globale
-  partner.html / fr/partenaire.html ← pitch pour le futur partenaire exclusif (propre à chaque pays)
+  partner.html / fr/partenaire.html ← redirections vers la page partenaire unique, ouverte sur le pays (?country=ma)
   thank-you.html / fr/merci.html    ← confirmation du formulaire de suivi (noindex)
   method.html, legal-notice.html, fr/methode.html, fr/mentions-legales.html
                         ← redirections vers les pages globales (anciennes adresses)
@@ -49,7 +52,7 @@ ma/                     ← site Maroc, entièrement généré : anglais à la r
   data/classement-ma-2026-09.json ← la donnée du classement (une entrée par société, source par montant)
 
 pl/, vn/                ← sites Pologne et Vietnam (anglais), même structure que le Maroc, entièrement générés :
-  index.html, partner.html, thank-you.html, assets/ (copies depuis ma/), data/ ;
+  index.html, thank-you.html, assets/ (copies depuis ma/), data/ ; partner.html redirige vers la page partenaire unique ;
   method.html et legal-notice.html redirigent vers les pages globales
 
 tools/build_site.py     ← réglages de chaque marché (langue, top_n, pays, diaspora, secteurs, partenaire, presse…)

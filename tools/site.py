@@ -242,6 +242,8 @@ OOC = ('\n      <div class="meta" style="margin:-8px 0 16px">'
        f'<span>{L["ooc"]}</span><span>·</span><span>{format_date_short(_o["date"], M["lang"])}</span><span>·</span>'
        f'<span>{e(_o["reason"])}</span></div>') if _o else ''
 PP, PT = L['p_partner'], L['p_thanks']
+# page partenaire unique (générée par tools/build_home.py), ouverte sur ce pays ; l'ancienne page du pays y redirige
+PARTNER = f"@ROOT@{'fr/partenaire.html' if M['lang'] == 'fr' else 'partner.html'}?country={M['code']}"
 # méthode et mentions légales : pages globales, communes à tous les pays (générées par tools/build_home.py)
 GM = '@ROOT@fr/methode.html' if M['lang'] == 'fr' else '@ROOT@method.html'
 GL = '@ROOT@mentions-legales.html' if M['lang'] == 'fr' else '@ROOT@legal-notice.html'
@@ -316,7 +318,7 @@ def head(title, desc, path, extra=''):
       <a href="{GM}">{L['nav_method']}</a>
       <a href="/#backers">Backers</a>
       <a href="{GI}">{L['nav_invest']}</a>
-      <a href="/{PP}">{L['nav_partner']}</a>
+      <a href="{PARTNER}">{L['nav_partner']}</a>
     </nav>
     <span class="spacer"></span>
     <span class="langs">{langs}</span>
@@ -327,7 +329,7 @@ def head(title, desc, path, extra=''):
 <main id="main">
 '''
 
-FOOT = '\n</main>\n' + footer(M['lang'], root='@ROOT@', partner=f'/{PP}', disc=L['f_disc']) + '\n</body>\n</html>\n'
+FOOT = '\n</main>\n' + footer(M['lang'], root='@ROOT@', country=M['code'], disc=L['f_disc']) + '\n</body>\n</html>\n'
 
 def conf(n):
     dots = ''.join('<i class="f"></i>' if i < n else '<i></i>' for i in range(3))
@@ -468,7 +470,7 @@ index += f'''
   <div class="wrap">
     <div class="sec-head">
       <h2>{L['h2_rank']}</h2>
-      <div class="tabs"><a class="on" href="#{L['id_rank']}">Top {N}</a><a href="#radar">Radar</a><a href="#{L['id_born']}">{L['t_born']}</a><a href="/{PP}#challengers">Challengers</a></div>
+      <div class="tabs"><a class="on" href="#{L['id_rank']}">Top {N}</a><a href="#radar">Radar</a><a href="#{L['id_born']}">{L['t_born']}</a><a href="{PARTNER}#challengers">Challengers</a></div>
       <span class="spacer"></span>
       <span class="sub">{L['first_ed']}</span>
     </div>
@@ -581,7 +583,7 @@ index += f'''
           <li>{L['of_l3']}</li>
           <li>{L['of_l4']}</li>
         </ul>
-        <a class="btn navy" href="/{PP}">{L['of_btn']}</a>
+        <a class="btn navy" href="{PARTNER}">{L['of_btn']}</a>
         <span class="fine">{L['of_fine']}</span>
       </div>
     </div>
@@ -621,39 +623,6 @@ index += f'''
 # ---------------------------------------------------------------- pages de contenu (texte long par langue)
 PAGES = {}
 if M['lang'] == 'fr':
-    PAGES[PP] = head(f"Devenir le partenaire exclusif Uback {M['in']} | Uback", "Banques d'affaires, boutiques M&A, conseils agréés : Uback vous apporte des investisseurs étrangers et de la visibilité, en exclusivité par pays.", f"/{PP}") + f'''
-<div class="wrap prose">
-<h1>Devenir le partenaire exclusif Uback {M['in']}</h1>
-<p class="lead">Uback classe les startups d’un pays et agrège les intentions d’investissement des business angels, family offices, corporates et investisseurs de la diaspora, en Europe, dans le Golfe et ailleurs. Un seul partenaire par pays exécute : c’est vous.</p>
-
-<h2>Ce que Uback vous apporte</h2>
-<ul>
-<li><b>Des investisseurs que vous ne trouveriez pas seul.</b> Les intentions déclarées sur votre marché vous sont réservées : montants, secteurs, sociétés convoitées, avec l’identité des Backers qui ont consenti à être mis en relation.</li>
-<li><b>De la visibilité.</b> Votre nom, votre statut réglementaire et votre numéro d’immatriculation apparaissent sur chaque classement du pays (« Mises en relation assurées par… »), et sur votre page partenaire.</li>
-<li><b>Un tableau de bord.</b> Alertes quand un pool (pays, secteur ou société ouverte aux Backers) atteint sa masse critique, suivi des dossiers, trace de chaque contact.</li>
-<li><b>Un kit de prospection trimestriel.</b> Une synthèse des intentions de votre marché, à envoyer à vos propres clients.</li>
-<li><b>Une voix.</b> Vous pouvez publier des notes sous votre nom sur votre marché.</li>
-</ul>
-
-<h2>Ce que Uback ne vous apporte pas</h2>
-<p>Un flux de deals garanti. Dans un marché comme {M['the']}, avec {M['deals_phrase']}, Uback est un canal d’investisseurs et de notoriété supplémentaire, pas une source de revenus immédiate. Nous préférons le dire avant.</p>
-
-<h2>Le cadre</h2>
-<ul>
-<li><b>Exclusivité par pays</b>, contrat annuel renouvelable et renégociable selon l’audience.</li>
-<li><b>Vous restez seul maître des actes réglementés :</b> contact des sociétés, mandats, conseil, structuration, négociation, encaissement. Uback ne fait rien de tout cela.</li>
-<li><b>Rémunération :</b> une redevance annuelle, avance sur les rétrocessions dues sur les deals conclus avec des Backers présentés par Uback.</li>
-<li><b>Profil recherché :</b> {M['partner_long']}.</li>
-</ul>
-
-<h2 id="challengers">Pour les dirigeants : les Challengers</h2>
-<p>Une société immatriculée, en cours de levée de fonds, qui ne figure pas dans le classement pourra, contre paiement, s’afficher dans une liste séparée et étiquetée « Challengers », pour une durée déterminée, avec un mémo accessible aux Backers vérifiés. Le référencement n’a aucun effet sur le classement. Ouverture après la signature du partenaire.</p>
-
-<h2>Nous contacter</h2>
-<p>Écrivez à <a href="mailto:partner@uback.com">partner@uback.com</a>. Nous vous enverrons le dossier partenaire (modèle économique, contrat type, calendrier) et conviendrons d’un échange.</p>
-</div>
-''' + FOOT
-
     PAGES[PT] = head(f"Merci | Uback {M['name']}", "Inscription confirmée.", f"/{PT}") + f'''
 <div class="wrap prose" style="padding:60px 24px">
 <h1>Merci, c’est noté.</h1>
@@ -664,39 +633,6 @@ if M['lang'] == 'fr':
 ''' + FOOT
 
 else:
-    PAGES[PP] = head(f"Become Uback’s exclusive partner {M['in']} | Uback", "Investment banks, M&A boutiques, licensed advisers: Uback brings you foreign investors and visibility, exclusively per country.", f"/{PP}") + f'''
-<div class="wrap prose">
-<h1>Become Uback’s exclusive partner {M['in']}</h1>
-<p class="lead">Uback ranks a country’s startups and aggregates investment intentions from business angels, family offices, corporates and diaspora investors, in Europe, the Gulf and elsewhere. A single partner per country executes: you.</p>
-
-<h2>What Uback brings you</h2>
-<ul>
-<li><b>Investors you would not find on your own.</b> The intentions declared on your market are reserved for you: amounts, sectors, sought-after companies, with the identity of the Backers who agreed to be introduced.</li>
-<li><b>Visibility.</b> Your name, regulatory status and registration number appear on every ranking of the country (“Introductions made by…”), and on your partner page.</li>
-<li><b>A dashboard.</b> Alerts when a pool (country, sector or company open to Backers) reaches its critical mass, deal tracking, a record of every contact.</li>
-<li><b>A quarterly prospecting kit.</b> A summary of the intentions on your market, to send to your own clients.</li>
-<li><b>A voice.</b> You can publish notes under your name on your market.</li>
-</ul>
-
-<h2>What Uback does not bring you</h2>
-<p>A guaranteed deal flow. In a market like {M['the']}, with {M['deals_phrase']}, Uback is an additional channel for investors and visibility, not a source of immediate revenue. We would rather say so upfront.</p>
-
-<h2>The framework</h2>
-<ul>
-<li><b>Exclusive per country</b>, annual contract, renewable and renegotiable according to the audience.</li>
-<li><b>You alone remain in charge of regulated activities:</b> contacting companies, mandates, advice, structuring, negotiation, collection of funds. Uback does none of this.</li>
-<li><b>Remuneration:</b> an annual fee, as an advance on the retrocessions due on deals closed with Backers introduced by Uback.</li>
-<li><b>Profile sought:</b> {M['partner_long']}.</li>
-</ul>
-
-<h2 id="challengers">For managers: the Challengers</h2>
-<p>A registered company raising funds that is not in the ranking will be able, for a fee, to appear in a separate list labelled “Challengers”, for a set period, with a memo available to verified Backers. The listing has no effect on the ranking. Opens once the partner signs.</p>
-
-<h2>Contact us</h2>
-<p>Write to <a href="mailto:partner@uback.com">partner@uback.com</a>. We will send you the partner pack (business model, standard contract, timeline) and arrange a call.</p>
-</div>
-''' + FOOT
-
     PAGES[PT] = head(f"Thank you | Uback {M['name']}", "Subscription confirmed.", f"/{PT}") + f'''
 <div class="wrap prose" style="padding:60px 24px">
 <h1>Thank you, it’s noted.</h1>
@@ -734,7 +670,7 @@ def redirect(path, target):
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://uback.com{target}">
 <meta http-equiv="refresh" content="0; url={target}">
-<script>location.replace('{target}' + location.search + location.hash);</script>
+<script>location.replace('{target}' + (location.search ? '{'&' if '?' in target else '?'}' + location.search.slice(1) : '') + location.hash);</script>
 </head>
 <body>
 <p><a href="{target}">uback.com{target}</a></p>
@@ -746,6 +682,7 @@ def redirect(path, target):
 G_METHOD, G_LEGAL = GM.replace('@ROOT@', '/'), GL.replace('@ROOT@', '/')
 redirect(f"{OUT}/{L['p_method']}", G_METHOD)
 redirect(f"{OUT}/{L['p_legal']}", G_LEGAL)
+redirect(f"{OUT}/{PP}", PARTNER.replace('@ROOT@', '/'))     # ancienne page partenaire du pays → page unique
 
 # version secondaire (ex. /ma/fr) : les anciennes adresses de ses pages à la racine du marché redirigent
 if not M['default']:
@@ -755,6 +692,6 @@ if not M['default']:
     for name in PAGES:
         if name not in taken:
             redirect(f'{root_dir}/{name}', f'{PREFIX}/{name}')
-    for name, target in ((L['p_method'], G_METHOD), (L['p_legal'], G_LEGAL)):
+    for name, target in ((L['p_method'], G_METHOD), (L['p_legal'], G_LEGAL), (PP, PARTNER.replace('@ROOT@', '/'))):
         if name not in taken:
             redirect(f'{root_dir}/{name}', target)

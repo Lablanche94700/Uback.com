@@ -404,3 +404,94 @@ CALENDAR_INTRO = """<div class="callout"><p><b>Theoretical calendar.</b> Uback i
 <li>Regional rankings: twice a year</li>
 <li>Days 29–31: no scheduled publication (reserved for out-of-cycle updates)</li>
 </ul>"""
+
+# Page partenaire unique (/partner.html, /fr/partenaire.html) : le pays s'adapte à la page d'appel (?country=ma, sinon la page
+# d'où vient le visiteur). @COUNTRIES@ : sélecteur et un bloc par pays en ligne, calculés depuis MARKETS par tools/build_home.py.
+PARTNER = {
+'en': """<div class="wrap prose">
+<h1>Become a Uback partner</h1>
+<p class="lead">Uback ranks startups country by country and segment by segment, and aggregates investment intentions from business angels, family offices, corporates and diaspora investors worldwide. Deals are run by licensed local partners.</p>
+
+<h2 id="rules">Rule no. 1: local partners</h2>
+<ul>
+<li><b>One local partner per country.</b> Each country is served by a single licensed local partner, exclusive. It alone contacts the country’s companies and structures deals, under local law.</li>
+<li><b>Each local partner also leads one or more sectors.</b> On top of its country, each local partner is assigned one or more sectors (fintech, healthtech…), which it follows in every country Uback covers.</li>
+<li><b>Cross-border deals are run together.</b> When a sector lead wants to bring a deal to a startup in another country, it runs the approach with that country’s local partner. The two partners share the success fee.</li>
+</ul>
+
+@COUNTRIES@
+
+<h2>What Uback brings you</h2>
+<ul>
+<li><b>Investors you would not find on your own.</b> The intentions declared on your country and on your sectors are passed to you: amounts, sectors, sought-after companies, with the identity of the Backers who agreed to be introduced.</li>
+<li><b>Visibility.</b> Your name, regulatory status and registration number appear on every ranking of your country and of your sectors (“Introductions made by…”).</li>
+<li><b>A dashboard.</b> Alerts when a pool (country, sector or company open to Backers) reaches its critical mass, deal tracking, a record of every contact.</li>
+<li><b>A quarterly prospecting kit.</b> A summary of the intentions on your market and your sectors, to send to your own clients.</li>
+<li><b>A voice.</b> You can publish notes under your name on your market and your sectors.</li>
+</ul>
+
+<h2>What Uback does not bring you</h2>
+<p>A guaranteed deal flow. Uback is an additional channel for investors and visibility, not a source of immediate revenue. We would rather say so upfront.</p>
+
+<h2>The framework</h2>
+<ul>
+<li><b>Exclusive per country</b>, annual contract, renewable and renegotiable according to the audience; one or more sectors assigned on top.</li>
+<li><b>You alone remain in charge of regulated activities</b> in your country: contacting companies, mandates, advice, structuring, negotiation, collection of funds. Uback does none of this.</li>
+<li><b>Remuneration:</b> an annual fee, as an advance on the retrocessions due on deals closed with Backers introduced by Uback. On a cross-border deal, the success fee is shared between the sector lead and the local partner.</li>
+</ul>
+
+<h2 id="challengers">For managers: the Challengers</h2>
+<p>A registered company raising funds that is not in the ranking will be able, for a fee, to appear in a separate list labelled “Challengers”, for a set period, with a memo available to verified Backers. The listing has no effect on the ranking. Opens once the local partner signs.</p>
+
+<h2>Contact us</h2>
+<p><a class="ptn-contact" href="/contact.html?subject=partnership">Write to us</a> (subject: Partnership). We will send you the partner pack (business model, standard contract, timeline) and arrange a call.</p>
+</div>
+""",
+'fr': """<div class="wrap prose">
+<h1>Devenir partenaire Uback</h1>
+<p class="lead">Uback classe les startups pays par pays et segment par segment, et agrège les intentions d’investissement des business angels, family offices, corporates et investisseurs de la diaspora, partout dans le monde. Les opérations sont menées par des partenaires locaux agréés.</p>
+
+<h2 id="regles">Règle n° 1 : des partenaires locaux</h2>
+<ul>
+<li><b>Un partenaire local par pays.</b> Chaque pays est servi par un seul partenaire local agréé, en exclusivité. Lui seul contacte les sociétés du pays et structure les opérations, sous le droit local.</li>
+<li><b>Chaque partenaire local pilote aussi un ou plusieurs secteurs.</b> En plus de son pays, chaque partenaire local se voit attribuer un ou plusieurs secteurs (fintech, healthtech…), qu’il suit dans tous les pays couverts par Uback.</li>
+<li><b>Les opérations transfrontalières se mènent à deux.</b> Quand un responsable secteur veut proposer une opération à une startup d’un autre pays, il pilote l’action avec le partenaire local de ce pays. Les deux partenaires se partagent le success fee.</li>
+</ul>
+
+@COUNTRIES@
+
+<h2>Ce que Uback vous apporte</h2>
+<ul>
+<li><b>Des investisseurs que vous ne trouveriez pas seul.</b> Les intentions déclarées sur votre pays et sur vos secteurs vous sont transmises : montants, secteurs, sociétés convoitées, avec l’identité des Backers qui ont consenti à être mis en relation.</li>
+<li><b>De la visibilité.</b> Votre nom, votre statut réglementaire et votre numéro d’immatriculation apparaissent sur chaque classement de votre pays et de vos secteurs (« Mises en relation assurées par… »).</li>
+<li><b>Un tableau de bord.</b> Alertes quand un pool (pays, secteur ou société ouverte aux Backers) atteint sa masse critique, suivi des dossiers, trace de chaque contact.</li>
+<li><b>Un kit de prospection trimestriel.</b> Une synthèse des intentions de votre marché et de vos secteurs, à envoyer à vos propres clients.</li>
+<li><b>Une voix.</b> Vous pouvez publier des notes sous votre nom sur votre marché et vos secteurs.</li>
+</ul>
+
+<h2>Ce que Uback ne vous apporte pas</h2>
+<p>Un flux de deals garanti. Uback est un canal d’investisseurs et de notoriété supplémentaire, pas une source de revenus immédiate. Nous préférons le dire avant.</p>
+
+<h2>Le cadre</h2>
+<ul>
+<li><b>Exclusivité par pays</b>, contrat annuel renouvelable et renégociable selon l’audience ; un ou plusieurs secteurs attribués en plus.</li>
+<li><b>Vous restez seul maître des actes réglementés</b> dans votre pays : contact des sociétés, mandats, conseil, structuration, négociation, encaissement. Uback ne fait rien de tout cela.</li>
+<li><b>Rémunération :</b> une redevance annuelle, avance sur les rétrocessions dues sur les deals conclus avec des Backers présentés par Uback. Sur une opération transfrontalière, le success fee est partagé entre le responsable secteur et le partenaire local.</li>
+</ul>
+
+<h2 id="challengers">Pour les dirigeants : les Challengers</h2>
+<p>Une société immatriculée, en cours de levée de fonds, qui ne figure pas dans le classement pourra, contre paiement, s’afficher dans une liste séparée et étiquetée « Challengers », pour une durée déterminée, avec un mémo accessible aux Backers vérifiés. Le référencement n’a aucun effet sur le classement. Ouverture après la signature du partenaire local.</p>
+
+<h2>Nous contacter</h2>
+<p><a class="ptn-contact" href="/fr/contact.html?subject=partnership">Écrivez-nous</a> (objet : Partenariat). Nous vous enverrons le dossier partenaire (modèle économique, contrat type, calendrier) et conviendrons d’un échange.</p>
+</div>
+""",
+}
+
+# Page partenaire en français : taille du marché et profil recherché des pays qui n'ont pas de version française (MARKETS)
+PARTNER_FR = {
+ 'pl': dict(deals='environ 180 tours de table par an tous acteurs confondus',
+            profile='entreprise d’investissement agréée par la KNF (autorité polonaise de surveillance financière), banque d’affaires ou boutique M&amp;A, avec une pratique du non-coté et de l’anglais'),
+ 'vn': dict(deals='environ 100 tours de table par an tous acteurs confondus',
+            profile='société de bourse ou de gestion agréée par la SSC (autorité des marchés du Vietnam), banque d’affaires ou boutique M&amp;A, avec une pratique du non-coté et de l’anglais'),
+}

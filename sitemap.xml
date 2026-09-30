@@ -10,13 +10,9 @@
   <url><loc>https://uback.com/legal-notice.html</loc></url>
   <url><loc>https://uback.com/mentions-legales.html</loc></url>
   <url><loc>https://uback.com/ma/</loc></url>
-  <url><loc>https://uback.com/ma/partner.html</loc></url>
   <url><loc>https://uback.com/ma/fr/</loc></url>
-  <url><loc>https://uback.com/ma/fr/partenaire.html</loc></url>
   <url><loc>https://uback.com/pl/</loc></url>
-  <url><loc>https://uback.com/pl/partner.html</loc></url>
   <url><loc>https://uback.com/vn/</loc></url>
-  <url><loc>https://uback.com/vn/partner.html</loc></url>
   <url><loc>https://uback.com/sectors/fintech/</loc></url>
   <url><loc>https://uback.com/segments/consumer-neobanks/</loc></url>
   <url><loc>https://uback.com/segments/blockchain-infrastructure/</loc></url>
@@ -72,4 +68,6 @@
   <url><loc>https://uback.com/collections/uemoa/</loc></url>
   <url><loc>https://uback.com/contact.html</loc></url>
   <url><loc>https://uback.com/fr/contact.html</loc></url>
+  <url><loc>https://uback.com/partner.html</loc></url>
+  <url><loc>https://uback.com/fr/partenaire.html</loc></url>
 </urlset>

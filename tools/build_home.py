@@ -11,7 +11,7 @@ from urllib.parse import quote
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_site import MARKETS, NAMES, next_edition, format_date, months_txt   # même calendrier que les pages marchés
-from pages_global import METHOD, LEGAL, INVEST, FAQ, CALENDAR_INTRO
+from pages_global import METHOD, LEGAL, INVEST, FAQ, CALENDAR_INTRO, PARTNER, PARTNER_FR
 import geo
 from footer import footer, FOOTER_CSS
 
@@ -567,6 +567,7 @@ GLOBAL = {'method': {'en': 'method.html', 'fr': 'fr/methode.html'}, 'legal': {'e
           'invest': {'en': 'invest.html', 'fr': 'fr/investir.html'},
           'correction': {'en': 'correction.html', 'fr': 'fr/correction.html'}, 'thanks': {'en': 'thank-you.html', 'fr': 'fr/merci.html'},
           'faq': {'en': 'faq/index.html', 'fr': 'fr/faq/index.html'}, 'contact': {'en': 'contact.html', 'fr': 'fr/contact.html'},
+          'partner': {'en': 'partner.html', 'fr': 'fr/partenaire.html'},
           'calendar': {'en': 'calendar/index.html'}}                  # calendrier : anglais seulement
 G_UI = {
  'en': dict(skip='Skip to content', sectors='Sectors', countries='Countries', method='Method',
@@ -581,6 +582,7 @@ G_UI = {
             t_thanks='Thank you | Uback', d_thanks='Request prepared.',
             t_legal='Legal notice | Uback', d_legal='Legal notice of the Uback website.',
             calendar='Calendar', faq='FAQ',
+            t_partner='Become a Uback partner | Uback', d_partner='Licensed local partners: one per country, each also leading one or more sectors. Uback brings investors and visibility; the partners run the deals and share the success fee on cross-border deals.',
             t_contact='Contact us | Uback', d_contact='Write to the Uback team: a question, a press request, a partnership, feedback on a ranking.',
             t_faq='FAQ: questions about the rankings | Uback', d_faq='Why China has no ranking, how Uback chooses the countries it ranks, and when a ranking can be updated before its scheduled date.',
             t_calendar='Publication calendar | Uback', d_calendar='The dates on which Uback publishes each country, regional and global segment ranking. Fixed dates, repeated every year.'),
@@ -596,6 +598,7 @@ G_UI = {
             t_thanks='Merci | Uback', d_thanks='Demande préparée.',
             t_legal='Mentions légales | Uback', d_legal='Mentions légales du site Uback.',
             calendar='Calendrier', faq='FAQ',
+            t_partner='Devenir partenaire Uback | Uback', d_partner='Des partenaires locaux agréés : un par pays, qui pilote aussi un ou plusieurs secteurs. Uback apporte investisseurs et visibilité ; les partenaires mènent les opérations et se partagent le success fee des opérations transfrontalières.',
             t_contact='Nous contacter | Uback', d_contact='Écrivez à l’équipe Uback : une question, une demande presse, un partenariat, une remarque sur un classement.',
             t_faq='FAQ : questions sur les classements | Uback', d_faq='Pourquoi la Chine n’a pas de classement, comment Uback choisit les pays classés, et quand un classement peut être mis à jour avant sa date prévue.'),
 }
@@ -636,6 +639,8 @@ G_CSS = '''
 .langsw .on{color:var(--navy)}
 @media (max-width:899px){.prose h1{font-size:32px}.prose table{font-size:14px}}
 /* calendrier */
+.ptn-pick{display:flex;align-items:center;gap:10px}.ptn-pick select{min-height:44px;padding:8px 12px;border:1px solid var(--dash);border-radius:10px;font:inherit;font-size:15px;color:var(--navy);background:#fff}
+.ptn-c{margin:12px 0}
 .prose.cal-page{max-width:1200px}.cal-page>*{max-width:820px}
 .ics{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:10px;background:var(--navy);color:#fff!important;font-weight:600;text-decoration:none}
 .ics:hover{background:var(--navy-dark)}
@@ -843,17 +848,19 @@ CT_UI = {
     intro='A question, a press request, a partnership, feedback on a ranking: write to us, we reply to every message. To report inaccurate information or dispute a rank, use the <a href="/correction.html">correction form</a>.',
     name='Name', email='E-mail', org='Organisation', profile='You are', subject='Subject', message='Message',
     message_hint='2,000 characters maximum.', profiles=['Investor', 'Startup', 'Investment bank / adviser', 'Journalist', 'Other'],
-    subjects=['General question', 'Press', 'Partnership', 'Investing with Uback', 'Feedback on a ranking', 'Other'],
+    subjects=['General question', 'Press', 'Partnership', 'Investing with Uback', 'Feedback on a ranking', 'Other'], country='Country',
     consent='I agree that this information may be used to answer my message.', yes='yes', choose='Choose…',
     send='Send message', sep=': ', box='Checkbox'),
  'fr': dict(h1='Nous contacter',
     intro='Une question, une demande presse, un partenariat, une remarque sur un classement : écrivez-nous, nous répondons à chaque message. Pour signaler une information inexacte ou contester un rang, utilisez le <a href="/fr/correction.html">formulaire de correction</a>.',
     name='Nom', email='E-mail', org='Organisation', profile='Vous êtes', subject='Objet', message='Message',
     message_hint='2 000 caractères maximum.', profiles=['Investisseur', 'Startup', 'Banque d’affaires / conseil', 'Journaliste', 'Autre'],
-    subjects=['Question générale', 'Presse', 'Partenariat', 'Investir avec Uback', 'Remarque sur un classement', 'Autre'],
+    subjects=['Question générale', 'Presse', 'Partenariat', 'Investir avec Uback', 'Remarque sur un classement', 'Autre'], country='Pays',
     consent='J’accepte que ces informations soient utilisées pour répondre à mon message.', yes='oui', choose='Choisir…',
     send='Envoyer le message', sep=' : ', box='Case'),
 }
+
+SUBJECT_KEYS = ['general', 'press', 'partnership', 'investing', 'ranking', 'other']   # même ordre que subjects
 
 def contact_body(lang):
     """Formulaire de contact : même envoi que la correction (CORRECTION_MODE : 'mailto' → message structuré
@@ -882,6 +889,10 @@ def contact_body(lang):
 <script>
 (function(){{
   var f=document.querySelector('form.cform');
+  // préremplissage depuis un lien : ?subject=partnership&country=ma (page partenaire)
+  var q=new URLSearchParams(location.search), K={json.dumps(SUBJECT_KEYS)}, C={json.dumps({c['code']: geo.name(c, lang) for c in geo.live()}, ensure_ascii=False)};
+  var i=K.indexOf(q.get('subject')); if(i>=0)f.subject.selectedIndex=i+1;
+  if(C[q.get('country')])f.message.value={json.dumps(c['country'] + c['sep'])}+C[q.get('country')]+'\\n\\n';
   if(!f.dataset.mailto)return;
   f.addEventListener('submit',function(ev){{ev.preventDefault();
     var L={labels}, sep={json.dumps(c['sep'])};
@@ -895,6 +906,61 @@ def contact_body(lang):
 </script>
 </div>
 '''
+
+P_UI = {'en': dict(h='Your country', pick='Country', all='All countries', market='Market', profile='Profile sought',
+                   rank='See the ranking', other='Another country',
+                   other_p='Your country is not covered yet? Uback plans to rank {n} countries (<a href="/calendar/">see the calendar</a>). Tell us about your firm: we also look for local partners in the countries coming next.'),
+        'fr': dict(h='Votre pays', pick='Pays', all='Tous les pays', market='Marché', profile='Profil recherché',
+                   rank='Voir le classement', other='Un autre pays',
+                   other_p='Votre pays n’est pas encore couvert ? Uback prévoit de classer {n} pays (<a href="/calendar/">voir le calendrier</a>). Présentez-nous votre société : nous cherchons aussi des partenaires locaux dans les prochains pays.')}
+
+def partner_countries(lang):
+    """Sélecteur et un bloc par pays en ligne (profil de partenaire recherché, taille du marché), depuis MARKETS.
+    Tous les blocs sont dans le HTML ; le script n'affiche que celui du pays d'appel (?country=, sinon la page d'origine)."""
+    u = P_UI[lang]
+    contact = '/' + url_of('contact', lang)
+    blocks, opts = '', ''
+    for c in sorted(geo.live(), key=lambda c: geo.name(c, lang)):
+        code = c['code']
+        m = next((v for v in MARKETS if v['code'] == code and v['lang'] == lang), None)
+        d = next(v for v in MARKETS if v['code'] == code and v['default'])
+        if m:
+            deals, prof, url = m['deals_phrase'], m['partner_long'], m['path'] + '/'
+        else:                                   # pas de version dans cette langue : texte traduit dans pages_global.py
+            deals, prof, url = PARTNER_FR[code]['deals'], PARTNER_FR[code]['profile'], d['path'] + '/'
+        name = geo.name(c, lang)
+        opts += f'<option value="{code}">{e(name)}</option>'
+        blocks += (f'<div class="callout ptn-c" data-c="{code}"><p><b>{e(name)}</b> · <a href="{url}">{u["rank"]}</a><br>'
+                   f'{u["market"]} : ' if lang == 'fr' else
+                   f'<div class="callout ptn-c" data-c="{code}"><p><b>{e(name)}</b> · <a href="{url}">{u["rank"]}</a><br>'
+                   f'{u["market"]}: ')
+        blocks += f'{deals}.<br>{u["profile"]}{" : " if lang == "fr" else ": "}{prof}.</p></div>'
+    n = len([c for c in geo.GEO['countries'] if c['status'] in geo.RANKED])
+    blocks += f'<div class="callout ptn-c" data-c="other"><p><b>{u["other"]}</b><br>{u["other_p"].format(n=n)}</p></div>'
+    opts += f'<option value="other">{u["other"]}</option>'
+    codes = json.dumps([c['code'] for c in geo.live()])
+    return f'''<h2 id="country">{u['h']}</h2>
+<p class="ptn-pick"><label for="ptn-c">{u['pick']}</label> <select id="ptn-c"><option value="">{u['all']}</option>{opts}</select></p>
+{blocks}
+<script>
+(function(){{
+  var CODES={codes}, sel=document.getElementById('ptn-c'), blocks=[].slice.call(document.querySelectorAll('.ptn-c'));
+  function show(c,write){{
+    sel.value=c;
+    blocks.forEach(function(b){{b.hidden=!!c&&b.dataset.c!==c;}});
+    // liens « Écrivez-nous » plus bas dans la page : lus à chaque appel (ils n'existent pas encore au premier passage)
+    [].slice.call(document.querySelectorAll('a.ptn-contact')).forEach(function(a){{a.href={json.dumps(contact)}+'?subject=partnership'+(CODES.indexOf(c)>=0?'&country='+c:'');}});
+    if(write&&history.replaceState){{history.replaceState(null,'',location.pathname+(c?'?country='+c:'')+location.hash);}}
+  }}
+  var q=new URLSearchParams(location.search).get('country'), c='';
+  if(CODES.indexOf(q)>=0||q==='other'){{c=q;}}
+  else if(document.referrer){{try{{var r=new URL(document.referrer);
+    if(r.host===location.host){{var m=r.pathname.match(/^\\/([a-z]{{2}})(\\/|$)/);if(m&&CODES.indexOf(m[1])>=0)c=m[1];}}}}catch(err){{}}}}
+  show(c,false);
+  document.addEventListener('DOMContentLoaded',function(){{show(sel.value,false);}});
+  sel.addEventListener('change',function(){{show(sel.value,true);}});
+}})();
+</script>'''
 
 def thanks_body(lang):
     c = C_UI[lang]
@@ -1072,7 +1138,8 @@ def write_ics():
 BODIES = {'method': METHOD, 'legal': LEGAL, 'invest': {l: INVEST[l].replace('@OPENING@', OPENING[l]).replace('@POOLCTX@', pool_ctx(l)) for l in ('en', 'fr')},
           'correction': {l: correction_body(l) for l in ('en', 'fr')}, 'thanks': {l: thanks_body(l) for l in ('en', 'fr')},
           'faq': {l: faq_body(l) for l in ('en', 'fr')}, 'calendar': {'en': calendar_body()},
-          'contact': {l: contact_body(l) for l in ('en', 'fr')}}
+          'contact': {l: contact_body(l) for l in ('en', 'fr')},
+          'partner': {l: PARTNER[l].replace('@COUNTRIES@', partner_countries(l)) for l in ('en', 'fr')}}
 EXTRA = {'faq': {l: faq_jsonld(l) for l in ('en', 'fr')}}
 for key, texts in BODIES.items():
     for lang in texts:
