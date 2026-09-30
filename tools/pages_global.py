@@ -490,6 +490,8 @@ PARTNER = {
 
 # Page partenaire en français : taille du marché et profil recherché des pays qui n'ont pas de version française (MARKETS)
 PARTNER_FR = {
+ 'fr': dict(deals='environ 600 tours de table par an tous acteurs confondus',
+            profile='prestataire de services d’investissement ou conseiller en investissements financiers (CIF) régulé par l’AMF (Autorité des marchés financiers), banque d’affaires ou boutique M&amp;A, avec une pratique du non-coté et de l’anglais'),
  'pl': dict(deals='environ 180 tours de table par an tous acteurs confondus',
             profile='entreprise d’investissement agréée par la KNF (autorité polonaise de surveillance financière), banque d’affaires ou boutique M&amp;A, avec une pratique du non-coté et de l’anglais'),
  'vn': dict(deals='environ 100 tours de table par an tous acteurs confondus',

@@ -17,8 +17,9 @@ FLAGS = {
  'ma': '<svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" fill="#C1272D"/><polygon points="24,8.5 26.6,16.4 34.4,11.6 20,20.9 29.6,20.9 18.2,11.6 26,16.4" fill="none" stroke="#006233" stroke-width="1.6" stroke-linejoin="round" transform="translate(-2.2 1.2)"/></svg>',
  'pl': '<svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="16" fill="#FFFFFF"/><rect y="16" width="48" height="16" fill="#DC143C"/><rect x=".5" y=".5" width="47" height="31" fill="none" stroke="#E4E8EE"/></svg>',
  'vn': '<svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" fill="#DA251D"/><polygon points="24,7 26.47,14.6 34.46,14.6 28,19.3 30.47,26.9 24,22.2 17.53,26.9 20,19.3 13.54,14.6 21.53,14.6" fill="#FFFF00"/></svg>',
+'fr': '<svg viewBox="0 0 48 32" aria-hidden="true"><rect width="16" height="32" fill="#002654"/><rect x="16" width="16" height="32" fill="#FFFFFF"/><rect x="32" width="16" height="32" fill="#CE1126"/><rect x=".5" y=".5" width="47" height="31" fill="none" stroke="#E4E8EE"/></svg>',
 }
-NAMES = {'ma': {'fr': 'Maroc', 'en': 'Morocco'}, 'pl': {'fr': 'Pologne', 'en': 'Poland'}, 'vn': {'fr': 'Vietnam', 'en': 'Vietnam'}}
+NAMES = {'ma': {'fr': 'Maroc', 'en': 'Morocco'}, 'pl': {'fr': 'Pologne', 'en': 'Poland'}, 'vn': {'fr': 'Vietnam', 'en': 'Vietnam'}, 'fr': {'fr': 'France', 'en': 'France'}}
 
 # Une entrée par version (marché × langue) ; les textes sont dans la langue de la version (lang).
 #   path         chemin sur uback.com ; default : version principale (liens depuis la homepage et le sélecteur de pays)
@@ -106,8 +107,24 @@ MARKETS = [
                  ('Mobility &amp; energy', 'Electric motorbikes, ride-hailing and solar financing.')],
      'sectors_soon': ['Healthtech', 'AI', 'Proptech', 'Gaming &amp; Web3', 'B2B software'],
      'langs_soon': ['VI']},
+    {'code': 'fr', 'lang': 'en', 'path': '/fr', 'default': True, 'canonical': True,
+     'cadence': 'quarterly', 'publish_day': 19, 'publish_months': [1, 4, 7, 10],
+     'data': 'classement-fr-2026-09.json',
+     'top_n': 25, 'slug': 'france', 'og': 'og-image.png', 'og_v': 1, 'partner_name': None,
+     'startups_label': 'French startups',
+     'name': 'France', 'in': 'in France', 'the': 'France', 'adj_m': 'French', 'adj_f': 'French', 'adj_fp': 'French',
+     'cities': 'London, New York or Dubai',
+     'partner_short': 'Investment services provider or financial investment adviser (CIF) regulated by the AMF (Autorité des marchés financiers), or investment bank',
+     'partner_long': 'investment services provider or CIF regulated by the AMF, investment bank or M&amp;A boutique, with experience of private companies and of English',
+     'deals_phrase': 'around 600 venture rounds a year across all players',
+     'press': 'French and international business and technology press (Les Echos, Maddyness, FrenchWeb, BFM Business, L’Usine Digitale, Sifted, TechCrunch, Tech.eu, EU-Startups, Bloomberg), EY and KPMG barometers, company and investor announcements.',
+     'sectors': [('Artificial intelligence', 'Foundation models, world models, agents and AI for science.'),
+                 ('Fintech &amp; insurance', 'SME banking, accounting, health insurance and crypto.'),
+                 ('B2B software', 'CRM, marketplaces, analytics, HR and payroll.'),
+                 ('Commerce &amp; consumer', 'Marketplaces, refurbished goods, mobility and gaming.')],
+     'sectors_soon': ['Healthtech', 'Defence', 'Climate &amp; energy', 'Robotics', 'Quantum'],
+     'langs_soon': ['FR']},
 ]
-
 UI = {'fr': {'all': 'Tous les marchés', 'choose': 'Changer de pays', 'zone': 'Classements · {}'},
       'en': {'all': 'All markets', 'choose': 'Change country', 'zone': '{} rankings'}}
 

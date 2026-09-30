@@ -51,9 +51,14 @@ ma/                     ← site Maroc, entièrement généré : anglais à la r
   assets/               ← style.css (marine #1E3A5F, or #C8A052, Inter), favicons, image de partage
   data/classement-ma-2026-09.json ← la donnée du classement (une entrée par société, source par montant)
 
-pl/, vn/                ← sites Pologne et Vietnam (anglais), même structure que le Maroc, entièrement générés :
+pl/, vn/, fr/           ← sites Pologne, Vietnam et France (anglais), même structure que le Maroc, entièrement générés :
   index.html, thank-you.html, assets/ (copies depuis ma/), data/ ; partner.html redirige vers la page partenaire unique ;
   method.html et legal-notice.html redirigent vers les pages globales
+fr/ est PARTAGÉ : le site France (build_site.py : index.html, thank-you.html, assets/, data/, et les redirections
+  partner.html, method.html, legal-notice.html) y côtoie les pages globales en français de build_home.py (methode.html,
+  investir.html, correction.html, merci.html, contact.html, partenaire.html, faq/). Aucun nom commun, aucun générateur ne
+  supprime de fichier. /fr/ est le classement France (anglais), jamais « l'accueil en français » ; toute nouvelle page globale
+  française doit éviter les noms du gabarit pays (index.html, partner.html, thank-you.html, method.html, legal-notice.html).
 
 tools/build_site.py     ← réglages de chaque marché (langue, top_n, pays, diaspora, secteurs, partenaire, presse…)
 tools/site.py           ← gabarit unique de tous les marchés ; textes d'interface en français et en anglais (TXT)

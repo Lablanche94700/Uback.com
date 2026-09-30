@@ -529,8 +529,8 @@
    },
    "zone": "western-europe",
    "tier": "full",
-   "status": "planned",
-   "url": null,
+   "status": "live",
+   "url": "/fr/",
    "density": {
     "low": 800,
     "high": 1200,
