@@ -21,6 +21,16 @@ METHOD = {
 <p>Une même société peut donc figurer dans deux classements : celui de son pays et celui de son segment.</p>
 <p><b>Pourquoi un rythme trimestriel et semestriel ?</b> Entre deux opérations, les informations disponibles sur une société non cotée changent peu. Un rythme espacé permet aux IA une analyse plus approfondie à chaque édition. Entre deux éditions, le Radar est mis à jour au fil des levées annoncées.</p>
 
+<h2 id="consensus">Cinq IA, un verdict</h2>
+<p>Dès la première édition en mode live, chaque classement sera le consensus de cinq IA issues de trois continents : Claude (Anthropic), GPT (OpenAI), Gemini (Google), Mistral (Mistral AI) et DeepSeek.</p>
+<ol>
+<li><b>Un dossier par société.</b> Une chaîne de collecte unique rassemble les faits publics (levées, investisseurs, valorisations publiées), chacun avec sa source.</li>
+<li><b>Même dossier, même prompt.</b> Les cinq IA reçoivent exactement le même dossier et le même prompt. Aucune ne cherche sur le web de son côté.</li>
+<li><b>La médiane tranche.</b> Chaque IA donne une tranche de valorisation et sa justification. Le classement suit la médiane ; l’écart entre les IA fixe l’indice de confiance.</li>
+</ol>
+<p>Chaque édition indiquera la version exacte de chaque IA utilisée, et le prompt sera public. DeepSeek est exécuté sur des serveurs situés hors de Chine.</p>
+<p><b>Aujourd’hui (Édition 0 – bêta) :</b> les classements sont produits par Claude seul. Le consensus des cinq IA s’appliquera dès la première édition en mode live.</p>
+
 <h2 id="estimation">Comment la valorisation est estimée</h2>
 <p><b>Les mêmes données pour toutes les IA.</b> Pour chaque société éligible, Uback constitue un dossier de faits datés. Ce dossier comprend :</p>
 <ul>
@@ -40,7 +50,7 @@ METHOD = {
 </ul>
 <p>Quand les IA ne s’accordent pas, cette divergence est elle-même une information.</p>
 <p><b>Des données de plus en plus riches.</b> Chaque édition intègre de nouvelles sources. La précision des estimations doit progresser d’une édition à l’autre.</p>
-<p><b>Édition 0 (bêta).</b> Les premières éditions ont été établies par une seule IA (Claude, Anthropic), à partir d’une recherche documentaire. L’indice de confiance y reflète la seule qualité des sources. Le consensus de plusieurs IA s’appliquera prochainement, lors d’une future édition.</p>
+<p><b>Édition 0 (bêta).</b> Les premières éditions ont été établies par une seule IA (Claude, Anthropic), à partir d’une recherche documentaire. L’indice de confiance y reflète la seule qualité des sources.</p>
 
 <h2>L’ordre de grandeur</h2>
 <p>Uback affiche une tranche, jamais un chiffre :</p>
@@ -114,6 +124,16 @@ METHOD = {
 <p>The same company can therefore appear in two rankings: its country’s and its segment’s.</p>
 <p><b>Why quarterly and twice-yearly?</b> Between two transactions, the information available on a non-listed company changes little. A slower pace gives the AI models room for deeper analysis at each edition. Between editions, the Radar is updated as funding rounds are announced.</p>
 
+<h2 id="consensus">Five AI models, one verdict</h2>
+<p>From the first live edition, every ranking will be the consensus of five AI models from three continents: Claude (Anthropic), GPT (OpenAI), Gemini (Google), Mistral (Mistral AI) and DeepSeek.</p>
+<ol>
+<li><b>One file per company.</b> A single collection pipeline gathers the public facts (funding rounds, investors, published valuations), each with its source.</li>
+<li><b>Same file, same prompt.</b> The five models receive exactly the same file and the same prompt. None of them searches the web on its own.</li>
+<li><b>The median decides.</b> Each model gives a valuation range and its reasoning. The ranking follows the median; the spread between the models sets the confidence index.</li>
+</ol>
+<p>Each edition will show the exact version of each model used, and the prompt will be public. DeepSeek is run on servers outside China.</p>
+<p><b>Today (Edition 0 – beta):</b> rankings are produced by Claude alone. The five-model consensus will apply from the first live edition.</p>
+
 <h2 id="estimation">How valuation is estimated</h2>
 <p><b>The same data for every AI.</b> For each eligible company, Uback builds a file of dated facts. It includes:</p>
 <ul>
@@ -133,7 +153,7 @@ METHOD = {
 </ul>
 <p>When the AI models disagree, the disagreement is information in itself.</p>
 <p><b>Richer data over time.</b> Each edition adds new sources. Estimates should become more precise from one edition to the next.</p>
-<p><b>Edition 0 (beta).</b> The first editions were produced by a single AI (Claude, Anthropic), from desk research. The confidence index reflects source quality only. A consensus of several AI models will apply soon, in a future edition.</p>
+<p><b>Edition 0 (beta).</b> The first editions were produced by a single AI (Claude, Anthropic), from desk research. The confidence index reflects source quality only.</p>
 
 <h2>Order of magnitude</h2>
 <p>Uback shows a range, never a figure:</p>
