@@ -13,7 +13,8 @@ from urllib.parse import quote
 TOOLS = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(TOOLS)
 sys.path.insert(0, TOOLS)
-from build_site import CSS_V, format_date
+from build_site import CSS_V, format_date, format_date_short
+import geo
 from valuation import BRACKETS, bracket_index, money, month
 from flags import flag
 
@@ -249,6 +250,24 @@ def og_image(key, src, out_dir):
         print('  image de partage rendue')
     return v
 
+def dates_line(edition, published, nxt, ooc=None):
+    """Ligne datée sous le H1, commune aux classements : édition · Published · Next scheduled update ;
+    mise à jour hors calendrier (out_of_cycle {date, reason}, facultative) en dessous : l'édition prévue reste due."""
+    line = (f'<div class="meta" style="margin-bottom:16px"><span>{e(edition)}</span><span>·</span>'
+            f'<span>Published {format_date_short(published, "en")}</span><span>·</span>'
+            f'<span>Next scheduled update {format_date_short(nxt, "en")}</span></div>')
+    if ooc:
+        line += ('\n      <div class="meta" style="margin:-8px 0 16px"><span>Out-of-cycle update</span><span>·</span>'
+                 f'<span>{format_date_short(ooc["date"], "en")}</span><span>·</span><span>{e(ooc["reason"])}</span></div>')
+    return line
+
+def next_scheduled(slug):
+    """Prochaine date du calendrier (data/calendar.json) : la seule date de prochaine édition affichée."""
+    d = geo.next_date(slug)
+    if d is None:
+        raise DataError(f'{slug} : absent de data/calendar.json (relancer tools/build_calendar.py)')
+    return d
+
 def page_top(title, desc, url, og_img, sw, nav, follow_label, follow_href, extra, declare_href=f'{GI}#opening'):
     """Début de page commun aux classements mondiaux (segments et familles) : <head>, bandeau bêta, en-tête."""
     links = '\n'.join(f'      <a href="{h}">{l}</a>' for h, l in nav)
@@ -309,6 +328,8 @@ def page_bottom(script=''):
       <span>·</span><a href="{GI}">Invest</a>
       <span>·</span><a href="{GC}">Request a correction</a>
       <span>·</span><a href="{GL}">Legal notice</a>
+      <span>·</span><a href="/calendar/">Calendar</a>
+      <span>·</span><a href="/faq/">FAQ</a>
       <span class="spacer"></span>
       <span>Uback.com · {datetime.date.today().year}</span>
     </div>
@@ -361,8 +382,9 @@ def build(path):
                                  f"{e(d['edition_label'])} · {e(format_date(datetime.date.fromisoformat(d['published']), 'en'))}"
                                  '<br>The market sets the value; our AI estimates it.'), out)
     url = f'https://uback.com/segments/{sid}/'
-    published = format_date(datetime.date.fromisoformat(d['published']), 'en')
-    nxt = format_date(datetime.date.fromisoformat(d['next_edition']), 'en')
+    published = datetime.date.fromisoformat(d['published'])
+    nxt_d = next_scheduled(sid)                     # calendrier, pas le champ next_edition du JSON
+    nxt = format_date(nxt_d, 'en')
     name_l = d['name'][:1].lower() + d['name'][1:]
 
     # cartes « Rankings by region » : comptes calculés depuis le JSON
@@ -376,6 +398,9 @@ def build(path):
         txt = f'#1 in region: {e(rk[0]["name"])} (#{rk[0]["rank"]} worldwide)' if rk else 'No ranked company yet'
         cards.append(card(code, title, rk, rd, txt))
 
+    # pages de zone (/regions/<slug>/) des sociétés classées, quand la zone existe dans data/geo.json
+    zs = [(code, geo.ZONES[code]['name']['en']) for code, _ in REGIONS if code in geo.ZONES and any(c['region'] == code for c in ranked)]
+    zone_links = (' Regional pages: ' + ' · '.join(f'<a href="/regions/{code}/">{e(n)}</a>' for code, n in zs) + '.') if zs else ''
     defs = d.get('kpi_definitions') or []
     show_inv = any(c.get('open_to_backers') for c in ranked)          # colonne masquée si aucune société ouverte
     pool = f'{GI}?pool=segment&amp;segment={sid}#opening'              # intérêt pour le pool du segment
@@ -402,10 +427,10 @@ def build(path):
     <div>
       <div class="kicker">Global segment ranking · {e(' › '.join(d['path'][:-1]))}</div>
       <h1>{e(t['h1'])}</h1>
+      {dates_line(d['edition_label'], published, nxt_d, d.get('out_of_cycle'))}
       <p class="lead">{e(t['intro'])}</p>
       <div class="meta">
-        <span class="tag beta">{e(d['edition_label'])} · Published {published}</span>
-        <span class="tag cad">{e(d['cadence'])}</span><span>Next edition: {nxt}</span><span>·</span>
+        <span class="tag cad">{e(d['cadence'])}</span>
         <span>Claude · multi-AI consensus in a future edition</span><span>·</span>
         <a href="{GM}">Published method</a><span>·</span>
         <span>Order never changed by a human</span>
@@ -429,7 +454,7 @@ def build(path):
 
 <section id="regions" style="padding-top:8px">
   <div class="wrap">
-    <div class="sec-head"><h2>Rankings by region</h2><span class="sub">Filter the ranking and the Radar. Ranks stay worldwide.</span></div>
+    <div class="sec-head"><h2>Rankings by region</h2><span class="sub">Filter the ranking and the Radar. Ranks stay worldwide.{zone_links}</span></div>
     <div class="regions">
       {(chr(10) + '      ').join(cards)}
     </div>
@@ -567,7 +592,8 @@ def build_family(fam, datas):
     pub = [datas[g['slug']] for sec in fam['sectors'] for g in sec['segments'] if g['slug'] in datas]
     total = sum(len(sec['segments']) for sec in fam['sectors'])
     ranked = [(c, d) for d in pub for c in d['ranked']]
-    nxt = format_date(min(datetime.date.fromisoformat(d['next_edition']) for d in pub), 'en')
+    nxt_d = min(next_scheduled(d['segment_id']) for d in pub)        # prochaine mise à jour d'un de ses segments
+    last = max(datetime.date.fromisoformat(d['published']) for d in pub)
     labels = {d['edition_label'] for d in pub}
     edition = labels.pop() if len(labels) == 1 else 'Edition 0 (beta)'
     names = [d['name'] for d in pub]
@@ -618,10 +644,11 @@ def build_family(fam, datas):
     <div>
       <div class="kicker">Global sector rankings · {e(name)}</div>
       <h1>The world’s most valuable {e(name_l)} startups, segment by segment</h1>
+      {dates_line(edition, last, nxt_d)}
       <p class="lead">Each segment ranks non-listed startups worldwide against their direct competitors, by AI-estimated valuation. The market sets the value; our AI estimates it.</p>
       <div class="meta">
-        <span class="tag beta">{e(edition)} · {len(pub)} of {total} segments published</span>
-        <span class="tag cad">Twice a year</span><span>Next edition: {nxt}</span><span>·</span>
+        <span class="tag beta">{len(pub)} of {total} segments published</span>
+        <span class="tag cad">Twice a year</span>
         <a href="{GM}">Published method</a><span>·</span>
         <span>Order never changed by a human</span>
       </div>

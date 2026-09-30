@@ -1,0 +1,2263 @@
+{
+ "version": "2026-09-30",
+ "rules": {
+  "metric": "Distinct companies operating in the country that raised at least USD 1M in equity (excl. debt and grants) over the last 36 months",
+  "exclusion": "Countries under broad EU or US sanctions are excluded",
+  "sourcing": "At least two independent public sources per country",
+  "tiers": {
+   "full": ">300: national ranking + one sub-ranking per sector family with enough companies",
+   "standard": "50-300: national Top 20 + 3 to 5 sector sub-rankings",
+   "short": "15-50: short national ranking (10 to 20 names), no sub-ranking",
+   "radar": "<15: no national ranking; companies appear in the regional ranking and radar of their zone"
+  },
+  "tier_input": "midpoint of the estimated range",
+  "hysteresis": "A country enters at >=15 and leaves only below 10, to avoid flip-flopping",
+  "review": "Recomputed once a year by the agent, published on 31 December",
+  "one_parent": "Each country has exactly one parent zone; collections list countries without being their parent",
+  "regional_ranking": "Every zone with at least 3 countries (ranked or radar) gets a regional ranking",
+  "hong_kong": "Companies registered in Hong Kong but operating mainly in mainland China are treated as China (analysis only)"
+ },
+ "zones": [
+  {
+   "slug": "north-america",
+   "name": {
+    "en": "North America",
+    "fr": "Amérique du Nord"
+   },
+   "parent": null
+  },
+  {
+   "slug": "latin-america",
+   "name": {
+    "en": "Latin America & Caribbean",
+    "fr": "Amérique latine et Caraïbes"
+   },
+   "parent": null
+  },
+  {
+   "slug": "europe",
+   "name": {
+    "en": "Europe",
+    "fr": "Europe"
+   },
+   "parent": null
+  },
+  {
+   "slug": "western-europe",
+   "name": {
+    "en": "Western Europe",
+    "fr": "Europe de l’Ouest"
+   },
+   "parent": "europe"
+  },
+  {
+   "slug": "nordics",
+   "name": {
+    "en": "Nordics",
+    "fr": "Pays nordiques"
+   },
+   "parent": "europe"
+  },
+  {
+   "slug": "southern-europe",
+   "name": {
+    "en": "Southern Europe",
+    "fr": "Europe du Sud"
+   },
+   "parent": "europe"
+  },
+  {
+   "slug": "central-eastern-europe",
+   "name": {
+    "en": "Central & Eastern Europe",
+    "fr": "Europe centrale et orientale"
+   },
+   "parent": "europe"
+  },
+  {
+   "slug": "mena",
+   "name": {
+    "en": "Middle East & North Africa",
+    "fr": "Moyen-Orient et Afrique du Nord"
+   },
+   "parent": null
+  },
+  {
+   "slug": "north-africa",
+   "name": {
+    "en": "North Africa",
+    "fr": "Afrique du Nord"
+   },
+   "parent": "mena"
+  },
+  {
+   "slug": "gulf",
+   "name": {
+    "en": "Gulf (GCC)",
+    "fr": "Golfe (CCG)"
+   },
+   "parent": "mena"
+  },
+  {
+   "slug": "levant-turkiye",
+   "name": {
+    "en": "Levant & Türkiye",
+    "fr": "Levant et Türkiye"
+   },
+   "parent": "mena"
+  },
+  {
+   "slug": "sub-saharan-africa",
+   "name": {
+    "en": "Sub-Saharan Africa",
+    "fr": "Afrique subsaharienne"
+   },
+   "parent": null
+  },
+  {
+   "slug": "west-central-africa",
+   "name": {
+    "en": "West & Central Africa",
+    "fr": "Afrique de l’Ouest et centrale"
+   },
+   "parent": "sub-saharan-africa"
+  },
+  {
+   "slug": "east-africa",
+   "name": {
+    "en": "East Africa",
+    "fr": "Afrique de l’Est"
+   },
+   "parent": "sub-saharan-africa"
+  },
+  {
+   "slug": "southern-africa",
+   "name": {
+    "en": "Southern Africa",
+    "fr": "Afrique australe"
+   },
+   "parent": "sub-saharan-africa"
+  },
+  {
+   "slug": "asia",
+   "name": {
+    "en": "Asia",
+    "fr": "Asie"
+   },
+   "parent": null
+  },
+  {
+   "slug": "east-asia",
+   "name": {
+    "en": "East Asia",
+    "fr": "Asie de l’Est"
+   },
+   "parent": "asia"
+  },
+  {
+   "slug": "southeast-asia",
+   "name": {
+    "en": "Southeast Asia",
+    "fr": "Asie du Sud-Est"
+   },
+   "parent": "asia"
+  },
+  {
+   "slug": "south-asia",
+   "name": {
+    "en": "South Asia",
+    "fr": "Asie du Sud"
+   },
+   "parent": "asia"
+  },
+  {
+   "slug": "central-asia",
+   "name": {
+    "en": "Central Asia",
+    "fr": "Asie centrale"
+   },
+   "parent": "asia"
+  },
+  {
+   "slug": "oceania",
+   "name": {
+    "en": "Oceania",
+    "fr": "Océanie"
+   },
+   "parent": null
+  }
+ ],
+ "collections": [
+  {
+   "slug": "european-union",
+   "name": {
+    "en": "European Union",
+    "fr": "Union européenne"
+   },
+   "countries": [
+    "at",
+    "be",
+    "bg",
+    "hr",
+    "cy",
+    "cz",
+    "dk",
+    "ee",
+    "fi",
+    "fr",
+    "de",
+    "gr",
+    "hu",
+    "ie",
+    "it",
+    "lv",
+    "lt",
+    "lu",
+    "mt",
+    "nl",
+    "pl",
+    "pt",
+    "ro",
+    "sk",
+    "si",
+    "es",
+    "se"
+   ],
+   "pitch": {
+    "en": "Invest under EU law: no exchange controls, no Delaware holding needed."
+   }
+  },
+  {
+   "slug": "uemoa",
+   "name": {
+    "en": "WAEMU (UEMOA)",
+    "fr": "UEMOA"
+   },
+   "countries": [
+    "bj",
+    "bf",
+    "ci",
+    "gw",
+    "ml",
+    "ne",
+    "sn",
+    "tg"
+   ],
+   "pitch": {
+    "en": "One currency (CFA franc, pegged to the euro), one business law (OHADA), eight countries."
+   }
+  }
+ ],
+ "countries": [
+  {
+   "code": "us",
+   "name": {
+    "en": "United States",
+    "fr": "États-Unis"
+   },
+   "zone": "north-america",
+   "tier": "full",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 10000,
+    "high": 15000,
+    "confidence": "high",
+    "source": "PitchBook-NVCA"
+   }
+  },
+  {
+   "code": "ca",
+   "name": {
+    "en": "Canada",
+    "fr": "Canada"
+   },
+   "zone": "north-america",
+   "tier": "full",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 900,
+    "high": 1100,
+    "confidence": "high",
+    "source": "CVCA 2025"
+   }
+  },
+  {
+   "code": "br",
+   "name": {
+    "en": "Brazil",
+    "fr": "Brésil"
+   },
+   "zone": "latin-america",
+   "tier": "full",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 600,
+    "high": 700,
+    "confidence": "high",
+    "source": "LAVCA 2025 / Cuantico 2026"
+   }
+  },
+  {
+   "code": "mx",
+   "name": {
+    "en": "Mexico",
+    "fr": "Mexique"
+   },
+   "zone": "latin-america",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 200,
+    "high": 350,
+    "confidence": "med",
+    "source": "LAVCA 2025 / Cuantico 2026"
+   }
+  },
+  {
+   "code": "co",
+   "name": {
+    "en": "Colombia",
+    "fr": "Colombie"
+   },
+   "zone": "latin-america",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 100,
+    "high": 120,
+    "confidence": "med",
+    "source": "LAVCA 2025 / Cuantico 2026"
+   }
+  },
+  {
+   "code": "cl",
+   "name": {
+    "en": "Chile",
+    "fr": "Chili"
+   },
+   "zone": "latin-america",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 95,
+    "high": 110,
+    "confidence": "med",
+    "source": "LAVCA 2025 / Cuantico 2026"
+   }
+  },
+  {
+   "code": "ar",
+   "name": {
+    "en": "Argentina",
+    "fr": "Argentine"
+   },
+   "zone": "latin-america",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 90,
+    "high": 100,
+    "confidence": "med",
+    "source": "LAVCA 2025 / Cuantico 2026"
+   }
+  },
+  {
+   "code": "uy",
+   "name": {
+    "en": "Uruguay",
+    "fr": "Uruguay"
+   },
+   "zone": "latin-america",
+   "tier": "short",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 18,
+    "high": 25,
+    "confidence": "low",
+    "source": "LAVCA 2025 / Cuantico 2026"
+   }
+  },
+  {
+   "code": "pe",
+   "name": {
+    "en": "Peru",
+    "fr": "Pérou"
+   },
+   "zone": "latin-america",
+   "tier": "short",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 12,
+    "high": 18,
+    "confidence": "low",
+    "source": "LAVCA 2025 / Cuantico 2026"
+   }
+  },
+  {
+   "code": "sv",
+   "name": {
+    "en": "El Salvador",
+    "fr": "Salvador"
+   },
+   "zone": "latin-america",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 10,
+    "high": 15,
+    "confidence": "low",
+    "source": "Briter Bridges – Central America 2025"
+   }
+  },
+  {
+   "code": "cr",
+   "name": {
+    "en": "Costa Rica",
+    "fr": "Costa Rica"
+   },
+   "zone": "latin-america",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 10,
+    "high": 14,
+    "confidence": "low",
+    "source": "Briter Bridges – Central America 2025"
+   }
+  },
+  {
+   "code": "pa",
+   "name": {
+    "en": "Panama",
+    "fr": "Panama"
+   },
+   "zone": "latin-america",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 8,
+    "high": 12,
+    "confidence": "low",
+    "source": "Briter Bridges – Central America 2025"
+   }
+  },
+  {
+   "code": "ec",
+   "name": {
+    "en": "Ecuador",
+    "fr": "Équateur"
+   },
+   "zone": "latin-america",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 6,
+    "high": 10,
+    "confidence": "low",
+    "source": "LAVCA 2025 / Cuantico 2026"
+   }
+  },
+  {
+   "code": "gt",
+   "name": {
+    "en": "Guatemala",
+    "fr": "Guatemala"
+   },
+   "zone": "latin-america",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 6,
+    "high": 10,
+    "confidence": "low",
+    "source": "Briter Bridges – Central America 2025"
+   }
+  },
+  {
+   "code": "do",
+   "name": {
+    "en": "Dominican Republic",
+    "fr": "République dominicaine"
+   },
+   "zone": "latin-america",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 4,
+    "high": 8,
+    "confidence": "low",
+    "source": "Briter Bridges – Central America 2025"
+   }
+  },
+  {
+   "code": "gb",
+   "name": {
+    "en": "United Kingdom",
+    "fr": "Royaume-Uni"
+   },
+   "zone": "western-europe",
+   "tier": "full",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 2000,
+    "high": 3000,
+    "confidence": "high",
+    "source": "Atomico State of European Tech"
+   }
+  },
+  {
+   "code": "fr",
+   "name": {
+    "en": "France",
+    "fr": "France"
+   },
+   "zone": "western-europe",
+   "tier": "full",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 800,
+    "high": 1200,
+    "confidence": "high",
+    "source": "Atomico State of European Tech"
+   }
+  },
+  {
+   "code": "de",
+   "name": {
+    "en": "Germany",
+    "fr": "Allemagne"
+   },
+   "zone": "western-europe",
+   "tier": "full",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 900,
+    "high": 1300,
+    "confidence": "high",
+    "source": "Atomico State of European Tech"
+   }
+  },
+  {
+   "code": "nl",
+   "name": {
+    "en": "Netherlands",
+    "fr": "Pays-Bas"
+   },
+   "zone": "western-europe",
+   "tier": "full",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 350,
+    "high": 500,
+    "confidence": "high",
+    "source": "Atomico State of European Tech"
+   }
+  },
+  {
+   "code": "ch",
+   "name": {
+    "en": "Switzerland",
+    "fr": "Suisse"
+   },
+   "zone": "western-europe",
+   "tier": "full",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 350,
+    "high": 500,
+    "confidence": "high",
+    "source": "Atomico State of European Tech"
+   }
+  },
+  {
+   "code": "ie",
+   "name": {
+    "en": "Ireland",
+    "fr": "Irlande"
+   },
+   "zone": "western-europe",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 250,
+    "high": 300,
+    "confidence": "low",
+    "source": "Dealroom country page"
+   }
+  },
+  {
+   "code": "be",
+   "name": {
+    "en": "Belgium",
+    "fr": "Belgique"
+   },
+   "zone": "western-europe",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 250,
+    "high": 300,
+    "confidence": "low",
+    "source": "Dealroom country page"
+   }
+  },
+  {
+   "code": "at",
+   "name": {
+    "en": "Austria",
+    "fr": "Autriche"
+   },
+   "zone": "western-europe",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 150,
+    "high": 200,
+    "confidence": "med",
+    "source": "EY Austria 2025"
+   }
+  },
+  {
+   "code": "lu",
+   "name": {
+    "en": "Luxembourg",
+    "fr": "Luxembourg"
+   },
+   "zone": "western-europe",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 40,
+    "high": 60,
+    "confidence": "low",
+    "source": "Dealroom country page"
+   }
+  },
+  {
+   "code": "se",
+   "name": {
+    "en": "Sweden",
+    "fr": "Suède"
+   },
+   "zone": "nordics",
+   "tier": "full",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 400,
+    "high": 600,
+    "confidence": "high",
+    "source": "Atomico State of European Tech"
+   }
+  },
+  {
+   "code": "fi",
+   "name": {
+    "en": "Finland",
+    "fr": "Finlande"
+   },
+   "zone": "nordics",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 270,
+    "high": 330,
+    "confidence": "low",
+    "source": "Dealroom country page"
+   }
+  },
+  {
+   "code": "dk",
+   "name": {
+    "en": "Denmark",
+    "fr": "Danemark"
+   },
+   "zone": "nordics",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 270,
+    "high": 330,
+    "confidence": "low",
+    "source": "Dealroom country page"
+   }
+  },
+  {
+   "code": "no",
+   "name": {
+    "en": "Norway",
+    "fr": "Norvège"
+   },
+   "zone": "nordics",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 180,
+    "high": 220,
+    "confidence": "low",
+    "source": "Dealroom country page"
+   }
+  },
+  {
+   "code": "is",
+   "name": {
+    "en": "Iceland",
+    "fr": "Islande"
+   },
+   "zone": "nordics",
+   "tier": "short",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 40,
+    "high": 50,
+    "confidence": "low",
+    "source": "Dealroom country page"
+   }
+  },
+  {
+   "code": "es",
+   "name": {
+    "en": "Spain",
+    "fr": "Espagne"
+   },
+   "zone": "southern-europe",
+   "tier": "full",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 400,
+    "high": 600,
+    "confidence": "high",
+    "source": "Atomico State of European Tech"
+   }
+  },
+  {
+   "code": "it",
+   "name": {
+    "en": "Italy",
+    "fr": "Italie"
+   },
+   "zone": "southern-europe",
+   "tier": "full",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 320,
+    "high": 380,
+    "confidence": "med",
+    "source": "Dealroom country page"
+   }
+  },
+  {
+   "code": "pt",
+   "name": {
+    "en": "Portugal",
+    "fr": "Portugal"
+   },
+   "zone": "southern-europe",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 120,
+    "high": 180,
+    "confidence": "low",
+    "source": "Dealroom country page"
+   }
+  },
+  {
+   "code": "gr",
+   "name": {
+    "en": "Greece",
+    "fr": "Grèce"
+   },
+   "zone": "southern-europe",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 60,
+    "high": 80,
+    "confidence": "med",
+    "source": "Dealroom country page"
+   }
+  },
+  {
+   "code": "cy",
+   "name": {
+    "en": "Cyprus",
+    "fr": "Chypre"
+   },
+   "zone": "southern-europe",
+   "tier": "short",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 30,
+    "high": 40,
+    "confidence": "med",
+    "source": "Cyprus funding analysis 2025"
+   }
+  },
+  {
+   "code": "mt",
+   "name": {
+    "en": "Malta",
+    "fr": "Malte"
+   },
+   "zone": "southern-europe",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 10,
+    "high": 12,
+    "confidence": "low",
+    "source": "Dealroom country page"
+   }
+  },
+  {
+   "code": "pl",
+   "name": {
+    "en": "Poland",
+    "fr": "Pologne"
+   },
+   "zone": "central-eastern-europe",
+   "tier": "standard",
+   "status": "live",
+   "url": "/pl/",
+   "density": {
+    "low": 200,
+    "high": 250,
+    "confidence": "med",
+    "source": "Vestbee CEE Q4-25 / Q2-26"
+   }
+  },
+  {
+   "code": "ee",
+   "name": {
+    "en": "Estonia",
+    "fr": "Estonie"
+   },
+   "zone": "central-eastern-europe",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 130,
+    "high": 170,
+    "confidence": "med",
+    "source": "Dealroom country page"
+   }
+  },
+  {
+   "code": "cz",
+   "name": {
+    "en": "Czechia",
+    "fr": "Tchéquie"
+   },
+   "zone": "central-eastern-europe",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 130,
+    "high": 160,
+    "confidence": "med",
+    "source": "Vestbee CEE Q4-25 / Q2-26"
+   }
+  },
+  {
+   "code": "lt",
+   "name": {
+    "en": "Lithuania",
+    "fr": "Lituanie"
+   },
+   "zone": "central-eastern-europe",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 80,
+    "high": 100,
+    "confidence": "med",
+    "source": "Vestbee CEE Q4-25 / Q2-26"
+   }
+  },
+  {
+   "code": "ua",
+   "name": {
+    "en": "Ukraine",
+    "fr": "Ukraine"
+   },
+   "zone": "central-eastern-europe",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 70,
+    "high": 90,
+    "confidence": "low",
+    "source": "Dealroom country page"
+   }
+  },
+  {
+   "code": "hu",
+   "name": {
+    "en": "Hungary",
+    "fr": "Hongrie"
+   },
+   "zone": "central-eastern-europe",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 70,
+    "high": 80,
+    "confidence": "med",
+    "source": "Dealroom country page"
+   }
+  },
+  {
+   "code": "ro",
+   "name": {
+    "en": "Romania",
+    "fr": "Roumanie"
+   },
+   "zone": "central-eastern-europe",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 65,
+    "high": 85,
+    "confidence": "med",
+    "source": "Dealroom country page"
+   }
+  },
+  {
+   "code": "bg",
+   "name": {
+    "en": "Bulgaria",
+    "fr": "Bulgarie"
+   },
+   "zone": "central-eastern-europe",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 45,
+    "high": 55,
+    "confidence": "med",
+    "source": "Dealroom country page"
+   }
+  },
+  {
+   "code": "lv",
+   "name": {
+    "en": "Latvia",
+    "fr": "Lettonie"
+   },
+   "zone": "central-eastern-europe",
+   "tier": "short",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 30,
+    "high": 35,
+    "confidence": "med",
+    "source": "Dealroom country page"
+   }
+  },
+  {
+   "code": "hr",
+   "name": {
+    "en": "Croatia",
+    "fr": "Croatie"
+   },
+   "zone": "central-eastern-europe",
+   "tier": "short",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 27,
+    "high": 33,
+    "confidence": "med",
+    "source": "Dealroom country page"
+   }
+  },
+  {
+   "code": "sk",
+   "name": {
+    "en": "Slovakia",
+    "fr": "Slovaquie"
+   },
+   "zone": "central-eastern-europe",
+   "tier": "short",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 25,
+    "high": 31,
+    "confidence": "med",
+    "source": "Dealroom country page"
+   }
+  },
+  {
+   "code": "si",
+   "name": {
+    "en": "Slovenia",
+    "fr": "Slovénie"
+   },
+   "zone": "central-eastern-europe",
+   "tier": "short",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 22,
+    "high": 25,
+    "confidence": "med",
+    "source": "Dealroom country page"
+   }
+  },
+  {
+   "code": "rs",
+   "name": {
+    "en": "Serbia",
+    "fr": "Serbie"
+   },
+   "zone": "central-eastern-europe",
+   "tier": "short",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 15,
+    "high": 20,
+    "confidence": "low",
+    "source": "Dealroom country page"
+   }
+  },
+  {
+   "code": "am",
+   "name": {
+    "en": "Armenia",
+    "fr": "Arménie"
+   },
+   "zone": "central-eastern-europe",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 10,
+    "high": 15,
+    "confidence": "low",
+    "source": "Dealroom country page"
+   }
+  },
+  {
+   "code": "ge",
+   "name": {
+    "en": "Georgia",
+    "fr": "Géorgie"
+   },
+   "zone": "central-eastern-europe",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 5,
+    "high": 15,
+    "confidence": "low",
+    "source": "Dealroom country page"
+   }
+  },
+  {
+   "code": "az",
+   "name": {
+    "en": "Azerbaijan",
+    "fr": "Azerbaïdjan"
+   },
+   "zone": "central-eastern-europe",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 3,
+    "high": 7,
+    "confidence": "med",
+    "source": "estimation Uback"
+   }
+  },
+  {
+   "code": "md",
+   "name": {
+    "en": "Moldova",
+    "fr": "Moldavie"
+   },
+   "zone": "central-eastern-europe",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 1,
+    "high": 5,
+    "confidence": "med",
+    "source": "Dealroom country page"
+   }
+  },
+  {
+   "code": "mk",
+   "name": {
+    "en": "North Macedonia",
+    "fr": "Macédoine du Nord"
+   },
+   "zone": "central-eastern-europe",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 1,
+    "high": 5,
+    "confidence": "med",
+    "source": "Dealroom country page"
+   }
+  },
+  {
+   "code": "eg",
+   "name": {
+    "en": "Egypt",
+    "fr": "Égypte"
+   },
+   "zone": "north-africa",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 90,
+    "high": 120,
+    "confidence": "med",
+    "source": "Partech Africa 2024-2025"
+   }
+  },
+  {
+   "code": "ma",
+   "name": {
+    "en": "Morocco",
+    "fr": "Maroc"
+   },
+   "zone": "north-africa",
+   "tier": "short",
+   "status": "live",
+   "url": "/ma/",
+   "density": {
+    "low": 25,
+    "high": 35,
+    "confidence": "med",
+    "source": "Partech Africa 2024-2025"
+   }
+  },
+  {
+   "code": "tn",
+   "name": {
+    "en": "Tunisia",
+    "fr": "Tunisie"
+   },
+   "zone": "north-africa",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 10,
+    "high": 15,
+    "confidence": "low",
+    "source": "Partech Africa 2024-2025"
+   }
+  },
+  {
+   "code": "dz",
+   "name": {
+    "en": "Algeria",
+    "fr": "Algérie"
+   },
+   "zone": "north-africa",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 3,
+    "high": 5,
+    "confidence": "med",
+    "source": "Wamda MENA 2025"
+   }
+  },
+  {
+   "code": "ae",
+   "name": {
+    "en": "United Arab Emirates",
+    "fr": "Émirats arabes unis"
+   },
+   "zone": "gulf",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 250,
+    "high": 330,
+    "confidence": "med",
+    "source": "Wamda MENA 2025"
+   }
+  },
+  {
+   "code": "sa",
+   "name": {
+    "en": "Saudi Arabia",
+    "fr": "Arabie saoudite"
+   },
+   "zone": "gulf",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 200,
+    "high": 260,
+    "confidence": "med",
+    "source": "Wamda MENA 2025"
+   }
+  },
+  {
+   "code": "qa",
+   "name": {
+    "en": "Qatar",
+    "fr": "Qatar"
+   },
+   "zone": "gulf",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 8,
+    "high": 12,
+    "confidence": "low",
+    "source": "Wamda MENA 2025"
+   }
+  },
+  {
+   "code": "om",
+   "name": {
+    "en": "Oman",
+    "fr": "Oman"
+   },
+   "zone": "gulf",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 7,
+    "high": 10,
+    "confidence": "med",
+    "source": "Wamda MENA 2025"
+   }
+  },
+  {
+   "code": "kw",
+   "name": {
+    "en": "Kuwait",
+    "fr": "Koweït"
+   },
+   "zone": "gulf",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 4,
+    "high": 7,
+    "confidence": "med",
+    "source": "Wamda MENA 2025"
+   }
+  },
+  {
+   "code": "bh",
+   "name": {
+    "en": "Bahrain",
+    "fr": "Bahreïn"
+   },
+   "zone": "gulf",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 3,
+    "high": 6,
+    "confidence": "med",
+    "source": "Wamda MENA 2025"
+   }
+  },
+  {
+   "code": "il",
+   "name": {
+    "en": "Israel",
+    "fr": "Israël"
+   },
+   "zone": "levant-turkiye",
+   "tier": "full",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 1500,
+    "high": 2000,
+    "confidence": "high",
+    "source": "Start-Up Nation Central 2025"
+   }
+  },
+  {
+   "code": "tr",
+   "name": {
+    "en": "Türkiye",
+    "fr": "Türkiye"
+   },
+   "zone": "levant-turkiye",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 180,
+    "high": 260,
+    "confidence": "med",
+    "source": "startups.watch 2025"
+   }
+  },
+  {
+   "code": "jo",
+   "name": {
+    "en": "Jordan",
+    "fr": "Jordanie"
+   },
+   "zone": "levant-turkiye",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 7,
+    "high": 11,
+    "confidence": "med",
+    "source": "Wamda MENA 2025"
+   }
+  },
+  {
+   "code": "iq",
+   "name": {
+    "en": "Iraq",
+    "fr": "Irak"
+   },
+   "zone": "levant-turkiye",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 4,
+    "high": 6,
+    "confidence": "med",
+    "source": "Wamda MENA 2025"
+   }
+  },
+  {
+   "code": "lb",
+   "name": {
+    "en": "Lebanon",
+    "fr": "Liban"
+   },
+   "zone": "levant-turkiye",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 2,
+    "high": 4,
+    "confidence": "med",
+    "source": "Wamda MENA 2025"
+   }
+  },
+  {
+   "code": "ng",
+   "name": {
+    "en": "Nigeria",
+    "fr": "Nigeria"
+   },
+   "zone": "west-central-africa",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 110,
+    "high": 140,
+    "confidence": "med",
+    "source": "Partech Africa 2024-2025"
+   }
+  },
+  {
+   "code": "gh",
+   "name": {
+    "en": "Ghana",
+    "fr": "Ghana"
+   },
+   "zone": "west-central-africa",
+   "tier": "short",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 18,
+    "high": 25,
+    "confidence": "med",
+    "source": "Partech Africa 2024-2025"
+   }
+  },
+  {
+   "code": "sn",
+   "name": {
+    "en": "Senegal",
+    "fr": "Sénégal"
+   },
+   "zone": "west-central-africa",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 10,
+    "high": 14,
+    "confidence": "med",
+    "source": "Partech Africa 2024-2025"
+   }
+  },
+  {
+   "code": "ci",
+   "name": {
+    "en": "Côte d’Ivoire",
+    "fr": "Côte d’Ivoire"
+   },
+   "zone": "west-central-africa",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 10,
+    "high": 14,
+    "confidence": "med",
+    "source": "Partech Africa 2024-2025"
+   }
+  },
+  {
+   "code": "cm",
+   "name": {
+    "en": "Cameroon",
+    "fr": "Cameroun"
+   },
+   "zone": "west-central-africa",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 2,
+    "high": 4,
+    "confidence": "med",
+    "source": "Partech Africa 2024-2025"
+   }
+  },
+  {
+   "code": "cd",
+   "name": {
+    "en": "DR Congo",
+    "fr": "RD Congo"
+   },
+   "zone": "west-central-africa",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 2,
+    "high": 5,
+    "confidence": "low",
+    "source": "Partech Africa 2024-2025"
+   }
+  },
+  {
+   "code": "tg",
+   "name": {
+    "en": "Togo",
+    "fr": "Togo"
+   },
+   "zone": "west-central-africa",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 2,
+    "high": 3,
+    "confidence": "med",
+    "source": "Partech Africa 2024-2025"
+   }
+  },
+  {
+   "code": "bj",
+   "name": {
+    "en": "Benin",
+    "fr": "Bénin"
+   },
+   "zone": "west-central-africa",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 0,
+    "high": 3,
+    "confidence": "med",
+    "source": "Partech Africa 2024-2025"
+   }
+  },
+  {
+   "code": "ml",
+   "name": {
+    "en": "Mali",
+    "fr": "Mali"
+   },
+   "zone": "west-central-africa",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 0,
+    "high": 3,
+    "confidence": "med",
+    "source": "Partech Africa 2024-2025"
+   }
+  },
+  {
+   "code": "bf",
+   "name": {
+    "en": "Burkina Faso",
+    "fr": "Burkina Faso"
+   },
+   "zone": "west-central-africa",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 0,
+    "high": 3,
+    "confidence": "med",
+    "source": "Partech Africa 2024-2025"
+   }
+  },
+  {
+   "code": "ke",
+   "name": {
+    "en": "Kenya",
+    "fr": "Kenya"
+   },
+   "zone": "east-africa",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 80,
+    "high": 100,
+    "confidence": "med",
+    "source": "Partech Africa 2024-2025"
+   }
+  },
+  {
+   "code": "rw",
+   "name": {
+    "en": "Rwanda",
+    "fr": "Rwanda"
+   },
+   "zone": "east-africa",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 9,
+    "high": 12,
+    "confidence": "med",
+    "source": "Partech Africa 2024-2025"
+   }
+  },
+  {
+   "code": "tz",
+   "name": {
+    "en": "Tanzania",
+    "fr": "Tanzanie"
+   },
+   "zone": "east-africa",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 9,
+    "high": 13,
+    "confidence": "med",
+    "source": "Partech Africa 2024-2025"
+   }
+  },
+  {
+   "code": "ug",
+   "name": {
+    "en": "Uganda",
+    "fr": "Ouganda"
+   },
+   "zone": "east-africa",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 6,
+    "high": 9,
+    "confidence": "med",
+    "source": "Partech Africa 2024-2025"
+   }
+  },
+  {
+   "code": "et",
+   "name": {
+    "en": "Ethiopia",
+    "fr": "Éthiopie"
+   },
+   "zone": "east-africa",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 5,
+    "high": 8,
+    "confidence": "med",
+    "source": "Partech Africa 2024-2025"
+   }
+  },
+  {
+   "code": "za",
+   "name": {
+    "en": "South Africa",
+    "fr": "Afrique du Sud"
+   },
+   "zone": "southern-africa",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 110,
+    "high": 140,
+    "confidence": "med",
+    "source": "Partech Africa 2024-2025"
+   }
+  },
+  {
+   "code": "mu",
+   "name": {
+    "en": "Mauritius",
+    "fr": "Maurice"
+   },
+   "zone": "southern-africa",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 1,
+    "high": 4,
+    "confidence": "low",
+    "source": "Partech Africa 2024-2025"
+   }
+  },
+  {
+   "code": "zm",
+   "name": {
+    "en": "Zambia",
+    "fr": "Zambie"
+   },
+   "zone": "southern-africa",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 2,
+    "high": 4,
+    "confidence": "low",
+    "source": "Partech Africa 2024-2025"
+   }
+  },
+  {
+   "code": "zw",
+   "name": {
+    "en": "Zimbabwe",
+    "fr": "Zimbabwe"
+   },
+   "zone": "southern-africa",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 0,
+    "high": 3,
+    "confidence": "med",
+    "source": "Partech Africa 2024-2025"
+   }
+  },
+  {
+   "code": "bw",
+   "name": {
+    "en": "Botswana",
+    "fr": "Botswana"
+   },
+   "zone": "southern-africa",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 0,
+    "high": 3,
+    "confidence": "med",
+    "source": "Partech Africa 2024-2025"
+   }
+  },
+  {
+   "code": "jp",
+   "name": {
+    "en": "Japan",
+    "fr": "Japon"
+   },
+   "zone": "east-asia",
+   "tier": "full",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 1500,
+    "high": 2500,
+    "confidence": "high",
+    "source": "INITIAL Japan"
+   }
+  },
+  {
+   "code": "kr",
+   "name": {
+    "en": "South Korea",
+    "fr": "Corée du Sud"
+   },
+   "zone": "east-asia",
+   "tier": "full",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 1500,
+    "high": 2500,
+    "confidence": "high",
+    "source": "THE VC Korea"
+   }
+  },
+  {
+   "code": "tw",
+   "name": {
+    "en": "Taiwan",
+    "fr": "Taïwan"
+   },
+   "zone": "east-asia",
+   "tier": "full",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 700,
+    "high": 900,
+    "confidence": "high",
+    "source": "FINDIT Taiwan 2024"
+   }
+  },
+  {
+   "code": "hk",
+   "name": {
+    "en": "Hong Kong",
+    "fr": "Hong Kong"
+   },
+   "zone": "east-asia",
+   "tier": "full",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 300,
+    "high": 450,
+    "confidence": "med",
+    "source": "estimation Uback"
+   }
+  },
+  {
+   "code": "mn",
+   "name": {
+    "en": "Mongolia",
+    "fr": "Mongolie"
+   },
+   "zone": "east-asia",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 3,
+    "high": 6,
+    "confidence": "med",
+    "source": "Tracxn"
+   }
+  },
+  {
+   "code": "sg",
+   "name": {
+    "en": "Singapore",
+    "fr": "Singapour"
+   },
+   "zone": "southeast-asia",
+   "tier": "full",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 600,
+    "high": 900,
+    "confidence": "high",
+    "source": "DealStreetAsia SEA 2025"
+   }
+  },
+  {
+   "code": "id",
+   "name": {
+    "en": "Indonesia",
+    "fr": "Indonésie"
+   },
+   "zone": "southeast-asia",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 200,
+    "high": 280,
+    "confidence": "med",
+    "source": "DealStreetAsia SEA 2025"
+   }
+  },
+  {
+   "code": "my",
+   "name": {
+    "en": "Malaysia",
+    "fr": "Malaisie"
+   },
+   "zone": "southeast-asia",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 100,
+    "high": 150,
+    "confidence": "med",
+    "source": "estimation Uback"
+   }
+  },
+  {
+   "code": "vn",
+   "name": {
+    "en": "Vietnam",
+    "fr": "Vietnam"
+   },
+   "zone": "southeast-asia",
+   "tier": "standard",
+   "status": "live",
+   "url": "/vn/",
+   "density": {
+    "low": 90,
+    "high": 140,
+    "confidence": "med",
+    "source": "estimation Uback"
+   }
+  },
+  {
+   "code": "th",
+   "name": {
+    "en": "Thailand",
+    "fr": "Thaïlande"
+   },
+   "zone": "southeast-asia",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 70,
+    "high": 110,
+    "confidence": "low",
+    "source": "Tracxn"
+   }
+  },
+  {
+   "code": "ph",
+   "name": {
+    "en": "Philippines",
+    "fr": "Philippines"
+   },
+   "zone": "southeast-asia",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 60,
+    "high": 90,
+    "confidence": "low",
+    "source": "estimation Uback"
+   }
+  },
+  {
+   "code": "kh",
+   "name": {
+    "en": "Cambodia",
+    "fr": "Cambodge"
+   },
+   "zone": "southeast-asia",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 5,
+    "high": 8,
+    "confidence": "med",
+    "source": "Tracxn"
+   }
+  },
+  {
+   "code": "in",
+   "name": {
+    "en": "India",
+    "fr": "Inde"
+   },
+   "zone": "south-asia",
+   "tier": "full",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 2500,
+    "high": 4000,
+    "confidence": "high",
+    "source": "Tracxn"
+   }
+  },
+  {
+   "code": "pk",
+   "name": {
+    "en": "Pakistan",
+    "fr": "Pakistan"
+   },
+   "zone": "south-asia",
+   "tier": "short",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 22,
+    "high": 32,
+    "confidence": "med",
+    "source": "ProPakistani / Data Darbar 2025"
+   }
+  },
+  {
+   "code": "bd",
+   "name": {
+    "en": "Bangladesh",
+    "fr": "Bangladesh"
+   },
+   "zone": "south-asia",
+   "tier": "short",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 15,
+    "high": 22,
+    "confidence": "med",
+    "source": "LightCastle Bangladesh 2025"
+   }
+  },
+  {
+   "code": "lk",
+   "name": {
+    "en": "Sri Lanka",
+    "fr": "Sri Lanka"
+   },
+   "zone": "south-asia",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 8,
+    "high": 14,
+    "confidence": "low",
+    "source": "estimation Uback"
+   }
+  },
+  {
+   "code": "np",
+   "name": {
+    "en": "Nepal",
+    "fr": "Népal"
+   },
+   "zone": "south-asia",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 2,
+    "high": 5,
+    "confidence": "med",
+    "source": "Tracxn"
+   }
+  },
+  {
+   "code": "kz",
+   "name": {
+    "en": "Kazakhstan",
+    "fr": "Kazakhstan"
+   },
+   "zone": "central-asia",
+   "tier": "short",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 35,
+    "high": 55,
+    "confidence": "med",
+    "source": "Astana Hub / RISE 2026"
+   }
+  },
+  {
+   "code": "uz",
+   "name": {
+    "en": "Uzbekistan",
+    "fr": "Ouzbékistan"
+   },
+   "zone": "central-asia",
+   "tier": "short",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 15,
+    "high": 25,
+    "confidence": "low",
+    "source": "Pivot.uz 2025"
+   }
+  },
+  {
+   "code": "kg",
+   "name": {
+    "en": "Kyrgyzstan",
+    "fr": "Kirghizistan"
+   },
+   "zone": "central-asia",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 2,
+    "high": 6,
+    "confidence": "med",
+    "source": "Astana Hub / RISE 2026"
+   }
+  },
+  {
+   "code": "au",
+   "name": {
+    "en": "Australia",
+    "fr": "Australie"
+   },
+   "zone": "oceania",
+   "tier": "full",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 600,
+    "high": 800,
+    "confidence": "high",
+    "source": "Cut Through Venture 2025"
+   }
+  },
+  {
+   "code": "nz",
+   "name": {
+    "en": "New Zealand",
+    "fr": "Nouvelle-Zélande"
+   },
+   "zone": "oceania",
+   "tier": "standard",
+   "status": "planned",
+   "url": null,
+   "density": {
+    "low": 120,
+    "high": 160,
+    "confidence": "med",
+    "source": "NZ Private Capital 2025"
+   }
+  },
+  {
+   "code": "cn",
+   "name": {
+    "en": "China",
+    "fr": "Chine"
+   },
+   "zone": "east-asia",
+   "tier": null,
+   "status": "analysis_only",
+   "url": null,
+   "density": {
+    "low": 5000,
+    "high": null,
+    "confidence": "high",
+    "source": "Tracxn"
+   },
+   "note": "Not ranked: no access for non-Chinese investors. Used as comparables and competitors only (see FAQ)."
+  },
+  {
+   "code": "kp",
+   "name": {
+    "en": "North Korea"
+   },
+   "zone": null,
+   "tier": null,
+   "status": "excluded",
+   "url": null,
+   "note": "Broad EU/US sanctions: no ranking, no radar."
+  },
+  {
+   "code": "ir",
+   "name": {
+    "en": "Iran"
+   },
+   "zone": null,
+   "tier": null,
+   "status": "excluded",
+   "url": null,
+   "note": "Broad EU/US sanctions: no ranking, no radar."
+  },
+  {
+   "code": "sy",
+   "name": {
+    "en": "Syria"
+   },
+   "zone": null,
+   "tier": null,
+   "status": "excluded",
+   "url": null,
+   "note": "Broad EU/US sanctions: no ranking, no radar."
+  },
+  {
+   "code": "cu",
+   "name": {
+    "en": "Cuba"
+   },
+   "zone": null,
+   "tier": null,
+   "status": "excluded",
+   "url": null,
+   "note": "Broad EU/US sanctions: no ranking, no radar."
+  },
+  {
+   "code": "ru",
+   "name": {
+    "en": "Russia"
+   },
+   "zone": null,
+   "tier": null,
+   "status": "excluded",
+   "url": null,
+   "note": "Broad EU/US sanctions: no ranking, no radar."
+  },
+  {
+   "code": "by",
+   "name": {
+    "en": "Belarus"
+   },
+   "zone": null,
+   "tier": null,
+   "status": "excluded",
+   "url": null,
+   "note": "Broad EU/US sanctions: no ranking, no radar."
+  },
+  {
+   "code": "af",
+   "name": {
+    "en": "Afghanistan"
+   },
+   "zone": null,
+   "tier": null,
+   "status": "excluded",
+   "url": null,
+   "note": "Broad EU/US sanctions: no ranking, no radar."
+  },
+  {
+   "code": "mm",
+   "name": {
+    "en": "Myanmar"
+   },
+   "zone": null,
+   "tier": null,
+   "status": "excluded",
+   "url": null,
+   "note": "Broad EU/US sanctions: no ranking, no radar."
+  },
+  {
+   "code": "gw",
+   "name": {
+    "en": "Guinea-Bissau",
+    "fr": "Guinée-Bissau"
+   },
+   "zone": "west-central-africa",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 0,
+    "high": 2,
+    "confidence": "med",
+    "source": "Partech Africa 2024-2025"
+   }
+  },
+  {
+   "code": "ne",
+   "name": {
+    "en": "Niger",
+    "fr": "Niger"
+   },
+   "zone": "west-central-africa",
+   "tier": "radar",
+   "status": "radar",
+   "url": null,
+   "density": {
+    "low": 0,
+    "high": 2,
+    "confidence": "med",
+    "source": "Partech Africa 2024-2025"
+   }
+  }
+ ]
+}

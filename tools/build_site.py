@@ -7,9 +7,11 @@ Usage : python3 tools/build_site.py            (tous les marchés)
         python3 tools/build_site.py pl vn      (seulement ceux-là)
 Chaque marché écrit UNIQUEMENT dans son dossier, à partir de <code>/data/<data> (+ couche de traduction <overlay>).
 La racine (homepage monde : tools/build_home.py ; redirections, sitemap, robots, CNAME) est hors de ce script."""
-import os, sys, runpy, hashlib, json, datetime
+import os, sys, runpy, hashlib, json, datetime, html
 
 TOOLS = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, TOOLS)
+import geo
 
 FLAGS = {
  'ma': '<svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" fill="#C1272D"/><polygon points="24,8.5 26.6,16.4 34.4,11.6 20,20.9 29.6,20.9 18.2,11.6 26,16.4" fill="none" stroke="#006233" stroke-width="1.6" stroke-linejoin="round" transform="translate(-2.2 1.2)"/></svg>',
@@ -106,13 +108,16 @@ MARKETS = [
      'langs_soon': ['VI']},
 ]
 
-UI = {'fr': {'all': 'Tous les marchés', 'choose': 'Changer de pays'},
-      'en': {'all': 'All markets', 'choose': 'Change country'}}
+UI = {'fr': {'all': 'Tous les marchés', 'choose': 'Changer de pays', 'zone': 'Classements · {}'},
+      'en': {'all': 'All markets', 'choose': 'Change country', 'zone': '{} rankings'}}
 
 def switcher(m):
     """Sélecteur de pays : chaque pays mène à sa version dans la langue de la page si elle existe, sinon à sa version
     principale. Liens absolus écrits « @ROOT@… » pour échapper au préfixe de la version."""
     ui, items, seen = UI[m['lang']], '', []
+    # zone du pays (data/geo.json) : lien vers sa page /regions/<slug>/ (pages en anglais)
+    z = geo.COUNTRIES[m['code']]['zone']
+    zone = f'<a href="@ROOT@regions/{z}/">{html.escape(ui["zone"].format(geo.ZONES[z]["name"].get(m["lang"], geo.ZONES[z]["name"]["en"])))}</a>'
     for o in MARKETS:
         if o['code'] in seen:
             continue
@@ -123,7 +128,7 @@ def switcher(m):
         items += (f'<a href="@ROOT@{v["path"][1:]}/"{cur}>{FLAGS[o["code"]]}{NAMES[o["code"]][m["lang"]]}'
                   f'<span class="l">{v["lang"].upper()}</span></a>')
     return (f'<details class="mkt"><summary class="market" aria-label="{ui["choose"]}">{NAMES[m["code"]][m["lang"]]}</summary>'
-            f'<div class="menu">{items}<hr><a href="@ROOT@">{ui["all"]}</a></div></details>')
+            f'<div class="menu">{items}<hr>{zone}<a href="@ROOT@">{ui["all"]}</a></div></details>')
 
 # version de la feuille de style (empreinte du fichier) : un changement de style est vu tout de suite,
 # sans attendre l'expiration du cache des navigateurs
@@ -190,6 +195,10 @@ def build(m, valuation):
     m['switcher'] = switcher(m)
     m['css_v'] = CSS_V
     nxt = next_edition(m)
+    # la date affichée vient du calendrier (data/calendar.json) ; elle doit rester celle des mois de publication du marché
+    cal = geo.next_date(m['code'])
+    if cal != nxt:
+        raise SystemExit(f"{m['code']} : prochaine édition {nxt} (publish_months) ≠ {cal} (data/calendar.json)")
     m['next_edition'] = format_date(nxt, m['lang'])
     m['next_edition_short'] = format_date_short(nxt, m['lang'])
     m['months_txt'] = months_txt(m)

@@ -152,6 +152,17 @@ a.card.fam-seg{color:inherit;text-decoration:none}a.card.fam-seg:hover{border-co
 .card.fam-seg h3{font-size:16px}.card.fam-seg p{font-size:13px}
 .card.fam-seg.soon{border-style:dashed;background:transparent}.card.fam-seg.soon .k{color:#9ca3af}.card.fam-seg.soon h3{color:var(--muted)}
 .pills-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+/* pages de zone (/regions/, /collections/) : fil d'Ariane, pays à venir, radar */
+.crumbs{padding-top:20px;font-size:13px;color:var(--muted)}.crumbs a{color:var(--muted);text-decoration:underline}.crumbs .sep{margin:0 6px}
+.zone-soon{margin-top:16px}
+.crumbs+.hero{padding-top:20px}
+.pill.soon{position:relative;border-style:dashed;background:#fff;color:#374151;font-size:13px;cursor:default}
+.pill.soon:hover,.pill.soon:focus,.pill.soon.show{border-style:solid;border-color:var(--gold);outline:none}
+.pill .tip{display:none;position:absolute;left:50%;bottom:calc(100% + 6px);transform:translateX(-50%);background:var(--navy);color:#fff;font-size:11px;font-weight:600;padding:4px 8px;border-radius:6px;white-space:nowrap;z-index:5;pointer-events:none}
+.pill.soon:hover .tip,.pill.soon:focus .tip,.pill.soon.show .tip{display:block}
+.pill.radar{background:var(--soft);border-color:var(--soft);color:#6b7280;font-size:13px}
+#more .box+.box,#more .box+.follow-band{margin-top:20px}
+.mkt .menu.zones{max-height:70vh;overflow-y:auto}
 a.pill.corn{font-size:13px;font-weight:600;color:var(--navy);text-decoration:none;background:#fff}a.pill.corn:hover{border-color:var(--navy)}
 a.pill.corn span{font-weight:400;color:var(--muted)}
 .box h3 .cnt{margin-left:6px;padding:1px 8px;border-radius:999px;background:var(--soft);font-size:12px;color:var(--muted)}

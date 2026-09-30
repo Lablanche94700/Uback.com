@@ -1,0 +1,5059 @@
+{
+ "version": "2026-09-30",
+ "mode": "theoretical (applies when Uback leaves beta)",
+ "rules": "Source : data/geo.json (pays, zones, collections) + data/sectors.json (segments). Sortie : data/calendar.json.\nAucune date n'est écrite à la main : le calendrier est une sortie de l'algorithme, recalculée à chaque changement\nde la liste des pays ou des segments. Les dates sont FIXES d'une année sur l'autre (même jour, même mois).\n\nGrille :\n- jours 1 à 28 de chaque mois = jours de publication ; jours 29 à 31 = jamais de publication programmée\n  (réservés aux mises à jour hors calendrier ; le 31 décembre publie la revue annuelle de couverture) ;\n- chaque jour de publication porte au plus UNE édition pays ou régionale, et au plus UN segment mondial ;\n- pays : trimestriel, un créneau (mois du trimestre, jour) répété 4 fois par an ;\n- classements régionaux : semestriels, logés sur les créneaux pays restés libres (T1+T3 ou T2+T4) ;\n- segments mondiaux : semestriels, un créneau (mois du semestre, jour) répété 2 fois par an ;\n- ordre : alternance des régions (pays) et des familles (segments), pour que deux jours consécutifs ne se ressemblent pas ;\n- ancres : les pays déjà publiés gardent leur date (Vietnam le 15 du 1er mois du trimestre, Maroc le 15 du 2e, Pologne le 15 du 3e).",
+ "counts": {
+  "countries": 68,
+  "regional": 21,
+  "segments": 157,
+  "publications_per_year": 629
+ },
+ "regional_rankings": [
+  {
+   "slug": "latin-america",
+   "name": "Latin America & Caribbean",
+   "n": 13
+  },
+  {
+   "slug": "western-europe",
+   "name": "Western Europe",
+   "n": 9
+  },
+  {
+   "slug": "europe",
+   "name": "Europe",
+   "n": 38
+  },
+  {
+   "slug": "nordics",
+   "name": "Nordics",
+   "n": 5
+  },
+  {
+   "slug": "southern-europe",
+   "name": "Southern Europe",
+   "n": 6
+  },
+  {
+   "slug": "central-eastern-europe",
+   "name": "Central & Eastern Europe",
+   "n": 18
+  },
+  {
+   "slug": "north-africa",
+   "name": "North Africa",
+   "n": 4
+  },
+  {
+   "slug": "mena",
+   "name": "Middle East & North Africa",
+   "n": 15
+  },
+  {
+   "slug": "gulf",
+   "name": "Gulf (GCC)",
+   "n": 6
+  },
+  {
+   "slug": "levant-turkiye",
+   "name": "Levant & Türkiye",
+   "n": 5
+  },
+  {
+   "slug": "west-central-africa",
+   "name": "West & Central Africa",
+   "n": 12
+  },
+  {
+   "slug": "sub-saharan-africa",
+   "name": "Sub-Saharan Africa",
+   "n": 22
+  },
+  {
+   "slug": "east-africa",
+   "name": "East Africa",
+   "n": 5
+  },
+  {
+   "slug": "southern-africa",
+   "name": "Southern Africa",
+   "n": 5
+  },
+  {
+   "slug": "east-asia",
+   "name": "East Asia",
+   "n": 5
+  },
+  {
+   "slug": "asia",
+   "name": "Asia",
+   "n": 20
+  },
+  {
+   "slug": "southeast-asia",
+   "name": "Southeast Asia",
+   "n": 7
+  },
+  {
+   "slug": "south-asia",
+   "name": "South Asia",
+   "n": 5
+  },
+  {
+   "slug": "central-asia",
+   "name": "Central Asia",
+   "n": 3
+  },
+  {
+   "slug": "european-union",
+   "name": "European Union",
+   "n": 27
+  },
+  {
+   "slug": "uemoa",
+   "name": "WAEMU (UEMOA)",
+   "n": 8
+  }
+ ],
+ "days": [
+  {
+   "date": "01-01",
+   "items": [
+    {
+     "type": "country",
+     "code": "us",
+     "name": "United States"
+    },
+    {
+     "type": "segment",
+     "slug": "consumer-neobanks",
+     "name": "Consumer neobanks"
+    }
+   ]
+  },
+  {
+   "date": "01-02",
+   "items": [
+    {
+     "type": "country",
+     "code": "in",
+     "name": "India"
+    },
+    {
+     "type": "segment",
+     "slug": "telemedicine",
+     "name": "Telemedicine"
+    }
+   ]
+  },
+  {
+   "date": "01-03",
+   "items": [
+    {
+     "type": "country",
+     "code": "gb",
+     "name": "United Kingdom"
+    },
+    {
+     "type": "segment",
+     "slug": "payroll",
+     "name": "Payroll"
+    }
+   ]
+  },
+  {
+   "date": "01-04",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "latin-america",
+     "name": "Latin America & Caribbean"
+    },
+    {
+     "type": "segment",
+     "slug": "foundation-models",
+     "name": "Foundation models"
+    }
+   ]
+  },
+  {
+   "date": "01-05",
+   "items": [
+    {
+     "type": "country",
+     "code": "il",
+     "name": "Israel"
+    },
+    {
+     "type": "segment",
+     "slug": "identity-management",
+     "name": "Identity management"
+    }
+   ]
+  },
+  {
+   "date": "01-06",
+   "items": [
+    {
+     "type": "country",
+     "code": "br",
+     "name": "Brazil"
+    },
+    {
+     "type": "segment",
+     "slug": "hosting",
+     "name": "Hosting"
+    }
+   ]
+  },
+  {
+   "date": "01-07",
+   "items": [
+    {
+     "type": "country",
+     "code": "au",
+     "name": "Australia"
+    },
+    {
+     "type": "segment",
+     "slug": "general-marketplaces",
+     "name": "General marketplaces"
+    }
+   ]
+  },
+  {
+   "date": "01-08",
+   "items": [
+    {
+     "type": "country",
+     "code": "ng",
+     "name": "Nigeria"
+    },
+    {
+     "type": "segment",
+     "slug": "precision-farming",
+     "name": "Precision farming"
+    }
+   ]
+  },
+  {
+   "date": "01-09",
+   "items": [
+    {
+     "type": "country",
+     "code": "ca",
+     "name": "Canada"
+    },
+    {
+     "type": "segment",
+     "slug": "carpooling",
+     "name": "Carpooling"
+    }
+   ]
+  },
+  {
+   "date": "01-10",
+   "items": [
+    {
+     "type": "country",
+     "code": "jp",
+     "name": "Japan"
+    },
+    {
+     "type": "segment",
+     "slug": "solar",
+     "name": "Solar"
+    }
+   ]
+  },
+  {
+   "date": "01-11",
+   "items": [
+    {
+     "type": "country",
+     "code": "de",
+     "name": "Germany"
+    },
+    {
+     "type": "segment",
+     "slug": "online-real-estate-agencies",
+     "name": "Online real-estate agencies"
+    }
+   ]
+  },
+  {
+   "date": "01-12",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "europe",
+     "name": "Europe"
+    },
+    {
+     "type": "segment",
+     "slug": "tutoring",
+     "name": "Tutoring"
+    }
+   ]
+  },
+  {
+   "date": "01-13",
+   "items": [
+    {
+     "type": "country",
+     "code": "ae",
+     "name": "United Arab Emirates"
+    },
+    {
+     "type": "segment",
+     "slug": "mobile-studios",
+     "name": "Mobile studios"
+    }
+   ]
+  },
+  {
+   "date": "01-14",
+   "items": [
+    {
+     "type": "country",
+     "code": "mx",
+     "name": "Mexico"
+    },
+    {
+     "type": "segment",
+     "slug": "industrial-robots",
+     "name": "Industrial robots"
+    }
+   ]
+  },
+  {
+   "date": "01-15",
+   "items": [
+    {
+     "type": "country",
+     "code": "vn",
+     "name": "Vietnam"
+    },
+    {
+     "type": "segment",
+     "slug": "online-booking",
+     "name": "Online booking"
+    }
+   ]
+  },
+  {
+   "date": "01-16",
+   "items": [
+    {
+     "type": "country",
+     "code": "nz",
+     "name": "New Zealand"
+    }
+   ]
+  },
+  {
+   "date": "01-17",
+   "items": [
+    {
+     "type": "country",
+     "code": "za",
+     "name": "South Africa"
+    },
+    {
+     "type": "segment",
+     "slug": "business-accounts",
+     "name": "Business accounts"
+    }
+   ]
+  },
+  {
+   "date": "01-18",
+   "items": [
+    {
+     "type": "country",
+     "code": "kr",
+     "name": "South Korea"
+    },
+    {
+     "type": "segment",
+     "slug": "appointment-booking",
+     "name": "Appointment booking"
+    }
+   ]
+  },
+  {
+   "date": "01-19",
+   "items": [
+    {
+     "type": "country",
+     "code": "fr",
+     "name": "France"
+    },
+    {
+     "type": "segment",
+     "slug": "recruiting",
+     "name": "Recruiting"
+    }
+   ]
+  },
+  {
+   "date": "01-20",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "southern-europe",
+     "name": "Southern Europe"
+    },
+    {
+     "type": "segment",
+     "slug": "specialized-models",
+     "name": "Specialized models"
+    }
+   ]
+  },
+  {
+   "date": "01-21",
+   "items": [
+    {
+     "type": "country",
+     "code": "sa",
+     "name": "Saudi Arabia"
+    },
+    {
+     "type": "segment",
+     "slug": "privileged-access",
+     "name": "Privileged access"
+    }
+   ]
+  },
+  {
+   "date": "01-22",
+   "items": [
+    {
+     "type": "country",
+     "code": "co",
+     "name": "Colombia"
+    },
+    {
+     "type": "segment",
+     "slug": "edge-and-cdn",
+     "name": "Edge & CDN"
+    }
+   ]
+  },
+  {
+   "date": "01-23",
+   "items": [
+    {
+     "type": "country",
+     "code": "ke",
+     "name": "Kenya"
+    },
+    {
+     "type": "segment",
+     "slug": "second-hand",
+     "name": "Second-hand"
+    }
+   ]
+  },
+  {
+   "date": "01-24",
+   "items": [
+    {
+     "type": "country",
+     "code": "tw",
+     "name": "Taiwan"
+    },
+    {
+     "type": "segment",
+     "slug": "vertical-farming",
+     "name": "Vertical farming"
+    }
+   ]
+  },
+  {
+   "date": "01-25",
+   "items": [
+    {
+     "type": "country",
+     "code": "se",
+     "name": "Sweden"
+    },
+    {
+     "type": "segment",
+     "slug": "ride-hailing-and-taxis",
+     "name": "Ride-hailing & taxis"
+    }
+   ]
+  },
+  {
+   "date": "01-26",
+   "items": [
+    {
+     "type": "country",
+     "code": "tr",
+     "name": "Türkiye"
+    },
+    {
+     "type": "segment",
+     "slug": "wind",
+     "name": "Wind"
+    }
+   ]
+  },
+  {
+   "date": "01-27",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "north-africa",
+     "name": "North Africa"
+    },
+    {
+     "type": "segment",
+     "slug": "rentals",
+     "name": "Rentals"
+    }
+   ]
+  },
+  {
+   "date": "01-28",
+   "items": [
+    {
+     "type": "country",
+     "code": "cl",
+     "name": "Chile"
+    },
+    {
+     "type": "segment",
+     "slug": "school-platforms",
+     "name": "School platforms"
+    }
+   ]
+  },
+  {
+   "date": "01-29",
+   "items": []
+  },
+  {
+   "date": "01-30",
+   "items": []
+  },
+  {
+   "date": "01-31",
+   "items": []
+  },
+  {
+   "date": "02-01",
+   "items": [
+    {
+     "type": "country",
+     "code": "gh",
+     "name": "Ghana"
+    },
+    {
+     "type": "segment",
+     "slug": "pc-and-console-studios",
+     "name": "PC & console studios"
+    }
+   ]
+  },
+  {
+   "date": "02-02",
+   "items": [
+    {
+     "type": "country",
+     "code": "sg",
+     "name": "Singapore"
+    },
+    {
+     "type": "segment",
+     "slug": "humanoid-robots",
+     "name": "Humanoid robots"
+    }
+   ]
+  },
+  {
+   "date": "02-03",
+   "items": [
+    {
+     "type": "country",
+     "code": "es",
+     "name": "Spain"
+    }
+   ]
+  },
+  {
+   "date": "02-04",
+   "items": [
+    {
+     "type": "country",
+     "code": "eg",
+     "name": "Egypt"
+    },
+    {
+     "type": "segment",
+     "slug": "business-travel",
+     "name": "Business travel"
+    }
+   ]
+  },
+  {
+   "date": "02-05",
+   "items": [
+    {
+     "type": "country",
+     "code": "ar",
+     "name": "Argentina"
+    },
+    {
+     "type": "segment",
+     "slug": "online-payments-and-acquiring",
+     "name": "Online payments & acquiring"
+    }
+   ]
+  },
+  {
+   "date": "02-06",
+   "items": [
+    {
+     "type": "country",
+     "code": "hk",
+     "name": "Hong Kong"
+    },
+    {
+     "type": "segment",
+     "slug": "online-pharmacy",
+     "name": "Online pharmacy"
+    }
+   ]
+  },
+  {
+   "date": "02-07",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "gulf",
+     "name": "Gulf (GCC)"
+    },
+    {
+     "type": "segment",
+     "slug": "talent-management",
+     "name": "Talent management"
+    }
+   ]
+  },
+  {
+   "date": "02-08",
+   "items": [
+    {
+     "type": "country",
+     "code": "nl",
+     "name": "Netherlands"
+    },
+    {
+     "type": "segment",
+     "slug": "coding-agents",
+     "name": "Coding agents"
+    }
+   ]
+  },
+  {
+   "date": "02-09",
+   "items": [
+    {
+     "type": "country",
+     "code": "uy",
+     "name": "Uruguay"
+    },
+    {
+     "type": "segment",
+     "slug": "cloud-security",
+     "name": "Cloud security"
+    }
+   ]
+  },
+  {
+   "date": "02-10",
+   "items": [
+    {
+     "type": "country",
+     "code": "id",
+     "name": "Indonesia"
+    },
+    {
+     "type": "segment",
+     "slug": "databases",
+     "name": "Databases"
+    }
+   ]
+  },
+  {
+   "date": "02-11",
+   "items": [
+    {
+     "type": "country",
+     "code": "ch",
+     "name": "Switzerland"
+    },
+    {
+     "type": "segment",
+     "slug": "refurbished",
+     "name": "Refurbished"
+    }
+   ]
+  },
+  {
+   "date": "02-12",
+   "items": [
+    {
+     "type": "country",
+     "code": "pe",
+     "name": "Peru"
+    },
+    {
+     "type": "segment",
+     "slug": "biological-inputs",
+     "name": "Biological inputs"
+    }
+   ]
+  },
+  {
+   "date": "02-13",
+   "items": [
+    {
+     "type": "country",
+     "code": "my",
+     "name": "Malaysia"
+    },
+    {
+     "type": "segment",
+     "slug": "micromobility",
+     "name": "Micromobility"
+    }
+   ]
+  },
+  {
+   "date": "02-14",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "west-central-africa",
+     "name": "West & Central Africa"
+    },
+    {
+     "type": "segment",
+     "slug": "hydrogen",
+     "name": "Hydrogen"
+    }
+   ]
+  },
+  {
+   "date": "02-15",
+   "items": [
+    {
+     "type": "country",
+     "code": "ma",
+     "name": "Morocco"
+    },
+    {
+     "type": "segment",
+     "slug": "property-management",
+     "name": "Property management"
+    }
+   ]
+  },
+  {
+   "date": "02-16",
+   "items": [
+    {
+     "type": "country",
+     "code": "it",
+     "name": "Italy"
+    },
+    {
+     "type": "segment",
+     "slug": "online-schools",
+     "name": "Online schools"
+    }
+   ]
+  },
+  {
+   "date": "02-17",
+   "items": [
+    {
+     "type": "country",
+     "code": "fi",
+     "name": "Finland"
+    },
+    {
+     "type": "segment",
+     "slug": "esports",
+     "name": "Esports"
+    }
+   ]
+  },
+  {
+   "date": "02-18",
+   "items": [
+    {
+     "type": "country",
+     "code": "th",
+     "name": "Thailand"
+    }
+   ]
+  },
+  {
+   "date": "02-19",
+   "items": [
+    {
+     "type": "country",
+     "code": "dk",
+     "name": "Denmark"
+    },
+    {
+     "type": "segment",
+     "slug": "logistics-robots",
+     "name": "Logistics robots"
+    }
+   ]
+  },
+  {
+   "date": "02-20",
+   "items": [
+    {
+     "type": "country",
+     "code": "ph",
+     "name": "Philippines"
+    },
+    {
+     "type": "segment",
+     "slug": "vacation-rentals",
+     "name": "Vacation rentals"
+    }
+   ]
+  },
+  {
+   "date": "02-21",
+   "items": [
+    {
+     "type": "country",
+     "code": "ie",
+     "name": "Ireland"
+    },
+    {
+     "type": "segment",
+     "slug": "buy-now-pay-later",
+     "name": "Buy now, pay later"
+    }
+   ]
+  },
+  {
+   "date": "02-22",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "east-africa",
+     "name": "East Africa"
+    },
+    {
+     "type": "segment",
+     "slug": "clinical-software",
+     "name": "Clinical software"
+    }
+   ]
+  },
+  {
+   "date": "02-23",
+   "items": [
+    {
+     "type": "country",
+     "code": "kz",
+     "name": "Kazakhstan"
+    },
+    {
+     "type": "segment",
+     "slug": "crm",
+     "name": "CRM"
+    }
+   ]
+  },
+  {
+   "date": "02-24",
+   "items": [
+    {
+     "type": "country",
+     "code": "be",
+     "name": "Belgium"
+    },
+    {
+     "type": "segment",
+     "slug": "enterprise-agents",
+     "name": "Enterprise agents"
+    }
+   ]
+  },
+  {
+   "date": "02-25",
+   "items": [
+    {
+     "type": "country",
+     "code": "pk",
+     "name": "Pakistan"
+    },
+    {
+     "type": "segment",
+     "slug": "endpoint-protection",
+     "name": "Endpoint protection"
+    }
+   ]
+  },
+  {
+   "date": "02-26",
+   "items": [
+    {
+     "type": "country",
+     "code": "bd",
+     "name": "Bangladesh"
+    },
+    {
+     "type": "segment",
+     "slug": "analytics",
+     "name": "Analytics"
+    }
+   ]
+  },
+  {
+   "date": "02-27",
+   "items": [
+    {
+     "type": "country",
+     "code": "no",
+     "name": "Norway"
+    },
+    {
+     "type": "segment",
+     "slug": "fashion",
+     "name": "Fashion"
+    }
+   ]
+  },
+  {
+   "date": "02-28",
+   "items": [
+    {
+     "type": "country",
+     "code": "uz",
+     "name": "Uzbekistan"
+    },
+    {
+     "type": "segment",
+     "slug": "alternative-proteins",
+     "name": "Alternative proteins"
+    }
+   ]
+  },
+  {
+   "date": "03-01",
+   "items": [
+    {
+     "type": "country",
+     "code": "at",
+     "name": "Austria"
+    },
+    {
+     "type": "segment",
+     "slug": "car-sharing",
+     "name": "Car sharing"
+    }
+   ]
+  },
+  {
+   "date": "03-02",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "east-asia",
+     "name": "East Asia"
+    },
+    {
+     "type": "segment",
+     "slug": "fusion-and-advanced-nuclear",
+     "name": "Fusion & advanced nuclear"
+    }
+   ]
+  },
+  {
+   "date": "03-03",
+   "items": [
+    {
+     "type": "country",
+     "code": "ee",
+     "name": "Estonia"
+    },
+    {
+     "type": "segment",
+     "slug": "condominium-management",
+     "name": "Condominium management"
+    }
+   ]
+  },
+  {
+   "date": "03-04",
+   "items": [
+    {
+     "type": "country",
+     "code": "cz",
+     "name": "Czechia"
+    },
+    {
+     "type": "segment",
+     "slug": "professional-training",
+     "name": "Professional training"
+    }
+   ]
+  },
+  {
+   "date": "03-05",
+   "items": [
+    {
+     "type": "country",
+     "code": "pt",
+     "name": "Portugal"
+    },
+    {
+     "type": "segment",
+     "slug": "music-streaming",
+     "name": "Music streaming"
+    }
+   ]
+  },
+  {
+   "date": "03-06",
+   "items": [
+    {
+     "type": "country",
+     "code": "lt",
+     "name": "Lithuania"
+    }
+   ]
+  },
+  {
+   "date": "03-07",
+   "items": [
+    {
+     "type": "country",
+     "code": "ua",
+     "name": "Ukraine"
+    },
+    {
+     "type": "segment",
+     "slug": "launchers",
+     "name": "Launchers"
+    }
+   ]
+  },
+  {
+   "date": "03-08",
+   "items": [
+    {
+     "type": "country",
+     "code": "hu",
+     "name": "Hungary"
+    },
+    {
+     "type": "segment",
+     "slug": "hotel-software",
+     "name": "Hotel software"
+    }
+   ]
+  },
+  {
+   "date": "03-09",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "southeast-asia",
+     "name": "Southeast Asia"
+    },
+    {
+     "type": "segment",
+     "slug": "cross-border-remittances",
+     "name": "Cross-border remittances"
+    }
+   ]
+  },
+  {
+   "date": "03-10",
+   "items": [
+    {
+     "type": "country",
+     "code": "ro",
+     "name": "Romania"
+    },
+    {
+     "type": "segment",
+     "slug": "clinic-management",
+     "name": "Clinic management"
+    }
+   ]
+  },
+  {
+   "date": "03-11",
+   "items": [
+    {
+     "type": "country",
+     "code": "gr",
+     "name": "Greece"
+    },
+    {
+     "type": "segment",
+     "slug": "marketing-automation",
+     "name": "Marketing automation"
+    }
+   ]
+  },
+  {
+   "date": "03-12",
+   "items": [
+    {
+     "type": "country",
+     "code": "bg",
+     "name": "Bulgaria"
+    },
+    {
+     "type": "segment",
+     "slug": "consumer-assistants",
+     "name": "Consumer assistants"
+    }
+   ]
+  },
+  {
+   "date": "03-13",
+   "items": [
+    {
+     "type": "country",
+     "code": "lu",
+     "name": "Luxembourg"
+    },
+    {
+     "type": "segment",
+     "slug": "network-security",
+     "name": "Network security"
+    }
+   ]
+  },
+  {
+   "date": "03-14",
+   "items": [
+    {
+     "type": "country",
+     "code": "is",
+     "name": "Iceland"
+    },
+    {
+     "type": "segment",
+     "slug": "apis-and-integration",
+     "name": "APIs & integration"
+    }
+   ]
+  },
+  {
+   "date": "03-15",
+   "items": [
+    {
+     "type": "country",
+     "code": "pl",
+     "name": "Poland"
+    },
+    {
+     "type": "segment",
+     "slug": "beauty",
+     "name": "Beauty"
+    }
+   ]
+  },
+  {
+   "date": "03-16",
+   "items": [
+    {
+     "type": "country",
+     "code": "cy",
+     "name": "Cyprus"
+    },
+    {
+     "type": "segment",
+     "slug": "online-food-brands",
+     "name": "Online food brands"
+    }
+   ]
+  },
+  {
+   "date": "03-17",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "central-asia",
+     "name": "Central Asia"
+    },
+    {
+     "type": "segment",
+     "slug": "on-demand-transit",
+     "name": "On-demand transit"
+    }
+   ]
+  },
+  {
+   "date": "03-18",
+   "items": [
+    {
+     "type": "country",
+     "code": "lv",
+     "name": "Latvia"
+    },
+    {
+     "type": "segment",
+     "slug": "stationary-storage",
+     "name": "Stationary storage"
+    }
+   ]
+  },
+  {
+   "date": "03-19",
+   "items": [
+    {
+     "type": "country",
+     "code": "hr",
+     "name": "Croatia"
+    },
+    {
+     "type": "segment",
+     "slug": "construction-software",
+     "name": "Construction software"
+    }
+   ]
+  },
+  {
+   "date": "03-20",
+   "items": [
+    {
+     "type": "country",
+     "code": "sk",
+     "name": "Slovakia"
+    },
+    {
+     "type": "segment",
+     "slug": "coding-bootcamps",
+     "name": "Coding bootcamps"
+    }
+   ]
+  },
+  {
+   "date": "03-21",
+   "items": [
+    {
+     "type": "country",
+     "code": "si",
+     "name": "Slovenia"
+    }
+   ]
+  },
+  {
+   "date": "03-22",
+   "items": [
+    {
+     "type": "country",
+     "code": "rs",
+     "name": "Serbia"
+    },
+    {
+     "type": "segment",
+     "slug": "podcasts",
+     "name": "Podcasts"
+    }
+   ]
+  },
+  {
+   "date": "03-23",
+   "items": [
+    {
+     "type": "segment",
+     "slug": "earth-observation",
+     "name": "Earth observation"
+    }
+   ]
+  },
+  {
+   "date": "03-24",
+   "items": [
+    {
+     "type": "segment",
+     "slug": "activities-and-experiences",
+     "name": "Activities & experiences"
+    }
+   ]
+  },
+  {
+   "date": "03-25",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "uemoa",
+     "name": "WAEMU (UEMOA)"
+    },
+    {
+     "type": "segment",
+     "slug": "mobile-wallets",
+     "name": "Mobile wallets"
+    }
+   ]
+  },
+  {
+   "date": "03-26",
+   "items": [
+    {
+     "type": "segment",
+     "slug": "connected-devices",
+     "name": "Connected devices"
+    }
+   ]
+  },
+  {
+   "date": "03-27",
+   "items": [
+    {
+     "type": "segment",
+     "slug": "sales-intelligence",
+     "name": "Sales intelligence"
+    }
+   ]
+  },
+  {
+   "date": "03-28",
+   "items": [
+    {
+     "type": "segment",
+     "slug": "compute-and-inference",
+     "name": "Compute & inference"
+    }
+   ]
+  },
+  {
+   "date": "03-29",
+   "items": []
+  },
+  {
+   "date": "03-30",
+   "items": []
+  },
+  {
+   "date": "03-31",
+   "items": []
+  },
+  {
+   "date": "04-01",
+   "items": [
+    {
+     "type": "country",
+     "code": "us",
+     "name": "United States"
+    },
+    {
+     "type": "segment",
+     "slug": "detection-and-response",
+     "name": "Detection & response"
+    }
+   ]
+  },
+  {
+   "date": "04-02",
+   "items": [
+    {
+     "type": "country",
+     "code": "in",
+     "name": "India"
+    },
+    {
+     "type": "segment",
+     "slug": "observability",
+     "name": "Observability"
+    }
+   ]
+  },
+  {
+   "date": "04-03",
+   "items": [
+    {
+     "type": "country",
+     "code": "gb",
+     "name": "United Kingdom"
+    },
+    {
+     "type": "segment",
+     "slug": "home",
+     "name": "Home"
+    }
+   ]
+  },
+  {
+   "date": "04-04",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "western-europe",
+     "name": "Western Europe"
+    },
+    {
+     "type": "segment",
+     "slug": "food-delivery",
+     "name": "Food delivery"
+    }
+   ]
+  },
+  {
+   "date": "04-05",
+   "items": [
+    {
+     "type": "country",
+     "code": "il",
+     "name": "Israel"
+    },
+    {
+     "type": "segment",
+     "slug": "ev-makers",
+     "name": "EV makers"
+    }
+   ]
+  },
+  {
+   "date": "04-06",
+   "items": [
+    {
+     "type": "country",
+     "code": "br",
+     "name": "Brazil"
+    },
+    {
+     "type": "segment",
+     "slug": "smart-grids",
+     "name": "Smart grids"
+    }
+   ]
+  },
+  {
+   "date": "04-07",
+   "items": [
+    {
+     "type": "country",
+     "code": "au",
+     "name": "Australia"
+    },
+    {
+     "type": "segment",
+     "slug": "modular-construction",
+     "name": "Modular construction"
+    }
+   ]
+  },
+  {
+   "date": "04-08",
+   "items": [
+    {
+     "type": "country",
+     "code": "ng",
+     "name": "Nigeria"
+    }
+   ]
+  },
+  {
+   "date": "04-09",
+   "items": [
+    {
+     "type": "country",
+     "code": "ca",
+     "name": "Canada"
+    },
+    {
+     "type": "segment",
+     "slug": "language-learning",
+     "name": "Language learning"
+    }
+   ]
+  },
+  {
+   "date": "04-10",
+   "items": [
+    {
+     "type": "country",
+     "code": "jp",
+     "name": "Japan"
+    },
+    {
+     "type": "segment",
+     "slug": "video",
+     "name": "Video"
+    }
+   ]
+  },
+  {
+   "date": "04-11",
+   "items": [
+    {
+     "type": "country",
+     "code": "de",
+     "name": "Germany"
+    },
+    {
+     "type": "segment",
+     "slug": "satellite-connectivity",
+     "name": "Satellite connectivity"
+    }
+   ]
+  },
+  {
+   "date": "04-12",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "nordics",
+     "name": "Nordics"
+    },
+    {
+     "type": "segment",
+     "slug": "crypto-exchanges",
+     "name": "Crypto exchanges"
+    }
+   ]
+  },
+  {
+   "date": "04-13",
+   "items": [
+    {
+     "type": "country",
+     "code": "ae",
+     "name": "United Arab Emirates"
+    },
+    {
+     "type": "segment",
+     "slug": "in-vitro-diagnostics",
+     "name": "In-vitro diagnostics"
+    }
+   ]
+  },
+  {
+   "date": "04-14",
+   "items": [
+    {
+     "type": "country",
+     "code": "mx",
+     "name": "Mexico"
+    },
+    {
+     "type": "segment",
+     "slug": "collaboration-and-docs",
+     "name": "Collaboration & docs"
+    }
+   ]
+  },
+  {
+   "date": "04-15",
+   "items": [
+    {
+     "type": "country",
+     "code": "vn",
+     "name": "Vietnam"
+    },
+    {
+     "type": "segment",
+     "slug": "data-and-labeling",
+     "name": "Data & labeling"
+    }
+   ]
+  },
+  {
+   "date": "04-16",
+   "items": [
+    {
+     "type": "country",
+     "code": "nz",
+     "name": "New Zealand"
+    },
+    {
+     "type": "segment",
+     "slug": "threat-intelligence",
+     "name": "Threat intelligence"
+    }
+   ]
+  },
+  {
+   "date": "04-17",
+   "items": [
+    {
+     "type": "country",
+     "code": "za",
+     "name": "South Africa"
+    },
+    {
+     "type": "segment",
+     "slug": "quick-commerce",
+     "name": "Quick commerce"
+    }
+   ]
+  },
+  {
+   "date": "04-18",
+   "items": [
+    {
+     "type": "country",
+     "code": "kr",
+     "name": "South Korea"
+    },
+    {
+     "type": "segment",
+     "slug": "restaurant-software",
+     "name": "Restaurant software"
+    }
+   ]
+  },
+  {
+   "date": "04-19",
+   "items": [
+    {
+     "type": "country",
+     "code": "fr",
+     "name": "France"
+    },
+    {
+     "type": "segment",
+     "slug": "electric-two-wheelers",
+     "name": "Electric two-wheelers"
+    }
+   ]
+  },
+  {
+   "date": "04-20",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "central-eastern-europe",
+     "name": "Central & Eastern Europe"
+    },
+    {
+     "type": "segment",
+     "slug": "carbon-capture",
+     "name": "Carbon capture"
+    }
+   ]
+  },
+  {
+   "date": "04-21",
+   "items": [
+    {
+     "type": "country",
+     "code": "sa",
+     "name": "Saudi Arabia"
+    },
+    {
+     "type": "segment",
+     "slug": "coworking",
+     "name": "Coworking"
+    }
+   ]
+  },
+  {
+   "date": "04-22",
+   "items": [
+    {
+     "type": "country",
+     "code": "co",
+     "name": "Colombia"
+    },
+    {
+     "type": "segment",
+     "slug": "freelance-platforms",
+     "name": "Freelance platforms"
+    }
+   ]
+  },
+  {
+   "date": "04-23",
+   "items": [
+    {
+     "type": "country",
+     "code": "ke",
+     "name": "Kenya"
+    }
+   ]
+  },
+  {
+   "date": "04-24",
+   "items": [
+    {
+     "type": "country",
+     "code": "tw",
+     "name": "Taiwan"
+    },
+    {
+     "type": "segment",
+     "slug": "creator-tools",
+     "name": "Creator tools"
+    }
+   ]
+  },
+  {
+   "date": "04-25",
+   "items": [
+    {
+     "type": "country",
+     "code": "se",
+     "name": "Sweden"
+    },
+    {
+     "type": "segment",
+     "slug": "drones",
+     "name": "Drones"
+    }
+   ]
+  },
+  {
+   "date": "04-26",
+   "items": [
+    {
+     "type": "country",
+     "code": "tr",
+     "name": "Türkiye"
+    },
+    {
+     "type": "segment",
+     "slug": "cold-wallets",
+     "name": "Cold wallets"
+    }
+   ]
+  },
+  {
+   "date": "04-27",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "mena",
+     "name": "Middle East & North Africa"
+    },
+    {
+     "type": "segment",
+     "slug": "imaging-and-medical-ai",
+     "name": "Imaging & medical AI"
+    }
+   ]
+  },
+  {
+   "date": "04-28",
+   "items": [
+    {
+     "type": "country",
+     "code": "cl",
+     "name": "Chile"
+    },
+    {
+     "type": "segment",
+     "slug": "no-code",
+     "name": "No-code"
+    }
+   ]
+  },
+  {
+   "date": "04-29",
+   "items": []
+  },
+  {
+   "date": "04-30",
+   "items": []
+  },
+  {
+   "date": "05-01",
+   "items": [
+    {
+     "type": "country",
+     "code": "gh",
+     "name": "Ghana"
+    },
+    {
+     "type": "segment",
+     "slug": "mlops-and-evaluation",
+     "name": "MLOps & evaluation"
+    }
+   ]
+  },
+  {
+   "date": "05-02",
+   "items": [
+    {
+     "type": "country",
+     "code": "sg",
+     "name": "Singapore"
+    },
+    {
+     "type": "segment",
+     "slug": "data-protection",
+     "name": "Data protection"
+    }
+   ]
+  },
+  {
+   "date": "05-03",
+   "items": [
+    {
+     "type": "country",
+     "code": "es",
+     "name": "Spain"
+    },
+    {
+     "type": "segment",
+     "slug": "last-mile-delivery",
+     "name": "Last-mile delivery"
+    }
+   ]
+  },
+  {
+   "date": "05-04",
+   "items": [
+    {
+     "type": "country",
+     "code": "eg",
+     "name": "Egypt"
+    },
+    {
+     "type": "segment",
+     "slug": "charging",
+     "name": "Charging"
+    }
+   ]
+  },
+  {
+   "date": "05-05",
+   "items": [
+    {
+     "type": "country",
+     "code": "ar",
+     "name": "Argentina"
+    },
+    {
+     "type": "segment",
+     "slug": "carbon-accounting-and-esg",
+     "name": "Carbon accounting & ESG"
+    }
+   ]
+  },
+  {
+   "date": "05-06",
+   "items": [
+    {
+     "type": "country",
+     "code": "hk",
+     "name": "Hong Kong"
+    },
+    {
+     "type": "segment",
+     "slug": "coliving",
+     "name": "Coliving"
+    }
+   ]
+  },
+  {
+   "date": "05-07",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "levant-turkiye",
+     "name": "Levant & Türkiye"
+    },
+    {
+     "type": "segment",
+     "slug": "gig-work",
+     "name": "Gig work"
+    }
+   ]
+  },
+  {
+   "date": "05-08",
+   "items": [
+    {
+     "type": "country",
+     "code": "nl",
+     "name": "Netherlands"
+    },
+    {
+     "type": "segment",
+     "slug": "social-networks",
+     "name": "Social networks"
+    }
+   ]
+  },
+  {
+   "date": "05-09",
+   "items": [
+    {
+     "type": "country",
+     "code": "uy",
+     "name": "Uruguay"
+    },
+    {
+     "type": "segment",
+     "slug": "defense-systems",
+     "name": "Defense systems"
+    }
+   ]
+  },
+  {
+   "date": "05-10",
+   "items": [
+    {
+     "type": "country",
+     "code": "id",
+     "name": "Indonesia"
+    },
+    {
+     "type": "segment",
+     "slug": "stablecoins",
+     "name": "Stablecoins"
+    }
+   ]
+  },
+  {
+   "date": "05-11",
+   "items": [
+    {
+     "type": "country",
+     "code": "ch",
+     "name": "Switzerland"
+    }
+   ]
+  },
+  {
+   "date": "05-12",
+   "items": [
+    {
+     "type": "country",
+     "code": "pe",
+     "name": "Peru"
+    },
+    {
+     "type": "segment",
+     "slug": "gene-and-cell-therapies",
+     "name": "Gene & cell therapies"
+    }
+   ]
+  },
+  {
+   "date": "05-13",
+   "items": [
+    {
+     "type": "country",
+     "code": "my",
+     "name": "Malaysia"
+    },
+    {
+     "type": "segment",
+     "slug": "contracts-and-e-signature",
+     "name": "Contracts & e-signature"
+    }
+   ]
+  },
+  {
+   "date": "05-14",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "sub-saharan-africa",
+     "name": "Sub-Saharan Africa"
+    },
+    {
+     "type": "segment",
+     "slug": "voice-and-audio",
+     "name": "Voice & audio"
+    }
+   ]
+  },
+  {
+   "date": "05-15",
+   "items": [
+    {
+     "type": "country",
+     "code": "ma",
+     "name": "Morocco"
+    },
+    {
+     "type": "segment",
+     "slug": "pos-and-retail-tech",
+     "name": "POS & retail tech"
+    }
+   ]
+  },
+  {
+   "date": "05-16",
+   "items": [
+    {
+     "type": "country",
+     "code": "it",
+     "name": "Italy"
+    },
+    {
+     "type": "segment",
+     "slug": "batteries",
+     "name": "Batteries"
+    }
+   ]
+  },
+  {
+   "date": "05-17",
+   "items": [
+    {
+     "type": "country",
+     "code": "fi",
+     "name": "Finland"
+    },
+    {
+     "type": "segment",
+     "slug": "carbon-credits",
+     "name": "Carbon credits"
+    }
+   ]
+  },
+  {
+   "date": "05-18",
+   "items": [
+    {
+     "type": "country",
+     "code": "th",
+     "name": "Thailand"
+    },
+    {
+     "type": "segment",
+     "slug": "connected-fitness",
+     "name": "Connected fitness"
+    }
+   ]
+  },
+  {
+   "date": "05-19",
+   "items": [
+    {
+     "type": "country",
+     "code": "dk",
+     "name": "Denmark"
+    },
+    {
+     "type": "segment",
+     "slug": "ai-chips",
+     "name": "AI chips"
+    }
+   ]
+  },
+  {
+   "date": "05-20",
+   "items": [
+    {
+     "type": "country",
+     "code": "ph",
+     "name": "Philippines"
+    },
+    {
+     "type": "segment",
+     "slug": "institutional-custody",
+     "name": "Institutional custody"
+    }
+   ]
+  },
+  {
+   "date": "05-21",
+   "items": [
+    {
+     "type": "country",
+     "code": "ie",
+     "name": "Ireland"
+    },
+    {
+     "type": "segment",
+     "slug": "ai-drug-discovery",
+     "name": "AI drug discovery"
+    }
+   ]
+  },
+  {
+   "date": "05-22",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "southern-africa",
+     "name": "Southern Africa"
+    },
+    {
+     "type": "segment",
+     "slug": "compliance",
+     "name": "Compliance"
+    }
+   ]
+  },
+  {
+   "date": "05-23",
+   "items": [
+    {
+     "type": "country",
+     "code": "kz",
+     "name": "Kazakhstan"
+    },
+    {
+     "type": "segment",
+     "slug": "image-and-video",
+     "name": "Image & video"
+    }
+   ]
+  },
+  {
+   "date": "05-24",
+   "items": [
+    {
+     "type": "country",
+     "code": "be",
+     "name": "Belgium"
+    },
+    {
+     "type": "segment",
+     "slug": "store-builders",
+     "name": "Store builders"
+    }
+   ]
+  },
+  {
+   "date": "05-25",
+   "items": [
+    {
+     "type": "country",
+     "code": "pk",
+     "name": "Pakistan"
+    },
+    {
+     "type": "segment",
+     "slug": "digital-freight",
+     "name": "Digital freight"
+    }
+   ]
+  },
+  {
+   "date": "05-26",
+   "items": [
+    {
+     "type": "country",
+     "code": "bd",
+     "name": "Bangladesh"
+    }
+   ]
+  },
+  {
+   "date": "05-27",
+   "items": [
+    {
+     "type": "country",
+     "code": "no",
+     "name": "Norway"
+    },
+    {
+     "type": "segment",
+     "slug": "recycling",
+     "name": "Recycling"
+    }
+   ]
+  },
+  {
+   "date": "05-28",
+   "items": [
+    {
+     "type": "country",
+     "code": "uz",
+     "name": "Uzbekistan"
+    },
+    {
+     "type": "segment",
+     "slug": "ticketing",
+     "name": "Ticketing"
+    }
+   ]
+  },
+  {
+   "date": "05-29",
+   "items": []
+  },
+  {
+   "date": "05-30",
+   "items": []
+  },
+  {
+   "date": "05-31",
+   "items": []
+  },
+  {
+   "date": "06-01",
+   "items": [
+    {
+     "type": "country",
+     "code": "at",
+     "name": "Austria"
+    },
+    {
+     "type": "segment",
+     "slug": "photonics",
+     "name": "Photonics"
+    }
+   ]
+  },
+  {
+   "date": "06-02",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "asia",
+     "name": "Asia"
+    },
+    {
+     "type": "segment",
+     "slug": "blockchain-infrastructure",
+     "name": "Blockchain infrastructure"
+    }
+   ]
+  },
+  {
+   "date": "06-03",
+   "items": [
+    {
+     "type": "country",
+     "code": "ee",
+     "name": "Estonia"
+    },
+    {
+     "type": "segment",
+     "slug": "mental-health",
+     "name": "Mental health"
+    }
+   ]
+  },
+  {
+   "date": "06-04",
+   "items": [
+    {
+     "type": "country",
+     "code": "cz",
+     "name": "Czechia"
+    },
+    {
+     "type": "segment",
+     "slug": "customer-support",
+     "name": "Customer support"
+    }
+   ]
+  },
+  {
+   "date": "06-05",
+   "items": [
+    {
+     "type": "country",
+     "code": "pt",
+     "name": "Portugal"
+    },
+    {
+     "type": "segment",
+     "slug": "b2b-delivery",
+     "name": "B2B delivery"
+    }
+   ]
+  },
+  {
+   "date": "06-06",
+   "items": [
+    {
+     "type": "country",
+     "code": "lt",
+     "name": "Lithuania"
+    },
+    {
+     "type": "segment",
+     "slug": "water",
+     "name": "Water"
+    }
+   ]
+  },
+  {
+   "date": "06-07",
+   "items": [
+    {
+     "type": "country",
+     "code": "ua",
+     "name": "Ukraine"
+    },
+    {
+     "type": "segment",
+     "slug": "quantum-computers",
+     "name": "Quantum computers"
+    }
+   ]
+  },
+  {
+   "date": "06-08",
+   "items": [
+    {
+     "type": "country",
+     "code": "hu",
+     "name": "Hungary"
+    },
+    {
+     "type": "segment",
+     "slug": "sme-lending",
+     "name": "SME lending"
+    }
+   ]
+  },
+  {
+   "date": "06-09",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "south-asia",
+     "name": "South Asia"
+    },
+    {
+     "type": "segment",
+     "slug": "womens-health",
+     "name": "Women’s health"
+    }
+   ]
+  },
+  {
+   "date": "06-10",
+   "items": [
+    {
+     "type": "country",
+     "code": "ro",
+     "name": "Romania"
+    },
+    {
+     "type": "segment",
+     "slug": "ai-contact-centers",
+     "name": "AI contact centers"
+    }
+   ]
+  },
+  {
+   "date": "06-11",
+   "items": [
+    {
+     "type": "country",
+     "code": "gr",
+     "name": "Greece"
+    },
+    {
+     "type": "segment",
+     "slug": "warehouse-automation",
+     "name": "Warehouse automation"
+    }
+   ]
+  },
+  {
+   "date": "06-12",
+   "items": [
+    {
+     "type": "country",
+     "code": "bg",
+     "name": "Bulgaria"
+    },
+    {
+     "type": "segment",
+     "slug": "quantum-software",
+     "name": "Quantum software"
+    }
+   ]
+  },
+  {
+   "date": "06-13",
+   "items": [
+    {
+     "type": "country",
+     "code": "lu",
+     "name": "Luxembourg"
+    }
+   ]
+  },
+  {
+   "date": "06-14",
+   "items": [
+    {
+     "type": "country",
+     "code": "is",
+     "name": "Iceland"
+    },
+    {
+     "type": "segment",
+     "slug": "consumer-credit",
+     "name": "Consumer credit"
+    }
+   ]
+  },
+  {
+   "date": "06-15",
+   "items": [
+    {
+     "type": "country",
+     "code": "pl",
+     "name": "Poland"
+    },
+    {
+     "type": "segment",
+     "slug": "elderly-care",
+     "name": "Elderly care"
+    }
+   ]
+  },
+  {
+   "date": "06-16",
+   "items": [
+    {
+     "type": "country",
+     "code": "cy",
+     "name": "Cyprus"
+    },
+    {
+     "type": "segment",
+     "slug": "fleet-software",
+     "name": "Fleet software"
+    }
+   ]
+  },
+  {
+   "date": "06-17",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "european-union",
+     "name": "European Union"
+    },
+    {
+     "type": "segment",
+     "slug": "invoice-financing",
+     "name": "Invoice financing"
+    }
+   ]
+  },
+  {
+   "date": "06-18",
+   "items": [
+    {
+     "type": "country",
+     "code": "lv",
+     "name": "Latvia"
+    },
+    {
+     "type": "segment",
+     "slug": "air-taxis-evtol",
+     "name": "Air taxis (eVTOL)"
+    }
+   ]
+  },
+  {
+   "date": "06-19",
+   "items": [
+    {
+     "type": "country",
+     "code": "hr",
+     "name": "Croatia"
+    },
+    {
+     "type": "segment",
+     "slug": "neo-insurers",
+     "name": "Neo-insurers"
+    }
+   ]
+  },
+  {
+   "date": "06-20",
+   "items": [
+    {
+     "type": "country",
+     "code": "sk",
+     "name": "Slovakia"
+    },
+    {
+     "type": "segment",
+     "slug": "electric-and-hybrid-aviation",
+     "name": "Electric & hybrid aviation"
+    }
+   ]
+  },
+  {
+   "date": "06-21",
+   "items": [
+    {
+     "type": "country",
+     "code": "si",
+     "name": "Slovenia"
+    },
+    {
+     "type": "segment",
+     "slug": "embedded-insurance",
+     "name": "Embedded insurance"
+    }
+   ]
+  },
+  {
+   "date": "06-22",
+   "items": [
+    {
+     "type": "country",
+     "code": "rs",
+     "name": "Serbia"
+    },
+    {
+     "type": "segment",
+     "slug": "online-brokerage",
+     "name": "Online brokerage"
+    }
+   ]
+  },
+  {
+   "date": "06-23",
+   "items": [
+    {
+     "type": "segment",
+     "slug": "robo-advisors",
+     "name": "Robo-advisors"
+    }
+   ]
+  },
+  {
+   "date": "06-24",
+   "items": [
+    {
+     "type": "segment",
+     "slug": "crowdfunding",
+     "name": "Crowdfunding"
+    }
+   ]
+  },
+  {
+   "date": "06-25",
+   "items": [
+    {
+     "type": "segment",
+     "slug": "sme-accounting",
+     "name": "SME accounting"
+    }
+   ]
+  },
+  {
+   "date": "06-26",
+   "items": [
+    {
+     "type": "segment",
+     "slug": "spend-management",
+     "name": "Spend management"
+    }
+   ]
+  },
+  {
+   "date": "06-27",
+   "items": [
+    {
+     "type": "segment",
+     "slug": "cash-management-and-forecasting",
+     "name": "Cash management & forecasting"
+    }
+   ]
+  },
+  {
+   "date": "06-28",
+   "items": []
+  },
+  {
+   "date": "06-29",
+   "items": []
+  },
+  {
+   "date": "06-30",
+   "items": []
+  },
+  {
+   "date": "07-01",
+   "items": [
+    {
+     "type": "country",
+     "code": "us",
+     "name": "United States"
+    },
+    {
+     "type": "segment",
+     "slug": "consumer-neobanks",
+     "name": "Consumer neobanks"
+    }
+   ]
+  },
+  {
+   "date": "07-02",
+   "items": [
+    {
+     "type": "country",
+     "code": "in",
+     "name": "India"
+    },
+    {
+     "type": "segment",
+     "slug": "telemedicine",
+     "name": "Telemedicine"
+    }
+   ]
+  },
+  {
+   "date": "07-03",
+   "items": [
+    {
+     "type": "country",
+     "code": "gb",
+     "name": "United Kingdom"
+    },
+    {
+     "type": "segment",
+     "slug": "payroll",
+     "name": "Payroll"
+    }
+   ]
+  },
+  {
+   "date": "07-04",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "latin-america",
+     "name": "Latin America & Caribbean"
+    },
+    {
+     "type": "segment",
+     "slug": "foundation-models",
+     "name": "Foundation models"
+    }
+   ]
+  },
+  {
+   "date": "07-05",
+   "items": [
+    {
+     "type": "country",
+     "code": "il",
+     "name": "Israel"
+    },
+    {
+     "type": "segment",
+     "slug": "identity-management",
+     "name": "Identity management"
+    }
+   ]
+  },
+  {
+   "date": "07-06",
+   "items": [
+    {
+     "type": "country",
+     "code": "br",
+     "name": "Brazil"
+    },
+    {
+     "type": "segment",
+     "slug": "hosting",
+     "name": "Hosting"
+    }
+   ]
+  },
+  {
+   "date": "07-07",
+   "items": [
+    {
+     "type": "country",
+     "code": "au",
+     "name": "Australia"
+    },
+    {
+     "type": "segment",
+     "slug": "general-marketplaces",
+     "name": "General marketplaces"
+    }
+   ]
+  },
+  {
+   "date": "07-08",
+   "items": [
+    {
+     "type": "country",
+     "code": "ng",
+     "name": "Nigeria"
+    },
+    {
+     "type": "segment",
+     "slug": "precision-farming",
+     "name": "Precision farming"
+    }
+   ]
+  },
+  {
+   "date": "07-09",
+   "items": [
+    {
+     "type": "country",
+     "code": "ca",
+     "name": "Canada"
+    },
+    {
+     "type": "segment",
+     "slug": "carpooling",
+     "name": "Carpooling"
+    }
+   ]
+  },
+  {
+   "date": "07-10",
+   "items": [
+    {
+     "type": "country",
+     "code": "jp",
+     "name": "Japan"
+    },
+    {
+     "type": "segment",
+     "slug": "solar",
+     "name": "Solar"
+    }
+   ]
+  },
+  {
+   "date": "07-11",
+   "items": [
+    {
+     "type": "country",
+     "code": "de",
+     "name": "Germany"
+    },
+    {
+     "type": "segment",
+     "slug": "online-real-estate-agencies",
+     "name": "Online real-estate agencies"
+    }
+   ]
+  },
+  {
+   "date": "07-12",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "europe",
+     "name": "Europe"
+    },
+    {
+     "type": "segment",
+     "slug": "tutoring",
+     "name": "Tutoring"
+    }
+   ]
+  },
+  {
+   "date": "07-13",
+   "items": [
+    {
+     "type": "country",
+     "code": "ae",
+     "name": "United Arab Emirates"
+    },
+    {
+     "type": "segment",
+     "slug": "mobile-studios",
+     "name": "Mobile studios"
+    }
+   ]
+  },
+  {
+   "date": "07-14",
+   "items": [
+    {
+     "type": "country",
+     "code": "mx",
+     "name": "Mexico"
+    },
+    {
+     "type": "segment",
+     "slug": "industrial-robots",
+     "name": "Industrial robots"
+    }
+   ]
+  },
+  {
+   "date": "07-15",
+   "items": [
+    {
+     "type": "country",
+     "code": "vn",
+     "name": "Vietnam"
+    },
+    {
+     "type": "segment",
+     "slug": "online-booking",
+     "name": "Online booking"
+    }
+   ]
+  },
+  {
+   "date": "07-16",
+   "items": [
+    {
+     "type": "country",
+     "code": "nz",
+     "name": "New Zealand"
+    }
+   ]
+  },
+  {
+   "date": "07-17",
+   "items": [
+    {
+     "type": "country",
+     "code": "za",
+     "name": "South Africa"
+    },
+    {
+     "type": "segment",
+     "slug": "business-accounts",
+     "name": "Business accounts"
+    }
+   ]
+  },
+  {
+   "date": "07-18",
+   "items": [
+    {
+     "type": "country",
+     "code": "kr",
+     "name": "South Korea"
+    },
+    {
+     "type": "segment",
+     "slug": "appointment-booking",
+     "name": "Appointment booking"
+    }
+   ]
+  },
+  {
+   "date": "07-19",
+   "items": [
+    {
+     "type": "country",
+     "code": "fr",
+     "name": "France"
+    },
+    {
+     "type": "segment",
+     "slug": "recruiting",
+     "name": "Recruiting"
+    }
+   ]
+  },
+  {
+   "date": "07-20",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "southern-europe",
+     "name": "Southern Europe"
+    },
+    {
+     "type": "segment",
+     "slug": "specialized-models",
+     "name": "Specialized models"
+    }
+   ]
+  },
+  {
+   "date": "07-21",
+   "items": [
+    {
+     "type": "country",
+     "code": "sa",
+     "name": "Saudi Arabia"
+    },
+    {
+     "type": "segment",
+     "slug": "privileged-access",
+     "name": "Privileged access"
+    }
+   ]
+  },
+  {
+   "date": "07-22",
+   "items": [
+    {
+     "type": "country",
+     "code": "co",
+     "name": "Colombia"
+    },
+    {
+     "type": "segment",
+     "slug": "edge-and-cdn",
+     "name": "Edge & CDN"
+    }
+   ]
+  },
+  {
+   "date": "07-23",
+   "items": [
+    {
+     "type": "country",
+     "code": "ke",
+     "name": "Kenya"
+    },
+    {
+     "type": "segment",
+     "slug": "second-hand",
+     "name": "Second-hand"
+    }
+   ]
+  },
+  {
+   "date": "07-24",
+   "items": [
+    {
+     "type": "country",
+     "code": "tw",
+     "name": "Taiwan"
+    },
+    {
+     "type": "segment",
+     "slug": "vertical-farming",
+     "name": "Vertical farming"
+    }
+   ]
+  },
+  {
+   "date": "07-25",
+   "items": [
+    {
+     "type": "country",
+     "code": "se",
+     "name": "Sweden"
+    },
+    {
+     "type": "segment",
+     "slug": "ride-hailing-and-taxis",
+     "name": "Ride-hailing & taxis"
+    }
+   ]
+  },
+  {
+   "date": "07-26",
+   "items": [
+    {
+     "type": "country",
+     "code": "tr",
+     "name": "Türkiye"
+    },
+    {
+     "type": "segment",
+     "slug": "wind",
+     "name": "Wind"
+    }
+   ]
+  },
+  {
+   "date": "07-27",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "north-africa",
+     "name": "North Africa"
+    },
+    {
+     "type": "segment",
+     "slug": "rentals",
+     "name": "Rentals"
+    }
+   ]
+  },
+  {
+   "date": "07-28",
+   "items": [
+    {
+     "type": "country",
+     "code": "cl",
+     "name": "Chile"
+    },
+    {
+     "type": "segment",
+     "slug": "school-platforms",
+     "name": "School platforms"
+    }
+   ]
+  },
+  {
+   "date": "07-29",
+   "items": []
+  },
+  {
+   "date": "07-30",
+   "items": []
+  },
+  {
+   "date": "07-31",
+   "items": []
+  },
+  {
+   "date": "08-01",
+   "items": [
+    {
+     "type": "country",
+     "code": "gh",
+     "name": "Ghana"
+    },
+    {
+     "type": "segment",
+     "slug": "pc-and-console-studios",
+     "name": "PC & console studios"
+    }
+   ]
+  },
+  {
+   "date": "08-02",
+   "items": [
+    {
+     "type": "country",
+     "code": "sg",
+     "name": "Singapore"
+    },
+    {
+     "type": "segment",
+     "slug": "humanoid-robots",
+     "name": "Humanoid robots"
+    }
+   ]
+  },
+  {
+   "date": "08-03",
+   "items": [
+    {
+     "type": "country",
+     "code": "es",
+     "name": "Spain"
+    }
+   ]
+  },
+  {
+   "date": "08-04",
+   "items": [
+    {
+     "type": "country",
+     "code": "eg",
+     "name": "Egypt"
+    },
+    {
+     "type": "segment",
+     "slug": "business-travel",
+     "name": "Business travel"
+    }
+   ]
+  },
+  {
+   "date": "08-05",
+   "items": [
+    {
+     "type": "country",
+     "code": "ar",
+     "name": "Argentina"
+    },
+    {
+     "type": "segment",
+     "slug": "online-payments-and-acquiring",
+     "name": "Online payments & acquiring"
+    }
+   ]
+  },
+  {
+   "date": "08-06",
+   "items": [
+    {
+     "type": "country",
+     "code": "hk",
+     "name": "Hong Kong"
+    },
+    {
+     "type": "segment",
+     "slug": "online-pharmacy",
+     "name": "Online pharmacy"
+    }
+   ]
+  },
+  {
+   "date": "08-07",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "gulf",
+     "name": "Gulf (GCC)"
+    },
+    {
+     "type": "segment",
+     "slug": "talent-management",
+     "name": "Talent management"
+    }
+   ]
+  },
+  {
+   "date": "08-08",
+   "items": [
+    {
+     "type": "country",
+     "code": "nl",
+     "name": "Netherlands"
+    },
+    {
+     "type": "segment",
+     "slug": "coding-agents",
+     "name": "Coding agents"
+    }
+   ]
+  },
+  {
+   "date": "08-09",
+   "items": [
+    {
+     "type": "country",
+     "code": "uy",
+     "name": "Uruguay"
+    },
+    {
+     "type": "segment",
+     "slug": "cloud-security",
+     "name": "Cloud security"
+    }
+   ]
+  },
+  {
+   "date": "08-10",
+   "items": [
+    {
+     "type": "country",
+     "code": "id",
+     "name": "Indonesia"
+    },
+    {
+     "type": "segment",
+     "slug": "databases",
+     "name": "Databases"
+    }
+   ]
+  },
+  {
+   "date": "08-11",
+   "items": [
+    {
+     "type": "country",
+     "code": "ch",
+     "name": "Switzerland"
+    },
+    {
+     "type": "segment",
+     "slug": "refurbished",
+     "name": "Refurbished"
+    }
+   ]
+  },
+  {
+   "date": "08-12",
+   "items": [
+    {
+     "type": "country",
+     "code": "pe",
+     "name": "Peru"
+    },
+    {
+     "type": "segment",
+     "slug": "biological-inputs",
+     "name": "Biological inputs"
+    }
+   ]
+  },
+  {
+   "date": "08-13",
+   "items": [
+    {
+     "type": "country",
+     "code": "my",
+     "name": "Malaysia"
+    },
+    {
+     "type": "segment",
+     "slug": "micromobility",
+     "name": "Micromobility"
+    }
+   ]
+  },
+  {
+   "date": "08-14",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "west-central-africa",
+     "name": "West & Central Africa"
+    },
+    {
+     "type": "segment",
+     "slug": "hydrogen",
+     "name": "Hydrogen"
+    }
+   ]
+  },
+  {
+   "date": "08-15",
+   "items": [
+    {
+     "type": "country",
+     "code": "ma",
+     "name": "Morocco"
+    },
+    {
+     "type": "segment",
+     "slug": "property-management",
+     "name": "Property management"
+    }
+   ]
+  },
+  {
+   "date": "08-16",
+   "items": [
+    {
+     "type": "country",
+     "code": "it",
+     "name": "Italy"
+    },
+    {
+     "type": "segment",
+     "slug": "online-schools",
+     "name": "Online schools"
+    }
+   ]
+  },
+  {
+   "date": "08-17",
+   "items": [
+    {
+     "type": "country",
+     "code": "fi",
+     "name": "Finland"
+    },
+    {
+     "type": "segment",
+     "slug": "esports",
+     "name": "Esports"
+    }
+   ]
+  },
+  {
+   "date": "08-18",
+   "items": [
+    {
+     "type": "country",
+     "code": "th",
+     "name": "Thailand"
+    }
+   ]
+  },
+  {
+   "date": "08-19",
+   "items": [
+    {
+     "type": "country",
+     "code": "dk",
+     "name": "Denmark"
+    },
+    {
+     "type": "segment",
+     "slug": "logistics-robots",
+     "name": "Logistics robots"
+    }
+   ]
+  },
+  {
+   "date": "08-20",
+   "items": [
+    {
+     "type": "country",
+     "code": "ph",
+     "name": "Philippines"
+    },
+    {
+     "type": "segment",
+     "slug": "vacation-rentals",
+     "name": "Vacation rentals"
+    }
+   ]
+  },
+  {
+   "date": "08-21",
+   "items": [
+    {
+     "type": "country",
+     "code": "ie",
+     "name": "Ireland"
+    },
+    {
+     "type": "segment",
+     "slug": "buy-now-pay-later",
+     "name": "Buy now, pay later"
+    }
+   ]
+  },
+  {
+   "date": "08-22",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "east-africa",
+     "name": "East Africa"
+    },
+    {
+     "type": "segment",
+     "slug": "clinical-software",
+     "name": "Clinical software"
+    }
+   ]
+  },
+  {
+   "date": "08-23",
+   "items": [
+    {
+     "type": "country",
+     "code": "kz",
+     "name": "Kazakhstan"
+    },
+    {
+     "type": "segment",
+     "slug": "crm",
+     "name": "CRM"
+    }
+   ]
+  },
+  {
+   "date": "08-24",
+   "items": [
+    {
+     "type": "country",
+     "code": "be",
+     "name": "Belgium"
+    },
+    {
+     "type": "segment",
+     "slug": "enterprise-agents",
+     "name": "Enterprise agents"
+    }
+   ]
+  },
+  {
+   "date": "08-25",
+   "items": [
+    {
+     "type": "country",
+     "code": "pk",
+     "name": "Pakistan"
+    },
+    {
+     "type": "segment",
+     "slug": "endpoint-protection",
+     "name": "Endpoint protection"
+    }
+   ]
+  },
+  {
+   "date": "08-26",
+   "items": [
+    {
+     "type": "country",
+     "code": "bd",
+     "name": "Bangladesh"
+    },
+    {
+     "type": "segment",
+     "slug": "analytics",
+     "name": "Analytics"
+    }
+   ]
+  },
+  {
+   "date": "08-27",
+   "items": [
+    {
+     "type": "country",
+     "code": "no",
+     "name": "Norway"
+    },
+    {
+     "type": "segment",
+     "slug": "fashion",
+     "name": "Fashion"
+    }
+   ]
+  },
+  {
+   "date": "08-28",
+   "items": [
+    {
+     "type": "country",
+     "code": "uz",
+     "name": "Uzbekistan"
+    },
+    {
+     "type": "segment",
+     "slug": "alternative-proteins",
+     "name": "Alternative proteins"
+    }
+   ]
+  },
+  {
+   "date": "08-29",
+   "items": []
+  },
+  {
+   "date": "08-30",
+   "items": []
+  },
+  {
+   "date": "08-31",
+   "items": []
+  },
+  {
+   "date": "09-01",
+   "items": [
+    {
+     "type": "country",
+     "code": "at",
+     "name": "Austria"
+    },
+    {
+     "type": "segment",
+     "slug": "car-sharing",
+     "name": "Car sharing"
+    }
+   ]
+  },
+  {
+   "date": "09-02",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "east-asia",
+     "name": "East Asia"
+    },
+    {
+     "type": "segment",
+     "slug": "fusion-and-advanced-nuclear",
+     "name": "Fusion & advanced nuclear"
+    }
+   ]
+  },
+  {
+   "date": "09-03",
+   "items": [
+    {
+     "type": "country",
+     "code": "ee",
+     "name": "Estonia"
+    },
+    {
+     "type": "segment",
+     "slug": "condominium-management",
+     "name": "Condominium management"
+    }
+   ]
+  },
+  {
+   "date": "09-04",
+   "items": [
+    {
+     "type": "country",
+     "code": "cz",
+     "name": "Czechia"
+    },
+    {
+     "type": "segment",
+     "slug": "professional-training",
+     "name": "Professional training"
+    }
+   ]
+  },
+  {
+   "date": "09-05",
+   "items": [
+    {
+     "type": "country",
+     "code": "pt",
+     "name": "Portugal"
+    },
+    {
+     "type": "segment",
+     "slug": "music-streaming",
+     "name": "Music streaming"
+    }
+   ]
+  },
+  {
+   "date": "09-06",
+   "items": [
+    {
+     "type": "country",
+     "code": "lt",
+     "name": "Lithuania"
+    }
+   ]
+  },
+  {
+   "date": "09-07",
+   "items": [
+    {
+     "type": "country",
+     "code": "ua",
+     "name": "Ukraine"
+    },
+    {
+     "type": "segment",
+     "slug": "launchers",
+     "name": "Launchers"
+    }
+   ]
+  },
+  {
+   "date": "09-08",
+   "items": [
+    {
+     "type": "country",
+     "code": "hu",
+     "name": "Hungary"
+    },
+    {
+     "type": "segment",
+     "slug": "hotel-software",
+     "name": "Hotel software"
+    }
+   ]
+  },
+  {
+   "date": "09-09",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "southeast-asia",
+     "name": "Southeast Asia"
+    },
+    {
+     "type": "segment",
+     "slug": "cross-border-remittances",
+     "name": "Cross-border remittances"
+    }
+   ]
+  },
+  {
+   "date": "09-10",
+   "items": [
+    {
+     "type": "country",
+     "code": "ro",
+     "name": "Romania"
+    },
+    {
+     "type": "segment",
+     "slug": "clinic-management",
+     "name": "Clinic management"
+    }
+   ]
+  },
+  {
+   "date": "09-11",
+   "items": [
+    {
+     "type": "country",
+     "code": "gr",
+     "name": "Greece"
+    },
+    {
+     "type": "segment",
+     "slug": "marketing-automation",
+     "name": "Marketing automation"
+    }
+   ]
+  },
+  {
+   "date": "09-12",
+   "items": [
+    {
+     "type": "country",
+     "code": "bg",
+     "name": "Bulgaria"
+    },
+    {
+     "type": "segment",
+     "slug": "consumer-assistants",
+     "name": "Consumer assistants"
+    }
+   ]
+  },
+  {
+   "date": "09-13",
+   "items": [
+    {
+     "type": "country",
+     "code": "lu",
+     "name": "Luxembourg"
+    },
+    {
+     "type": "segment",
+     "slug": "network-security",
+     "name": "Network security"
+    }
+   ]
+  },
+  {
+   "date": "09-14",
+   "items": [
+    {
+     "type": "country",
+     "code": "is",
+     "name": "Iceland"
+    },
+    {
+     "type": "segment",
+     "slug": "apis-and-integration",
+     "name": "APIs & integration"
+    }
+   ]
+  },
+  {
+   "date": "09-15",
+   "items": [
+    {
+     "type": "country",
+     "code": "pl",
+     "name": "Poland"
+    },
+    {
+     "type": "segment",
+     "slug": "beauty",
+     "name": "Beauty"
+    }
+   ]
+  },
+  {
+   "date": "09-16",
+   "items": [
+    {
+     "type": "country",
+     "code": "cy",
+     "name": "Cyprus"
+    },
+    {
+     "type": "segment",
+     "slug": "online-food-brands",
+     "name": "Online food brands"
+    }
+   ]
+  },
+  {
+   "date": "09-17",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "central-asia",
+     "name": "Central Asia"
+    },
+    {
+     "type": "segment",
+     "slug": "on-demand-transit",
+     "name": "On-demand transit"
+    }
+   ]
+  },
+  {
+   "date": "09-18",
+   "items": [
+    {
+     "type": "country",
+     "code": "lv",
+     "name": "Latvia"
+    },
+    {
+     "type": "segment",
+     "slug": "stationary-storage",
+     "name": "Stationary storage"
+    }
+   ]
+  },
+  {
+   "date": "09-19",
+   "items": [
+    {
+     "type": "country",
+     "code": "hr",
+     "name": "Croatia"
+    },
+    {
+     "type": "segment",
+     "slug": "construction-software",
+     "name": "Construction software"
+    }
+   ]
+  },
+  {
+   "date": "09-20",
+   "items": [
+    {
+     "type": "country",
+     "code": "sk",
+     "name": "Slovakia"
+    },
+    {
+     "type": "segment",
+     "slug": "coding-bootcamps",
+     "name": "Coding bootcamps"
+    }
+   ]
+  },
+  {
+   "date": "09-21",
+   "items": [
+    {
+     "type": "country",
+     "code": "si",
+     "name": "Slovenia"
+    }
+   ]
+  },
+  {
+   "date": "09-22",
+   "items": [
+    {
+     "type": "country",
+     "code": "rs",
+     "name": "Serbia"
+    },
+    {
+     "type": "segment",
+     "slug": "podcasts",
+     "name": "Podcasts"
+    }
+   ]
+  },
+  {
+   "date": "09-23",
+   "items": [
+    {
+     "type": "segment",
+     "slug": "earth-observation",
+     "name": "Earth observation"
+    }
+   ]
+  },
+  {
+   "date": "09-24",
+   "items": [
+    {
+     "type": "segment",
+     "slug": "activities-and-experiences",
+     "name": "Activities & experiences"
+    }
+   ]
+  },
+  {
+   "date": "09-25",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "uemoa",
+     "name": "WAEMU (UEMOA)"
+    },
+    {
+     "type": "segment",
+     "slug": "mobile-wallets",
+     "name": "Mobile wallets"
+    }
+   ]
+  },
+  {
+   "date": "09-26",
+   "items": [
+    {
+     "type": "segment",
+     "slug": "connected-devices",
+     "name": "Connected devices"
+    }
+   ]
+  },
+  {
+   "date": "09-27",
+   "items": [
+    {
+     "type": "segment",
+     "slug": "sales-intelligence",
+     "name": "Sales intelligence"
+    }
+   ]
+  },
+  {
+   "date": "09-28",
+   "items": [
+    {
+     "type": "segment",
+     "slug": "compute-and-inference",
+     "name": "Compute & inference"
+    }
+   ]
+  },
+  {
+   "date": "09-29",
+   "items": []
+  },
+  {
+   "date": "09-30",
+   "items": []
+  },
+  {
+   "date": "10-01",
+   "items": [
+    {
+     "type": "country",
+     "code": "us",
+     "name": "United States"
+    },
+    {
+     "type": "segment",
+     "slug": "detection-and-response",
+     "name": "Detection & response"
+    }
+   ]
+  },
+  {
+   "date": "10-02",
+   "items": [
+    {
+     "type": "country",
+     "code": "in",
+     "name": "India"
+    },
+    {
+     "type": "segment",
+     "slug": "observability",
+     "name": "Observability"
+    }
+   ]
+  },
+  {
+   "date": "10-03",
+   "items": [
+    {
+     "type": "country",
+     "code": "gb",
+     "name": "United Kingdom"
+    },
+    {
+     "type": "segment",
+     "slug": "home",
+     "name": "Home"
+    }
+   ]
+  },
+  {
+   "date": "10-04",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "western-europe",
+     "name": "Western Europe"
+    },
+    {
+     "type": "segment",
+     "slug": "food-delivery",
+     "name": "Food delivery"
+    }
+   ]
+  },
+  {
+   "date": "10-05",
+   "items": [
+    {
+     "type": "country",
+     "code": "il",
+     "name": "Israel"
+    },
+    {
+     "type": "segment",
+     "slug": "ev-makers",
+     "name": "EV makers"
+    }
+   ]
+  },
+  {
+   "date": "10-06",
+   "items": [
+    {
+     "type": "country",
+     "code": "br",
+     "name": "Brazil"
+    },
+    {
+     "type": "segment",
+     "slug": "smart-grids",
+     "name": "Smart grids"
+    }
+   ]
+  },
+  {
+   "date": "10-07",
+   "items": [
+    {
+     "type": "country",
+     "code": "au",
+     "name": "Australia"
+    },
+    {
+     "type": "segment",
+     "slug": "modular-construction",
+     "name": "Modular construction"
+    }
+   ]
+  },
+  {
+   "date": "10-08",
+   "items": [
+    {
+     "type": "country",
+     "code": "ng",
+     "name": "Nigeria"
+    }
+   ]
+  },
+  {
+   "date": "10-09",
+   "items": [
+    {
+     "type": "country",
+     "code": "ca",
+     "name": "Canada"
+    },
+    {
+     "type": "segment",
+     "slug": "language-learning",
+     "name": "Language learning"
+    }
+   ]
+  },
+  {
+   "date": "10-10",
+   "items": [
+    {
+     "type": "country",
+     "code": "jp",
+     "name": "Japan"
+    },
+    {
+     "type": "segment",
+     "slug": "video",
+     "name": "Video"
+    }
+   ]
+  },
+  {
+   "date": "10-11",
+   "items": [
+    {
+     "type": "country",
+     "code": "de",
+     "name": "Germany"
+    },
+    {
+     "type": "segment",
+     "slug": "satellite-connectivity",
+     "name": "Satellite connectivity"
+    }
+   ]
+  },
+  {
+   "date": "10-12",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "nordics",
+     "name": "Nordics"
+    },
+    {
+     "type": "segment",
+     "slug": "crypto-exchanges",
+     "name": "Crypto exchanges"
+    }
+   ]
+  },
+  {
+   "date": "10-13",
+   "items": [
+    {
+     "type": "country",
+     "code": "ae",
+     "name": "United Arab Emirates"
+    },
+    {
+     "type": "segment",
+     "slug": "in-vitro-diagnostics",
+     "name": "In-vitro diagnostics"
+    }
+   ]
+  },
+  {
+   "date": "10-14",
+   "items": [
+    {
+     "type": "country",
+     "code": "mx",
+     "name": "Mexico"
+    },
+    {
+     "type": "segment",
+     "slug": "collaboration-and-docs",
+     "name": "Collaboration & docs"
+    }
+   ]
+  },
+  {
+   "date": "10-15",
+   "items": [
+    {
+     "type": "country",
+     "code": "vn",
+     "name": "Vietnam"
+    },
+    {
+     "type": "segment",
+     "slug": "data-and-labeling",
+     "name": "Data & labeling"
+    }
+   ]
+  },
+  {
+   "date": "10-16",
+   "items": [
+    {
+     "type": "country",
+     "code": "nz",
+     "name": "New Zealand"
+    },
+    {
+     "type": "segment",
+     "slug": "threat-intelligence",
+     "name": "Threat intelligence"
+    }
+   ]
+  },
+  {
+   "date": "10-17",
+   "items": [
+    {
+     "type": "country",
+     "code": "za",
+     "name": "South Africa"
+    },
+    {
+     "type": "segment",
+     "slug": "quick-commerce",
+     "name": "Quick commerce"
+    }
+   ]
+  },
+  {
+   "date": "10-18",
+   "items": [
+    {
+     "type": "country",
+     "code": "kr",
+     "name": "South Korea"
+    },
+    {
+     "type": "segment",
+     "slug": "restaurant-software",
+     "name": "Restaurant software"
+    }
+   ]
+  },
+  {
+   "date": "10-19",
+   "items": [
+    {
+     "type": "country",
+     "code": "fr",
+     "name": "France"
+    },
+    {
+     "type": "segment",
+     "slug": "electric-two-wheelers",
+     "name": "Electric two-wheelers"
+    }
+   ]
+  },
+  {
+   "date": "10-20",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "central-eastern-europe",
+     "name": "Central & Eastern Europe"
+    },
+    {
+     "type": "segment",
+     "slug": "carbon-capture",
+     "name": "Carbon capture"
+    }
+   ]
+  },
+  {
+   "date": "10-21",
+   "items": [
+    {
+     "type": "country",
+     "code": "sa",
+     "name": "Saudi Arabia"
+    },
+    {
+     "type": "segment",
+     "slug": "coworking",
+     "name": "Coworking"
+    }
+   ]
+  },
+  {
+   "date": "10-22",
+   "items": [
+    {
+     "type": "country",
+     "code": "co",
+     "name": "Colombia"
+    },
+    {
+     "type": "segment",
+     "slug": "freelance-platforms",
+     "name": "Freelance platforms"
+    }
+   ]
+  },
+  {
+   "date": "10-23",
+   "items": [
+    {
+     "type": "country",
+     "code": "ke",
+     "name": "Kenya"
+    }
+   ]
+  },
+  {
+   "date": "10-24",
+   "items": [
+    {
+     "type": "country",
+     "code": "tw",
+     "name": "Taiwan"
+    },
+    {
+     "type": "segment",
+     "slug": "creator-tools",
+     "name": "Creator tools"
+    }
+   ]
+  },
+  {
+   "date": "10-25",
+   "items": [
+    {
+     "type": "country",
+     "code": "se",
+     "name": "Sweden"
+    },
+    {
+     "type": "segment",
+     "slug": "drones",
+     "name": "Drones"
+    }
+   ]
+  },
+  {
+   "date": "10-26",
+   "items": [
+    {
+     "type": "country",
+     "code": "tr",
+     "name": "Türkiye"
+    },
+    {
+     "type": "segment",
+     "slug": "cold-wallets",
+     "name": "Cold wallets"
+    }
+   ]
+  },
+  {
+   "date": "10-27",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "mena",
+     "name": "Middle East & North Africa"
+    },
+    {
+     "type": "segment",
+     "slug": "imaging-and-medical-ai",
+     "name": "Imaging & medical AI"
+    }
+   ]
+  },
+  {
+   "date": "10-28",
+   "items": [
+    {
+     "type": "country",
+     "code": "cl",
+     "name": "Chile"
+    },
+    {
+     "type": "segment",
+     "slug": "no-code",
+     "name": "No-code"
+    }
+   ]
+  },
+  {
+   "date": "10-29",
+   "items": []
+  },
+  {
+   "date": "10-30",
+   "items": []
+  },
+  {
+   "date": "10-31",
+   "items": []
+  },
+  {
+   "date": "11-01",
+   "items": [
+    {
+     "type": "country",
+     "code": "gh",
+     "name": "Ghana"
+    },
+    {
+     "type": "segment",
+     "slug": "mlops-and-evaluation",
+     "name": "MLOps & evaluation"
+    }
+   ]
+  },
+  {
+   "date": "11-02",
+   "items": [
+    {
+     "type": "country",
+     "code": "sg",
+     "name": "Singapore"
+    },
+    {
+     "type": "segment",
+     "slug": "data-protection",
+     "name": "Data protection"
+    }
+   ]
+  },
+  {
+   "date": "11-03",
+   "items": [
+    {
+     "type": "country",
+     "code": "es",
+     "name": "Spain"
+    },
+    {
+     "type": "segment",
+     "slug": "last-mile-delivery",
+     "name": "Last-mile delivery"
+    }
+   ]
+  },
+  {
+   "date": "11-04",
+   "items": [
+    {
+     "type": "country",
+     "code": "eg",
+     "name": "Egypt"
+    },
+    {
+     "type": "segment",
+     "slug": "charging",
+     "name": "Charging"
+    }
+   ]
+  },
+  {
+   "date": "11-05",
+   "items": [
+    {
+     "type": "country",
+     "code": "ar",
+     "name": "Argentina"
+    },
+    {
+     "type": "segment",
+     "slug": "carbon-accounting-and-esg",
+     "name": "Carbon accounting & ESG"
+    }
+   ]
+  },
+  {
+   "date": "11-06",
+   "items": [
+    {
+     "type": "country",
+     "code": "hk",
+     "name": "Hong Kong"
+    },
+    {
+     "type": "segment",
+     "slug": "coliving",
+     "name": "Coliving"
+    }
+   ]
+  },
+  {
+   "date": "11-07",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "levant-turkiye",
+     "name": "Levant & Türkiye"
+    },
+    {
+     "type": "segment",
+     "slug": "gig-work",
+     "name": "Gig work"
+    }
+   ]
+  },
+  {
+   "date": "11-08",
+   "items": [
+    {
+     "type": "country",
+     "code": "nl",
+     "name": "Netherlands"
+    },
+    {
+     "type": "segment",
+     "slug": "social-networks",
+     "name": "Social networks"
+    }
+   ]
+  },
+  {
+   "date": "11-09",
+   "items": [
+    {
+     "type": "country",
+     "code": "uy",
+     "name": "Uruguay"
+    },
+    {
+     "type": "segment",
+     "slug": "defense-systems",
+     "name": "Defense systems"
+    }
+   ]
+  },
+  {
+   "date": "11-10",
+   "items": [
+    {
+     "type": "country",
+     "code": "id",
+     "name": "Indonesia"
+    },
+    {
+     "type": "segment",
+     "slug": "stablecoins",
+     "name": "Stablecoins"
+    }
+   ]
+  },
+  {
+   "date": "11-11",
+   "items": [
+    {
+     "type": "country",
+     "code": "ch",
+     "name": "Switzerland"
+    }
+   ]
+  },
+  {
+   "date": "11-12",
+   "items": [
+    {
+     "type": "country",
+     "code": "pe",
+     "name": "Peru"
+    },
+    {
+     "type": "segment",
+     "slug": "gene-and-cell-therapies",
+     "name": "Gene & cell therapies"
+    }
+   ]
+  },
+  {
+   "date": "11-13",
+   "items": [
+    {
+     "type": "country",
+     "code": "my",
+     "name": "Malaysia"
+    },
+    {
+     "type": "segment",
+     "slug": "contracts-and-e-signature",
+     "name": "Contracts & e-signature"
+    }
+   ]
+  },
+  {
+   "date": "11-14",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "sub-saharan-africa",
+     "name": "Sub-Saharan Africa"
+    },
+    {
+     "type": "segment",
+     "slug": "voice-and-audio",
+     "name": "Voice & audio"
+    }
+   ]
+  },
+  {
+   "date": "11-15",
+   "items": [
+    {
+     "type": "country",
+     "code": "ma",
+     "name": "Morocco"
+    },
+    {
+     "type": "segment",
+     "slug": "pos-and-retail-tech",
+     "name": "POS & retail tech"
+    }
+   ]
+  },
+  {
+   "date": "11-16",
+   "items": [
+    {
+     "type": "country",
+     "code": "it",
+     "name": "Italy"
+    },
+    {
+     "type": "segment",
+     "slug": "batteries",
+     "name": "Batteries"
+    }
+   ]
+  },
+  {
+   "date": "11-17",
+   "items": [
+    {
+     "type": "country",
+     "code": "fi",
+     "name": "Finland"
+    },
+    {
+     "type": "segment",
+     "slug": "carbon-credits",
+     "name": "Carbon credits"
+    }
+   ]
+  },
+  {
+   "date": "11-18",
+   "items": [
+    {
+     "type": "country",
+     "code": "th",
+     "name": "Thailand"
+    },
+    {
+     "type": "segment",
+     "slug": "connected-fitness",
+     "name": "Connected fitness"
+    }
+   ]
+  },
+  {
+   "date": "11-19",
+   "items": [
+    {
+     "type": "country",
+     "code": "dk",
+     "name": "Denmark"
+    },
+    {
+     "type": "segment",
+     "slug": "ai-chips",
+     "name": "AI chips"
+    }
+   ]
+  },
+  {
+   "date": "11-20",
+   "items": [
+    {
+     "type": "country",
+     "code": "ph",
+     "name": "Philippines"
+    },
+    {
+     "type": "segment",
+     "slug": "institutional-custody",
+     "name": "Institutional custody"
+    }
+   ]
+  },
+  {
+   "date": "11-21",
+   "items": [
+    {
+     "type": "country",
+     "code": "ie",
+     "name": "Ireland"
+    },
+    {
+     "type": "segment",
+     "slug": "ai-drug-discovery",
+     "name": "AI drug discovery"
+    }
+   ]
+  },
+  {
+   "date": "11-22",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "southern-africa",
+     "name": "Southern Africa"
+    },
+    {
+     "type": "segment",
+     "slug": "compliance",
+     "name": "Compliance"
+    }
+   ]
+  },
+  {
+   "date": "11-23",
+   "items": [
+    {
+     "type": "country",
+     "code": "kz",
+     "name": "Kazakhstan"
+    },
+    {
+     "type": "segment",
+     "slug": "image-and-video",
+     "name": "Image & video"
+    }
+   ]
+  },
+  {
+   "date": "11-24",
+   "items": [
+    {
+     "type": "country",
+     "code": "be",
+     "name": "Belgium"
+    },
+    {
+     "type": "segment",
+     "slug": "store-builders",
+     "name": "Store builders"
+    }
+   ]
+  },
+  {
+   "date": "11-25",
+   "items": [
+    {
+     "type": "country",
+     "code": "pk",
+     "name": "Pakistan"
+    },
+    {
+     "type": "segment",
+     "slug": "digital-freight",
+     "name": "Digital freight"
+    }
+   ]
+  },
+  {
+   "date": "11-26",
+   "items": [
+    {
+     "type": "country",
+     "code": "bd",
+     "name": "Bangladesh"
+    }
+   ]
+  },
+  {
+   "date": "11-27",
+   "items": [
+    {
+     "type": "country",
+     "code": "no",
+     "name": "Norway"
+    },
+    {
+     "type": "segment",
+     "slug": "recycling",
+     "name": "Recycling"
+    }
+   ]
+  },
+  {
+   "date": "11-28",
+   "items": [
+    {
+     "type": "country",
+     "code": "uz",
+     "name": "Uzbekistan"
+    },
+    {
+     "type": "segment",
+     "slug": "ticketing",
+     "name": "Ticketing"
+    }
+   ]
+  },
+  {
+   "date": "11-29",
+   "items": []
+  },
+  {
+   "date": "11-30",
+   "items": []
+  },
+  {
+   "date": "12-01",
+   "items": [
+    {
+     "type": "country",
+     "code": "at",
+     "name": "Austria"
+    },
+    {
+     "type": "segment",
+     "slug": "photonics",
+     "name": "Photonics"
+    }
+   ]
+  },
+  {
+   "date": "12-02",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "asia",
+     "name": "Asia"
+    },
+    {
+     "type": "segment",
+     "slug": "blockchain-infrastructure",
+     "name": "Blockchain infrastructure"
+    }
+   ]
+  },
+  {
+   "date": "12-03",
+   "items": [
+    {
+     "type": "country",
+     "code": "ee",
+     "name": "Estonia"
+    },
+    {
+     "type": "segment",
+     "slug": "mental-health",
+     "name": "Mental health"
+    }
+   ]
+  },
+  {
+   "date": "12-04",
+   "items": [
+    {
+     "type": "country",
+     "code": "cz",
+     "name": "Czechia"
+    },
+    {
+     "type": "segment",
+     "slug": "customer-support",
+     "name": "Customer support"
+    }
+   ]
+  },
+  {
+   "date": "12-05",
+   "items": [
+    {
+     "type": "country",
+     "code": "pt",
+     "name": "Portugal"
+    },
+    {
+     "type": "segment",
+     "slug": "b2b-delivery",
+     "name": "B2B delivery"
+    }
+   ]
+  },
+  {
+   "date": "12-06",
+   "items": [
+    {
+     "type": "country",
+     "code": "lt",
+     "name": "Lithuania"
+    },
+    {
+     "type": "segment",
+     "slug": "water",
+     "name": "Water"
+    }
+   ]
+  },
+  {
+   "date": "12-07",
+   "items": [
+    {
+     "type": "country",
+     "code": "ua",
+     "name": "Ukraine"
+    },
+    {
+     "type": "segment",
+     "slug": "quantum-computers",
+     "name": "Quantum computers"
+    }
+   ]
+  },
+  {
+   "date": "12-08",
+   "items": [
+    {
+     "type": "country",
+     "code": "hu",
+     "name": "Hungary"
+    },
+    {
+     "type": "segment",
+     "slug": "sme-lending",
+     "name": "SME lending"
+    }
+   ]
+  },
+  {
+   "date": "12-09",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "south-asia",
+     "name": "South Asia"
+    },
+    {
+     "type": "segment",
+     "slug": "womens-health",
+     "name": "Women’s health"
+    }
+   ]
+  },
+  {
+   "date": "12-10",
+   "items": [
+    {
+     "type": "country",
+     "code": "ro",
+     "name": "Romania"
+    },
+    {
+     "type": "segment",
+     "slug": "ai-contact-centers",
+     "name": "AI contact centers"
+    }
+   ]
+  },
+  {
+   "date": "12-11",
+   "items": [
+    {
+     "type": "country",
+     "code": "gr",
+     "name": "Greece"
+    },
+    {
+     "type": "segment",
+     "slug": "warehouse-automation",
+     "name": "Warehouse automation"
+    }
+   ]
+  },
+  {
+   "date": "12-12",
+   "items": [
+    {
+     "type": "country",
+     "code": "bg",
+     "name": "Bulgaria"
+    },
+    {
+     "type": "segment",
+     "slug": "quantum-software",
+     "name": "Quantum software"
+    }
+   ]
+  },
+  {
+   "date": "12-13",
+   "items": [
+    {
+     "type": "country",
+     "code": "lu",
+     "name": "Luxembourg"
+    }
+   ]
+  },
+  {
+   "date": "12-14",
+   "items": [
+    {
+     "type": "country",
+     "code": "is",
+     "name": "Iceland"
+    },
+    {
+     "type": "segment",
+     "slug": "consumer-credit",
+     "name": "Consumer credit"
+    }
+   ]
+  },
+  {
+   "date": "12-15",
+   "items": [
+    {
+     "type": "country",
+     "code": "pl",
+     "name": "Poland"
+    },
+    {
+     "type": "segment",
+     "slug": "elderly-care",
+     "name": "Elderly care"
+    }
+   ]
+  },
+  {
+   "date": "12-16",
+   "items": [
+    {
+     "type": "country",
+     "code": "cy",
+     "name": "Cyprus"
+    },
+    {
+     "type": "segment",
+     "slug": "fleet-software",
+     "name": "Fleet software"
+    }
+   ]
+  },
+  {
+   "date": "12-17",
+   "items": [
+    {
+     "type": "regional",
+     "slug": "european-union",
+     "name": "European Union"
+    },
+    {
+     "type": "segment",
+     "slug": "invoice-financing",
+     "name": "Invoice financing"
+    }
+   ]
+  },
+  {
+   "date": "12-18",
+   "items": [
+    {
+     "type": "country",
+     "code": "lv",
+     "name": "Latvia"
+    },
+    {
+     "type": "segment",
+     "slug": "air-taxis-evtol",
+     "name": "Air taxis (eVTOL)"
+    }
+   ]
+  },
+  {
+   "date": "12-19",
+   "items": [
+    {
+     "type": "country",
+     "code": "hr",
+     "name": "Croatia"
+    },
+    {
+     "type": "segment",
+     "slug": "neo-insurers",
+     "name": "Neo-insurers"
+    }
+   ]
+  },
+  {
+   "date": "12-20",
+   "items": [
+    {
+     "type": "country",
+     "code": "sk",
+     "name": "Slovakia"
+    },
+    {
+     "type": "segment",
+     "slug": "electric-and-hybrid-aviation",
+     "name": "Electric & hybrid aviation"
+    }
+   ]
+  },
+  {
+   "date": "12-21",
+   "items": [
+    {
+     "type": "country",
+     "code": "si",
+     "name": "Slovenia"
+    },
+    {
+     "type": "segment",
+     "slug": "embedded-insurance",
+     "name": "Embedded insurance"
+    }
+   ]
+  },
+  {
+   "date": "12-22",
+   "items": [
+    {
+     "type": "country",
+     "code": "rs",
+     "name": "Serbia"
+    },
+    {
+     "type": "segment",
+     "slug": "online-brokerage",
+     "name": "Online brokerage"
+    }
+   ]
+  },
+  {
+   "date": "12-23",
+   "items": [
+    {
+     "type": "segment",
+     "slug": "robo-advisors",
+     "name": "Robo-advisors"
+    }
+   ]
+  },
+  {
+   "date": "12-24",
+   "items": [
+    {
+     "type": "segment",
+     "slug": "crowdfunding",
+     "name": "Crowdfunding"
+    }
+   ]
+  },
+  {
+   "date": "12-25",
+   "items": [
+    {
+     "type": "segment",
+     "slug": "sme-accounting",
+     "name": "SME accounting"
+    }
+   ]
+  },
+  {
+   "date": "12-26",
+   "items": [
+    {
+     "type": "segment",
+     "slug": "spend-management",
+     "name": "Spend management"
+    }
+   ]
+  },
+  {
+   "date": "12-27",
+   "items": [
+    {
+     "type": "segment",
+     "slug": "cash-management-and-forecasting",
+     "name": "Cash management & forecasting"
+    }
+   ]
+  },
+  {
+   "date": "12-28",
+   "items": []
+  },
+  {
+   "date": "12-29",
+   "items": []
+  },
+  {
+   "date": "12-30",
+   "items": []
+  },
+  {
+   "date": "12-31",
+   "items": [
+    {
+     "type": "review",
+     "name": "Annual coverage review (country list recomputed)"
+    }
+   ]
+  }
+ ]
+}

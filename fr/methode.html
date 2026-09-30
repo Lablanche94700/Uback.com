@@ -60,8 +60,9 @@ nav a{text-decoration:none;display:inline-flex;align-items:center;min-height:44p
 .rk-method small{display:block;margin-top:2px;font-size:12.5px;font-weight:500;line-height:1.4;color:var(--muted)}
 .rk-ic{flex:0 0 30px;height:30px;border-radius:8px;background:var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M4 19h16M7 15V9M12 15V5M17 15v-4'/%3E%3C/svg%3E") center/18px no-repeat}
 .rk-go{margin-left:auto;font-size:18px;font-weight:600;color:var(--gold)}
+.rk-menu a.rk-faq{grid-column:1/-1;min-height:36px;margin-top:4px;font-size:14px;font-weight:600;color:var(--muted)}
 .rk-menu a.rk-all{margin-top:4px;font-size:14px;font-weight:600;text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:5px}
-/* pages globales (sélecteur de langue en plus) : sur petit écran, le menu passe sous le logo */
+/* homepage et pages globales : sur petit écran, le menu passe sous le logo */
 @media (max-width:419px){header.hdr-lang .wrap{height:auto;flex-wrap:wrap;row-gap:0;padding-top:8px;padding-bottom:4px}header.hdr-lang nav{width:100%;justify-content:space-between;gap:10px}}
 @media (max-width:359px){header nav{font-size:13px;gap:4px}.langsw{font-size:12px}}
 @media (max-width:719px){header .wrap{position:relative}.rk{position:static}
@@ -146,6 +147,10 @@ h1{margin:0;font-size:38px;line-height:1.08;font-weight:800;letter-spacing:-.03e
 .btn-view{margin-left:auto;display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 16px;border-radius:10px;background:var(--navy);color:#fff;font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap}
 .btn-view:hover{background:var(--navy-dark);color:#fff}
 .regional{margin-top:22px;padding:16px;border-radius:12px;background:var(--bg)}
+a.sub-link{display:inline-flex;align-items:center;gap:6px;min-height:32px;text-decoration:none}
+a.sub-link:hover{color:var(--navy);text-decoration:underline;text-decoration-color:var(--gold)}
+.fam.zone .live-row{margin-bottom:8px}
+.freq a{color:var(--muted)}
 .regional h3{margin:0 0 4px;font-size:15px;font-weight:700}
 .regional p{margin:0 0 10px;font-size:13px;color:var(--muted)}
 
@@ -235,6 +240,30 @@ footer a{color:var(--muted)}
 .langsw a{color:var(--muted);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
 .langsw .on{color:var(--navy)}
 @media (max-width:899px){.prose h1{font-size:32px}.prose table{font-size:14px}}
+/* calendrier */
+.prose.cal-page{max-width:1200px}.cal-page>*{max-width:820px}
+.ics{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:10px;background:var(--navy);color:#fff!important;font-weight:600;text-decoration:none}
+.ics:hover{background:var(--navy-dark)}
+.cal-tools{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:8px auto 20px;position:sticky;top:0;z-index:10;background:var(--bg);padding-top:10px;padding-bottom:10px}
+.cal-filter{display:flex;flex-wrap:wrap;gap:6px}
+.cal-filter button{min-height:40px;padding:0 14px;border:1px solid var(--dash);border-radius:999px;background:#fff;font:inherit;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer}
+.cal-filter button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+#cal-q{flex:1 1 240px;min-height:40px;padding:8px 14px;border:1px solid var(--dash);border-radius:10px;font:inherit;font-size:15px;color:var(--navy);background:#fff}
+#cal-q:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
+.cal-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+.cal-m{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.cal-m h2{margin:0 0 8px;font-size:20px;font-weight:800}
+.cal-days{list-style:none;margin:0;padding:0}
+.cal-days li{display:flex;gap:12px;padding:6px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.4}
+.cal-days li:first-child{border-top:0}
+.cal-days .d{flex:0 0 26px;font-weight:700;color:var(--navy);text-align:right}
+.cal-days .its{display:flex;flex-direction:column;gap:2px;min-width:0;color:var(--body)}
+.cal-days .ci a{color:var(--navy);font-weight:600}
+.cal-days .ct{display:inline-block;min-width:72px;margin-right:6px;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.cal-days .ci[data-t="regional"] .ct{color:var(--gold)}
+.cal-days li.off{color:var(--muted);font-style:italic}.cal-days li.off .d{color:var(--dim)}
+@media (min-width:900px){.cal-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:640px) and (max-width:899px){.cal-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 </head>
 <body>
@@ -244,7 +273,8 @@ footer a{color:var(--muted)}
   <div class="wrap">
     <a class="logo" href="/" aria-label="Uback, home"><span class="u" aria-hidden="true">U</span>Uback</a>
     <nav aria-label="Main">
-      <details class="rk"><summary>Classements</summary><div class="rk-menu"><div class="rk-col"><span class="rk-h">Par secteur</span><a href="/sectors/fintech/">Fintech</a><a href="/sectors/healthtech/">Healthtech</a><a href="/sectors/business-software/">Business software</a><a href="/sectors/artificial-intelligence/">Artificial intelligence</a><a class="rk-all" href="/#sectors">Tous les secteurs <span aria-hidden="true">→</span></a></div><div class="rk-col"><span class="rk-h">Par pays</span><a href="/ma/fr/"><svg class="flag" viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" fill="#C1272D"/><polygon points="24,8.5 26.6,16.4 34.4,11.6 20,20.9 29.6,20.9 18.2,11.6 26,16.4" fill="none" stroke="#006233" stroke-width="1.6" stroke-linejoin="round" transform="translate(-2.2 1.2)"/></svg>Maroc</a><a href="/pl/"><svg class="flag" viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="16" fill="#FFFFFF"/><rect y="16" width="48" height="16" fill="#DC143C"/><rect x=".5" y=".5" width="47" height="31" fill="none" stroke="#E4E8EE"/></svg>Pologne</a><a href="/vn/"><svg class="flag" viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" fill="#DA251D"/><polygon points="24,7 26.47,14.6 34.46,14.6 28,19.3 30.47,26.9 24,22.2 17.53,26.9 20,19.3 13.54,14.6 21.53,14.6" fill="#FFFF00"/></svg>Vietnam</a><a class="rk-all" href="/#countries">Tous les pays <span aria-hidden="true">→</span></a></div><a class="rk-method" href="/fr/methode.html" aria-current="page"><span class="rk-ic" aria-hidden="true"></span><span><b>Méthode</b><small>Comment l’IA classe les startups et estime leur valorisation</small></span><span class="rk-go" aria-hidden="true">→</span></a></div></details><script>(function(){var d=document.querySelector("details.rk");if(!d)return;document.addEventListener("click",function(ev){if(d.open&&!d.contains(ev.target))d.open=false;});document.addEventListener("keydown",function(ev){if(ev.key==="Escape"&&d.open){d.open=false;d.querySelector("summary").focus();}});d.querySelectorAll(".rk-menu a").forEach(function(a){a.addEventListener("click",function(){d.open=false;});});})();</script>
+      <details class="rk"><summary>Classements</summary><div class="rk-menu"><div class="rk-col"><span class="rk-h">Par secteur</span><a href="/sectors/fintech/">Fintech</a><a href="/sectors/healthtech/">Healthtech</a><a href="/sectors/business-software/">Business software</a><a href="/sectors/artificial-intelligence/">Artificial intelligence</a><a class="rk-all" href="/#sectors">Tous les secteurs <span aria-hidden="true">→</span></a></div><div class="rk-col"><span class="rk-h">Par pays</span><a href="/ma/fr/"><svg class="flag" viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" fill="#C1272D"/><polygon points="24,8.5 26.6,16.4 34.4,11.6 20,20.9 29.6,20.9 18.2,11.6 26,16.4" fill="none" stroke="#006233" stroke-width="1.6" stroke-linejoin="round" transform="translate(-2.2 1.2)"/></svg>Maroc</a><a href="/pl/"><svg class="flag" viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="16" fill="#FFFFFF"/><rect y="16" width="48" height="16" fill="#DC143C"/><rect x=".5" y=".5" width="47" height="31" fill="none" stroke="#E4E8EE"/></svg>Pologne</a><a href="/vn/"><svg class="flag" viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" fill="#DA251D"/><polygon points="24,7 26.47,14.6 34.46,14.6 28,19.3 30.47,26.9 24,22.2 17.53,26.9 20,19.3 13.54,14.6 21.53,14.6" fill="#FFFF00"/></svg>Vietnam</a><a class="rk-all" href="/#countries">Tous les pays <span aria-hidden="true">→</span></a></div><a class="rk-method" href="/fr/methode.html" aria-current="page"><span class="rk-ic" aria-hidden="true"></span><span><b>Méthode</b><small>Comment l’IA classe les startups et estime leur valorisation</small></span><span class="rk-go" aria-hidden="true">→</span></a><a class="rk-faq" href="/fr/faq/">FAQ · questions sur les classements <span aria-hidden="true">→</span></a></div></details><script>(function(){var d=document.querySelector("details.rk");if(!d)return;document.addEventListener("click",function(ev){if(d.open&&!d.contains(ev.target))d.open=false;});document.addEventListener("keydown",function(ev){if(ev.key==="Escape"&&d.open){d.open=false;d.querySelector("summary").focus();}});d.querySelectorAll(".rk-menu a").forEach(function(a){a.addEventListener("click",function(){d.open=false;});});})();</script>
+      <a href="/calendar/">Calendrier</a>
       <a href="/fr/investir.html">Investir</a>
       <span class="langsw"><span class="on">FR</span><span>·</span><a href="/method.html" hreflang="en">EN</a></span>
     </nav>
@@ -355,6 +385,8 @@ footer a{color:var(--muted)}
       <a href="/fr/investir.html">Investir</a>
       <a href="/fr/correction.html">Demander une correction</a>
       <a href="/mentions-legales.html">Mentions légales</a>
+      <a href="/calendar/">Calendrier</a>
+      <a href="/fr/faq/">FAQ</a>
       <a href="mailto:contact@uback.com">contact@uback.com</a>
     </div>
     <span class="disclaimer">Les classements sont des contenus éditoriaux, pas des conseils en investissement.</span>

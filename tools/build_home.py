@@ -11,7 +11,8 @@ from urllib.parse import quote
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_site import MARKETS, NAMES, next_edition, format_date, months_txt   # même calendrier que les pages marchés
-from pages_global import METHOD, LEGAL, INVEST
+from pages_global import METHOD, LEGAL, INVEST, FAQ, CALENDAR_INTRO
+import geo
 
 def next_ed(code):
     m = next(v for v in MARKETS if v['code'] == code and v['default'])
@@ -30,18 +31,13 @@ FLAGS = {
  'vn': '<svg class="flag" viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" fill="#DA251D"/><polygon points="24,7 26.47,14.6 34.46,14.6 28,19.3 30.47,26.9 24,22.2 17.53,26.9 20,19.3 13.54,14.6 21.53,14.6" fill="#FFFF00"/></svg>',
 }
 
-# Classements par pays, groupés par région. live : (code, nom, sous-ligne, url) ; soon : noms à venir.
-REGIONS = [
- {'name': 'North Africa & Middle East', 'live': [('ma', 'Morocco', 'In English & French · next edition ' + next_ed('ma'), '/ma/')],
-  'soon': ['Tunisia', 'Egypt', 'UAE', 'Saudi Arabia']},
- {'name': 'Europe', 'live': [('pl', 'Poland', 'In English · next edition ' + next_ed('pl'), '/pl/')],
-  'soon': ['France', 'Romania', 'Ukraine']},
- {'name': 'Asia', 'live': [('vn', 'Vietnam', 'In English · next edition ' + next_ed('vn'), '/vn/')],
-  'soon': ['Indonesia', 'Philippines']},
- {'name': 'Sub-Saharan Africa', 'live': [], 'soon': ['Nigeria', 'Kenya', 'Senegal', 'Côte d’Ivoire']},
- {'name': 'Latin America', 'live': [], 'soon': ['Mexico', 'Colombia', 'Chile']},
-]
-REGIONAL = ['Africa', 'Central & Eastern Europe', 'Southeast Asia', 'Middle East', 'Latin America']
+# Classements par pays : construits depuis data/geo.json (régions, sous-régions, statuts), jamais écrits à la main.
+LANGS = {'en': 'English', 'fr': 'French'}
+def live_sub(code):
+    """Sous-ligne d'un pays en ligne : langues disponibles et prochaine date du calendrier."""
+    langs = [LANGS[m['lang']] for m in MARKETS if m['code'] == code]
+    return 'In ' + ' & '.join(langs) + ' · next edition ' + next_ed(code)
+LIVE = [(c['code'], geo.name(c), live_sub(c['code']), c['url']) for c in sorted(geo.live(), key=geo.name)]
 OPEN_FAMILY = 'FIN'                 # famille ouverte au chargement
 
 def norm(s):
@@ -75,20 +71,21 @@ def fam_slug(name):
     return re.sub(r'[^a-z0-9]+', '-', name.lower()).strip('-')
 
 # Menu « Rankings » de l'en-tête (homepage et pages globales) : familles publiées (page /sectors/<famille>/) et pays en ligne,
-# calculés depuis data/sectors.json, data/segments/ et REGIONS. Même mécanisme que les sélecteurs des pages pays et segment
+# calculés depuis data/sectors.json, data/segments/ et data/geo.json. Même mécanisme que les sélecteurs des pages pays et segment
 # (<details>, sans JavaScript) ; un petit script le referme au clic à l'extérieur ou avec Échap.
 RK_UI = {'en': dict(t='Rankings', sec='By sector', cty='By country', all_s='All sectors', all_c='All countries',
-                    m='Method', m_sub='How the AI ranks startups and estimates their valuation', m_url='/method.html'),
+                    m='Method', m_sub='How the AI ranks startups and estimates their valuation', m_url='/method.html',
+                    faq='FAQ · questions about the rankings', faq_url='/faq/'),
          'fr': dict(t='Classements', sec='Par secteur', cty='Par pays', all_s='Tous les secteurs', all_c='Tous les pays',
-                    m='Méthode', m_sub='Comment l’IA classe les startups et estime leur valorisation', m_url='/fr/methode.html')}
+                    m='Méthode', m_sub='Comment l’IA classe les startups et estime leur valorisation', m_url='/fr/methode.html',
+                    faq='FAQ · questions sur les classements', faq_url='/fr/faq/')}
 
 def rankings_menu(lang, current=None):
     u = RK_UI[lang]
     fams = ''.join(f'<a href="/sectors/{fam_slug(f["name"])}/">{e(f["name"])}</a>' for f in FAMS
                    if any(g.get('status') == 'published' for s in f['sectors'] for g in s['segments']))
     ctys = ''
-    for r in REGIONS:
-        for code, name, sub, url in r['live']:
+    for code, name, sub, url in LIVE:
             if lang == 'fr':                      # version française du pays si elle existe, sinon sa version principale
                 v = next((m for m in MARKETS if m['code'] == code and m['lang'] == 'fr'), None)
                 name, url = NAMES[code]['fr'], (v['path'] + '/' if v else url)
@@ -100,6 +97,7 @@ def rankings_menu(lang, current=None):
             f'<a class="rk-method" href="{u["m_url"]}"{" aria-current=\"page\"" if current == "method" else ""}>'
             f'<span class="rk-ic" aria-hidden="true"></span><span><b>{u["m"]}</b><small>{u["m_sub"]}</small></span>'
             f'<span class="rk-go" aria-hidden="true">→</span></a>'
+            f'<a class="rk-faq" href="{u["faq_url"]}"{" aria-current=\"page\"" if current == "faq" else ""}>{u["faq"]} <span aria-hidden="true">→</span></a>'
             f'</div></details>' + RK_JS)
 
 RK_JS = ('<script>(function(){var d=document.querySelector("details.rk");if(!d)return;'
@@ -118,12 +116,46 @@ def family(f):
             f'<span class="cnt">{n_sec} sectors · {n_seg} segments</span></summary>'
             f'<div class="fam-body">{body}{fam_link(f)}</div></details>')
 
-def region(r):
-    live = ''.join(
-        f'<div class="live-row">{FLAGS[c]}<div class="lr-txt"><b>{e(n)}</b><span>{e(sub)}</span></div>'
-        f'<a class="btn-view" href="{url}">View <span aria-hidden="true">→</span></a></div>' for c, n, sub, url in r['live'])
-    soon = f'<div class="pills">{"".join(soon_pill(s) for s in r["soon"])}</div>' if r['soon'] else ''
-    return f'<div class="region"><h3 class="reg-h">{e(r["name"])}</h3>{live}{soon}</div>'
+def plural(n, word):
+    return f'{n} {word if n == 1 else ("countries" if word == "country" else word + "s")}'
+
+def live_row(c):
+    return (f'<div class="live-row">{FLAGS[c["code"]]}<div class="lr-txt"><b>{e(geo.name(c))}</b><span>{e(live_sub(c["code"]))}</span></div>'
+            f'<a class="btn-view" href="{c["url"]}">View <span aria-hidden="true">→</span></a></div>')
+
+def zone_block(cs):
+    """Pays en ligne en carte, puis pays à venir en pastilles « Coming soon » (les pays radar ne sont pas sur la homepage)."""
+    cs = geo.sort_ranked(cs)
+    rows = ''.join(live_row(c) for c in cs if c['status'] == 'live')
+    soon = [c for c in cs if c['status'] == 'planned']
+    return rows + (f'<div class="pills">{"".join(soon_pill(geo.name(c)) for c in soon)}</div>' if soon else '')
+
+def region_acc(r, open_):
+    """Accordéon d'une région (même modèle que les familles de la colonne secteurs) : pays rattachés directement
+    à la région, puis un intertitre cliquable par sous-région ; lien vers la page de la région en bas."""
+    slug = r['slug']
+    ranked = geo.countries_of(slug, geo.RANKED)
+    n_live = sum(c['status'] == 'live' for c in ranked)
+    body = ''
+    direct = [c for c in ranked if c['zone'] == slug]
+    if direct:
+        body += f'<div class="sect">{zone_block(direct)}</div>'
+    for z in geo.subzones(slug):
+        cs = geo.countries_of(z['slug'], geo.RANKED)
+        if cs:
+            body += (f'<div class="sect"><a class="sect-h sub-link" href="/regions/{z["slug"]}/">{e(r["name"]["en"])} › {e(z["name"]["en"])}'
+                     f' <span aria-hidden="true">→</span></a>{zone_block(cs)}</div>')
+    link = f'<a class="fam-link" href="/regions/{slug}/">All {e(r["name"]["en"])} rankings <span aria-hidden="true">→</span></a>'
+    cnt = plural(len(ranked), 'country') + (f' · {n_live} live' if n_live else '')
+    return (f'<details class="fam zone"{" open" if open_ else ""}>'
+            f'<summary><span class="chev" aria-hidden="true"></span><b>{e(r["name"]["en"])}</b><span class="cnt">{cnt}</span></summary>'
+            f'<div class="fam-body">{body}{link}</div></details>')
+
+ZONE_REGIONS = [r for r in geo.REGIONS if geo.countries_of(r['slug'], geo.RANKED)]
+N_COUNTRIES = len([c for c in geo.GEO['countries'] if c['status'] in geo.RANKED])
+# ouverte par défaut : la région qui compte le plus de pays en ligne ; à égalité, celle du premier marché lancé (Maroc)
+OPEN_REGION = max(ZONE_REGIONS, key=lambda r: (sum(c['status'] == 'live' for c in geo.countries_of(r['slug'], geo.RANKED)),
+                                               geo.in_zone(geo.COUNTRIES['ma'], r['slug'])))['slug']
 
 FAMS = SECTORS['families']
 N_FAM = len(FAMS)
@@ -135,12 +167,10 @@ JSONLD = {"@context": "https://schema.org", "@graph": [
      "description": DESC,
      "logo": "https://uback.com/assets/favicon-192.png"},
     {"@type": "WebSite", "name": "Uback", "url": "https://uback.com/", "inLanguage": "en"},
-    # liste des marchés en ligne : calculée depuis REGIONS, jamais écrite à la main
+    # liste des marchés en ligne : calculée depuis data/geo.json, jamais écrite à la main
     {"@type": "ItemList", "name": "Uback markets", "itemListElement": [
         {"@type": "ListItem", "position": i, "name": f"{n} — quarterly ranking", "url": f"https://uback.com{url}"}
-        for i, (c, n, sub, url) in enumerate([x for r in REGIONS for x in r['live']], 1)]}]}
-LIVE_NAMES = [n for r in REGIONS for (c, n, sub, url) in r['live']]
-LIVE_TXT = ', '.join(LIVE_NAMES[:-1]) + ' and ' + LIVE_NAMES[-1] if len(LIVE_NAMES) > 1 else LIVE_NAMES[0]
+        for i, (c, n, sub, url) in enumerate(LIVE, 1)]}]}
 
 CSS = '''
 :root{--navy:#1E3A5F;--navy-dark:#142842;--gold:#C8A052;--bg:#F7F8FA;--line:#E4E8EE;--muted:#5A6B82;--body:#4A5A70;--dim:#6B7A8F;--dash:#C9D1DC}
@@ -181,8 +211,9 @@ nav a{text-decoration:none;display:inline-flex;align-items:center;min-height:44p
 .rk-method small{display:block;margin-top:2px;font-size:12.5px;font-weight:500;line-height:1.4;color:var(--muted)}
 .rk-ic{flex:0 0 30px;height:30px;border-radius:8px;background:var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M4 19h16M7 15V9M12 15V5M17 15v-4'/%3E%3C/svg%3E") center/18px no-repeat}
 .rk-go{margin-left:auto;font-size:18px;font-weight:600;color:var(--gold)}
+.rk-menu a.rk-faq{grid-column:1/-1;min-height:36px;margin-top:4px;font-size:14px;font-weight:600;color:var(--muted)}
 .rk-menu a.rk-all{margin-top:4px;font-size:14px;font-weight:600;text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:5px}
-/* pages globales (sélecteur de langue en plus) : sur petit écran, le menu passe sous le logo */
+/* homepage et pages globales : sur petit écran, le menu passe sous le logo */
 @media (max-width:419px){header.hdr-lang .wrap{height:auto;flex-wrap:wrap;row-gap:0;padding-top:8px;padding-bottom:4px}header.hdr-lang nav{width:100%;justify-content:space-between;gap:10px}}
 @media (max-width:359px){header nav{font-size:13px;gap:4px}.langsw{font-size:12px}}
 @media (max-width:719px){header .wrap{position:relative}.rk{position:static}
@@ -267,6 +298,10 @@ h1{margin:0;font-size:38px;line-height:1.08;font-weight:800;letter-spacing:-.03e
 .btn-view{margin-left:auto;display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 16px;border-radius:10px;background:var(--navy);color:#fff;font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap}
 .btn-view:hover{background:var(--navy-dark);color:#fff}
 .regional{margin-top:22px;padding:16px;border-radius:12px;background:var(--bg)}
+a.sub-link{display:inline-flex;align-items:center;gap:6px;min-height:32px;text-decoration:none}
+a.sub-link:hover{color:var(--navy);text-decoration:underline;text-decoration-color:var(--gold)}
+.fam.zone .live-row{margin-bottom:8px}
+.freq a{color:var(--muted)}
 .regional h3{margin:0 0 4px;font-size:15px;font-weight:700}
 .regional p{margin:0 0 10px;font-size:13px;color:var(--muted)}
 
@@ -341,7 +376,7 @@ document.documentElement.classList.add('js');
     p.classList.toggle('show');
   });});
   // recherche de segment : insensible aux accents et aux majuscules
-  var q=document.getElementById('seg-q'), fams=[].slice.call(document.querySelectorAll('.fam')),
+  var q=document.getElementById('seg-q'), fams=[].slice.call(document.querySelectorAll('#sectors .fam')),
       none=document.getElementById('no-match'), wasOpen=null;
   function norm(s){return s.normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toLowerCase().trim();}
   q.addEventListener('input',function(){
@@ -401,11 +436,12 @@ page = f'''<!doctype html>
 <body>
 
 <div class="beta"><div class="wrap"><b>Beta · prototype</b><span class="beta-t">— This site is under construction: rankings, texts and features change every week.</span></div></div>
-<header>
+<header class="hdr-lang">
   <div class="wrap">
     <a class="logo" href="/" aria-label="Uback, home"><span class="u" aria-hidden="true">U</span>Uback</a>
     <nav aria-label="Main">
       {rankings_menu('en')}
+      <a href="/calendar/">Calendar</a>
       <a href="/invest.html">Invest</a>
     </nav>
   </div>
@@ -447,7 +483,7 @@ page = f'''<!doctype html>
               <h2 id="sectors-h">Global sector rankings</h2>
               <p class="intro">The world’s leading startups in each segment, ranked against their direct competitors.</p>
             </div>
-            <div class="freq gold"><b>Twice a year</b><span>January 1 · July 1</span></div>
+            <div class="freq gold"><b>Twice a year</b><span><a href="/calendar/">See the calendar</a></span></div>
           </div>
           <div class="search">
             <label for="seg-q">Find a segment</label>
@@ -473,11 +509,18 @@ page = f'''<!doctype html>
             </div>
             <div class="freq navy"><b>Quarterly</b></div>
           </div>
-{chr(10).join('          ' + region(r) for r in REGIONS)}
+          <div class="legend">
+            <span class="count">{len(ZONE_REGIONS)} regions · {N_COUNTRIES} countries</span>
+            <span class="pill soon static" aria-hidden="true">Coming soon</span>
+            <span class="pill pub static" aria-hidden="true">Live</span>
+          </div>
+          <div class="acc">
+{chr(10).join('            ' + region_acc(r, r['slug'] == OPEN_REGION) for r in ZONE_REGIONS)}
+          </div>
           <div class="regional">
-            <h3>Regional rankings</h3>
-            <p>Multi-country rankings, as new markets open.</p>
-            <div class="pills">{''.join(soon_pill(x) for x in REGIONAL)}</div>
+            <h3>Collections</h3>
+            <p>Groups of countries under a common framework, each with its own regional ranking.</p>
+            <div class="pills">{''.join(f'<a class="pill pub" href="/collections/{k["slug"]}/">{e(k["name"]["en"])}</a>' for k in geo.GEO['collections'])}</div>
           </div>
         </section>
 
@@ -522,6 +565,8 @@ page = f'''<!doctype html>
       <a href="/invest.html">Invest</a>
       <a href="/correction.html">Request a correction</a>
       <a href="/legal-notice.html">Legal notice</a>
+      <a href="/calendar/">Calendar</a>
+      <a href="/faq/">FAQ</a>
       <a href="mailto:contact@uback.com">contact@uback.com</a>
     </div>
     <span class="disclaimer">Rankings are editorial content, not investment advice.</span>
@@ -540,7 +585,9 @@ print('ok index.html', N_FAM, 'families,', N_SEG, 'segments')
 # Méthode et mentions légales, en anglais et en français (texte : tools/pages_global.py), avec la charte de la homepage.
 GLOBAL = {'method': {'en': 'method.html', 'fr': 'fr/methode.html'}, 'legal': {'en': 'legal-notice.html', 'fr': 'mentions-legales.html'},
           'invest': {'en': 'invest.html', 'fr': 'fr/investir.html'},
-          'correction': {'en': 'correction.html', 'fr': 'fr/correction.html'}, 'thanks': {'en': 'thank-you.html', 'fr': 'fr/merci.html'}}
+          'correction': {'en': 'correction.html', 'fr': 'fr/correction.html'}, 'thanks': {'en': 'thank-you.html', 'fr': 'fr/merci.html'},
+          'faq': {'en': 'faq/index.html', 'fr': 'fr/faq/index.html'},
+          'calendar': {'en': 'calendar/index.html'}}                  # calendrier : anglais seulement
 G_UI = {
  'en': dict(skip='Skip to content', sectors='Sectors', countries='Countries', method='Method',
             beta='Beta · prototype', beta_t='— This site is under construction: rankings, texts and features change every week.',
@@ -552,7 +599,10 @@ G_UI = {
             opening_form='In the meantime, you can <a href="/#follow">sign up to be notified when they open</a>.',
             t_correction='Request a correction | Uback', d_correction='Report inaccurate information or dispute a rank in a Uback ranking.',
             t_thanks='Thank you | Uback', d_thanks='Request prepared.',
-            t_legal='Legal notice | Uback', d_legal='Legal notice of the Uback website.'),
+            t_legal='Legal notice | Uback', d_legal='Legal notice of the Uback website.',
+            calendar='Calendar', faq='FAQ',
+            t_faq='FAQ: questions about the rankings | Uback', d_faq='Why China has no ranking, how Uback chooses the countries it ranks, and when a ranking can be updated before its scheduled date.',
+            t_calendar='Publication calendar | Uback', d_calendar='The dates on which Uback publishes each country, regional and global segment ranking. Fixed dates, repeated every year.'),
  'fr': dict(skip='Aller au contenu', sectors='Secteurs', countries='Pays', method='Méthode',
             beta='Bêta · prototype', beta_t='— Ce site est en construction : classements, textes et fonctionnalités évoluent chaque semaine.',
             legal='Mentions légales', corr='Demander une correction', disc='Les classements sont des contenus éditoriaux, pas des conseils en investissement.',
@@ -563,7 +613,9 @@ G_UI = {
             opening_form='En attendant, vous pouvez <a href="/#follow">vous inscrire pour être prévenu de l’ouverture</a>.',
             t_correction='Demander une correction | Uback', d_correction='Signalez une information inexacte ou contestez un rang dans un classement Uback.',
             t_thanks='Merci | Uback', d_thanks='Demande préparée.',
-            t_legal='Mentions légales | Uback', d_legal='Mentions légales du site Uback.'),
+            t_legal='Mentions légales | Uback', d_legal='Mentions légales du site Uback.',
+            calendar='Calendrier', faq='FAQ',
+            t_faq='FAQ : questions sur les classements | Uback', d_faq='Pourquoi la Chine n’a pas de classement, comment Uback choisit les pays classés, et quand un classement peut être mis à jour avant sa date prévue.'),
 }
 G_CSS = '''
 .prose-main{padding:24px 0 72px}
@@ -601,6 +653,30 @@ G_CSS = '''
 .langsw a{color:var(--muted);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
 .langsw .on{color:var(--navy)}
 @media (max-width:899px){.prose h1{font-size:32px}.prose table{font-size:14px}}
+/* calendrier */
+.prose.cal-page{max-width:1200px}.cal-page>*{max-width:820px}
+.ics{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:10px;background:var(--navy);color:#fff!important;font-weight:600;text-decoration:none}
+.ics:hover{background:var(--navy-dark)}
+.cal-tools{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:8px auto 20px;position:sticky;top:0;z-index:10;background:var(--bg);padding-top:10px;padding-bottom:10px}
+.cal-filter{display:flex;flex-wrap:wrap;gap:6px}
+.cal-filter button{min-height:40px;padding:0 14px;border:1px solid var(--dash);border-radius:999px;background:#fff;font:inherit;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer}
+.cal-filter button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+#cal-q{flex:1 1 240px;min-height:40px;padding:8px 14px;border:1px solid var(--dash);border-radius:10px;font:inherit;font-size:15px;color:var(--navy);background:#fff}
+#cal-q:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
+.cal-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+.cal-m{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.cal-m h2{margin:0 0 8px;font-size:20px;font-weight:800}
+.cal-days{list-style:none;margin:0;padding:0}
+.cal-days li{display:flex;gap:12px;padding:6px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.4}
+.cal-days li:first-child{border-top:0}
+.cal-days .d{flex:0 0 26px;font-weight:700;color:var(--navy);text-align:right}
+.cal-days .its{display:flex;flex-direction:column;gap:2px;min-width:0;color:var(--body)}
+.cal-days .ci a{color:var(--navy);font-weight:600}
+.cal-days .ct{display:inline-block;min-width:72px;margin-right:6px;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.cal-days .ci[data-t="regional"] .ct{color:var(--gold)}
+.cal-days li.off{color:var(--muted);font-style:italic}.cal-days li.off .d{color:var(--dim)}
+@media (min-width:900px){.cal-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:640px) and (max-width:899px){.cal-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 '''
 
 def calendar(lang):
@@ -618,13 +694,20 @@ def calendar(lang):
     u = G_UI[lang]
     return f'<table><tr><th>{u["cal_country"]}</th><th>{u["cal_months"]}</th><th>{u["cal_next"]}</th></tr>{rows}</table>'
 
-def global_page(key, lang, body):
-    u, path = G_UI[lang], GLOBAL[key][lang]
+def url_of(key, lang):
+    """Adresse publique d'une page globale : « faq/index.html » → « faq/ »."""
+    path = GLOBAL[key][lang]
+    return path[:-len('index.html')] if path.endswith('index.html') else path
+
+def global_page(key, lang, body, extra=''):
+    u, path = G_UI[lang], url_of(key, lang)
     other = 'fr' if lang == 'en' else 'en'
-    alt = ''.join(f'\n<link rel="alternate" hreflang="{l}" href="https://uback.com/{GLOBAL[key][l]}">' for l in ('en', 'fr'))
-    alt += f'\n<link rel="alternate" hreflang="x-default" href="https://uback.com/{GLOBAL[key]["en"]}">'
-    sw = (f'<span class="langsw"><span class="on">{lang.upper()}</span><span>·</span>'
-          f'<a href="/{GLOBAL[key][other]}" hreflang="{other}">{other.upper()}</a></span>')
+    alt = sw = ''
+    if other in GLOBAL[key]:                   # page bilingue : hreflang et sélecteur de langue
+        alt = ''.join(f'\n<link rel="alternate" hreflang="{l}" href="https://uback.com/{url_of(key, l)}">' for l in ('en', 'fr'))
+        alt += f'\n<link rel="alternate" hreflang="x-default" href="https://uback.com/{url_of(key, "en")}">'
+        sw = (f'<span class="langsw"><span class="on">{lang.upper()}</span><span>·</span>'
+              f'<a href="/{url_of(key, other)}" hreflang="{other}">{other.upper()}</a></span>')
     title, desc = u['t_' + key], u['d_' + key]
     method_url = '/' + GLOBAL['method'][lang]
     cur = lambda k: ' aria-current="page"' if k == key else ''
@@ -646,7 +729,7 @@ def global_page(key, lang, body):
 <link rel="apple-touch-icon" href="/assets/favicon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">{extra}
 <!-- Généré par tools/build_home.py (texte : tools/pages_global.py) : ne pas modifier à la main. -->
 <style>{CSS}{G_CSS}</style>
 </head>
@@ -658,6 +741,7 @@ def global_page(key, lang, body):
     <a class="logo" href="/" aria-label="Uback, home"><span class="u" aria-hidden="true">U</span>Uback</a>
     <nav aria-label="Main">
       {rankings_menu(lang, key)}
+      <a href="/calendar/"{cur('calendar')}>{u['calendar']}</a>
       <a href="/{GLOBAL['invest'][lang]}"{cur('invest')}>{u['invest']}</a>
       {sw}
     </nav>
@@ -676,6 +760,8 @@ def global_page(key, lang, body):
       <a href="/{GLOBAL['invest'][lang]}">{u['invest']}</a>
       <a href="/{GLOBAL['correction'][lang]}">{u['corr']}</a>
       <a href="/{GLOBAL['legal'][lang]}">{u['legal']}</a>
+      <a href="/calendar/">{u['calendar']}</a>
+      <a href="/{url_of('faq', lang)}">{u['faq']}</a>
       <a href="mailto:contact@uback.com">contact@uback.com</a>
     </div>
     <span class="disclaimer">{u['disc']}</span>
@@ -822,11 +908,149 @@ def pool_ctx(lang):
             'el.hidden=false;'
             'if(location.hash)el.scrollIntoView();})();</script>')
 
+def faq_body(lang):
+    h1 = {'en': 'Frequently asked questions', 'fr': 'Questions fréquentes'}[lang]
+    qa = ''.join(f'<h2 id="{a}">{e(q)}</h2>\n<p>{e(r)}</p>\n' for a, q, r in FAQ[lang])
+    return f'<div class="wrap prose">\n<h1>{h1}</h1>\n{qa}</div>\n'
+
+def faq_jsonld(lang):
+    ld = {"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": lang, "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": r}} for a, q, r in FAQ[lang]]}
+    return f'\n<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>'
+
+# ---------------------------------------------------------------- calendrier (/calendar/) et export .ics
+# Tout vient de data/calendar.json (sortie de tools/build_calendar.py) : aucune date écrite à la main.
+CAL_TYPES = [('all', 'All'), ('country', 'Countries'), ('segment', 'Segments'), ('regional', 'Regional rankings')]
+CAL_LABEL = {'country': 'Country', 'segment': 'Segment', 'regional': 'Regional', 'review': 'Review'}
+ICS_PATH = 'calendar/uback-calendar.ics'
+
+def cal_link(it):
+    """Page du classement si elle existe (pays en ligne, segment publié, zone ou collection), sinon None."""
+    if it['type'] == 'country':
+        c = geo.COUNTRIES[it['code']]
+        return c['url'] if c['status'] == 'live' else None
+    if it['type'] == 'segment':
+        return f"/segments/{it['slug']}/" if POOL_SEGMENTS.get(it['slug']) and os.path.exists(os.path.join(ROOT, 'data', 'segments', it['slug'] + '.json')) else None
+    if it['type'] == 'regional':
+        return f"/{'collections' if it['slug'] in geo.COLLECTIONS else 'regions'}/{it['slug']}/"
+    return None
+
+def calendar_body():
+    import calendar as _cal
+    months = {}
+    for d in geo.CAL['days']:
+        months.setdefault(int(d['date'][:2]), []).append(d)
+    blocks = ''
+    for m, days in months.items():
+        rows = ''
+        for d in days:
+            day = int(d['date'][3:])
+            if not d['items']:
+                rows += f'<li class="off" data-t="off"><span class="d">{day}</span><span class="its">No scheduled publication</span></li>'
+                continue
+            its = ''
+            for it in d['items']:
+                label = e(it['name'])
+                href = cal_link(it)
+                txt = f'<a href="{href}">{label}</a>' if href else label
+                its += (f'<span class="ci" data-t="{it["type"]}" data-n="{e(norm(it["name"]))}">'
+                        f'<span class="ct">{CAL_LABEL[it["type"]]}</span>{txt}</span>')
+            rows += f'<li><span class="d">{day}</span><span class="its">{its}</span></li>'
+        blocks += (f'<section class="cal-m" data-m="{m}"><h2>{_cal.month_name[m]}</h2><ol class="cal-days">{rows}</ol></section>')
+    k = geo.CAL['counts']
+    filters = ''.join(f'<button type="button" data-f="{v}" aria-pressed="{"true" if v == "all" else "false"}">{t}</button>' for v, t in CAL_TYPES)
+    return f'''<div class="wrap prose cal-page">
+<h1>Publication calendar</h1>
+<p class="lead">{k['countries']} country rankings four times a year, {k['regional']} regional rankings and {k['segments']} global segment rankings twice a year: {k['publications_per_year']} publications a year, on fixed dates.</p>
+{CALENDAR_INTRO}
+<p><a class="ics" href="/{ICS_PATH}" download>Add to your calendar (.ics)</a></p>
+</div>
+<div class="wrap cal-tools">
+  <div class="cal-filter" role="group" aria-label="Show">{filters}</div>
+  <label class="sr" for="cal-q">Search a country, segment or zone</label>
+  <input id="cal-q" type="search" placeholder="Search a country, segment or zone…" autocomplete="off">
+</div>
+<div class="wrap cal-grid" id="cal">{blocks}</div>
+<div class="wrap"><p class="no-match" id="cal-none" hidden>No publication matches.</p></div>
+<script>
+(function(){{
+  var f='all', q=document.getElementById('cal-q'), btns=[].slice.call(document.querySelectorAll('.cal-filter button'));
+  function norm(s){{return s.normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toLowerCase().trim();}}
+  function apply(){{
+    var v=norm(q.value), total=0;
+    document.querySelectorAll('.cal-m').forEach(function(m){{
+      var mc=0;
+      m.querySelectorAll('.cal-days li').forEach(function(li){{
+        var n=0;
+        if(li.dataset.t==='off'){{li.hidden=!(f==='all'&&!v);return;}}
+        li.querySelectorAll('.ci').forEach(function(c){{
+          var ok=(f==='all'||c.dataset.t===f)&&(!v||c.dataset.n.indexOf(v)>=0); c.hidden=!ok; if(ok)n++;
+        }});
+        li.hidden=n===0; mc+=n;
+      }});
+      m.hidden=mc===0; total+=mc;
+    }});
+    document.getElementById('cal-none').hidden=total>0;
+  }}
+  btns.forEach(function(b){{b.addEventListener('click',function(){{f=b.dataset.f;
+    btns.forEach(function(x){{x.setAttribute('aria-pressed',x===b?'true':'false');}});apply();}});}});
+  q.addEventListener('input',apply);
+}})();
+</script>
+'''
+
+def ics_fold(line):
+    """Lignes de 75 octets au plus (RFC 5545), suites précédées d'une espace."""
+    out, cur = [], b''
+    for ch in line:
+        b = ch.encode('utf-8')
+        if len(cur) + len(b) > (75 if not out else 74):
+            out.append(cur.decode('utf-8'))
+            cur = b''
+        cur += b
+    out.append(cur.decode('utf-8'))
+    return '\r\n '.join(out)
+
+def ics_text(t):
+    return t.replace('\\', '\\\\').replace(';', '\\;').replace(',', '\\,')
+
+def write_ics():
+    """Un événement annuel (journée entière, RRULE yearly) par publication du calendrier, à partir de sa prochaine date."""
+    import datetime as _dt
+    today = _dt.date.today()
+    stamp = _dt.datetime.now(_dt.timezone.utc).strftime('%Y%m%dT%H%M%SZ')
+    kind = {'country': 'country ranking', 'segment': 'global segment ranking', 'regional': 'regional ranking', 'review': ''}
+    lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Uback//Publication calendar//EN', 'CALSCALE:GREGORIAN',
+             'X-WR-CALNAME:Uback rankings', 'X-WR-CALDESC:Theoretical calendar: applies once Uback leaves beta. Fixed dates\\, every year.']
+    for d in geo.CAL['days']:
+        m, day = int(d['date'][:2]), int(d['date'][3:])
+        start = _dt.date(today.year, m, day)
+        if start < today:
+            start = _dt.date(today.year + 1, m, day)
+        for it in d['items']:
+            key = it.get('code') or it.get('slug') or 'review'
+            summary = f"Uback · {it['name']}" + (f" ({kind[it['type']]})" if kind[it['type']] else '')
+            href = cal_link(it)
+            ev = ['BEGIN:VEVENT', f"UID:{d['date']}-{it['type']}-{key}@uback.com", f'DTSTAMP:{stamp}',
+                  f"DTSTART;VALUE=DATE:{start.strftime('%Y%m%d')}", f"DTEND;VALUE=DATE:{(start + _dt.timedelta(days=1)).strftime('%Y%m%d')}",
+                  'RRULE:FREQ=YEARLY', f'SUMMARY:{ics_text(summary)}', 'TRANSP:TRANSPARENT']
+            if href:
+                ev.append(f'URL:https://uback.com{href}')
+            lines += ev + ['END:VEVENT']
+    lines.append('END:VCALENDAR')
+    out = os.path.join(ROOT, *ICS_PATH.split('/'))
+    os.makedirs(os.path.dirname(out), exist_ok=True)
+    open(out, 'w', encoding='utf-8', newline='').write('\r\n'.join(ics_fold(l) for l in lines) + '\r\n')
+    print('ok', ICS_PATH, sum(len(d['items']) for d in geo.CAL['days']), 'events')
+
 BODIES = {'method': METHOD, 'legal': LEGAL, 'invest': {l: INVEST[l].replace('@OPENING@', OPENING[l]).replace('@POOLCTX@', pool_ctx(l)) for l in ('en', 'fr')},
-          'correction': {l: correction_body(l) for l in ('en', 'fr')}, 'thanks': {l: thanks_body(l) for l in ('en', 'fr')}}
+          'correction': {l: correction_body(l) for l in ('en', 'fr')}, 'thanks': {l: thanks_body(l) for l in ('en', 'fr')},
+          'faq': {l: faq_body(l) for l in ('en', 'fr')}, 'calendar': {'en': calendar_body()}}
+EXTRA = {'faq': {l: faq_jsonld(l) for l in ('en', 'fr')}}
 for key, texts in BODIES.items():
-    for lang in ('en', 'fr'):
+    for lang in texts:
         out = os.path.join(ROOT, *GLOBAL[key][lang].split('/'))
-        os.makedirs(os.path.dirname(out), exist_ok=True)
-        open(out, 'w', encoding='utf-8', newline='\n').write(global_page(key, lang, texts[lang]))
+        os.makedirs(os.path.dirname(out) or ROOT, exist_ok=True)
+        open(out, 'w', encoding='utf-8', newline='\n').write(global_page(key, lang, texts[lang], EXTRA.get(key, {}).get(lang, '')))
         print('ok', GLOBAL[key][lang])
+write_ics()

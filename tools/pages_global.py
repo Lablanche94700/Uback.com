@@ -374,3 +374,33 @@ INVEST = {
 </div>
 """,
 }
+
+# FAQ (/faq/ et /fr/faq/) : (ancre, question, réponse). D'autres questions suivront ; le balisage FAQPage (schema.org)
+# est calculé depuis cette liste par tools/build_home.py.
+FAQ = {
+'en': [
+ ('china', 'Why doesn’t China have its own ranking?',
+  'Uback ranks startups that investors can actually back. Non-Chinese investors have practically no access to Chinese startups: capital controls, offshore VIE structures and foreign-investment restrictions keep them out. Publishing a Chinese ranking would be a false promise, and our rule 8 forbids false promises. We still analyse Chinese companies: they serve as valuation comparables and as competitors that can affect the value of the startups we rank. Hong Kong-registered companies operating mainly in mainland China follow the same rule.'),
+ ('countries', 'How does Uback choose the countries it ranks?',
+  'Uback doesn’t choose them: an algorithm does. A country gets a national ranking when at least 15 distinct companies operating there raised at least USD 1M in equity over the last 36 months, with at least two independent public sources. The size of that pool sets the format of the ranking. Below 15, companies still appear in their zone’s regional ranking. Countries under broad EU or US sanctions are excluded. The list is recomputed every year and published on 31 December. A country enters at 15 and leaves only below 10.'),
+ ('out-of-cycle', 'Can a ranking be updated before its scheduled date?',
+  'Yes. When a major event occurs (a large round, an acquisition, a shutdown), Uback may publish an out-of-cycle update. The scheduled edition is still published on its official date.'),
+],
+'fr': [
+ ('china', 'Pourquoi la Chine n’a-t-elle pas son classement ?',
+  'Uback classe des startups dans lesquelles un investisseur peut réellement investir. Les investisseurs non chinois n’ont pratiquement aucun accès aux startups chinoises : contrôle des capitaux, structures offshore (VIE), restrictions aux investissements étrangers. Publier un classement chinois serait une fausse promesse, ce que notre règle n° 8 interdit. Nous analysons pourtant les sociétés chinoises : elles servent de comparables de valorisation et de concurrents susceptibles de peser sur la valeur des startups que nous classons. Les sociétés immatriculées à Hong Kong mais opérant principalement en Chine continentale suivent la même règle.'),
+ ('countries', 'Comment Uback choisit-il les pays classés ?',
+  'Uback ne les choisit pas : c’est l’algorithme qui le fait. Un pays a son classement national dès qu’au moins 15 sociétés distinctes, opérant dans ce pays, ont levé au moins 1 M$ en equity sur les 36 derniers mois, avec au moins deux sources publiques indépendantes. La taille de ce vivier fixe le format du classement. En dessous de 15, les sociétés figurent quand même dans le classement régional de leur zone. Les pays sous sanctions larges de l’UE ou des États-Unis sont exclus. La liste est recalculée chaque année et publiée le 31 décembre. Un pays entre à 15 et ne sort que sous 10.'),
+ ('out-of-cycle', 'Un classement peut-il être mis à jour avant sa date prévue ?',
+  'Oui. En cas d’événement majeur (grosse levée, rachat, fermeture), Uback peut publier une mise à jour hors calendrier. L’édition prévue est quand même publiée à sa date officielle.'),
+],
+}
+
+# Page /calendar/ (anglais) : encadré et règles ; la vue par mois est calculée depuis data/calendar.json par tools/build_home.py.
+CALENDAR_INTRO = """<div class="callout"><p><b>Theoretical calendar.</b> Uback is in beta. This is the calendar Uback will follow once it leaves beta. Dates are fixed and repeat every year.</p></div>
+<ul>
+<li>Country rankings: quarterly</li>
+<li>Global segment rankings: twice a year</li>
+<li>Regional rankings: twice a year</li>
+<li>Days 29–31: no scheduled publication (reserved for out-of-cycle updates)</li>
+</ul>"""

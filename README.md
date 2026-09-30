@@ -11,6 +11,13 @@ Contenu du Maroc : classement « Édition 0 – bêta » des 20 startups marocai
 ```
 index.html              ← homepage monde (anglais), générée par tools/build_home.py : ne pas modifier à la main
 data/sectors.json       ← arborescence des classements mondiaux (famille > secteur > segment), source unique
+data/geo.json           ← géographie, source unique : pays (statut, tier, densité), 7 régions et 14 sous-régions, collections
+                          (UE, UEMOA) ; ne jamais modifier une donnée à la main, toute règle d'affichage s'en calcule
+data/calendar.json      ← calendrier annuel théorique (sortie de tools/build_calendar.py : ne pas modifier à la main)
+regions/<slug>/         ← pages de zone (7 régions, 14 sous-régions), générées par tools/build_regions.py
+collections/<slug>/     ← pages de collection (european-union, uemoa), générées par tools/build_regions.py
+calendar/               ← calendrier des publications (anglais) + export calendar/uback-calendar.ics, par tools/build_home.py
+faq/, fr/faq/           ← FAQ (anglais / français, balisage FAQPage), texte dans tools/pages_global.py
 method.html, fr/methode.html      ← méthode et règles du jeu GLOBALES (anglais / français), communes à tous les pays
 legal-notice.html, mentions-legales.html ← mentions légales globales (anglais / français)
 correction.html, fr/correction.html ← formulaire de correction global (CORRECTION_MODE dans tools/build_home.py :
@@ -22,7 +29,7 @@ methode.html, partenaire.html, merci.html
                         ← redirections (anciennes adresses, à garder) vers /fr/methode.html et /ma/fr/…
 assets/                 ← favicons et ancienne image de partage, pour la racine
 data/classement-ma-2026-09.json   ← copie à l'ancien chemin, pour ne casser aucun lien
-sitemap.xml, robots.txt ← maintenus à la main (racine + pages /ma)
+sitemap.xml, robots.txt ← maintenus à la main (racine, pays, segments, zones, collections, calendrier, FAQ)
 CNAME                   ← domaine servi par GitHub Pages
 netlify.toml            ← prêt pour une migration vers Netlify (formulaire natif)
 
@@ -49,12 +56,20 @@ tools/og-image-<code>.html ← source de <code>/assets/og-image.png (image de pa
 tools/pages_global.py   ← texte de la méthode et des mentions légales globales (français / anglais)
 tools/build_segments.py ← classements mondiaux par segment (/segments/<slug>/, depuis data/segments/<slug>.json)
 tools/build_home.py     ← génère index.html et les pages globales ; homepage : classements mondiaux par secteur (depuis data/sectors.json)
-                          et classements par pays / régionaux (liste REGIONS en tête du script)
+                          et classements par pays, en accordéon par région (depuis data/geo.json)
+tools/build_calendar.py ← calcule data/calendar.json depuis data/geo.json et data/sectors.json
+tools/build_regions.py  ← pages de zone et de collection (depuis data/geo.json et data/calendar.json)
+tools/geo.py            ← lecture commune de data/geo.json et data/calendar.json (zones, pays, prochaine date d'un classement)
 ```
 
-Ajouter un marché : créer `<code>/data/classement-<code>-AAAA-MM.json` (mêmes clés que le Maroc), l'ajouter à
-`MARKETS` dans `tools/build_site.py`, lancer `python3 tools/build_site.py <code>`, puis le passer en « live » dans
-`REGIONS` de `tools/build_home.py`, lancer `python3 tools/build_home.py`, et ajouter ses pages dans `sitemap.xml`.
+Ordre de génération complet : `build_calendar.py`, `build_site.py`, `build_segments.py`, `build_regions.py`, puis
+`build_home.py` (tous dans `tools/`, Python 3 standard).
+
+**Ajouter un pays = passer son statut à `live` dans `data/geo.json`** (et renseigner son `url`), une fois sa première
+édition prête : créer `<code>/data/classement-<code>-AAAA-MM.json` (mêmes clés que le Maroc), l'ajouter à `MARKETS` dans
+`tools/build_site.py` (mois de publication = ceux du calendrier ; le script échoue sinon), relancer la génération complète
+et ajouter ses pages dans `sitemap.xml`. Homepage, menu Rankings, pages de zone et calendrier suivent sans autre code.
+Aucune page pays n'existe avant sa première édition : un pays `planned` reste une pastille « Coming soon ».
 `ma/assets/style.css` reste la seule feuille de style des marchés.
 
 ## Homepage et classements mondiaux par secteur
@@ -66,9 +81,22 @@ identifiant `FAMILLE-nn-nn`, slug anglais stable. Un segment est publié automat
 `/segments/<slug>/`) dès qu'un fichier `data/segments/<slug>.json` existe.
 
 En-tête de la homepage et des pages globales : menu « Rankings » / « Classements » (familles publiées → `/sectors/<famille>/`,
-pays en ligne → leur page, plus « All sectors » / « All countries » vers la homepage, et la Méthode mise en avant en bas
-du menu) ; l'en-tête ne compte que deux entrées, Rankings et Invest. Calculé à chaque génération
+pays en ligne → leur page, plus « All sectors » / « All countries » vers la homepage, la Méthode mise en avant en bas
+du menu, puis la FAQ) ; l'en-tête compte trois entrées, Rankings, Calendar et Invest. Calculé à chaque génération
 (`rankings_menu()` dans `tools/build_home.py`).
+
+Colonne « Country rankings » : accordéon par région (`data/geo.json`), sur le modèle des familles ; dans une région, les
+pays rattachés directement, puis un intertitre cliquable par sous-région (→ `/regions/<slug>/`), les pays `live` en carte
+et les pays `planned` en pastilles « Coming soon » ; les pays `radar`, la Chine et les pays exclus n'y figurent pas.
+Ouverte par défaut : la région qui compte le plus de pays `live` (à égalité, celle du Maroc). Ligne « Collections » en bas.
+
+## Pages de zone et de collection
+
+`python3 tools/build_regions.py` génère `/regions/<slug>/` (régions et sous-régions) et `/collections/<slug>/`, même charte
+que les pages famille : fil d'Ariane, chapô calculé, sous-régions, pays classés (live : lien et dates ; planned : « Coming
+soon »), classement régional à venir et ses dates théoriques, radar de la zone, ligne Chine (East Asia, Asia), formulaire
+de suivi prérempli sur la zone. Chaque page pays renvoie à sa zone (menu des pays) ; chaque page segment renvoie aux
+zones de ses sociétés quand elles existent dans `data/geo.json`.
 
 ## Classements mondiaux par segment
 
@@ -100,12 +128,19 @@ Les pages de `ma/` ne se modifient pas à la main : on modifie le JSON ou le gé
 
 ## Calendrier des éditions
 
-Classements pays : **trimestriels**, publiés le 15, un pays par mois pour que Uback publie chaque mois
-(Vietnam : janv., avr., juil., oct. ; Maroc : févr., mai, août, nov. ; Pologne : mars, juin, sept., déc.).
-Réglages `cadence`, `publish_day`, `publish_months` dans `MARKETS` (`tools/build_site.py`) ; la fonction
-`next_edition()` calcule la prochaine date, affichée sur les pages marchés et sur la homepage. La date affichée
-est celle du jour de la génération : relancer les deux scripts après chaque édition.
-Classements mondiaux par secteur : **semestriels** (1er janvier, 1er juillet).
+`python3 tools/build_calendar.py` calcule `data/calendar.json` (à relancer à chaque changement de la liste des pays ou des
+segments) ; il doit afficher « 68 countries ×4 · 21 regional ×2 · 157 segments ×2 ». Dates fixes d'une année sur l'autre ;
+calendrier **théorique**, appliqué à la sortie de bêta ; page `/calendar/` et export `.ics` générés par `tools/build_home.py`.
+Classements pays : **trimestriels** ; ancres conservées (Vietnam le 15 janv./avr./juil./oct., Maroc le 15 févr./mai/août/nov.,
+Pologne le 15 mars/juin/sept./déc.). `build_site.py` vérifie que `publish_months` (`MARKETS`) donne la même date que le
+calendrier. Classements régionaux et mondiaux par segment : **semestriels**, aux dates du calendrier.
+
+Sur chaque classement (pays, segment, famille), une ligne sous le titre : édition · « Published » (dernier verdict de l'IA :
+`snapshot_date` des données pays, `published` des données segment ; famille : le plus récent de ses segments) ·
+« Next scheduled update » (prochaine date du calendrier ; famille : la plus proche de ses segments). Le champ
+`next_edition` des JSON segment n'est plus lu. Mise à jour hors calendrier : champ facultatif
+`"out_of_cycle": {"date": "AAAA-MM-JJ", "reason": "…"}` dans la donnée d'un classement, affiché sous la ligne ;
+l'édition prévue reste due. La date affichée est celle du jour de la génération : relancer la génération après chaque édition.
 
 Libellé d'édition : celui du champ `edition` des données s'il existe (les éditions 0 gardent « Édition 0 – bêta »),
 sinon le trimestre de publication, « Q4 2026 » / « T4 2026 ».

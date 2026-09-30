@@ -13,6 +13,7 @@ def _v(*colors):                     # bandes verticales égales
 _STAR = '<polygon points="24,7 26.47,14.6 34.46,14.6 28,19.3 30.47,26.9 24,22.2 17.53,26.9 20,19.3 13.54,14.6 21.53,14.6" fill="{}"/>'
 
 SVG = {
+ 'MA': '<rect width="48" height="32" fill="#C1272D"/><polygon points="24,8.5 26.6,16.4 34.4,11.6 20,20.9 29.6,20.9 18.2,11.6 26,16.4" fill="none" stroke="#006233" stroke-width="1.6" stroke-linejoin="round" transform="translate(-2.2 1.2)"/>',
  'GB': '<rect width="48" height="32" fill="#012169"/><path d="M0,0 48,32M48,0 0,32" stroke="#fff" stroke-width="6"/>'
        '<path d="M0,0 48,32M48,0 0,32" stroke="#C8102E" stroke-width="2"/><path d="M24,0v32M0,16h48" stroke="#fff" stroke-width="10"/>'
        '<path d="M24,0v32M0,16h48" stroke="#C8102E" stroke-width="6"/>',

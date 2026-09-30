@@ -144,7 +144,8 @@ TXT = {
   fol_fine='Un e-mail par édition. Désinscription en un clic. Aucune donnée transmise à des tiers.',
   fol_soon='Bientôt disponible : les inscriptions ouvriront prochainement.',
   cad='Trimestriel', next='Prochaine édition : {next}',
-  snap_day='Instantané au {snap}', snap_month='Instantané de {snap}', next_on='Prochaine édition le {next_short}',
+  snap_day='Publié le {snap}', snap_month='Publié en {snap}', next_on='Prochaine mise à jour prévue le {next_short}',
+  ooc='Mise à jour hors calendrier', f_cal='Calendrier', f_faq='FAQ',
   js_body='Bonjour,\\n\\nJe souhaite recevoir chaque nouvelle édition du classement Uback {name}.\\n\\nE-mail : \'+em+\'\\nProfil : \'+pr+\'\\n',
   js_subject='Suivre le classement Uback {name}',),
 'en': dict(
@@ -223,16 +224,22 @@ TXT = {
   fol_fine='One e-mail per edition. One-click unsubscribe. No data passed on to third parties.',
   fol_soon='Coming soon: subscriptions will open shortly.',
   cad='Quarterly', next='Next edition: {next}',
-  snap_day='Snapshot as of {snap}', snap_month='Snapshot as of {snap}', next_on='Next edition {next_short}',
+  snap_day='Published {snap}', snap_month='Published {snap}', next_on='Next scheduled update {next_short}',
+  ooc='Out-of-cycle update', f_cal='Calendar', f_faq='FAQ',
   js_body='Hello,\\n\\nI would like to receive every new edition of the Uback {name} ranking.\\n\\nE-mail: \'+em+\'\\nProfile: \'+pr+\'\\n',
   js_subject='Follow the Uback {name} ranking',),
 }
-# date d'arrêt des données de l'édition (« AAAA-MM-JJ » ou « AAAA-MM ») ; vide : non affichée
+# « Published » : date du dernier verdict de l'IA, arrêt des données de l'édition (« AAAA-MM-JJ » ou « AAAA-MM ») ; vide : non affichée
 SNAP = D.get('snapshot_date') or ''
 V = dict(name=M['name'], in_=M['in'], In_=cap(M['in']), the=M['the'], adj_m=M['adj_m'], adj_f=M['adj_f'], adj_fp=M['adj_fp'],
          N=N, next=M['next_edition'], months=M['months_txt'], cities=M['cities'], date=D['date_label'], seuil=e(D['seuil_levee']), partner_short=M['partner_short'],
          startups=M['startups_label'], snap=format_date_short(SNAP, M['lang']) if SNAP else '', next_short=M['next_edition_short'])
 L = {k: v.format(**V) for k, v in TXT[M['lang']].items()}
+# mise à jour hors calendrier (facultative) : out_of_cycle {date, reason}, sous « Published » ; l'édition prévue reste due
+_o = D.get('out_of_cycle')
+OOC = ('\n      <div class="meta" style="margin:-8px 0 16px">'
+       f'<span>{L["ooc"]}</span><span>·</span><span>{format_date_short(_o["date"], M["lang"])}</span><span>·</span>'
+       f'<span>{e(_o["reason"])}</span></div>') if _o else ''
 PP, PT = L['p_partner'], L['p_thanks']
 # méthode et mentions légales : pages globales, communes à tous les pays (générées par tools/build_home.py)
 GM = '@ROOT@fr/methode.html' if M['lang'] == 'fr' else '@ROOT@method.html'
@@ -331,6 +338,8 @@ FOOT = f'''
       <span>·</span><a href="/{PP}">{L['f_partner']}</a>
       <span>·</span><a href="{GC}">{L['f_corr']}</a>
       <span>·</span><a href="{GL}">{L['f_legal']}</a>
+      <span>·</span><a href="@ROOT@calendar/">{L['f_cal']}</a>
+      <span>·</span><a href="@ROOT@{'fr/' if M['lang'] == 'fr' else ''}faq/">{L['f_faq']}</a>
       <span class="spacer"></span>
       <span>Uback.com · {datetime.date.today().year}</span>
     </div>
@@ -447,7 +456,7 @@ index += f'''
     <div>
       <div class="kicker">Funded startups, ranked by AI</div>
       <h1>{L['h1']}</h1>
-      <div class="meta" style="margin-bottom:16px"><span>{e(EDITION)}</span><span>·</span>{'<span>' + (L['snap_day'] if len(SNAP) == 10 else L['snap_month']) + '</span><span>·</span>' if SNAP else ''}<span>{L['next_on']}</span></div>
+      <div class="meta" style="margin-bottom:16px"><span>{e(EDITION)}</span><span>·</span>{'<span>' + (L['snap_day'] if len(SNAP) == 10 else L['snap_month']) + '</span><span>·</span>' if SNAP else ''}<span>{L['next_on']}</span></div>{OOC}
       <p class="lead">{L['lead']}</p>
       <div class="meta">
         <span class="tag cad">{L['cad']}</span>
