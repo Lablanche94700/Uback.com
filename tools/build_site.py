@@ -26,7 +26,7 @@ NAMES = {'ma': {'fr': 'Maroc', 'en': 'Morocco'}, 'pl': {'fr': 'Pologne', 'en': '
 #   cadence / publish_day / publish_months   calendrier : trimestriel, le 15, un pays par mois (VN janv., MA févr., PL mars…)
 #   data         fichier de référence (chiffres, sources) ; overlay : couche de traduction des textes (optionnelle)
 #   canonical    cette version écrit les champs de valorisation calculés dans le fichier de référence
-#   top_n        nombre de places du classement publié
+#   (plafond du classement : calculé depuis le tier du pays dans data/geo.json, voir RANKING_CAP)
 #   name / in / the / adj_*   « Maroc » / « au Maroc » / « le Maroc » / marocain, marocaine, marocaines
 #   cities       villes de la diaspora (« Investir au Maroc, à plusieurs, depuis … »)
 #   partner_*    profil du partenaire agréé recherché (régulateur local) ; partner_name : partenaire signé (None sinon)
@@ -39,7 +39,7 @@ MARKETS = [
     {'code': 'ma', 'lang': 'en', 'path': '/ma', 'default': True, 'canonical': False,
      'cadence': 'quarterly', 'publish_day': 15, 'publish_months': [2, 5, 8, 11],
      'data': 'classement-ma-2026-09.json', 'overlay': 'classement-ma-2026-09.en.json',
-     'top_n': 20, 'slug': 'morocco', 'og': 'og-image-en.png', 'og_v': 3, 'partner_name': None,
+     'slug': 'morocco', 'og': 'og-image-en.png', 'og_v': 3, 'partner_name': None,
      'startups_label': 'Moroccan startups',
      'name': 'Morocco', 'in': 'in Morocco', 'the': 'Morocco', 'adj_m': 'Moroccan', 'adj_f': 'Moroccan', 'adj_fp': 'Moroccan',
      'cities': 'Paris, Dubai or Montreal',
@@ -57,7 +57,7 @@ MARKETS = [
     {'code': 'ma', 'lang': 'fr', 'path': '/ma/fr', 'default': False, 'canonical': True,
      'cadence': 'quarterly', 'publish_day': 15, 'publish_months': [2, 5, 8, 11],
      'data': 'classement-ma-2026-09.json',
-     'top_n': 20, 'slug': 'maroc', 'og': 'og-image.png', 'og_v': 5, 'partner_name': None,
+     'slug': 'maroc', 'og': 'og-image.png', 'og_v': 5, 'partner_name': None,
      'startups_label': 'les startups marocaines',
      'name': 'Maroc', 'in': 'au Maroc', 'the': 'le Maroc', 'adj_m': 'marocain', 'adj_f': 'marocaine', 'adj_fp': 'marocaines',
      'cities': 'Paris, Dubaï ou Montréal',
@@ -75,7 +75,7 @@ MARKETS = [
     {'code': 'pl', 'lang': 'en', 'path': '/pl', 'default': True, 'canonical': True,
      'cadence': 'quarterly', 'publish_day': 15, 'publish_months': [3, 6, 9, 12],
      'data': 'classement-pl-2026-09.json',
-     'top_n': 15, 'slug': 'poland', 'og': 'og-image.png', 'og_v': 3, 'partner_name': None,
+     'slug': 'poland', 'og': 'og-image.png', 'og_v': 3, 'partner_name': None,
      'startups_label': 'Polish startups',
      'name': 'Poland', 'in': 'in Poland', 'the': 'Poland', 'adj_m': 'Polish', 'adj_f': 'Polish', 'adj_fp': 'Polish',
      'cities': 'London, Chicago or Berlin',
@@ -93,7 +93,7 @@ MARKETS = [
     {'code': 'vn', 'lang': 'en', 'path': '/vn', 'default': True, 'canonical': True,
      'cadence': 'quarterly', 'publish_day': 15, 'publish_months': [1, 4, 7, 10],
      'data': 'classement-vn-2026-09.json',
-     'top_n': 15, 'slug': 'vietnam', 'og': 'og-image.png', 'og_v': 4, 'partner_name': None,
+     'slug': 'vietnam', 'og': 'og-image.png', 'og_v': 4, 'partner_name': None,
      'startups_label': 'Vietnamese startups',
      'name': 'Vietnam', 'in': 'in Vietnam', 'the': 'Vietnam', 'adj_m': 'Vietnamese', 'adj_f': 'Vietnamese', 'adj_fp': 'Vietnamese',
      'cities': 'Singapore, Paris or California',
@@ -110,7 +110,7 @@ MARKETS = [
     {'code': 'fr', 'lang': 'en', 'path': '/fr', 'default': True, 'canonical': True,
      'cadence': 'quarterly', 'publish_day': 19, 'publish_months': [1, 4, 7, 10],
      'data': 'classement-fr-2026-09.json',
-     'top_n': 25, 'slug': 'france', 'og': 'og-image.png', 'og_v': 1, 'partner_name': None,
+     'slug': 'france', 'og': 'og-image.png', 'og_v': 1, 'partner_name': None,
      'startups_label': 'French startups',
      'name': 'France', 'in': 'in France', 'the': 'France', 'adj_m': 'French', 'adj_f': 'French', 'adj_fp': 'French',
      'cities': 'London, New York or Dubai',
@@ -125,6 +125,11 @@ MARKETS = [
      'sectors_soon': ['Healthtech', 'Defence', 'Climate &amp; energy', 'Robotics', 'Quantum'],
      'langs_soon': ['FR']},
 ]
+# Plafond du classement national, selon le tier du pays (data/geo.json) : règle publiée dans la méthode. Le classement
+# compte toutes les sociétés sur lesquelles les IA s'accordent (au moins 3 des 5 modèles dans la même tranche ou des
+# tranches voisines), dans la limite de ce plafond ; les autres vont au Radar.
+RANKING_CAP = {'short': 20, 'standard': 20, 'full': 50}
+
 UI = {'fr': {'all': 'Tous les marchés', 'choose': 'Changer de pays', 'zone': 'Classements · {}'},
       'en': {'all': 'All markets', 'choose': 'Change country', 'zone': '{} rankings'}}
 
@@ -212,6 +217,7 @@ def build(m, valuation):
             open(path, 'w', encoding='utf-8', newline='\n').write(json.dumps(data, ensure_ascii=False, indent=2) + '\n')
     m['variants'] = [{'lang': v['lang'], 'path': v['path'], 'default': v['default']} for v in MARKETS if v['code'] == m['code']]
     m['switcher'] = switcher(m)
+    m['top_n'] = RANKING_CAP[geo.COUNTRIES[m['code']]['tier']]
     m['css_v'] = CSS_V
     nxt = next_edition(m)
     # la date affichée vient du calendrier (data/calendar.json) ; elle doit rester celle des mois de publication du marché

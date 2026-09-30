@@ -60,7 +60,7 @@ fr/ est PARTAGÉ : le site France (build_site.py : index.html, thank-you.html, a
   supprime de fichier. /fr/ est le classement France (anglais), jamais « l'accueil en français » ; toute nouvelle page globale
   française doit éviter les noms du gabarit pays (index.html, partner.html, thank-you.html, method.html, legal-notice.html).
 
-tools/build_site.py     ← réglages de chaque marché (langue, top_n, pays, diaspora, secteurs, partenaire, presse…)
+tools/build_site.py     ← réglages de chaque marché (langue, pays, diaspora, secteurs, partenaire, presse…)
 tools/site.py           ← gabarit unique de tous les marchés ; textes d'interface en français et en anglais (TXT)
 tools/og-image-<code>.html ← source de <code>/assets/og-image.png (image de partage 1200×630)
 tools/pages_global.py   ← texte de la méthode et des mentions légales globales (français / anglais)

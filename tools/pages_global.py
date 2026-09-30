@@ -79,7 +79,7 @@ METHOD = {
 
 <h2>Classement, Challengers, Radar</h2>
 <ul>
-<li><b>Le classement</b> : jusqu’à 20 sociétés par ordre de valorisation estimée. Il est plus court quand le marché compte moins de sociétés estimables. Rien ne s’y achète.</li>
+<li><b>Le classement</b> : toutes les sociétés que les IA savent valoriser avec un accord suffisant (au moins 3 des 5 IA dans la même tranche ou dans des tranches voisines), par ordre de valorisation estimée, dans la limite de 20 noms (50 sur les plus grands marchés). Une société sur laquelle elles ne s’accordent pas va au Radar. Rien ne s’y achète.</li>
 <li><b>Les Challengers</b> : un espace de visibilité payant, réservé aux sociétés immatriculées en recherche de financement qui veulent se faire connaître des investisseurs. Il est affiché séparément, étiqueté comme sponsorisé, et n’a aucun effet sur le classement. Un Challenger qui devient éligible et estimable entre dans le classement dans les mêmes conditions que les autres sociétés.</li>
 <li><b>Le Radar</b> : les autres sociétés éligibles connues, triées par date de dernière levée. Il est mis à jour en continu, sans estimation.</li>
 </ul>
@@ -182,7 +182,7 @@ METHOD = {
 
 <h2>Ranking, Challengers, Radar</h2>
 <ul>
-<li><b>The ranking</b>: up to 20 companies in order of estimated valuation. It is shorter when a market has fewer companies that can be estimated. Nothing in it can be bought.</li>
+<li><b>The ranking</b>: every company the AI models can value with enough agreement (at least 3 of the 5 models in the same or adjacent valuation ranges), in order of estimated valuation, up to 20 names (50 in the largest markets). A company they cannot value with enough agreement goes to the Radar. Nothing in it can be bought.</li>
 <li><b>Challengers</b>: a paid visibility space, reserved for registered companies raising funds that want to be seen by investors. It is displayed separately, labelled as sponsored, and has no effect on the ranking. A Challenger that becomes eligible and can be estimated enters the ranking on the same terms as any other company.</li>
 <li><b>The Radar</b>: the other known eligible companies, sorted by date of last funding round. Updated continuously, without estimates.</li>
 </ul>
