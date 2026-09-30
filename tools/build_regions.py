@@ -22,6 +22,13 @@ OG_IMG = 'https://uback.com/assets/og-image.png'
 def plural(n, word):
     return f'{n} {word if n == 1 else ("countries" if word == "country" else word + "s")}'
 
+LANGS = {'en': 'English', 'fr': 'French'}
+
+def languages(code):
+    """Langues du classement d'un pays (versions dans MARKETS, version principale d'abord) : « In English & French »."""
+    vs = sorted((m for m in MARKETS if m['code'] == code), key=lambda m: not m['default'])
+    return 'In ' + ' & '.join(LANGS[m['lang']] for m in vs)
+
 def country_dates(code):
     """Dates d'un pays en ligne : dernière édition (donnée du classement) et prochaine date du calendrier."""
     m = next(v for v in MARKETS if v['code'] == code and v['default'])
@@ -63,7 +70,7 @@ def country_cards(ranked):
             pub, nxt = country_dates(c['code'])
             live += (f'<a class="card fam-seg" href="{e(c["url"])}"><span class="k">Live ranking</span>'
                      f'<h3>{flag(c["code"], "flag-s")}{e(geo.name(c))}</h3>'
-                     f'<p>Published {pub} · Next scheduled update {nxt}</p></a>')
+                     f'<p>{e(languages(c["code"]))}<br>Published {pub} · Next scheduled update {nxt}</p></a>')
         else:
             soon += (f'<span class="pill soon" tabindex="0" aria-disabled="true">{e(geo.name(c))}'
                      f'<span class="tip" role="tooltip">Coming soon</span></span>')

@@ -34,11 +34,9 @@ FLAGS = {
 }
 
 # Classements par pays : construits depuis data/geo.json (régions, sous-régions, statuts), jamais écrits à la main.
-LANGS = {'en': 'English', 'fr': 'French'}
 def live_sub(code):
-    """Sous-ligne d'un pays en ligne : langues disponibles et prochaine date du calendrier."""
-    langs = [LANGS[m['lang']] for m in MARKETS if m['code'] == code]
-    return 'In ' + ' & '.join(langs) + ' · next edition ' + next_ed(code)
+    """Sous-ligne d'un pays en ligne : prochaine date du calendrier (les langues sont sur les pages de zone)."""
+    return 'Next edition ' + next_ed(code)
 LIVE = [(c['code'], geo.name(c), live_sub(c['code']), c['url']) for c in sorted(geo.live(), key=geo.name)]
 OPEN_FAMILY = 'FIN'                 # famille ouverte au chargement
 
