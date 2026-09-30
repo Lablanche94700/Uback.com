@@ -145,6 +145,18 @@ def format_date(d, lang):
     """« November 15, 2026 » / « 15 novembre 2026 »."""
     return f"{MONTHS[lang][d.month - 1]} {d.day}, {d.year}" if lang == 'en' else f"{d.day} {MONTHS[lang][d.month - 1]} {d.year}"
 
+MONTHS_SHORT = {'fr': ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'],
+                'en': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
+
+def format_date_short(d, lang):
+    """« 15 Nov 2026 » / « 15 nov. 2026 » ; date ISO « AAAA-MM » (mois seul) : « Sep 2026 » / « sept. 2026 »."""
+    if isinstance(d, str):
+        if len(d) == 7:
+            y, mo = d.split('-')
+            return f"{MONTHS_SHORT[lang][int(mo) - 1]} {y}"
+        d = datetime.date.fromisoformat(d)
+    return f"{d.day} {MONTHS_SHORT[lang][d.month - 1]} {d.year}"
+
 def months_txt(market, lang=None):
     """Mois de publication en toutes lettres : « de février, mai, août et novembre » / « of February, May, August and November »."""
     lang = lang or market['lang']
@@ -179,6 +191,7 @@ def build(m, valuation):
     m['css_v'] = CSS_V
     nxt = next_edition(m)
     m['next_edition'] = format_date(nxt, m['lang'])
+    m['next_edition_short'] = format_date_short(nxt, m['lang'])
     m['months_txt'] = months_txt(m)
     m['next_edition_label'] = edition_label(nxt, m['lang'])
     runpy.run_path(os.path.join(TOOLS, 'site.py'), init_globals={'M': m})

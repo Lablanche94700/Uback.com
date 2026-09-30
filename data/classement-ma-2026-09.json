@@ -4,6 +4,7 @@
   "edition": "Édition 0 – bêta",
   "date": "2026-09",
   "date_label": "Septembre 2026",
+  "snapshot_date": "2026-09",
   "methode": "Classement établi par Claude (Anthropic) à partir d'informations publiques, selon les règles publiées. Le consensus de plusieurs IA (Claude, Gemini, ChatGPT) sera appliqué à partir de l'édition 1.",
   "seuil_levee": "500 k$",
   "classement": [
