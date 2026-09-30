@@ -71,6 +71,7 @@ nav a{text-decoration:none;display:inline-flex;align-items:center;min-height:44p
 .eyebrow{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .eyebrow i{width:20px;height:2px;background:var(--gold);display:block;flex-shrink:0}
 .eyebrow i.r{display:none}
+.eyebrow .nw{white-space:nowrap}   /* si la ligne ne tient pas, « Public beta » passe à la ligne, jamais au milieu */
 h1{margin:0;font-size:38px;line-height:1.08;font-weight:800;letter-spacing:-.03em}
 .lead{margin:0;font-size:17px;line-height:1.6;color:var(--body)}
 /* homepage : deux colonnes Discover / Back sous le titre */
@@ -221,7 +222,7 @@ footer a{color:var(--muted)}
 <main>
   <section class="hero">
     <div class="wrap">
-      <div class="eyebrow"><i></i><span>Startup rankings · Public beta</span><i class="r"></i></div>
+      <div class="eyebrow"><i></i><span><span class="nw">Run by rules, not editors ·</span> <span class="nw">Public beta</span></span><i class="r"></i></div>
       <h1>The most valuable startups, ranked by AI.</h1>
       <div class="duo">
         <div class="duo-col">
