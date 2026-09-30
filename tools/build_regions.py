@@ -70,7 +70,7 @@ def country_cards(ranked):
             pub, nxt = country_dates(c['code'])
             live += (f'<a class="card fam-seg" href="{e(c["url"])}"><span class="k">Live ranking</span>'
                      f'<h3>{flag(c["code"], "flag-s")}{e(geo.name(c))}</h3>'
-                     f'<p>{e(languages(c["code"]))}<br>Published {pub} · Next scheduled update {nxt}</p></a>')
+                     f'<p>Published {pub} · Next scheduled update {nxt}<br>{e(languages(c["code"]))}</p></a>')
         else:
             soon += (f'<span class="pill soon" tabindex="0" aria-disabled="true">{e(geo.name(c))}'
                      f'<span class="tip" role="tooltip">Coming soon</span></span>')
