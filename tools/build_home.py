@@ -419,13 +419,13 @@ page = f'''<!doctype html>
       <div class="duo">
         <div class="duo-col">
           <div class="duo-k">Discover</div>
-          <p>Uback ranks funded, non-listed tech startups by AI-estimated valuation, by country and by global segment. <b>The market sets the value; our AI estimates it.</b> We publish the rank and an order of magnitude, never a figure.</p>
+          <p>Uback ranks funded private tech startups by AI-estimated valuation, worldwide by segment and country by country. <b>Only the market (investors and deals) sets a startup’s real value; our AI tries to get close to it.</b> We publish a rank and an order of magnitude, never a figure.</p>
           <a href="#rankings">See the rankings <span aria-hidden="true">↓</span></a>
         </div>
         <div class="duo-rule" aria-hidden="true"></div>
         <div class="duo-col">
           <div class="duo-k">Back</div>
-          <p>Alone, an investor rarely gets a seat at the table. <b>Together, Backers form a pool startups can’t ignore.</b> Declare an interest in a sector or a country, or an intent on a company open to Backers: once the pool reaches critical mass, the country’s licensed partner takes it to the company.</p>
+          <p>Alone, an investor rarely gets a seat at the table. <b>Together, Backers form a pool that counts.</b> Declare an intention on a segment or a country you want to back, today, without waiting for a startup to open its doors. Once the pool reaches critical mass, our licensed local partner takes it to the companies that fit.</p>
           <a href="/invest.html">How it works <span aria-hidden="true">→</span></a>
         </div>
       </div>
