@@ -1,0 +1,2 @@
+# export iCalendar : fins de ligne CRLF exigées par la RFC 5545, fichier gardé tel quel
+*.ics -text
