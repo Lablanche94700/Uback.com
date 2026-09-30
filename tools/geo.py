@@ -10,7 +10,8 @@ GEO = json.load(open(os.path.join(ROOT, 'data', 'geo.json'), encoding='utf-8'))
 CAL = json.load(open(os.path.join(ROOT, 'data', 'calendar.json'), encoding='utf-8'))
 
 ZONES = {z['slug']: z for z in GEO['zones']}
-REGIONS = [z for z in GEO['zones'] if not z['parent']]                 # 7 régions, ordre du fichier
+# ordre d'affichage des zones : alphabétique (nom anglais), neutre, sans hiérarchie entre régions
+REGIONS = sorted((z for z in GEO['zones'] if not z['parent']), key=lambda z: z['name']['en'])   # 7 régions
 COLLECTIONS = {k['slug']: k for k in GEO['collections']}
 COUNTRIES = {c['code']: c for c in GEO['countries']}
 RANKED = ('live', 'planned')                                           # pays classés (publiés ou à venir)
@@ -18,7 +19,7 @@ TIER = {'full': 0, 'standard': 1, 'short': 2}
 REGIONAL = {r['slug']: r for r in CAL['regional_rankings']}            # zones et collections qui ont un classement régional
 
 def subzones(slug):
-    return [z for z in GEO['zones'] if z['parent'] == slug]
+    return sorted((z for z in GEO['zones'] if z['parent'] == slug), key=lambda z: z['name']['en'])
 
 def lineage(slug):
     """Chaîne des zones, de la région à la zone : ['europe', 'central-eastern-europe']."""
