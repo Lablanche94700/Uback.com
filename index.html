@@ -165,11 +165,6 @@ a.sub-link:hover{color:var(--navy);text-decoration:underline;text-decoration-col
 .follow button:hover{background:var(--navy-dark)}
 .skip{position:absolute;left:-9999px}
 
-footer{margin-top:auto;background:#fff;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
-footer .wrap{padding-top:28px;padding-bottom:36px;display:flex;flex-direction:column;gap:12px}
-.foot-links{display:flex;flex-wrap:wrap;gap:8px 20px}
-footer a{color:var(--muted)}
-.disclaimer{font-size:13px;line-height:1.5}
 
 @media (max-width:760px){.beta .beta-t{display:none}}
 @media (max-width:899px){
@@ -199,10 +194,24 @@ footer a{color:var(--muted)}
   .follow .fform{flex:0 1 560px}
   .follow form{flex-direction:row}
   .follow input{flex:1}
-  footer .wrap{flex-direction:row;align-items:center;justify-content:space-between;padding-top:28px;padding-bottom:28px}
-  .foot-links{gap:24px}
-  .disclaimer{font-size:14px}
 }
+footer.site-foot{margin-top:auto;background:#fff;border-top:1px solid var(--line);font-size:14px;color:var(--muted);padding:0}
+footer.site-foot .wrap{display:block;padding-top:36px;padding-bottom:24px}
+.ft-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:28px}
+.ft-brand p{margin:10px 0 12px;max-width:300px;font-size:14px;line-height:1.5;color:var(--muted)}
+.ft-logo{display:inline-flex;align-items:center;gap:10px;font-size:18px;font-weight:800;letter-spacing:-.02em;color:var(--navy);text-decoration:none}
+.ft-logo .u{width:28px;height:28px;border-radius:7px;background:var(--navy);color:var(--gold);display:inline-flex;align-items:center;justify-content:center;font-size:16px;letter-spacing:0}
+.ft-contact{display:inline-flex;align-items:center;gap:6px;min-height:40px;font-weight:600;color:var(--navy);text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:5px}
+.ft-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start;font-size:14px;font-weight:400}
+.ft-col{display:flex;flex-direction:column;align-items:flex-start}
+.ft-h{margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy)}
+.ft-col a{display:inline-flex;align-items:center;min-height:36px;color:var(--muted);text-decoration:none}
+.ft-col a:hover,.ft-bar a:hover{color:var(--navy);text-decoration:underline}
+.ft-bar{margin-top:24px;padding-top:16px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 20px;font-size:12.5px}
+.ft-bar a{color:var(--muted)}
+.ft-bar p{flex:1 1 100%;margin:4px 0 0;line-height:1.55;max-width:none}
+@media (min-width:640px){.ft-nav{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:900px){.ft-grid{grid-template-columns:minmax(0,1.3fr) minmax(0,3fr);gap:48px}}
 </style>
 </head>
 <body>
@@ -309,7 +318,7 @@ footer a{color:var(--muted)}
             <details class="fam zone"><summary><span class="chev" aria-hidden="true"></span><b>Asia</b><span class="cnt">15 countries · 1 live</span></summary><div class="fam-body"><div class="sect"><a class="sect-h sub-link" href="/regions/east-asia/">Asia › East Asia <span aria-hidden="true">→</span></a><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true">Hong Kong<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true">Japan<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true">South Korea<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true">Taiwan<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect"><a class="sect-h sub-link" href="/regions/southeast-asia/">Asia › Southeast Asia <span aria-hidden="true">→</span></a><div class="live-row"><svg class="flag" viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" fill="#DA251D"/><polygon points="24,7 26.47,14.6 34.46,14.6 28,19.3 30.47,26.9 24,22.2 17.53,26.9 20,19.3 13.54,14.6 21.53,14.6" fill="#FFFF00"/></svg><div class="lr-txt"><b>Vietnam</b><span>In English · next edition October 15, 2026</span></div><a class="btn-view" href="/vn/">View <span aria-hidden="true">→</span></a></div><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true">Singapore<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true">Indonesia<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true">Malaysia<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true">Philippines<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true">Thailand<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect"><a class="sect-h sub-link" href="/regions/south-asia/">Asia › South Asia <span aria-hidden="true">→</span></a><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true">India<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true">Bangladesh<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true">Pakistan<span class="tip" role="tooltip">Coming soon</span></span></div></div><div class="sect"><a class="sect-h sub-link" href="/regions/central-asia/">Asia › Central Asia <span aria-hidden="true">→</span></a><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true">Kazakhstan<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true">Uzbekistan<span class="tip" role="tooltip">Coming soon</span></span></div></div><a class="fam-link" href="/regions/asia/">All Asia rankings <span aria-hidden="true">→</span></a></div></details>
             <details class="fam zone"><summary><span class="chev" aria-hidden="true"></span><b>Oceania</b><span class="cnt">2 countries</span></summary><div class="fam-body"><div class="sect"><div class="pills"><span class="pill soon" tabindex="0" aria-disabled="true">Australia<span class="tip" role="tooltip">Coming soon</span></span><span class="pill soon" tabindex="0" aria-disabled="true">New Zealand<span class="tip" role="tooltip">Coming soon</span></span></div></div><a class="fam-link" href="/regions/oceania/">All Oceania rankings <span aria-hidden="true">→</span></a></div></details>
           </div>
-          <div class="regional">
+          <div class="regional" id="collections">
             <h3>Collections</h3>
             <p>Groups of countries under a common framework, each with its own regional ranking.</p>
             <div class="pills"><a class="pill pub" href="/collections/european-union/">European Union</a><a class="pill pub" href="/collections/uemoa/">WAEMU (UEMOA)</a></div>
@@ -349,19 +358,21 @@ footer a{color:var(--muted)}
   </section>
 </main>
 
-<footer>
+<footer class="site-foot">
   <div class="wrap">
-    <div class="foot-links">
-      <span>© 2026 Uback</span>
-      <a href="/method.html">Method</a>
-      <a href="/invest.html">Invest</a>
-      <a href="/correction.html">Request a correction</a>
-      <a href="/legal-notice.html">Legal notice</a>
-      <a href="/calendar/">Calendar</a>
-      <a href="/faq/">FAQ</a>
-      <a href="mailto:contact@uback.com">contact@uback.com</a>
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <a class="ft-logo" href="/" aria-label="Uback"><span class="u" aria-hidden="true">U</span>Uback</a>
+        <p>Funded startups, ranked by AI. Run by rules, not editors.</p>
+        <a class="ft-contact" href="/contact.html">Contact us <span aria-hidden="true">→</span></a>
+      </div>
+      <nav class="ft-nav" aria-label="Footer"><div class="ft-col"><p class="ft-h">Rankings</p><a href="/#sectors">By sector</a><a href="/#countries">By country</a><a href="/#collections">Collections</a></div><div class="ft-col"><p class="ft-h">How it works</p><a href="/method.html">Method</a><a href="/calendar/">Calendar</a><a href="/correction.html">Request a correction</a><a href="/faq/">FAQ</a></div><div class="ft-col"><p class="ft-h">Backers</p><a href="/invest.html">Invest with Uback</a></div></nav>
     </div>
-    <span class="disclaimer">Rankings are editorial content, not investment advice.</span>
+    <div class="ft-bar">
+      <span>© 2026 Uback</span>
+      <a href="/legal-notice.html">Legal notice</a>
+      <p>Uback is a content publisher. It provides no investment advice, receives no mandate and takes part in no transaction. Introductions are made by licensed partners, currently being selected. Investing in non-listed companies carries a risk of losing all the capital invested.</p>
+    </div>
   </div>
 </footer>
 
@@ -375,7 +386,7 @@ document.documentElement.classList.add('js');
     tabs.forEach(function(t){t.setAttribute('aria-selected',t===b?'true':'false');});
   });});
   // lien #sectors / #countries (menu Rankings) : affiche l'onglet correspondant sur mobile
-  function syncView(){var v=location.hash.slice(1);if(v!=='sectors'&&v!=='countries')return;
+  function syncView(){var v=location.hash.slice(1);if(v==='collections')v='countries';if(v!=='sectors'&&v!=='countries')return;
     main.setAttribute('data-view',v);tabs.forEach(function(t){t.setAttribute('aria-selected',t.dataset.view===v?'true':'false');});}
   syncView();window.addEventListener('hashchange',syncView);
   // info-bulle « Coming soon » au tap

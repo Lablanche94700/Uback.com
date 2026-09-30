@@ -13,6 +13,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_site import MARKETS, NAMES, next_edition, format_date, months_txt   # même calendrier que les pages marchés
 from pages_global import METHOD, LEGAL, INVEST, FAQ, CALENDAR_INTRO
 import geo
+from footer import footer, FOOTER_CSS
 
 def next_ed(code):
     m = next(v for v in MARKETS if v['code'] == code and v['default'])
@@ -318,11 +319,6 @@ a.sub-link:hover{color:var(--navy);text-decoration:underline;text-decoration-col
 .follow button:hover{background:var(--navy-dark)}
 .skip{position:absolute;left:-9999px}
 
-footer{margin-top:auto;background:#fff;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
-footer .wrap{padding-top:28px;padding-bottom:36px;display:flex;flex-direction:column;gap:12px}
-.foot-links{display:flex;flex-wrap:wrap;gap:8px 20px}
-footer a{color:var(--muted)}
-.disclaimer{font-size:13px;line-height:1.5}
 
 @media (max-width:760px){.beta .beta-t{display:none}}
 @media (max-width:899px){
@@ -352,11 +348,8 @@ footer a{color:var(--muted)}
   .follow .fform{flex:0 1 560px}
   .follow form{flex-direction:row}
   .follow input{flex:1}
-  footer .wrap{flex-direction:row;align-items:center;justify-content:space-between;padding-top:28px;padding-bottom:28px}
-  .foot-links{gap:24px}
-  .disclaimer{font-size:14px}
 }
-'''
+''' + FOOTER_CSS
 
 JS = '''
 document.documentElement.classList.add('js');
@@ -368,7 +361,7 @@ document.documentElement.classList.add('js');
     tabs.forEach(function(t){t.setAttribute('aria-selected',t===b?'true':'false');});
   });});
   // lien #sectors / #countries (menu Rankings) : affiche l'onglet correspondant sur mobile
-  function syncView(){var v=location.hash.slice(1);if(v!=='sectors'&&v!=='countries')return;
+  function syncView(){var v=location.hash.slice(1);if(v==='collections')v='countries';if(v!=='sectors'&&v!=='countries')return;
     main.setAttribute('data-view',v);tabs.forEach(function(t){t.setAttribute('aria-selected',t.dataset.view===v?'true':'false');});}
   syncView();window.addEventListener('hashchange',syncView);
   // info-bulle « Coming soon » au tap
@@ -518,7 +511,7 @@ page = f'''<!doctype html>
           <div class="acc">
 {chr(10).join('            ' + region_acc(r, r['slug'] == OPEN_REGION) for r in ZONE_REGIONS)}
           </div>
-          <div class="regional">
+          <div class="regional" id="collections">
             <h3>Collections</h3>
             <p>Groups of countries under a common framework, each with its own regional ranking.</p>
             <div class="pills">{''.join(f'<a class="pill pub" href="/collections/{k["slug"]}/">{e(k["name"]["en"])}</a>' for k in geo.GEO['collections'])}</div>
@@ -558,21 +551,7 @@ page = f'''<!doctype html>
   </section>
 </main>
 
-<footer>
-  <div class="wrap">
-    <div class="foot-links">
-      <span>© 2026 Uback</span>
-      <a href="{METHOD_URL}">Method</a>
-      <a href="/invest.html">Invest</a>
-      <a href="/correction.html">Request a correction</a>
-      <a href="/legal-notice.html">Legal notice</a>
-      <a href="/calendar/">Calendar</a>
-      <a href="/faq/">FAQ</a>
-      <a href="mailto:contact@uback.com">contact@uback.com</a>
-    </div>
-    <span class="disclaimer">Rankings are editorial content, not investment advice.</span>
-  </div>
-</footer>
+{footer('en')}
 
 <script>{JS}</script>
 </body>
@@ -587,7 +566,7 @@ print('ok index.html', N_FAM, 'families,', N_SEG, 'segments')
 GLOBAL = {'method': {'en': 'method.html', 'fr': 'fr/methode.html'}, 'legal': {'en': 'legal-notice.html', 'fr': 'mentions-legales.html'},
           'invest': {'en': 'invest.html', 'fr': 'fr/investir.html'},
           'correction': {'en': 'correction.html', 'fr': 'fr/correction.html'}, 'thanks': {'en': 'thank-you.html', 'fr': 'fr/merci.html'},
-          'faq': {'en': 'faq/index.html', 'fr': 'fr/faq/index.html'},
+          'faq': {'en': 'faq/index.html', 'fr': 'fr/faq/index.html'}, 'contact': {'en': 'contact.html', 'fr': 'fr/contact.html'},
           'calendar': {'en': 'calendar/index.html'}}                  # calendrier : anglais seulement
 G_UI = {
  'en': dict(skip='Skip to content', sectors='Sectors', countries='Countries', method='Method',
@@ -602,6 +581,7 @@ G_UI = {
             t_thanks='Thank you | Uback', d_thanks='Request prepared.',
             t_legal='Legal notice | Uback', d_legal='Legal notice of the Uback website.',
             calendar='Calendar', faq='FAQ',
+            t_contact='Contact us | Uback', d_contact='Write to the Uback team: a question, a press request, a partnership, feedback on a ranking.',
             t_faq='FAQ: questions about the rankings | Uback', d_faq='Why China has no ranking, how Uback chooses the countries it ranks, and when a ranking can be updated before its scheduled date.',
             t_calendar='Publication calendar | Uback', d_calendar='The dates on which Uback publishes each country, regional and global segment ranking. Fixed dates, repeated every year.'),
  'fr': dict(skip='Aller au contenu', sectors='Secteurs', countries='Pays', method='Méthode',
@@ -616,6 +596,7 @@ G_UI = {
             t_thanks='Merci | Uback', d_thanks='Demande préparée.',
             t_legal='Mentions légales | Uback', d_legal='Mentions légales du site Uback.',
             calendar='Calendrier', faq='FAQ',
+            t_contact='Nous contacter | Uback', d_contact='Écrivez à l’équipe Uback : une question, une demande presse, un partenariat, une remarque sur un classement.',
             t_faq='FAQ : questions sur les classements | Uback', d_faq='Pourquoi la Chine n’a pas de classement, comment Uback choisit les pays classés, et quand un classement peut être mis à jour avant sa date prévue.'),
 }
 G_CSS = '''
@@ -753,21 +734,7 @@ def global_page(key, lang, body, extra=''):
 {body.replace('@CAL@', calendar(lang))}
 </main>
 
-<footer>
-  <div class="wrap">
-    <div class="foot-links">
-      <span>© 2026 Uback</span>
-      <a href="{method_url}">{u['method']}</a>
-      <a href="/{GLOBAL['invest'][lang]}">{u['invest']}</a>
-      <a href="/{GLOBAL['correction'][lang]}">{u['corr']}</a>
-      <a href="/{GLOBAL['legal'][lang]}">{u['legal']}</a>
-      <a href="/calendar/">{u['calendar']}</a>
-      <a href="/{url_of('faq', lang)}">{u['faq']}</a>
-      <a href="mailto:contact@uback.com">contact@uback.com</a>
-    </div>
-    <span class="disclaimer">{u['disc']}</span>
-  </div>
-</footer>
+{footer(lang)}
 
 </body>
 </html>
@@ -864,6 +831,64 @@ def correction_body(lang):
               txt(f.comment),txt(f.name),txt(f.role),txt(f.email),f.consent.checked?{json.dumps(c['yes'])}:''];
     var body=L.map(function(l,i){{return l+sep+vals[i];}}).join('\\n');
     var subject='[Correction] '+vals[0]+' – '+vals[1]+' – '+vals[2];
+    window.location.href='mailto:'+f.dataset.mailto+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+    setTimeout(function(){{window.location.href={json.dumps(thanks)};}},1500);}});
+}})();
+</script>
+</div>
+'''
+
+CT_UI = {
+ 'en': dict(h1='Contact us',
+    intro='A question, a press request, a partnership, feedback on a ranking: write to us, we reply to every message. To report inaccurate information or dispute a rank, use the <a href="/correction.html">correction form</a>.',
+    name='Name', email='E-mail', org='Organisation', profile='You are', subject='Subject', message='Message',
+    message_hint='2,000 characters maximum.', profiles=['Investor', 'Startup', 'Investment bank / adviser', 'Journalist', 'Other'],
+    subjects=['General question', 'Press', 'Partnership', 'Investing with Uback', 'Feedback on a ranking', 'Other'],
+    consent='I agree that this information may be used to answer my message.', yes='yes', choose='Choose…',
+    send='Send message', sep=': ', box='Checkbox'),
+ 'fr': dict(h1='Nous contacter',
+    intro='Une question, une demande presse, un partenariat, une remarque sur un classement : écrivez-nous, nous répondons à chaque message. Pour signaler une information inexacte ou contester un rang, utilisez le <a href="/fr/correction.html">formulaire de correction</a>.',
+    name='Nom', email='E-mail', org='Organisation', profile='Vous êtes', subject='Objet', message='Message',
+    message_hint='2 000 caractères maximum.', profiles=['Investisseur', 'Startup', 'Banque d’affaires / conseil', 'Journaliste', 'Autre'],
+    subjects=['Question générale', 'Presse', 'Partenariat', 'Investir avec Uback', 'Remarque sur un classement', 'Autre'],
+    consent='J’accepte que ces informations soient utilisées pour répondre à mon message.', yes='oui', choose='Choisir…',
+    send='Envoyer le message', sep=' : ', box='Case'),
+}
+
+def contact_body(lang):
+    """Formulaire de contact : même envoi que la correction (CORRECTION_MODE : 'mailto' → message structuré
+    « Champ : valeur » vers contact@uback.com, puis page de remerciement ; 'netlify' → formulaire natif « contact »)."""
+    c = CT_UI[lang]
+    req = ' <span class="req" aria-hidden="true">*</span>'
+    opt = lambda items: f'<option value="">{c["choose"]}</option>' + ''.join(f'<option value="{e(v)}">{e(v)}</option>' for v in items)
+    thanks = '/' + GLOBAL['thanks'][lang]
+    mailto = ' data-mailto="contact@uback.com"' if CORRECTION_MODE == 'mailto' else ''
+    labels = json.dumps([c[k] for k in ('name', 'email', 'org', 'profile', 'subject', 'message', 'box')], ensure_ascii=False)
+    return f'''<div class="wrap prose">
+<h1>{c['h1']}</h1>
+<p class="lead">{c['intro']}</p>
+<form class="cform" name="contact" method="POST" action="{thanks}" data-netlify="true" netlify-honeypot="bot-field"{mailto}>
+  <input type="hidden" name="form-name" value="contact">
+  <p class="skip"><label>Ne pas remplir : <input name="bot-field"></label></p>
+  <div><label for="k-name">{c['name']}{req}</label><input id="k-name" name="name" type="text" required autocomplete="name"></div>
+  <div><label for="k-email">{c['email']}{req}</label><input id="k-email" name="email" type="email" required autocomplete="email"></div>
+  <div><label for="k-org">{c['org']}</label><input id="k-org" name="organisation" type="text" autocomplete="organization"></div>
+  <div><label for="k-profile">{c['profile']}{req}</label><select id="k-profile" name="profile" required>{opt(c['profiles'])}</select></div>
+  <div><label for="k-subject">{c['subject']}{req}</label><select id="k-subject" name="subject" required>{opt(c['subjects'])}</select></div>
+  <div><label for="k-message">{c['message']}{req}</label><textarea id="k-message" name="message" required maxlength="2000" aria-describedby="k-message-hint"></textarea><div class="hint" id="k-message-hint">{c['message_hint']}</div></div>
+  <div><label class="consent"><input type="checkbox" name="consent" value="{c['yes']}" required> {c['consent']}</label></div>
+  <button type="submit">{c['send']}</button>
+</form>
+<script>
+(function(){{
+  var f=document.querySelector('form.cform');
+  if(!f.dataset.mailto)return;
+  f.addEventListener('submit',function(ev){{ev.preventDefault();
+    var L={labels}, sep={json.dumps(c['sep'])};
+    function txt(el){{return el.tagName==='SELECT'?(el.value?el.options[el.selectedIndex].text:''):el.value.trim();}}
+    var vals=[txt(f.name),txt(f.email),txt(f.organisation),txt(f.profile),txt(f.subject),txt(f.message),f.consent.checked?{json.dumps(c['yes'])}:''];
+    var body=L.map(function(l,i){{return l+sep+vals[i];}}).join('\\n');
+    var subject='[Contact] '+vals[4]+' – '+vals[0];
     window.location.href='mailto:'+f.dataset.mailto+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
     setTimeout(function(){{window.location.href={json.dumps(thanks)};}},1500);}});
 }})();
@@ -1046,7 +1071,8 @@ def write_ics():
 
 BODIES = {'method': METHOD, 'legal': LEGAL, 'invest': {l: INVEST[l].replace('@OPENING@', OPENING[l]).replace('@POOLCTX@', pool_ctx(l)) for l in ('en', 'fr')},
           'correction': {l: correction_body(l) for l in ('en', 'fr')}, 'thanks': {l: thanks_body(l) for l in ('en', 'fr')},
-          'faq': {l: faq_body(l) for l in ('en', 'fr')}, 'calendar': {'en': calendar_body()}}
+          'faq': {l: faq_body(l) for l in ('en', 'fr')}, 'calendar': {'en': calendar_body()},
+          'contact': {l: contact_body(l) for l in ('en', 'fr')}}
 EXTRA = {'faq': {l: faq_jsonld(l) for l in ('en', 'fr')}}
 for key, texts in BODIES.items():
     for lang in texts:

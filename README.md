@@ -24,6 +24,8 @@ correction.html, fr/correction.html ← formulaire de correction global (CORRECT
                           'mailto' → message structuré « Champ : valeur » vers contact@uback.com ; 'netlify' → formulaire
                           natif « correction ») ; préremplissable : ?company=…&country=ma
 thank-you.html, fr/merci.html ← confirmation du formulaire de correction (noindex)
+contact.html, fr/contact.html ← formulaire de contact (« Contact us » du pied de page), même envoi que la correction
+                          (message structuré « Champ : valeur » vers contact@uback.com, puis page de remerciement)
                         (ces pages sont générées par tools/build_home.py, texte de la méthode dans tools/pages_global.py)
 methode.html, partenaire.html, merci.html
                         ← redirections (anciennes adresses, à garder) vers /fr/methode.html et /ma/fr/…
@@ -59,6 +61,8 @@ tools/build_home.py     ← génère index.html et les pages globales ; homepage
                           et classements par pays, en accordéon par région (depuis data/geo.json)
 tools/build_calendar.py ← calcule data/calendar.json depuis data/geo.json et data/sectors.json
 tools/build_regions.py  ← pages de zone et de collection (depuis data/geo.json et data/calendar.json)
+tools/footer.py         ← pied de page unique de tout le site (HTML + CSS ; la CSS est recopiée dans ma/assets/style.css
+                          entre les marqueurs « footer:start / footer:end » par build_site.py : ne pas la modifier là)
 tools/geo.py            ← lecture commune de data/geo.json et data/calendar.json (zones, pays, prochaine date d'un classement)
 ```
 

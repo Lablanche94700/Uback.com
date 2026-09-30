@@ -73,6 +73,7 @@ nav a{text-decoration:none;display:inline-flex;align-items:center;min-height:44p
 .eyebrow{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .eyebrow i{width:20px;height:2px;background:var(--gold);display:block;flex-shrink:0}
 .eyebrow i.r{display:none}
+.eyebrow .nw{white-space:nowrap}   /* si la ligne ne tient pas, « Public beta » passe à la ligne, jamais au milieu */
 h1{margin:0;font-size:38px;line-height:1.08;font-weight:800;letter-spacing:-.03em}
 .lead{margin:0;font-size:17px;line-height:1.6;color:var(--body)}
 /* homepage : deux colonnes Discover / Back sous le titre */
@@ -166,11 +167,6 @@ a.sub-link:hover{color:var(--navy);text-decoration:underline;text-decoration-col
 .follow button:hover{background:var(--navy-dark)}
 .skip{position:absolute;left:-9999px}
 
-footer{margin-top:auto;background:#fff;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
-footer .wrap{padding-top:28px;padding-bottom:36px;display:flex;flex-direction:column;gap:12px}
-.foot-links{display:flex;flex-wrap:wrap;gap:8px 20px}
-footer a{color:var(--muted)}
-.disclaimer{font-size:13px;line-height:1.5}
 
 @media (max-width:760px){.beta .beta-t{display:none}}
 @media (max-width:899px){
@@ -200,10 +196,24 @@ footer a{color:var(--muted)}
   .follow .fform{flex:0 1 560px}
   .follow form{flex-direction:row}
   .follow input{flex:1}
-  footer .wrap{flex-direction:row;align-items:center;justify-content:space-between;padding-top:28px;padding-bottom:28px}
-  .foot-links{gap:24px}
-  .disclaimer{font-size:14px}
 }
+footer.site-foot{margin-top:auto;background:#fff;border-top:1px solid var(--line);font-size:14px;color:var(--muted);padding:0}
+footer.site-foot .wrap{display:block;padding-top:36px;padding-bottom:24px}
+.ft-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:28px}
+.ft-brand p{margin:10px 0 12px;max-width:300px;font-size:14px;line-height:1.5;color:var(--muted)}
+.ft-logo{display:inline-flex;align-items:center;gap:10px;font-size:18px;font-weight:800;letter-spacing:-.02em;color:var(--navy);text-decoration:none}
+.ft-logo .u{width:28px;height:28px;border-radius:7px;background:var(--navy);color:var(--gold);display:inline-flex;align-items:center;justify-content:center;font-size:16px;letter-spacing:0}
+.ft-contact{display:inline-flex;align-items:center;gap:6px;min-height:40px;font-weight:600;color:var(--navy);text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:5px}
+.ft-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start;font-size:14px;font-weight:400}
+.ft-col{display:flex;flex-direction:column;align-items:flex-start}
+.ft-h{margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy)}
+.ft-col a{display:inline-flex;align-items:center;min-height:36px;color:var(--muted);text-decoration:none}
+.ft-col a:hover,.ft-bar a:hover{color:var(--navy);text-decoration:underline}
+.ft-bar{margin-top:24px;padding-top:16px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 20px;font-size:12.5px}
+.ft-bar a{color:var(--muted)}
+.ft-bar p{flex:1 1 100%;margin:4px 0 0;line-height:1.55;max-width:none}
+@media (min-width:640px){.ft-nav{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:900px){.ft-grid{grid-template-columns:minmax(0,1.3fr) minmax(0,3fr);gap:48px}}
 
 .prose-main{padding:24px 0 72px}
 .prose{max-width:820px;font-size:16px;line-height:1.7;color:var(--body)}
@@ -290,19 +300,21 @@ footer a{color:var(--muted)}
 
 </main>
 
-<footer>
+<footer class="site-foot">
   <div class="wrap">
-    <div class="foot-links">
-      <span>© 2026 Uback</span>
-      <a href="/fr/methode.html">Méthode</a>
-      <a href="/fr/investir.html">Investir</a>
-      <a href="/fr/correction.html">Demander une correction</a>
-      <a href="/mentions-legales.html">Mentions légales</a>
-      <a href="/calendar/">Calendrier</a>
-      <a href="/fr/faq/">FAQ</a>
-      <a href="mailto:contact@uback.com">contact@uback.com</a>
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <a class="ft-logo" href="/" aria-label="Uback"><span class="u" aria-hidden="true">U</span>Uback</a>
+        <p>Des startups financées, classées par l’IA. Régi par des règles, pas par des rédacteurs.</p>
+        <a class="ft-contact" href="/fr/contact.html">Nous contacter <span aria-hidden="true">→</span></a>
+      </div>
+      <nav class="ft-nav" aria-label="Pied de page"><div class="ft-col"><p class="ft-h">Classements</p><a href="/#sectors">Par secteur</a><a href="/#countries">Par pays</a><a href="/#collections">Collections</a></div><div class="ft-col"><p class="ft-h">Comment ça marche</p><a href="/fr/methode.html">Méthode</a><a href="/calendar/">Calendrier</a><a href="/fr/correction.html">Demander une correction</a><a href="/fr/faq/">FAQ</a></div><div class="ft-col"><p class="ft-h">Backers</p><a href="/fr/investir.html">Investir avec Uback</a></div></nav>
     </div>
-    <span class="disclaimer">Les classements sont des contenus éditoriaux, pas des conseils en investissement.</span>
+    <div class="ft-bar">
+      <span>© 2026 Uback</span>
+      <a href="/mentions-legales.html">Mentions légales</a>
+      <p>Uback est un éditeur de contenu. Il ne fournit aucun conseil en investissement, ne reçoit aucun mandat et n’intervient dans aucune transaction. Les mises en relation sont réalisées par des partenaires agréés, en cours de sélection. Investir dans des sociétés non cotées comporte un risque de perte totale du capital investi.</p>
+    </div>
   </div>
 </footer>
 

@@ -6,6 +6,7 @@ Les textes d'interface sont dans TXT (fr, en) ; tout ce qui est propre au pays v
 import json, html, os, re, shutil, datetime, copy
 from urllib.parse import quote
 import valuation
+from footer import footer
 from build_site import format_date_short
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # racine du dépôt = dossier publié
 PREFIX = M['path']                  # chemin de cette version sur uback.com : /ma (anglais), /ma/fr (français)…
@@ -326,29 +327,7 @@ def head(title, desc, path, extra=''):
 <main id="main">
 '''
 
-FOOT = f'''
-</main>
-<footer>
-  <div class="wrap">
-    <div class="row">
-      <span class="brand"><span class="u">U</span>Uback</span>
-      <span>Powered by AI</span>
-      <span>·</span><a href="{GM}">{L['f_method']}</a>
-      <span>·</span><a href="{GI}">{L['f_invest']}</a>
-      <span>·</span><a href="/{PP}">{L['f_partner']}</a>
-      <span>·</span><a href="{GC}">{L['f_corr']}</a>
-      <span>·</span><a href="{GL}">{L['f_legal']}</a>
-      <span>·</span><a href="@ROOT@calendar/">{L['f_cal']}</a>
-      <span>·</span><a href="@ROOT@{'fr/' if M['lang'] == 'fr' else ''}faq/">{L['f_faq']}</a>
-      <span class="spacer"></span>
-      <span>Uback.com · {datetime.date.today().year}</span>
-    </div>
-    <p>{L['f_disc']}</p>
-  </div>
-</footer>
-</body>
-</html>
-'''
+FOOT = '\n</main>\n' + footer(M['lang'], root='@ROOT@', partner=f'/{PP}', disc=L['f_disc']) + '\n</body>\n</html>\n'
 
 def conf(n):
     dots = ''.join('<i class="f"></i>' if i < n else '<i></i>' for i in range(3))

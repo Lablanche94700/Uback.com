@@ -17,6 +17,7 @@ from build_site import CSS_V, format_date, format_date_short
 import geo
 from valuation import BRACKETS, bracket_index, money, month
 from flags import flag
+from footer import footer
 
 e = html.escape
 EDGE = r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'   # rendu de l'image de partage (facultatif)
@@ -318,27 +319,7 @@ def page_top(title, desc, url, og_img, sw, nav, follow_label, follow_href, extra
 '''
 
 def page_bottom(script=''):
-    return f'''</main>
-<footer>
-  <div class="wrap">
-    <div class="row">
-      <span class="brand"><span class="u">U</span>Uback</span>
-      <span>Powered by AI</span>
-      <span>·</span><a href="{GM}">Method and rules</a>
-      <span>·</span><a href="{GI}">Invest</a>
-      <span>·</span><a href="{GC}">Request a correction</a>
-      <span>·</span><a href="{GL}">Legal notice</a>
-      <span>·</span><a href="/calendar/">Calendar</a>
-      <span>·</span><a href="/faq/">FAQ</a>
-      <span class="spacer"></span>
-      <span>Uback.com · {datetime.date.today().year}</span>
-    </div>
-    <p>Uback is a content publisher. It provides no investment advice, receives no mandate and takes part in no transaction. Introductions are made by licensed partners, currently being selected. Investing in non-listed companies carries a risk of losing all the capital invested.</p>
-  </div>
-</footer>
-{script}</body>
-</html>
-'''
+    return '</main>\n' + footer('en') + f'\n{script}</body>\n</html>\n'
 
 JS = '''
 (function(){

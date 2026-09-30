@@ -132,6 +132,8 @@ def switcher(m):
 
 # version de la feuille de style (empreinte du fichier) : un changement de style est vu tout de suite,
 # sans attendre l'expiration du cache des navigateurs
+import footer
+footer.sync_css(os.path.join(TOOLS, '..', 'ma', 'assets', 'style.css'))   # pied de page commun
 CSS_V = hashlib.sha1(open(os.path.join(TOOLS, '..', 'ma', 'assets', 'style.css'), 'rb').read()).hexdigest()[:8]
 
 MONTHS = {'fr': ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'],
