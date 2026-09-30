@@ -226,8 +226,8 @@ nav a{text-decoration:none;display:inline-flex;align-items:center;min-height:44p
 .eyebrow i.r{display:none}
 .eyebrow .nw{white-space:nowrap}   /* si la ligne ne tient pas, « Public beta » passe à la ligne, jamais au milieu */
 h1{margin:0;font-size:38px;line-height:1.08;font-weight:800;letter-spacing:-.03em}
-/* seconde ligne du titre de la homepage : même police, 75 % du H1, gras, marine du titre, alignée comme le H1 */
-.h1-sub{margin:-8px 0 0;font-size:28.5px;line-height:1.15;font-weight:700;letter-spacing:-.02em;color:var(--navy)}
+/* titre de la homepage sur deux phrases : chacune commence sur une nouvelle ligne, même style */
+.h1-l{display:block}
 .lead{margin:0;font-size:17px;line-height:1.6;color:var(--body)}
 /* homepage : deux colonnes Discover / Back sous le titre */
 .duo{width:100%;max-width:1040px;margin:16px auto 0;display:grid;grid-template-columns:1fr;row-gap:16px;text-align:left}
@@ -337,7 +337,6 @@ a.sub-link:hover{color:var(--navy);text-decoration:underline;text-decoration-col
   .hero .wrap{align-items:center;text-align:center;gap:28px}
   .eyebrow{font-size:13px}.eyebrow i{width:24px}.eyebrow i.r{display:block}
   h1{font-size:68px;line-height:1.05;letter-spacing:-.035em;max-width:980px}
-  .h1-sub{margin-top:-12px;font-size:51px;letter-spacing:-.025em}
   .lead{font-size:20px;max-width:760px}
   .duo{margin-top:28px}
   .cols{grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:24px}
@@ -351,8 +350,8 @@ a.sub-link:hover{color:var(--navy);text-decoration:underline;text-decoration-col
   .follow form{flex-direction:row}
   .follow input{flex:1}
 }
-/* homepage, à partir de 1024 px : le titre du hero tient sur une ligne (taille liée à la largeur), seconde ligne à 75 % */
-@media (min-width:1024px){.hero h1{font-size:clamp(44px,4.5vw,56px);max-width:none}.hero .h1-sub{font-size:clamp(33px,3.375vw,42px)}}
+/* homepage, à partir de 1024 px : chaque phrase du titre tient sur une ligne, avec de la marge de chaque côté (~85 % de la largeur) */
+@media (min-width:1024px){.hero h1{font-size:clamp(40px,3.95vw,48px);max-width:none}}
 ''' + FOOTER_CSS
 
 JS = '''
@@ -449,8 +448,7 @@ page = f'''<!doctype html>
   <section class="hero">
     <div class="wrap">
       <div class="eyebrow"><i></i><span><span class="nw">Run by rules, not editors ·</span> <span class="nw">Public beta</span></span><i class="r"></i></div>
-      <h1>The most valuable startups, ranked by AI.</h1>
-      <p class="h1-sub">Back the next ones together.</p>
+      <h1><span class="h1-l">The most valuable startups, ranked by AI.</span> <span class="h1-l">Back the next ones together.</span></h1>
       <div class="duo">
         <div class="duo-col">
           <div class="duo-k">Discover</div>
