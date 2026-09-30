@@ -351,6 +351,8 @@ a.sub-link:hover{color:var(--navy);text-decoration:underline;text-decoration-col
   .follow form{flex-direction:row}
   .follow input{flex:1}
 }
+/* homepage, à partir de 1024 px : le titre du hero tient sur une ligne (taille liée à la largeur), ligne dorée à 60 % */
+@media (min-width:1024px){.hero h1{font-size:clamp(44px,4.5vw,56px);max-width:none}.hero .h1-sub{font-size:clamp(26.4px,2.7vw,33.6px)}}
 ''' + FOOTER_CSS
 
 JS = '''
