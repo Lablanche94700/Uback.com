@@ -182,5 +182,9 @@ GitHub Pages ne traite pas les formulaires. En attendant Netlify, le formulaire 
 
 ## Reste à faire
 
-- Créer les adresses `contact@`, `corrections@`, `partner@`, `privacy@uback.com` (redirections suffisent).
+Adresses e-mail (OVH MXPlan) : `contact@uback.com` (boîte, reçoit les formulaires de contact et de correction) et
+`privacy@uback.com` (redirection vers contact@). Toute nouvelle adresse : une redirection ou un alias vers contact@,
+pas un nouveau compte (l'offre en compte 5). Le site n'utilise aucune autre adresse.
+
+
 - Édition 1 : consensus multi-IA (Claude, Gemini, ChatGPT), indice de confiance, pages société et secteur, EN puis AR.
