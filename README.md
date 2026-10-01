@@ -25,6 +25,8 @@ correction.html, fr/correction.html ← formulaire de correction global (CORRECT
                           contact@uback.com ; 'mailto' → messagerie du visiteur ; 'netlify' → formulaire natif) ;
                           préremplissable : ?company=…&country=ma
 thank-you.html, fr/merci.html ← confirmation du formulaire de correction (noindex)
+login.html, fr/connexion.html ← espace Backer (menu « Backers » de l'en-tête) : maquette inactive, « Coming soon » (noindex)
+terms.html, fr/conditions.html ← conditions générales : « Under construction » (noindex)
 partner.html, fr/partenaire.html ← page partenaire UNIQUE (règle n° 1 : partenaires locaux, un par pays, chacun avec un ou
                           plusieurs secteurs ; success fee partagé sur les opérations transfrontalières) ; le pays s'adapte à
                           la page d'appel (?country=ma, sinon la page d'origine) ; blocs pays calculés depuis MARKETS

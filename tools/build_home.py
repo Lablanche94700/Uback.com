@@ -101,12 +101,28 @@ def rankings_menu(lang, current=None):
             f'<span class="rk-ic" aria-hidden="true"></span><span><b>{u["m"]}</b><small>{u["m_sub"]}</small></span>'
             f'<span class="rk-go" aria-hidden="true">→</span></a>'
             f'<a class="rk-faq" href="{u["faq_url"]}"{" aria-current=\"page\"" if current == "faq" else ""}>{u["faq"]} <span aria-hidden="true">→</span></a>'
+            f'</div></details>')
+
+# Menu « Backers » (à droite d'Invest) : connexion / inscription (bientôt) et conditions générales (en construction)
+BK_UI = {'en': dict(t='Backers', login='Login / Register', terms='Terms and conditions'),
+         'fr': dict(t='Backers', login='Connexion / Inscription', terms='Conditions générales')}
+# adresses des deux pages (reprises dans GLOBAL, défini plus bas : la homepage est générée avant)
+BK_URL = {'login': {'en': 'login.html', 'fr': 'fr/connexion.html'}, 'terms': {'en': 'terms.html', 'fr': 'fr/conditions.html'}}
+
+def backers_menu(lang, current=None):
+    u = BK_UI[lang]
+    cur = lambda k: ' aria-current="page"' if current == k else ''
+    return (f'<details class="rk"><summary>{u["t"]}</summary><div class="rk-menu one">'
+            f'<a href="/{BK_URL["login"][lang]}"{cur("login")}>{u["login"]}</a>'
+            f'<a href="/{BK_URL["terms"][lang]}"{cur("terms")}>{u["terms"]}</a>'
             f'</div></details>' + RK_JS)
 
-RK_JS = ('<script>(function(){var d=document.querySelector("details.rk");if(!d)return;'
-         'document.addEventListener("click",function(ev){if(d.open&&!d.contains(ev.target))d.open=false;});'
-         'document.addEventListener("keydown",function(ev){if(ev.key==="Escape"&&d.open){d.open=false;d.querySelector("summary").focus();}});'
-         'd.querySelectorAll(".rk-menu a").forEach(function(a){a.addEventListener("click",function(){d.open=false;});});})();</script>')
+# Script des menus de l'en-tête (Rankings, Backers) : un seul ouvert à la fois, fermeture au clic extérieur et avec Échap
+RK_JS = ('<script>(function(){var ds=[].slice.call(document.querySelectorAll("details.rk"));if(!ds.length)return;'
+         'document.addEventListener("click",function(ev){ds.forEach(function(d){if(d.open&&!d.contains(ev.target))d.open=false;});});'
+         'document.addEventListener("keydown",function(ev){if(ev.key!=="Escape")return;ds.forEach(function(d){if(d.open){d.open=false;d.querySelector("summary").focus();}});});'
+         'ds.forEach(function(d){d.addEventListener("toggle",function(){if(d.open)ds.forEach(function(o){if(o!==d)o.open=false;});});'
+         'd.querySelectorAll(".rk-menu a").forEach(function(a){a.addEventListener("click",function(){d.open=false;});});});})();</script>')
 
 def family(f):
     n_sec = len(f['sectors'])
@@ -208,6 +224,7 @@ nav a{text-decoration:none;display:inline-flex;align-items:center;min-height:44p
 .rk-menu a{display:flex;align-items:center;gap:10px;min-height:40px;padding:0 8px;margin:0 -8px;border-radius:8px;font-size:15px;font-weight:500;color:var(--navy);text-decoration:none}
 .rk-menu a:hover{background:var(--bg)}
 .rk-menu .flag{width:21px;height:14px;border-radius:2px}
+.rk-menu.one{grid-template-columns:max-content;gap:2px;min-width:220px}
 .rk-menu a.rk-method{grid-column:1/-1;display:flex;align-items:center;gap:12px;margin:12px -8px 0;padding:12px 14px;min-height:0;border-radius:10px;background:#FBF6EA;border:1px solid #EAD9B0;white-space:normal}
 .rk-menu a.rk-method:hover,.rk-menu a.rk-method[aria-current]{background:#F6ECD2;border-color:var(--gold)}
 .rk-method b{display:block;font-size:15px;font-weight:700;color:var(--navy)}
@@ -217,7 +234,9 @@ nav a{text-decoration:none;display:inline-flex;align-items:center;min-height:44p
 .rk-menu a.rk-faq{grid-column:1/-1;min-height:36px;margin-top:4px;font-size:14px;font-weight:600;color:var(--muted)}
 .rk-menu a.rk-all{margin-top:4px;font-size:14px;font-weight:600;text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:5px}
 /* homepage et pages globales : sur petit écran, le menu passe sous le logo */
-@media (max-width:419px){header.hdr-lang .wrap{height:auto;flex-wrap:wrap;row-gap:0;padding-top:8px;padding-bottom:4px}header.hdr-lang nav{width:100%;justify-content:space-between;gap:10px}}
+@media (max-width:639px){header.hdr-lang .wrap{height:auto;flex-wrap:wrap;row-gap:0;padding-top:8px;padding-bottom:4px}header.hdr-lang nav{width:100%;flex-wrap:wrap;justify-content:space-between;gap:0 10px}
+  header.hdr-lang .langsw{position:absolute;top:8px;right:20px;min-height:44px}}
+@media (max-width:479px){header.hdr-lang nav{font-size:14px;gap:0 8px}}
 @media (max-width:359px){header nav{font-size:13px;gap:4px}.langsw{font-size:12px}}
 @media (max-width:719px){header .wrap{position:relative}.rk{position:static}
   .rk-menu{left:16px;right:16px;top:calc(100% - 4px);grid-template-columns:1fr;gap:14px;white-space:normal}}
@@ -442,6 +461,7 @@ page = f'''<!doctype html>
       {rankings_menu('en')}
       <a href="/calendar/">Calendar</a>
       <a href="/invest.html">Invest</a>
+      {backers_menu('en')}
     </nav>
   </div>
 </header>
@@ -573,6 +593,7 @@ GLOBAL = {'method': {'en': 'method.html', 'fr': 'fr/methode.html'}, 'legal': {'e
           'correction': {'en': 'correction.html', 'fr': 'fr/correction.html'}, 'thanks': {'en': 'thank-you.html', 'fr': 'fr/merci.html'},
           'faq': {'en': 'faq/index.html', 'fr': 'fr/faq/index.html'}, 'contact': {'en': 'contact.html', 'fr': 'fr/contact.html'},
           'partner': {'en': 'partner.html', 'fr': 'fr/partenaire.html'},
+          'login': BK_URL['login'], 'terms': BK_URL['terms'],
           'calendar': {'en': 'calendar/index.html'}}                  # calendrier : anglais seulement
 G_UI = {
  'en': dict(skip='Skip to content', sectors='Sectors', countries='Countries', method='Method',
@@ -587,6 +608,8 @@ G_UI = {
             t_thanks='Thank you | Uback', d_thanks='Request prepared.',
             t_legal='Legal notice | Uback', d_legal='Legal notice of the Uback website.',
             calendar='Calendar', faq='FAQ',
+            t_login='Backers: log in or register | Uback', d_login='Backer accounts on Uback: coming soon.',
+            t_terms='Terms and conditions | Uback', d_terms='Terms and conditions of Uback: under construction.',
             t_partner='Become a Uback partner | Uback', d_partner='Local partners: one per country, each also leading one or more sectors. Uback brings investors and visibility; the partners run the deals and share the success fee on cross-border deals.',
             t_contact='Contact us | Uback', d_contact='Write to the Uback team: a question, a press request, a partnership, feedback on a ranking.',
             t_faq='FAQ: questions about the rankings | Uback', d_faq='Why China has no ranking, how Uback chooses the countries it ranks, and when a ranking can be updated before its scheduled date.',
@@ -603,6 +626,8 @@ G_UI = {
             t_thanks='Merci | Uback', d_thanks='Demande préparée.',
             t_legal='Mentions légales | Uback', d_legal='Mentions légales du site Uback.',
             calendar='Calendrier', faq='FAQ',
+            t_login='Backers : connexion ou inscription | Uback', d_login='Comptes Backers sur Uback : bientôt disponibles.',
+            t_terms='Conditions générales | Uback', d_terms='Conditions générales d’Uback : en construction.',
             t_partner='Devenir partenaire Uback | Uback', d_partner='Des partenaires locaux agréés : un par pays, qui pilote aussi un ou plusieurs secteurs. Uback apporte investisseurs et visibilité ; les partenaires mènent les opérations et se partagent le success fee des opérations transfrontalières.',
             t_contact='Nous contacter | Uback', d_contact='Écrivez à l’équipe Uback : une question, une demande presse, un partenariat, une remarque sur un classement.',
             t_faq='FAQ : questions sur les classements | Uback', d_faq='Pourquoi la Chine n’a pas de classement, comment Uback choisit les pays classés, et quand un classement peut être mis à jour avant sa date prévue.'),
@@ -648,6 +673,19 @@ G_CSS = '''
 /* calendrier */
 .ptn-pick{display:flex;align-items:center;gap:10px}.ptn-pick select{min-height:44px;padding:8px 12px;border:1px solid var(--dash);border-radius:10px;font:inherit;font-size:15px;color:var(--navy);background:#fff}
 .ptn-c{margin:12px 0}
+/* espace Backer (maquette inactive) */
+.soon-banner{margin:8px 0 24px;padding:14px 18px;border-radius:12px;background:var(--navy);color:#DCE3EC;font-size:16px}
+.soon-banner b{display:inline-block;margin-right:8px;padding:2px 10px;border-radius:999px;background:var(--gold);color:var(--navy);font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.auth-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:24px}
+.cform.auth{margin-top:0;padding:22px;background:#fff;border:1px solid var(--line);border-radius:14px}
+.cform.auth fieldset{border:0;padding:0;margin:0;min-width:0;display:grid;gap:16px;align-content:start}
+.cform.auth input[type=password]{width:100%;min-height:44px;padding:10px 12px;border:1px solid var(--dash);border-radius:10px;font:inherit;font-size:15px}
+.cform.auth h2{margin:0;font-size:20px}
+.cform.auth input:disabled,.cform.auth select:disabled{background:var(--bg);color:var(--muted);cursor:not-allowed}
+.cform.auth button:disabled{cursor:not-allowed}
+.auth-grid{align-items:start}
+.cform.auth button:disabled{background:#9AA8BA;color:#fff}
+@media (min-width:760px){.auth-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .prose.cal-page{max-width:1200px}.cal-page>*{max-width:820px}
 .ics{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:10px;background:var(--navy);color:#fff!important;font-weight:600;text-decoration:none}
 .ics:hover{background:var(--navy-dark)}
@@ -711,7 +749,7 @@ def global_page(key, lang, body, extra=''):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(title)}</title>
-<meta name="description" content="{e(desc)}">{'<meta name="robots" content="noindex">' if key == 'thanks' else ''}
+<meta name="description" content="{e(desc)}">{'<meta name="robots" content="noindex">' if key in ('thanks', 'login', 'terms') else ''}
 <link rel="canonical" href="https://uback.com/{path}">{alt}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Uback">
@@ -736,6 +774,7 @@ def global_page(key, lang, body, extra=''):
       {rankings_menu(lang, key)}
       <a href="/calendar/"{cur('calendar')}>{u['calendar']}</a>
       <a href="/{GLOBAL['invest'][lang]}"{cur('invest')}>{u['invest']}</a>
+      {backers_menu(lang, key)}
       {sw}
     </nav>
   </div>
@@ -1002,6 +1041,48 @@ def partner_countries(lang):
 }})();
 </script>'''
 
+AUTH_UI = {
+ 'en': dict(h1='Backer account', soon='Coming soon', soon_p='Backer accounts are not open yet: the fields below are inactive.',
+            login='Log in', reg='Register', email='E-mail', pwd='Password', name='Name', profile='You are',
+            profiles=['Investor', 'Business angel', 'Family office', 'Corporate', 'Other'], choose='Choose…',
+            accept='I accept the <a href="/terms.html">Terms and conditions</a>.', b_login='Log in', b_reg='Create my account'),
+ 'fr': dict(h1='Espace Backer', soon='Bientôt disponible', soon_p='Les comptes Backers ne sont pas encore ouverts : les champs ci-dessous sont inactifs.',
+            login='Connexion', reg='Inscription', email='E-mail', pwd='Mot de passe', name='Nom', profile='Vous êtes',
+            profiles=['Investisseur', 'Business angel', 'Family office', 'Corporate', 'Autre'], choose='Choisir…',
+            accept='J’accepte les <a href="/fr/conditions.html">Conditions générales</a>.', b_login='Se connecter', b_reg='Créer mon compte'),
+}
+
+def login_body(lang):
+    """Connexion / inscription : maquette inactive (fieldset disabled), bandeau « Coming soon » bien visible."""
+    a = AUTH_UI[lang]
+    opts = f'<option value="">{a["choose"]}</option>' + ''.join(f'<option>{e(x)}</option>' for x in a['profiles'])
+    return f'''<div class="wrap prose">
+<h1>{a['h1']}</h1>
+<p class="soon-banner" role="status"><b>{a['soon']}</b> {a['soon_p']}</p>
+<div class="auth-grid">
+<form class="cform auth" aria-label="{a['login']}" onsubmit="return false"><fieldset disabled>
+  <h2>{a['login']}</h2>
+  <div><label for="l-email">{a['email']}</label><input id="l-email" type="email" autocomplete="off"></div>
+  <div><label for="l-pwd">{a['pwd']}</label><input id="l-pwd" type="password" autocomplete="off"></div>
+  <button type="submit">{a['b_login']}</button>
+</fieldset></form>
+<form class="cform auth" aria-label="{a['reg']}" onsubmit="return false"><fieldset disabled>
+  <h2>{a['reg']}</h2>
+  <div><label for="r-name">{a['name']}</label><input id="r-name" type="text" autocomplete="off"></div>
+  <div><label for="r-email">{a['email']}</label><input id="r-email" type="email" autocomplete="off"></div>
+  <div><label for="r-pwd">{a['pwd']}</label><input id="r-pwd" type="password" autocomplete="off"></div>
+  <div><label for="r-profile">{a['profile']}</label><select id="r-profile">{opts}</select></div>
+  <div><label class="consent"><input type="checkbox"> {a['accept']}</label></div>
+  <button type="submit">{a['b_reg']}</button>
+</fieldset></form>
+</div>
+</div>
+'''
+
+def terms_body(lang):
+    h1, p = ('Terms and conditions', 'Under construction.') if lang == 'en' else ('Conditions générales', 'En construction.')
+    return f'<div class="wrap prose">\n<h1>{h1}</h1>\n<p class="lead">{p}</p>\n</div>\n'
+
 def thanks_body(lang):
     c = C_UI[lang]
     return f'''<div class="wrap prose">
@@ -1177,7 +1258,8 @@ BODIES = {'method': METHOD, 'legal': LEGAL, 'invest': {l: INVEST[l].replace('@OP
           'correction': {l: correction_body(l) for l in ('en', 'fr')}, 'thanks': {l: thanks_body(l) for l in ('en', 'fr')},
           'faq': {l: faq_body(l) for l in ('en', 'fr')}, 'calendar': {'en': calendar_body()},
           'contact': {l: contact_body(l) for l in ('en', 'fr')},
-          'partner': {l: PARTNER[l].replace('@COUNTRIES@', partner_countries(l)) for l in ('en', 'fr')}}
+          'partner': {l: PARTNER[l].replace('@COUNTRIES@', partner_countries(l)) for l in ('en', 'fr')},
+          'login': {l: login_body(l) for l in ('en', 'fr')}, 'terms': {l: terms_body(l) for l in ('en', 'fr')}}
 EXTRA = {'faq': {l: faq_jsonld(l) for l in ('en', 'fr')}}
 for key, texts in BODIES.items():
     for lang in texts:
