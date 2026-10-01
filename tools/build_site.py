@@ -18,8 +18,9 @@ FLAGS = {
  'pl': '<svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="16" fill="#FFFFFF"/><rect y="16" width="48" height="16" fill="#DC143C"/><rect x=".5" y=".5" width="47" height="31" fill="none" stroke="#E4E8EE"/></svg>',
  'vn': '<svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" fill="#DA251D"/><polygon points="24,7 26.47,14.6 34.46,14.6 28,19.3 30.47,26.9 24,22.2 17.53,26.9 20,19.3 13.54,14.6 21.53,14.6" fill="#FFFF00"/></svg>',
 'fr': '<svg viewBox="0 0 48 32" aria-hidden="true"><rect width="16" height="32" fill="#002654"/><rect x="16" width="16" height="32" fill="#FFFFFF"/><rect x="32" width="16" height="32" fill="#CE1126"/><rect x=".5" y=".5" width="47" height="31" fill="none" stroke="#E4E8EE"/></svg>',
+ 'in': '<svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="10.7" fill="#FF9933"/><rect y="10.7" width="48" height="10.7" fill="#FFFFFF"/><rect y="21.3" width="48" height="10.7" fill="#138808"/><circle cx="24" cy="16" r="4.2" fill="none" stroke="#000080" stroke-width="1"/><circle cx="24" cy="16" r=".9" fill="#000080"/><rect x=".5" y=".5" width="47" height="31" fill="none" stroke="#E4E8EE"/></svg>',
 }
-NAMES = {'ma': {'fr': 'Maroc', 'en': 'Morocco'}, 'pl': {'fr': 'Pologne', 'en': 'Poland'}, 'vn': {'fr': 'Vietnam', 'en': 'Vietnam'}, 'fr': {'fr': 'France', 'en': 'France'}}
+NAMES = {'ma': {'fr': 'Maroc', 'en': 'Morocco'}, 'pl': {'fr': 'Pologne', 'en': 'Poland'}, 'vn': {'fr': 'Vietnam', 'en': 'Vietnam'}, 'fr': {'fr': 'France', 'en': 'France'}, 'in': {'fr': 'Inde', 'en': 'India'}}
 
 # Une entrée par version (marché × langue) ; les textes sont dans la langue de la version (lang).
 #   path         chemin sur uback.com ; default : version principale (liens depuis la homepage et le sélecteur de pays)
@@ -124,6 +125,23 @@ MARKETS = [
                  ('Commerce &amp; consumer', 'Marketplaces, refurbished goods, mobility and gaming.')],
      'sectors_soon': ['Healthtech', 'Defence', 'Climate &amp; energy', 'Robotics', 'Quantum'],
      'langs_soon': ['FR']},
+    {'code': 'in', 'lang': 'en', 'path': '/in', 'default': True, 'canonical': True,
+     'cadence': 'quarterly', 'publish_day': 2, 'publish_months': [1, 4, 7, 10],
+     'data': 'classement-in-2026-10.json',
+     'slug': 'india', 'og': 'og-image.png', 'og_v': 1, 'partner_name': None,
+     'startups_label': 'Indian startups',
+     'name': 'India', 'in': 'in India', 'the': 'India', 'adj_m': 'Indian', 'adj_f': 'Indian', 'adj_fp': 'Indian',
+     'cities': 'Dubai, London or Silicon Valley',
+     'partner_short': 'Merchant banker or investment adviser registered with SEBI (Securities and Exchange Board of India), or investment bank',
+     'partner_long': 'merchant banker or investment adviser registered with SEBI, investment bank or M&amp;A boutique, with experience of private companies and of cross-border investment',
+     'deals_phrase': 'around 900 venture rounds a year across all players',
+     'press': 'Indian and international business and technology press (Economic Times, Mint, Moneycontrol, Business Standard, Inc42, Entrackr, YourStory, TechCrunch, Bloomberg, Reuters), Inc42 and Tracxn reports, company and investor announcements.',
+     'sectors': [('Fintech &amp; payments', 'UPI payments, lending, credit cards, crypto and insurance.'),
+                 ('Commerce &amp; consumer', 'Quick commerce, B2B marketplaces, brands, fitness and food.'),
+                 ('Industrial &amp; B2B', 'Contract manufacturing, construction materials, SaaS and logistics.'),
+                 ('AI &amp; deeptech', 'Foundation models, GPU cloud, space launchers.')],
+     'sectors_soon': ['Mobility &amp; EV', 'Edtech', 'Healthtech', 'Gaming', 'Climate'],
+     'langs_soon': ['HI']},
 ]
 # Plafond du classement national, selon le tier du pays (data/geo.json) : règle publiée dans la méthode. Le classement
 # compte toutes les sociétés sur lesquelles les IA s'accordent (au moins 3 des 5 modèles dans la même tranche ou des

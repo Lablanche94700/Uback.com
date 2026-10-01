@@ -1957,8 +1957,8 @@
    },
    "zone": "south-asia",
    "tier": "full",
-   "status": "planned",
-   "url": null,
+   "status": "live",
+   "url": "/in/",
    "density": {
     "low": 2500,
     "high": 4000,

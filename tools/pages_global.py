@@ -523,5 +523,6 @@ PARTNER_FR = {
  'pl': dict(deals='environ 180 tours de table par an tous acteurs confondus',
             profile='entreprise d’investissement agréée par la KNF (autorité polonaise de surveillance financière), banque d’affaires ou boutique M&amp;A, avec une pratique du non-coté et de l’anglais'),
  'vn': dict(deals='environ 100 tours de table par an tous acteurs confondus',
-            profile='société de bourse ou de gestion agréée par la SSC (autorité des marchés du Vietnam), banque d’affaires ou boutique M&amp;A, avec une pratique du non-coté et de l’anglais'),
+            profile='société de bourse ou de gestion agréée par la SSC (autorité des marchés du Vietnam), banque d’affaires ou boutique M&amp;A, avec une pratique du non-coté et de l’anglais'), 'in': dict(deals='environ 900 tours de table par an tous acteurs confondus',
+            profile='merchant banker ou conseiller en investissement enregistré auprès du SEBI (autorité des marchés indienne), banque d’affaires ou boutique M&amp;A, avec une pratique du non-coté et de l’investissement transfrontalier'),
 }
