@@ -18,6 +18,7 @@ import geo
 from valuation import BRACKETS, bracket_index, money, month
 from flags import flag
 from footer import footer
+from analytics import HEAD as GA_HEAD
 
 e = html.escape
 EDGE = r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'   # rendu de l'image de partage (facultatif)
@@ -295,6 +296,7 @@ def page_top(title, desc, url, og_img, sw, nav, follow_label, follow_href, extra
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/segments/assets/style.css?v={CSS_V}">
 {extra}
+{GA_HEAD}
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>

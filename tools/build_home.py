@@ -14,6 +14,7 @@ from build_site import MARKETS, NAMES, next_edition, format_date, months_txt   #
 from pages_global import METHOD, LEGAL, INVEST, FAQ, CALENDAR_INTRO, PARTNER, PARTNER_FR
 import geo
 from footer import footer, FOOTER_CSS
+from analytics import HEAD as GA_HEAD
 
 def next_ed(code):
     m = next(v for v in MARKETS if v['code'] == code and v['default'])
@@ -429,6 +430,7 @@ page = f'''<!doctype html>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <!-- Généré par tools/build_home.py à partir de data/sectors.json : ne pas modifier à la main. -->
 <style>{CSS}</style>
+{GA_HEAD}
 </head>
 <body>
 
@@ -722,6 +724,7 @@ def global_page(key, lang, body, extra=''):
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">{extra}
 <!-- Généré par tools/build_home.py (texte : tools/pages_global.py) : ne pas modifier à la main. -->
 <style>{CSS}{G_CSS}</style>
+{GA_HEAD}
 </head>
 <body>
 

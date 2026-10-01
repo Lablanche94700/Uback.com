@@ -55,6 +55,7 @@ def footer(lang='en', root='/', country=None, disc=None):
     <div class="ft-bar">
       <span>© {datetime.date.today().year} Uback</span>
       <a href="{u['legal']}">{t['legal']}</a>
+      <a href="#" data-cookies>Cookies</a>
       <p>{disc or t['disc']}</p>
     </div>
   </div>

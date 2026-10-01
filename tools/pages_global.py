@@ -227,6 +227,10 @@ LEGAL = {
 <p>Toute société citée peut signaler une information inexacte la concernant ou contester son rang, via le <a href="/fr/correction.html">formulaire de correction</a>.</p>
 <h2>Données personnelles</h2>
 <p>Les adresses e-mail collectées via le formulaire de suivi servent uniquement à l’envoi de chaque nouvelle édition du classement et des informations sur l’ouverture du service. Elles ne sont ni vendues ni transmises à des tiers. Désinscription possible à tout moment. Responsable du traitement : DEALING-ROOM SARL. Droits d’accès, de rectification et d’effacement : <a href="mailto:privacy@uback.com">privacy@uback.com</a>.</p>
+<h2 id="cookies">Cookies et mesure d’audience</h2>
+<p>Uback mesure son audience avec Google Analytics (Google Ireland Limited), uniquement si vous l’acceptez dans le bandeau affiché à votre première visite. Tant que vous n’avez pas accepté, aucun cookie de mesure n’est déposé et aucune donnée n’est envoyée à Google. Ignorer le bandeau vaut refus.</p>
+<p>Si vous acceptez, Google Analytics dépose les cookies <code>_ga</code> et <code>_ga_*</code> (durée maximale : 13 mois) pour compter les visites et les pages vues, de façon statistique. Ces données ne servent ni à la publicité ni au profilage, et ne sont pas vendues. Elles peuvent être transférées aux États-Unis, dans le cadre du Data Privacy Framework UE–États-Unis.</p>
+<p>Votre choix est conservé 6 mois sur votre appareil, puis vous est redemandé. Vous pouvez le modifier à tout moment avec le lien « Cookies » en bas de chaque page ; un refus efface les cookies de mesure déjà déposés. Questions : <a href="mailto:privacy@uback.com">privacy@uback.com</a>.</p>
 <h2>Propriété intellectuelle</h2>
 <p>Les classements, textes et éléments graphiques du site sont la propriété de DEALING-ROOM SARL. La reproduction d’un classement est autorisée avec mention de la source et lien vers la page d’origine. Les noms de sociétés cités appartiennent à leurs propriétaires.</p>
 </div>
@@ -243,6 +247,10 @@ LEGAL = {
 <p>Any company mentioned may report inaccurate information about it or dispute its rank, using the <a href="/correction.html">correction form</a>.</p>
 <h2>Personal data</h2>
 <p>E-mail addresses collected through the follow form are used only to send every new edition of the ranking and information about the opening of the service. They are neither sold nor passed on to third parties. You may unsubscribe at any time. Data controller: DEALING-ROOM SARL. Rights of access, rectification and erasure: <a href="mailto:privacy@uback.com">privacy@uback.com</a>.</p>
+<h2 id="cookies">Cookies and audience measurement</h2>
+<p>Uback measures its audience with Google Analytics (Google Ireland Limited), only if you accept it in the banner shown on your first visit. Until you accept, no measurement cookie is set and no data is sent to Google. Ignoring the banner counts as a refusal.</p>
+<p>If you accept, Google Analytics sets the <code>_ga</code> and <code>_ga_*</code> cookies (maximum lifetime: 13 months) to count visits and page views, statistically. This data is used neither for advertising nor for profiling, and is not sold. It may be transferred to the United States, under the EU–US Data Privacy Framework.</p>
+<p>Your choice is kept for 6 months on your device, then asked again. You can change it at any time with the “Cookies” link at the bottom of every page; a refusal deletes any measurement cookies already set. Questions: <a href="mailto:privacy@uback.com">privacy@uback.com</a>.</p>
 <h2>Intellectual property</h2>
 <p>The rankings, texts and graphic elements of the website are the property of DEALING-ROOM SARL. Reproducing a ranking is allowed with credit to the source and a link to the original page. Company names belong to their owners.</p>
 </div>

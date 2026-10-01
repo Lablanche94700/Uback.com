@@ -7,6 +7,7 @@ import json, html, os, re, shutil, datetime, copy
 from urllib.parse import quote
 import valuation
 from footer import footer
+from analytics import HEAD as GA_HEAD
 from build_site import format_date_short
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # racine du dépôt = dossier publié
 PREFIX = M['path']                  # chemin de cette version sur uback.com : /ma (anglais), /ma/fr (français)…
@@ -301,6 +302,7 @@ def head(title, desc, path, extra=''):
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css?v={M['css_v']}">
 {extra}
+{GA_HEAD}
 </head>
 <body>
 <a class="skip" href="#main">{L['skip']}</a>

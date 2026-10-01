@@ -75,6 +75,8 @@ nav a{text-decoration:none;display:inline-flex;align-items:center;min-height:44p
 .eyebrow i.r{display:none}
 .eyebrow .nw{white-space:nowrap}   /* si la ligne ne tient pas, « Public beta » passe à la ligne, jamais au milieu */
 h1{margin:0;font-size:38px;line-height:1.08;font-weight:800;letter-spacing:-.03em}
+/* titre de la homepage sur deux phrases : chacune commence sur une nouvelle ligne, même style */
+.h1-l{display:block}
 .lead{margin:0;font-size:17px;line-height:1.6;color:var(--body)}
 /* homepage : deux colonnes Discover / Back sous le titre */
 .duo{width:100%;max-width:1040px;margin:16px auto 0;display:grid;grid-template-columns:1fr;row-gap:16px;text-align:left}
@@ -197,6 +199,8 @@ a.sub-link:hover{color:var(--navy);text-decoration:underline;text-decoration-col
   .follow form{flex-direction:row}
   .follow input{flex:1}
 }
+/* homepage, à partir de 1024 px : chaque phrase du titre tient sur une ligne, avec de la marge de chaque côté (~85 % de la largeur) */
+@media (min-width:1024px){.hero h1{font-size:clamp(40px,3.95vw,48px);max-width:none}}
 footer.site-foot{margin-top:auto;background:#fff;border-top:1px solid var(--line);font-size:14px;color:var(--muted);padding:0}
 footer.site-foot .wrap{display:block;padding-top:36px;padding-bottom:24px}
 .ft-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:28px}
@@ -277,6 +281,34 @@ footer.site-foot .wrap{display:block;padding-top:36px;padding-bottom:24px}
 @media (min-width:900px){.cal-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (min-width:640px) and (max-width:899px){.cal-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
+<script>(function(){
+var ID="G-CDF2KWM08X", K="uback-consent", MAX=180*864e5, T={"en": {"t": "Uback measures its audience with Google Analytics, only if you agree. No advertising, no data sold.", "more": "Details", "yes": "Accept", "no": "Refuse", "legal": "/legal-notice.html#cookies"}, "fr": {"t": "Uback mesure son audience avec Google Analytics, seulement si vous l’acceptez. Pas de publicité, aucune donnée vendue.", "more": "En savoir plus", "yes": "Accepter", "no": "Refuser", "legal": "/mentions-legales.html#cookies"}};
+var L=(document.documentElement.lang||'en').slice(0,2)==='fr'?T.fr:T.en;
+function get(){try{var v=JSON.parse(localStorage.getItem(K)||'null');return v&&Date.now()-v.t<MAX?v.c:null;}catch(e){return null;}}
+function set(c){try{localStorage.setItem(K,JSON.stringify({c:c,t:Date.now()}));}catch(e){}}
+var loaded=false;
+function load(){if(loaded)return;loaded=true;
+  window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};
+  gtag('js',new Date());gtag('config',ID);
+  var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+ID;document.head.appendChild(s);}
+function wipe(){document.cookie.split(';').forEach(function(c){var n=c.split('=')[0].trim();if(n.indexOf('_ga')===0){
+  ['','.uback.com','uback.com'].forEach(function(d){document.cookie=n+'=; Max-Age=0; path=/'+(d?'; domain='+d:'');});}});}
+function hide(){var b=document.getElementById('ck');if(b)b.remove();}
+function show(){if(document.getElementById('ck'))return;
+  var b=document.createElement('div');b.id='ck';b.setAttribute('role','dialog');b.setAttribute('aria-label','Cookies');
+  var st=document.createElement('style');st.textContent="#ck{position:fixed;left:16px;right:16px;bottom:16px;z-index:1000;max-width:720px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;padding:16px 18px;background:#fff;border:1px solid #E4E8EE;border-top:3px solid #C8A052;border-radius:12px;box-shadow:0 10px 30px rgba(30,58,95,.18);font:14px/1.5 Inter,system-ui,sans-serif;color:#1E3A5F}#ck p{flex:1 1 300px;margin:0}#ck a{color:#1E3A5F;text-decoration:underline}#ck .b{display:flex;gap:8px}#ck button{min-height:40px;padding:0 18px;border-radius:10px;font:600 14px Inter,system-ui,sans-serif;cursor:pointer;border:1.5px solid #1E3A5F;background:#fff;color:#1E3A5F}#ck button.y{background:#1E3A5F;color:#fff}";b.appendChild(st);
+  var p=document.createElement('p');p.textContent=L.t+' ';var a=document.createElement('a');a.href=L.legal;a.textContent=L.more;p.appendChild(a);
+  var w=document.createElement('div');w.className='b';
+  var no=document.createElement('button');no.type='button';no.textContent=L.no;
+  var yes=document.createElement('button');yes.type='button';yes.className='y';yes.textContent=L.yes;
+  no.onclick=function(){set('denied');wipe();hide();};yes.onclick=function(){set('granted');hide();load();};
+  w.appendChild(no);w.appendChild(yes);b.appendChild(p);b.appendChild(w);document.body.appendChild(b);}
+var c=get();
+if(c==='granted')load();
+document.addEventListener('DOMContentLoaded',function(){
+  if(!c)show();
+  document.querySelectorAll('[data-cookies]').forEach(function(el){el.addEventListener('click',function(ev){ev.preventDefault();show();});});});
+})();</script>
 </head>
 <body>
 
@@ -382,6 +414,7 @@ footer.site-foot .wrap{display:block;padding-top:36px;padding-bottom:24px}
     <div class="ft-bar">
       <span>© 2026 Uback</span>
       <a href="/mentions-legales.html">Mentions légales</a>
+      <a href="#" data-cookies>Cookies</a>
       <p>Uback est un éditeur de contenu. Il ne fournit aucun conseil en investissement, ne reçoit aucun mandat et n’intervient dans aucune transaction. Les mises en relation sont réalisées par des partenaires agréés, en cours de sélection. Investir dans des sociétés non cotées comporte un risque de perte totale du capital investi.</p>
     </div>
   </div>

@@ -71,6 +71,9 @@ tools/build_calendar.py ← calcule data/calendar.json depuis data/geo.json et d
 tools/build_regions.py  ← pages de zone et de collection (depuis data/geo.json et data/calendar.json)
 tools/footer.py         ← pied de page unique de tout le site (HTML + CSS ; la CSS est recopiée dans ma/assets/style.css
                           entre les marqueurs « footer:start / footer:end » par build_site.py : ne pas la modifier là)
+tools/analytics.py      ← Google Analytics 4 (G-CDF2KWM08X, compte « Uback », accès contact@dealing-room.com), chargé SEULEMENT
+                          après « Accepter » dans le bandeau cookies ; script unique inséré dans le <head> de toutes les pages
+                          générées ; lien « Cookies » du pied de page ; section #cookies des mentions légales
 tools/geo.py            ← lecture commune de data/geo.json et data/calendar.json (zones, pays, prochaine date d'un classement)
 ```
 
