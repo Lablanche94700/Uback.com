@@ -1001,14 +1001,14 @@ def partner_countries(lang):
     u = P_UI[lang]
     contact = '/' + url_of('contact', lang)
     blocks, opts = '', ''
-    for c in sorted(geo.live(), key=lambda c: geo.name(c, lang)):
+    # seuls les pays dont le classement existe dans la langue de la page (version française : le Maroc aujourd'hui) ;
+    # PARTNER_FR (pages_global.py) n'est donc plus affiché, il reste prêt si la règle change
+    shown = [c for c in sorted(geo.live(), key=lambda c: geo.name(c, lang))
+             if any(v['code'] == c['code'] and v['lang'] == lang for v in MARKETS)]
+    for c in shown:
         code = c['code']
-        m = next((v for v in MARKETS if v['code'] == code and v['lang'] == lang), None)
-        d = next(v for v in MARKETS if v['code'] == code and v['default'])
-        if m:
-            deals, prof, url = m['deals_phrase'], m['partner_long'], m['path'] + '/'
-        else:                                   # pas de version dans cette langue : texte traduit dans pages_global.py
-            deals, prof, url = PARTNER_FR[code]['deals'], PARTNER_FR[code]['profile'], d['path'] + '/'
+        m = next(v for v in MARKETS if v['code'] == code and v['lang'] == lang)
+        deals, prof, url = m['deals_phrase'], m['partner_long'], m['path'] + '/'
         name = geo.name(c, lang)
         opts += f'<option value="{code}">{e(name)}</option>'
         blocks += (f'<div class="callout ptn-c" data-c="{code}"><p><b>{e(name)}</b> · <a href="{url}">{u["rank"]}</a><br>'
@@ -1019,7 +1019,7 @@ def partner_countries(lang):
     n = len([c for c in geo.GEO['countries'] if c['status'] in geo.RANKED])
     blocks += f'<div class="callout ptn-c" data-c="other"><p><b>{u["other"]}</b><br>{u["other_p"].format(n=n)}</p></div>'
     opts += f'<option value="other">{u["other"]}</option>'
-    codes = json.dumps([c['code'] for c in geo.live()])
+    codes = json.dumps([c['code'] for c in shown])
     return f'''<h2 id="country">{u['h']}</h2>
 <p class="ptn-pick"><label for="ptn-c">{u['pick']}</label> <select id="ptn-c"><option value="">{u['all']}</option>{opts}</select></p>
 {blocks}
