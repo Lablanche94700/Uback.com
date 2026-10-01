@@ -251,6 +251,8 @@ footer.site-foot .wrap{display:block;padding-top:36px;padding-bottom:24px}
 .cform .consent input{width:20px;height:20px;margin-top:2px;flex-shrink:0}
 .cform button{justify-self:start;min-height:48px;padding:0 24px;border:0;border-radius:10px;background:var(--navy);color:#fff;font:inherit;font-size:16px;font-weight:600;cursor:pointer}
 .cform button:hover{background:var(--navy-dark)}
+.cform button[disabled]{opacity:.6;cursor:wait}
+.form-err{margin:0;padding:12px 14px;border-radius:10px;background:#FDECEC;border:1px solid #F3C4C4;color:#7A1F1F;font-size:14px}
 .langsw{display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:600;color:var(--muted)}
 .langsw a{color:var(--muted);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
 .langsw .on{color:var(--navy)}
@@ -338,7 +340,7 @@ document.addEventListener('DOMContentLoaded',function(){
 <h2>Droit de réponse</h2>
 <p>Toute société citée peut signaler une information inexacte la concernant ou contester son rang, via le <a href="/fr/correction.html">formulaire de correction</a>.</p>
 <h2>Données personnelles</h2>
-<p>Les adresses e-mail collectées via le formulaire de suivi servent uniquement à l’envoi de chaque nouvelle édition du classement et des informations sur l’ouverture du service. Elles ne sont ni vendues ni transmises à des tiers. Désinscription possible à tout moment. Responsable du traitement : DEALING-ROOM SARL. Droits d’accès, de rectification et d’effacement : <a href="mailto:privacy@uback.com">privacy@uback.com</a>.</p>
+<p>Les adresses e-mail collectées via le formulaire de suivi servent uniquement à l’envoi de chaque nouvelle édition du classement et des informations sur l’ouverture du service. Elles ne sont ni vendues ni transmises à des tiers. Désinscription possible à tout moment. Responsable du traitement : DEALING-ROOM SARL. Les messages envoyés avec les formulaires de contact et de correction sont acheminés par le service Web3Forms (web3forms.com), qui les transmet par e-mail à <a href="mailto:contact@uback.com">contact@uback.com</a> ; ils servent uniquement à répondre à votre demande. Droits d’accès, de rectification et d’effacement : <a href="mailto:privacy@uback.com">privacy@uback.com</a>.</p>
 <h2 id="cookies">Cookies et mesure d’audience</h2>
 <p>Uback mesure son audience avec Google Analytics (Google Ireland Limited), uniquement si vous l’acceptez dans le bandeau affiché à votre première visite. Tant que vous n’avez pas accepté, aucun cookie de mesure n’est déposé et aucune donnée n’est envoyée à Google. Ignorer le bandeau vaut refus.</p>
 <p>Si vous acceptez, Google Analytics dépose les cookies <code>_ga</code> et <code>_ga_*</code> (durée maximale : 13 mois) pour compter les visites et les pages vues, de façon statistique. Ces données ne servent ni à la publicité ni au profilage, et ne sont pas vendues. Elles peuvent être transférées aux États-Unis, dans le cadre du Data Privacy Framework UE–États-Unis.</p>

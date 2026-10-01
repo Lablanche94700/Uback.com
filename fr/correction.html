@@ -251,6 +251,8 @@ footer.site-foot .wrap{display:block;padding-top:36px;padding-bottom:24px}
 .cform .consent input{width:20px;height:20px;margin-top:2px;flex-shrink:0}
 .cform button{justify-self:start;min-height:48px;padding:0 24px;border:0;border-radius:10px;background:var(--navy);color:#fff;font:inherit;font-size:16px;font-weight:600;cursor:pointer}
 .cform button:hover{background:var(--navy-dark)}
+.cform button[disabled]{opacity:.6;cursor:wait}
+.form-err{margin:0;padding:12px 14px;border-radius:10px;background:#FDECEC;border:1px solid #F3C4C4;color:#7A1F1F;font-size:14px}
 .langsw{display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:600;color:var(--muted)}
 .langsw a{color:var(--muted);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
 .langsw .on{color:var(--navy)}
@@ -330,9 +332,13 @@ document.addEventListener('DOMContentLoaded',function(){
 <div class="wrap prose">
 <h1>Demander une correction</h1>
 <p class="lead">Signalez une information inexacte ou contestez un rang. Chaque demande reçoit une réponse motivée. Une société ne peut pas demander son retrait d’un classement (<a href="/fr/methode.html#correction">voir la méthode</a>).</p>
-<form class="cform" name="correction" method="POST" action="/fr/merci.html" data-netlify="true" netlify-honeypot="bot-field" data-mailto="contact@uback.com">
-  <input type="hidden" name="form-name" value="correction">
-  <p class="skip"><label>Ne pas remplir : <input name="bot-field"></label></p>
+<script>window.ubackSend=function(f,subject,body){var b=f.querySelector("button[type=submit]"),t=b.textContent,err=f.querySelector(".form-err");if(f.botcheck&&f.botcheck.checked)return;b.disabled=true;b.textContent="Envoi\u2026";if(err)err.hidden=true;fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({access_key:f.access_key.value,from_name:"Uback.com",subject:subject,name:f.name.value.trim(),email:f.email.value.trim(),replyto:f.email.value.trim(),message:body,botcheck:false})}).then(function(r){return r.json();}).then(function(j){if(!j.success)throw new Error(j.message||"error");window.location.href=f.redirect.value.replace("https://uback.com","");}).catch(function(){b.disabled=false;b.textContent=t;if(!err){err=document.createElement("p");err.className="form-err";err.setAttribute("role","alert");f.appendChild(err);}err.innerHTML="Le message n\u2019a pas pu \u00eatre envoy\u00e9. R\u00e9essayez dans un instant, ou \u00e9crivez-nous \u00e0 <a href=\"mailto:contact@uback.com\">contact@uback.com</a>.";err.hidden=false;});};</script>
+<form class="cform" name="correction" method="POST" action="https://api.web3forms.com/submit" data-w3f="1">
+  <input type="hidden" name="access_key" value="92486651-e759-40da-b0dc-2da4fe75bc0a">
+  <input type="hidden" name="from_name" value="Uback.com">
+  <input type="hidden" name="redirect" value="https://uback.com/fr/merci.html">
+  <input type="hidden" name="subject" value="[Correction] Uback">
+  <input type="checkbox" name="botcheck" class="skip" tabindex="-1" autocomplete="off" aria-hidden="true">
   <div><label for="c-company">Société <span class="req" aria-hidden="true">*</span></label><input id="c-company" name="company" type="text" required autocomplete="organization"></div>
   <div><label for="c-country">Pays du classement <span class="req" aria-hidden="true">*</span></label><select id="c-country" name="country" required><option value="">Choisir…</option><option value="ma">Maroc</option><option value="pl">Pologne</option><option value="vn">Vietnam</option><option value="fr">France</option><option value="global">Classement mondial par segment</option></select></div>
   <div><label for="c-type">Type de demande <span class="req" aria-hidden="true">*</span></label><select id="c-type" name="type" required><option value="">Choisir…</option><option value="inaccurate">Information inexacte</option><option value="dispute">Contestation du rang</option></select></div>
@@ -356,7 +362,7 @@ document.addEventListener('DOMContentLoaded',function(){
   var q=new URLSearchParams(location.search);
   if(q.get('company'))f.company.value=q.get('company');
   if(q.get('country'))f.country.value=q.get('country');
-  if(!f.dataset.mailto)return;
+  if(!f.dataset.mailto&&!f.dataset.w3f)return;
   f.addEventListener('submit',function(ev){ev.preventDefault();
     var L=["Société", "Pays du classement", "Type de demande", "Information concernée", "Valeur actuellement affichée", "Valeur proposée", "Source (lien)", "Commentaire", "Nom", "Fonction et lien avec la société", "E-mail", "Case"], sep=" : ";
     function txt(el){return el.tagName==='SELECT'?(el.value?el.options[el.selectedIndex].text:''):el.value.trim();}
@@ -364,6 +370,7 @@ document.addEventListener('DOMContentLoaded',function(){
               txt(f.comment),txt(f.name),txt(f.role),txt(f.email),f.consent.checked?"oui":''];
     var body=L.map(function(l,i){return l+sep+vals[i];}).join('\n');
     var subject='[Correction] '+vals[0]+' – '+vals[1]+' – '+vals[2];
+    if(f.dataset.w3f){window.ubackSend(f,subject,body);return;}
     window.location.href='mailto:'+f.dataset.mailto+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
     setTimeout(function(){window.location.href="/fr/merci.html";},1500);});
 })();

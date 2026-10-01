@@ -251,6 +251,8 @@ footer.site-foot .wrap{display:block;padding-top:36px;padding-bottom:24px}
 .cform .consent input{width:20px;height:20px;margin-top:2px;flex-shrink:0}
 .cform button{justify-self:start;min-height:48px;padding:0 24px;border:0;border-radius:10px;background:var(--navy);color:#fff;font:inherit;font-size:16px;font-weight:600;cursor:pointer}
 .cform button:hover{background:var(--navy-dark)}
+.cform button[disabled]{opacity:.6;cursor:wait}
+.form-err{margin:0;padding:12px 14px;border-radius:10px;background:#FDECEC;border:1px solid #F3C4C4;color:#7A1F1F;font-size:14px}
 .langsw{display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:600;color:var(--muted)}
 .langsw a{color:var(--muted);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
 .langsw .on{color:var(--navy)}
@@ -328,9 +330,9 @@ document.addEventListener('DOMContentLoaded',function(){
 
 <main class="prose-main">
 <div class="wrap prose">
-<h1>Merci, votre demande est prête.</h1>
-<p class="lead">Si votre messagerie s’est ouverte, envoyez simplement le message préparé : votre demande nous parviendra et recevra une réponse motivée. Sinon, écrivez-nous à <a href="mailto:contact@uback.com">contact@uback.com</a>.</p>
-<p><a href="/fr/methode.html">Retour à la méthode</a></p>
+<h1>Merci, votre message est envoyé.</h1>
+<p class="lead">Il est bien parvenu à l’équipe Uback. Nous répondons à chaque message, à l’adresse e-mail que vous avez indiquée.</p>
+<p><a href="/">Retour à l’accueil</a></p>
 </div>
 
 </main>

@@ -251,6 +251,8 @@ footer.site-foot .wrap{display:block;padding-top:36px;padding-bottom:24px}
 .cform .consent input{width:20px;height:20px;margin-top:2px;flex-shrink:0}
 .cform button{justify-self:start;min-height:48px;padding:0 24px;border:0;border-radius:10px;background:var(--navy);color:#fff;font:inherit;font-size:16px;font-weight:600;cursor:pointer}
 .cform button:hover{background:var(--navy-dark)}
+.cform button[disabled]{opacity:.6;cursor:wait}
+.form-err{margin:0;padding:12px 14px;border-radius:10px;background:#FDECEC;border:1px solid #F3C4C4;color:#7A1F1F;font-size:14px}
 .langsw{display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:600;color:var(--muted)}
 .langsw a{color:var(--muted);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
 .langsw .on{color:var(--navy)}
@@ -338,7 +340,7 @@ document.addEventListener('DOMContentLoaded',function(){
 <h2>Right of reply</h2>
 <p>Any company mentioned may report inaccurate information about it or dispute its rank, using the <a href="/correction.html">correction form</a>.</p>
 <h2>Personal data</h2>
-<p>E-mail addresses collected through the follow form are used only to send every new edition of the ranking and information about the opening of the service. They are neither sold nor passed on to third parties. You may unsubscribe at any time. Data controller: DEALING-ROOM SARL. Rights of access, rectification and erasure: <a href="mailto:privacy@uback.com">privacy@uback.com</a>.</p>
+<p>E-mail addresses collected through the follow form are used only to send every new edition of the ranking and information about the opening of the service. They are neither sold nor passed on to third parties. You may unsubscribe at any time. Data controller: DEALING-ROOM SARL. Messages sent with the contact and correction forms are routed by the Web3Forms service (web3forms.com), which forwards them by e-mail to <a href="mailto:contact@uback.com">contact@uback.com</a>; they are used only to answer your request. Rights of access, rectification and erasure: <a href="mailto:privacy@uback.com">privacy@uback.com</a>.</p>
 <h2 id="cookies">Cookies and audience measurement</h2>
 <p>Uback measures its audience with Google Analytics (Google Ireland Limited), only if you accept it in the banner shown on your first visit. Until you accept, no measurement cookie is set and no data is sent to Google. Ignoring the banner counts as a refusal.</p>
 <p>If you accept, Google Analytics sets the <code>_ga</code> and <code>_ga_*</code> cookies (maximum lifetime: 13 months) to count visits and page views, statistically. This data is used neither for advertising nor for profiling, and is not sold. It may be transferred to the United States, under the EU–US Data Privacy Framework.</p>

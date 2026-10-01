@@ -21,14 +21,15 @@ faq/, fr/faq/           ← FAQ (anglais / français, balisage FAQPage), texte d
 method.html, fr/methode.html      ← méthode et règles du jeu GLOBALES (anglais / français), communes à tous les pays
 legal-notice.html, mentions-legales.html ← mentions légales globales (anglais / français)
 correction.html, fr/correction.html ← formulaire de correction global (CORRECTION_MODE dans tools/build_home.py :
-                          'mailto' → message structuré « Champ : valeur » vers contact@uback.com ; 'netlify' → formulaire
-                          natif « correction ») ; préremplissable : ?company=…&country=ma
+                          'web3forms' (actuel) → envoi direct par Web3Forms, message structuré « Champ : valeur » reçu sur
+                          contact@uback.com ; 'mailto' → messagerie du visiteur ; 'netlify' → formulaire natif) ;
+                          préremplissable : ?company=…&country=ma
 thank-you.html, fr/merci.html ← confirmation du formulaire de correction (noindex)
 partner.html, fr/partenaire.html ← page partenaire UNIQUE (règle n° 1 : partenaires locaux, un par pays, chacun avec un ou
                           plusieurs secteurs ; success fee partagé sur les opérations transfrontalières) ; le pays s'adapte à
                           la page d'appel (?country=ma, sinon la page d'origine) ; blocs pays calculés depuis MARKETS
 contact.html, fr/contact.html ← formulaire de contact (« Contact us » du pied de page), même envoi que la correction
-                          (message structuré « Champ : valeur » vers contact@uback.com, puis page de remerciement)
+                          (Web3Forms, clé WEB3FORMS_KEY dans tools/build_home.py), puis page de remerciement
                         (ces pages sont générées par tools/build_home.py, texte de la méthode dans tools/pages_global.py)
 methode.html, partenaire.html, merci.html
                         ← redirections (anciennes adresses, à garder) vers /fr/methode.html et /ma/fr/…

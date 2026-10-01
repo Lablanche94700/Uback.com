@@ -638,6 +638,8 @@ G_CSS = '''
 .cform .consent input{width:20px;height:20px;margin-top:2px;flex-shrink:0}
 .cform button{justify-self:start;min-height:48px;padding:0 24px;border:0;border-radius:10px;background:var(--navy);color:#fff;font:inherit;font-size:16px;font-weight:600;cursor:pointer}
 .cform button:hover{background:var(--navy-dark)}
+.cform button[disabled]{opacity:.6;cursor:wait}
+.form-err{margin:0;padding:12px 14px;border-radius:10px;background:#FDECEC;border:1px solid #F3C4C4;color:#7A1F1F;font-size:14px}
 .langsw{display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:600;color:var(--muted)}
 .langsw a{color:var(--muted);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
 .langsw .on{color:var(--navy)}
@@ -749,9 +751,43 @@ def global_page(key, lang, body, extra=''):
 '''
 
 # ---------------------------------------------------------------- formulaire de correction
-# Envoi : 'mailto' (message structuré vers contact@uback.com, lisible par un agent IA) ou 'netlify' (formulaire natif
-# nommé « correction »). Réglage distinct de FORM_MODE (newsletter, en « soon ») : les corrections restent ouvertes.
-CORRECTION_MODE = 'mailto'
+# Envoi des formulaires de correction et de contact : 'web3forms' (envoi direct par le service Web3Forms, message
+# structuré « Champ : valeur » reçu sur contact@uback.com), 'mailto' (ouvre la messagerie du visiteur) ou 'netlify'
+# (formulaire natif). Réglage distinct de FORM_MODE (newsletter, en « soon ») : corrections et contact restent ouverts.
+CORRECTION_MODE = 'web3forms'
+WEB3FORMS_KEY = '92486651-e759-40da-b0dc-2da4fe75bc0a'   # clé publique Web3Forms (reçue sur contact@uback.com), faite pour être dans la page
+W3F_UI = {'en': dict(sending='Sending…', error='The message could not be sent. Please try again in a moment, or write to <a href="mailto:contact@uback.com">contact@uback.com</a>.'),
+          'fr': dict(sending='Envoi…', error='Le message n’a pas pu être envoyé. Réessayez dans un instant, ou écrivez-nous à <a href="mailto:contact@uback.com">contact@uback.com</a>.')}
+
+def form_attrs(name, lang, subject_fallback):
+    """Attributs et champs cachés d'un formulaire selon CORRECTION_MODE. En 'web3forms', le script envoie en JSON
+    (fetch) ; sans JavaScript, le formulaire est posté directement à Web3Forms, qui renvoie vers la page de remerciement."""
+    thanks = '/' + GLOBAL['thanks'][lang]
+    if CORRECTION_MODE == 'web3forms':
+        return (f' action="https://api.web3forms.com/submit" data-w3f="1"',
+                f'<input type="hidden" name="access_key" value="{WEB3FORMS_KEY}">\n'
+                f'  <input type="hidden" name="from_name" value="Uback.com">\n'
+                f'  <input type="hidden" name="redirect" value="https://uback.com{thanks}">\n'
+                + (f'  <input type="hidden" name="subject" value="{subject_fallback}">\n' if subject_fallback else '')
+                + '  <input type="checkbox" name="botcheck" class="skip" tabindex="-1" autocomplete="off" aria-hidden="true">')
+    mailto = ' data-mailto="contact@uback.com"' if CORRECTION_MODE == 'mailto' else ''
+    return (f' action="{thanks}" data-netlify="true" netlify-honeypot="bot-field"{mailto}',
+            f'<input type="hidden" name="form-name" value="{name}">\n  <p class="skip"><label>Ne pas remplir : <input name="bot-field"></label></p>')
+
+def w3f_js(lang):
+    """window.ubackSend(form, subject, body) : envoi JSON à Web3Forms, page de remerciement si succès, message sinon."""
+    u = W3F_UI[lang]
+    return ('<script>window.ubackSend=function(f,subject,body){'
+            'var b=f.querySelector("button[type=submit]"),t=b.textContent,err=f.querySelector(".form-err");'
+            'if(f.botcheck&&f.botcheck.checked)return;'
+            'b.disabled=true;b.textContent=' + json.dumps(u['sending']) + ';if(err)err.hidden=true;'
+            'fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},'
+            'body:JSON.stringify({access_key:f.access_key.value,from_name:"Uback.com",subject:subject,name:f.name.value.trim(),'
+            'email:f.email.value.trim(),replyto:f.email.value.trim(),message:body,botcheck:false})})'
+            '.then(function(r){return r.json();}).then(function(j){if(!j.success)throw new Error(j.message||"error");'
+            'window.location.href=f.redirect.value.replace("https://uback.com","");})'
+            '.catch(function(){b.disabled=false;b.textContent=t;if(!err){err=document.createElement("p");err.className="form-err";'
+            'err.setAttribute("role","alert");f.appendChild(err);}err.innerHTML=' + json.dumps(u['error']) + ';err.hidden=false;});};</script>\n')
 C_UI = {
  'fr': dict(h1='Demander une correction',
     intro='Signalez une information inexacte ou contestez un rang. Chaque demande reçoit une réponse motivée. Une société ne peut pas demander son retrait d’un classement (<a href="/fr/methode.html#correction">voir la méthode</a>).',
@@ -763,9 +799,9 @@ C_UI = {
     name='Nom', role='Fonction et lien avec la société', email='E-mail', box='Case',
     consent='J’accepte que ces informations soient utilisées pour traiter ma demande.', yes='oui', choose='Choisir…',
     send='Envoyer la demande', sep=' : ',
-    thanks_h='Merci, votre demande est prête.',
-    thanks_p='Si votre messagerie s’est ouverte, envoyez simplement le message préparé : votre demande nous parviendra et recevra une réponse motivée. Sinon, écrivez-nous à <a href="mailto:contact@uback.com">contact@uback.com</a>.',
-    back='Retour à la méthode'),
+    thanks_h='Merci, votre message est envoyé.',
+    thanks_p='Il est bien parvenu à l’équipe Uback. Nous répondons à chaque message, à l’adresse e-mail que vous avez indiquée.',
+    back='Retour à l’accueil'),
  'en': dict(h1='Request a correction',
     intro='Report inaccurate information or dispute a rank. Every request receives a reasoned reply. A company cannot ask to be removed from a ranking (<a href="/method.html#correction">see the method</a>).',
     company='Company', country='Ranking country', global_seg='Global ranking by segment', type='Request type',
@@ -776,9 +812,9 @@ C_UI = {
     name='Name', role='Role and relationship to the company', email='E-mail', box='Checkbox',
     consent='I agree that this information may be used to process my request.', yes='yes', choose='Choose…',
     send='Send request', sep=': ',
-    thanks_h='Thank you, your request is ready.',
-    thanks_p='If your e-mail app opened, simply send the prepared message: your request will reach us and receive a reasoned reply. Otherwise, write to us at <a href="mailto:contact@uback.com">contact@uback.com</a>.',
-    back='Back to the method'),
+    thanks_h='Thank you, your message has been sent.',
+    thanks_p='It has reached the Uback team. We reply to every message, at the e-mail address you gave.',
+    back='Back to the homepage'),
 }
 
 def country_options(lang):
@@ -799,15 +835,14 @@ def correction_body(lang):
     opt = lambda items: f'<option value="">{c["choose"]}</option>' + ''.join(f'<option value="{e(v)}">{e(t)}</option>' for v, t in items)
     countries = opt(country_options(lang) + [('global', c['global_seg'])])
     thanks = '/' + GLOBAL['thanks'][lang]
-    mailto = ' data-mailto="contact@uback.com"' if CORRECTION_MODE == 'mailto' else ''
+    attrs, hidden = form_attrs('correction', lang, '[Correction] Uback')
     labels = json.dumps([c[k] for k in ('company', 'country', 'type', 'info', 'current', 'proposed', 'source', 'comment',
                                         'name', 'role', 'email', 'box')], ensure_ascii=False)
     return f'''<div class="wrap prose">
 <h1>{c['h1']}</h1>
 <p class="lead">{c['intro']}</p>
-<form class="cform" name="correction" method="POST" action="{thanks}" data-netlify="true" netlify-honeypot="bot-field"{mailto}>
-  <input type="hidden" name="form-name" value="correction">
-  <p class="skip"><label>Ne pas remplir : <input name="bot-field"></label></p>
+{w3f_js(lang) if CORRECTION_MODE == 'web3forms' else ''}<form class="cform" name="correction" method="POST"{attrs}>
+  {hidden}
   <div><label for="c-company">{c['company']}{req}</label><input id="c-company" name="company" type="text" required autocomplete="organization"></div>
   <div><label for="c-country">{c['country']}{req}</label><select id="c-country" name="country" required>{countries}</select></div>
   <div><label for="c-type">{c['type']}{req}</label><select id="c-type" name="type" required>{opt([('inaccurate', c['t_inacc']), ('dispute', c['t_disp'])])}</select></div>
@@ -831,7 +866,7 @@ def correction_body(lang):
   var q=new URLSearchParams(location.search);
   if(q.get('company'))f.company.value=q.get('company');
   if(q.get('country'))f.country.value=q.get('country');
-  if(!f.dataset.mailto)return;
+  if(!f.dataset.mailto&&!f.dataset.w3f)return;
   f.addEventListener('submit',function(ev){{ev.preventDefault();
     var L={labels}, sep={json.dumps(c['sep'])};
     function txt(el){{return el.tagName==='SELECT'?(el.value?el.options[el.selectedIndex].text:''):el.value.trim();}}
@@ -839,6 +874,7 @@ def correction_body(lang):
               txt(f.comment),txt(f.name),txt(f.role),txt(f.email),f.consent.checked?{json.dumps(c['yes'])}:''];
     var body=L.map(function(l,i){{return l+sep+vals[i];}}).join('\\n');
     var subject='[Correction] '+vals[0]+' – '+vals[1]+' – '+vals[2];
+    if(f.dataset.w3f){{window.ubackSend(f,subject,body);return;}}
     window.location.href='mailto:'+f.dataset.mailto+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
     setTimeout(function(){{window.location.href={json.dumps(thanks)};}},1500);}});
 }})();
@@ -872,14 +908,13 @@ def contact_body(lang):
     req = ' <span class="req" aria-hidden="true">*</span>'
     opt = lambda items: f'<option value="">{c["choose"]}</option>' + ''.join(f'<option value="{e(v)}">{e(v)}</option>' for v in items)
     thanks = '/' + GLOBAL['thanks'][lang]
-    mailto = ' data-mailto="contact@uback.com"' if CORRECTION_MODE == 'mailto' else ''
+    attrs, hidden = form_attrs('contact', lang, None)          # sans JavaScript : l'objet est celui choisi dans la liste
     labels = json.dumps([c[k] for k in ('name', 'email', 'org', 'profile', 'subject', 'message', 'box')], ensure_ascii=False)
     return f'''<div class="wrap prose">
 <h1>{c['h1']}</h1>
 <p class="lead">{c['intro']}</p>
-<form class="cform" name="contact" method="POST" action="{thanks}" data-netlify="true" netlify-honeypot="bot-field"{mailto}>
-  <input type="hidden" name="form-name" value="contact">
-  <p class="skip"><label>Ne pas remplir : <input name="bot-field"></label></p>
+{w3f_js(lang) if CORRECTION_MODE == 'web3forms' else ''}<form class="cform" name="contact" method="POST"{attrs}>
+  {hidden}
   <div><label for="k-name">{c['name']}{req}</label><input id="k-name" name="name" type="text" required autocomplete="name"></div>
   <div><label for="k-email">{c['email']}{req}</label><input id="k-email" name="email" type="email" required autocomplete="email"></div>
   <div><label for="k-org">{c['org']}</label><input id="k-org" name="organisation" type="text" autocomplete="organization"></div>
@@ -896,13 +931,14 @@ def contact_body(lang):
   var q=new URLSearchParams(location.search), K={json.dumps(SUBJECT_KEYS)}, C={json.dumps({c['code']: geo.name(c, lang) for c in geo.live()}, ensure_ascii=False)};
   var i=K.indexOf(q.get('subject')); if(i>=0)f.subject.selectedIndex=i+1;
   if(C[q.get('country')])f.message.value={json.dumps(c['country'] + c['sep'])}+C[q.get('country')]+'\\n\\n';
-  if(!f.dataset.mailto)return;
+  if(!f.dataset.mailto&&!f.dataset.w3f)return;
   f.addEventListener('submit',function(ev){{ev.preventDefault();
     var L={labels}, sep={json.dumps(c['sep'])};
     function txt(el){{return el.tagName==='SELECT'?(el.value?el.options[el.selectedIndex].text:''):el.value.trim();}}
     var vals=[txt(f.name),txt(f.email),txt(f.organisation),txt(f.profile),txt(f.subject),txt(f.message),f.consent.checked?{json.dumps(c['yes'])}:''];
     var body=L.map(function(l,i){{return l+sep+vals[i];}}).join('\\n');
     var subject='[Contact] '+vals[4]+' – '+vals[0];
+    if(f.dataset.w3f){{window.ubackSend(f,subject,body);return;}}
     window.location.href='mailto:'+f.dataset.mailto+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
     setTimeout(function(){{window.location.href={json.dumps(thanks)};}},1500);}});
 }})();
@@ -970,7 +1006,7 @@ def thanks_body(lang):
     return f'''<div class="wrap prose">
 <h1>{c['thanks_h']}</h1>
 <p class="lead">{c['thanks_p']}</p>
-<p><a href="/{GLOBAL['method'][lang]}">{c['back']}</a></p>
+<p><a href="/">{c['back']}</a></p>
 </div>
 '''
 
