@@ -13,7 +13,7 @@ T = {
             how='How it works', method='Method', cal='Calendar', corr='Request a correction', faq='FAQ',
             back='Backers', invest='Invest with Uback', partner='Become a partner', legal='Legal notice', aria='Footer',
             disc='Uback is a content publisher. It provides no investment advice, receives no mandate and takes part in no transaction. '
-                 'Introductions are made by licensed partners, currently being selected. Investing in non-listed companies carries a risk '
+                 'Introductions are made by local partners, currently being selected. Investing in non-listed companies carries a risk '
                  'of losing all the capital invested.',
             urls=dict(method='method.html', corr='correction.html', faq='faq/', invest='invest.html', legal='legal-notice.html',
                       contact='contact.html', partner='partner.html')),
@@ -22,7 +22,7 @@ T = {
             how='Comment ça marche', method='Méthode', cal='Calendrier', corr='Demander une correction', faq='FAQ',
             back='Backers', invest='Investir avec Uback', partner='Devenir partenaire', legal='Mentions légales', aria='Pied de page',
             disc='Uback est un éditeur de contenu. Il ne fournit aucun conseil en investissement, ne reçoit aucun mandat et n’intervient '
-                 'dans aucune transaction. Les mises en relation sont réalisées par des partenaires agréés, en cours de sélection. '
+                 'dans aucune transaction. Les mises en relation sont réalisées par des partenaires locaux, en cours de sélection. '
                  'Investir dans des sociétés non cotées comporte un risque de perte totale du capital investi.',
             urls=dict(method='fr/methode.html', corr='fr/correction.html', faq='fr/faq/', invest='fr/investir.html',
                       legal='mentions-legales.html', contact='fr/contact.html', partner='fr/partenaire.html')),
