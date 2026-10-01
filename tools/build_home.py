@@ -460,7 +460,7 @@ page = f'''<!doctype html>
         <div class="duo-rule" aria-hidden="true"></div>
         <div class="duo-col">
           <div class="duo-k">Back</div>
-          <p>Alone, an investor rarely gets a seat at the table. <b>Together, Backers form a pool that counts.</b> Declare an intention on a segment or a country you want to back, today, without waiting for a startup to open its doors. Once the pool reaches critical mass, our licensed local partner takes it to the companies that fit.</p>
+          <p>Alone, an investor rarely gets a seat at the table. <b>Together, Backers form a pool that counts.</b> Declare an intention on a segment or a country you want to back, today, without waiting for a startup to open its doors. Once the pool reaches critical mass, our local partner takes it to the companies that fit.</p>
           <a href="/invest.html">How it works <span aria-hidden="true">→</span></a>
         </div>
       </div>
@@ -580,14 +580,14 @@ G_UI = {
             legal='Legal notice', corr='Request a correction', disc='Rankings are editorial content, not investment advice.',
             cal_country='Country', cal_months='Published on the 15th', cal_next='Next edition',
             t_method='Method and rules of the game | Uback', d_method='How Uback ranks non-listed startups in descending order of AI-estimated valuation: consensus, confidence index, order of magnitude, eligibility, how human input is taken into account, corrections.',
-            invest='Invest', t_invest='Invest with Uback | Uback', d_invest='Declare an investment intention on a sector, a country, or a company open to Backers. Backers’ intentions form a pool; once it reaches its critical mass, the pool is passed to the licensed partner, who presents the demand to the company.',
+            invest='Invest', t_invest='Invest with Uback | Uback', d_invest='Declare an investment intention on a sector, a country, or a company open to Backers. Backers’ intentions form a pool; once it reaches its critical mass, the pool is passed to the local partner, who presents the demand to the company.',
             opening_soon='In the meantime, write to <a href="mailto:contact@uback.com?subject=Intentions%20opening">contact@uback.com</a> to be notified when they open.',
             opening_form='In the meantime, you can <a href="/#follow">sign up to be notified when they open</a>.',
             t_correction='Request a correction | Uback', d_correction='Report inaccurate information or dispute a rank in a Uback ranking.',
             t_thanks='Thank you | Uback', d_thanks='Request prepared.',
             t_legal='Legal notice | Uback', d_legal='Legal notice of the Uback website.',
             calendar='Calendar', faq='FAQ',
-            t_partner='Become a Uback partner | Uback', d_partner='Licensed local partners: one per country, each also leading one or more sectors. Uback brings investors and visibility; the partners run the deals and share the success fee on cross-border deals.',
+            t_partner='Become a Uback partner | Uback', d_partner='Local partners: one per country, each also leading one or more sectors. Uback brings investors and visibility; the partners run the deals and share the success fee on cross-border deals.',
             t_contact='Contact us | Uback', d_contact='Write to the Uback team: a question, a press request, a partnership, feedback on a ranking.',
             t_faq='FAQ: questions about the rankings | Uback', d_faq='Why China has no ranking, how Uback chooses the countries it ranks, and when a ranking can be updated before its scheduled date.',
             t_calendar='Rankings calendar – Uback', d_calendar='The dates on which Uback publishes each country, regional and global segment ranking. Fixed dates, repeated every year.'),

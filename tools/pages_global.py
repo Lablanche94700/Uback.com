@@ -198,8 +198,8 @@ METHOD = {
 <li><b>The ranking is never for sale.</b> No payment, from a company, a partner or an investor, influences a rank or a range.</li>
 <li><b>No human changes the order.</b> A human may exclude a company on eligibility grounds, with a record kept, or re-run the calculation. Never reorder it.</li>
 <li><b>The method is public.</b> This page and the instructions given to the AI models for each type of ranking (country, segment) are public. Working data and estimate figures are not.</li>
-<li><b>Uback is not a financial intermediary.</b> Uback holds no mandate, does not negotiate, gives no advice and collects no funds intended for investment. Any transaction is offered by the country’s licensed partner, under its own responsibility.</li>
-<li><b>Data stays in.</b> Investment intentions are confidential. No data is sold. It is passed only to the country’s licensed partner, with the investor’s consent.</li>
+<li><b>Uback is not a financial intermediary.</b> Uback holds no mandate, does not negotiate, gives no advice and collects no funds intended for investment. Any transaction is offered by the country’s local partner, under its own responsibility.</li>
+<li><b>Data stays in.</b> Investment intentions are confidential. No data is sold. It is passed only to the country’s local partner, with the investor’s consent.</li>
 </ol>
 <div class="callout" id="invest"><p><b>Invest.</b> Uback lets investors declare an investment intention on a sector, a country, or a company open to Backers. How it works is described on the “<a href="/invest.html">Invest with Uback</a>” page.</p></div>
 
@@ -242,7 +242,7 @@ LEGAL = {
 <h2>Hosting</h2>
 <p>GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, United States. Website: <a href="https://github.com">github.com</a>.</p>
 <h2>Nature of the service</h2>
-<p>Uback is a content publisher. The rankings published are opinions produced by artificial intelligence systems from public information, following a published method. They constitute neither investment advice, nor a personal recommendation, nor a solicitation or an offer of securities. Uback receives no mandate, negotiates no transaction and collects no funds intended for an investment. Introductions are made by a licensed partner identified in each market, under its sole regulatory responsibility.</p>
+<p>Uback is a content publisher. The rankings published are opinions produced by artificial intelligence systems from public information, following a published method. They constitute neither investment advice, nor a personal recommendation, nor a solicitation or an offer of securities. Uback receives no mandate, negotiates no transaction and collects no funds intended for an investment. Introductions are made by a local partner identified in each market, under its sole regulatory responsibility.</p>
 <h2>Right of reply</h2>
 <p>Any company mentioned may report inaccurate information about it or dispute its rank, using the <a href="/correction.html">correction form</a>.</p>
 <h2>Personal data</h2>
@@ -335,14 +335,14 @@ INVEST = {
 <p class="lead"><b>Strength in numbers.</b> On their own, investors rarely get access to the best startups in a country. Together, Uback’s Backers form an investor pool these companies cannot ignore.</p>
 
 <h2 id="principle">The principle</h2>
-<p>Uback works like group buying. You declare your intention to invest in a sector (worldwide ranking) or in a country. Your intention joins the matching pool. When a ranked company is open to Backers, because a shareholder is considering a sale or the company plans to raise, you can also join that company’s pool. When the pool’s combined amount reaches its critical mass, a floor amount estimated by the AI for each pool, the pool is passed to the licensed partner, who presents this demand to the company.</p>
-<p>Uback does not sell securities and does not collect any funds. It brings intentions together. The investment itself, if it happens, is offered by the licensed partner, under its own responsibility.</p>
+<p>Uback works like group buying. You declare your intention to invest in a sector (worldwide ranking) or in a country. Your intention joins the matching pool. When a ranked company is open to Backers, because a shareholder is considering a sale or the company plans to raise, you can also join that company’s pool. When the pool’s combined amount reaches its critical mass, a floor amount estimated by the AI for each pool, the pool is passed to the local partner, who presents this demand to the company.</p>
+<p>Uback does not sell securities and does not collect any funds. It brings intentions together. The investment itself, if it happens, is offered by the local partner, under its own responsibility.</p>
 
 <h2 id="steps">Four steps</h2>
 <ol class="steps4">
 <li><b>You declare an intention.</b> On a sector or a country, with a ticket range, and if you wish a preferred company within it (your intention stays in the sector or country pool: the preference is a signal passed on with the pool). On a specific company, when it is open to Backers.</li>
-<li><b>Critical mass is reached.</b> Intentions add up in the pool. When its combined amount reaches critical mass, a floor amount estimated by the AI for each pool, the pool is passed to the licensed partner. The intentions it holds are then committed.</li>
-<li><b>The licensed partner structures.</b> It contacts the company, presents the Backers’ demand and checks whether expectations match: amount, valuation, rights.</li>
+<li><b>Critical mass is reached.</b> Intentions add up in the pool. When its combined amount reaches critical mass, a floor amount estimated by the AI for each pool, the pool is passed to the local partner. The intentions it holds are then committed.</li>
+<li><b>The local partner structures.</b> It contacts the company, presents the Backers’ demand and checks whether expectations match: amount, valuation, rights.</li>
 <li><b>Closing.</b> If an agreement is possible, the partner presents the transaction directly to the Backers concerned. Each one freely decides whether to take part. Small tickets are pooled in a common vehicle set up by the partner.</li>
 </ol>
 
@@ -379,7 +379,7 @@ INVEST = {
 <h2>Why only companies that have already raised funds</h2>
 <p><a href="/method.html#eligibility">Uback only ranks companies that have raised at least $1M, including one equity round.</a> Professional investors are therefore already on the cap table and have negotiated a shareholders’ agreement. Backers who come in after them do not start from a blank page.</p>
 
-<h2>The licensed partner</h2>
+<h2>The local partner</h2>
 <p>In each country, Uback entrusts pools to a single partner: an M&amp;A boutique or a fundraising firm, licensed by the local regulator. It is introduced on the country page.</p>
 <p>The partner only receives your contact details with your consent, and only when your pool is passed on to it.</p>
 
@@ -398,7 +398,7 @@ INVEST = {
 
 @POOLCTX@
 <h2 id="opening">Where are we?</h2>
-<p>Uback is in public beta. In each country, investment intentions will open as soon as the licensed partner is signed. @OPENING@</p>
+<p>Uback is in public beta. In each country, investment intentions will open as soon as the local partner is signed. @OPENING@</p>
 </div>
 """,
 }
@@ -438,11 +438,11 @@ CALENDAR_INTRO = """<div class="callout"><p><b>Theoretical calendar.</b> Uback i
 PARTNER = {
 'en': """<div class="wrap prose">
 <h1>Become a Uback partner</h1>
-<p class="lead">Uback ranks startups country by country and segment by segment, and aggregates investment intentions from business angels, family offices, corporates and diaspora investors worldwide. Deals are run by licensed local partners.</p>
+<p class="lead">Uback ranks startups country by country and segment by segment, and aggregates investment intentions from business angels, family offices, corporates and diaspora investors worldwide. Deals are run by local partners.</p>
 
 <h2 id="rules">Rule no. 1: local partners</h2>
 <ul>
-<li><b>One local partner per country.</b> Each country is served by a single licensed local partner, exclusive. It alone contacts the country’s companies and structures deals, under local law.</li>
+<li><b>One local partner per country.</b> Each country is served by a single local partner, exclusive. It alone contacts the country’s companies and structures deals, under local law.</li>
 <li><b>Each local partner also leads one or more sectors.</b> On top of its country, each local partner is assigned one or more sectors (fintech, healthtech…), which it follows in every country Uback covers.</li>
 <li><b>Cross-border deals are run together.</b> When a sector lead wants to bring a deal to a startup in another country, it runs the approach with that country’s local partner. The two partners share the success fee.</li>
 </ul>
