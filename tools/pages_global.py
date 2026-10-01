@@ -527,4 +527,6 @@ PARTNER_FR = {
             profile='merchant banker ou conseiller en investissement enregistré auprès du SEBI (autorité des marchés indienne), banque d’affaires ou boutique M&amp;A, avec une pratique du non-coté et de l’investissement transfrontalier'),
  'kr': dict(deals='plus de 8 000 investissements en capital-risque par an tous acteurs confondus',
             profile='société de bourse ou conseiller en investissement agréé par la FSC (autorité financière coréenne), banque d’affaires ou boutique M&amp;A, avec une pratique du non-coté et de l’investissement transfrontalier'),
+ 'ng': dict(deals='environ 90 startups levant au moins 100 000 USD par an',
+            profile='issuing house ou broker-dealer enregistré auprès de la SEC Nigeria (autorité des marchés nigériane), banque d’affaires ou boutique M&amp;A, avec une pratique du non-coté et de l’investissement transfrontalier'),
 }

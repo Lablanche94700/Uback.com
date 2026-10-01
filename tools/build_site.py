@@ -20,8 +20,9 @@ FLAGS = {
 'fr': '<svg viewBox="0 0 48 32" aria-hidden="true"><rect width="16" height="32" fill="#002654"/><rect x="16" width="16" height="32" fill="#FFFFFF"/><rect x="32" width="16" height="32" fill="#CE1126"/><rect x=".5" y=".5" width="47" height="31" fill="none" stroke="#E4E8EE"/></svg>',
  'in': '<svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="10.7" fill="#FF9933"/><rect y="10.7" width="48" height="10.7" fill="#FFFFFF"/><rect y="21.3" width="48" height="10.7" fill="#138808"/><circle cx="24" cy="16" r="4.2" fill="none" stroke="#000080" stroke-width="1"/><circle cx="24" cy="16" r=".9" fill="#000080"/><rect x=".5" y=".5" width="47" height="31" fill="none" stroke="#E4E8EE"/></svg>',
  'kr': '<svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" fill="#FFFFFF"/><g transform="translate(24 16)"><g transform="rotate(33.69)"><circle r="8" fill="#0047A0"/><path d="M-8 0A8 8 0 0 1 8 0A4 4 0 0 0 0 0A4 4 0 0 1-8 0Z" fill="#CD2E3A"/></g><g fill="#000"><g transform="rotate(-56.31)"><rect x="-4" y="-13.33" width="8" height="1.33"/><rect x="-4" y="-15.33" width="8" height="1.33"/><rect x="-4" y="-17.33" width="8" height="1.33"/></g><g transform="rotate(56.31)"><rect x="-4" y="-13.33" width="3.5" height="1.33"/><rect x="0.5" y="-13.33" width="3.5" height="1.33"/><rect x="-4" y="-15.33" width="8" height="1.33"/><rect x="-4" y="-17.33" width="3.5" height="1.33"/><rect x="0.5" y="-17.33" width="3.5" height="1.33"/></g><g transform="rotate(-123.69)"><rect x="-4" y="-13.33" width="8" height="1.33"/><rect x="-4" y="-15.33" width="3.5" height="1.33"/><rect x="0.5" y="-15.33" width="3.5" height="1.33"/><rect x="-4" y="-17.33" width="8" height="1.33"/></g><g transform="rotate(123.69)"><rect x="-4" y="-13.33" width="3.5" height="1.33"/><rect x="0.5" y="-13.33" width="3.5" height="1.33"/><rect x="-4" y="-15.33" width="3.5" height="1.33"/><rect x="0.5" y="-15.33" width="3.5" height="1.33"/><rect x="-4" y="-17.33" width="3.5" height="1.33"/><rect x="0.5" y="-17.33" width="3.5" height="1.33"/></g></g></g><rect x=".5" y=".5" width="47" height="31" fill="none" stroke="#E4E8EE"/></svg>',
+ 'ng': '<svg viewBox="0 0 48 32" aria-hidden="true"><rect width="16" height="32" fill="#008751"/><rect x="16" width="16" height="32" fill="#FFFFFF"/><rect x="32" width="16" height="32" fill="#008751"/><rect x=".5" y=".5" width="47" height="31" fill="none" stroke="#E4E8EE"/></svg>',
 }
-NAMES = {'ma': {'fr': 'Maroc', 'en': 'Morocco'}, 'pl': {'fr': 'Pologne', 'en': 'Poland'}, 'vn': {'fr': 'Vietnam', 'en': 'Vietnam'}, 'fr': {'fr': 'France', 'en': 'France'}, 'in': {'fr': 'Inde', 'en': 'India'}, 'kr': {'fr': 'Corée du Sud', 'en': 'South Korea'}}
+NAMES = {'ma': {'fr': 'Maroc', 'en': 'Morocco'}, 'pl': {'fr': 'Pologne', 'en': 'Poland'}, 'vn': {'fr': 'Vietnam', 'en': 'Vietnam'}, 'fr': {'fr': 'France', 'en': 'France'}, 'in': {'fr': 'Inde', 'en': 'India'}, 'kr': {'fr': 'Corée du Sud', 'en': 'South Korea'}, 'ng': {'fr': 'Nigeria', 'en': 'Nigeria'}}
 
 # Une entrée par version (marché × langue) ; les textes sont dans la langue de la version (lang).
 #   path         chemin sur uback.com ; default : version principale (liens depuis la homepage et le sélecteur de pays)
@@ -160,6 +161,23 @@ MARKETS = [
                  ('Robotics &amp; deeptech', 'Humanoids, robot foundation models, space and autonomy.')],
      'sectors_soon': ['Healthtech', 'Proptech', 'Edtech', 'Content', 'B2B software'],
      'langs_soon': ['KO']},
+    {'code': 'ng', 'lang': 'en', 'path': '/ng', 'default': True, 'canonical': True,
+     'cadence': 'quarterly', 'publish_day': 8, 'publish_months': [1, 4, 7, 10],
+     'data': 'classement-ng-2026-10.json',
+     'slug': 'nigeria', 'og': 'og-image.png', 'og_v': 1, 'partner_name': None,
+     'startups_label': 'Nigerian startups',
+     'name': 'Nigeria', 'in': 'in Nigeria', 'the': 'Nigeria', 'adj_m': 'Nigerian', 'adj_f': 'Nigerian', 'adj_fp': 'Nigerian',
+     'cities': 'London, Houston or Dubai',
+     'partner_short': 'Issuing house or broker-dealer registered with the SEC Nigeria (Securities and Exchange Commission), or investment bank',
+     'partner_long': 'issuing house or broker-dealer registered with the SEC Nigeria, investment bank or M&amp;A boutique, with experience of private companies and of cross-border investment',
+     'deals_phrase': 'about 90 startups raising at least USD 100k a year',
+     'press': 'Nigerian and international technology and business press (TechCabal, Techpoint Africa, Disrupt Africa, Nairametrics, BusinessDay, TechCrunch, Bloomberg, Semafor), Africa: The Big Deal and Partech Africa reports, company and investor announcements.',
+     'sectors': [('Fintech &amp; payments', 'Payments, mobile money, neobanks and lending.'),
+                 ('Commerce &amp; distribution', 'B2B distribution for retailers and traceability.'),
+                 ('Health &amp; education', 'Health insurance, clinics, hospital software and learning.'),
+                 ('Energy &amp; deeptech', 'Solar, storage and defence technology.')],
+     'sectors_soon': ['Logistics', 'Agritech', 'HR software', 'Mobility', 'Media'],
+     'langs_soon': []},
 ]
 # Plafond du classement national, selon le tier du pays (data/geo.json) : règle publiée dans la méthode. Le classement
 # compte toutes les sociétés sur lesquelles les IA s'accordent (au moins 3 des 5 modèles dans la même tranche ou des

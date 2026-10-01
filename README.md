@@ -54,7 +54,7 @@ ma/                     ← site Maroc, entièrement généré : anglais à la r
   assets/               ← style.css (marine #1E3A5F, or #C8A052, Inter), favicons, image de partage
   data/classement-ma-2026-09.json ← la donnée du classement (une entrée par société, source par montant)
 
-pl/, vn/, fr/, in/, kr/ ← sites Pologne, Vietnam, France, Inde et Corée du Sud (anglais), même structure que le Maroc, entièrement générés :
+pl/, vn/, fr/, in/, kr/, ng/ ← sites Pologne, Vietnam, France, Inde, Corée du Sud et Nigeria (anglais), même structure que le Maroc, entièrement générés :
   index.html, thank-you.html, assets/ (copies depuis ma/), data/ ; partner.html redirige vers la page partenaire unique ;
   method.html et legal-notice.html redirigent vers les pages globales
 fr/ est PARTAGÉ : le site France (build_site.py : index.html, thank-you.html, assets/, data/, et les redirections
