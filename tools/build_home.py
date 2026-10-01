@@ -1146,18 +1146,17 @@ def ics_text(t):
     return t.replace('\\', '\\\\').replace(';', '\\;').replace(',', '\\,')
 
 def write_ics():
-    """Un événement annuel (journée entière, RRULE yearly) par publication du calendrier, à partir de sa prochaine date."""
+    """Un événement annuel (journée entière, RRULE yearly) par publication du calendrier. Fichier stable d'un jour à
+    l'autre (pas de commit quotidien inutile) : première occurrence et horodatage tirés de la version du calendrier."""
     import datetime as _dt
-    today = _dt.date.today()
-    stamp = _dt.datetime.now(_dt.timezone.utc).strftime('%Y%m%dT%H%M%SZ')
+    year = int(geo.CAL['version'][:4])
+    stamp = geo.CAL['version'].replace('-', '') + 'T000000Z'
     kind = {'country': 'country ranking', 'segment': 'global segment ranking', 'regional': 'regional ranking', 'review': ''}
     lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Uback//Publication calendar//EN', 'CALSCALE:GREGORIAN',
              'X-WR-CALNAME:Uback rankings', 'X-WR-CALDESC:Theoretical calendar: applies once Uback leaves beta. Fixed dates\\, every year.']
     for d in geo.CAL['days']:
         m, day = int(d['date'][:2]), int(d['date'][3:])
-        start = _dt.date(today.year, m, day)
-        if start < today:
-            start = _dt.date(today.year + 1, m, day)
+        start = _dt.date(year, m, day)
         for it in d['items']:
             key = it.get('code') or it.get('slug') or 'review'
             summary = f"Uback · {it['name']}" + (f" ({kind[it['type']]})" if kind[it['type']] else '')

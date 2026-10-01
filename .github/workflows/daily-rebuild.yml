@@ -1,0 +1,59 @@
+# Régénération quotidienne du site (bêta, « fake it until you make it ») : tant que les éditions ne suivent pas
+# réellement le calendrier, chaque « Next scheduled update » dépassé passe au créneau suivant de data/calendar.json.
+# Chaque nuit : génération complète dans l'ordre du README ; commit et republication seulement si une page a changé.
+name: Daily rebuild
+
+on:
+  schedule:
+    - cron: '30 0 * * *'          # 00:30 UTC = 01:30 (hiver) ou 02:30 (été) à Paris
+  workflow_dispatch:              # lancement manuel : onglet Actions > Daily rebuild > Run workflow
+
+permissions:
+  contents: write                 # commit et push des pages régénérées
+  pages: write                    # demande de republication GitHub Pages
+
+concurrency:
+  group: daily-rebuild
+  cancel-in-progress: false
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Europe/Paris            # « aujourd'hui » = la date à Paris
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Build the site
+        run: |
+          python tools/build_calendar.py
+          python tools/build_site.py
+          python tools/build_segments.py
+          python tools/build_regions.py
+          python tools/build_home.py
+
+      - name: Commit and push if something changed
+        id: commit
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No change today."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Daily rebuild: $(date +%Y-%m-%d)"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Request a GitHub Pages build
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds" || echo "Pages build request failed (the push may have triggered it already)."

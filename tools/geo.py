@@ -58,8 +58,9 @@ def cal_dates(key):
             for it in d['items'] if it.get('code', it.get('slug')) == key]
 
 def next_date(key, today=None):
-    """Prochaine date du calendrier pour ce classement (aujourd'hui compris) ; None s'il n'est pas au calendrier."""
+    """Prochaine date du calendrier pour ce classement, strictement après aujourd'hui (le jour prévu compte comme passé,
+    voir build_site.next_edition) ; None s'il n'est pas au calendrier."""
     today = today or datetime.date.today()
     ds = [datetime.date(y, m, d) for y in (today.year, today.year + 1) for m, d in cal_dates(key)]
-    ds = [d for d in ds if d >= today]
+    ds = [d for d in ds if d > today]
     return min(ds) if ds else None

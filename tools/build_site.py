@@ -182,12 +182,14 @@ MONTHS = {'fr': ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet
           'en': ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']}
 
 def next_edition(market, today=None):
-    """Prochaine date de publication d'un marché (aujourd'hui compris si c'est le jour de publication)."""
+    """Prochaine date de publication d'un marché, STRICTEMENT après aujourd'hui : tant que les éditions ne suivent pas
+    réellement le calendrier (bêta), le jour prévu compte déjà comme passé ; le site est régénéré chaque nuit
+    (.github/workflows/daily-rebuild.yml) et la date passe au créneau suivant."""
     today = today or datetime.date.today()
     for year in (today.year, today.year + 1):
         for month in sorted(market['publish_months']):
             d = datetime.date(year, month, market['publish_day'])
-            if d >= today:
+            if d > today:
                 return d
 
 def format_date(d, lang):

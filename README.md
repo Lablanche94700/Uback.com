@@ -158,7 +158,14 @@ Sur chaque classement (pays, segment, famille), une ligne sous le titre : éditi
 « Next scheduled update » (prochaine date du calendrier ; famille : la plus proche de ses segments). Le champ
 `next_edition` des JSON segment n'est plus lu. Mise à jour hors calendrier : champ facultatif
 `"out_of_cycle": {"date": "AAAA-MM-JJ", "reason": "…"}` dans la donnée d'un classement, affiché sous la ligne ;
-l'édition prévue reste due. La date affichée est celle du jour de la génération : relancer la génération après chaque édition.
+l'édition prévue reste due.
+
+**Bêta (« fake it until you make it ») :** tant que les éditions ne suivent pas réellement le calendrier, « Next scheduled
+update » est la prochaine date du calendrier STRICTEMENT après aujourd'hui (le jour prévu compte comme passé), et le site
+est régénéré chaque nuit par GitHub Actions (`.github/workflows/daily-rebuild.yml`, 00:30 UTC, date de Paris) : génération
+complète, commit « Daily rebuild » et republication seulement si une page a changé ; lancement manuel possible depuis
+l'onglet Actions (Run workflow). L'export `.ics` ne dépend pas du jour (première occurrence et horodatage tirés de la
+version du calendrier).
 
 Libellé d'édition : celui du champ `edition` des données s'il existe (les éditions 0 gardent « Édition 0 – bêta »),
 sinon le trimestre de publication, « Q4 2026 » / « T4 2026 ».
