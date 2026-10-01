@@ -1770,8 +1770,8 @@
    },
    "zone": "east-asia",
    "tier": "full",
-   "status": "planned",
-   "url": null,
+   "status": "live",
+   "url": "/kr/",
    "density": {
     "low": 1500,
     "high": 2500,

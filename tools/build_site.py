@@ -19,8 +19,9 @@ FLAGS = {
  'vn': '<svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" fill="#DA251D"/><polygon points="24,7 26.47,14.6 34.46,14.6 28,19.3 30.47,26.9 24,22.2 17.53,26.9 20,19.3 13.54,14.6 21.53,14.6" fill="#FFFF00"/></svg>',
 'fr': '<svg viewBox="0 0 48 32" aria-hidden="true"><rect width="16" height="32" fill="#002654"/><rect x="16" width="16" height="32" fill="#FFFFFF"/><rect x="32" width="16" height="32" fill="#CE1126"/><rect x=".5" y=".5" width="47" height="31" fill="none" stroke="#E4E8EE"/></svg>',
  'in': '<svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="10.7" fill="#FF9933"/><rect y="10.7" width="48" height="10.7" fill="#FFFFFF"/><rect y="21.3" width="48" height="10.7" fill="#138808"/><circle cx="24" cy="16" r="4.2" fill="none" stroke="#000080" stroke-width="1"/><circle cx="24" cy="16" r=".9" fill="#000080"/><rect x=".5" y=".5" width="47" height="31" fill="none" stroke="#E4E8EE"/></svg>',
+ 'kr': '<svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" fill="#FFFFFF"/><g transform="translate(24 16)"><g transform="rotate(33.69)"><circle r="8" fill="#0047A0"/><path d="M-8 0A8 8 0 0 1 8 0A4 4 0 0 0 0 0A4 4 0 0 1-8 0Z" fill="#CD2E3A"/></g><g fill="#000"><g transform="rotate(-56.31)"><rect x="-4" y="-13.33" width="8" height="1.33"/><rect x="-4" y="-15.33" width="8" height="1.33"/><rect x="-4" y="-17.33" width="8" height="1.33"/></g><g transform="rotate(56.31)"><rect x="-4" y="-13.33" width="3.5" height="1.33"/><rect x="0.5" y="-13.33" width="3.5" height="1.33"/><rect x="-4" y="-15.33" width="8" height="1.33"/><rect x="-4" y="-17.33" width="3.5" height="1.33"/><rect x="0.5" y="-17.33" width="3.5" height="1.33"/></g><g transform="rotate(-123.69)"><rect x="-4" y="-13.33" width="8" height="1.33"/><rect x="-4" y="-15.33" width="3.5" height="1.33"/><rect x="0.5" y="-15.33" width="3.5" height="1.33"/><rect x="-4" y="-17.33" width="8" height="1.33"/></g><g transform="rotate(123.69)"><rect x="-4" y="-13.33" width="3.5" height="1.33"/><rect x="0.5" y="-13.33" width="3.5" height="1.33"/><rect x="-4" y="-15.33" width="3.5" height="1.33"/><rect x="0.5" y="-15.33" width="3.5" height="1.33"/><rect x="-4" y="-17.33" width="3.5" height="1.33"/><rect x="0.5" y="-17.33" width="3.5" height="1.33"/></g></g></g><rect x=".5" y=".5" width="47" height="31" fill="none" stroke="#E4E8EE"/></svg>',
 }
-NAMES = {'ma': {'fr': 'Maroc', 'en': 'Morocco'}, 'pl': {'fr': 'Pologne', 'en': 'Poland'}, 'vn': {'fr': 'Vietnam', 'en': 'Vietnam'}, 'fr': {'fr': 'France', 'en': 'France'}, 'in': {'fr': 'Inde', 'en': 'India'}}
+NAMES = {'ma': {'fr': 'Maroc', 'en': 'Morocco'}, 'pl': {'fr': 'Pologne', 'en': 'Poland'}, 'vn': {'fr': 'Vietnam', 'en': 'Vietnam'}, 'fr': {'fr': 'France', 'en': 'France'}, 'in': {'fr': 'Inde', 'en': 'India'}, 'kr': {'fr': 'Corée du Sud', 'en': 'South Korea'}}
 
 # Une entrée par version (marché × langue) ; les textes sont dans la langue de la version (lang).
 #   path         chemin sur uback.com ; default : version principale (liens depuis la homepage et le sélecteur de pays)
@@ -142,6 +143,23 @@ MARKETS = [
                  ('AI &amp; deeptech', 'Foundation models, GPU cloud, space launchers.')],
      'sectors_soon': ['Mobility &amp; EV', 'Edtech', 'Healthtech', 'Gaming', 'Climate'],
      'langs_soon': ['HI']},
+    {'code': 'kr', 'lang': 'en', 'path': '/kr', 'default': True, 'canonical': True,
+     'cadence': 'quarterly', 'publish_day': 18, 'publish_months': [1, 4, 7, 10],
+     'data': 'classement-kr-2026-10.json',
+     'slug': 'south-korea', 'og': 'og-image.png', 'og_v': 1, 'partner_name': None,
+     'startups_label': 'South Korean startups',
+     'name': 'South Korea', 'in': 'in South Korea', 'the': 'South Korea', 'adj_m': 'South Korean', 'adj_f': 'South Korean', 'adj_fp': 'South Korean',
+     'cities': 'Los Angeles, Tokyo or Singapore',
+     'partner_short': 'Securities firm or investment adviser licensed by the FSC (Financial Services Commission of Korea), or investment bank',
+     'partner_long': 'securities firm or investment adviser licensed by the FSC, investment bank or M&amp;A boutique, with experience of private companies and of cross-border investment',
+     'deals_phrase': 'more than 8,000 venture investments a year across all players',
+     'press': 'Korean and international business and technology press (Korea JoongAng Daily, Korea Herald, Yonhap, KED Global, Seoul Economic Daily, Maeil Business, The Bell, Startup Recipe, TechCrunch, Bloomberg), Ministry of SMEs and Startups and THE VC data, company and investor announcements.',
+     'sectors': [('AI &amp; semiconductors', 'AI chips, language models and consumer AI apps.'),
+                 ('Commerce &amp; consumer', 'Fashion, grocery, marketplaces, travel and brands.'),
+                 ('Fintech &amp; crypto', 'Super-apps, lending, remittance and crowdfunding.'),
+                 ('Robotics &amp; deeptech', 'Humanoids, robot foundation models, space and autonomy.')],
+     'sectors_soon': ['Healthtech', 'Proptech', 'Edtech', 'Content', 'B2B software'],
+     'langs_soon': ['KO']},
 ]
 # Plafond du classement national, selon le tier du pays (data/geo.json) : règle publiée dans la méthode. Le classement
 # compte toutes les sociétés sur lesquelles les IA s'accordent (au moins 3 des 5 modèles dans la même tranche ou des

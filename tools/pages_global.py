@@ -525,4 +525,6 @@ PARTNER_FR = {
  'vn': dict(deals='environ 100 tours de table par an tous acteurs confondus',
             profile='société de bourse ou de gestion agréée par la SSC (autorité des marchés du Vietnam), banque d’affaires ou boutique M&amp;A, avec une pratique du non-coté et de l’anglais'), 'in': dict(deals='environ 900 tours de table par an tous acteurs confondus',
             profile='merchant banker ou conseiller en investissement enregistré auprès du SEBI (autorité des marchés indienne), banque d’affaires ou boutique M&amp;A, avec une pratique du non-coté et de l’investissement transfrontalier'),
+ 'kr': dict(deals='plus de 8 000 investissements en capital-risque par an tous acteurs confondus',
+            profile='société de bourse ou conseiller en investissement agréé par la FSC (autorité financière coréenne), banque d’affaires ou boutique M&amp;A, avec une pratique du non-coté et de l’investissement transfrontalier'),
 }

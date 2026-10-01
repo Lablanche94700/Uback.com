@@ -318,6 +318,7 @@ DTEND;VALUE=DATE:20260119
 RRULE:FREQ=YEARLY
 SUMMARY:Uback · South Korea (country ranking)
 TRANSP:TRANSPARENT
+URL:https://uback.com/kr/
 END:VEVENT
 BEGIN:VEVENT
 UID:01-18-segment-appointment-booking@uback.com
@@ -1768,6 +1769,7 @@ DTEND;VALUE=DATE:20260419
 RRULE:FREQ=YEARLY
 SUMMARY:Uback · South Korea (country ranking)
 TRANSP:TRANSPARENT
+URL:https://uback.com/kr/
 END:VEVENT
 BEGIN:VEVENT
 UID:04-18-segment-restaurant-software@uback.com
@@ -3198,6 +3200,7 @@ DTEND;VALUE=DATE:20260719
 RRULE:FREQ=YEARLY
 SUMMARY:Uback · South Korea (country ranking)
 TRANSP:TRANSPARENT
+URL:https://uback.com/kr/
 END:VEVENT
 BEGIN:VEVENT
 UID:07-18-segment-appointment-booking@uback.com
@@ -4648,6 +4651,7 @@ DTEND;VALUE=DATE:20261019
 RRULE:FREQ=YEARLY
 SUMMARY:Uback · South Korea (country ranking)
 TRANSP:TRANSPARENT
+URL:https://uback.com/kr/
 END:VEVENT
 BEGIN:VEVENT
 UID:10-18-segment-restaurant-software@uback.com
