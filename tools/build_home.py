@@ -589,7 +589,7 @@ G_UI = {
             t_partner='Become a Uback partner | Uback', d_partner='Licensed local partners: one per country, each also leading one or more sectors. Uback brings investors and visibility; the partners run the deals and share the success fee on cross-border deals.',
             t_contact='Contact us | Uback', d_contact='Write to the Uback team: a question, a press request, a partnership, feedback on a ranking.',
             t_faq='FAQ: questions about the rankings | Uback', d_faq='Why China has no ranking, how Uback chooses the countries it ranks, and when a ranking can be updated before its scheduled date.',
-            t_calendar='Publication calendar | Uback', d_calendar='The dates on which Uback publishes each country, regional and global segment ranking. Fixed dates, repeated every year.'),
+            t_calendar='Rankings calendar – Uback', d_calendar='The dates on which Uback publishes each country, regional and global segment ranking. Fixed dates, repeated every year.'),
  'fr': dict(skip='Aller au contenu', sectors='Secteurs', countries='Pays', method='Méthode',
             beta='Bêta · prototype', beta_t='— Ce site est en construction : classements, textes et fonctionnalités évoluent chaque semaine.',
             legal='Mentions légales', corr='Demander une correction', disc='Les classements sont des contenus éditoriaux, pas des conseils en investissement.',
@@ -1088,11 +1088,10 @@ def calendar_body():
                         f'<span class="ct">{CAL_LABEL[it["type"]]}</span>{txt}</span>')
             rows += f'<li><span class="d">{day}</span><span class="its">{its}</span></li>'
         blocks += (f'<section class="cal-m" data-m="{m}"><h2>{_cal.month_name[m]}</h2><ol class="cal-days">{rows}</ol></section>')
-    k = geo.CAL['counts']
     filters = ''.join(f'<button type="button" data-f="{v}" aria-pressed="{"true" if v == "all" else "false"}">{t}</button>' for v, t in CAL_TYPES)
     return f'''<div class="wrap prose cal-page">
-<h1>Publication calendar</h1>
-<p class="lead">{k['countries']} country rankings four times a year, {k['regional']} regional rankings and {k['segments']} global segment rankings twice a year: {k['publications_per_year']} publications a year, on fixed dates.</p>
+<h1>Rankings calendar</h1>
+<p class="lead">Every Uback ranking and its publication date, set a year in advance.</p>
 {CALENDAR_INTRO}
 <p><a class="ics" href="/{ICS_PATH}" download>Add to your calendar (.ics)</a></p>
 </div>
