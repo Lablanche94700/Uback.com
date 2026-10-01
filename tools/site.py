@@ -8,6 +8,8 @@ from urllib.parse import quote
 import valuation
 from footer import footer
 from analytics import HEAD as GA_HEAD
+from fonts import PRELOAD as _PRELOAD
+PRELOAD = _PRELOAD.replace('href="/assets/', 'href="@ROOT@assets/')   # police : à la racine du site, pas dans les assets du marché
 from build_site import format_date_short
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # racine du dépôt = dossier publié
 PREFIX = M['path']                  # chemin de cette version sur uback.com : /ma (anglais), /ma/fr (français)…
@@ -297,9 +299,7 @@ def head(title, desc, path, extra=''):
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/favicon-192.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+{PRELOAD}
 <link rel="stylesheet" href="/assets/style.css?v={M['css_v']}">
 {extra}
 {GA_HEAD}

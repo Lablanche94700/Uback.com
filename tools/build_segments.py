@@ -19,6 +19,7 @@ from valuation import BRACKETS, bracket_index, money, month
 from flags import flag
 from footer import footer
 from analytics import HEAD as GA_HEAD
+from fonts import PRELOAD
 
 e = html.escape
 EDGE = r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'   # rendu de l'image de partage (facultatif)
@@ -291,9 +292,7 @@ def page_top(title, desc, url, og_img, sw, nav, follow_label, follow_href, extra
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/favicon-192.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+{PRELOAD}
 <link rel="stylesheet" href="/segments/assets/style.css?v={CSS_V}">
 {extra}
 {GA_HEAD}

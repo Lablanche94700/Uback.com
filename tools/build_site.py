@@ -156,6 +156,8 @@ def switcher(m):
 # sans attendre l'expiration du cache des navigateurs
 import footer
 footer.sync_css(os.path.join(TOOLS, '..', 'ma', 'assets', 'style.css'))   # pied de page commun
+import fonts
+fonts.sync_css(os.path.join(TOOLS, '..', 'ma', 'assets', 'style.css'))    # police Inter hébergée sur le site
 CSS_V = hashlib.sha1(open(os.path.join(TOOLS, '..', 'ma', 'assets', 'style.css'), 'rb').read()).hexdigest()[:8]
 
 MONTHS = {'fr': ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'],

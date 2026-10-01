@@ -15,6 +15,7 @@ from pages_global import METHOD, LEGAL, INVEST, FAQ, CALENDAR_INTRO, PARTNER, PA
 import geo
 from footer import footer, FOOTER_CSS
 from analytics import HEAD as GA_HEAD
+from fonts import FONT_CSS, PRELOAD
 
 def next_ed(code):
     m = next(v for v in MARKETS if v['code'] == code and v['default'])
@@ -173,7 +174,7 @@ JSONLD = {"@context": "https://schema.org", "@graph": [
         {"@type": "ListItem", "position": i, "name": f"{n} — quarterly ranking", "url": f"https://uback.com{url}"}
         for i, (c, n, sub, url) in enumerate(LIVE, 1)]}]}
 
-CSS = '''
+CSS = FONT_CSS + '''
 :root{--navy:#1E3A5F;--navy-dark:#142842;--gold:#C8A052;--bg:#F7F8FA;--line:#E4E8EE;--muted:#5A6B82;--body:#4A5A70;--dim:#6B7A8F;--dash:#C9D1DC}
 *{box-sizing:border-box}
 html,body{margin:0}
@@ -425,9 +426,7 @@ page = f'''<!doctype html>
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/favicon-192.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+{PRELOAD}
 <!-- Généré par tools/build_home.py à partir de data/sectors.json : ne pas modifier à la main. -->
 <style>{CSS}</style>
 {GA_HEAD}
@@ -719,9 +718,7 @@ def global_page(key, lang, body, extra=''):
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/favicon-192.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">{extra}
+{PRELOAD}{extra}
 <!-- Généré par tools/build_home.py (texte : tools/pages_global.py) : ne pas modifier à la main. -->
 <style>{CSS}{G_CSS}</style>
 {GA_HEAD}
