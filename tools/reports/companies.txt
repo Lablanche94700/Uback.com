@@ -1,6 +1,6 @@
 Fiches société — rapport de tools/build_companies.py
 
-655 fiches · 432 indexées · 223 noindex · 0 nouveaux slugs
+703 fiches · 452 indexées · 251 noindex · 0 nouveaux slugs
 
 == Fusions (une fiche, plusieurs classements)
   apna ← Apna / apna (in:ranked, recruiting:ranked)
@@ -33,9 +33,11 @@ Fiches société — rapport de tools/build_companies.py
 
 == Sociétés sans date de tour (0)
 
-== Sociétés sans source (121)
+== Sociétés sans source (149)
   15Five
+  Aembit
   Afriex
+  AiPrise
   Albert
   Albo
   Alex
@@ -48,6 +50,7 @@ Fiches société — rapport de tools/build_companies.py
   Bayzat
   Baz
   Beacon Therapeutics
+  Beltic
   Bioptimus
   Blockdaemon
   Bluevine
@@ -59,14 +62,19 @@ Fiches société — rapport de tools/build_companies.py
   Check
   Chefaa
   Clearco
+  Clerk
   Cline
   CoachHub
   CodeAnt AI
+  Contactable
   Converge Bio
   Cyclops
   Cypherock
+  Descope
+  Didit
   Djamo
   Drug Farm
+  Duna
   Dune
   EigenLabs
   Eka Care
@@ -74,14 +82,18 @@ Fiches société — rapport de tools/build_companies.py
   Evidium
   Figment
   Flashbots
+  Footprint
   Found
   Found
   Frontier Health
+  FusionAuth
   Fuzu
   Galux
+  Glide Identity
   Glints
   Greenlight
   HyperDev
+  IDfy
   Jack & Jill
   Jupiter
   Khazna
@@ -94,6 +106,7 @@ Fiches société — rapport de tools/build_companies.py
   Leena AI
   Lendio
   Lili
+  Lumos
   Lunar
   Lydia / Sumeria
   Macroscope
@@ -109,13 +122,17 @@ Fiches société — rapport de tools/build_companies.py
   Nansen
   Niyo
   NorthOne
+  Nufi
   Okadoc
   Oladoc
   Onramp
   Ontop
+  Opal Security
   Open
   OpenHands
+  Opti
   Paymob
+  Prove
   Proxima (formerly VantAI)
   QuickNode
   R3
@@ -128,37 +145,50 @@ Fiches société — rapport de tools/build_companies.py
   Rork
   SafePal
   Salsa
+  Saporo
   Satispay
+  Shufti Pro
   Slash
+  Smile ID
   SonoThera
   Sprout Solutions
   Stable
+  Sumsub
   Taptap Send
   Teamtailor
   Telda
   Thirdweb
   Timo
+  Token Security
   Toku
   Tonik
   TransferGo
   Triomics
   TrueMoney (Ascend Money)
+  Truora
+  Unosecur
   VALR
   Velocity
   Viva Wallet
   Vivid Money
+  Vouched
   Vyriad
+  Way Security
   Workpay
+  Wultra
   XFX
   YAP
   Yuno
   Zed
+  deepidv
   nChroma Bio
   voize
 
 == Noindex (Radar ou Born here sous le seuil : un tour daté, deux sources, un secteur)
   15Five · 0 source(s)
+  Aembit · 0 source(s)
   Afriex · 0 source(s)
+  AiPrise · 0 source(s)
   Airbound · 1 source(s)
   Albert · 0 source(s)
   Albo · 0 source(s)
@@ -179,6 +209,7 @@ Fiches société — rapport de tools/build_companies.py
   Bayzat · 0 source(s)
   Baz · 0 source(s)
   Beacon Therapeutics · 0 source(s)
+  Beltic · 0 source(s)
   Biolevate · 1 source(s)
   Bioptimus · 0 source(s)
   BLANK. Game Studios · 1 source(s)
@@ -197,9 +228,11 @@ Fiches société — rapport de tools/build_companies.py
   Check · 0 source(s)
   Chefaa · 0 source(s)
   Clearco · 0 source(s)
+  Clerk · 0 source(s)
   Cline · 0 source(s)
   CoachHub · 0 source(s)
   CodeAnt AI · 0 source(s)
+  Contactable · 0 source(s)
   Converge Bio · 0 source(s)
   Cowrywise · 1 source(s)
   CPTx · 0 source(s)
@@ -207,9 +240,13 @@ Fiches société — rapport de tools/build_companies.py
   Cypherock · 0 source(s)
   Dataiku · 1 source(s)
   Deepecho · 1 source(s)
+  deepidv · 0 source(s)
+  Descope · 0 source(s)
+  Didit · 0 source(s)
   Djamo · 0 source(s)
   Doctornow · 1 source(s)
   Drug Farm · 0 source(s)
+  Duna · 0 source(s)
   Dune · 0 source(s)
   Duplo · 1 source(s)
   Dust · 1 source(s)
@@ -224,19 +261,23 @@ Fiches société — rapport de tools/build_companies.py
   Evidium · 0 source(s)
   Figment · 0 source(s)
   Flashbots · 0 source(s)
+  Footprint · 0 source(s)
   Found · 0 source(s)
   Found · 0 source(s)
   Frontier Health · 0 source(s)
   Fudo Security · 1 source(s)
+  FusionAuth · 0 source(s)
   Fuzu · 0 source(s)
   Galaxy Education · 1 source(s)
   Galux · 0 source(s)
   GIMO · 1 source(s)
+  Glide Identity · 0 source(s)
   Glints · 0 source(s)
   Greenlight · 0 source(s)
   Homebase · 1 source(s)
   Hugging Face · 1 source(s)
   HyperDev · 0 source(s)
+  IDfy · 0 source(s)
   Inbolt · 1 source(s)
   Ingenix.ai · 1 source(s)
   INOCRAS · 1 source(s)
@@ -262,6 +303,7 @@ Fiches société — rapport de tools/build_companies.py
   Lili · 0 source(s)
   LinqAlpha · 1 source(s)
   Lucis · 1 source(s)
+  Lumos · 0 source(s)
   Lunar · 0 source(s)
   Lydia / Sumeria · 0 source(s)
   Macroscope · 0 source(s)
@@ -284,13 +326,16 @@ Fiches société — rapport de tools/build_companies.py
   Niyo · 0 source(s)
   NorthOne · 0 source(s)
   Nua · 1 source(s)
+  Nufi · 0 source(s)
   OfBusiness · 1 source(s)
   Okadoc · 0 source(s)
   Oladoc · 0 source(s)
   Onramp · 0 source(s)
   Ontop · 0 source(s)
+  Opal Security · 0 source(s)
   Open · 0 source(s)
   OpenHands · 0 source(s)
+  Opti · 0 source(s)
   Orbotix Industries · 1 source(s)
   Orochi Network · 1 source(s)
   Paga · 1 source(s)
@@ -300,6 +345,7 @@ Fiches société — rapport de tools/build_companies.py
   Pixxel · 1 source(s)
   Point2 Technology · 1 source(s)
   Postman · 1 source(s)
+  Prove · 0 source(s)
   Proxima (formerly VantAI) · 0 source(s)
   Qevlar AI · 1 source(s)
   QNu Labs · 1 source(s)
@@ -322,21 +368,25 @@ Fiches société — rapport de tools/build_companies.py
   SafePal · 0 source(s)
   Salsa · 0 source(s)
   Sand to Green · 1 source(s)
+  Saporo · 0 source(s)
   Satispay · 0 source(s)
   Seamless Technologies · 1 source(s)
   Sendbird · 1 source(s)
+  Shufti Pro · 0 source(s)
   Shuttlers · 1 source(s)
   Silent Eight · 1 source(s)
   SKY ENGINE AI · 1 source(s)
   Sky Mavis · 1 source(s)
   Slash · 0 source(s)
   SmartPay · 1 source(s)
+  Smile ID · 0 source(s)
   SonoThera · 0 source(s)
   SOWIT · 1 source(s)
   Sprout Solutions · 0 source(s)
   SR Robotics · 1 source(s)
   Stable · 0 source(s)
   Stride · 1 source(s)
+  Sumsub · 0 source(s)
   Swish · 1 source(s)
   Sybilla Technologies · 1 source(s)
   Symmetrical.ai · 1 source(s)
@@ -349,6 +399,7 @@ Fiches société — rapport de tools/build_companies.py
   The Exploration Company · 1 source(s)
   Thirdweb · 0 source(s)
   Timo · 0 source(s)
+  Token Security · 0 source(s)
   Toku · 0 source(s)
   Tonik · 0 source(s)
   Tookeez · 1 source(s)
@@ -356,23 +407,28 @@ Fiches société — rapport de tools/build_companies.py
   TransferGo · 0 source(s)
   Triomics · 0 source(s)
   TrueMoney (Ascend Money) · 0 source(s)
+  Truora · 0 source(s)
   Twelve Labs · 1 source(s)
   uLesson · 1 source(s)
   Ultrahuman · 1 source(s)
   Ultraviolette · 1 source(s)
   Uniphore · 1 source(s)
   Univity · 1 source(s)
+  Unosecur · 0 source(s)
   VALR · 0 source(s)
   Velocity · 0 source(s)
   Viva Wallet · 0 source(s)
   Vivid Money · 0 source(s)
   voize · 0 source(s)
+  Vouched · 0 source(s)
   VOVE ID · 1 source(s)
   Vyriad · 0 source(s)
+  Way Security · 0 source(s)
   Wealthcome · 1 source(s)
   Wealthon · 1 source(s)
   Weego · 1 source(s)
   Workpay · 0 source(s)
+  Wultra · 0 source(s)
   XFX · 0 source(s)
   Xpressbees · 1 source(s)
   YAP · 0 source(s)

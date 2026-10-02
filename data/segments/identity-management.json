@@ -1,0 +1,1117 @@
+{
+ "segment_id": "identity-management",
+ "path": [
+  "Cybersecurity",
+  "Identity",
+  "Identity management"
+ ],
+ "name": "Identity management",
+ "edition": 0,
+ "edition_label": "Edition 0 (beta)",
+ "published": "2026-10-02",
+ "next_edition": "2027-01-01",
+ "cadence": "Twice a year",
+ "kpi_definitions": [
+  {
+   "id": "revenue",
+   "label": "Revenue / ARR",
+   "prefix": true
+  },
+  {
+   "id": "customers",
+   "label": "Customers"
+  }
+ ],
+ "established_by": "Claude (Anthropic)",
+ "texts": {
+  "title": "The world's most valuable identity startups, ranked by AI | Uback",
+  "description": "Uback ranks the world's non-listed identity-management startups by AI-estimated valuation: Socure, Incode, 1Password, Saviynt, Persona, WorkOS and more. Edition 0 (beta).",
+  "h1": "The world’s most valuable identity startups",
+  "intro": "Workforce and customer identity, access governance, identity security for humans, machines and AI agents, password managers, authentication for developers, and identity verification (KYC). Ranked worldwide by AI-estimated valuation. The market sets the value; our AI estimates it.",
+  "not_in_segment": "Privileged access management has its own segment; fraud and financial-crime platforms sit outside identity. Companies owned by private equity or by a listed group are not ranked: Ping Identity (Thoma Bravo), Signicat (Nordic Capital), IDnow (Corsair), Jumio, AU10TIX (ICTS). Acquired companies are no longer ranked: CyberArk (Palo Alto Networks, 2026), Veza (ServiceNow), Astrix Security (Cisco), Stytch (Twilio), SGNL (CrowdStrike, announced 2026), Onfido (Entrust), idwall (Serasa Experian, 2026). A company appears in one segment only.",
+  "activity": "identity and access management, identity security and identity verification",
+  "og_title": "The world’s most valuable<br>identity startups",
+  "sources": "TechCrunch, SecurityWeek, Calcalist (Ctech), Crunchbase News, Biometric Update, SiliconANGLE, Fintech Futures, BusinessWire, Finovate, Inc42, company announcements."
+ },
+ "ranked": [
+  {
+   "rank": 1,
+   "name": "Socure",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2026-08",
+    "amount_usd": 156000000.0,
+    "type": "Growth (primary and secondary)",
+    "investors": "Summit Partners; Goldman Sachs Alternatives, Wells Fargo, Docusign"
+   },
+   "published_valuation": {
+    "value_usd": 5200000000.0,
+    "date": "2026-08"
+   },
+   "estimate_usd": 5200000000.0,
+   "note_internal": "Identity verification and fraud (RiskOS). Round mixes primary and employee secondary. Basis: Published valuation of USD 5.2bn (Aug 2026).",
+   "kpis": {
+    "revenue": {
+     "value_text": "USD 364M, +63% year on year",
+     "period": "Q2 2026",
+     "source": "https://news.crunchbase.com/venture/socure-raises-acquires-agentic-ai-startup-fravity/"
+    },
+    "customers": {
+     "value_text": "3,000+ enterprise customers, incl. 19 of the 20 largest US banks",
+     "period": "Q2 2026",
+     "source": "https://news.crunchbase.com/venture/socure-raises-acquires-agentic-ai-startup-fravity/"
+    }
+   },
+   "sources": [
+    "https://www.socure.com/news-and-press/strategic-growth-investment-fravity-acquisition",
+    "https://news.crunchbase.com/venture/socure-raises-acquires-agentic-ai-startup-fravity/"
+   ]
+  },
+  {
+   "rank": 2,
+   "name": "Incode",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2021-12",
+    "amount_usd": 220000000.0,
+    "type": "Series B",
+    "investors": "General Atlantic, SoftBank Latin America Fund"
+   },
+   "published_valuation": {
+    "value_usd": 1250000000.0,
+    "date": "2021-12"
+   },
+   "estimate_usd": 3408225345.0,
+   "note_internal": "Mexican founders, US HQ. Talks at up to USD 3bn reported Nov 2025, not confirmed closed. Basis: Series B of USD 220M (Dec 2021); published valuation of USD 1.2bn (Dec 2021), over 24 months old; adjusted × 3: ARR of USD 170M growing about 80% a year (2025).",
+   "kpis": {
+    "revenue": {
+     "value_text": "USD 170M, about 80% organic growth",
+     "period": "Nov 2025",
+     "source": "https://www.biometricupdate.com/202511/incode-seeks-fundraise-at-3b-valuation-to-seize-emerging-biometrics-opportunities"
+    },
+    "customers": {
+     "value_text": "8 of the top 10 US banks; 4.1bn identity checks in 2024",
+     "period": "2025",
+     "source": "https://www.incode.com/press/incode-acquires-authenticid-creating-identity-firm-with-deep-reach"
+    }
+   },
+   "sources": [
+    "https://www.securityweek.com/identity-verification-company-incode-raises-220-million-125-billion-valuation/",
+    "https://www.biometricupdate.com/202511/incode-seeks-fundraise-at-3b-valuation-to-seize-emerging-biometrics-opportunities"
+   ]
+  },
+  {
+   "rank": 3,
+   "name": "1Password",
+   "country": "Canada",
+   "country_code": "CA",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2022-01",
+    "amount_usd": 620000000.0,
+    "type": "Series C",
+    "investors": "ICONIQ Growth"
+   },
+   "published_valuation": {
+    "value_usd": 6800000000.0,
+    "date": "2022-01"
+   },
+   "estimate_usd": 3201666233.0,
+   "note_internal": "No round since 2022; positive free cash flow. Basis: Series C of USD 620M (Jan 2022); published valuation of USD 6.8bn (Jan 2022), over 24 months old.",
+   "kpis": {
+    "revenue": {
+     "value_text": "above USD 400M",
+     "period": "Nov 2025",
+     "source": "https://1password.com/press/2025/nov/1password-strengthens-leadership-amid-growth-milestone"
+    },
+    "customers": {
+     "value_text": "180,000 business customers",
+     "period": "Nov 2025",
+     "source": "https://1password.com/press/2025/nov/1password-strengthens-leadership-amid-growth-milestone"
+    }
+   },
+   "sources": [
+    "https://1password.com/press/2025/nov/1password-strengthens-leadership-amid-growth-milestone",
+    "https://en.wikipedia.org/wiki/1Password"
+   ]
+  },
+  {
+   "rank": 4,
+   "name": "Saviynt",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2025-12",
+    "amount_usd": 700000000.0,
+    "type": "Series B",
+    "investors": "KKR; Sixth Street Growth, TenEleven, Carrick Capital"
+   },
+   "published_valuation": {
+    "value_usd": 3000000000.0,
+    "date": "2025-12",
+    "label": "about USD 3bn"
+   },
+   "estimate_usd": 3000000000.0,
+   "note_internal": "Identity governance. Basis: Published valuation of USD 3bn (Dec 2025).",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "600+ enterprise customers, more than 20% of the Fortune 100",
+     "period": "Dec 2025",
+     "source": "https://www.itsecurityguru.org/2025/12/09/saviynt-raises-700m-at-approximately-3b-valuation/"
+    }
+   },
+   "sources": [
+    "https://www.itsecurityguru.org/2025/12/09/saviynt-raises-700m-at-approximately-3b-valuation/",
+    "https://labusinessjournal.com/technology/saviynt-reaches-3-billion-valuation-in-fund-raise/"
+   ]
+  },
+  {
+   "rank": 5,
+   "name": "Transmit Security",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2021-06",
+    "amount_usd": 543000000.0,
+    "type": "Series A",
+    "investors": "Insight Partners, General Atlantic"
+   },
+   "published_valuation": {
+    "value_usd": 2200000000.0,
+    "date": "2021-06",
+    "label": "USD 2.2bn (Calcalist); USD 1bn per other sources"
+   },
+   "estimate_usd": 2804039943.0,
+   "note_internal": "Much of the Series A was secondary. R&D in Tel Aviv. Conflicting valuations. Basis: Series A of USD 543M (Jun 2021); published valuation of USD 2.2bn (Jun 2021), over 24 months old; conflicting sources.",
+   "kpis": {
+    "revenue": {
+     "value_text": "about USD 100M a year, profitable",
+     "period": "Jun 2021",
+     "source": "https://www.calcalistech.com/ctech/articles/0,7340,L-3910675,00.html"
+    },
+    "customers": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.calcalistech.com/ctech/articles/0,7340,L-3910675,00.html",
+    "https://en.wikipedia.org/wiki/Transmit_Security"
+   ]
+  },
+  {
+   "rank": 6,
+   "name": "Trulioo",
+   "country": "Canada",
+   "country_code": "CA",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2021",
+    "amount_usd": 394000000.0,
+    "type": "Series D",
+    "investors": "TCV"
+   },
+   "published_valuation": {
+    "value_usd": 1750000000.0,
+    "date": "2021"
+   },
+   "estimate_usd": 2034607251.0,
+   "note_internal": "Staff cuts of up to 10% reported; new CEO Jan 2025. No round since 2021. Basis: Series D of USD 394M (2021); published valuation of USD 1.8bn (2021), over 24 months old; single source.",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://en.wikipedia.org/wiki/Trulioo"
+   ]
+  },
+  {
+   "rank": 7,
+   "name": "WorkOS",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2026-03",
+    "amount_usd": 100000000.0,
+    "type": "Series C",
+    "investors": "Meritech, Sapphire"
+   },
+   "published_valuation": {
+    "value_usd": 2000000000.0,
+    "date": "2026-03"
+   },
+   "estimate_usd": 2000000000.0,
+   "note_internal": "Developer authentication APIs. Basis: Published valuation of USD 2bn (Mar 2026).",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "thousands of customers incl. OpenAI, Anthropic, Cursor, Perplexity",
+     "period": "Mar 2026",
+     "source": "https://workos.com/blog/series-c"
+    }
+   },
+   "sources": [
+    "https://workos.com/blog/series-c",
+    "https://siliconangle.com/2026/03/03/jetstream-security-guild-ai-workos-land-fresh-funding-amid-growing-agentic-ai-infrastructure-push/"
+   ]
+  },
+  {
+   "rank": 8,
+   "name": "ID.me",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2025-09",
+    "amount_usd": 340000000.0,
+    "type": "Series E",
+    "investors": "Ribbit Capital"
+   },
+   "published_valuation": {
+    "value_usd": 2000000000.0,
+    "date": "2025-09",
+    "label": "over USD 2bn"
+   },
+   "estimate_usd": 2000000000.0,
+   "note_internal": "Credit facility from Ares on top of the equity round. Basis: Published valuation of USD 2bn (Sep 2025).",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "152M users; 20 federal and 45 state agencies",
+     "period": "2025",
+     "source": "https://finovate.com/id-me-raises-340-million-at-a-2-billion-valuation/"
+    }
+   },
+   "sources": [
+    "https://finovate.com/id-me-raises-340-million-at-a-2-billion-valuation/",
+    "https://www.finsmes.com/2025/09/id-me-raises-340m-in-series-e-funding.html"
+   ]
+  },
+  {
+   "rank": 9,
+   "name": "Persona",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2025-04",
+    "amount_usd": 200000000.0,
+    "type": "Series D",
+    "investors": "Founders Fund, Ribbit Capital"
+   },
+   "published_valuation": {
+    "value_usd": 2000000000.0,
+    "date": "2025-04"
+   },
+   "estimate_usd": 2000000000.0,
+   "note_internal": "Identity verification. Basis: Published valuation of USD 2bn (Apr 2025).",
+   "kpis": {
+    "revenue": {
+     "value_text": "doubling year on year",
+     "period": "2024",
+     "source": "https://withpersona.com/blog/series-d/"
+    },
+    "customers": {
+     "value_text": "3,000+ customers incl. LinkedIn, OpenAI, Reddit",
+     "period": "Apr 2025",
+     "source": "https://siliconangle.com/2025/04/30/identity-verification-startup-persona-raises-200m-2b-valuation/"
+    }
+   },
+   "sources": [
+    "https://withpersona.com/blog/series-d/",
+    "https://siliconangle.com/2025/04/30/identity-verification-startup-persona-raises-200m-2b-valuation/"
+   ]
+  },
+  {
+   "rank": 10,
+   "name": "Veriff",
+   "country": "Estonia",
+   "country_code": "EE",
+   "region": "europe",
+   "tranche": "unicorn",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2022-01",
+    "amount_usd": 100000000.0,
+    "type": "Series C",
+    "investors": "Tiger Global, Alkeon Capital"
+   },
+   "published_valuation": {
+    "value_usd": 1500000000.0,
+    "date": "2022-01"
+   },
+   "estimate_usd": 1549193338.0,
+   "note_internal": "No round since 2022. Basis: Series C of USD 100M (Jan 2022); published valuation of USD 1.5bn (Jan 2022), over 24 months old; adjusted × 3: revenue above USD 100M in 2025, doubling, profitable.",
+   "kpis": {
+    "revenue": {
+     "value_text": "above USD 100M, doubled; profitable",
+     "period": "2025",
+     "source": "https://www.globenewswire.com/news-release/2025/12/10/3203237/0/en/veriff-doubles-revenue-at-a-scale-of-100m-usd.html"
+    },
+    "customers": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.fintechfutures.com/biometrics-id-verification/digital-id-verification-platform-veriff-raises-100m-series-c-at-1-5bn-valuation",
+    "https://www.globenewswire.com/news-release/2025/12/10/3203237/0/en/veriff-doubles-revenue-at-a-scale-of-100m-usd.html"
+   ]
+  },
+  {
+   "rank": 11,
+   "name": "JumpCloud",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2021-10",
+    "amount_usd": 225000000.0,
+    "type": "Series F",
+    "investors": "Sapphire Ventures; General Atlantic, BlackRock"
+   },
+   "published_valuation": {
+    "value_usd": 2625000000.0,
+    "date": "2021-10"
+   },
+   "estimate_usd": 1161895004.0,
+   "note_internal": "Cloud directory for SMEs. Basis: Series F of USD 225M (Oct 2021); published valuation of USD 2.6bn (Oct 2021), over 24 months old.",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "120,000+ organisations, 5,000+ paying",
+     "period": "Oct 2021",
+     "source": "https://jumpcloud.com/press/seriesfclose"
+    }
+   },
+   "sources": [
+    "https://jumpcloud.com/press/seriesfclose",
+    "https://en.wikipedia.org/wiki/JumpCloud"
+   ]
+  },
+  {
+   "rank": 12,
+   "name": "Semperis",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2022",
+    "amount_usd": 200000000.0,
+    "type": "Series C",
+    "investors": "KKR"
+   },
+   "published_valuation": {
+    "value_usd": 1000000000.0,
+    "date": "2024-06",
+    "label": "over USD 1bn (reported)"
+   },
+   "estimate_usd": 1032795559.0,
+   "note_internal": "2024 USD 125M round mixed equity and debt (Hercules); last pure equity is the 2022 Series C. Basis: Series C of USD 200M (2022); published valuation of USD 1bn (Jun 2024), over 24 months old.",
+   "kpis": {
+    "revenue": {
+     "value_text": "above USD 100M",
+     "period": "Jan 2025",
+     "source": "https://www.calcalistech.com/ctechnews/article/rk9osco00je"
+    },
+    "customers": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.semperis.com/press-release/semperis-secures-growth-financing/",
+    "https://www.calcalistech.com/ctechnews/article/rk9osco00je"
+   ]
+  },
+  {
+   "rank": 13,
+   "name": "Keeper Security",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "hundreds_m",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2020-08",
+    "amount_usd": 60000000.0,
+    "type": "Growth (minority)",
+    "investors": "Insight Partners"
+   },
+   "published_valuation": null,
+   "estimate_usd": 929516003.0,
+   "note_internal": "Mostly bootstrapped, profitable, no debt. Basis: Growth (minority) of USD 60M (Aug 2020); adjusted × 3: ARR of USD 225M (Jul 2026), profitable.",
+   "kpis": {
+    "revenue": {
+     "value_text": "USD 225M",
+     "period": "Jul 2026",
+     "source": "https://finance.yahoo.com/technology/ai/articles/keeper-security-surpasses-225m-arr-060000697.html"
+    },
+    "customers": {
+     "value_text": "95,000+ organisations",
+     "period": "Jul 2026",
+     "source": "https://finance.yahoo.com/technology/ai/articles/keeper-security-surpasses-225m-arr-060000697.html"
+    }
+   },
+   "sources": [
+    "https://www.builtinchicago.org/2020/08/17/keeper-security-raises-60m",
+    "https://finance.yahoo.com/technology/ai/articles/keeper-security-surpasses-225m-arr-060000697.html"
+   ]
+  },
+  {
+   "rank": 14,
+   "name": "Oasis Security",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "hundreds_m",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2026-03",
+    "amount_usd": 120000000.0,
+    "type": "Series B",
+    "investors": "Craft Ventures; Sequoia, Accel, Cyberstarts"
+   },
+   "published_valuation": null,
+   "estimate_usd": 619677335.0,
+   "note_internal": "Non-human and AI-agent identity. Israeli R&D. Basis: Series B of USD 120M (Mar 2026).",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.securityweek.com/oasis-security-raises-120-million-for-agentic-access-management/",
+    "https://www.govinfosecurity.com/oasis-raises-120m-series-b-to-safeguard-agentic-identities-a-31301"
+   ]
+  },
+  {
+   "rank": 15,
+   "name": "Silverfort",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "hundreds_m",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2024-01",
+    "amount_usd": 116000000.0,
+    "type": "Series D",
+    "investors": "Brighton Park Capital"
+   },
+   "published_valuation": {
+    "value_usd": 1000000000.0,
+    "date": "2024-01",
+    "label": "about USD 1bn (reported)"
+   },
+   "estimate_usd": 599021424.0,
+   "note_internal": "Israeli roots. Acquired Fabrix (Apr 2026). Basis: Series D of USD 116M (Jan 2024); published valuation of USD 1bn (Jan 2024), over 24 months old.",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.silverfort.com/press-news/silverfort-raises-116m-to-deliver-a-unified-layer-of-identity-security-across-all-enterprise-resources/",
+    "https://www.calcalistech.com/ctechnews/article/sjht00x0awx"
+   ]
+  },
+  {
+   "rank": 16,
+   "name": "Dashlane",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "hundreds_m",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2019-05",
+    "amount_usd": 110000000.0,
+    "type": "Series D",
+    "investors": "Sequoia Capital"
+   },
+   "published_valuation": null,
+   "estimate_usd": 568037557.0,
+   "note_internal": "Founded in Paris. No round since 2019. Basis: Series D of USD 110M (May 2019); single source.",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "11M+ users",
+     "period": "May 2019",
+     "source": "https://www.prnewswire.com/news-releases/dashlane-closes-110-million-in-series-d-funding-led-by-sequoia-capital-joy-howard-will-join-as-chief-marketing-officer-300859049.html"
+    }
+   },
+   "sources": [
+    "https://www.prnewswire.com/news-releases/dashlane-closes-110-million-in-series-d-funding-led-by-sequoia-capital-joy-howard-will-join-as-chief-marketing-officer-300859049.html"
+   ]
+  },
+  {
+   "rank": 17,
+   "name": "Bitwarden",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "hundreds_m",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2022-09",
+    "amount_usd": 100000000.0,
+    "type": "Growth",
+    "investors": "PSG; Battery Ventures"
+   },
+   "published_valuation": null,
+   "estimate_usd": 516397779.0,
+   "note_internal": "Open-source password manager. Basis: Growth of USD 100M (Sep 2022).",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://psgequity.com/news/bitwarden-announces-100-million-growth-investment-led-by-psg",
+    "https://bitwarden.com/blog/accelerating-value-for-bitwarden-users-bitwarden-raises-usd100-million/"
+   ]
+  },
+  {
+   "rank": 18,
+   "name": "Unico",
+   "country": "Brazil",
+   "country_code": "BR",
+   "region": "latin-america",
+   "tranche": "hundreds_m",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2022-04",
+    "amount_usd": 100000000.0,
+    "type": "Series D",
+    "investors": "Goldman Sachs; SoftBank, General Atlantic"
+   },
+   "published_valuation": {
+    "value_usd": 2600000000.0,
+    "date": "2022-04"
+   },
+   "estimate_usd": 516397779.0,
+   "note_internal": "No round since 2022. Basis: Series D of USD 100M (Apr 2022); published valuation of USD 2.6bn (Apr 2022), over 24 months old.",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "about 25M identity authentications a month",
+     "period": "2025",
+     "source": "https://www.foley.com/news/2025/09/foley-represents-unico-in-acquisition-of-ownid/"
+    }
+   },
+   "sources": [
+    "https://finance.yahoo.com/news/brazils-unico-raises-100-mln-124558067.html",
+    "https://www.foley.com/news/2025/09/foley-represents-unico-in-acquisition-of-ownid/"
+   ]
+  },
+  {
+   "rank": 19,
+   "name": "Beyond Identity",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "hundreds_m",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2022-02",
+    "amount_usd": 100000000.0,
+    "type": "Series C",
+    "investors": "Evolution Equity Partners"
+   },
+   "published_valuation": {
+    "value_usd": 1100000000.0,
+    "date": "2022-02"
+   },
+   "estimate_usd": 516397779.0,
+   "note_internal": "No round since 2022. Basis: Series C of USD 100M (Feb 2022); published valuation of USD 1.1bn (Feb 2022), over 24 months old.",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.securityweek.com/beyond-identity-becomes-unicorn-100-million-series-c-funding-round/",
+    "https://www.channelfutures.com/channel-business/beyond-identity-secures-100-million-in-funding-reaches-1-1-billion-valuation"
+   ]
+  },
+  {
+   "rank": 20,
+   "name": "ConductorOne",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "hundreds_m",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2025-10",
+    "amount_usd": 79000000.0,
+    "type": "Series B",
+    "investors": "Greycroft; CrowdStrike Falcon Fund, Accel, Felicis"
+   },
+   "published_valuation": null,
+   "estimate_usd": 407954246.0,
+   "note_internal": "AI-native identity governance. Basis: Series B of USD 79M (Oct 2025).",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://www.businesswire.com/news/home/20251028217717/en/ConductorOne-Raises-$79-Million-Series-B-To-Scale-the-Worlds-First-AI-Native-Identity-Security-Platform",
+    "https://www.greycroft.com/perspectives/building-the-future-of-ai-native-identity-security-greycroft-leads-conductorones-series-b/"
+   ]
+  }
+ ],
+ "radar": [
+  {
+   "name": "FusionAuth",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2023-11",
+    "amount_usd": 65000000.0,
+    "type": "Growth"
+   }
+  },
+  {
+   "name": "Clerk",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2025-10",
+    "amount_usd": 50000000.0,
+    "type": "Series C"
+   }
+  },
+  {
+   "name": "IDfy",
+   "country": "India",
+   "country_code": "IN",
+   "region": "asia-pacific",
+   "last_equity_round": {
+    "date": "2026-06",
+    "amount_usd": 23000000.0,
+    "type": "Follow-on"
+   }
+  },
+  {
+   "name": "Descope",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2025-09",
+    "amount_usd": 35000000.0,
+    "type": "Seed extension"
+   }
+  },
+  {
+   "name": "Lumos",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2024-05",
+    "amount_usd": 35000000.0,
+    "type": "Series B"
+   }
+  },
+  {
+   "name": "Prove",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2023-10",
+    "amount_usd": 40000000.0,
+    "type": "Growth"
+   }
+  },
+  {
+   "name": "Aembit",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2024-09",
+    "amount_usd": 25000000.0,
+    "type": "Series A"
+   }
+  },
+  {
+   "name": "Opal Security",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2026-06",
+    "amount_usd": 23000000.0,
+    "type": "Venture round"
+   }
+  },
+  {
+   "name": "Footprint",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2026-09",
+    "amount_usd": 25000000.0,
+    "type": "Series B"
+   }
+  },
+  {
+   "name": "Vouched",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2025-09",
+    "amount_usd": 17000000.0,
+    "type": "Series A"
+   }
+  },
+  {
+   "name": "Smile ID",
+   "country": "Nigeria",
+   "country_code": "NG",
+   "region": "sub-saharan-africa",
+   "last_equity_round": {
+    "date": "2023-02",
+    "amount_usd": 20000000.0,
+    "type": "Series B"
+   }
+  },
+  {
+   "name": "Shufti Pro",
+   "country": "United Kingdom",
+   "country_code": "GB",
+   "region": "europe",
+   "last_equity_round": {
+    "date": "2022-03",
+    "amount_usd": 20000000.0,
+    "type": "Series A"
+   }
+  },
+  {
+   "name": "Truora",
+   "country": "Colombia",
+   "country_code": "CO",
+   "region": "latin-america",
+   "last_equity_round": {
+    "date": "2022-04",
+    "amount_usd": 15000000.0,
+    "type": "Series A"
+   }
+  },
+  {
+   "name": "Sumsub",
+   "country": "United Kingdom",
+   "country_code": "GB",
+   "region": "europe",
+   "last_equity_round": {
+    "date": "2022-12",
+    "amount_usd": null,
+    "type": "Series B"
+   }
+  },
+  {
+   "name": "Token Security",
+   "country": "Israel",
+   "country_code": "IL",
+   "region": "mena",
+   "last_equity_round": {
+    "date": "2025-01",
+    "amount_usd": 20000000.0,
+    "type": "Series A"
+   }
+  },
+  {
+   "name": "Opti",
+   "country": "Israel",
+   "country_code": "IL",
+   "region": "mena",
+   "last_equity_round": {
+    "date": "2025-11",
+    "amount_usd": 20000000.0,
+    "type": "Seed"
+   }
+  },
+  {
+   "name": "Way Security",
+   "country": "Israel",
+   "country_code": "IL",
+   "region": "mena",
+   "last_equity_round": {
+    "date": "2026-07",
+    "amount_usd": 20000000.0,
+    "type": "Seed"
+   }
+  },
+  {
+   "name": "Duna",
+   "country": "Netherlands",
+   "country_code": "NL",
+   "region": "europe",
+   "last_equity_round": {
+    "date": "2026-02",
+    "amount_usd": 35000000.0,
+    "type": "Series A",
+    "amount_label": "EUR 30M"
+   }
+  },
+  {
+   "name": "Glide Identity",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2025-10",
+    "amount_usd": 20000000.0,
+    "type": "Series A",
+    "amount_label": "over USD 20M"
+   }
+  },
+  {
+   "name": "AiPrise",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2025-10",
+    "amount_usd": 12500000.0,
+    "type": "Series A"
+   }
+  },
+  {
+   "name": "Saporo",
+   "country": "Switzerland",
+   "country_code": "CH",
+   "region": "europe",
+   "last_equity_round": {
+    "date": "2025-12",
+    "amount_usd": 8100000.0,
+    "type": "Series A",
+    "amount_label": "EUR 7M"
+   }
+  },
+  {
+   "name": "Wultra",
+   "country": "Czech Republic",
+   "country_code": "CZ",
+   "region": "europe",
+   "last_equity_round": {
+    "date": "2026-07",
+    "amount_usd": 7900000.0,
+    "type": "Series A",
+    "amount_label": "EUR 6.8M"
+   }
+  },
+  {
+   "name": "Beltic",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2026-09",
+    "amount_usd": 7300000.0,
+    "type": "Seed"
+   }
+  },
+  {
+   "name": "Didit",
+   "country": "Spain",
+   "country_code": "ES",
+   "region": "europe",
+   "last_equity_round": {
+    "date": "2026-05",
+    "amount_usd": 6000000.0,
+    "type": "Seed"
+   }
+  },
+  {
+   "name": "Unosecur",
+   "country": "Germany",
+   "country_code": "DE",
+   "region": "europe",
+   "last_equity_round": {
+    "date": "2025-04",
+    "amount_usd": 5000000.0,
+    "type": "Seed"
+   }
+  },
+  {
+   "name": "Contactable",
+   "country": "South Africa",
+   "country_code": "ZA",
+   "region": "sub-saharan-africa",
+   "last_equity_round": {
+    "date": "2025-09",
+    "amount_usd": 13500000.0,
+    "type": "Growth round"
+   }
+  },
+  {
+   "name": "Nufi",
+   "country": "Mexico",
+   "country_code": "MX",
+   "region": "latin-america",
+   "last_equity_round": {
+    "date": "2025-03",
+    "amount_usd": 1500000.0,
+    "type": "Seed"
+   }
+  },
+  {
+   "name": "deepidv",
+   "country": "Canada",
+   "country_code": "CA",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2026-03",
+    "amount_usd": 1000000.0,
+    "type": "Seed"
+   }
+  }
+ ],
+ "listed_benchmarks": [
+  {
+   "name": "Okta",
+   "listing": "Nasdaq · OKTA",
+   "country": "United States"
+  },
+  {
+   "name": "SailPoint",
+   "listing": "Nasdaq · SAIL",
+   "country": "United States"
+  },
+  {
+   "name": "Microsoft (Entra)",
+   "listing": "Nasdaq · MSFT",
+   "country": "United States"
+  },
+  {
+   "name": "Palo Alto Networks (owns CyberArk)",
+   "listing": "Nasdaq · PANW",
+   "country": "United States"
+  },
+  {
+   "name": "Mitek Systems",
+   "listing": "Nasdaq · MITK",
+   "country": "United States"
+  },
+  {
+   "name": "GB Group (GBG)",
+   "listing": "LSE · GBG",
+   "country": "United Kingdom"
+  },
+  {
+   "name": "Thales (Digital Identity & Security)",
+   "listing": "Euronext Paris · HO",
+   "country": "France"
+  }
+ ]
+}

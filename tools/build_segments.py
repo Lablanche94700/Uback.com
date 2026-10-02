@@ -8,7 +8,7 @@ Usage : python3 tools/build_segments.py             (tous les segments)
         python3 tools/build_segments.py consumer-neobanks
 estimate_usd est l'estimation centrale (affichée arrondie, avec sa fourchette selon la confiance : tools/valuation.py) ;
 note_internal n'est jamais rendu (le script vérifie qu'il n'apparaît pas dans la page)."""
-import os, sys, json, html, re, glob, shutil, hashlib, datetime, subprocess, tempfile
+import os, sys, json, html, re, glob, shutil, hashlib, datetime, subprocess, tempfile, time
 from urllib.parse import quote
 
 TOOLS = os.path.dirname(os.path.abspath(__file__))
@@ -244,12 +244,22 @@ def og_image(key, src, out_dir):
         if not os.path.exists(EDGE):
             print('  ! image de partage non rendue (Edge introuvable)')
             return v
-        with tempfile.TemporaryDirectory() as tmp:
-            f = os.path.join(tmp, 'og.html')
-            open(f, 'w', encoding='utf-8').write(src)
-            subprocess.run([EDGE, '--headless=new', '--disable-gpu', '--hide-scrollbars', '--force-device-scale-factor=1',
-                            '--window-size=1200,630', '--virtual-time-budget=5000', f'--screenshot={png}',
-                            'file:///' + f.replace('\\', '/')], capture_output=True)
+        for _ in range(4):                 # Edge headless échoue parfois : profil temporaire neuf, nouvel essai
+            with tempfile.TemporaryDirectory() as tmp:
+                f = os.path.join(tmp, 'og.html')
+                open(f, 'w', encoding='utf-8').write(src)
+                subprocess.run([EDGE, '--headless=new', '--disable-gpu', '--hide-scrollbars', '--force-device-scale-factor=1',
+                                f'--user-data-dir={os.path.join(tmp, "profile")}', '--no-first-run',
+                                '--window-size=1200,630', '--virtual-time-budget=5000', f'--screenshot={png}',
+                                'file:///' + f.replace('\\', '/')], capture_output=True, timeout=90)
+                # le lanceur d'Edge rend la main avant la fin du rendu : attendre l'image avant d'effacer la page source
+                for _ in range(60):
+                    if os.path.exists(png) and os.path.getsize(png) > 0:
+                        break
+                    time.sleep(0.5)
+                time.sleep(1)
+            if os.path.exists(png):
+                break
         if not os.path.exists(png):
             print('  ! image de partage non rendue (Edge n’a rien produit) : relancer le script')
             return v

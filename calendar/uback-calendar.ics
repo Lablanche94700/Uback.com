@@ -99,6 +99,7 @@ DTEND;VALUE=DATE:20260106
 RRULE:FREQ=YEARLY
 SUMMARY:Uback · Identity management (global segment ranking)
 TRANSP:TRANSPARENT
+URL:https://uback.com/segments/identity-management/
 END:VEVENT
 BEGIN:VEVENT
 UID:01-06-country-br@uback.com
@@ -2983,6 +2984,7 @@ DTEND;VALUE=DATE:20260706
 RRULE:FREQ=YEARLY
 SUMMARY:Uback · Identity management (global segment ranking)
 TRANSP:TRANSPARENT
+URL:https://uback.com/segments/identity-management/
 END:VEVENT
 BEGIN:VEVENT
 UID:07-06-country-br@uback.com

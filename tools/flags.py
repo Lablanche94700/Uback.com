@@ -80,6 +80,8 @@ SVG = {
        '<polygon points="8,3.5 9.4,7.1 13.2,7.1 10.1,9.4 11.3,13 8,10.8 4.7,13 5.9,9.4 2.8,7.1 6.6,7.1" fill="#fff"/>',
  'ES': '<rect width="48" height="32" fill="#AA151B"/><rect y="8" width="48" height="16" fill="#F1BF00"/>',
  'JP': '<rect width="48" height="32" fill="#fff"/><circle cx="24" cy="16" r="9.6" fill="#BC002D"/>',
+ 'EE': _h('#0072CE', '#000000', '#FFFFFF'),
+ 'CZ': '<rect width="48" height="16" fill="#fff"/><rect y="16" width="48" height="16" fill="#D7141A"/><polygon points="0,0 24,16 0,32" fill="#11457E"/>',
 }
 for _c in ('AU', 'NZ'):
     SVG[_c] = SVG[_c].replace('{UJ}', SVG['GB'])
