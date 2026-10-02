@@ -183,8 +183,8 @@ OPEN_REGION = max(ZONE_REGIONS, key=lambda r: (sum(c['status'] == 'live' for c i
 FAMS = SECTORS['families']
 N_FAM = len(FAMS)
 N_SEG = sum(len(s['segments']) for f in FAMS for s in f['sectors'])
-DESC = ('Uback ranks funded, non-listed tech startups by AI-estimated valuation, by country and by global segment. '
-        'The market sets the value; our AI estimates it. Investors can pool their intentions to invest.')
+DESC = ('Reverse dealflow: investors say what they want to back and pool their tickets. Uback ranks funded, non-listed tech '
+        'startups by AI-estimated valuation, by country and by global segment. The market sets the value; our AI estimates it.')
 JSONLD = {"@context": "https://schema.org", "@graph": [
     {"@type": "Organization", "name": "Uback", "url": "https://uback.com/", "email": "contact@uback.com",
      "description": DESC,
@@ -441,13 +441,13 @@ page = f'''<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Uback — The most valuable startups, ranked by AI</title>
+<title>Uback — Reverse dealflow: startups ranked by AI, backed together</title>
 <meta name="description" content="{e(DESC)}">
 <link rel="canonical" href="https://uback.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Uback">
 <meta property="og:url" content="https://uback.com/">
-<meta property="og:title" content="Uback — The most valuable startups, ranked by AI">
+<meta property="og:title" content="Uback — Reverse dealflow: startups ranked by AI, backed together">
 <meta property="og:description" content="{e(DESC)}">
 <script type="application/ld+json">{json.dumps(JSONLD, ensure_ascii=False, separators=(',', ':'))}</script>
 <meta name="twitter:card" content="summary">
@@ -479,7 +479,7 @@ page = f'''<!doctype html>
   <section class="hero">
     <div class="wrap">
       <div class="eyebrow"><i></i><span>Public beta</span><i class="r"></i></div>
-      <h1><span class="h1-l">The most valuable startups, ranked by AI.</span> <span class="h1-l">Back the next ones together.</span></h1>
+      <h1><span class="h1-l">Reverse dealflow.</span> <span class="h1-l">Group buying for startup equity.</span></h1>
       <div class="duo">
         <div class="duo-col">
           <div class="duo-k">Discover</div>
@@ -489,7 +489,7 @@ page = f'''<!doctype html>
         <div class="duo-rule" aria-hidden="true"></div>
         <div class="duo-col">
           <div class="duo-k">Back</div>
-          <p>Alone, an investor rarely gets a seat at the table. <b>Together, Backers form a pool that counts.</b> Declare an intention on a segment or a country you want to back, today, without waiting for a startup to open its doors. Once the pool reaches critical mass, our local partner takes it to the companies that fit.</p>
+          <p>Most platforms bring you deals. Uback works the other way round: <b>investors say what they want to back, and pool their tickets.</b> Declare an intention on a segment or a country today, without waiting for a startup to open its doors. Once the pool reaches critical mass, our local partner works to build a deal with the companies that fit.</p>
           <a href="/invest.html">How it works <span aria-hidden="true">→</span></a>
         </div>
       </div>
