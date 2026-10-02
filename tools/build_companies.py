@@ -1172,16 +1172,13 @@ def main():
             page = open(os.path.join(ROOT, 'investor', i['slug'], 'index.html'), encoding='utf-8').read()
             if (u in sm) == ('noindex' in page):
                 raise CheckError(f"{i['name']} : sitemap / noindex incohérents")
-    # ---- index de recherche (les fiches noindex sont trouvables)
+    # ---- index de recherche : startups seulement (les fiches noindex sont trouvables), jamais les investisseurs
     idx = []
     for m in models.values():
         r = m['best'] or (m['sr'][0]['rank'] if m['sr'] else None)
         where = country_name(m['code']) if (m['best'] or not m['sr']) else m['sr'][0]['src']['name']
-        idx.append({'n': m['c']['name'], 's': m['c']['slug'], 't': 'c', 'c': where, **({'r': r} if r else {})})
-    for i in investors.values():
-        if i['page']:
-            idx.append({'n': i['name'], 's': i['slug'], 't': 'i', 'k': len(i['companies'])})
-    idx.sort(key=lambda x: (x['t'], x['n'].lower()))
+        idx.append({'n': m['c']['name'], 's': m['c']['slug'], 'c': where, **({'r': r} if r else {})})
+    idx.sort(key=lambda x: x['n'].lower())
     open(os.path.join(ROOT, 'assets', 'search-index.json'), 'w', encoding='utf-8', newline='\n').write(
         json.dumps(idx, ensure_ascii=False, separators=(',', ':')) + '\n')
     # ---- table des slugs figée : on ajoute, on ne retire jamais

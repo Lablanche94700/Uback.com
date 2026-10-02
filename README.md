@@ -33,7 +33,8 @@ profile-form.html       ← formulaire unique des fiches (Web3Forms, champ « ty
                           suggest_source, analysis, fund_partial_exit, investor_claim, missing_deal), noindex
 sitemap-companies.xml, sitemap-investors.xml ← fiches et pages investisseur INDEXÉES seulement (même générateur) ;
                           sitemap.xml reste manuel ; les trois sont déclarés dans robots.txt
-assets/search-index.json, assets/search.js ← recherche « Search a startup or investor » de l'en-tête (index écrit par
+assets/search-index.json, assets/search.js ← recherche « Search a startup » de l'en-tête (startups seulement, jamais les
+                          investisseurs : Uback n'est pas un annuaire de fonds) (index écrit par
                           build_companies.py ; script et CSS dans tools/search.py)
 assets/profile.css      ← styles des fiches et pages investisseur (écrits par build_companies.py)
 data/companies/         ← slugs.json (table FIGÉE des slugs : générée, relue à chaque passage, on n'y retire jamais une ligne),

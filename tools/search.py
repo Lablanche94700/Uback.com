@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-"""Recherche « Search a startup or investor », commune à tous les en-têtes du site.
-Index statique /assets/search-index.json (nom, slug, type, pays, rang) écrit par tools/build_companies.py ;
+"""Recherche « Search a startup », commune à tous les en-têtes du site (startups seulement, jamais les investisseurs :
+Uback n'est pas un annuaire de fonds). Index statique /assets/search-index.json (nom, slug, pays ou segment, rang) écrit par tools/build_companies.py ;
 script sans dépendance /assets/search.js (écrit par write_js()), suggestions dès 2 caractères.
 Styles : SEARCH_CSS, recopié dans ma/assets/style.css entre deux marqueurs par sync_css() (comme le pied de page),
 et intégré à la CSS en ligne des pages de tools/build_home.py.
@@ -10,7 +10,7 @@ import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 START, END = '/* search:start (généré par tools/search.py, ne pas modifier ici) */', '/* search:end */'
-LABEL = {'en': 'Search a startup or investor', 'fr': 'Rechercher une startup ou un investisseur'}
+LABEL = {'en': 'Search a startup', 'fr': 'Rechercher une startup'}
 
 SEARCH_CSS = '''.hdr .wrap,header.hdr-lang .wrap{position:relative}
 .srch{position:static;display:flex;align-items:center}
@@ -44,7 +44,7 @@ def html(root='/', lang='en'):
     return (f'<div class="srch" role="search"><button type="button" class="srch-b" aria-label="{lb}" aria-expanded="false">{ICON}</button>'
             f'<div class="srch-p"><label class="srch-f">{ICON}<input type="search" placeholder="{lb}" aria-label="{lb}" '
             f'autocomplete="off" spellcheck="false" data-root="/"></label><ul class="srch-r" role="listbox" aria-label="Results"></ul></div></div>'
-            f'<script src="{root}assets/search.js" defer></script>')
+            f'<script src="{root}assets/search.js?v={JS_V}" defer></script>')
 
 JS = r'''(function(){
   var box=document.querySelector('.srch');if(!box)return;
@@ -58,11 +58,11 @@ JS = r'''(function(){
     load().then(function(ix){
       var hits=ix.filter(function(x){return x.f.indexOf(f)>=0;}).sort(function(a,b){
         var pa=a.f.indexOf(f)===0?0:1,pb=b.f.indexOf(f)===0?0:1;if(pa!==pb)return pa-pb;
-        if(a.t!==b.t)return a.t==='c'?-1:1;return (a.r||999)-(b.r||999)||a.n.localeCompare(b.n);}).slice(0,8);
+        return (a.r||999)-(b.r||999)||a.n.localeCompare(b.n);}).slice(0,8);
       out.innerHTML=hits.length?hits.map(function(x){
-        var meta=x.t==='i'?'Investor · '+x.k+(x.k>1?' startups':' startup'):(x.r?'#'+x.r+' · ':'')+(x.c||'');
-        return '<li><a role="option" href="'+root+(x.t==='i'?'investor/':'company/')+x.s+'/"><b>'+esc(x.n)+'</b><small>'+esc(meta)+'</small></a></li>';
-      }).join(''):'<li class="none">No startup or investor found</li>';
+        var meta=(x.r?'#'+x.r+' · ':'')+(x.c||'');
+        return '<li><a role="option" href="'+root+'company/'+x.s+'/"><b>'+esc(x.n)+'</b><small>'+esc(meta)+'</small></a></li>';
+      }).join(''):'<li class="none">No startup found</li>';
     });
   }
   inp.addEventListener('input',function(){render(inp.value);});
@@ -78,6 +78,9 @@ JS = r'''(function(){
   document.addEventListener('click',function(ev){if(!box.contains(ev.target)){out.innerHTML='';if(box.classList.contains('open')){box.classList.remove('open');btn.setAttribute('aria-expanded','false');}}});
 })();
 '''
+
+import hashlib
+JS_V = hashlib.sha1(JS.encode('utf-8')).hexdigest()[:8]   # version du script : un changement est vu tout de suite
 
 def write_js():
     p = os.path.join(ROOT, 'assets', 'search.js')
