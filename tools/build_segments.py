@@ -278,9 +278,7 @@ def next_scheduled(slug):
 
 def page_top(title, desc, url, og_img, sw, nav, follow_label, follow_href, extra, declare_href=f'{GI}#opening', search_field=False):
     """Début de page commun aux classements mondiaux (segments et familles), aux zones et aux fiches : <head>,
-    bandeau bêta, en-tête (avec le lien « Investors » et la recherche ; search_field : champ visible sur grand écran)."""
-    if not any(h == '/investors/' for h, _ in nav):
-        nav = list(nav) + [('/investors/', 'Investors')]
+    bandeau bêta, en-tête (avec la recherche ; search_field : champ visible sur grand écran)."""
     links = '\n'.join(f'      <a href="{h}">{l}</a>' for h, l in nav)
     return f'''<!doctype html>
 <html lang="en">

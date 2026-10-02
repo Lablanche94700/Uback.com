@@ -469,7 +469,6 @@ page = f'''<!doctype html>
       <a href="/calendar/">Calendar</a>
       <a href="/invest.html">Invest</a>
       {backers_menu('en')}
-      <a href="/investors/">Investors</a>
     </nav>
     {search.html()}
   </div>
@@ -784,7 +783,6 @@ def global_page(key, lang, body, extra=''):
       <a href="/calendar/"{cur('calendar')}>{u['calendar']}</a>
       <a href="/{GLOBAL['invest'][lang]}"{cur('invest')}>{u['invest']}</a>
       {backers_menu(lang, key)}
-      <a href="/investors/">{'Investisseurs' if lang == 'fr' else 'Investors'}</a>
       {sw}
     </nav>
     {search.html('/', lang)}
