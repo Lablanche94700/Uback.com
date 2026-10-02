@@ -1,0 +1,32 @@
+# Fichiers du dépôt à NE PAS publier sur Cloudflare Workers (syntaxe .gitignore).
+# Tout le reste est servi tel quel, comme sur GitHub Pages.
+
+# générateurs, scripts et gabarits de travail
+tools/
+*.py
+__pycache__/
+
+# configuration Git, GitHub, Netlify, Cloudflare
+.git*
+.github/
+netlify.toml
+wrangler.jsonc
+.assetsignore
+.wrangler/
+node_modules/
+
+# documentation et notes de travail (aucun .md n'est servi par le site)
+*.md
+docs/
+.claude/
+
+# fichiers propres au dépôt ou à GitHub Pages, sans usage sur le site
+CNAME
+LICENSE
+
+# fichiers temporaires
+_*
+*.tmp
+*.log
+.DS_Store
+Thumbs.db

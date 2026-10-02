@@ -1,0 +1,10 @@
+// Déploiement Cloudflare Workers (static assets), en parallèle de GitHub Pages qui reste en ligne.
+// Le site est statique : aucun script Worker, Cloudflare sert directement les fichiers du dépôt.
+// Fichiers exclus de la publication : voir .assetsignore.
+{
+  "name": "uback",
+  "compatibility_date": "2026-10-02",
+  "assets": {
+    "directory": "."
+  }
+}
