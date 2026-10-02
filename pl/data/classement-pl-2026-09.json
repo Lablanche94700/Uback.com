@@ -35,12 +35,13 @@
         "adjust_reason": "later undisclosed round (Aug 2021) at reported USD 1bn valuation"
       },
       "valuation_bracket": "unicorn",
-      "valuation_basis": "Series E of USD 89.8M (May 2019); published valuation of USD 1bn (Aug 2021), over 24 months old; adjusted +1 bracket: later undisclosed round (Aug 2021) at reported USD 1bn valuation.",
+      "valuation_basis": "Series E of USD 89.8M (May 2019); published valuation of USD 1bn (Aug 2021), over 24 months old; adjusted × 3: later undisclosed round (Aug 2021) at reported USD 1bn valuation.",
       "valuation_confidence": "medium",
-      "valuation_low_usd": 359200000,
-      "valuation_high_usd": 598666667,
+      "valuation_low_usd": 927450412,
+      "valuation_high_usd": 2086763427,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 1391175618
     },
     {
       "rang": 2,
@@ -70,10 +71,11 @@
       "valuation_bracket": "hundreds_m",
       "valuation_basis": "Series D of USD 80M (Dec 2020).",
       "valuation_confidence": "medium",
-      "valuation_low_usd": 320000000,
-      "valuation_high_usd": 533333333,
+      "valuation_low_usd": 275412149,
+      "valuation_high_usd": 619677335,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 413118224
     },
     {
       "rang": 3,
@@ -103,10 +105,11 @@
       "valuation_bracket": "hundreds_m",
       "valuation_basis": "Series A of USD 75M (May 2026).",
       "valuation_confidence": "high",
-      "valuation_low_usd": 300000000,
-      "valuation_high_usd": 500000000,
+      "valuation_low_usd": 309838668,
+      "valuation_high_usd": 484122918,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 387298335
     },
     {
       "rang": 4,
@@ -136,10 +139,11 @@
       "valuation_bracket": "hundreds_m",
       "valuation_basis": "Series B of USD 70M (Nov 2022).",
       "valuation_confidence": "medium",
-      "valuation_low_usd": 280000000,
-      "valuation_high_usd": 466666667,
+      "valuation_low_usd": 240985630,
+      "valuation_high_usd": 542217668,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 361478446
     },
     {
       "rang": 5,
@@ -169,10 +173,11 @@
       "valuation_bracket": "hundreds_m",
       "valuation_basis": "Series C of USD 70M (Jan 2021).",
       "valuation_confidence": "medium",
-      "valuation_low_usd": 280000000,
-      "valuation_high_usd": 466666667,
+      "valuation_low_usd": 240985630,
+      "valuation_high_usd": 542217668,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 361478446
     },
     {
       "rang": 6,
@@ -202,10 +207,11 @@
       "valuation_bracket": "hundreds_m",
       "valuation_basis": "Series C of USD 51M (Jul 2025).",
       "valuation_confidence": "high",
-      "valuation_low_usd": 204000000,
-      "valuation_high_usd": 340000000,
+      "valuation_low_usd": 210690294,
+      "valuation_high_usd": 329203584,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 263362868
     },
     {
       "rang": 7,
@@ -235,13 +241,48 @@
       "valuation_bracket": "hundreds_m",
       "valuation_basis": "Series B of USD 45.6M (Nov 2021).",
       "valuation_confidence": "medium",
-      "valuation_low_usd": 182400000,
-      "valuation_high_usd": 304000000,
+      "valuation_low_usd": 156984925,
+      "valuation_high_usd": 353216081,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 235477387
     },
     {
       "rang": 8,
+      "nom": "Jutro Medical",
+      "site": "jutromedical.com",
+      "sous_secteur": "HealthTech › AI-first primary-care clinics",
+      "ville": "Warsaw",
+      "creation": 2020,
+      "leve_cumule": "USD ≥22.5M (EUR 19.4M)",
+      "derniere_levee": "Series A extension (equity and debt) · USD ~28M (EUR 24M) · Dec 2025 (Warsaw Equity Group)",
+      "source": "https://tech.eu/2025/12/16/jutro-medical-extends-series-a-to-eur36m-for-ai-enabled-primary-care-scale/",
+      "confiance": 2,
+      "juridiction": "Poland",
+      "note": "Identifiable equity only. The EUR 24M Dec 2025 round includes debt from mBank and Orbit Capital with no published split, so it is not counted; including it, about USD 50M.",
+      "valuation_input": {
+        "published_usd": null,
+        "published_date": null,
+        "round_usd": 13900000,
+        "round_date": "2025-03",
+        "round_label": "Series A",
+        "cumulative_usd": null,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 1,
+        "adjust_reason": "later EUR 24M Series A extension (Dec 2025) with undisclosed debt share"
+      },
+      "valuation_bracket": "hundreds_m",
+      "valuation_basis": "Series A of USD 13.9M (Mar 2025); adjusted × 3: later EUR 24M Series A extension (Dec 2025) with undisclosed debt share.",
+      "valuation_confidence": "high",
+      "valuation_low_usd": 172270299,
+      "valuation_high_usd": 269172343,
+      "acces": "defaut",
+      "acquereur": "",
+      "valuation_central_usd": 215337874
+    },
+    {
+      "rang": 9,
       "nom": "Infermedica",
       "site": "infermedica.com",
       "sous_secteur": "HealthTech › AI symptom triage",
@@ -268,13 +309,48 @@
       "valuation_bracket": "hundreds_m",
       "valuation_basis": "Series B of USD 30M (Jan 2022).",
       "valuation_confidence": "medium",
-      "valuation_low_usd": 120000000,
-      "valuation_high_usd": 200000000,
+      "valuation_low_usd": 103279556,
+      "valuation_high_usd": 232379001,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 154919334
     },
     {
-      "rang": 9,
+      "rang": 10,
+      "nom": "Nomagic",
+      "site": "nomagic.ai",
+      "sous_secteur": "Robotics › AI picking robots for warehouses",
+      "ville": "Warsaw",
+      "creation": 2017,
+      "leve_cumule": "USD ≥40M",
+      "derniere_levee": "Series B extension · USD 10M (EUR 8.3M) · Jan 2026 (Cogito Capital)",
+      "source": "https://nomagic.ai/news/nomagic-secures-an-additional-10m-to-accelerate-commercial-growth-and-advance-its-technology-roadmap/",
+      "confiance": 3,
+      "juridiction": "Poland",
+      "note": "Identifiable equity only. The company reports over USD 84M raised in total, but its USD 44M Series B (Feb 2025) includes EIB venture debt with no published split.",
+      "valuation_input": {
+        "published_usd": null,
+        "published_date": null,
+        "round_usd": 10000000,
+        "round_date": "2026-01",
+        "round_label": "Series B extension",
+        "cumulative_usd": null,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 1,
+        "adjust_reason": "extension of USD 44M Series B (Feb 2025, equity+debt mix); company reports over USD 84M raised"
+      },
+      "valuation_bracket": "hundreds_m",
+      "valuation_basis": "Series B extension of USD 10M (Jan 2026); adjusted × 3: extension of USD 44M Series B (Feb 2025, equity+debt mix); company reports over USD 84M raised.",
+      "valuation_confidence": "high",
+      "valuation_low_usd": 123935467,
+      "valuation_high_usd": 193649167,
+      "acces": "defaut",
+      "acquereur": "",
+      "valuation_central_usd": 154919334
+    },
+    {
+      "rang": 11,
       "nom": "Tylko",
       "site": "tylko.com",
       "sous_secteur": "D2C › made-to-measure furniture with online configurator",
@@ -301,13 +377,14 @@
       "valuation_bracket": "hundreds_m",
       "valuation_basis": "Series C of USD 26M (Mar 2021).",
       "valuation_confidence": "medium",
-      "valuation_low_usd": 104000000,
-      "valuation_high_usd": 173333333,
+      "valuation_low_usd": 89508948,
+      "valuation_high_usd": 201395134,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 134263423
     },
     {
-      "rang": 10,
+      "rang": 12,
       "nom": "Tidio",
       "site": "tidio.com",
       "sous_secteur": "SaaS › AI customer service",
@@ -334,76 +411,11 @@
       "valuation_bracket": "hundreds_m",
       "valuation_basis": "Series B of USD 25M (May 2022); single source.",
       "valuation_confidence": "low",
-      "valuation_low_usd": 100000000,
-      "valuation_high_usd": 166666667,
+      "valuation_low_usd": 64549722,
+      "valuation_high_usd": 258198890,
       "acces": "defaut",
-      "acquereur": ""
-    },
-    {
-      "rang": 11,
-      "nom": "Jutro Medical",
-      "site": "jutromedical.com",
-      "sous_secteur": "HealthTech › AI-first primary-care clinics",
-      "ville": "Warsaw",
-      "creation": 2020,
-      "leve_cumule": "USD ≥22.5M (EUR 19.4M)",
-      "derniere_levee": "Series A extension (equity and debt) · USD ~28M (EUR 24M) · Dec 2025 (Warsaw Equity Group)",
-      "source": "https://tech.eu/2025/12/16/jutro-medical-extends-series-a-to-eur36m-for-ai-enabled-primary-care-scale/",
-      "confiance": 2,
-      "juridiction": "Poland",
-      "note": "Identifiable equity only. The EUR 24M Dec 2025 round includes debt from mBank and Orbit Capital with no published split, so it is not counted; including it, about USD 50M.",
-      "valuation_input": {
-        "published_usd": null,
-        "published_date": null,
-        "round_usd": 13900000,
-        "round_date": "2025-03",
-        "round_label": "Series A",
-        "cumulative_usd": null,
-        "sources": "cross",
-        "contradictory": false,
-        "adjust": 1,
-        "adjust_reason": "later EUR 24M Series A extension (Dec 2025) with undisclosed debt share"
-      },
-      "valuation_bracket": "hundreds_m",
-      "valuation_basis": "Series A of USD 13.9M (Mar 2025); adjusted +1 bracket: later EUR 24M Series A extension (Dec 2025) with undisclosed debt share.",
-      "valuation_confidence": "high",
-      "valuation_low_usd": 55600000,
-      "valuation_high_usd": 92666667,
-      "acces": "defaut",
-      "acquereur": ""
-    },
-    {
-      "rang": 12,
-      "nom": "Nomagic",
-      "site": "nomagic.ai",
-      "sous_secteur": "Robotics › AI picking robots for warehouses",
-      "ville": "Warsaw",
-      "creation": 2017,
-      "leve_cumule": "USD ≥40M",
-      "derniere_levee": "Series B extension · USD 10M (EUR 8.3M) · Jan 2026 (Cogito Capital)",
-      "source": "https://nomagic.ai/news/nomagic-secures-an-additional-10m-to-accelerate-commercial-growth-and-advance-its-technology-roadmap/",
-      "confiance": 3,
-      "juridiction": "Poland",
-      "note": "Identifiable equity only. The company reports over USD 84M raised in total, but its USD 44M Series B (Feb 2025) includes EIB venture debt with no published split.",
-      "valuation_input": {
-        "published_usd": null,
-        "published_date": null,
-        "round_usd": 10000000,
-        "round_date": "2026-01",
-        "round_label": "Series B extension",
-        "cumulative_usd": null,
-        "sources": "cross",
-        "contradictory": false,
-        "adjust": 1,
-        "adjust_reason": "extension of USD 44M Series B (Feb 2025, equity+debt mix); company reports over USD 84M raised"
-      },
-      "valuation_bracket": "hundreds_m",
-      "valuation_basis": "Series B extension of USD 10M (Jan 2026); adjusted +1 bracket: extension of USD 44M Series B (Feb 2025, equity+debt mix); company reports over USD 84M raised.",
-      "valuation_confidence": "high",
-      "valuation_low_usd": 40000000,
-      "valuation_high_usd": 66666667,
-      "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 129099445
     },
     {
       "rang": 13,
@@ -430,13 +442,14 @@
         "adjust": 0,
         "adjust_reason": ""
       },
-      "valuation_bracket": "tens_m",
+      "valuation_bracket": "hundreds_m",
       "valuation_basis": "Round of USD 20M (Mar 2023).",
       "valuation_confidence": "medium",
-      "valuation_low_usd": 80000000,
-      "valuation_high_usd": 133333333,
+      "valuation_low_usd": 68853037,
+      "valuation_high_usd": 154919334,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 103279556
     },
     {
       "rang": 14,
@@ -466,10 +479,11 @@
       "valuation_bracket": "tens_m",
       "valuation_basis": "Series A of USD 15M (Aug 2020); published valuation of USD 500M (Apr 2023), over 24 months old.",
       "valuation_confidence": "medium",
-      "valuation_low_usd": 60000000,
-      "valuation_high_usd": 100000000,
+      "valuation_low_usd": 51639778,
+      "valuation_high_usd": 116189500,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 77459667
     },
     {
       "rang": 15,
@@ -499,10 +513,11 @@
       "valuation_bracket": "tens_m",
       "valuation_basis": "Series B+ of USD 8.5M (Jul 2024); published valuation of USD 120M (Jul 2024), over 24 months old.",
       "valuation_confidence": "medium",
-      "valuation_low_usd": 34000000,
-      "valuation_high_usd": 56666667,
+      "valuation_low_usd": 29262541,
+      "valuation_high_usd": 65840717,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 43893811
     }
   ],
   "radar": [

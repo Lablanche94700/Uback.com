@@ -36,10 +36,11 @@
       "valuation_bracket": "hundreds_m",
       "valuation_basis": "Série A de 48 M$ (déc. 2024).",
       "valuation_confidence": "high",
-      "valuation_low_usd": 192000000,
-      "valuation_high_usd": 320000000,
+      "valuation_low_usd": 198296747,
+      "valuation_high_usd": 309838668,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 247870934
     },
     {
       "rang": 2,
@@ -69,10 +70,11 @@
       "valuation_bracket": "tens_m",
       "valuation_basis": "Série A de 15 M$ (janv. 2026).",
       "valuation_confidence": "high",
-      "valuation_low_usd": 60000000,
-      "valuation_high_usd": 100000000,
+      "valuation_low_usd": 61967734,
+      "valuation_high_usd": 96824584,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 77459667
     },
     {
       "rang": 3,
@@ -102,10 +104,11 @@
       "valuation_bracket": "tens_m",
       "valuation_basis": "Série A de 12 M$ (oct. 2025) ; valorisation publiée de 100 M$ (janv. 2022), plus de 24 mois.",
       "valuation_confidence": "high",
-      "valuation_low_usd": 48000000,
-      "valuation_high_usd": 80000000,
+      "valuation_low_usd": 49574187,
+      "valuation_high_usd": 77459667,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 61967734
     },
     {
       "rang": 4,
@@ -135,10 +138,11 @@
       "valuation_bracket": "tens_m",
       "valuation_basis": "Série A de 10 M$ (juil. 2026).",
       "valuation_confidence": "high",
-      "valuation_low_usd": 40000000,
-      "valuation_high_usd": 66666667,
+      "valuation_low_usd": 41311822,
+      "valuation_high_usd": 64549722,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 51639778
     },
     {
       "rang": 5,
@@ -168,10 +172,11 @@
       "valuation_bracket": "tens_m",
       "valuation_basis": "Pré-série A de 7 M$ (mai 2024).",
       "valuation_confidence": "medium",
-      "valuation_low_usd": 28000000,
-      "valuation_high_usd": 46666667,
+      "valuation_low_usd": 24098563,
+      "valuation_high_usd": 54221767,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 36147845
     },
     {
       "rang": 6,
@@ -201,10 +206,11 @@
       "valuation_bracket": "tens_m",
       "valuation_basis": "Pré-seed de 5,5 M$ (mai 2026) ; source unique.",
       "valuation_confidence": "low",
-      "valuation_low_usd": 22000000,
-      "valuation_high_usd": 36666667,
+      "valuation_low_usd": 14200939,
+      "valuation_high_usd": 56803756,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 28401878
     },
     {
       "rang": 7,
@@ -234,10 +240,11 @@
       "valuation_bracket": "tens_m",
       "valuation_basis": "Seed de 5 M$ (juin 2026).",
       "valuation_confidence": "high",
-      "valuation_low_usd": 20000000,
-      "valuation_high_usd": 33333333,
+      "valuation_low_usd": 20655911,
+      "valuation_high_usd": 32274861,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 25819889
     },
     {
       "rang": 8,
@@ -267,10 +274,11 @@
       "valuation_bracket": "tens_m",
       "valuation_basis": "Extension seed de 4 M$ (avr. 2025) ; source unique.",
       "valuation_confidence": "low",
-      "valuation_low_usd": 16000000,
-      "valuation_high_usd": 26666667,
+      "valuation_low_usd": 10327956,
+      "valuation_high_usd": 41311822,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 20655911
     },
     {
       "rang": 9,
@@ -300,10 +308,11 @@
       "valuation_bracket": "tens_m",
       "valuation_basis": "Seed de 4 M$ (févr. 2026).",
       "valuation_confidence": "high",
-      "valuation_low_usd": 16000000,
-      "valuation_high_usd": 26666667,
+      "valuation_low_usd": 16524729,
+      "valuation_high_usd": 25819889,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 20655911
     },
     {
       "rang": 10,
@@ -333,10 +342,11 @@
       "valuation_bracket": "tens_m",
       "valuation_basis": "Seed de 4 M$ (févr. 2022).",
       "valuation_confidence": "medium",
-      "valuation_low_usd": 16000000,
-      "valuation_high_usd": 26666667,
+      "valuation_low_usd": 13770607,
+      "valuation_high_usd": 30983867,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 20655911
     },
     {
       "rang": 11,
@@ -364,12 +374,13 @@
         "adjust_reason": "société rentable, chiffre d’affaires supérieur à 60 MDH cité par la presse"
       },
       "valuation_bracket": "tens_m",
-      "valuation_basis": "Tour de 1 M$ (mai 2022) ; valorisation publiée de 20 M$ (janv. 2022), plus de 24 mois ; source unique ; ajustement +1 tranche : société rentable, chiffre d’affaires supérieur à 60 MDH cité par la presse.",
+      "valuation_basis": "Tour de 1 M$ (mai 2022) ; valorisation publiée de 20 M$ (janv. 2022), plus de 24 mois ; source unique ; ajustement × 3 : société rentable, chiffre d’affaires supérieur à 60 MDH cité par la presse.",
       "valuation_confidence": "low",
-      "valuation_low_usd": 4000000,
-      "valuation_high_usd": 6666667,
+      "valuation_low_usd": 7745967,
+      "valuation_high_usd": 30983867,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 15491933
     },
     {
       "rang": 12,
@@ -396,13 +407,14 @@
         "adjust": 0,
         "adjust_reason": ""
       },
-      "valuation_bracket": "millions",
+      "valuation_bracket": "tens_m",
       "valuation_basis": "Seed de 2,3 M$ (janv. 2026) ; source unique.",
       "valuation_confidence": "low",
-      "valuation_low_usd": 9200000,
-      "valuation_high_usd": 15333333,
+      "valuation_low_usd": 5938574,
+      "valuation_high_usd": 23754298,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 11877149
     },
     {
       "rang": 13,
@@ -429,13 +441,14 @@
         "adjust": 0,
         "adjust_reason": ""
       },
-      "valuation_bracket": "millions",
+      "valuation_bracket": "tens_m",
       "valuation_basis": "Pré-seed de 2,2 M$ (déc. 2025) ; source unique.",
       "valuation_confidence": "low",
-      "valuation_low_usd": 8800000,
-      "valuation_high_usd": 14666667,
+      "valuation_low_usd": 5680376,
+      "valuation_high_usd": 22721502,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 11360751
     },
     {
       "rang": 14,
@@ -462,13 +475,14 @@
         "adjust": 0,
         "adjust_reason": ""
       },
-      "valuation_bracket": "millions",
+      "valuation_bracket": "tens_m",
       "valuation_basis": "Premier tour de 2 M$ (mars 2026) ; source unique.",
       "valuation_confidence": "low",
-      "valuation_low_usd": 8000000,
-      "valuation_high_usd": 13333333,
+      "valuation_low_usd": 5163978,
+      "valuation_high_usd": 20655911,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 10327956
     },
     {
       "rang": 15,
@@ -498,10 +512,11 @@
       "valuation_bracket": "millions",
       "valuation_basis": "Seed de 1,6 M$ (avr. 2026) ; source unique.",
       "valuation_confidence": "low",
-      "valuation_low_usd": 6600000,
-      "valuation_high_usd": 11000000,
+      "valuation_low_usd": 4260282,
+      "valuation_high_usd": 17041127,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 8520563
     },
     {
       "rang": 16,
@@ -531,10 +546,11 @@
       "valuation_bracket": "millions",
       "valuation_basis": "Pré-seed de 1,5 M$ (févr. 2023) ; source unique.",
       "valuation_confidence": "low",
-      "valuation_low_usd": 6000000,
-      "valuation_high_usd": 10000000,
+      "valuation_low_usd": 3872983,
+      "valuation_high_usd": 15491933,
       "acces": "defaut",
-      "acquereur": ""
+      "acquereur": "",
+      "valuation_central_usd": 7745967
     }
   ],
   "radar": [

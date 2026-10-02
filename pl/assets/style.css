@@ -101,6 +101,7 @@ tr.top .rank{color:var(--gold)}
 .val-b:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
 .val-b .conf{margin-right:0}.val-b .conf i{width:8px;height:8px}
 .val.ne .val-b{font-weight:500;color:var(--muted)}
+.val-b .vl{font-size:14px}.val-b .vr{flex-basis:100%;font-size:12px;font-weight:500;color:var(--muted)}
 .val-tip{display:none;position:absolute;z-index:30;left:0;top:calc(100% + 8px);width:290px;max-width:78vw;background:var(--navy);color:#fff;font-size:12px;font-weight:400;line-height:1.45;padding:10px 12px;border-radius:8px;box-shadow:0 8px 24px rgba(30,58,95,.2)}
 .val:hover .val-tip,.val:focus-within .val-tip,.val.open .val-tip{display:block}
 .val-tip::before{content:"";position:absolute;left:0;right:0;top:-10px;height:10px}

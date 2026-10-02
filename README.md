@@ -77,6 +77,9 @@ tools/footer.py         ← pied de page unique de tout le site (HTML + CSS ; la
 tools/analytics.py      ← Google Analytics 4 (G-CDF2KWM08X, compte « Uback », accès contact@dealing-room.com), chargé SEULEMENT
                           après « Accepter » dans le bandeau cookies ; script unique inséré dans le <head> de toutes les pages
                           générées ; lien « Cookies » du pied de page ; section #cookies des mentions légales
+tools/valuation.py      ← valorisation estimée : estimation centrale (fixe le rang), fourchette selon la confiance, tranche ;
+                          affichées sur les pages pays et segment (« ≈ USD 2.9bn » + « USD 2.2–3.7bn · Unicorn ») ; le
+                          générateur range chaque classement pays par estimation décroissante et renumérote les rangs
 tools/fonts.py          ← police Inter HÉBERGÉE sur le site (assets/fonts/, licence OFL) : plus d'appel à Google Fonts ;
                           @font-face en ligne (homepage) et recopié en tête de ma/assets/style.css par build_site.py
 tools/geo.py            ← lecture commune de data/geo.json et data/calendar.json (zones, pays, prochaine date d'un classement)

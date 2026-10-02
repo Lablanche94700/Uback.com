@@ -54,6 +54,10 @@ for c in D['classement']:
     # justification de la valorisation dans la langue de la page (même règle, mêmes chiffres)
     if c.get('valuation_input'):
         c.update(valuation.estimate(c['valuation_input'], D['date'], M['lang']))
+# rang = ordre décroissant de l'estimation centrale (règle publiée), quel que soit l'ordre du fichier
+D['classement'] = sorted(D['classement'], key=valuation.rank_key)
+for _i, _c in enumerate(D['classement'], 1):
+    _c['rang'] = _i
 BASE = 'https://uback.com' + PREFIX
 # libellé d'édition : celui des données s'il existe (« Édition 0 – bêta »), sinon le trimestre de publication (« T4 2026 »)
 _y, _mo = D['date'].split('-')
@@ -91,7 +95,7 @@ TXT = {
   desc="Classement trimestriel des startups {adj_fp} non cotées ayant déjà levé des fonds, établi par IA à partir d'informations publiques. Le marché fixe la valeur ; notre IA l’estime.",
   h1='Les {N} startups {adj_fp} les mieux valorisées',
   lead='Un classement trimestriel des startups {adj_fp} non cotées ayant déjà levé des fonds, établi par intelligence artificielle à partir d’informations publiques. Le marché fixe la valeur ; notre IA l’estime.',
-  th_val='Valorisation estimée (IA, ordre de grandeur)', l_val='Valorisation (IA)',
+  th_val='Valorisation estimée (IA) · fourchette', l_val='Valorisation (IA)',
   vb_hundreds_k='Centaines de k$', vb_millions='Millions $', vb_tens_m='Dizaines de M$', vb_hundreds_m='Centaines de M$',
   vb_unicorn='Licorne', vb_decacorn='Décacorne', vb_not_estimated='Non estimé',
   vc_high='Confiance élevée', vc_medium='Confiance moyenne', vc_low='Confiance faible',
@@ -107,7 +111,7 @@ TXT = {
   disc='Il est établi à partir d’informations publiques (presse, annonces de levées de fonds), selon une méthode publiée, sans intervention humaine sur l’ordre. L’indice de confiance reflète la qualité des sources. Toute société peut <a href="@ROOT@fr/methode.html#correction">demander une correction</a> ou contester sa position. Seuil d’éligibilité : au moins {seuil} levés, sociétés non cotées, opérations principales {in_}.',
   read_h2='Comment lire ce classement',
   read_rank_h='Rang', read_rank='Les sociétés sont classées par valorisation estimée par IA, la plus élevée en tête. Le marché fixe la valeur ; notre IA l’estime.',
-  read_range_h='Tranche', read_range='Un ordre de grandeur, jamais un chiffre.',
+  read_range_h='Estimation', read_range='Une valorisation estimée par IA, sa fourchette d’incertitude et son ordre de grandeur. Indicative, par nature imparfaite.',
   read_conf_h='Confiance', read_high='<b>Élevé :</b> valorisation ou tour publié de moins de 24 mois.', read_med='<b>Moyen :</b> données plus anciennes.',
   read_low='<b>Faible :</b> source unique ou non confirmée.', read_more='Méthode complète →',
   sect_h2='Classements par secteur', sect_sub='Quatre verticales au lancement, d’autres quand le test de faisabilité le permet.', sect_k='Bientôt · Top 10',
@@ -135,7 +139,7 @@ TXT = {
   id_local='methode-locale', loc_h='La méthode {in_}',
   loc_cal='<b>Calendrier.</b> Classement trimestriel, publié le 15 {months}. Prochaine édition : {next}.',
   elig_h='Éligibilité.', elig='Éligibilité : au moins 1 M$ levés dont un tour en fonds propres, société non cotée, opérations principales {in_}.',
-  disc2='Classement établi par ordre décroissant de valorisation estimée par IA, à partir d’informations publiques, selon une méthode publiée, sans intervention humaine sur l’ordre. Les tranches de valorisation sont des estimations éditoriales indicatives : ni une évaluation financière, ni une offre, ni un conseil en investissement. Le marché seul fixe la valeur d’une société, lors d’une levée ou d’une cession.',
+  disc2='Classement établi par ordre décroissant de valorisation estimée par IA, à partir d’informations publiques, selon une méthode publiée, sans intervention humaine sur l’ordre. Les valorisations, fourchettes et tranches affichées sont des estimations éditoriales produites par IA, purement indicatives et par nature imparfaites : ni une évaluation financière, ni une offre, ni un conseil en investissement. Le marché seul fixe la valeur d’une société, lors d’une levée ou d’une cession.',
   ed0='Édition 0 : établie par Claude (Anthropic) ; consensus de plusieurs IA lors d’une prochaine édition. ',
   tip_round='Dernier tour en fonds propres connu : ', tip_pub='Valorisation publiée : ', tip_conf='Indice de confiance : ',
   tc_high='Élevé', tc_medium='Moyen', tc_low='Faible', tip_none='Aucun tour en fonds propres au montant publié.', tip_more='Méthode',
@@ -171,7 +175,7 @@ TXT = {
   desc='Quarterly ranking of non-listed {adj_fp} startups that have already raised funds, established by AI from public information. The market sets the value; our AI estimates it.',
   h1='{name}’s top {N} funded startups',
   lead='A quarterly ranking of non-listed {adj_fp} startups that have already raised funds, established by artificial intelligence from public information. The market sets the value; our AI estimates it.',
-  th_val='Estimated valuation (AI, order of magnitude)', l_val='Valuation (AI)',
+  th_val='Estimated valuation (AI) · range', l_val='Valuation (AI)',
   vb_hundreds_k='Hundreds of k$', vb_millions='Millions $', vb_tens_m='Tens of M$', vb_hundreds_m='Hundreds of M$',
   vb_unicorn='Unicorn', vb_decacorn='Decacorn', vb_not_estimated='Not estimated',
   vc_high='High confidence', vc_medium='Medium confidence', vc_low='Low confidence',
@@ -187,7 +191,7 @@ TXT = {
   disc='It is based on public information (press, funding announcements), following a published method, with no human intervention on the order. The confidence index reflects the quality of the sources. Any company may <a href="@ROOT@method.html#correction">request a correction</a> or dispute its position. Eligibility threshold: at least {seuil} raised, non-listed companies, main operations {in_}.',
   read_h2='How to read this ranking',
   read_rank_h='Rank', read_rank='Companies are ranked by AI-estimated valuation, highest first. The market sets the value; our AI estimates it.',
-  read_range_h='Range', read_range='An order of magnitude, never a figure.',
+  read_range_h='Estimate', read_range='An AI-estimated valuation, its uncertainty range and its order of magnitude. Indicative, and imperfect by nature.',
   read_conf_h='Confidence', read_high='<b>High:</b> recent published valuation or round (under 24 months).', read_med='<b>Medium:</b> older data.',
   read_low='<b>Low:</b> single or unconfirmed source.', read_more='Full method →',
   sect_h2='Rankings by sector', sect_sub='Four verticals at launch, more when the feasibility test allows.', sect_k='Coming soon · Top 10',
@@ -215,7 +219,7 @@ TXT = {
   id_local='local-method', loc_h='The method {in_}',
   loc_cal='<b>Calendar.</b> Quarterly ranking, published on the 15th {months}. Next edition: {next}.',
   elig_h='Eligibility.', elig='Eligibility: at least $1M raised including one equity round, non-listed company, main operations {in_}.',
-  disc2='Ranking in descending order of AI-estimated valuation, based on public information, following a published method, with no human intervention on the order. Valuation ranges are indicative editorial estimates: neither a financial valuation, nor an offer, nor investment advice. Only the market sets a company’s value, through a funding round or a sale.',
+  disc2='Ranking in descending order of AI-estimated valuation, based on public information, following a published method, with no human intervention on the order. The valuations, ranges and brackets shown are editorial estimates produced by AI, purely indicative and imperfect by nature: neither a financial valuation, nor an offer, nor investment advice. Only the market sets a company’s value, through a funding round or a sale.',
   ed0='Edition 0: produced by Claude (Anthropic); a consensus of several AI models will apply in a future edition. ',
   tip_round='Last known equity round: ', tip_pub='Published valuation: ', tip_conf='Confidence index: ',
   tc_high='High', tc_medium='Medium', tc_low='Low', tip_none='No equity round with a disclosed amount.', tip_more='Method',
@@ -339,7 +343,8 @@ def conf(n):
 
 def tip_facts(c):
     """Infobulle de la tranche : uniquement des faits publics (dernier tour en fonds propres connu, valorisation publiée,
-    indice de confiance). Le raisonnement de l'IA (ajustements, multiples, fourchette) reste dans les données, non affiché."""
+    indice de confiance). L'estimation et sa fourchette sont affichées dans la cellule ; le détail du calcul
+    (multiple, ajustement) est publié dans la méthode et gardé dans les données (valuation_basis)."""
     vi, lang, lines = c.get('valuation_input') or {}, M['lang'], []
     if vi.get('round_usd') and vi.get('round_date'):
         when = valuation.month(vi['round_date'], lang)
@@ -358,7 +363,8 @@ def tip_facts(c):
     return '<br>'.join(e(x) for x in lines)
 
 def val(c):
-    """Tranche de valorisation estimée par IA + confiance ; les faits publics s'affichent au survol ou au tap (bouton + infobulle)."""
+    """Valorisation estimée par IA : estimation centrale, fourchette, ordre de grandeur et confiance ; les faits publics
+    s'affichent au survol ou au tap (bouton + infobulle)."""
     b, vc = c.get('valuation_bracket', 'not_estimated'), c.get('valuation_confidence', 'low')
     n = {'high': 3, 'medium': 2, 'low': 1}[vc]
     dots = '' if b == 'not_estimated' else '<span class="conf" aria-hidden="true">' + ''.join(
@@ -368,7 +374,10 @@ def val(c):
     ne = ' ne' if b == 'not_estimated' else ''
     toggle = "var p=this.parentNode;this.setAttribute('aria-expanded',p.classList.toggle('open'))"   # tap sur mobile (iOS ne donne pas le focus)
     return (f'<span class="val{ne}"><button type="button" class="val-b" aria-describedby="{tid}" aria-expanded="false" onclick="{toggle}">'
-            f'<span class="vl">{L["vb_" + b]}</span>{dots}{conf_txt}</button>'
+            + (f'<span class="vl">≈ {valuation.money2(c["valuation_central_usd"], M["lang"])}</span>{dots}{conf_txt}'
+               f'<span class="vr">{valuation.range_txt(c["valuation_low_usd"], c["valuation_high_usd"], M["lang"])} · {L["vb_" + b]}</span>'
+               if b != 'not_estimated' else f'<span class="vl">{L["vb_" + b]}</span>')
+            + '</button>'
             f'<span class="val-tip"><span id="{tid}">{tip_facts(c)}</span>'
             f'<a class="tip-more" href="{GM}#estimation">{L["tip_more"]}</a></span></span>')
 

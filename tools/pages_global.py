@@ -8,7 +8,7 @@ Ancres utilisées par les pages pays : #estimation, #eligibilite / #eligibility,
 METHOD = {
 'fr': """<div class="wrap prose">
 <h1>Méthode et règles du jeu</h1>
-<p class="lead"><b>Uback classe les startups technologiques non cotées par ordre décroissant de valorisation estimée.</b> L’estimation est faite par des intelligences artificielles, à partir des informations disponibles : levées de fonds, valorisations publiées, indicateurs d’activité, investisseurs, comparables. Uback publie le rang et un ordre de grandeur, jamais un chiffre.</p>
+<p class="lead"><b>Uback classe les startups technologiques non cotées par ordre décroissant de valorisation estimée.</b> L’estimation est faite par des intelligences artificielles, à partir des informations disponibles : levées de fonds, valorisations publiées, indicateurs d’activité, investisseurs, comparables. Uback publie le rang, une valorisation estimée et sa fourchette d’incertitude, ainsi que l’ordre de grandeur.</p>
 
 <h2>Le marché décide, Uback estime</h2>
 <p>La valeur d’une startup n’existe vraiment qu’au moment où elle est fixée par un accord : une levée de fonds, une cession, une entrée en bourse. Entre deux opérations, elle évolue en permanence, comme un cours de bourse, sans que personne ne l’observe.</p>
@@ -41,7 +41,7 @@ METHOD = {
 </ul>
 <p>Chaque segment a ses indicateurs clés (par exemple, pour les néobanques : clients, chiffre d’affaires, résultat). Ils sont affichés sur la page du classement, tels que publiés et datés.</p>
 <p><b>Plusieurs estimations indépendantes.</b> Chaque IA estime la valorisation de chaque société sans connaître les réponses des autres.</p>
-<p><b>Le consensus.</b> L’estimation retenue est la médiane des estimations des IA. C’est elle qui détermine le rang : le n° 1 est la société dont la valorisation estimée est la plus élevée. L’ordre de grandeur affiché est la tranche qui contient cette médiane. Le rang et la tranche sont donc toujours cohérents.</p>
+<p><b>Le consensus.</b> L’estimation retenue est la médiane des estimations des IA. C’est elle qui détermine le rang : le n° 1 est la société dont la valorisation estimée est la plus élevée. L’ordre de grandeur affiché est la tranche qui contient cette médiane. Le rang et la tranche sont donc toujours cohérents. La fourchette reflète l’écart entre les estimations des IA.</p>
 <p><b>L’indice de confiance.</b> Il est affiché pour chaque société et combine deux éléments : l’accord entre les IA et la qualité des données.</p>
 <ul>
 <li><b>Élevé</b> : les estimations convergent, et reposent sur une valorisation publiée ou un tour chiffré de moins de 24 mois.</li>
@@ -52,8 +52,13 @@ METHOD = {
 <p><b>Des données de plus en plus riches.</b> Chaque édition intègre de nouvelles sources. La précision des estimations doit progresser d’une édition à l’autre.</p>
 <p><b>Édition 0 (bêta).</b> Les premières éditions ont été établies par une seule IA (Claude, Anthropic), à partir d’une recherche documentaire. L’indice de confiance y reflète la seule qualité des sources.</p>
 
-<h2>L’ordre de grandeur</h2>
-<p>Uback affiche une tranche, jamais un chiffre :</p>
+<h2 id="ordre-de-grandeur">L’estimation, la fourchette et l’ordre de grandeur</h2>
+<p>Pour chaque société classée, Uback affiche trois éléments :</p>
+<ul>
+<li><b>Une estimation centrale</b> (par exemple « ≈ 1,5 Md$ »), arrondie à deux chiffres significatifs. C’est elle qui fixe le rang.</li>
+<li><b>Une fourchette d’incertitude</b> autour de cette estimation, d’autant plus large que les données sont anciennes, uniques ou fragiles.</li>
+<li><b>L’ordre de grandeur</b>, c’est-à-dire la tranche qui contient l’estimation :</li>
+</ul>
 <div class="table-wrap"><table>
 <tr><th>Tranche</th><th>Valorisation estimée</th></tr>
 <tr><td>Centaines de k$</td><td>100 k$ à 1 M$</td></tr>
@@ -64,7 +69,8 @@ METHOD = {
 <tr><td>Décacorne</td><td>plus de 10 Md$</td></tr>
 </table></div>
 <p>Au sein d’une tranche, les sociétés restent classées selon leur estimation. Quand les données ne permettent pas une estimation sérieuse, la société n’est pas classée. Elle figure au Radar.</p>
-<p>Ces estimations sont éditoriales et indicatives. Elles ne constituent ni une évaluation financière, ni une offre, ni un conseil en investissement.</p>
+<p><b>Édition 0 (bêta), en attendant le consensus des cinq IA.</b> L’estimation centrale part de la dernière valorisation publiée si elle date de moins de 24 mois ; sinon du dernier tour en fonds propres, en supposant qu’il représente 15 à 25 % du capital (soit environ 5 fois son montant) ; jamais d’une dette ni d’une subvention. L’IA peut l’ajuster d’un facteur 3 au plus, dans un sens ou dans l’autre, en citant les faits publics qui le justifient. La fourchette dépend de l’indice de confiance : de −20 % à +25 % s’il est élevé, de deux tiers à une fois et demie s’il est moyen, de la moitié au double s’il est faible.</p>
+<p>Ces estimations sont éditoriales, purement indicatives et par nature imparfaites : seul le marché fixe la valeur d’une société, lors d’une levée ou d’une cession. Elles ne constituent ni une évaluation financière, ni une offre, ni un conseil en investissement. Une société qui estime un chiffre inexact peut <a href="/fr/correction.html">demander une correction</a>.</p>
 
 <h2 id="eligibilite">Qui est éligible</h2>
 <div class="table-wrap"><table>
@@ -111,7 +117,7 @@ METHOD = {
 """,
 'en': """<div class="wrap prose">
 <h1>Method and rules of the game</h1>
-<p class="lead"><b>Uback ranks non-listed tech startups in descending order of estimated valuation.</b> The estimate is produced by artificial intelligence models, using the information available: funding rounds, published valuations, business metrics, investors, comparables. Uback publishes the rank and an order of magnitude, never a figure.</p>
+<p class="lead"><b>Uback ranks non-listed tech startups in descending order of estimated valuation.</b> The estimate is produced by artificial intelligence models, using the information available: funding rounds, published valuations, business metrics, investors, comparables. Uback publishes the rank, an estimated valuation and its uncertainty range, along with the order of magnitude.</p>
 
 <h2>The market decides, Uback estimates</h2>
 <p>A startup’s value only truly exists when an agreement sets it: a funding round, a sale, an IPO. Between two transactions, it keeps moving, like a share price, without anyone observing it.</p>
@@ -144,7 +150,7 @@ METHOD = {
 </ul>
 <p>Each segment has its own key metrics (for consumer neobanks: customers, revenue, profit). They are shown on the ranking page, as published and dated.</p>
 <p><b>Several independent estimates.</b> Each AI estimates the valuation of each company without knowing the others’ answers.</p>
-<p><b>The consensus.</b> The estimate used is the median of the AI estimates. It determines the rank: number 1 is the company with the highest estimated valuation. The order of magnitude shown is the range containing that median. Rank and range are therefore always consistent.</p>
+<p><b>The consensus.</b> The estimate used is the median of the AI estimates. It determines the rank: number 1 is the company with the highest estimated valuation. The order of magnitude shown is the bracket containing that median. Rank and bracket are therefore always consistent. The range reflects the spread between the AI estimates.</p>
 <p><b>The confidence index.</b> It is shown for each company and combines two things: agreement between the AI models, and data quality.</p>
 <ul>
 <li><b>High</b>: estimates converge, and rest on a published valuation or a disclosed round less than 24 months old.</li>
@@ -155,8 +161,13 @@ METHOD = {
 <p><b>Richer data over time.</b> Each edition adds new sources. Estimates should become more precise from one edition to the next.</p>
 <p><b>Edition 0 (beta).</b> The first editions were produced by a single AI (Claude, Anthropic), from desk research. The confidence index reflects source quality only.</p>
 
-<h2>Order of magnitude</h2>
-<p>Uback shows a range, never a figure:</p>
+<h2 id="order-of-magnitude">Estimate, range and order of magnitude</h2>
+<p>For each ranked company, Uback shows three things:</p>
+<ul>
+<li><b>A central estimate</b> (for example “≈ USD 1.5bn”), rounded to two significant figures. It sets the rank.</li>
+<li><b>An uncertainty range</b> around that estimate, wider when the data is old, single-sourced or fragile.</li>
+<li><b>The order of magnitude</b>, that is the bracket containing the estimate:</li>
+</ul>
 <div class="table-wrap"><table>
 <tr><th>Range</th><th>Estimated valuation</th></tr>
 <tr><td>Hundreds of k$</td><td>$100k to $1M</td></tr>
@@ -167,7 +178,8 @@ METHOD = {
 <tr><td>Decacorn</td><td>over $10B</td></tr>
 </table></div>
 <p>Within a range, companies remain ranked by their estimate. When the data does not allow a serious estimate, the company is not ranked. It appears in the Radar.</p>
-<p>These estimates are editorial and indicative. They are neither a financial valuation, nor an offer, nor investment advice.</p>
+<p><b>Edition 0 (beta), pending the five-model consensus.</b> The central estimate starts from the latest published valuation if it is less than 24 months old; otherwise from the latest equity round, assuming it represents 15 to 25% of the capital (about 5 times its amount); never from debt or a grant. The AI may adjust it by a factor of 3 at most, either way, citing the public facts that justify it. The range depends on the confidence index: −20% to +25% when it is high, two-thirds to one and a half times when it is medium, half to double when it is low.</p>
+<p>These estimates are editorial, purely indicative and imperfect by nature: only the market sets a company’s value, through a funding round or a sale. They are neither a financial valuation, nor an offer, nor investment advice. A company that considers a figure inaccurate can <a href="/correction.html">request a correction</a>.</p>
 
 <h2 id="eligibility">Who is eligible</h2>
 <div class="table-wrap"><table>

@@ -348,7 +348,7 @@ document.addEventListener('DOMContentLoaded',function(){
 <main class="prose-main">
 <div class="wrap prose">
 <h1>Method and rules of the game</h1>
-<p class="lead"><b>Uback ranks non-listed tech startups in descending order of estimated valuation.</b> The estimate is produced by artificial intelligence models, using the information available: funding rounds, published valuations, business metrics, investors, comparables. Uback publishes the rank and an order of magnitude, never a figure.</p>
+<p class="lead"><b>Uback ranks non-listed tech startups in descending order of estimated valuation.</b> The estimate is produced by artificial intelligence models, using the information available: funding rounds, published valuations, business metrics, investors, comparables. Uback publishes the rank, an estimated valuation and its uncertainty range, along with the order of magnitude.</p>
 
 <h2>The market decides, Uback estimates</h2>
 <p>A startup’s value only truly exists when an agreement sets it: a funding round, a sale, an IPO. Between two transactions, it keeps moving, like a share price, without anyone observing it.</p>
@@ -381,7 +381,7 @@ document.addEventListener('DOMContentLoaded',function(){
 </ul>
 <p>Each segment has its own key metrics (for consumer neobanks: customers, revenue, profit). They are shown on the ranking page, as published and dated.</p>
 <p><b>Several independent estimates.</b> Each AI estimates the valuation of each company without knowing the others’ answers.</p>
-<p><b>The consensus.</b> The estimate used is the median of the AI estimates. It determines the rank: number 1 is the company with the highest estimated valuation. The order of magnitude shown is the range containing that median. Rank and range are therefore always consistent.</p>
+<p><b>The consensus.</b> The estimate used is the median of the AI estimates. It determines the rank: number 1 is the company with the highest estimated valuation. The order of magnitude shown is the bracket containing that median. Rank and bracket are therefore always consistent. The range reflects the spread between the AI estimates.</p>
 <p><b>The confidence index.</b> It is shown for each company and combines two things: agreement between the AI models, and data quality.</p>
 <ul>
 <li><b>High</b>: estimates converge, and rest on a published valuation or a disclosed round less than 24 months old.</li>
@@ -392,8 +392,13 @@ document.addEventListener('DOMContentLoaded',function(){
 <p><b>Richer data over time.</b> Each edition adds new sources. Estimates should become more precise from one edition to the next.</p>
 <p><b>Edition 0 (beta).</b> The first editions were produced by a single AI (Claude, Anthropic), from desk research. The confidence index reflects source quality only.</p>
 
-<h2>Order of magnitude</h2>
-<p>Uback shows a range, never a figure:</p>
+<h2 id="order-of-magnitude">Estimate, range and order of magnitude</h2>
+<p>For each ranked company, Uback shows three things:</p>
+<ul>
+<li><b>A central estimate</b> (for example “≈ USD 1.5bn”), rounded to two significant figures. It sets the rank.</li>
+<li><b>An uncertainty range</b> around that estimate, wider when the data is old, single-sourced or fragile.</li>
+<li><b>The order of magnitude</b>, that is the bracket containing the estimate:</li>
+</ul>
 <div class="table-wrap"><table>
 <tr><th>Range</th><th>Estimated valuation</th></tr>
 <tr><td>Hundreds of k$</td><td>$100k to $1M</td></tr>
@@ -404,7 +409,8 @@ document.addEventListener('DOMContentLoaded',function(){
 <tr><td>Decacorn</td><td>over $10B</td></tr>
 </table></div>
 <p>Within a range, companies remain ranked by their estimate. When the data does not allow a serious estimate, the company is not ranked. It appears in the Radar.</p>
-<p>These estimates are editorial and indicative. They are neither a financial valuation, nor an offer, nor investment advice.</p>
+<p><b>Edition 0 (beta), pending the five-model consensus.</b> The central estimate starts from the latest published valuation if it is less than 24 months old; otherwise from the latest equity round, assuming it represents 15 to 25% of the capital (about 5 times its amount); never from debt or a grant. The AI may adjust it by a factor of 3 at most, either way, citing the public facts that justify it. The range depends on the confidence index: −20% to +25% when it is high, two-thirds to one and a half times when it is medium, half to double when it is low.</p>
+<p>These estimates are editorial, purely indicative and imperfect by nature: only the market sets a company’s value, through a funding round or a sale. They are neither a financial valuation, nor an offer, nor investment advice. A company that considers a figure inaccurate can <a href="/correction.html">request a correction</a>.</p>
 
 <h2 id="eligibility">Who is eligible</h2>
 <div class="table-wrap"><table>

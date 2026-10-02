@@ -6,7 +6,8 @@ Un nouveau segment = un nouveau JSON, sans nouveau code. La homepage publie auto
 (tools/build_home.py lit data/segments/).
 Usage : python3 tools/build_segments.py             (tous les segments)
         python3 tools/build_segments.py consumer-neobanks
-Jamais rendus : estimate_usd et note_internal (le script vérifie qu'ils n'apparaissent pas dans la page)."""
+estimate_usd est l'estimation centrale (affichée arrondie, avec sa fourchette selon la confiance : tools/valuation.py) ;
+note_internal n'est jamais rendu (le script vérifie qu'il n'apparaît pas dans la page)."""
 import os, sys, json, html, re, glob, shutil, hashlib, datetime, subprocess, tempfile
 from urllib.parse import quote
 
@@ -15,7 +16,7 @@ ROOT = os.path.dirname(TOOLS)
 sys.path.insert(0, TOOLS)
 from build_site import CSS_V, format_date, format_date_short
 import geo
-from valuation import BRACKETS, bracket_index, money, month
+from valuation import BRACKETS, BANDS, bracket_index, money, money2, range_txt, month
 from flags import flag
 from footer import footer
 from analytics import HEAD as GA_HEAD
@@ -134,7 +135,8 @@ def val(c):
     tid = f"vb-{c['rank']}"
     toggle = "var p=this.parentNode;this.setAttribute('aria-expanded',p.classList.toggle('open'))"   # tap sur mobile
     return (f'<span class="val"><button type="button" class="val-b" aria-describedby="{tid}" aria-expanded="false" onclick="{toggle}">'
-            f'<span class="vl">{VB[c["tranche"]]}</span></button>'
+            f'<span class="vl">≈ {money2(c["estimate_usd"], "en")}</span>'
+            f'<span class="vr">{range_txt(c["estimate_usd"] * BANDS[c["confidence"]][0], c["estimate_usd"] * BANDS[c["confidence"]][1], "en")} · {VB[c["tranche"]]}</span></button>'
             f'<span class="val-tip"><span id="{tid}">{tip_facts(c)}</span>'
             f'<a class="tip-more" href="{GM}#estimation">Method</a></span></span>')
 
@@ -453,13 +455,13 @@ def build(path):
     </div>
     <p class="filter-h" id="filter-h" aria-live="polite">World · {N} ranked companies</p>
     <table class="tbl">
-      <thead><tr><th>#</th><th>Company</th><th>Last round · Key metrics</th><th>Estimated valuation (AI, order of magnitude)</th><th>Confidence</th>{'<th class="th-inv">Open to Backers</th>' if show_inv else ''}</tr></thead>
+      <thead><tr><th>#</th><th>Company</th><th>Last round · Key metrics</th><th>Estimated valuation (AI) · range</th><th>Confidence</th>{'<th class="th-inv">Open to Backers</th>' if show_inv else ''}</tr></thead>
       <tbody>
       {''.join(row(c, defs, sid, show_inv) for c in ranked)}
       </tbody>
     </table>
     <p class="list-empty" id="no-rank" hidden>No ranked company in this region yet: see the <a href="#radar">Radar</a>.</p>
-    <div class="disclaimer">Ranking in descending order of AI-estimated valuation, based on public information, following a published method, with no human intervention on the order. Valuation ranges are indicative editorial estimates: neither a financial valuation, nor an offer, nor investment advice. Only the market sets a company’s value, through a funding round or a sale. {ed0}Eligibility: at least $1M raised including one equity round, non-listed company, main activity in this segment ({e(t['activity'])}). Country shown is the country of main operations. <a href="{GC}">Request a correction</a></div>
+    <div class="disclaimer">Ranking in descending order of AI-estimated valuation, based on public information, following a published method, with no human intervention on the order. The valuations, ranges and brackets shown are editorial estimates produced by AI, purely indicative and imperfect by nature: neither a financial valuation, nor an offer, nor investment advice. Only the market sets a company’s value, through a funding round or a sale. {ed0}Eligibility: at least $1M raised including one equity round, non-listed company, main activity in this segment ({e(t['activity'])}). Country shown is the country of main operations. <a href="{GC}">Request a correction</a></div>
 
     <div class="follow-band" id="follow">
       <div class="fb-text">
@@ -492,7 +494,7 @@ def build(path):
     <div class="sec-head"><h2>How to read this ranking</h2></div>
     <div class="grid3">
       <div class="card"><h3>Rank</h3><p>Companies are ranked by AI-estimated valuation, highest first. The market sets the value; our AI estimates it.</p></div>
-      <div class="card"><h3>Range</h3><p>An order of magnitude, never a figure.</p>
+      <div class="card"><h3>Estimate</h3><p>An AI-estimated valuation, its uncertainty range and its order of magnitude. Indicative, and imperfect by nature.</p>
         <ol class="scale">{''.join(f'<li>{VB[b]}</li>' for b in BRACKETS)}</ol></div>
       <div class="card"><h3>Confidence</h3><ul class="read-list"><li><b>High:</b> recent published valuation or round (under 24 months).</li><li><b>Medium:</b> older data.</li><li><b>Low:</b> single or unconfirmed source.</li></ul></div>
     </div>
@@ -556,7 +558,7 @@ def build(path):
     for c in ranked:
         if c.get('note_internal') and c['note_internal'] in page:
             raise DataError(f"{c['name']} : note_internal présente dans la page")
-    if 'estimate_usd' in page or 'note_internal' in page:
+    if 'note_internal' in page:
         raise DataError('champ interne présent dans la page')
     open(os.path.join(out, 'index.html'), 'w', encoding='utf-8', newline='\n').write(page)
     by_region = ', '.join(f"{title} {sum(c['region'] == code for c in ranked)}" for code, title in REGIONS)

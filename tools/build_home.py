@@ -476,7 +476,7 @@ page = f'''<!doctype html>
       <div class="duo">
         <div class="duo-col">
           <div class="duo-k">Discover</div>
-          <p>Uback ranks funded private tech startups by AI-estimated valuation, worldwide by segment and country by country. <b>Only the market (investors and deals) sets a startup’s real value; our AI tries to get close to it.</b> We publish a rank and an order of magnitude, never a figure.</p>
+          <p>Uback ranks funded private tech startups by AI-estimated valuation, worldwide by segment and country by country. <b>Only the market (investors and deals) sets a startup’s real value; our AI tries to get close to it.</b> We publish a rank, an estimated valuation and its range.</p>
           <a href="#rankings">See the rankings <span aria-hidden="true">↓</span></a>
         </div>
         <div class="duo-rule" aria-hidden="true"></div>
