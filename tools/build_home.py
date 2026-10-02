@@ -17,6 +17,7 @@ from footer import footer, FOOTER_CSS
 from analytics import HEAD as GA_HEAD
 from fonts import FONT_CSS, PRELOAD
 from forms import WEB3FORMS_KEY, w3f_js
+import header    # en-tête unique du site (tools/header.py)
 import search   # envoi des formulaires (Web3Forms), commun aux générateurs
 
 def next_ed(code):
@@ -30,15 +31,7 @@ METHOD_URL = '/method.html'         # méthode globale (anglais) ; version fran�
 THANKS_URL = '/pl/thank-you.html'
 e = html.escape
 
-FLAGS = {
- 'ma': '<svg class="flag" viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" fill="#C1272D"/><polygon points="24,8.5 26.6,16.4 34.4,11.6 20,20.9 29.6,20.9 18.2,11.6 26,16.4" fill="none" stroke="#006233" stroke-width="1.6" stroke-linejoin="round" transform="translate(-2.2 1.2)"/></svg>',
- 'pl': '<svg class="flag" viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="16" fill="#FFFFFF"/><rect y="16" width="48" height="16" fill="#DC143C"/><rect x=".5" y=".5" width="47" height="31" fill="none" stroke="#E4E8EE"/></svg>',
- 'vn': '<svg class="flag" viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" fill="#DA251D"/><polygon points="24,7 26.47,14.6 34.46,14.6 28,19.3 30.47,26.9 24,22.2 17.53,26.9 20,19.3 13.54,14.6 21.53,14.6" fill="#FFFF00"/></svg>',
- 'fr': '<svg class="flag" viewBox="0 0 48 32" aria-hidden="true"><rect width="16" height="32" fill="#002654"/><rect x="16" width="16" height="32" fill="#FFFFFF"/><rect x="32" width="16" height="32" fill="#CE1126"/><rect x=".5" y=".5" width="47" height="31" fill="none" stroke="#E4E8EE"/></svg>',
- 'in': '<svg class="flag" viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="10.7" fill="#FF9933"/><rect y="10.7" width="48" height="10.7" fill="#FFFFFF"/><rect y="21.3" width="48" height="10.7" fill="#138808"/><circle cx="24" cy="16" r="4.2" fill="none" stroke="#000080" stroke-width="1"/><circle cx="24" cy="16" r=".9" fill="#000080"/><rect x=".5" y=".5" width="47" height="31" fill="none" stroke="#E4E8EE"/></svg>',
- 'kr': '<svg class="flag" viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" fill="#FFFFFF"/><g transform="translate(24 16)"><g transform="rotate(33.69)"><circle r="8" fill="#0047A0"/><path d="M-8 0A8 8 0 0 1 8 0A4 4 0 0 0 0 0A4 4 0 0 1-8 0Z" fill="#CD2E3A"/></g><g fill="#000"><g transform="rotate(-56.31)"><rect x="-4" y="-13.33" width="8" height="1.33"/><rect x="-4" y="-15.33" width="8" height="1.33"/><rect x="-4" y="-17.33" width="8" height="1.33"/></g><g transform="rotate(56.31)"><rect x="-4" y="-13.33" width="3.5" height="1.33"/><rect x="0.5" y="-13.33" width="3.5" height="1.33"/><rect x="-4" y="-15.33" width="8" height="1.33"/><rect x="-4" y="-17.33" width="3.5" height="1.33"/><rect x="0.5" y="-17.33" width="3.5" height="1.33"/></g><g transform="rotate(-123.69)"><rect x="-4" y="-13.33" width="8" height="1.33"/><rect x="-4" y="-15.33" width="3.5" height="1.33"/><rect x="0.5" y="-15.33" width="3.5" height="1.33"/><rect x="-4" y="-17.33" width="8" height="1.33"/></g><g transform="rotate(123.69)"><rect x="-4" y="-13.33" width="3.5" height="1.33"/><rect x="0.5" y="-13.33" width="3.5" height="1.33"/><rect x="-4" y="-15.33" width="3.5" height="1.33"/><rect x="0.5" y="-15.33" width="3.5" height="1.33"/><rect x="-4" y="-17.33" width="3.5" height="1.33"/><rect x="0.5" y="-17.33" width="3.5" height="1.33"/></g></g></g><rect x=".5" y=".5" width="47" height="31" fill="none" stroke="#E4E8EE"/></svg>',
- 'ng': '<svg class="flag" viewBox="0 0 48 32" aria-hidden="true"><rect width="16" height="32" fill="#008751"/><rect x="16" width="16" height="32" fill="#FFFFFF"/><rect x="32" width="16" height="32" fill="#008751"/><rect x=".5" y=".5" width="47" height="31" fill="none" stroke="#E4E8EE"/></svg>',
-}
+FLAGS = header.FLAGS   # drapeaux des pays en ligne : une seule source (tools/header.py)
 
 # Classements par pays : construits depuis data/geo.json (régions, sous-régions, statuts), jamais écrits à la main.
 def live_sub(code):
@@ -77,56 +70,9 @@ def fam_link(f):
 def fam_slug(name):
     return re.sub(r'[^a-z0-9]+', '-', name.lower()).strip('-')
 
-# Menu « Rankings » de l'en-tête (homepage et pages globales) : familles publiées (page /sectors/<famille>/) et pays en ligne,
-# calculés depuis data/sectors.json, data/segments/ et data/geo.json. Même mécanisme que les sélecteurs des pages pays et segment
-# (<details>, sans JavaScript) ; un petit script le referme au clic à l'extérieur ou avec Échap.
-RK_UI = {'en': dict(t='Rankings', sec='By sector', cty='By country', all_s='All sectors', all_c='All countries',
-                    m='Method', m_sub='How the AI ranks startups and estimates their valuation', m_url='/method.html',
-                    faq='FAQ · questions about the rankings', faq_url='/faq/'),
-         'fr': dict(t='Classements', sec='Par secteur', cty='Par pays', all_s='Tous les secteurs', all_c='Tous les pays',
-                    m='Méthode', m_sub='Comment l’IA classe les startups et estime leur valorisation', m_url='/fr/methode.html',
-                    faq='FAQ · questions sur les classements', faq_url='/fr/faq/')}
-
-def rankings_menu(lang, current=None):
-    u = RK_UI[lang]
-    fams = ''.join(f'<a href="/sectors/{fam_slug(f["name"])}/">{e(f["name"])}</a>' for f in FAMS
-                   if any(g.get('status') == 'published' for s in f['sectors'] for g in s['segments']))
-    ctys = ''
-    for code, name, sub, url in LIVE:
-            if lang == 'fr':                      # version française du pays si elle existe, sinon sa version principale
-                v = next((m for m in MARKETS if m['code'] == code and m['lang'] == 'fr'), None)
-                name, url = NAMES[code]['fr'], (v['path'] + '/' if v else url)
-            ctys += f'<a href="{url}">{FLAGS[code]}{e(name)}</a>'
-    return (f'<details class="rk"><summary>{u["t"]}</summary><div class="rk-menu">'
-            f'<div class="rk-col"><span class="rk-h">{u["sec"]}</span>{fams}<a class="rk-all" href="/#sectors">{u["all_s"]} <span aria-hidden="true">→</span></a></div>'
-            f'<div class="rk-col"><span class="rk-h">{u["cty"]}</span>{ctys}<a class="rk-all" href="/#countries">{u["all_c"]} <span aria-hidden="true">→</span></a></div>'
-            # la méthode, mise en avant en bas du menu (bandeau sur toute la largeur)
-            f'<a class="rk-method" href="{u["m_url"]}"{" aria-current=\"page\"" if current == "method" else ""}>'
-            f'<span class="rk-ic" aria-hidden="true"></span><span><b>{u["m"]}</b><small>{u["m_sub"]}</small></span>'
-            f'<span class="rk-go" aria-hidden="true">→</span></a>'
-            f'<a class="rk-faq" href="{u["faq_url"]}"{" aria-current=\"page\"" if current == "faq" else ""}>{u["faq"]} <span aria-hidden="true">→</span></a>'
-            f'</div></details>')
-
-# Menu « Backers » (à droite d'Invest) : connexion / inscription (bientôt) et conditions générales (en construction)
-BK_UI = {'en': dict(t='Backers', login='Login / Register', terms='Terms and conditions'),
-         'fr': dict(t='Backers', login='Connexion / Inscription', terms='Conditions générales')}
 # adresses des deux pages (reprises dans GLOBAL, défini plus bas : la homepage est générée avant)
 BK_URL = {'login': {'en': 'login.html', 'fr': 'fr/connexion.html'}, 'terms': {'en': 'terms.html', 'fr': 'fr/conditions.html'}}
 
-def backers_menu(lang, current=None):
-    u = BK_UI[lang]
-    cur = lambda k: ' aria-current="page"' if current == k else ''
-    return (f'<details class="rk"><summary>{u["t"]}</summary><div class="rk-menu one">'
-            f'<a href="/{BK_URL["login"][lang]}"{cur("login")}>{u["login"]}</a>'
-            f'<a href="/{BK_URL["terms"][lang]}"{cur("terms")}>{u["terms"]}</a>'
-            f'</div></details>' + RK_JS)
-
-# Script des menus de l'en-tête (Rankings, Backers) : un seul ouvert à la fois, fermeture au clic extérieur et avec Échap
-RK_JS = ('<script>(function(){var ds=[].slice.call(document.querySelectorAll("details.rk"));if(!ds.length)return;'
-         'document.addEventListener("click",function(ev){ds.forEach(function(d){if(d.open&&!d.contains(ev.target))d.open=false;});});'
-         'document.addEventListener("keydown",function(ev){if(ev.key!=="Escape")return;ds.forEach(function(d){if(d.open){d.open=false;d.querySelector("summary").focus();}});});'
-         'ds.forEach(function(d){d.addEventListener("toggle",function(){if(d.open)ds.forEach(function(o){if(o!==d)o.open=false;});});'
-         'd.querySelectorAll(".rk-menu a").forEach(function(a){a.addEventListener("click",function(){d.open=false;});});});})();</script>')
 
 def family(f):
     n_sec = len(f['sectors'])
@@ -216,35 +162,6 @@ header .wrap{height:64px;display:flex;align-items:center;justify-content:space-b
 .logo .u{width:34px;height:34px;border-radius:8px;background:var(--navy);color:var(--gold);display:inline-flex;align-items:center;justify-content:center;font-size:20px;letter-spacing:0}
 nav{display:flex;gap:20px;align-items:center;font-size:15px;font-weight:500}
 nav a{text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
-.rk{position:relative}
-.rk summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;min-height:44px;color:var(--navy)}
-.rk summary::-webkit-details-marker{display:none}
-.rk summary::after{content:"";width:6px;height:6px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin-top:-4px}
-.rk[open] summary::after{transform:rotate(-135deg);margin-top:3px}
-.rk summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
-.rk-menu{position:absolute;top:calc(100% + 6px);right:-16px;z-index:60;display:grid;grid-template-columns:max-content max-content;gap:4px 32px;padding:16px 18px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 30px rgba(30,58,95,.14);white-space:nowrap}
-.rk-col{display:flex;flex-direction:column}
-.rk-h{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
-.rk-menu a{display:flex;align-items:center;gap:10px;min-height:40px;padding:0 8px;margin:0 -8px;border-radius:8px;font-size:15px;font-weight:500;color:var(--navy);text-decoration:none}
-.rk-menu a:hover{background:var(--bg)}
-.rk-menu .flag{width:21px;height:14px;border-radius:2px}
-.rk-menu.one{grid-template-columns:max-content;gap:2px;min-width:220px}
-.rk-menu a.rk-method{grid-column:1/-1;display:flex;align-items:center;gap:12px;margin:12px -8px 0;padding:12px 14px;min-height:0;border-radius:10px;background:#FBF6EA;border:1px solid #EAD9B0;white-space:normal}
-.rk-menu a.rk-method:hover,.rk-menu a.rk-method[aria-current]{background:#F6ECD2;border-color:var(--gold)}
-.rk-method b{display:block;font-size:15px;font-weight:700;color:var(--navy)}
-.rk-method small{display:block;margin-top:2px;font-size:12.5px;font-weight:500;line-height:1.4;color:var(--muted)}
-.rk-ic{flex:0 0 30px;height:30px;border-radius:8px;background:var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M4 19h16M7 15V9M12 15V5M17 15v-4'/%3E%3C/svg%3E") center/18px no-repeat}
-.rk-go{margin-left:auto;font-size:18px;font-weight:600;color:var(--gold)}
-.rk-menu a.rk-faq{grid-column:1/-1;min-height:36px;margin-top:4px;font-size:14px;font-weight:600;color:var(--muted)}
-.rk-menu a.rk-all{margin-top:4px;font-size:14px;font-weight:600;text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:5px}
-/* homepage et pages globales : sur petit écran, le menu passe sous le logo */
-@media (max-width:899px){header.hdr-lang .wrap{height:auto;flex-wrap:wrap;row-gap:0;padding-top:8px;padding-bottom:4px}header.hdr-lang nav{width:100%;flex-wrap:wrap;justify-content:space-between;gap:0 10px}
-  header.hdr-lang .langsw{position:absolute;top:8px;right:20px;min-height:44px}}
-@media (max-width:479px){header.hdr-lang nav{font-size:14px;gap:0 8px}}
-@media (max-width:359px){header nav{font-size:13px;gap:4px}.langsw{font-size:12px}}
-@media (max-width:719px){header .wrap{position:relative}.rk{position:static}
-  .rk-menu{left:16px;right:16px;top:calc(100% - 4px);grid-template-columns:1fr;gap:14px;white-space:normal}}
-
 .hero{padding:56px 0 32px}
 .hero .wrap{display:flex;flex-direction:column;gap:20px}
 .eyebrow{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
@@ -378,10 +295,7 @@ a.sub-link:hover{color:var(--navy);text-decoration:underline;text-decoration-col
 }
 /* homepage, à partir de 1024 px : chaque phrase du titre tient sur une ligne, avec de la marge de chaque côté (~85 % de la largeur) */
 @media (min-width:1024px){.hero h1{font-size:clamp(40px,3.95vw,48px);max-width:none}}
-''' + FOOTER_CSS + search.SEARCH_CSS + '''header.hdr-lang .srch{margin-left:12px}header.hdr-lang nav{margin-left:auto}
-@media (max-width:899px){header.hdr-lang .srch{margin:0}header.hdr-lang .srch-b{position:absolute;top:8px;right:12px}
-  header.hdr-lang .langsw{right:60px}}
-'''
+''' + FOOTER_CSS + search.SEARCH_CSS + header.HEADER_CSS
 
 JS = '''
 document.documentElement.classList.add('js');
@@ -461,18 +375,7 @@ page = f'''<!doctype html>
 <body>
 
 <div class="beta"><div class="wrap"><b>Beta · prototype</b><span class="beta-t">— This site is under construction: rankings, texts and features change every week.</span></div></div>
-<header class="hdr-lang">
-  <div class="wrap">
-    <a class="logo" href="/" aria-label="Uback, home"><span class="u" aria-hidden="true">U</span>Uback</a>
-    <nav aria-label="Main">
-      {rankings_menu('en')}
-      <a href="/calendar/">Calendar</a>
-      <a href="/invest.html">Invest</a>
-      {backers_menu('en')}
-    </nav>
-    {search.html()}
-  </div>
-</header>
+{header.header('en')}
 
 <main>
   <section class="hero">
@@ -746,8 +649,8 @@ def global_page(key, lang, body, extra=''):
     if other in GLOBAL[key]:                   # page bilingue : hreflang et sélecteur de langue
         alt = ''.join(f'\n<link rel="alternate" hreflang="{l}" href="https://uback.com/{url_of(key, l)}">' for l in ('en', 'fr'))
         alt += f'\n<link rel="alternate" hreflang="x-default" href="https://uback.com/{url_of(key, "en")}">'
-        sw = (f'<span class="langsw"><span class="on">{lang.upper()}</span><span>·</span>'
-              f'<a href="/{url_of(key, other)}" hreflang="{other}">{other.upper()}</a></span>')
+        sw = (f'<span class="on">{lang.upper()}</span><span>·</span>'
+              f'<a href="/{url_of(key, other)}" hreflang="{other}">{other.upper()}</a>')
     title, desc = u['t_' + key], u['d_' + key]
     method_url = '/' + GLOBAL['method'][lang]
     cur = lambda k: ' aria-current="page"' if k == key else ''
@@ -775,19 +678,7 @@ def global_page(key, lang, body, extra=''):
 <body>
 
 <div class="beta"><div class="wrap"><b>{u['beta']}</b><span class="beta-t">{u['beta_t']}</span></div></div>
-<header class="hdr-lang">
-  <div class="wrap">
-    <a class="logo" href="/" aria-label="Uback, home"><span class="u" aria-hidden="true">U</span>Uback</a>
-    <nav aria-label="Main">
-      {rankings_menu(lang, key)}
-      <a href="/calendar/"{cur('calendar')}>{u['calendar']}</a>
-      <a href="/{GLOBAL['invest'][lang]}"{cur('invest')}>{u['invest']}</a>
-      {backers_menu(lang, key)}
-      {sw}
-    </nav>
-    {search.html('/', lang)}
-  </div>
-</header>
+{header.header(lang, key, sw)}
 
 <main class="prose-main">
 {body.replace('@CAL@', calendar(lang))}

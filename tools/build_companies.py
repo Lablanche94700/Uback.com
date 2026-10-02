@@ -590,7 +590,7 @@ def build_company(m, models, investors):
                          for i, (n, h) in enumerate(breadcrumb_items(m)))
     cmp = comparables(m, models)
     page = page_top(title, desc, url, f'{BASE}/assets/og-image.png', '',
-                    [('/#countries', 'Rankings'), (GM, 'Method'), ('/calendar/', 'Calendar'), (GI, 'Invest')],
+                    [],
                     'Follow the rankings', '/#follow', page_head_extra(m, url, desc), search_field=True) + f'''
 <div class="wrap pf">
   <nav class="pf-crumbs" aria-label="Breadcrumb">{crumbs}</nav>
@@ -793,7 +793,7 @@ def build_investor(inv, models, investors):
              + ''.join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>\n' for x in (ld, il, bl))
              + '<!-- Généré par tools/build_companies.py : ne pas modifier à la main. -->')
     page = page_top(title, desc, url, f'{BASE}/assets/og-image.png', '',
-                    [('/#countries', 'Rankings'), (GM, 'Method'), ('/calendar/', 'Calendar'), (GI, 'Invest')],
+                    [],
                     'Follow the rankings', '/#follow', extra, search_field=True) + f'''
 <div class="wrap pf">
   <nav class="pf-crumbs" aria-label="Breadcrumb"><a href="/">Uback</a><span aria-hidden="true">›</span><a href="/investors/">Investors</a><span aria-hidden="true">›</span><span aria-current="page">{e(name)}</span></nav>
@@ -883,7 +883,7 @@ def build_directory(investors, models):
     title = 'Startup investors by country – portfolios tracked by Uback | Uback'
     desc = f'{n} investors in the startups ranked or tracked by Uback, by country: venture capital funds, corporates, development finance institutions. Portfolios, rounds and co-investors.'
     page = page_top(title, desc, f'{BASE}/investors/', f'{BASE}/assets/og-image.png', '',
-                    [('/#countries', 'Rankings'), (GM, 'Method'), ('/calendar/', 'Calendar'), (GI, 'Invest')],
+                    [],
                     'Follow the rankings', '/#follow',
                     f'<link rel="stylesheet" href="/assets/profile.css?v={PROFILE_V}">\n<!-- Généré par tools/build_companies.py : ne pas modifier à la main. -->', search_field=True) + f'''
 <div class="wrap pf">
@@ -969,7 +969,7 @@ def build_form():
 '''
     page = page_top('Profile request | Uback', 'Claim a profile, report a round, suggest a source or publish an analysis on Uback.',
                     f'{BASE}{FORM}', f'{BASE}/assets/og-image.png', '',
-                    [('/#countries', 'Rankings'), (GM, 'Method'), ('/calendar/', 'Calendar'), (GI, 'Invest')],
+                    [],
                     'Follow the rankings', '/#follow',
                     f'<meta name="robots" content="noindex">\n<link rel="stylesheet" href="/assets/profile.css?v={PROFILE_V}">\n'
                     '<!-- Généré par tools/build_companies.py : ne pas modifier à la main. -->') + body + page_bottom()

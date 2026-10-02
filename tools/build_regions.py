@@ -148,7 +148,7 @@ def build(slug, kind):
         china = ('<p class="notin"><b>China — analysis only.</b> Chinese companies are analysed as valuation comparables and competitors, '
                  'never ranked. <a href="/faq/#china">Why?</a></p>')
 
-    reg_nav = [('#countries', 'Countries'), ('/calendar/', 'Calendar'), (GM, 'Method'), (GI, 'Invest')]
+    reg_nav = [('#countries', 'Countries')] + ([('#radar', 'Radar')] if radar else []) + [(GM, 'Method')]
     if subs:
         reg_nav.insert(0, ('#subregions', 'Sub-regions'))
     jsonld = {"@context": "https://schema.org", "@graph": [

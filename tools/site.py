@@ -9,7 +9,7 @@ import valuation
 from footer import footer
 from analytics import HEAD as GA_HEAD
 from fonts import PRELOAD as _PRELOAD
-import search
+import header
 import companies
 PRELOAD = _PRELOAD.replace('href="/assets/', 'href="@ROOT@assets/')   # police : à la racine du site, pas dans les assets du marché
 from build_site import format_date_short
@@ -313,28 +313,10 @@ def head(title, desc, path, extra=''):
 <body>
 <a class="skip" href="#main">{L['skip']}</a>
 <div class="beta"><div class="wrap"><b>{L['beta_b']}</b><span class="beta-t">— {L['beta_t']}</span></div></div>
-<header class="hdr hdr-c">
-  <div class="wrap">
-    <a class="brand" href="@ROOT@" aria-label="{L['home_aria']}"><span class="u">U</span>Uback</a>
-    {M['switcher']}
-    <button class="menu-toggle" aria-label="Menu" aria-expanded="false" onclick="var n=document.getElementById('nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
-    <nav class="main" id="nav" aria-label="{L['nav_aria']}">
-      <a href="/#{L['id_rank']}">{L['nav_rank']}</a>
-      <a href="/#{L['id_sect']}">{L['nav_sect']}</a>
-      <a href="{GM}">{L['nav_method']}</a>
-      <a href="/#backers">Backers</a>
-      <a href="{GI}">{L['nav_invest']}</a>
-      <a href="{PARTNER}">{L['nav_partner']}</a>
-    </nav>
-    <span class="spacer"></span>
-    {search.html('@ROOT@', M['lang'])}
-    <span class="langs">{langs}</span>
-    <a class="btn" href="/#{L['id_follow']}">{L['follow']}</a>
-    <a class="btn gold" href="{POOL}">{L['declare']}</a>
-  </div>
-</header>
+{header.header(M['lang'], langs=langs, root='@ROOT@')}
+{header.subnav(M['switcher'], [('/#' + L['id_rank'], L['nav_rank']), ('/#' + L['id_sect'], L['nav_sect']), ('/#radar', 'Radar'),
+                               ('/#backers', 'Backers'), (GM, L['nav_method']), (PARTNER, L['nav_partner'])],
+               f'<a class="btn" href="/#{L["id_follow"]}">{L["follow"]}</a><a class="btn gold" href="{POOL}">{L["declare"]}</a>', M['lang'])}
 <main id="main">
 '''
 

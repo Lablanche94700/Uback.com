@@ -4,16 +4,14 @@ Uback n'est pas un annuaire de fonds). Index statique /assets/search-index.json 
 script sans dépendance /assets/search.js (écrit par write_js()), suggestions dès 2 caractères.
 Styles : SEARCH_CSS, recopié dans ma/assets/style.css entre deux marqueurs par sync_css() (comme le pied de page),
 et intégré à la CSS en ligne des pages de tools/build_home.py.
-Sur grand écran (homepage, pages globales, fiches : classe hdr-s), le champ est visible dans l'en-tête ; ailleurs et en dessous
-de 1280 px, une loupe l'ouvre sous l'en-tête."""
+Dans l'en-tête unique (tools/header.py) : champ visible à partir de 1280 px ; en dessous, une loupe l'ouvre sous l'en-tête."""
 import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 START, END = '/* search:start (généré par tools/search.py, ne pas modifier ici) */', '/* search:end */'
 LABEL = {'en': 'Search a startup', 'fr': 'Rechercher une startup'}
 
-SEARCH_CSS = '''.hdr .wrap,header.hdr-lang .wrap{position:relative}
-.srch{position:static;display:flex;align-items:center}
+SEARCH_CSS = '''.srch{position:static;display:flex;align-items:center}
 .srch-b{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:0;background:none;color:#1E3A5F;cursor:pointer;border-radius:10px;padding:0}
 .srch-b:hover{background:#f3f5f8}
 .srch-p{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid #e5e9ef;padding:10px 16px 12px;z-index:40;box-shadow:0 8px 20px rgba(30,58,95,.08)}
@@ -28,10 +26,10 @@ SEARCH_CSS = '''.hdr .wrap,header.hdr-lang .wrap{position:relative}
 .srch-r b{color:#1E3A5F;font-weight:600}
 .srch-r small{color:#5b6472;font-size:12.5px;white-space:nowrap}
 .srch-r .none{padding:9px 10px;color:#5b6472;font-size:14px}
-@media (min-width:1280px){header.hdr-lang .srch,.hdr-s .srch{position:relative}header.hdr-lang .srch-b,.hdr-s .srch-b{display:none}
-  header.hdr-lang .srch-p,.hdr-s .srch-p{display:block;position:static;padding:0;border:0;box-shadow:none;background:none;width:230px}
-  header.hdr-lang .srch-f,.hdr-s .srch-f{min-height:40px}header.hdr-lang .srch-f input,.hdr-s .srch-f input{font-size:14px}
-  header.hdr-lang .srch-r,.hdr-s .srch-r{position:absolute;right:0;top:calc(100% + 6px);width:340px;background:#fff;border:1px solid #e5e9ef;border-radius:12px;padding:6px;margin:0;box-shadow:0 12px 28px rgba(30,58,95,.12)}}
+@media (min-width:1280px){.gh .srch{position:relative}.gh .srch-b{display:none}
+  .gh .srch-p{display:block;position:static;padding:0;border:0;box-shadow:none;background:none;width:240px}
+  .gh .srch-f{min-height:40px}.gh .srch-f input{font-size:14px}
+  .gh .srch-r{position:absolute;right:0;top:calc(100% + 6px);width:340px;background:#fff;border:1px solid #e5e9ef;border-radius:12px;padding:6px;margin:0;box-shadow:0 12px 28px rgba(30,58,95,.12)}}
 '''
 
 ICON = ('<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" '

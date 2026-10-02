@@ -91,6 +91,11 @@ tools/build_home.py     ← génère index.html et les pages globales ; homepage
                           et classements par pays, en accordéon par région (depuis data/geo.json)
 tools/build_calendar.py ← calcule data/calendar.json depuis data/geo.json et data/sectors.json
 tools/build_regions.py  ← pages de zone et de collection (depuis data/geo.json et data/calendar.json)
+tools/header.py         ← EN-TÊTE UNIQUE de tout le site (logo · Rankings ▾ · Calendar · Invest · Backers ▾ · recherche ·
+                          langues), identique sur toutes les pages, et sous-menu collant des pages de classement (pays,
+                          segment, famille, zone : sélecteur pour changer de classement sans repasser par la homepage,
+                          ancres de la page, Follow / Declare) ; les fiches n'en ont pas (fil d'Ariane). CSS recopiée dans
+                          ma/assets/style.css entre les marqueurs « header:start / header:end » par build_site.py
 tools/footer.py         ← pied de page unique de tout le site (HTML + CSS ; la CSS est recopiée dans ma/assets/style.css
                           entre les marqueurs « footer:start / footer:end » par build_site.py : ne pas la modifier là)
 tools/analytics.py      ← Google Analytics 4 (G-CDF2KWM08X, compte « Uback », accès contact@dealing-room.com), chargé SEULEMENT

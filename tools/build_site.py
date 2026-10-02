@@ -213,7 +213,9 @@ footer.sync_css(os.path.join(TOOLS, '..', 'ma', 'assets', 'style.css'))   # pied
 import fonts
 fonts.sync_css(os.path.join(TOOLS, '..', 'ma', 'assets', 'style.css'))    # police Inter hébergée sur le site
 import search
-search.sync_css(os.path.join(TOOLS, '..', 'ma', 'assets', 'style.css'))   # recherche de l'en-tête (sociétés, investisseurs)
+search.sync_css(os.path.join(TOOLS, '..', 'ma', 'assets', 'style.css'))   # recherche de l'en-tête (startups)
+import header
+header.sync_css(os.path.join(TOOLS, '..', 'ma', 'assets', 'style.css'))   # en-tête unique et sous-menu des classements
 CSS_V = hashlib.sha1(open(os.path.join(TOOLS, '..', 'ma', 'assets', 'style.css'), 'rb').read()).hexdigest()[:8]
 
 MONTHS = {'fr': ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'],

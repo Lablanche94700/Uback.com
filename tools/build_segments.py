@@ -21,7 +21,7 @@ from flags import flag
 from footer import footer
 from analytics import HEAD as GA_HEAD
 from fonts import PRELOAD
-import search
+import header
 import companies
 
 e = html.escape
@@ -278,8 +278,13 @@ def next_scheduled(slug):
 
 def page_top(title, desc, url, og_img, sw, nav, follow_label, follow_href, extra, declare_href=f'{GI}#opening', search_field=False):
     """Début de page commun aux classements mondiaux (segments et familles), aux zones et aux fiches : <head>,
-    bandeau bêta, en-tête (avec la recherche ; search_field : champ visible sur grand écran)."""
-    links = '\n'.join(f'      <a href="{h}">{l}</a>' for h, l in nav)
+    bandeau bêta, en-tête unique (tools/header.py), puis le sous-menu du classement : sélecteur (sw), ancres de la
+    page (nav) et boutons Follow / Declare. Sans sélecteur ni ancres (fiches) : pas de sous-menu.
+    search_field : conservé pour compatibilité (le champ de recherche est désormais dans l'en-tête unique)."""
+    sub = ''
+    if sw or nav:
+        acts = (f'<a class="btn" href="{follow_href}">{follow_label}</a>' if follow_label else '') +                f'<a class="btn gold" href="{declare_href}">Declare an interest</a>'
+        sub = header.subnav(sw, nav, acts)
     return f'''<!doctype html>
 <html lang="en">
 <head>
@@ -306,23 +311,8 @@ def page_top(title, desc, url, og_img, sw, nav, follow_label, follow_href, extra
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <div class="beta"><div class="wrap"><b>Beta · prototype</b><span class="beta-t">— This site is under construction: rankings, texts and features change every week.</span></div></div>
-<header class="hdr{' hdr-s' if search_field else ''}">
-  <div class="wrap">
-    <a class="brand" href="/" aria-label="Uback, home"><span class="u">U</span>Uback</a>
-    {sw}
-    <button class="menu-toggle" aria-label="Menu" aria-expanded="false" onclick="var n=document.getElementById('nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
-    <nav class="main" id="nav" aria-label="Main navigation">
-{links}
-    </nav>
-    <span class="spacer"></span>
-    {search.html()}
-    <span class="langs"><span class="on">EN</span></span>
-    <a class="btn" href="{follow_href}">{follow_label}</a>
-    <a class="btn gold" href="{declare_href}">Declare an interest</a>
-  </div>
-</header>
+{header.header('en')}
+{sub}
 <main id="main">
 '''
 
@@ -406,7 +396,7 @@ def build(path):
            if d['edition'] == 0 else '')
 
     page = page_top(t['title'], t['description'], url, f'{url}og-image.png?v={og_v}', switcher(d['path'][0], sid),
-                    [('#ranking', 'Ranking'), ('#regions', 'Regions'), (GM, 'Method'), ('#backers', 'Backers'), (GI, 'Invest')],
+                    [('#ranking', 'Ranking'), ('#regions', 'Regions'), ('#radar', 'Radar'), ('#backers', 'Backers'), ('#segment-method', 'Method')],
                     'Follow this ranking', '#follow',
                     f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>\n'
                     f'<!-- Généré par tools/build_segments.py à partir de data/segments/{sid}.json : ne pas modifier à la main. -->',
@@ -623,7 +613,7 @@ def build_family(fam, datas):
                   {"@type": "ListItem", "position": i, "name": d['texts']['h1'], "url": f"https://uback.com/segments/{d['segment_id']}/"}
                   for i, d in enumerate(pub, 1)]}}
     page = page_top(title, desc, url, f'{url}og-image.png?v={og_v}', switcher(name),
-                    [('#segments', 'Segments'), ('#unicorns', 'Unicorns'), (GM, 'Method'), (GI, 'Invest')],
+                    [('#segments', 'Segments'), ('#unicorns', 'Unicorns'), (GM, 'Method')],
                     'Follow the rankings', '/#follow',
                     f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>\n'
                     f'<!-- Généré par tools/build_segments.py à partir de data/sectors.json et data/segments/ : ne pas modifier à la main. -->',
