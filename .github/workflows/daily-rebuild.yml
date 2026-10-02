@@ -34,6 +34,7 @@ jobs:
           python tools/build_calendar.py
           python tools/build_site.py
           python tools/build_segments.py
+          python tools/build_companies.py
           python tools/build_regions.py
           python tools/build_home.py
 

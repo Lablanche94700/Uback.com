@@ -21,6 +21,8 @@ from flags import flag
 from footer import footer
 from analytics import HEAD as GA_HEAD
 from fonts import PRELOAD
+import search
+import companies
 
 e = html.escape
 EDGE = r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'   # rendu de l'image de partage (facultatif)
@@ -99,7 +101,7 @@ def tip_facts(c):
     else:
         lines.append('No confirmed published valuation')
     lines.append('Confidence index: ' + CONF_TXT[c['confidence']])
-    return '<br>'.join(e(x) for x in lines)
+    return '<br>'.join(companies.link_investors(e(x), parens_only=False) if x.startswith('Last known') else e(x) for x in lines)
 
 def last_round(c):
     """Colonne « Last round » : type, montant et date du dernier tour, rien d'autre (les valorisations publiées
@@ -166,19 +168,20 @@ def row(c, defs=(), sid='', show_inv=False):
     report = f'<a class="report" href="{GC}?company={quote(c["name"])}&amp;country=global">Is this your company? Report an error</a>'
     return f'''<tr class="r{top}" data-region="{c['region']}">
 <td class="rank">{c['rank']}</td>
-<td><span class="co">{e(c['name'])}<small>{where(c)}</small></span><span class="src">Sources: {srcs}</span>{report}</td>
+<td><span class="co">{companies.link_company(c['name'], sid)}<small>{where(c)}</small></span><span class="src">Sources: {srcs}</span>{report}</td>
 <td data-l="Last round · Key metrics">{e(last_round(c))}{kpi_line(c, defs)}</td>
 <td data-l="Valuation (AI)">{val(c)}</td>
 <td data-l="Confidence">{conf(c)}</td>
 {f'<td class="act">{open_cell(c, sid)}</td>' if show_inv else ''}
 </tr>'''
 
-def radar_li(r):
+def radar_li(r, sid=''):
     rd = r['last_equity_round']
     txt = ' · '.join(p for p in (month(rd['date'], 'en'), amount(rd)) if p)
     if rd.get('detail'):
         txt += f"; {rd['detail']}"
-    return f'<li data-region="{r["region"]}"><span><b>{e(r["name"])}</b> · {where(r)}</span><span>{e(txt)}</span></li>'
+    return (f'<li data-region="{r["region"]}"><span><b>{companies.link_company(r["name"], sid)}</b> · {where(r)}</span>'
+            f'<span>{companies.link_investors(e(txt), parens_only=False)}</span></li>')
 
 def family_slug(name):
     """« Fintech » → « fintech » (adresse de la page famille : /sectors/<slug>/)."""
@@ -273,8 +276,11 @@ def next_scheduled(slug):
         raise DataError(f'{slug} : absent de data/calendar.json (relancer tools/build_calendar.py)')
     return d
 
-def page_top(title, desc, url, og_img, sw, nav, follow_label, follow_href, extra, declare_href=f'{GI}#opening'):
-    """Début de page commun aux classements mondiaux (segments et familles) : <head>, bandeau bêta, en-tête."""
+def page_top(title, desc, url, og_img, sw, nav, follow_label, follow_href, extra, declare_href=f'{GI}#opening', search_field=False):
+    """Début de page commun aux classements mondiaux (segments et familles), aux zones et aux fiches : <head>,
+    bandeau bêta, en-tête (avec le lien « Investors » et la recherche ; search_field : champ visible sur grand écran)."""
+    if not any(h == '/investors/' for h, _ in nav):
+        nav = list(nav) + [('/investors/', 'Investors')]
     links = '\n'.join(f'      <a href="{h}">{l}</a>' for h, l in nav)
     return f'''<!doctype html>
 <html lang="en">
@@ -302,7 +308,7 @@ def page_top(title, desc, url, og_img, sw, nav, follow_label, follow_href, extra
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <div class="beta"><div class="wrap"><b>Beta · prototype</b><span class="beta-t">— This site is under construction: rankings, texts and features change every week.</span></div></div>
-<header class="hdr">
+<header class="hdr{' hdr-s' if search_field else ''}">
   <div class="wrap">
     <a class="brand" href="/" aria-label="Uback, home"><span class="u">U</span>Uback</a>
     {sw}
@@ -313,6 +319,7 @@ def page_top(title, desc, url, og_img, sw, nav, follow_label, follow_href, extra
 {links}
     </nav>
     <span class="spacer"></span>
+    {search.html()}
     <span class="langs"><span class="on">EN</span></span>
     <a class="btn" href="{follow_href}">{follow_label}</a>
     <a class="btn gold" href="{declare_href}">Declare an interest</a>
@@ -534,7 +541,7 @@ def build(path):
       <h3 style="margin-top:22px">Radar · known eligible companies, not ranked</h3>
       <p>Sorted by date of last round, with no judgement and no AI call.</p>
       <ul class="list" id="radar-list">
-      {''.join(radar_li(r) for r in radar)}
+      {''.join(radar_li(r, sid) for r in radar)}
       </ul>
       <p class="list-empty" id="no-radar" hidden>No company on the radar in this region yet.</p>
       <h3 style="margin-top:22px">Listed benchmarks</h3>

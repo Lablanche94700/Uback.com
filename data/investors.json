@@ -1,0 +1,715 @@
+[
+ {
+  "slug": "azur-innovation-fund",
+  "name": "Azur Innovation Fund",
+  "aliases": [
+   "Azur Innovation Management"
+  ],
+  "type": "vc",
+  "hq": "Casablanca",
+  "website": null
+ },
+ {
+  "slug": "andreessen-horowitz",
+  "name": "Andreessen Horowitz",
+  "aliases": [
+   "a16z"
+  ],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "a16z-crypto",
+  "name": "a16z crypto",
+  "aliases": [],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "accel",
+  "name": "Accel",
+  "aliases": [
+   "Accel Leaders"
+  ],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "alkeon-capital",
+  "name": "Alkeon Capital",
+  "aliases": [
+   "Alkeon"
+  ],
+  "type": "growth",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "animoca-brands",
+  "name": "Animoca Brands",
+  "aliases": [
+   "Animoca"
+  ],
+  "type": "corporate",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "ark-invest",
+  "name": "ARK Invest",
+  "aliases": [
+   "ARK"
+  ],
+  "type": "asset",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "atinum-investment",
+  "name": "Atinum Investment",
+  "aliases": [
+   "Atinum"
+  ],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "b-capital",
+  "name": "B Capital",
+  "aliases": [
+   "B Capital Group"
+  ],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "blackstone",
+  "name": "Blackstone",
+  "aliases": [
+   "Blackstone funds",
+   "Blackstone Growth"
+  ],
+  "type": "pe",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "d1-capital-partners",
+  "name": "D1 Capital Partners",
+  "aliases": [
+   "D1",
+   "D1 Capital"
+  ],
+  "type": "growth",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "dimension",
+  "name": "Dimension",
+  "aliases": [
+   "Dimension Capital"
+  ],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "dragoneer-investment-group",
+  "name": "Dragoneer Investment Group",
+  "aliases": [
+   "Dragoneer"
+  ],
+  "type": "growth",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "firstmark-capital",
+  "name": "FirstMark Capital",
+  "aliases": [
+   "FirstMark"
+  ],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "generation-investment-management",
+  "name": "Generation Investment Management",
+  "aliases": [
+   "Generation IM"
+  ],
+  "type": "asset",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "ggv-capital",
+  "name": "GGV Capital",
+  "aliases": [
+   "GGV"
+  ],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "goldman-sachs-asset-management",
+  "name": "Goldman Sachs Asset Management",
+  "aliases": [
+   "Goldman Sachs Alternatives"
+  ],
+  "type": "asset",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "goodwater-capital",
+  "name": "Goodwater Capital",
+  "aliases": [
+   "Goodwater"
+  ],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "iconiq",
+  "name": "ICONIQ",
+  "aliases": [
+   "ICONIQ Growth",
+   "Iconiq"
+  ],
+  "type": "growth",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "insight-partners",
+  "name": "Insight Partners",
+  "aliases": [
+   "Insight"
+  ],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "kedaara-capital",
+  "name": "Kedaara Capital",
+  "aliases": [
+   "Kedaara"
+  ],
+  "type": "pe",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "khosla-ventures",
+  "name": "Khosla Ventures",
+  "aliases": [
+   "Khosla"
+  ],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "leapfrog-investments",
+  "name": "LeapFrog Investments",
+  "aliases": [
+   "LeapFrog"
+  ],
+  "type": "pe",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "lightspeed",
+  "name": "Lightspeed",
+  "aliases": [
+   "Lightspeed Venture Partners"
+  ],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "mizuho",
+  "name": "Mizuho",
+  "aliases": [
+   "Mizuho Bank"
+  ],
+  "type": "corporate",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "norwest-venture-partners",
+  "name": "Norwest Venture Partners",
+  "aliases": [
+   "Norwest"
+  ],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "notable-capital",
+  "name": "Notable Capital",
+  "aliases": [
+   "Notable"
+  ],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "nvidia",
+  "name": "NVIDIA",
+  "aliases": [
+   "Nvidia",
+   "NVIDIA NVentures",
+   "NVIDIA Ventures"
+  ],
+  "type": "corporate",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "ontario-teachers-pension-plan",
+  "name": "Ontario Teachers' Pension Plan",
+  "aliases": [
+   "Ontario Teachers'",
+   "Ontario Teachers’"
+  ],
+  "type": "pension",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "partech",
+  "name": "Partech",
+  "aliases": [
+   "Partech Africa"
+  ],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "polychain-capital",
+  "name": "Polychain Capital",
+  "aliases": [
+   "Polychain"
+  ],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "prosus",
+  "name": "Prosus",
+  "aliases": [
+   "Prosus Ventures"
+  ],
+  "type": "corporate",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "qiming-venture-partners",
+  "name": "Qiming Venture Partners",
+  "aliases": [
+   "Qiming"
+  ],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "qatar-investment-authority",
+  "name": "Qatar Investment Authority",
+  "aliases": [
+   "QIA"
+  ],
+  "type": "sovereign",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "regeneron",
+  "name": "Regeneron",
+  "aliases": [
+   "Regeneron Ventures"
+  ],
+  "type": "corporate",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "ribbit-capital",
+  "name": "Ribbit Capital",
+  "aliases": [
+   "Ribbit"
+  ],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "salesforce-ventures",
+  "name": "Salesforce Ventures",
+  "aliases": [
+   "Salesforce"
+  ],
+  "type": "cvc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "sapphire-ventures",
+  "name": "Sapphire Ventures",
+  "aliases": [
+   "Sapphire"
+  ],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "sequoia-capital",
+  "name": "Sequoia Capital",
+  "aliases": [
+   "Sequoia"
+  ],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "silver-lake",
+  "name": "Silver Lake",
+  "aliases": [
+   "Silver Lake Waterman"
+  ],
+  "type": "pe",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "softbank-vision-fund",
+  "name": "SoftBank Vision Fund",
+  "aliases": [
+   "SoftBank Vision Fund 2"
+  ],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "tpg",
+  "name": "TPG",
+  "aliases": [
+   "TPG Rise Fund",
+   "The Rise Funds"
+  ],
+  "type": "pe",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "tribe-capital",
+  "name": "Tribe Capital",
+  "aliases": [
+   "Tribe"
+  ],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "wellington-management",
+  "name": "Wellington Management",
+  "aliases": [
+   "Wellington"
+  ],
+  "type": "asset",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "westbridge-capital",
+  "name": "WestBridge Capital",
+  "aliases": [
+   "WestBridge"
+  ],
+  "type": "growth",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "teachers-venture-growth",
+  "name": "Teachers' Venture Growth",
+  "aliases": [
+   "Teachers’ Venture Growth"
+  ],
+  "type": "pension",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "tiger-global",
+  "name": "Tiger Global",
+  "aliases": [
+   "Tiger Global Management"
+  ],
+  "type": "growth",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "general-atlantic",
+  "name": "General Atlantic",
+  "aliases": [],
+  "type": "growth",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "general-catalyst",
+  "name": "General Catalyst",
+  "aliases": [],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "tcv",
+  "name": "TCV",
+  "aliases": [],
+  "type": "growth",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "ifc",
+  "name": "IFC",
+  "aliases": [
+   "International Finance Corporation"
+  ],
+  "type": "dfi",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "temasek",
+  "name": "Temasek",
+  "aliases": [
+   "Temasek Holdings"
+  ],
+  "type": "sovereign",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "gic",
+  "name": "GIC",
+  "aliases": [],
+  "type": "sovereign",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "mubadala",
+  "name": "Mubadala",
+  "aliases": [
+   "Mubadala Investment Company"
+  ],
+  "type": "sovereign",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "bpifrance",
+  "name": "Bpifrance",
+  "aliases": [],
+  "type": "public",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "kdb",
+  "name": "KDB",
+  "aliases": [
+   "Korea Development Bank"
+  ],
+  "type": "public",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "y-combinator",
+  "name": "Y Combinator",
+  "aliases": [
+   "YC"
+  ],
+  "type": "accelerator",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "kkr",
+  "name": "KKR",
+  "aliases": [],
+  "type": "pe",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "coatue",
+  "name": "Coatue",
+  "aliases": [
+   "Coatue Management"
+  ],
+  "type": "growth",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "index-ventures",
+  "name": "Index Ventures",
+  "aliases": [],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "greenoaks",
+  "name": "Greenoaks",
+  "aliases": [
+   "Greenoaks Capital"
+  ],
+  "type": "growth",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "dst-global",
+  "name": "DST Global",
+  "aliases": [],
+  "type": "growth",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "bessemer-venture-partners",
+  "name": "Bessemer Venture Partners",
+  "aliases": [
+   "Bessemer"
+  ],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "atomico",
+  "name": "Atomico",
+  "aliases": [],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "tencent",
+  "name": "Tencent",
+  "aliases": [],
+  "type": "corporate",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "al-mada-ventures",
+  "name": "Al Mada Ventures",
+  "aliases": [],
+  "type": "cvc",
+  "hq": "Casablanca",
+  "website": null
+ },
+ {
+  "slug": "attijariwafa-ventures",
+  "name": "Attijariwafa Ventures",
+  "aliases": [],
+  "type": "cvc",
+  "hq": "Casablanca",
+  "website": null
+ },
+ {
+  "slug": "orange-ventures",
+  "name": "Orange Ventures",
+  "aliases": [],
+  "type": "cvc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "africinvest",
+  "name": "AfricInvest",
+  "aliases": [],
+  "type": "pe",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "endeavor-catalyst",
+  "name": "Endeavor Catalyst",
+  "aliases": [],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "peak-xv-partners",
+  "name": "Peak XV Partners",
+  "aliases": [
+   "Peak XV"
+  ],
+  "type": "vc",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "alpha-wave-global",
+  "name": "Alpha Wave Global",
+  "aliases": [
+   "Alpha Wave"
+  ],
+  "type": "growth",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "eric-schmidt",
+  "name": "Eric Schmidt",
+  "aliases": [],
+  "type": "individual",
+  "hq": null,
+  "website": null
+ },
+ {
+  "slug": "10t-holdings",
+  "name": "10T Holdings",
+  "aliases": [
+   "10T"
+  ],
+  "type": "growth",
+  "hq": null,
+  "website": null
+ }
+]

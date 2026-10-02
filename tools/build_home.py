@@ -16,6 +16,8 @@ import geo
 from footer import footer, FOOTER_CSS
 from analytics import HEAD as GA_HEAD
 from fonts import FONT_CSS, PRELOAD
+from forms import WEB3FORMS_KEY, w3f_js
+import search   # envoi des formulaires (Web3Forms), commun aux générateurs
 
 def next_ed(code):
     m = next(v for v in MARKETS if v['code'] == code and v['default'])
@@ -236,7 +238,7 @@ nav a{text-decoration:none;display:inline-flex;align-items:center;min-height:44p
 .rk-menu a.rk-faq{grid-column:1/-1;min-height:36px;margin-top:4px;font-size:14px;font-weight:600;color:var(--muted)}
 .rk-menu a.rk-all{margin-top:4px;font-size:14px;font-weight:600;text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:5px}
 /* homepage et pages globales : sur petit écran, le menu passe sous le logo */
-@media (max-width:639px){header.hdr-lang .wrap{height:auto;flex-wrap:wrap;row-gap:0;padding-top:8px;padding-bottom:4px}header.hdr-lang nav{width:100%;flex-wrap:wrap;justify-content:space-between;gap:0 10px}
+@media (max-width:899px){header.hdr-lang .wrap{height:auto;flex-wrap:wrap;row-gap:0;padding-top:8px;padding-bottom:4px}header.hdr-lang nav{width:100%;flex-wrap:wrap;justify-content:space-between;gap:0 10px}
   header.hdr-lang .langsw{position:absolute;top:8px;right:20px;min-height:44px}}
 @media (max-width:479px){header.hdr-lang nav{font-size:14px;gap:0 8px}}
 @media (max-width:359px){header nav{font-size:13px;gap:4px}.langsw{font-size:12px}}
@@ -376,7 +378,10 @@ a.sub-link:hover{color:var(--navy);text-decoration:underline;text-decoration-col
 }
 /* homepage, à partir de 1024 px : chaque phrase du titre tient sur une ligne, avec de la marge de chaque côté (~85 % de la largeur) */
 @media (min-width:1024px){.hero h1{font-size:clamp(40px,3.95vw,48px);max-width:none}}
-''' + FOOTER_CSS
+''' + FOOTER_CSS + search.SEARCH_CSS + '''header.hdr-lang .srch{margin-left:12px}header.hdr-lang nav{margin-left:auto}
+@media (max-width:899px){header.hdr-lang .srch{margin:0}header.hdr-lang .srch-b{position:absolute;top:8px;right:12px}
+  header.hdr-lang .langsw{right:60px}}
+'''
 
 JS = '''
 document.documentElement.classList.add('js');
@@ -464,7 +469,9 @@ page = f'''<!doctype html>
       <a href="/calendar/">Calendar</a>
       <a href="/invest.html">Invest</a>
       {backers_menu('en')}
+      <a href="/investors/">Investors</a>
     </nav>
+    {search.html()}
   </div>
 </header>
 
@@ -777,8 +784,10 @@ def global_page(key, lang, body, extra=''):
       <a href="/calendar/"{cur('calendar')}>{u['calendar']}</a>
       <a href="/{GLOBAL['invest'][lang]}"{cur('invest')}>{u['invest']}</a>
       {backers_menu(lang, key)}
+      <a href="/investors/">{'Investisseurs' if lang == 'fr' else 'Investors'}</a>
       {sw}
     </nav>
+    {search.html('/', lang)}
   </div>
 </header>
 
@@ -797,10 +806,6 @@ def global_page(key, lang, body, extra=''):
 # structuré « Champ : valeur » reçu sur contact@uback.com), 'mailto' (ouvre la messagerie du visiteur) ou 'netlify'
 # (formulaire natif). Réglage distinct de FORM_MODE (newsletter, en « soon ») : corrections et contact restent ouverts.
 CORRECTION_MODE = 'web3forms'
-WEB3FORMS_KEY = '92486651-e759-40da-b0dc-2da4fe75bc0a'   # clé publique Web3Forms (reçue sur contact@uback.com), faite pour être dans la page
-W3F_UI = {'en': dict(sending='Sending…', error='The message could not be sent. Please try again in a moment, or write to <a href="mailto:contact@uback.com">contact@uback.com</a>.'),
-          'fr': dict(sending='Envoi…', error='Le message n’a pas pu être envoyé. Réessayez dans un instant, ou écrivez-nous à <a href="mailto:contact@uback.com">contact@uback.com</a>.')}
-
 def form_attrs(name, lang, subject_fallback):
     """Attributs et champs cachés d'un formulaire selon CORRECTION_MODE. En 'web3forms', le script envoie en JSON
     (fetch) ; sans JavaScript, le formulaire est posté directement à Web3Forms, qui renvoie vers la page de remerciement."""
@@ -816,20 +821,6 @@ def form_attrs(name, lang, subject_fallback):
     return (f' action="{thanks}" data-netlify="true" netlify-honeypot="bot-field"{mailto}',
             f'<input type="hidden" name="form-name" value="{name}">\n  <p class="skip"><label>Ne pas remplir : <input name="bot-field"></label></p>')
 
-def w3f_js(lang):
-    """window.ubackSend(form, subject, body) : envoi JSON à Web3Forms, page de remerciement si succès, message sinon."""
-    u = W3F_UI[lang]
-    return ('<script>window.ubackSend=function(f,subject,body){'
-            'var b=f.querySelector("button[type=submit]"),t=b.textContent,err=f.querySelector(".form-err");'
-            'if(f.botcheck&&f.botcheck.checked)return;'
-            'b.disabled=true;b.textContent=' + json.dumps(u['sending']) + ';if(err)err.hidden=true;'
-            'fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},'
-            'body:JSON.stringify({access_key:f.access_key.value,from_name:"Uback.com",subject:subject,name:f.name.value.trim(),'
-            'email:f.email.value.trim(),replyto:f.email.value.trim(),message:body,botcheck:false})})'
-            '.then(function(r){return r.json();}).then(function(j){if(!j.success)throw new Error(j.message||"error");'
-            'window.location.href=f.redirect.value.replace("https://uback.com","");})'
-            '.catch(function(){b.disabled=false;b.textContent=t;if(!err){err=document.createElement("p");err.className="form-err";'
-            'err.setAttribute("role","alert");f.appendChild(err);}err.innerHTML=' + json.dumps(u['error']) + ';err.hidden=false;});};</script>\n')
 C_UI = {
  'fr': dict(h1='Demander une correction',
     intro='Signalez une information inexacte ou contestez un rang. Chaque demande reçoit une réponse motivée. Une société ne peut pas demander son retrait d’un classement (<a href="/fr/methode.html#correction">voir la méthode</a>).',

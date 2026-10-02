@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
 Sitemap: https://uback.com/sitemap.xml
+Sitemap: https://uback.com/sitemap-companies.xml
+Sitemap: https://uback.com/sitemap-investors.xml

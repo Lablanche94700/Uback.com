@@ -1,0 +1,382 @@
+Fiches société — rapport de tools/build_companies.py
+
+655 fiches · 432 indexées · 223 noindex · 0 nouveaux slugs
+
+== Fusions (une fiche, plusieurs classements)
+  apna ← Apna / apna (in:ranked, recruiting:ranked)
+  coindcx ← CoinDCX (in:ranked, crypto-exchanges:ranked)
+  coinswitch ← CoinSwitch (in:ranked, crypto-exchanges:radar)
+  darwinbox ← Darwinbox (in:born, talent-management:ranked)
+  docplanner ← Docplanner (pl:ranked, appointment-booking:ranked)
+  doctolib ← Doctolib (fr:ranked, appointment-booking:ranked)
+  fairmoney ← FairMoney (ng:ranked, consumer-neobanks:radar)
+  flutterwave ← Flutterwave (ng:ranked, online-payments-and-acquiring:ranked)
+  innovaccer ← Innovaccer (in:born, clinical-software:ranked)
+  juspay ← Juspay (in:ranked, online-payments-and-acquiring:ranked)
+  kuda ← Kuda (ng:ranked, consumer-neobanks:radar)
+  ledger ← Ledger (fr:ranked, cold-wallets:ranked)
+  lemfi ← LemFi (ng:born, cross-border-remittances:ranked)
+  momo ← MoMo / MoMo (M_Service) (vn:ranked, mobile-wallets:ranked)
+  moniepoint ← Moniepoint (ng:ranked, business-accounts:ranked)
+  opay ← OPay (ng:ranked, mobile-wallets:ranked)
+  palmpay ← PalmPay (ng:ranked, mobile-wallets:ranked)
+  payfit ← PayFit (fr:ranked, payroll:ranked)
+  phonepe ← PhonePe (in:ranked, mobile-wallets:ranked)
+  qonto ← Qonto (fr:ranked, business-accounts:ranked)
+  razorpay ← Razorpay (in:ranked, online-payments-and-acquiring:ranked)
+  slice ← slice / Slice (in:ranked, consumer-neobanks:radar)
+  toss ← Toss / Toss (Viva Republica) (kr:ranked, mobile-wallets:ranked)
+
+== Noms proches non fusionnés (à décider : data/companies/aliases.json)
+
+== Sociétés sans secteur (0)
+
+== Sociétés sans date de tour (0)
+
+== Sociétés sans source (121)
+  15Five
+  Afriex
+  Albert
+  Albo
+  Alex
+  Altibbi
+  Anything
+  Aplazo
+  Avo
+  Backpack
+  Baselane
+  Bayzat
+  Baz
+  Beacon Therapeutics
+  Bioptimus
+  Blockdaemon
+  Bluevine
+  Boltz
+  Borderless AI
+  CPTx
+  Carepatron
+  ChartHop
+  Check
+  Chefaa
+  Clearco
+  Cline
+  CoachHub
+  CodeAnt AI
+  Converge Bio
+  Cyclops
+  Cypherock
+  Djamo
+  Drug Farm
+  Dune
+  EigenLabs
+  Eka Care
+  Elliptic
+  Evidium
+  Figment
+  Flashbots
+  Found
+  Found
+  Frontier Health
+  Fuzu
+  Galux
+  Glints
+  Greenlight
+  HyperDev
+  Jack & Jill
+  Jupiter
+  Khazna
+  Klinik Pintar
+  Kushki
+  Latent Health
+  Latent Labs
+  Latitude
+  Leapsome
+  Leena AI
+  Lendio
+  Lili
+  Lunar
+  Lydia / Sumeria
+  Macroscope
+  Matter Labs (ZKsync)
+  Medadom
+  Medino
+  Mercado Bitcoin (MB)
+  Metaview
+  MindRank AI
+  Momentic
+  Monad Labs
+  NALA
+  Nansen
+  Niyo
+  NorthOne
+  Okadoc
+  Oladoc
+  Onramp
+  Ontop
+  Open
+  OpenHands
+  Paymob
+  Proxima (formerly VantAI)
+  QuickNode
+  R3
+  Rain
+  ReCode Therapeutics
+  Relace
+  Relay
+  Remofirst
+  Rho
+  Rork
+  SafePal
+  Salsa
+  Satispay
+  Slash
+  SonoThera
+  Sprout Solutions
+  Stable
+  Taptap Send
+  Teamtailor
+  Telda
+  Thirdweb
+  Timo
+  Toku
+  Tonik
+  TransferGo
+  Triomics
+  TrueMoney (Ascend Money)
+  VALR
+  Velocity
+  Viva Wallet
+  Vivid Money
+  Vyriad
+  Workpay
+  XFX
+  YAP
+  Yuno
+  Zed
+  nChroma Bio
+  voize
+
+== Noindex (Radar ou Born here sous le seuil : un tour daté, deux sources, un secteur)
+  15Five · 0 source(s)
+  Afriex · 0 source(s)
+  Airbound · 1 source(s)
+  Albert · 0 source(s)
+  Albo · 0 source(s)
+  Alex · 0 source(s)
+  Alta Ares · 1 source(s)
+  Altibbi · 0 source(s)
+  Alya · 1 source(s)
+  Andela · 1 source(s)
+  Anything · 0 source(s)
+  Aplazo · 0 source(s)
+  Arnergy · 1 source(s)
+  Arya.ag · 1 source(s)
+  ATAREC · 1 source(s)
+  Avo · 0 source(s)
+  Backpack · 0 source(s)
+  Bamboo · 1 source(s)
+  Baselane · 0 source(s)
+  Bayzat · 0 source(s)
+  Baz · 0 source(s)
+  Beacon Therapeutics · 0 source(s)
+  Biolevate · 1 source(s)
+  Bioptimus · 0 source(s)
+  BLANK. Game Studios · 1 source(s)
+  Blockdaemon · 0 source(s)
+  Bluevine · 0 source(s)
+  Boltz · 0 source(s)
+  Borderless AI · 0 source(s)
+  Bumpa · 1 source(s)
+  BUSINESSNEXT · 1 source(s)
+  CampusAI · 1 source(s)
+  Carepatron · 0 source(s)
+  CARPL.ai · 1 source(s)
+  Chargebee · 1 source(s)
+  Charikaty · 1 source(s)
+  ChartHop · 0 source(s)
+  Check · 0 source(s)
+  Chefaa · 0 source(s)
+  Clearco · 0 source(s)
+  Cline · 0 source(s)
+  CoachHub · 0 source(s)
+  CodeAnt AI · 0 source(s)
+  Converge Bio · 0 source(s)
+  Cowrywise · 1 source(s)
+  CPTx · 0 source(s)
+  Cyclops · 0 source(s)
+  Cypherock · 0 source(s)
+  Dataiku · 1 source(s)
+  Deepecho · 1 source(s)
+  Djamo · 0 source(s)
+  Doctornow · 1 source(s)
+  Drug Farm · 0 source(s)
+  Dune · 0 source(s)
+  Duplo · 1 source(s)
+  Dust · 1 source(s)
+  EcoTruck · 1 source(s)
+  EigenLabs · 0 source(s)
+  Eka Care · 0 source(s)
+  ElevenLabs · 1 source(s)
+  Elliptic · 0 source(s)
+  ELSA · 1 source(s)
+  Enlighten · 1 source(s)
+  Ephyra / GameBeast · 1 source(s)
+  Evidium · 0 source(s)
+  Figment · 0 source(s)
+  Flashbots · 0 source(s)
+  Found · 0 source(s)
+  Found · 0 source(s)
+  Frontier Health · 0 source(s)
+  Fudo Security · 1 source(s)
+  Fuzu · 0 source(s)
+  Galaxy Education · 1 source(s)
+  Galux · 0 source(s)
+  GIMO · 1 source(s)
+  Glints · 0 source(s)
+  Greenlight · 0 source(s)
+  Homebase · 1 source(s)
+  Hugging Face · 1 source(s)
+  HyperDev · 0 source(s)
+  Inbolt · 1 source(s)
+  Ingenix.ai · 1 source(s)
+  INOCRAS · 1 source(s)
+  InRisk Labs · 1 source(s)
+  Inyad · 1 source(s)
+  Jack & Jill · 0 source(s)
+  Jupiter · 0 source(s)
+  Khazna · 0 source(s)
+  Klinik Pintar · 0 source(s)
+  Konta · 1 source(s)
+  Kontakt.io · 1 source(s)
+  Koolboks · 1 source(s)
+  Koolskools · 1 source(s)
+  Kushki · 0 source(s)
+  Kyna English · 1 source(s)
+  Lago · 1 source(s)
+  Latent Health · 0 source(s)
+  Latent Labs · 0 source(s)
+  Latitude · 0 source(s)
+  Leapsome · 0 source(s)
+  Leena AI · 0 source(s)
+  Lendio · 0 source(s)
+  Lili · 0 source(s)
+  LinqAlpha · 1 source(s)
+  Lucis · 1 source(s)
+  Lunar · 0 source(s)
+  Lydia / Sumeria · 0 source(s)
+  Macroscope · 0 source(s)
+  Manabie · 1 source(s)
+  Mantle8 · 1 source(s)
+  Matter Labs (ZKsync) · 0 source(s)
+  Medadom · 0 source(s)
+  Medino · 0 source(s)
+  Mercado Bitcoin (MB) · 0 source(s)
+  Metaview · 0 source(s)
+  MindRank AI · 0 source(s)
+  Moloco · 1 source(s)
+  Momentic · 0 source(s)
+  Monad Labs · 0 source(s)
+  Moove · 1 source(s)
+  Naboo · 1 source(s)
+  NALA · 0 source(s)
+  Nansen · 0 source(s)
+  nChroma Bio · 0 source(s)
+  Niyo · 0 source(s)
+  NorthOne · 0 source(s)
+  Nua · 1 source(s)
+  OfBusiness · 1 source(s)
+  Okadoc · 0 source(s)
+  Oladoc · 0 source(s)
+  Onramp · 0 source(s)
+  Ontop · 0 source(s)
+  Open · 0 source(s)
+  OpenHands · 0 source(s)
+  Orbotix Industries · 1 source(s)
+  Orochi Network · 1 source(s)
+  Paga · 1 source(s)
+  Pathway · 1 source(s)
+  Paymob · 0 source(s)
+  Pivot · 1 source(s)
+  Pixxel · 1 source(s)
+  Point2 Technology · 1 source(s)
+  Postman · 1 source(s)
+  Proxima (formerly VantAI) · 0 source(s)
+  Qevlar AI · 1 source(s)
+  QNu Labs · 1 source(s)
+  QuickNode · 0 source(s)
+  Quobly · 1 source(s)
+  R3 · 0 source(s)
+  Raenest · 1 source(s)
+  Raghu Vamsi Aerospace · 1 source(s)
+  Rain · 0 source(s)
+  ReCode Therapeutics · 0 source(s)
+  Relace · 0 source(s)
+  Relay · 0 source(s)
+  Releaf · 1 source(s)
+  Remofirst · 0 source(s)
+  RemotePass · 1 source(s)
+  Rho · 0 source(s)
+  River · 1 source(s)
+  Rocketlane · 1 source(s)
+  Rork · 0 source(s)
+  SafePal · 0 source(s)
+  Salsa · 0 source(s)
+  Sand to Green · 1 source(s)
+  Satispay · 0 source(s)
+  Seamless Technologies · 1 source(s)
+  Sendbird · 1 source(s)
+  Shuttlers · 1 source(s)
+  Silent Eight · 1 source(s)
+  SKY ENGINE AI · 1 source(s)
+  Sky Mavis · 1 source(s)
+  Slash · 0 source(s)
+  SmartPay · 1 source(s)
+  SonoThera · 0 source(s)
+  SOWIT · 1 source(s)
+  Sprout Solutions · 0 source(s)
+  SR Robotics · 1 source(s)
+  Stable · 0 source(s)
+  Stride · 1 source(s)
+  Swish · 1 source(s)
+  Sybilla Technologies · 1 source(s)
+  Symmetrical.ai · 1 source(s)
+  Syntetica · 1 source(s)
+  Talaty · 1 source(s)
+  Taptap Send · 0 source(s)
+  Teamtailor · 0 source(s)
+  Telda · 0 source(s)
+  Termii · 1 source(s)
+  The Exploration Company · 1 source(s)
+  Thirdweb · 0 source(s)
+  Timo · 0 source(s)
+  Toku · 0 source(s)
+  Tonik · 0 source(s)
+  Tookeez · 1 source(s)
+  ToumAI Analytics · 1 source(s)
+  TransferGo · 0 source(s)
+  Triomics · 0 source(s)
+  TrueMoney (Ascend Money) · 0 source(s)
+  Twelve Labs · 1 source(s)
+  uLesson · 1 source(s)
+  Ultrahuman · 1 source(s)
+  Ultraviolette · 1 source(s)
+  Uniphore · 1 source(s)
+  Univity · 1 source(s)
+  VALR · 0 source(s)
+  Velocity · 0 source(s)
+  Viva Wallet · 0 source(s)
+  Vivid Money · 0 source(s)
+  voize · 0 source(s)
+  VOVE ID · 1 source(s)
+  Vyriad · 0 source(s)
+  Wealthcome · 1 source(s)
+  Wealthon · 1 source(s)
+  Weego · 1 source(s)
+  Workpay · 0 source(s)
+  XFX · 0 source(s)
+  Xpressbees · 1 source(s)
+  YAP · 0 source(s)
+  Yulu · 1 source(s)
+  Yuno · 0 source(s)
+  Zed · 0 source(s)
+  Zowie · 1 source(s)

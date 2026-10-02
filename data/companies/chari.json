@@ -1,0 +1,50 @@
+{
+ "one_liner": "B2B commerce and payments for neighbourhood grocery stores.",
+ "website": "chari.ma",
+ "founded": 2020,
+ "countries": {
+  "origin": "MA",
+  "operations": [
+   "MA",
+   "TN",
+   "CI"
+  ],
+  "legal_seat": "MA",
+  "investable_entity": "Chari Group"
+ },
+ "status": "active",
+ "rounds": [
+  {
+   "date": "2025-10",
+   "label": "Series A",
+   "amount_usd": 12000000,
+   "amount_label": "USD 12M",
+   "kind": "equity",
+   "investors": [
+    "SPE Capital",
+    "Orange Ventures",
+    "Verod-Kepple Africa Ventures",
+    "Global Founders Capital",
+    "Plug and Play",
+    "Endeavor Catalyst",
+    "Pincus Capital",
+    "Al Khwarizmi Ventures",
+    "UM6P Ventures"
+   ],
+   "sources": [
+    "https://disruptafrica.com/2025/10/16/moroccan-b2b-e-commerce-startup-chari-closes-12m-series-a-round/",
+    "https://www.ecofinagency.com/news-finances/1710-49644-in-moroccan-first-fintech-chari-closes-a-record-12-million-series-a-round"
+   ]
+  },
+  {
+   "date": "2022-01",
+   "label": "Bridge round",
+   "kind": "equity",
+   "investors": [],
+   "sources": [
+    "https://techcrunch.com/2022/01/20/moroccos-chari-valued-at-100m-in-bridge-round-as-it-looks-to-pilot-bnpl-services/"
+   ]
+  }
+ ],
+ "sources": []
+}

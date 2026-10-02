@@ -25,6 +25,24 @@ correction.html, fr/correction.html ← formulaire de correction global (CORRECT
                           contact@uback.com ; 'mailto' → messagerie du visiteur ; 'netlify' → formulaire natif) ;
                           préremplissable : ?company=…&country=ma
 thank-you.html, fr/merci.html ← confirmation du formulaire de correction (noindex)
+company/<slug>/         ← fiches société (une par société citée dans un classement pays ou segment, au classement, au Radar ou
+                          « Born here »), générées par tools/build_companies.py : ne pas modifier à la main
+investor/<slug>/        ← pages investisseur (à partir de 2 sociétés suivies, indexées à partir de 3), même générateur
+investors/              ← annuaire des investisseurs (par pays, puis alphabétique), même générateur
+profile-form.html       ← formulaire unique des fiches (Web3Forms, champ « type » : claim, upcoming_round, shareholder_sale,
+                          suggest_source, analysis, fund_partial_exit, investor_claim, missing_deal), noindex
+sitemap-companies.xml, sitemap-investors.xml ← fiches et pages investisseur INDEXÉES seulement (même générateur) ;
+                          sitemap.xml reste manuel ; les trois sont déclarés dans robots.txt
+assets/search-index.json, assets/search.js ← recherche « Search a startup or investor » de l'en-tête (index écrit par
+                          build_companies.py ; script et CSS dans tools/search.py)
+assets/profile.css      ← styles des fiches et pages investisseur (écrits par build_companies.py)
+data/companies/         ← slugs.json (table FIGÉE des slugs : générée, relue à chaque passage, on n'y retire jamais une ligne),
+                          aliases.json (fusions et homonymes : « Nom » fusionne partout, « Nom@<code pays ou segment> » ne vise
+                          que ce classement), <slug>.json (enrichissement facultatif : one_liner, website, countries, rounds…)
+data/investors.json     ← normalisation des investisseurs (slug, name, aliases, type, hq, website) ; type « individual » :
+                          jamais de page (données personnelles)
+data/connectors.json    ← connecteurs lus par l'IA, par pays (ex. FR : Pappers, planned) : bloc « What the AI reads »
+data/analyses/<slug>.json ← analyses indépendantes publiées (auteur, fonction, angle, titre, PDF, résumé, conflit d'intérêts)
 login.html, fr/connexion.html ← espace Backer (menu « Backers » de l'en-tête) : maquette inactive, « Coming soon » (noindex)
 terms.html, fr/conditions.html ← conditions générales : « Under construction » (noindex)
 partner.html, fr/partenaire.html ← page partenaire UNIQUE (règle n° 1 : partenaires locaux, un par pays, chacun avec un ou
@@ -83,10 +101,25 @@ tools/valuation.py      ← valorisation estimée : estimation centrale (fixe le
 tools/fonts.py          ← police Inter HÉBERGÉE sur le site (assets/fonts/, licence OFL) : plus d'appel à Google Fonts ;
                           @font-face en ligne (homepage) et recopié en tête de ma/assets/style.css par build_site.py
 tools/geo.py            ← lecture commune de data/geo.json et data/calendar.json (zones, pays, prochaine date d'un classement)
+tools/companies.py      ← lecture commune des sociétés et investisseurs de tous les classements (fusion, slugs, liens) : les
+                          pages pays, segment et zone l'utilisent pour rendre les noms cliquables
+tools/build_companies.py ← fiches société, pages investisseur, annuaire, formulaire des fiches, index de recherche, sitemaps ;
+                          rapports tools/reports/companies.txt et investors.txt ; échoue si un contrôle échoue (champ interne
+                          affiché, tranche ≠ page de classement, crochet de texte d'attente, slug publié modifié, sitemap
+                          incohérent). SEULE EXCEPTION à « aucun générateur ne supprime de fichier » : il reconstruit
+                          intégralement company/ et investor/ à chaque passage (une société sortie des données n'a plus de page)
+tools/forms.py          ← clé Web3Forms et script d'envoi, communs à build_home.py et build_companies.py
+tools/search.py         ← recherche de l'en-tête (HTML, CSS recopiée dans ma/assets/style.css, script assets/search.js)
 ```
 
-Ordre de génération complet : `build_calendar.py`, `build_site.py`, `build_segments.py`, `build_regions.py`, puis
-`build_home.py` (tous dans `tools/`, Python 3 standard).
+Ordre de génération complet : `build_calendar.py`, `build_site.py`, `build_segments.py`, `build_companies.py`,
+`build_regions.py`, puis `build_home.py` (tous dans `tools/`, Python 3 standard ; même ordre dans la régénération
+quotidienne `.github/workflows/daily-rebuild.yml`).
+
+**Fiches société.** Indexée si la société est classée (pays ou segment) ; sinon (Radar, Born here) indexée seulement avec un
+tour daté, au moins deux URL de sources distinctes et un secteur ; en dessous : `noindex,follow`, page créée, cliquable,
+trouvable par la recherche, absente du sitemap. Pas de fiche pour `hors_classement` ni `reperes_cotes`. La fiche affiche
+exactement la valorisation de la page de classement (estimation arrondie, fourchette, tranche), jamais les champs internes.
 
 **Ajouter un pays = passer son statut à `live` dans `data/geo.json`** (et renseigner son `url`), une fois sa première
 édition prête : créer `<code>/data/classement-<code>-AAAA-MM.json` (mêmes clés que le Maroc), l'ajouter à `MARKETS` dans

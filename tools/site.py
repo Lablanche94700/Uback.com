@@ -9,6 +9,8 @@ import valuation
 from footer import footer
 from analytics import HEAD as GA_HEAD
 from fonts import PRELOAD as _PRELOAD
+import search
+import companies
 PRELOAD = _PRELOAD.replace('href="/assets/', 'href="@ROOT@assets/')   # police : à la racine du site, pas dans les assets du marché
 from build_site import format_date_short
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # racine du dépôt = dossier publié
@@ -81,7 +83,7 @@ TXT = {
   beta_b='Bêta · prototype', beta_t='Ce site est en construction : classements, textes et fonctionnalités évoluent chaque semaine.',
   p_method='methode.html', p_partner='partenaire.html', p_legal='mentions-legales.html', p_thanks='merci.html',
   id_rank='classement', id_sect='secteurs', id_follow='suivre', id_born='nees-ici', id_after='apres',
-  nav_rank='Classement', nav_sect='Secteurs', nav_partner='Partenaire', nav_invest='Investir', nav_method='Méthode',
+  nav_rank='Classement', nav_sect='Secteurs', nav_partner='Partenaire', nav_invest='Investir', nav_investors='Investisseurs', nav_method='Méthode',
   soon='Bientôt disponible', follow='Suivre {the}', declare='Déclarer un intérêt', hero_cta='Déclarer un intérêt pour {startups}',
   f_method='Méthode et règles du jeu', f_partner='Devenir partenaire', f_corr='Demander une correction', f_legal='Mentions légales',
   f_disc='Uback est un éditeur de contenu. Il ne fournit aucun conseil en investissement, ne reçoit aucun mandat et n’intervient dans aucune transaction. Les mises en relation sont réalisées par un partenaire local, en cours de sélection {in_}. Investir dans des sociétés non cotées comporte un risque de perte totale du capital investi.',
@@ -161,7 +163,7 @@ TXT = {
   beta_b='Beta · prototype', beta_t='This site is under construction: rankings, texts and features change every week.',
   p_method='method.html', p_partner='partner.html', p_legal='legal-notice.html', p_thanks='thank-you.html',
   id_rank='ranking', id_sect='sectors', id_follow='follow', id_born='born-here', id_after='after',
-  nav_rank='Ranking', nav_sect='Sectors', nav_partner='Partner', nav_invest='Invest', nav_method='Method',
+  nav_rank='Ranking', nav_sect='Sectors', nav_partner='Partner', nav_invest='Invest', nav_investors='Investors', nav_method='Method',
   soon='Coming soon', follow='Follow {the}', declare='Declare an interest', hero_cta='Declare an interest in {startups}',
   f_method='Method and rules', f_partner='Become a partner', f_corr='Request a correction', f_legal='Legal notice',
   f_disc='Uback is a content publisher. It provides no investment advice, receives no mandate and takes part in no transaction. Introductions are made by a local partner, currently being selected {in_}. Investing in non-listed companies carries a risk of losing all the capital invested.',
@@ -311,7 +313,7 @@ def head(title, desc, path, extra=''):
 <body>
 <a class="skip" href="#main">{L['skip']}</a>
 <div class="beta"><div class="wrap"><b>{L['beta_b']}</b><span class="beta-t">— {L['beta_t']}</span></div></div>
-<header class="hdr">
+<header class="hdr hdr-c">
   <div class="wrap">
     <a class="brand" href="@ROOT@" aria-label="{L['home_aria']}"><span class="u">U</span>Uback</a>
     {M['switcher']}
@@ -324,9 +326,11 @@ def head(title, desc, path, extra=''):
       <a href="{GM}">{L['nav_method']}</a>
       <a href="/#backers">Backers</a>
       <a href="{GI}">{L['nav_invest']}</a>
+      <a href="@ROOT@investors/">{L['nav_investors']}</a>
       <a href="{PARTNER}">{L['nav_partner']}</a>
     </nav>
     <span class="spacer"></span>
+    {search.html('@ROOT@', M['lang'])}
     <span class="langs">{langs}</span>
     <a class="btn" href="/#{L['id_follow']}">{L['follow']}</a>
     <a class="btn gold" href="{POOL}">{L['declare']}</a>
@@ -410,9 +414,9 @@ def row(c):
     report = f'<a class="report" href="{GC}?company={quote(c["nom"])}&amp;country={M["code"]}">{L["report"]}</a>'
     return f'''<tr{top}>
 <td class="rank">{c['rang']}</td>
-<td><span class="co">{e(c['nom'])}<small>{e(c['ville'])} · {L['founded']} {c['creation']}</small></span>{jur}{note}{report}</td>
+<td><span class="co">{companies.link_company(c['nom'], M['code'], root='@ROOT@')}<small>{e(c['ville'])} · {L['founded']} {c['creation']}</small></span>{jur}{note}{report}</td>
 <td data-l="{L['l_sub']}">{e(c['sous_secteur'])}</td>
-<td data-l="{L['l_fund']}">{e(c['leve_cumule'])}{L['raised']}<br><span class="src">{e(c['derniere_levee'])} · {src(c['source'])}</span></td>
+<td data-l="{L['l_fund']}">{e(c['leve_cumule'])}{L['raised']}<br><span class="src">{companies.link_investors(e(c['derniere_levee']), root='@ROOT@')} · {src(c['source'])}</span></td>
 <td data-l="{L['l_val']}">{val(c)}</td>
 <td data-l="{L['l_conf']}">{conf(c['confiance'])}</td>
 {f'<td class="act">{invest(c)}</td>' if SHOW_INV else ''}
@@ -420,9 +424,12 @@ def row(c):
 
 SHOW_INV = any(invest(c) for c in RANKED)
 
-def li(r, sub=None):
+def li(r, sub=None, page=True):
+    """Ligne du Radar ou des « Born here » : le nom mène à la fiche société (page=False : pas de fiche, ex. nées ailleurs)."""
     extra = f'<br><span class="src">{e(r[sub])}</span>' if sub else ''
-    return f'<li><span><b>{e(r["nom"])}</b> · {e(r["sous_secteur"])}{extra}</span><span>{e(r["derniere_levee"])} · {src(r["source"])}</span></li>'
+    name = companies.link_company(r['nom'], M['code'], root='@ROOT@') if page else e(r['nom'])
+    return (f'<li><span><b>{name}</b> · {e(r["sous_secteur"])}{extra}</span>'
+            f'<span>{companies.link_investors(e(r["derniere_levee"]), root="@ROOT@")} · {src(r["source"])}</span></li>')
 
 jsonld = {
   "@context": "https://schema.org", "@type": "ItemList",
@@ -437,7 +444,7 @@ BASED = f'''
         <h3 style="margin-top:22px">{L['based_h']}</h3>
         <p>{L['based_p']}</p>
         <ul class="list">
-        {''.join(li(r, 'lieu') for r in D['nees_ailleurs'])}
+        {''.join(li(r, 'lieu', page=False) for r in D['nees_ailleurs'])}
         </ul>''' if D.get('nees_ailleurs') else ''
 
 index = head(L['title'], L['desc'], "/", f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>')
