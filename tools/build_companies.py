@@ -829,7 +829,7 @@ def build_investor(inv, models, investors):
     <aside class="pf-side">
       <section class="card pf-card">
         <h2 class="sm">Do you manage this fund?</h2>
-        <p class="pf-p">Claim this page to complete your portfolio, add your thesis and report new deals. Claiming never changes any rank.</p>
+        <p class="pf-p">Claim this page to complete your portfolio, add your thesis and report new deals.</p>
         <a class="btn navy" href="{form_url('investor_claim', investor=name)}">Claim this page</a>
       </section>
       <section class="card pf-card">
