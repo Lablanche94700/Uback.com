@@ -28,7 +28,7 @@
   "description": "Uback ranks the world's non-listed second-hand and resale companies by AI-estimated valuation: Vinted, Karrot, Carousell, Vestiaire Collective, GOAT, StockX and more. Edition 0 (beta).",
   "h1": "The world’s most valuable second-hand startups",
   "intro": "Second-hand and resale marketplaces (peer-to-peer, fashion, luxury, sneakers, collectibles, vintage) and resale technology for brands. Ranked worldwide by AI-estimated valuation. The market sets the value; our AI estimates it.",
-  "not_in_segment": "Refurbished electronics have their own segment (Back Market); used cars belong to Mobility; live shopping (Whatnot) to General marketplaces. Chinese platforms are never ranked. Companies owned by a group or by private equity are not ranked: Depop (eBay, 2026), Poshmark, Wallapop, Kream and SNKRDUNK (Naver), Grailed (GOAT), Sellpy (H&M), Repassa (Renner), Bunjang, Collectors, Leboncoin (Adevinta). Listed companies serve as benchmarks below. A company appears in one segment only.",
+  "not_in_segment": "Refurbished electronics have their own segment (Back Market); used cars belong to Mobility; live shopping (Whatnot) to General marketplaces. Chinese platforms are never ranked. Not eligible because entirely bought or created by their group: Depop (eBay, 2026), Poshmark and Wallapop (Naver), Kream (created by Naver), Grailed (GOAT), Repassa (Renner), Collectors (taken private in 2021), Leboncoin (created by Schibsted, now Adevinta). Listed companies serve as benchmarks below. A company appears in one segment only.",
   "activity": "second-hand and resale marketplaces and resale technology",
   "og_title": "The world’s most valuable<br>second-hand startups",
   "sources": "Vinted, The Next Web, Seoul Economic Daily, TechNode Global, Fashion Network, PR Newswire, Fortune, BusinessWire, TechCrunch, Tech.eu, The Fashion Law, company announcements."
@@ -465,6 +465,45 @@
   },
   {
    "rank": 13,
+   "name": "Bunjang",
+   "country": "South Korea",
+   "country_code": "KR",
+   "region": "asia-pacific",
+   "tranche": "hundreds_m",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2024-07",
+    "amount_usd": 29000000.0,
+    "amount_label": "KRW 40bn",
+    "type": "Series E",
+    "investors": "Hana Alternative Investment; Praxis Capital Partners (largest shareholder, 44%)"
+   },
+   "published_valuation": {
+    "value_usd": 362000000.0,
+    "date": "2024-07",
+    "label": "KRW 500bn (Series E)"
+   },
+   "estimate_usd": 149755356.0,
+   "note_internal": "Korean second-hand marketplace (fashion, collectibles). Praxis is running a sale of its 44% stake in 2026. Basis: Series E of USD 29M (Jul 2024); published valuation of USD 362M (Jul 2024), over 24 months old.",
+   "kpis": {
+    "revenue": {
+     "value_text": "KRW 44.9bn; operating loss KRW 19.6bn",
+     "period": "FY2024",
+     "source": "https://www.aseanexpress.co.kr/news/article.html?no=11941"
+    },
+    "customers": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://zdnet.co.kr/view/?no=20240711090103",
+    "https://marketin.edaily.co.kr/News/Read?newsId=01558006645348224"
+   ]
+  },
+  {
+   "rank": 14,
    "name": "Tilt",
    "country": "United Kingdom",
    "country_code": "GB",
@@ -498,7 +537,7 @@
    ]
   },
   {
-   "rank": 14,
+   "rank": 15,
    "name": "Fleek",
    "country": "United Kingdom",
    "country_code": "GB",
@@ -530,42 +569,20 @@
     "https://fortune.com/2026/07/08/fleek-an-online-marketplace-connecting-vintage-clothing-wholesalers-and-retailers-raises-25-million-in-new-funding/",
     "https://tech.eu/2026/07/08/fleek-secures-25m-to-digitise-secondhand-fashion/"
    ]
-  },
+  }
+ ],
+ "radar": [
   {
-   "rank": 15,
    "name": "Croissant",
    "country": "United States",
    "country_code": "US",
    "region": "north-america",
-   "tranche": "tens_m",
-   "confidence": "low",
    "last_equity_round": {
     "date": "2026-02",
     "amount_usd": 14000000.0,
-    "type": "Equity (with USD 14M of debt)",
-    "investors": "Portage Ventures, Third Prime"
-   },
-   "published_valuation": null,
-   "estimate_usd": 72295689.0,
-   "note_internal": "Buyback and resale for retailers. Basis: Equity (with USD 14M of debt) of USD 14M (Feb 2026); single source.",
-   "kpis": {
-    "revenue": {
-     "value_text": "GMV above USD 50M",
-     "period": "2026",
-     "source": "https://www.businesswire.com/news/home/20260225131928/en/Croissant-Raises-$28-Million-to-Scale-Intentional-Commerce"
-    },
-    "customers": {
-     "value_text": "100,000+ users",
-     "period": "2026",
-     "source": "https://www.businesswire.com/news/home/20260225131928/en/Croissant-Raises-$28-Million-to-Scale-Intentional-Commerce"
-    }
-   },
-   "sources": [
-    "https://www.businesswire.com/news/home/20260225131928/en/Croissant-Raises-$28-Million-to-Scale-Intentional-Commerce"
-   ]
-  }
- ],
- "radar": [
+    "type": "Equity (with USD 14M of debt)"
+   }
+  },
   {
    "name": "Charan",
    "country": "South Korea",
@@ -575,6 +592,29 @@
     "date": "2025-09",
     "amount_usd": 12100000.0,
     "type": "Series B"
+   }
+  },
+  {
+   "name": "SNKRDUNK",
+   "country": "Japan",
+   "country_code": "JP",
+   "region": "asia-pacific",
+   "last_equity_round": {
+    "date": "2023-12",
+    "amount_usd": null,
+    "type": "Stake taken by KREAM (Naver group), which now controls it; VC minorities remain"
+   }
+  },
+  {
+   "name": "Sellpy",
+   "country": "Sweden",
+   "country_code": "SE",
+   "region": "europe",
+   "last_equity_round": {
+    "date": "2026-03",
+    "amount_usd": 6000000.0,
+    "type": "New share issue (H&M, which controls it)",
+    "amount_label": "SEK 65M"
    }
   },
   {

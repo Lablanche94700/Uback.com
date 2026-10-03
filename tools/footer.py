@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Pied de page unique de tout le site : homepage et pages globales (tools/build_home.py), pages pays (tools/site.py),
 pages segment, famille et zone (tools/build_segments.py, tools/build_regions.py).
-Colonnes : marque (phrase + Contact us), Rankings, How it works (Method, Calendar, Request a correction, FAQ, qui se
+Colonnes : marque (phrase + Contact us), Rankings, How it works (Method, Eligibility criteria, Calendar, Request a correction, FAQ, qui se
 suivent), Backers (Invest with Uback, Terms and conditions), Local partners (Become a partner) ; barre basse : ©, mentions légales, avertissement. Styles : FOOTER_CSS, recopié dans
 ma/assets/style.css entre deux marqueurs par sync_css() (appelé par tools/build_site.py), et intégré à la CSS en ligne
 des pages de tools/build_home.py : une seule source."""
@@ -10,21 +10,21 @@ import os, datetime
 T = {
  'en': dict(tag='Reverse dealflow. Group buying for startup equity.', contact='Contact us',
             rk='Rankings', sec='By sector', cty='By country', col='Collections',
-            how='How it works', method='Method', cal='Calendar', corr='Request a correction', faq='FAQ',
+            how='How it works', method='Method', elig='Eligibility criteria', cal='Calendar', corr='Request a correction', faq='FAQ',
             back='Backers', invest='Invest with Uback', terms='Terms and conditions', lp='Local partners', partner='Become a partner', legal='Legal notice', aria='Footer',
             disc='Uback is a content publisher. It provides no investment advice, receives no mandate and takes part in no transaction. '
                  'Introductions are made by local partners, currently being selected. Investing in non-listed companies carries a risk '
                  'of losing all the capital invested.',
-            urls=dict(method='method.html', corr='correction.html', faq='faq/', invest='invest.html', legal='legal-notice.html',
+            urls=dict(method='method.html', elig='eligibility.html', corr='correction.html', faq='faq/', invest='invest.html', legal='legal-notice.html',
                       contact='contact.html', partner='partner.html', terms='terms.html')),
  'fr': dict(tag='Le dealflow inversé. L’achat groupé de parts de startups.', contact='Nous contacter',
             rk='Classements', sec='Par secteur', cty='Par pays', col='Collections',
-            how='Comment ça marche', method='Méthode', cal='Calendrier', corr='Demander une correction', faq='FAQ',
+            how='Comment ça marche', method='Méthode', elig='Critères d’éligibilité', cal='Calendrier', corr='Demander une correction', faq='FAQ',
             back='Backers', invest='Investir avec Uback', terms='Conditions générales', lp='Partenaires locaux', partner='Devenir partenaire', legal='Mentions légales', aria='Pied de page',
             disc='Uback est un éditeur de contenu. Il ne fournit aucun conseil en investissement, ne reçoit aucun mandat et n’intervient '
                  'dans aucune transaction. Les mises en relation sont réalisées par des partenaires locaux, en cours de sélection. '
                  'Investir dans des sociétés non cotées comporte un risque de perte totale du capital investi.',
-            urls=dict(method='fr/methode.html', corr='fr/correction.html', faq='fr/faq/', invest='fr/investir.html',
+            urls=dict(method='fr/methode.html', elig='fr/eligibilite.html', corr='fr/correction.html', faq='fr/faq/', invest='fr/investir.html',
                       legal='mentions-legales.html', contact='fr/contact.html', partner='fr/partenaire.html', terms='fr/conditions.html')),
 }
 
@@ -37,7 +37,7 @@ def footer(lang='en', root='/', country=None, disc=None):
     link = lambda href, label: f'<a href="{href}">{label}</a>'
     cols = [
         (t['rk'], [link(root + '#sectors', t['sec']), link(root + '#countries', t['cty']), link(root + '#collections', t['col'])]),
-        (t['how'], [link(u['method'], t['method']), link(root + 'calendar/', t['cal']), link(u['corr'], t['corr']), link(u['faq'], t['faq'])]),
+        (t['how'], [link(u['method'], t['method']), link(u['elig'], t['elig']), link(root + 'calendar/', t['cal']), link(u['corr'], t['corr']), link(u['faq'], t['faq'])]),
         (t['back'], [link(u['invest'], t['invest']), link(u['terms'], t['terms'])]),
         (t['lp'], [link(u['partner'] + ('?country=' + country if country else ''), t['partner'])]),
     ]

@@ -88,7 +88,7 @@ TXT = {
   f_method='Méthode et règles du jeu', f_partner='Devenir partenaire', f_corr='Demander une correction', f_legal='Mentions légales',
   f_disc='Uback est un éditeur de contenu. Il ne fournit aucun conseil en investissement, ne reçoit aucun mandat et n’intervient dans aucune transaction. Les mises en relation sont réalisées par un partenaire local, en cours de sélection {in_}. Investir dans des sociétés non cotées comporte un risque de perte totale du capital investi.',
   conf3='Sources solides', conf2='Sources partielles', conf1='Sources faibles',
-  founded='fondée en', l_sub='Sous-secteur', l_fund='Levées', l_conf='Confiance', raised=' cumulés',
+  founded='fondée en', ctrl='Contrôlée par', l_sub='Sous-secteur', l_fund='Levées', l_conf='Confiance', raised=' cumulés',
   declare_cell='Déclarer une intention', b_levee='Levée prévue', b_cession='Cession d’actionnaire',
   n_levee='La société a informé Uback qu’elle prévoit de lever prochainement.', n_cession='Un actionnaire a informé Uback qu’il envisage de céder.', b_suivie='Suivie par {{p}}', exit='Sortie', exit_by='Sortie – {{a}}',
   ld_name='Les {N} startups {adj_fp} les mieux valorisées – {date}',
@@ -168,7 +168,7 @@ TXT = {
   f_method='Method and rules', f_partner='Become a partner', f_corr='Request a correction', f_legal='Legal notice',
   f_disc='Uback is a content publisher. It provides no investment advice, receives no mandate and takes part in no transaction. Introductions are made by a local partner, currently being selected {in_}. Investing in non-listed companies carries a risk of losing all the capital invested.',
   conf3='Solid sources', conf2='Partial sources', conf1='Weak sources',
-  founded='founded', l_sub='Sub-sector', l_fund='Funding', l_conf='Confidence', raised=' raised',
+  founded='founded', ctrl='Controlled by', l_sub='Sub-sector', l_fund='Funding', l_conf='Confidence', raised=' raised',
   declare_cell='Declare an intent', b_levee='Raising soon', b_cession='Shareholder selling',
   n_levee='The company has told Uback it plans to raise funds soon.', n_cession='A shareholder has told Uback they are considering a sale.', b_suivie='Followed by {{p}}', exit='Exit', exit_by='Exit – {{a}}',
   ld_name='{name}’s top {N} funded startups – {date}',
@@ -390,6 +390,8 @@ def row(c):
     jur = ''
     if c.get('juridiction') and (not c['juridiction'].startswith(M['name']) or ';' in c['juridiction']):
         jur = f'<span class="jur">{e(c["juridiction"])}</span>'
+    if c.get('controlled_by'):                 # société contrôlée, née indépendante, minoritaires extérieurs (critère 3)
+        jur += f'<span class="jur">{L["ctrl"]} {e(c["controlled_by"])}</span>'
     note = f'<div class="src">{e(c["note"])}</div>' if c.get('note') else ''
     return f'''<tr{top}>
 <td class="rank">{c['rang']}</td>

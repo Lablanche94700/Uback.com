@@ -32,7 +32,7 @@
   "description": "Uback ranks the world's non-listed buy now, pay later providers by AI-estimated valuation: Tabby, Tamara, Atome, Sunbit, Zilch and more. Edition 0 (beta).",
   "h1": "The world’s most valuable buy now, pay later providers",
   "intro": "Consumer point-of-sale instalment providers that let shoppers split payments at checkout, online and in store. Ranked worldwide by AI-estimated valuation. The market sets the value; our AI estimates it.",
-  "not_in_segment": "B2B BNPL and invoice financing, general consumer credit, card acquiring and neobanks each have their own segment. A company appears in one segment only.",
+  "not_in_segment": "B2B BNPL and invoice financing, general consumer credit, card acquiring and neobanks each have their own segment. A company appears in one segment only. Not eligible: Atome Financial, created by Advance Intelligence Group, which controls it; Grab agreed in Sep 2026 to buy 60%.",
   "activity": "split payments at checkout, online and in store",
   "og_title": "The world’s most valuable<br>buy now, pay later providers",
   "sources": "TechCrunch, FinTech Futures, Argaam, AGBI, City A.M., Sifted, Maddyness, DealStreetAsia, Fintech News Singapore, Crowdfund Insider, Entrackr, Inc42, fwdstart, Sacra, company announcements."
@@ -128,46 +128,6 @@
   },
   {
    "rank": 3,
-   "name": "Atome Financial",
-   "country": "Singapore",
-   "country_code": "SG",
-   "region": "asia-pacific",
-   "tranche": "unicorn",
-   "confidence": "high",
-   "last_equity_round": {
-    "date": "2026-05",
-    "amount_usd": 149000000.0,
-    "type": "Capital injection",
-    "investors": "Advance Intelligence Group (parent)",
-    "detail": "Sep 2026: Grab agreed to buy 60% for USD 1.49B (incl. USD 260M growth capital), closing expected by Q3 2027"
-   },
-   "published_valuation": null,
-   "estimate_usd": 2450000000.0,
-   "note_internal": "Grab 60% for $1.49B implies ~$2.5B post-money (my calc, not published). Pending: if closed, exit from ranking. Outside equity sits at parent AIG level.",
-   "kpis": {
-    "volume": {
-     "value_text": "GMV over $2B",
-     "period": "FY2024",
-     "source": "https://fintechnews.sg/131175/funding/atome-financial-capital-injection/"
-    },
-    "revenue": {
-     "value_text": "Operating income $236M",
-     "period": "FY2024",
-     "source": "https://fintechnews.sg/131175/funding/atome-financial-capital-injection/"
-    },
-    "profit": {
-     "value_text": "First full-year profit",
-     "period": "FY2024",
-     "source": "https://fintechnews.sg/131175/funding/atome-financial-capital-injection/"
-    }
-   },
-   "sources": [
-    "https://www.crowdfundinsider.com/2026/09/310821-grab-holdings-to-acquire-60-of-atome-financial-for-1-49-billion/",
-    "https://fintechnews.sg/131175/funding/atome-financial-capital-injection/"
-   ]
-  },
-  {
-   "rank": 4,
    "name": "Sunbit",
    "country": "United States",
    "country_code": "US",
@@ -209,7 +169,7 @@
    ]
   },
   {
-   "rank": 5,
+   "rank": 4,
    "name": "Akulaku",
    "country": "Indonesia",
    "country_code": "ID",
@@ -250,7 +210,7 @@
    ]
   },
   {
-   "rank": 6,
+   "rank": 5,
    "name": "Kredivo",
    "country": "Indonesia",
    "country_code": "ID",
@@ -291,7 +251,7 @@
    ]
   },
   {
-   "rank": 7,
+   "rank": 6,
    "name": "Zilch",
    "country": "United Kingdom",
    "country_code": "GB",
@@ -334,7 +294,7 @@
    ]
   },
   {
-   "rank": 8,
+   "rank": 7,
    "name": "Addi",
    "country": "Colombia",
    "country_code": "CO",
@@ -373,7 +333,7 @@
    ]
   },
   {
-   "rank": 9,
+   "rank": 8,
    "name": "Alma",
    "country": "France",
    "country_code": "FR",
@@ -413,7 +373,7 @@
    ]
   },
   {
-   "rank": 10,
+   "rank": 9,
    "name": "Snapmint",
    "country": "India",
    "country_code": "IN",
@@ -452,7 +412,7 @@
    ]
   },
   {
-   "rank": 11,
+   "rank": 10,
    "name": "Scalapay",
    "country": "Italy",
    "country_code": "IT",

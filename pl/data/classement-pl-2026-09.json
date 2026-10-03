@@ -580,6 +580,12 @@
       "sous_secteur": "Fintech › SME lending",
       "derniere_levee": "Equity USD ~8.5M (EUR 7.3M, 3TS) plus EUR 116M debt · Feb 2025",
       "source": "https://www.eu-startups.com/2025/02/fintech-startup-wealthon-secures-e126-million-for-financial-services-ecosystem-for-smes/"
+    },
+    {
+      "nom": "Displate",
+      "sous_secteur": "E-commerce › collectible metal posters",
+      "derniere_levee": "Majority stake taken by Mid Europa Partners · Nov 2020 (amount not disclosed; founders remain shareholders)",
+      "source": "https://www.unquote.com/cee/official-record/3021678/mid-europa-buys-polish-e-retailer-displate"
     }
   ],
   "nees_ici": [
@@ -643,11 +649,6 @@
       "nom": "Applica",
       "motif": "Acquired by Snowflake (2022)",
       "source": "https://en.ain.ua/2025/04/08/polish-healthtech-ingenix-secures-eur9m/"
-    },
-    {
-      "nom": "Displate",
-      "motif": "Majority acquired by Mid Europa Partners (Nov 2020)",
-      "source": "https://www.unquote.com/cee/official-record/3021678/mid-europa-buys-polish-e-retailer-displate"
     },
     {
       "nom": "UXPin",

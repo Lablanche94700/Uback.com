@@ -28,7 +28,7 @@
   "description": "Uback ranks the world's non-listed identity-management startups by AI-estimated valuation: Socure, Incode, 1Password, Saviynt, Persona, WorkOS and more. Edition 0 (beta).",
   "h1": "The world’s most valuable identity startups",
   "intro": "Workforce and customer identity, access governance, identity security for humans, machines and AI agents, password managers, authentication for developers, and identity verification (KYC). Ranked worldwide by AI-estimated valuation. The market sets the value; our AI estimates it.",
-  "not_in_segment": "Privileged access management has its own segment; fraud and financial-crime platforms sit outside identity. Companies owned by private equity or by a listed group are not ranked: Ping Identity (Thoma Bravo), Signicat (Nordic Capital), IDnow (Corsair), Jumio, AU10TIX (ICTS). Acquired companies are no longer ranked: CyberArk (Palo Alto Networks, 2026), Veza (ServiceNow), Astrix Security (Cisco), Stytch (Twilio), SGNL (CrowdStrike, announced 2026), Onfido (Entrust), idwall (Serasa Experian, 2026). A company appears in one segment only.",
+  "not_in_segment": "Privileged access management has its own segment; fraud and financial-crime platforms sit outside identity. Not eligible because entirely bought or created by their group: Ping Identity (Thoma Bravo, 2022), Jumio (bought out of bankruptcy in 2016), AU10TIX (created by ICTS). Acquired companies are no longer ranked: CyberArk (Palo Alto Networks, 2026), Veza (ServiceNow), Astrix Security (Cisco), Stytch (Twilio), SGNL (CrowdStrike, announced 2026), Onfido (Entrust), idwall (Serasa Experian, 2026). A company appears in one segment only.",
   "activity": "identity and access management, identity security and identity verification",
   "og_title": "The world’s most valuable<br>identity startups",
   "sources": "TechCrunch, SecurityWeek, Calcalist (Ctech), Crunchbase News, Biometric Update, SiliconANGLE, Fintech Futures, BusinessWire, Finovate, Inc42, company announcements."
@@ -776,6 +776,17 @@
    }
   },
   {
+   "name": "IDnow",
+   "country": "Germany",
+   "country_code": "DE",
+   "region": "europe",
+   "last_equity_round": {
+    "date": "2025-03",
+    "amount_usd": 295000000.0,
+    "type": "Majority investment"
+   }
+  },
+  {
    "name": "Clerk",
    "country": "United States",
    "country_code": "US",
@@ -806,6 +817,17 @@
     "date": "2025-09",
     "amount_usd": 35000000.0,
     "type": "Seed extension"
+   }
+  },
+  {
+   "name": "Signicat",
+   "country": "Norway",
+   "country_code": "NO",
+   "region": "europe",
+   "last_equity_round": {
+    "date": "2019-04",
+    "amount_usd": null,
+    "type": "Majority investment by Nordic Capital (undisclosed); Viking Venture and employees remain shareholders"
    }
   },
   {

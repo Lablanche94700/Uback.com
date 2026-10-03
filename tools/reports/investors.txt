@@ -1,6 +1,6 @@
 Investisseurs — rapport de tools/build_companies.py
 
-634 noms · 155 pages (≥ 2 sociétés) · 86 indexées (≥ 3)
+632 noms · 154 pages (≥ 2 sociétés) · 86 indexées (≥ 3)
 
 == Pages
   accel · 24 · Accel / Accel Leaders
@@ -8,16 +8,16 @@ Investisseurs — rapport de tools/build_companies.py
   sequoia-capital · 17 · Sequoia / Sequoia Capital
   general-atlantic · 15 · General Atlantic
   lightspeed · 15 · Lightspeed / Lightspeed Venture Partners
-  softbank-vision-fund · 15 · SoftBank Vision Fund / SoftBank Vision Fund 2
+  softbank-vision-fund · 14 · SoftBank Vision Fund / SoftBank Vision Fund 2
   general-catalyst · 13 · General Catalyst
   andreessen-horowitz · 12 · Andreessen Horowitz / a16z
   tcv · 11 · TCV
   ifc · 9 · IFC
   kkr · 9 · KKR
-  ribbit-capital · 9 · Ribbit / Ribbit Capital
   teachers-venture-growth · 9 · Teachers' Venture Growth / Teachers’ Venture Growth
   insight-partners · 8 · Insight / Insight Partners
   partech · 8 · Partech / Partech Africa
+  ribbit-capital · 8 · Ribbit / Ribbit Capital
   temasek · 8 · Temasek
   y-combinator · 8 · Y Combinator / YC
   azur-innovation-fund · 7 · Azur Innovation Fund / Azur Innovation Management
@@ -38,7 +38,6 @@ Investisseurs — rapport de tools/build_companies.py
   endeavor-catalyst · 5 · Endeavor Catalyst
   fidelity · 5 · inconnu de data/investors.json · Fidelity
   goldman-sachs-asset-management · 5 · Goldman Sachs Alternatives / Goldman Sachs Asset Management
-  qatar-investment-authority · 5 · QIA / Qatar Investment Authority
   regeneron · 5 · Regeneron / Regeneron Ventures
   salesforce-ventures · 5 · Salesforce / Salesforce Ventures
   sapphire-ventures · 5 · Sapphire / Sapphire Ventures
@@ -61,6 +60,7 @@ Investisseurs — rapport de tools/build_companies.py
   mirae-asset · 4 · inconnu de data/investors.json · Mirae Asset
   northzone · 4 · inconnu de data/investors.json · Northzone
   peak-xv-partners · 4 · Peak XV
+  qatar-investment-authority · 4 · QIA / Qatar Investment Authority
   silver-lake · 4 · Silver Lake / Silver Lake Waterman
   tq-ventures · 4 · inconnu de data/investors.json · TQ Ventures
   wellington-management · 4 · Wellington / Wellington Management
@@ -78,6 +78,7 @@ Investisseurs — rapport de tools/build_companies.py
   founders-fund · 3 · inconnu de data/investors.json · Founders Fund
   gv · 3 · inconnu de data/investors.json · GV
   generation-investment-management · 3 · Generation IM / Generation Investment Management
+  google · 3 · inconnu de data/investors.json · Google
   greycroft · 3 · inconnu de data/investors.json · Greycroft
   lb-investment · 3 · inconnu de data/investors.json · LB Investment
   leapfrog-investments · 3 · LeapFrog / LeapFrog Investments / Leapfrog
@@ -88,7 +89,6 @@ Investisseurs — rapport de tools/build_companies.py
   polychain-capital · 3 · Polychain / Polychain Capital
   revaia · 3 · inconnu de data/investors.json · Revaia
   sanofi · 3 · inconnu de data/investors.json · Sanofi
-  tpg · 3 · TPG / TPG Rise Fund / The Rise Funds
   500-global · 2 · inconnu de data/investors.json · 500 Global
   8vc · 2 · inconnu de data/investors.json · 8VC
   ark-invest · 2 · ARK / ARK Invest
@@ -114,7 +114,6 @@ Investisseurs — rapport de tools/build_companies.py
   ggv-capital · 2 · GGV / GGV Capital
   georgian · 2 · inconnu de data/investors.json · Georgian
   goldman-sachs · 2 · inconnu de data/investors.json · Goldman Sachs
-  google · 2 · inconnu de data/investors.json · Google
   greylock · 2 · inconnu de data/investors.json · Greylock
   hsg · 2 · inconnu de data/investors.json · HSG
   hv-capital · 2 · inconnu de data/investors.json · HV Capital
@@ -129,7 +128,6 @@ Investisseurs — rapport de tools/build_companies.py
   jungle-ventures · 2 · inconnu de data/investors.json · Jungle Ventures
   kedaara-capital · 2 · Kedaara / Kedaara Capital
   korea-national-growth-fund · 2 · inconnu de data/investors.json · Korea National Growth Fund
-  mastercard · 2 · inconnu de data/investors.json · Mastercard
   menlo-ventures · 2 · inconnu de data/investors.json · Menlo Ventures
   meritech · 2 · inconnu de data/investors.json · Meritech
   mizuho · 2 · Mizuho / Mizuho Bank
@@ -152,6 +150,7 @@ Investisseurs — rapport de tools/build_companies.py
   square-peg · 2 · inconnu de data/investors.json · Square Peg
   t-rowe-price · 2 · inconnu de data/investors.json · T. Rowe Price
   tnb-aura · 2 · inconnu de data/investors.json · TNB Aura
+  tpg · 2 · TPG / TPG Rise Fund / The Rise Funds
   target-global · 2 · inconnu de data/investors.json · Target Global
   thrive-capital · 2 · inconnu de data/investors.json · Thrive Capital
   tribe-capital · 2 · Tribe / Tribe Capital
@@ -177,7 +176,6 @@ Investisseurs — rapport de tools/build_companies.py
   ADIA · 1
   ADP III · 1
   ADQ · 1
-  Advance Intelligence Group · 1
   Advent International · 1
   AIA · 1
   Air Liquide · 1
@@ -278,7 +276,6 @@ Investisseurs — rapport de tools/build_companies.py
   Cathay Innovation · 4
   CDG Invest · 1
   CEO Ryan Breslow · 1
-  Chimetech · 1
   Chuangshi Capital · 1
   CICCFH · 1
   Circle Ventures · 3
@@ -372,6 +369,7 @@ Investisseurs — rapport de tools/build_companies.py
   FTX Ventures · 2
   Fuchsia · 1
   Fulgur Ventures · 1
+  Fullerton Financial · 1
   Further Ventures · 1
   G Squared · 1
   Gates Foundation · 1
@@ -386,7 +384,7 @@ Investisseurs — rapport de tools/build_companies.py
   Gnosis · 1
   Golden Arc Capital · 1
   Goldman Sachs · 2
-  Google · 2
+  Google · 3
   Google Africa Investment Fund · 1
   Greycroft · 3
   Greyhound Capital · 1
@@ -396,6 +394,7 @@ Investisseurs — rapport de tools/build_companies.py
   GV · 3
   Han River Partners · 1
   Hana · 1
+  Hana Alternative Investment · 1
   Harmony Capital · 1
   Hashed · 1
   Hatteras Venture Partners · 1
@@ -445,7 +444,6 @@ Investisseurs — rapport de tools/build_companies.py
   Jane Street · 1
   JB Financial Group · 1
   JIC VGI · 1
-  Jio Platforms · 1
   Jobtech Alliance · 1
   Joe Lonsdale · 1
   Jump Capital · 1
@@ -467,6 +465,7 @@ Investisseurs — rapport de tools/build_companies.py
   KRAFTON · 1
   Labcorp · 1
   Lachy Groom · 1
+  largest shareholder · 1
   Lazard Elaia Capital · 1
   LB Investment · 3
   Learn Capital · 1
@@ -492,7 +491,7 @@ Investisseurs — rapport de tools/build_companies.py
   Mantis · 1
   March 2022 · 1
   Masan Group · 1
-  Mastercard · 2
+  Mastercard · 1
   Matrix Partners · 1
   Mayfield · 1
   MBK Partners · 1
@@ -519,7 +518,6 @@ Investisseurs — rapport de tools/build_companies.py
   Multiples · 1
   National Development Fund of Taiwan · 1
   Naver · 2
-  Naver Financial · 1
   Naver Ventures · 1
   NEA · 6
   NEAR Foundation · 1
@@ -554,7 +552,6 @@ Investisseurs — rapport de tools/build_companies.py
   Pantera · 1
   Paradigm · 3
   ParaFi Capital · 1
-  parent · 1
   Park West · 1
   Partners Group · 1
   Patient Square Capital · 1
@@ -568,8 +565,8 @@ Investisseurs — rapport de tools/build_companies.py
   Pincus Capital · 1
   Pitango · 1
   Plug and Play · 1
-  Portage Ventures · 1
   Poste Italiane · 1
+  Praxis Capital Partners · 1
   Premji Invest · 2
   Prime Ventures · 1
   Prysm · 1
@@ -669,7 +666,6 @@ Investisseurs — rapport de tools/build_companies.py
   Thien Viet Securities · 1
   ThinkZone · 1
   Third Point · 1
-  Third Prime · 1
   Thrive Capital · 2
   Tidemark · 1
   Times Group · 1
@@ -710,6 +706,7 @@ Investisseurs — rapport de tools/build_companies.py
   Ward Ferry · 1
   Wells Fargo · 1
   Wendel · 1
+  which took control · 1
   Wing Ventures · 1
   Witamax · 1
   WndrCo · 1

@@ -11,7 +11,7 @@ from urllib.parse import quote
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_site import MARKETS, NAMES, next_edition, format_date, months_txt   # même calendrier que les pages marchés
-from pages_global import METHOD, LEGAL, INVEST, FAQ, CALENDAR_INTRO, PARTNER, PARTNER_FR
+from pages_global import METHOD, ELIGIBILITY, LEGAL, INVEST, FAQ, CALENDAR_INTRO, PARTNER, PARTNER_FR
 import geo
 from footer import footer, FOOTER_CSS
 from analytics import HEAD as GA_HEAD
@@ -499,7 +499,8 @@ print('ok index.html', N_FAM, 'families,', N_SEG, 'segments')
 
 # ---------------------------------------------------------------- pages globales (communes à tous les pays)
 # Méthode et mentions légales, en anglais et en français (texte : tools/pages_global.py), avec la charte de la homepage.
-GLOBAL = {'method': {'en': 'method.html', 'fr': 'fr/methode.html'}, 'legal': {'en': 'legal-notice.html', 'fr': 'mentions-legales.html'},
+GLOBAL = {'method': {'en': 'method.html', 'fr': 'fr/methode.html'}, 'eligibility': {'en': 'eligibility.html', 'fr': 'fr/eligibilite.html'},
+          'legal': {'en': 'legal-notice.html', 'fr': 'mentions-legales.html'},
           'invest': {'en': 'invest.html', 'fr': 'fr/investir.html'},
           'correction': {'en': 'correction.html', 'fr': 'fr/correction.html'}, 'thanks': {'en': 'thank-you.html', 'fr': 'fr/merci.html'},
           'faq': {'en': 'faq/index.html', 'fr': 'fr/faq/index.html'}, 'contact': {'en': 'contact.html', 'fr': 'fr/contact.html'},
@@ -512,6 +513,7 @@ G_UI = {
             legal='Legal notice', corr='Request a correction', disc='Rankings are editorial content, not investment advice.',
             cal_country='Country', cal_months='Published on the 15th', cal_next='Next edition',
             t_method='Method and rules of the game | Uback', d_method='How Uback ranks non-listed startups in descending order of AI-estimated valuation: consensus, confidence index, order of magnitude, eligibility, how human input is taken into account, corrections.',
+            t_eligibility='Eligibility criteria | Uback', d_eligibility='Uback’s definition of a startup: a non-listed company, born independent, funded with equity by outside investors, that has not been entirely bought. The five criteria, and what happens to a company that does not meet them.',
             invest='Invest', t_invest='Invest with Uback | Uback', d_invest='Declare an investment intention on a sector, a country, or a company open to Backers. Backers’ intentions form a pool; once it reaches its critical mass, the pool is passed to the local partner, who presents the demand to the company.',
             opening_soon='In the meantime, write to <a href="mailto:contact@uback.com?subject=Intentions%20opening">contact@uback.com</a> to be notified when they open.',
             opening_form='In the meantime, you can <a href="/#follow">sign up to be notified when they open</a>.',
@@ -530,6 +532,7 @@ G_UI = {
             legal='Mentions légales', corr='Demander une correction', disc='Les classements sont des contenus éditoriaux, pas des conseils en investissement.',
             cal_country='Pays', cal_months='Publié le 15', cal_next='Prochaine édition',
             t_method='Méthode et règles du jeu | Uback', d_method='Comment Uback classe les startups non cotées par ordre décroissant de valorisation estimée par IA : consensus, indice de confiance, ordre de grandeur, éligibilité, prise en compte des avis humains, corrections.',
+            t_eligibility='Critères d’éligibilité | Uback', d_eligibility='La définition Uback d’une startup : une société non cotée, née indépendante, financée en fonds propres par des investisseurs extérieurs, et qui n’a pas été entièrement rachetée. Les cinq critères, et ce qu’il advient d’une société qui ne les remplit pas.',
             invest='Investir', t_invest='Investir avec Uback | Uback', d_invest='Déclarez une intention d’investissement sur un secteur, un pays, ou une société ouverte aux Backers. Les intentions des Backers forment un pool ; quand il atteint sa masse critique, le pool est transmis au partenaire agréé, qui présente la demande à la société.',
             opening_soon='En attendant, écrivez-nous à <a href="mailto:contact@uback.com?subject=Ouverture%20des%20intentions">contact@uback.com</a> pour être prévenu de l’ouverture.',
             opening_form='En attendant, vous pouvez <a href="/#follow">vous inscrire pour être prévenu de l’ouverture</a>.',
@@ -1136,7 +1139,7 @@ def write_ics():
     open(out, 'w', encoding='utf-8', newline='').write('\r\n'.join(ics_fold(l) for l in lines) + '\r\n')
     print('ok', ICS_PATH, sum(len(d['items']) for d in geo.CAL['days']), 'events')
 
-BODIES = {'method': METHOD, 'legal': LEGAL, 'invest': {l: INVEST[l].replace('@OPENING@', OPENING[l]).replace('@POOLCTX@', pool_ctx(l)) for l in ('en', 'fr')},
+BODIES = {'method': METHOD, 'eligibility': ELIGIBILITY, 'legal': LEGAL, 'invest': {l: INVEST[l].replace('@OPENING@', OPENING[l]).replace('@POOLCTX@', pool_ctx(l)) for l in ('en', 'fr')},
           'correction': {l: correction_body(l) for l in ('en', 'fr')}, 'thanks': {l: thanks_body(l) for l in ('en', 'fr')},
           'faq': {l: faq_body(l) for l in ('en', 'fr')}, 'calendar': {'en': calendar_body()},
           'contact': {l: contact_body(l) for l in ('en', 'fr')},

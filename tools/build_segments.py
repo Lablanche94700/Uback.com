@@ -150,6 +150,10 @@ def conf(c):
 def where(x):
     return f'{flag(x.get("country_code"))}{e(x["country"])} · {e(REGION_NAME[x["region"]])}'
 
+def ctrl(c):
+    """Société contrôlée par un groupe ou un fonds, née indépendante, avec des minoritaires extérieurs (critère 3)."""
+    return f' · Controlled by {e(c["controlled_by"])}' if c.get('controlled_by') else ''
+
 def open_cell(c, sid):
     """Cellule « Open to Backers » : vide par défaut (l'intérêt porte sur le pool du segment)."""
     o = c.get('open_to_backers')
@@ -167,7 +171,7 @@ def row(c, defs=(), sid='', show_inv=False):
     srcs = ' · '.join(f'<a href="{e(u)}" rel="nofollow noopener" target="_blank">{i}</a>' for i, u in enumerate(urls, 1))
     return f'''<tr class="r{top}" data-region="{c['region']}">
 <td class="rank">{c['rank']}</td>
-<td><span class="co">{companies.link_company(c['name'], sid)}<small>{where(c)}</small></span><span class="src">Sources: {srcs}</span></td>
+<td><span class="co">{companies.link_company(c['name'], sid)}<small>{where(c)}{ctrl(c)}</small></span><span class="src">Sources: {srcs}</span></td>
 <td data-l="Last round · Key metrics">{e(last_round(c))}{kpi_line(c, defs)}</td>
 <td data-l="Valuation (AI)">{val(c)}</td>
 <td data-l="Confidence">{conf(c)}</td>
@@ -244,7 +248,7 @@ def og_image(key, src, out_dir):
             print('  ! image de partage non rendue (Edge introuvable)')
             return v
         for _ in range(4):                 # Edge headless échoue parfois : profil temporaire neuf, nouvel essai
-            with tempfile.TemporaryDirectory() as tmp:
+            with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp:   # Edge peut garder son profil ouvert
                 f = os.path.join(tmp, 'og.html')
                 open(f, 'w', encoding='utf-8').write(src)
                 subprocess.run([EDGE, '--headless=new', '--disable-gpu', '--hide-scrollbars', '--force-device-scale-factor=1',

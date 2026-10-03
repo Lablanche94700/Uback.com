@@ -11,7 +11,43 @@
   "classement": [
     {
       "rang": 1,
+      "nom": "Flipkart",
+      "controlled_by": "Walmart (about 80%)",
+      "site": "flipkart.com",
+      "sous_secteur": "Commerce › e-commerce marketplace",
+      "ville": "Bengaluru",
+      "creation": 2007,
+      "leve_cumule": "USD 10bn+",
+      "derniere_levee": "Growth · USD ~1bn · May 2024 (Walmart, Google)",
+      "source": "https://siliconangle.com/2024/05/24/google-invest-350m-indian-e-commerce-marketplace-flipkart/",
+      "confiance": 3,
+      "juridiction": "Flipkart Pvt Ltd (Singapore holding); HQ Bengaluru",
+      "note": "India's largest e-commerce marketplace. Walmart has controlled it since 2018; Google, Tencent and GIC remain minority shareholders. Valued at USD 36bn in May 2024; domestic IPO in preparation. FY25 revenue about USD 9.7bn.",
+      "valuation_input": {
+        "published_usd": 36000000000,
+        "published_date": "2024-05",
+        "round_usd": 950000000,
+        "round_date": "2024-05",
+        "round_label": "Growth round",
+        "cumulative_usd": null,
+        "sources": "cross",
+        "contradictory": false,
+        "adjust": 1,
+        "adjust_reason": "valued at USD 36bn in May 2024; revenue of about USD 9.7bn in FY25"
+      },
+      "acces": "defaut",
+      "acquereur": "",
+      "valuation_bracket": "decacorn",
+      "valuation_basis": "Growth round of USD 950M (May 2024); published valuation of USD 36bn (May 2024), over 24 months old; adjusted × 3: valued at USD 36bn in May 2024; revenue of about USD 9.7bn in FY25.",
+      "valuation_confidence": "medium",
+      "valuation_central_usd": 14717336716,
+      "valuation_low_usd": 9811557810,
+      "valuation_high_usd": 22076005073
+    },
+    {
+      "rang": 2,
       "nom": "PhonePe",
+      "controlled_by": "Walmart (about 72%)",
       "site": "phonepe.com",
       "sous_secteur": "Fintech › UPI payments and financial services",
       "ville": "Bengaluru",
@@ -44,7 +80,7 @@
       "valuation_central_usd": 14500000000
     },
     {
-      "rang": 2,
+      "rang": 3,
       "nom": "Zepto",
       "site": "zeptonow.com",
       "sous_secteur": "Commerce › quick commerce",
@@ -78,7 +114,7 @@
       "valuation_central_usd": 7000000000
     },
     {
-      "rang": 3,
+      "rang": 4,
       "nom": "CRED",
       "site": "cred.club",
       "sous_secteur": "Fintech › credit-card payments and rewards",
@@ -112,7 +148,7 @@
       "valuation_central_usd": 4500000000
     },
     {
-      "rang": 4,
+      "rang": 5,
       "nom": "VerSe Innovation",
       "site": "verse.in",
       "sous_secteur": "Consumer internet › local-language news and short video",
@@ -146,7 +182,7 @@
       "valuation_central_usd": 4157002125
     },
     {
-      "rang": 5,
+      "rang": 6,
       "nom": "BrowserStack",
       "site": "browserstack.com",
       "sous_secteur": "Business software › software testing cloud",
@@ -180,7 +216,7 @@
       "valuation_central_usd": 3098386677
     },
     {
-      "rang": 6,
+      "rang": 7,
       "nom": "Zetwerk",
       "site": "zetwerk.com",
       "sous_secteur": "Industrial › contract manufacturing platform",
@@ -214,7 +250,7 @@
       "valuation_central_usd": 3000000000
     },
     {
-      "rang": 7,
+      "rang": 8,
       "nom": "Rapido",
       "site": "rapido.bike",
       "sous_secteur": "Mobility › bike taxis and ride-hailing",
@@ -248,7 +284,7 @@
       "valuation_central_usd": 3000000000
     },
     {
-      "rang": 8,
+      "rang": 9,
       "nom": "Infra.Market",
       "site": "inframarket.com",
       "sous_secteur": "Industrial › construction materials",
@@ -282,7 +318,7 @@
       "valuation_central_usd": 2700000000
     },
     {
-      "rang": 9,
+      "rang": 10,
       "nom": "CoinDCX",
       "site": "coindcx.com",
       "sous_secteur": "Crypto › exchange",
@@ -316,7 +352,7 @@
       "valuation_central_usd": 2450000000
     },
     {
-      "rang": 10,
+      "rang": 11,
       "nom": "LeadSquared",
       "site": "leadsquared.com",
       "sous_secteur": "Business software › sales CRM",
@@ -350,7 +386,7 @@
       "valuation_central_usd": 2370265808
     },
     {
-      "rang": 11,
+      "rang": 12,
       "nom": "Eruditus",
       "site": "eruditus.com",
       "sous_secteur": "Edtech › university executive education",
@@ -384,7 +420,7 @@
       "valuation_central_usd": 2323790008
     },
     {
-      "rang": 12,
+      "rang": 13,
       "nom": "Razorpay",
       "site": "razorpay.com",
       "sous_secteur": "Fintech › payment gateway and business banking",
@@ -418,7 +454,7 @@
       "valuation_central_usd": 1936491673
     },
     {
-      "rang": 13,
+      "rang": 14,
       "nom": "BharatPe",
       "site": "bharatpe.com",
       "sous_secteur": "Fintech › merchant QR payments and lending",
@@ -452,7 +488,7 @@
       "valuation_central_usd": 1910671784
     },
     {
-      "rang": 14,
+      "rang": 15,
       "nom": "Udaan",
       "site": "udaan.com",
       "sous_secteur": "Commerce › B2B e-commerce for retailers",
@@ -486,7 +522,7 @@
       "valuation_central_usd": 1800000000
     },
     {
-      "rang": 15,
+      "rang": 16,
       "nom": "upGrad",
       "site": "upgrad.com",
       "sous_secteur": "Edtech › higher education and upskilling",
@@ -520,7 +556,7 @@
       "valuation_central_usd": 1730000000
     },
     {
-      "rang": 16,
+      "rang": 17,
       "nom": "Cars24",
       "site": "cars24.com",
       "sous_secteur": "Mobility › used-car marketplace",
@@ -554,7 +590,7 @@
       "valuation_central_usd": 1549193338
     },
     {
-      "rang": 17,
+      "rang": 18,
       "nom": "Spinny",
       "site": "spinny.com",
       "sous_secteur": "Mobility › used-car retail",
@@ -588,7 +624,7 @@
       "valuation_central_usd": 1500000000
     },
     {
-      "rang": 18,
+      "rang": 19,
       "nom": "KreditBee",
       "site": "kreditbee.in",
       "sous_secteur": "Fintech › digital consumer lending",
@@ -622,7 +658,7 @@
       "valuation_central_usd": 1500000000
     },
     {
-      "rang": 19,
+      "rang": 20,
       "nom": "Sarvam AI",
       "site": "sarvam.ai",
       "sous_secteur": "AI › Indian-language foundation models",
@@ -656,7 +692,7 @@
       "valuation_central_usd": 1500000000
     },
     {
-      "rang": 20,
+      "rang": 21,
       "nom": "Cult.fit",
       "site": "cult.fit",
       "sous_secteur": "Consumer › fitness and wellness",
@@ -690,7 +726,7 @@
       "valuation_central_usd": 1450000000
     },
     {
-      "rang": 21,
+      "rang": 22,
       "nom": "Dream Sports (Dream11)",
       "site": "dreamsports.group",
       "sous_secteur": "Gaming › fantasy sports",
@@ -724,7 +760,7 @@
       "valuation_central_usd": 1445913783
     },
     {
-      "rang": 22,
+      "rang": 23,
       "nom": "Rebel Foods",
       "site": "rebelfoods.com",
       "sous_secteur": "Food › cloud kitchens and multi-brand restaurants",
@@ -758,8 +794,9 @@
       "valuation_central_usd": 1400000000
     },
     {
-      "rang": 23,
+      "rang": 24,
       "nom": "Neysa",
+      "controlled_by": "Blackstone (majority since Feb 2026)",
       "site": "neysa.ai",
       "sous_secteur": "AI › GPU cloud",
       "ville": "Mumbai",
@@ -792,7 +829,7 @@
       "valuation_central_usd": 1400000000
     },
     {
-      "rang": 24,
+      "rang": 25,
       "nom": "ShareChat",
       "site": "sharechat.com",
       "sous_secteur": "Consumer internet › local-language social media",
@@ -826,7 +863,7 @@
       "valuation_central_usd": 1316814338
     },
     {
-      "rang": 25,
+      "rang": 26,
       "nom": "Acko",
       "site": "acko.com",
       "sous_secteur": "Insurtech › digital insurance",
@@ -860,7 +897,7 @@
       "valuation_central_usd": 1316814338
     },
     {
-      "rang": 26,
+      "rang": 27,
       "nom": "Navi",
       "site": "navi.com",
       "sous_secteur": "Fintech › lending, UPI and investing",
@@ -894,7 +931,7 @@
       "valuation_central_usd": 1300000000
     },
     {
-      "rang": 27,
+      "rang": 28,
       "nom": "Moglix",
       "site": "moglix.com",
       "sous_secteur": "Industrial › B2B procurement marketplace",
@@ -928,7 +965,7 @@
       "valuation_central_usd": 1290994449
     },
     {
-      "rang": 28,
+      "rang": 29,
       "nom": "CarDekho",
       "site": "cardekho.com",
       "sous_secteur": "Mobility › car classifieds and financing",
@@ -962,7 +999,7 @@
       "valuation_central_usd": 1290994449
     },
     {
-      "rang": 29,
+      "rang": 30,
       "nom": "Perfios",
       "site": "perfios.com",
       "sous_secteur": "Fintech › credit decisioning software",
@@ -996,7 +1033,7 @@
       "valuation_central_usd": 1239354671
     },
     {
-      "rang": 30,
+      "rang": 31,
       "nom": "Porter",
       "site": "porter.in",
       "sous_secteur": "Logistics › on-demand intra-city trucking",
@@ -1030,7 +1067,7 @@
       "valuation_central_usd": 1200000000
     },
     {
-      "rang": 31,
+      "rang": 32,
       "nom": "Juspay",
       "site": "juspay.io",
       "sous_secteur": "Fintech › payment orchestration",
@@ -1064,7 +1101,7 @@
       "valuation_central_usd": 1200000000
     },
     {
-      "rang": 32,
+      "rang": 33,
       "nom": "Skyroot Aerospace",
       "site": "skyroot.in",
       "sous_secteur": "SpaceTech › small-satellite launchers",
@@ -1098,7 +1135,7 @@
       "valuation_central_usd": 1100000000
     },
     {
-      "rang": 33,
+      "rang": 34,
       "nom": "NoBroker",
       "site": "nobroker.in",
       "sous_secteur": "Proptech › broker-free property marketplace",
@@ -1130,40 +1167,6 @@
       "valuation_low_usd": 542217668,
       "valuation_high_usd": 2168870674,
       "valuation_central_usd": 1084435337
-    },
-    {
-      "rang": 34,
-      "nom": "Glance",
-      "site": "glance.com",
-      "sous_secteur": "Consumer AI › lock-screen content and commerce",
-      "ville": "Bengaluru",
-      "creation": 2019,
-      "leve_cumule": "USD >390M",
-      "derniere_levee": "Series D · USD 200M · Feb 2022 (Jio Platforms)",
-      "source": "https://techcrunch.com/2022/02/14/jio-platforms-ambani-glance/",
-      "confiance": 3,
-      "juridiction": "Glance InMobi (Singapore), InMobi subsidiary; operations in Bengaluru",
-      "note": "Valued at USD 1.7bn in 2022. Part of the InMobi group.",
-      "valuation_input": {
-        "published_usd": 1700000000,
-        "published_date": "2022-02",
-        "round_usd": 200000000,
-        "round_date": "2022-02",
-        "round_label": "Series D",
-        "cumulative_usd": null,
-        "sources": "cross",
-        "contradictory": false,
-        "adjust": 0,
-        "adjust_reason": ""
-      },
-      "acces": "defaut",
-      "acquereur": "",
-      "valuation_bracket": "unicorn",
-      "valuation_basis": "Series D of USD 200M (Feb 2022); published valuation of USD 1.7bn (Feb 2022), over 24 months old.",
-      "valuation_confidence": "medium",
-      "valuation_low_usd": 688530373,
-      "valuation_high_usd": 1549193338,
-      "valuation_central_usd": 1032795559
     },
     {
       "rang": 35,
@@ -1812,6 +1815,12 @@
       "sous_secteur": "Logistics › e-commerce delivery",
       "derniere_levee": "Series G · USD 80M · Nov 2023 (Teachers’ Venture Growth)",
       "source": "https://entrackr.com/2024/01/decoding-xpressbees-80-mn-series-g-round-esops-buyback-and-more/"
+    },
+    {
+      "nom": "Lendingkart",
+      "sous_secteur": "Fintech › MSME lending",
+      "derniere_levee": "Series E · INR 252 cr (about USD 30M) · Mar 2025 (Fullerton Financial, which took control)",
+      "source": "https://smestreet.in/infocus/lendingkart-closes-series-e-funding-with-fullerton-investment-8898750"
     }
   ],
   "nees_ici": [
@@ -1862,6 +1871,11 @@
   ],
   "hors_classement": [
     {
+      "nom": "Glance",
+      "motif": "Created within the InMobi group, which still controls it (50.45% after the 2022 Series D)",
+      "source": "https://entrackr.com/2022/07/decoding-glance-series-d-round-and-captable/"
+    },
+    {
       "nom": "Moneyview",
       "motif": "Listed on NSE and BSE (Oct 2026)",
       "source": "https://www.5paisa.com/blog/moneyview-ipo-listing"
@@ -1900,11 +1914,6 @@
       "nom": "Mobile Premier League",
       "motif": "India operations largely shut after the real-money gaming ban (Aug 2025)",
       "source": "https://www.storyboard18.com/gaming-news/mpl-laysoff-nearly-entire-india-workforce-after-real-money-gaming-ban-79944.htm"
-    },
-    {
-      "nom": "Lendingkart",
-      "motif": "Control taken by Fullerton Financial Holdings (Temasek), Oct 2024",
-      "source": "https://www.business-standard.com/companies/news/temasek-s-fullerton-picks-up-controlling-stake-in-lendingkart-for-rs-252-cr-124101801201_1.html"
     },
     {
       "nom": "Unacademy",

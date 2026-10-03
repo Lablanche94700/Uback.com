@@ -1,6 +1,6 @@
 Fiches société — rapport de tools/build_companies.py
 
-759 fiches · 479 indexées · 280 noindex · 29 nouveaux slugs
+762 fiches · 474 indexées · 288 noindex · 0 nouveaux slugs
 
 == Fusions (une fiche, plusieurs classements)
   apna ← Apna / apna (in:ranked, recruiting:ranked)
@@ -34,7 +34,7 @@ Fiches société — rapport de tools/build_companies.py
 
 == Sociétés sans date de tour (0)
 
-== Sociétés sans source (178)
+== Sociétés sans source (183)
   15Five
   Aembit
   Afriex
@@ -76,6 +76,7 @@ Fiches société — rapport de tools/build_companies.py
   CodeAnt AI
   Contactable
   Converge Bio
+  Croissant
   Cyclops
   Cypherock
   Daytona
@@ -108,6 +109,7 @@ Fiches société — rapport de tools/build_companies.py
   Greenlight
   HyperDev
   IDfy
+  IDnow
   Jack & Jill
   Jupiter
   Khazna
@@ -164,13 +166,16 @@ Fiches société — rapport de tools/build_companies.py
   Rho
   Rork
   SECONDSENSE
+  SNKRDUNK
   SafePal
   Salsa
   Salus Cloud
   Saporo
   Satispay
+  Sellpy
   Shufti Pro
   Shuttle
+  Signicat
   Slash
   Smile ID
   SonoThera
@@ -273,8 +278,10 @@ Fiches société — rapport de tools/build_companies.py
   Converge Bio · 0 source(s)
   Cowrywise · 1 source(s)
   CPTx · 0 source(s)
+  Croissant · 0 source(s)
   Cyclops · 0 source(s)
   Cypherock · 0 source(s)
+  DabaDoc · 1 source(s)
   Dataiku · 1 source(s)
   Daytona · 0 source(s)
   Deepecho · 1 source(s)
@@ -282,6 +289,7 @@ Fiches société — rapport de tools/build_companies.py
   Deno · 0 source(s)
   Descope · 0 source(s)
   Didit · 0 source(s)
+  Displate · 1 source(s)
   Djamo · 0 source(s)
   Doctornow · 1 source(s)
   Drug Farm · 0 source(s)
@@ -321,6 +329,7 @@ Fiches société — rapport de tools/build_companies.py
   Hugging Face · 1 source(s)
   HyperDev · 0 source(s)
   IDfy · 0 source(s)
+  IDnow · 0 source(s)
   Inbolt · 1 source(s)
   Ingenix.ai · 1 source(s)
   INOCRAS · 1 source(s)
@@ -342,6 +351,7 @@ Fiches société — rapport de tools/build_companies.py
   Latitude · 0 source(s)
   Leapsome · 0 source(s)
   Leena AI · 0 source(s)
+  Lendingkart · 1 source(s)
   Lendio · 0 source(s)
   Lili · 0 source(s)
   LinqAlpha · 1 source(s)
@@ -422,16 +432,19 @@ Fiches société — rapport de tools/build_companies.py
   Satispay · 0 source(s)
   Seamless Technologies · 1 source(s)
   SECONDSENSE · 0 source(s)
+  Sellpy · 0 source(s)
   Sendbird · 1 source(s)
   Shufti Pro · 0 source(s)
   Shuttle · 0 source(s)
   Shuttlers · 1 source(s)
+  Signicat · 0 source(s)
   Silent Eight · 1 source(s)
   SKY ENGINE AI · 1 source(s)
   Sky Mavis · 1 source(s)
   Slash · 0 source(s)
   SmartPay · 1 source(s)
   Smile ID · 0 source(s)
+  SNKRDUNK · 0 source(s)
   SonoThera · 0 source(s)
   SOWIT · 1 source(s)
   Speeral · 0 source(s)

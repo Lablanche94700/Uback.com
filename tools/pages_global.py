@@ -74,15 +74,7 @@ METHOD = {
 <p>Ces estimations sont éditoriales, purement indicatives et par nature imparfaites : seul le marché fixe la valeur d’une société, lors d’une levée ou d’une cession. Elles ne constituent ni une évaluation financière, ni une offre, ni un conseil en investissement. Une société qui estime un chiffre inexact peut <a href="/fr/correction.html">demander une correction</a>.</p>
 
 <h2 id="eligibilite">Qui est éligible</h2>
-<div class="table-wrap"><table>
-<tr><th>Règle</th><th>Application</th></tr>
-<tr><td>Startup technologique ou innovante</td><td>Le périmètre est défini par l’arborescence publique des secteurs, qui évolue.</td></tr>
-<tr><td>A levé au moins 1 M$, dont un tour en fonds propres</td><td>Le seuil est cumulé, en fonds propres ou en dette, et au moins un tour doit avoir été réalisé en fonds propres. Des investisseurs sont donc déjà au capital et ont négocié leurs droits. Une subvention n’est pas une levée. Le même seuil s’applique dans tous les pays.</td></tr>
-<tr><td>Non cotée</td><td>Les sociétés cotées sont affichées à part, comme repères, et ne sont jamais classées.</td></tr>
-<tr><td>Active</td><td>Une société rachetée, fermée ou en procédure collective sort du classement. L’historique conserve ses positions.</td></tr>
-<tr><td>Une activité principale</td><td>Chaque société est rattachée à un seul secteur et à un seul segment. Les conglomérats sont exclus.</td></tr>
-<tr><td>Pays des opérations</td><td>Le pays retenu est celui des opérations, quel que soit le siège juridique. Le siège est indiqué sur la fiche. Les sociétés d’origine locale opérées depuis l’étranger figurent dans « Nées ici, établies ailleurs ».</td></tr>
-</table></div>
+<p><b>Une startup, pour Uback, est une société non cotée, née indépendante, financée en fonds propres par des investisseurs extérieurs, et qui n’a pas été entièrement rachetée.</b> Elle doit aussi être active : au moins une opération en fonds propres au cours des dix dernières années. Les règles complètes, et ce qu’il advient d’une société qui ne les remplit pas, sont détaillées sur la page « <a href="/fr/eligibilite.html">Critères d’éligibilité</a> ».</p>
 
 <h2>Classement, Challengers, Radar</h2>
 <ul>
@@ -184,15 +176,7 @@ METHOD = {
 <p>These estimates are editorial, purely indicative and imperfect by nature: only the market sets a company’s value, through a funding round or a sale. They are neither a financial valuation, nor an offer, nor investment advice. A company that considers a figure inaccurate can <a href="/correction.html">request a correction</a>.</p>
 
 <h2 id="eligibility">Who is eligible</h2>
-<div class="table-wrap"><table>
-<tr><th>Rule</th><th>How it applies</th></tr>
-<tr><td>Tech or innovative startup</td><td>The scope is defined by the public sector taxonomy, which evolves.</td></tr>
-<tr><td>Has raised at least $1M, including one equity round</td><td>The threshold is cumulative, equity or debt, and at least one round must have been an equity round. Investors are therefore already on the cap table and have negotiated their rights. A grant is not a funding round. The same threshold applies in every country.</td></tr>
-<tr><td>Non-listed</td><td>Listed companies are shown separately, as benchmarks, and are never ranked.</td></tr>
-<tr><td>Active</td><td>A company that has been acquired, has closed or is in insolvency proceedings leaves the ranking. Its past positions remain in the history.</td></tr>
-<tr><td>One main activity</td><td>Each company belongs to one sector and one segment only. Conglomerates are excluded.</td></tr>
-<tr><td>Country of operations</td><td>The country used is the country of operations, whatever the legal seat. The seat is shown on the company profile. Locally founded companies run from abroad appear in “Born here, based elsewhere”.</td></tr>
-</table></div>
+<p><b>A startup, for Uback, is a non-listed company, born independent, funded with equity by outside investors, that has not been entirely bought.</b> It must also be alive: at least one equity transaction in the last ten years. The full rules, and what happens to a company that does not meet them, are on the “<a href="/eligibility.html">Eligibility criteria</a>” page.</p>
 
 <h2>Ranking, Challengers, Radar</h2>
 <ul>
@@ -224,6 +208,87 @@ METHOD = {
 <h2>Sources and limits</h2>
 <p>Uback relies on each country’s business and tech press, international press, industry reports, public registers and data services. Each country page lists the media and services used.</p>
 <p>Uback does not rule out errors of interpretation, or the inadvertent use of inaccurate information published elsewhere. We do our best to keep them out, and we correct them as soon as an error is reported.</p>
+</div>
+""",
+}
+
+
+# Critères d'éligibilité (/eligibility.html et /fr/eligibilite.html) : la définition Uback d'une startup (décision du 03/10/2026).
+ELIGIBILITY = {
+'fr': """<div class="wrap prose">
+<h1>Critères d’éligibilité</h1>
+<p class="lead"><b>Une startup, pour Uback, est une société non cotée, née indépendante, financée en fonds propres par des investisseurs extérieurs, et qui n’a pas été entièrement rachetée.</b></p>
+<p>Uback classe des sociétés dont le capital reste ouvert : des investisseurs peuvent encore y entrer, et des actionnaires minoritaires peuvent y trouver un acheteur. C’est vrai même quand un groupe ou un fonds en a pris le contrôle, tant que des minoritaires restent au capital. Une société cotée a déjà son marché. Une société entièrement rachetée, ou créée par un groupe, n’est pas ou plus une startup. Tous les critères ci-dessous découlent de ce principe.</p>
+
+<h2 id="criteres">Les cinq critères</h2>
+<div class="table-wrap"><table>
+<tr><th>Critère</th><th>Application</th></tr>
+<tr><td><b>1. Non cotée</b></td><td>Aucune action cotée sur une bourse, y compris les marchés de croissance (Euronext Growth, AIM, KOSDAQ…) et les introductions par SPAC. Les sociétés cotées figurent à part, comme repères, et ne sont jamais classées.</td></tr>
+<tr><td><b>2. Financée par des investisseurs extérieurs</b></td><td>Au moins 1 M$ levés au total, dont au moins un tour en fonds propres auprès d’investisseurs extérieurs. Une subvention n’est pas une levée ; la dette seule ne suffit pas ; le rachat par un fonds des actions des fondateurs n’en est pas une non plus. Le même seuil s’applique dans tous les pays.</td></tr>
+<tr><td><b>3. Née indépendante, pas entièrement rachetée</b></td><td>La société a été fondée par des entrepreneurs, et non créée par un groupe. Un groupe, un fonds de private equity ou un État peut en avoir pris le contrôle, à condition que des actionnaires minoritaires extérieurs (fonds, business angels, fondateurs) restent au capital : elle est alors classée avec la mention « Contrôlée par ». Ne sont pas éligibles : une société rachetée en totalité ou presque ; une société créée par le groupe qui la contrôle (filiale, division, coentreprise). Une société entièrement rachetée ne redevient pas éligible, même si elle accueille ensuite de nouveaux investisseurs. Un rachat signé compte comme réalisé, même avant sa finalisation.</td></tr>
+<tr><td><b>4. En activité</b></td><td>Une société fermée, en liquidation ou en procédure collective n’est pas classée.</td></tr>
+<tr><td><b>5. Vivante au capital</b></td><td>Au moins une opération en fonds propres au cours des dix dernières années : levée de fonds, cession secondaire, ou passage d’une participation d’un fonds à un autre. Une société sans aucune opération depuis dix ans n’est plus une startup au sens d’Uback.</td></tr>
+</table></div>
+
+<h2 id="nos-regles">Nos règles</h2>
+<p>Ces critères sont ceux d’Uback. D’autres définitions de la startup existent, et celle-ci peut être discutée. Elle est publique, et la même pour toutes les sociétés, dans tous les pays et tous les segments.</p>
+<p>Les tables de capitalisation sont rarement publiques. Uback juge donc sur les informations publiques disponibles, et peut se tromper. Toute société peut <a href="/fr/correction.html">demander une correction</a>, documents à l’appui. Une société ne peut pas demander son retrait d’un classement : seul un critère d’éligibilité peut l’en faire sortir.</p>
+
+<h2 id="non-eligible">Ce qu’il advient d’une société non éligible</h2>
+<ul>
+<li><b>Sur une page pays</b>, elle figure dans « Hors classement », avec son motif et sa source.</li>
+<li><b>Sur une page segment</b>, elle est citée dans le paragraphe qui précise le périmètre du segment.</li>
+<li><b>Une société cotée</b> peut être affichée comme repère coté.</li>
+<li>L’historique conserve ses positions passées.</li>
+</ul>
+
+<h2 id="classee-ou-radar">Éligible ne veut pas dire classée</h2>
+<p>Le classement retient les sociétés éligibles que les IA savent valoriser, dans la limite du nombre de places du classement. Les autres sociétés éligibles connues figurent au Radar, triées par date de dernière levée. Voir la <a href="/fr/methode.html">méthode</a>.</p>
+
+<h2 id="perimetre">Périmètre</h2>
+<ul>
+<li><b>Startup technologique ou innovante</b> : le périmètre est défini par l’arborescence publique des secteurs, qui évolue. Chaque société est rattachée à un seul secteur et à un seul segment ; une société aux activités multiples sans activité principale (un conglomérat) n’est pas classée.</li>
+<li><b>Pays des opérations</b> : une société est classée dans le pays de ses opérations, quel que soit son siège juridique. Les sociétés d’origine locale opérées depuis l’étranger figurent dans « Nées ici, établies ailleurs ».</li>
+<li><b>Pays couverts</b> : ils sont choisis par l’algorithme, pas par Uback (<a href="/fr/faq/#countries">voir la FAQ</a>). La Chine n’a pas de classement national (<a href="/fr/faq/#china">pourquoi</a>).</li>
+</ul>
+</div>
+""",
+'en': """<div class="wrap prose">
+<h1>Eligibility criteria</h1>
+<p class="lead"><b>A startup, for Uback, is a non-listed company, born independent, funded with equity by outside investors, that has not been entirely bought.</b></p>
+<p>Uback ranks companies whose capital is still open: investors can still come in, and minority shareholders can still find a buyer. That remains true when a group or a fund has taken control, as long as minority shareholders remain. A listed company already has its market. A company that has been entirely bought, or was created by a group, is not, or no longer, a startup. Every criterion below follows from that principle.</p>
+
+<h2 id="criteria">The five criteria</h2>
+<div class="table-wrap"><table>
+<tr><th>Criterion</th><th>How it applies</th></tr>
+<tr><td><b>1. Non-listed</b></td><td>No shares listed on any stock exchange, including growth markets (Euronext Growth, AIM, KOSDAQ…) and listings through a SPAC. Listed companies are shown separately, as benchmarks, and are never ranked.</td></tr>
+<tr><td><b>2. Funded by outside investors</b></td><td>At least $1M raised in total, including at least one equity round from outside investors. A grant is not a funding round; debt alone is not enough; nor is a fund buying out the founders’ shares. The same threshold applies in every country.</td></tr>
+<tr><td><b>3. Born independent, not entirely bought</b></td><td>The company was founded by entrepreneurs, not created by a group. A group, a private equity fund or a state may have taken control of it, provided outside minority shareholders (funds, business angels, founders) remain on the cap table: it is then ranked with the mention “Controlled by”. Not eligible: a company bought entirely or almost entirely; a company created by the group that controls it (subsidiary, division, joint venture). A company that has been entirely bought does not become eligible again, even if it later brings in new investors. A signed acquisition counts as done, even before it closes.</td></tr>
+<tr><td><b>4. In business</b></td><td>A company that has closed, is in liquidation or is in insolvency proceedings is not ranked.</td></tr>
+<tr><td><b>5. Alive on the cap table</b></td><td>At least one equity transaction in the last ten years: a funding round, a secondary sale, or a stake passing from one fund to another. A company with no transaction for ten years is no longer a startup in Uback’s sense.</td></tr>
+</table></div>
+
+<h2 id="our-rules">Our rules</h2>
+<p>These criteria are Uback’s own. Other definitions of a startup exist, and this one can be debated. It is public, and the same for every company, in every country and every segment.</p>
+<p>Cap tables are rarely public. Uback therefore judges on the public information available, and can be wrong. Any company can <a href="/correction.html">request a correction</a>, with supporting documents. A company cannot ask to be removed from a ranking: only an eligibility criterion can take it out.</p>
+
+<h2 id="not-eligible">What happens to a company that is not eligible</h2>
+<ul>
+<li><b>On a country page</b>, it appears under “Not ranked”, with its reason and source.</li>
+<li><b>On a segment page</b>, it is named in the paragraph that sets the scope of the segment.</li>
+<li><b>A listed company</b> may be shown as a listed benchmark.</li>
+<li>Its past positions remain in the history.</li>
+</ul>
+
+<h2 id="ranked-or-radar">Eligible does not mean ranked</h2>
+<p>The ranking keeps the eligible companies the AI models can value, up to the number of places in the ranking. The other known eligible companies appear in the Radar, sorted by date of last funding round. See the <a href="/method.html">method</a>.</p>
+
+<h2 id="scope">Scope</h2>
+<ul>
+<li><b>Tech or innovative startup</b>: the scope is defined by the public sector taxonomy, which evolves. Each company belongs to one sector and one segment only; a company with several activities and no main one (a conglomerate) is not ranked.</li>
+<li><b>Country of operations</b>: a company is ranked in the country of its operations, whatever its legal seat. Locally founded companies run from abroad appear in “Born here, based elsewhere”.</li>
+<li><b>Countries covered</b>: they are chosen by an algorithm, not by Uback (<a href="/faq/#countries">see the FAQ</a>). China has no country ranking (<a href="/faq/#china">why</a>).</li>
+</ul>
 </div>
 """,
 }
@@ -320,7 +385,7 @@ INVEST = {
 <p>Chaque société, chaque secteur et chaque pays affiche le nombre de Backers et le montant cumulé de son pool. Pour préserver la confidentialité, ces chiffres sont arrondis par tranches.</p>
 
 <h2>Pourquoi seulement des sociétés déjà financées</h2>
-<p><a href="/fr/methode.html#eligibilite">Uback ne classe que des sociétés qui ont levé au moins 1 M$, dont au moins un tour en fonds propres.</a> Des investisseurs professionnels sont donc déjà au capital et ont négocié un pacte d’associés. Les Backers qui entrent à leur tour ne partent pas d’une page blanche.</p>
+<p><a href="/fr/eligibilite.html">Uback ne classe que des sociétés qui ont levé au moins 1 M$, dont au moins un tour en fonds propres.</a> Des investisseurs professionnels sont donc déjà au capital et ont négocié un pacte d’associés. Les Backers qui entrent à leur tour ne partent pas d’une page blanche.</p>
 
 <h2>Le partenaire agréé</h2>
 <p>Dans chaque pays, Uback confie les pools à un seul partenaire : une boutique de fusions-acquisitions ou une société spécialisée en levée de fonds, agréée par le régulateur local. Il est présenté sur la page du pays.</p>
@@ -391,7 +456,7 @@ INVEST = {
 <p>Each company, sector and country shows the number of Backers and the combined amount of its pool. To protect confidentiality, these figures are rounded into ranges.</p>
 
 <h2>Why only companies that have already raised funds</h2>
-<p><a href="/method.html#eligibility">Uback only ranks companies that have raised at least $1M, including one equity round.</a> Professional investors are therefore already on the cap table and have negotiated a shareholders’ agreement. Backers who come in after them do not start from a blank page.</p>
+<p><a href="/eligibility.html">Uback only ranks companies that have raised at least $1M, including one equity round.</a> Professional investors are therefore already on the cap table and have negotiated a shareholders’ agreement. Backers who come in after them do not start from a blank page.</p>
 
 <h2>The local partner</h2>
 <p>In each country, Uback entrusts pools to a single partner: an M&amp;A boutique or a fundraising firm, licensed by the local regulator. It is introduced on the country page.</p>
