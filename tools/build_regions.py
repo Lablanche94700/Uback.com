@@ -169,7 +169,7 @@ def build(slug, kind):
         {'<span class="tag cad">' + e(counted) + '</span>' if kind == 'collection' else ''}
         <span class="tag cad">Country rankings: quarterly</span>
         {'<span class="tag cad">Regional ranking: twice a year</span>' if slug in geo.REGIONAL else ''}
-        <a href="/calendar/">Calendar</a><span>·</span><a href="{GM}">Published method</a>
+        <a href="/calendar/">Calendar</a><span>·</span><a href="{GM}">Method</a>
       </div>
       {china}
     </div>

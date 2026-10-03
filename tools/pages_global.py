@@ -28,7 +28,7 @@ METHOD = {
 <li><b>Même dossier, même prompt.</b> Les cinq IA reçoivent exactement le même dossier et le même prompt. Aucune ne cherche sur le web de son côté.</li>
 <li><b>La médiane tranche.</b> Chaque IA donne une tranche de valorisation et sa justification. Le classement suit la médiane ; l’écart entre les IA fixe l’indice de confiance.</li>
 </ol>
-<p>Chaque édition indiquera la version exacte de chaque IA utilisée, et le prompt sera public. DeepSeek est exécuté sur des serveurs situés hors de Chine.</p>
+<p>Chaque édition indiquera la version exacte de chaque IA utilisée. DeepSeek est exécuté sur des serveurs situés hors de Chine.</p>
 <p><b>Aujourd’hui (Édition 0 – bêta) :</b> les classements sont produits par Claude seul. Le consensus des cinq IA s’appliquera dès la première édition en mode live.</p>
 
 <h2 id="estimation">Comment la valorisation est estimée</h2>
@@ -93,14 +93,14 @@ METHOD = {
 <h2 id="avis-humains">Règles de prise en compte des inputs des humains</h2>
 <p>Uback ouvrira ses classements aux avis d’analystes. Un analyste pourra publier, sous son nom, une lecture critique d’un classement : pourquoi telle société lui paraît sous-estimée, pourquoi telle autre lui paraît surestimée. Ces textes lui permettront de faire connaître son expertise. Les lecteurs pourront les juger utiles ou non.</p>
 <p>Les IA pourront tenir compte de ces avis, sans y être tenues. <b>Seules les IA décident du classement, et elles n’ont pas à justifier la prise en compte ou non d’un avis.</b> Aucun avis, aucun vote, aucun paiement ne s’impose à elles.</p>
-<p>Les règles selon lesquelles les IA considèrent ces avis figurent dans les instructions qui leur sont données, et ces instructions sont publiques.</p>
+<p>Les règles selon lesquelles les IA considèrent ces avis figurent dans les instructions qui leur sont données.</p>
 <p>Les corrections de faits sont traitées différemment (voir « Corrections ») : un montant, une date ou un statut erroné est corrigé dans les données dès qu’il est vérifié.</p>
 
 <h2>Les règles du jeu</h2>
 <ol>
 <li><b>Le classement n’est jamais à vendre.</b> Aucun paiement, d’une société, d’un partenaire ou d’un investisseur, n’influence un rang ni une tranche.</li>
 <li><b>Aucun humain ne modifie l’ordre.</b> Un humain peut exclure une société pour un motif d’éligibilité, de façon tracée, ou relancer le calcul. Il ne réordonne jamais.</li>
-<li><b>La méthode est publique.</b> Cette page et les instructions données aux IA pour chaque type de classement (pays, segment) sont publiques. Les données de travail et les estimations chiffrées ne le sont pas.</li>
+<li><b>Les principes sont publics.</b> Cette page décrit les principes de classement et d’estimation, communs à tous les classements. Les instructions données aux IA et les données de travail ne sont pas publiées.</li>
 <li><b>Uback n’est pas un intermédiaire financier.</b> Uback ne détient aucun mandat, ne négocie pas, ne donne pas de conseil et n’encaisse aucun fonds destiné à un investissement. Toute opération est proposée par le partenaire agréé du pays, sous sa propre responsabilité.</li>
 <li><b>Les données ne sortent pas.</b> Les intentions d’investissement sont confidentielles. Aucune donnée n’est vendue. Elles ne sont transmises qu’au partenaire agréé du pays, avec le consentement de l’investisseur.</li>
 </ol>
@@ -137,7 +137,7 @@ METHOD = {
 <li><b>Same file, same prompt.</b> The five models receive exactly the same file and the same prompt. None of them searches the web on its own.</li>
 <li><b>The median decides.</b> Each model gives a valuation range and its reasoning. The ranking follows the median; the spread between the models sets the confidence index.</li>
 </ol>
-<p>Each edition will show the exact version of each model used, and the prompt will be public. DeepSeek is run on servers outside China.</p>
+<p>Each edition will show the exact version of each model used. DeepSeek is run on servers outside China.</p>
 <p><b>Today (Edition 0 – beta):</b> rankings are produced by Claude alone. The five-model consensus will apply from the first live edition.</p>
 
 <h2 id="estimation">How valuation is estimated</h2>
@@ -202,14 +202,14 @@ METHOD = {
 <h2 id="human-input">How human input is taken into account</h2>
 <p>Uback will open its rankings to analysts’ views. An analyst will be able to publish, under their own name, a critical reading of a ranking: why one company seems underestimated, why another seems overestimated. These pieces will let them showcase their expertise. Readers will be able to rate them as useful or not.</p>
 <p>The AI models may take these views into account, but are not bound to. <b>Only the AI models decide the ranking, and they do not have to justify whether or not they took a view into account.</b> No view, vote or payment is binding on them.</p>
-<p>The rules by which the AI models consider these views are part of the instructions given to them, and those instructions are public.</p>
+<p>The rules by which the AI models consider these views are part of the instructions given to them.</p>
 <p>Factual corrections are handled differently (see “Corrections”): a wrong amount, date or status is corrected in the data as soon as it is verified.</p>
 
 <h2>Rules of the game</h2>
 <ol>
 <li><b>The ranking is never for sale.</b> No payment, from a company, a partner or an investor, influences a rank or a range.</li>
 <li><b>No human changes the order.</b> A human may exclude a company on eligibility grounds, with a record kept, or re-run the calculation. Never reorder it.</li>
-<li><b>The method is public.</b> This page and the instructions given to the AI models for each type of ranking (country, segment) are public. Working data and estimate figures are not.</li>
+<li><b>The principles are public.</b> This page sets out the ranking and estimation principles common to all rankings. The instructions given to the AI models and the working data are not published.</li>
 <li><b>Uback is not a financial intermediary.</b> Uback holds no mandate, does not negotiate, gives no advice and collects no funds intended for investment. Any transaction is offered by the country’s local partner, under its own responsibility.</li>
 <li><b>Data stays in.</b> Investment intentions are confidential. No data is sold. It is passed only to the country’s local partner, with the investor’s consent.</li>
 </ol>
@@ -234,7 +234,7 @@ LEGAL = {
 <h2>Hébergement</h2>
 <p>GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis. Site : <a href="https://github.com">github.com</a>.</p>
 <h2>Nature du service</h2>
-<p>Uback est un éditeur de contenu. Les classements publiés sont des opinions produites par des systèmes d’intelligence artificielle à partir d’informations publiques, selon une méthode publiée. Ils ne constituent ni un conseil en investissement, ni une recommandation personnalisée, ni une sollicitation ou une offre de titres. Uback ne reçoit aucun mandat, ne négocie aucune transaction et n’encaisse aucun fonds destiné à un investissement. Les mises en relation sont réalisées par un partenaire agréé, identifié sur chaque marché, sous sa seule responsabilité réglementaire.</p>
+<p>Uback est un éditeur de contenu. Les classements publiés sont des opinions produites par des systèmes d’intelligence artificielle à partir d’informations publiques. Ils ne constituent ni un conseil en investissement, ni une recommandation personnalisée, ni une sollicitation ou une offre de titres. Uback ne reçoit aucun mandat, ne négocie aucune transaction et n’encaisse aucun fonds destiné à un investissement. Les mises en relation sont réalisées par un partenaire agréé, identifié sur chaque marché, sous sa seule responsabilité réglementaire.</p>
 <h2>Droit de réponse</h2>
 <p>Toute société citée peut signaler une information inexacte la concernant ou contester son rang, via le <a href="/fr/correction.html">formulaire de correction</a>.</p>
 <h2>Données personnelles</h2>
@@ -254,7 +254,7 @@ LEGAL = {
 <h2>Hosting</h2>
 <p>GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, United States. Website: <a href="https://github.com">github.com</a>.</p>
 <h2>Nature of the service</h2>
-<p>Uback is a content publisher. The rankings published are opinions produced by artificial intelligence systems from public information, following a published method. They constitute neither investment advice, nor a personal recommendation, nor a solicitation or an offer of securities. Uback receives no mandate, negotiates no transaction and collects no funds intended for an investment. Introductions are made by a local partner identified in each market, under its sole regulatory responsibility.</p>
+<p>Uback is a content publisher. The rankings published are opinions produced by artificial intelligence systems from public information. They constitute neither investment advice, nor a personal recommendation, nor a solicitation or an offer of securities. Uback receives no mandate, negotiates no transaction and collects no funds intended for an investment. Introductions are made by a local partner identified in each market, under its sole regulatory responsibility.</p>
 <h2>Right of reply</h2>
 <p>Any company mentioned may report inaccurate information about it or dispute its rank, using the <a href="/correction.html">correction form</a>.</p>
 <h2>Personal data</h2>

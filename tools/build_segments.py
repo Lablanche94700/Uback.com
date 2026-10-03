@@ -420,7 +420,7 @@ def build(path):
       <div class="meta">
         <span class="tag cad">{e(d['cadence'])}</span>
         <span>Claude · multi-AI consensus in a future edition</span><span>·</span>
-        <a href="{GM}">Published method</a><span>·</span>
+        <a href="{GM}">Method</a><span>·</span>
         <span>Order never changed by a human</span>
       </div>
       <p class="hero-cta"><a class="btn gold" href="{pool}">Declare an interest in {e(d['name'])}</a></p>
@@ -637,7 +637,7 @@ def build_family(fam, datas):
       <div class="meta">
         <span class="tag beta">{len(pub)} of {total} segments published</span>
         <span class="tag cad">Twice a year</span>
-        <a href="{GM}">Published method</a><span>·</span>
+        <a href="{GM}">Method</a><span>·</span>
         <span>Order never changed by a human</span>
       </div>
       <p class="notin"><b>One company, one segment.</b> Each company is ranked in the segment of its main activity only, against its direct competitors. There is no ranking across segments. <a href="{GM}#eligibility">Method</a></p>
