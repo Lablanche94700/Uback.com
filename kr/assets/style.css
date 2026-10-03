@@ -256,8 +256,8 @@ footer.site-foot .wrap{display:block;padding-top:36px;padding-bottom:24px}
 .ft-bar{margin-top:24px;padding-top:16px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 20px;font-size:12.5px}
 .ft-bar a{color:var(--muted)}
 .ft-bar p{flex:1 1 100%;margin:4px 0 0;line-height:1.55;max-width:none}
-@media (min-width:640px){.ft-nav{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (min-width:900px){.ft-grid{grid-template-columns:minmax(0,1.3fr) minmax(0,3fr);gap:48px}}
+@media (min-width:640px){.ft-nav{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (min-width:900px){.ft-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,4fr);gap:40px}}
 /* footer:end */
 /* mobile */
 @media (max-width:1024px){

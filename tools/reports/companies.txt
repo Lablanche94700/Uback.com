@@ -1,6 +1,6 @@
 Fiches société — rapport de tools/build_companies.py
 
-730 fiches · 465 indexées · 265 noindex · 27 nouveaux slugs
+730 fiches · 465 indexées · 265 noindex · 0 nouveaux slugs
 
 == Fusions (une fiche, plusieurs classements)
   apna ← Apna / apna (in:ranked, recruiting:ranked)
