@@ -391,11 +391,9 @@ def row(c):
     if c.get('juridiction') and (not c['juridiction'].startswith(M['name']) or ';' in c['juridiction']):
         jur = f'<span class="jur">{e(c["juridiction"])}</span>'
     note = f'<div class="src">{e(c["note"])}</div>' if c.get('note') else ''
-    # « Signalez une erreur » : formulaire de correction prérempli (société, pays)
-    report = f'<a class="report" href="{GC}?company={quote(c["nom"])}&amp;country={M["code"]}">{L["report"]}</a>'
     return f'''<tr{top}>
 <td class="rank">{c['rang']}</td>
-<td><span class="co">{companies.link_company(c['nom'], M['code'], root='@ROOT@')}<small>{e(c['ville'])} · {L['founded']} {c['creation']}</small></span>{jur}{note}{report}</td>
+<td><span class="co">{companies.link_company(c['nom'], M['code'], root='@ROOT@')}<small>{e(c['ville'])} · {L['founded']} {c['creation']}</small></span>{jur}{note}</td>
 <td data-l="{L['l_sub']}">{e(c['sous_secteur'])}</td>
 <td data-l="{L['l_fund']}">{e(c['leve_cumule'])}{L['raised']}<br><span class="src">{companies.link_investors(e(c['derniere_levee']), root='@ROOT@')} · {src(c['source'])}</span></td>
 <td data-l="{L['l_val']}">{val(c)}</td>

@@ -165,10 +165,9 @@ def row(c, defs=(), sid='', show_inv=False):
     urls = list(c['sources'])
     urls += [u for u in dict.fromkeys(v.get('source') for v in (c.get('kpis') or {}).values()) if u and u not in urls]   # sources des KPIs
     srcs = ' · '.join(f'<a href="{e(u)}" rel="nofollow noopener" target="_blank">{i}</a>' for i, u in enumerate(urls, 1))
-    report = f'<a class="report" href="{GC}?company={quote(c["name"])}&amp;country=global">Is this your company? Report an error</a>'
     return f'''<tr class="r{top}" data-region="{c['region']}">
 <td class="rank">{c['rank']}</td>
-<td><span class="co">{companies.link_company(c['name'], sid)}<small>{where(c)}</small></span><span class="src">Sources: {srcs}</span>{report}</td>
+<td><span class="co">{companies.link_company(c['name'], sid)}<small>{where(c)}</small></span><span class="src">Sources: {srcs}</span></td>
 <td data-l="Last round · Key metrics">{e(last_round(c))}{kpi_line(c, defs)}</td>
 <td data-l="Valuation (AI)">{val(c)}</td>
 <td data-l="Confidence">{conf(c)}</td>

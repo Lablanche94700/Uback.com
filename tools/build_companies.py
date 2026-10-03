@@ -401,6 +401,7 @@ def side_blocks(m):
   <p class="pf-p">Claim this profile to correct data, add your logo and description, or tell Uback about an upcoming round. Claiming never changes the rank.</p>
   <a class="btn navy" href="{form_url('claim', raw)}">Claim this profile</a>
   <a class="pf-more" href="{form_url('upcoming_round', raw)}">Report an upcoming round →</a>
+  <a class="pf-more" href="{GC}?company={quote(raw)}&amp;country={code if m['prim']['kind'] == 'country' else 'global'}">Report an error →</a>
 </section>
 <section class="card pf-card">
   <h2 class="sm">Are you a shareholder?</h2>
