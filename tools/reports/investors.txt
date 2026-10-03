@@ -1,16 +1,16 @@
 Investisseurs — rapport de tools/build_companies.py
 
-603 noms · 148 pages (≥ 2 sociétés) · 82 indexées (≥ 3)
+616 noms · 152 pages (≥ 2 sociétés) · 84 indexées (≥ 3)
 
 == Pages
+  accel · 23 · Accel / Accel Leaders
   tiger-global · 21 · Tiger Global
-  accel · 20 · Accel / Accel Leaders
   sequoia-capital · 17 · Sequoia / Sequoia Capital
   general-atlantic · 15 · General Atlantic
   lightspeed · 14 · Lightspeed / Lightspeed Venture Partners
   softbank-vision-fund · 14 · SoftBank Vision Fund / SoftBank Vision Fund 2
+  general-catalyst · 12 · General Catalyst
   andreessen-horowitz · 11 · Andreessen Horowitz / a16z
-  general-catalyst · 11 · General Catalyst
   tcv · 11 · TCV
   ifc · 9 · IFC
   kkr · 9 · KKR
@@ -21,6 +21,7 @@ Investisseurs — rapport de tools/build_companies.py
   temasek · 8 · Temasek
   y-combinator · 8 · Y Combinator / YC
   azur-innovation-fund · 7 · Azur Innovation Fund / Azur Innovation Management
+  bessemer-venture-partners · 7 · Bessemer / Bessemer Venture Partners
   coatue · 7 · Coatue
   bpifrance · 6 · Bpifrance
   dst-global · 6 · DST Global
@@ -31,7 +32,6 @@ Investisseurs — rapport de tools/build_companies.py
   prosus · 6 · Prosus / Prosus Ventures
   softbank · 6 · inconnu de data/investors.json · SoftBank
   atomico · 5 · Atomico
-  bessemer-venture-partners · 5 · Bessemer
   dragoneer-investment-group · 5 · Dragoneer / Dragoneer Investment Group
   dragonfly · 5 · inconnu de data/investors.json · Dragonfly
   endeavor-catalyst · 5 · Endeavor Catalyst
@@ -51,6 +51,8 @@ Investisseurs — rapport de tools/build_companies.py
   blackstone · 4 · Blackstone / Blackstone Growth / Blackstone funds
   bond · 4 · inconnu de data/investors.json · BOND / Bond
   cathay-innovation · 4 · inconnu de data/investors.json · Cathay Innovation
+  firstmark-capital · 4 · FirstMark / FirstMark Capital
+  gic · 4 · GIC
   goodwater-capital · 4 · Goodwater / Goodwater Capital
   iconiq · 4 · ICONIQ / ICONIQ Growth / Iconiq
   khosla-ventures · 4 · Khosla / Khosla Ventures
@@ -70,9 +72,7 @@ Investisseurs — rapport de tools/build_companies.py
   eqt · 3 · inconnu de data/investors.json · EQT
   f-prime · 3 · inconnu de data/investors.json · F-Prime
   felicis · 3 · inconnu de data/investors.json · Felicis
-  firstmark-capital · 3 · FirstMark / FirstMark Capital
   founders-fund · 3 · inconnu de data/investors.json · Founders Fund
-  gic · 3 · GIC
   gv · 3 · inconnu de data/investors.json · GV
   greycroft · 3 · inconnu de data/investors.json · Greycroft
   lb-investment · 3 · inconnu de data/investors.json · LB Investment
@@ -82,14 +82,19 @@ Investisseurs — rapport de tools/build_companies.py
   one-peak · 3 · inconnu de data/investors.json · One Peak
   paradigm · 3 · inconnu de data/investors.json · Paradigm
   polychain-capital · 3 · Polychain / Polychain Capital
+  revaia · 3 · inconnu de data/investors.json · Revaia
   sanofi · 3 · inconnu de data/investors.json · Sanofi
   tpg · 3 · TPG / TPG Rise Fund / The Rise Funds
+  tq-ventures · 3 · inconnu de data/investors.json · TQ Ventures
   wellington-management · 3 · Wellington / Wellington Management
+  500-global · 2 · inconnu de data/investors.json · 500 Global
   8vc · 2 · inconnu de data/investors.json · 8VC
   ark-invest · 2 · ARK / ARK Invest
+  addition · 2 · inconnu de data/investors.json · Addition
   allianz-x · 2 · inconnu de data/investors.json · Allianz X
   animoca-brands · 2 · Animoca / Animoca Brands
   attijariwafa-ventures · 2 · Attijariwafa Ventures
+  bain-capital-ventures · 2 · inconnu de data/investors.json · Bain Capital Ventures
   bezos-expeditions · 2 · inconnu de data/investors.json · Bezos Expeditions
   blackrock · 2 · inconnu de data/investors.json · BlackRock
   blockchain-capital · 2 · inconnu de data/investors.json · Blockchain Capital
@@ -106,6 +111,7 @@ Investisseurs — rapport de tools/build_companies.py
   gef-capital · 2 · inconnu de data/investors.json · GEF Capital
   ggv-capital · 2 · GGV / GGV Capital
   generation-investment-management · 2 · Generation IM / Generation Investment Management
+  georgian · 2 · inconnu de data/investors.json · Georgian
   goldman-sachs · 2 · inconnu de data/investors.json · Goldman Sachs
   google · 2 · inconnu de data/investors.json · Google
   greylock · 2 · inconnu de data/investors.json · Greylock
@@ -138,14 +144,12 @@ Investisseurs — rapport de tools/build_companies.py
   psg · 2 · inconnu de data/investors.json · PSG
   premji-invest · 2 · inconnu de data/investors.json · Premji Invest
   qiming-venture-partners · 2 · Qiming / Qiming Venture Partners
-  revaia · 2 · inconnu de data/investors.json · Revaia
   sc-ventures · 2 · inconnu de data/investors.json · SC Ventures
   sig · 2 · inconnu de data/investors.json · SIG
   scale-venture-partners · 2 · inconnu de data/investors.json · Scale Venture Partners
   sixth-street-growth · 2 · inconnu de data/investors.json · Sixth Street Growth
   square-peg · 2 · inconnu de data/investors.json · Square Peg
   tnb-aura · 2 · inconnu de data/investors.json · TNB Aura
-  tq-ventures · 2 · inconnu de data/investors.json · TQ Ventures
   target-global · 2 · inconnu de data/investors.json · Target Global
   thrive-capital · 2 · inconnu de data/investors.json · Thrive Capital
   tribe-capital · 2 · Tribe / Tribe Capital
@@ -156,7 +160,7 @@ Investisseurs — rapport de tools/build_companies.py
   1789 Capital · 1
   3TS · 1
   4BIO Capital · 1
-  500 Global · 1
+  500 Global · 2
   5Y Capital · 1
   62 Ventures · 1
   83North · 1
@@ -166,7 +170,7 @@ Investisseurs — rapport de tools/build_companies.py
   Abu Dhabi · 1
   Acrew Capital · 1
   Adage Capital · 1
-  Addition · 1
+  Addition · 2
   ADIA · 1
   ADP III · 1
   ADQ · 1
@@ -185,6 +189,7 @@ Investisseurs — rapport de tools/build_companies.py
   Amadeus Capital · 1
   Amazon · 1
   AMD · 1
+  AMD Ventures · 1
   Amgen Ventures · 1
   amount to be confirmed · 1
   Anthology Fund · 1
@@ -214,8 +219,9 @@ Investisseurs — rapport de tools/build_companies.py
   AXA IM Alts · 1
   AXA Strategic Ventures · 1
   BAI · 1
+  Baidu Ventures · 1
   Bain Capital · 1
-  Bain Capital Ventures · 1
+  Bain Capital Ventures · 2
   Balderton · 3
   Base10 Partners · 1
   Battery Ventures · 3
@@ -287,6 +293,7 @@ Investisseurs — rapport de tools/build_companies.py
   Cox Enterprises · 1
   CPP Investments · 1
   Craft Ventures · 2
+  Crane · 1
   Creaegis · 1
   Credit Suisse · 1
   CrowdStrike Falcon Fund · 1
@@ -301,8 +308,10 @@ Investisseurs — rapport de tools/build_companies.py
   Declaration Partners · 1
   Deerfield · 1
   DEG · 1
+  Dell Technologies Capital · 1
   Deutsche Bank · 1
   DFC · 1
+  Digital+ Partners · 1
   Docusign · 1
   DoorDash · 1
   DPI · 1
@@ -346,6 +355,7 @@ Investisseurs — rapport de tools/build_companies.py
   Founders Circle · 1
   Founders Fund · 3
   Four Rivers · 1
+  FPV Ventures · 1
   Franklin Templeton · 1
   FTX · 1
   FTX Ventures · 2
@@ -356,7 +366,7 @@ Investisseurs — rapport de tools/build_companies.py
   Gates Foundation · 1
   GEF Capital · 2
   General Atlantic BeyondNetZero · 1
-  Georgian · 1
+  Georgian · 2
   GFT Ventures · 1
   GL Ventures · 1
   GLG · 1
@@ -414,8 +424,10 @@ Investisseurs — rapport de tools/build_companies.py
   Innovation Endeavors · 1
   Inovia Capital · 1
   Inovo · 2
+  Intel Capital · 1
   Intercontinental Exchange · 1
   Intermediate Capital Group · 1
+  IRIS · 1
   IVP · 2
   J2 · 1
   Jan 2022 · 1
@@ -456,6 +468,7 @@ Investisseurs — rapport de tools/build_companies.py
   Lone Pine · 1
   Lotte Holdings · 1
   lululemon · 1
+  LuminArx Capital Management · 1
   Lux · 1
   M&G · 1
   M13 · 1
@@ -488,6 +501,7 @@ Investisseurs — rapport de tools/build_companies.py
   Monk's Hill · 1
   Morgan Creek Digital · 1
   Morgan Stanley · 1
+  Morgan Stanley Expansion Capital · 1
   Motilal Oswal Alternates · 1
   Mubadala Capital · 1
   MUFG · 1
@@ -551,9 +565,10 @@ Investisseurs — rapport de tools/build_companies.py
   Quona Capital · 1
   RAISE France · 1
   Red Dot Capital Partners · 1
+  Redpoint · 1
   Redwood Capital · 1
   Renault · 1
-  Revaia · 2
+  Revaia · 3
   Ripple · 1
   Riverwood Capital · 1
   Ronnie Screwvala · 1
@@ -604,6 +619,7 @@ Investisseurs — rapport de tools/build_companies.py
   Spark Capital · 1
   SPE Capital · 1
   Speciale Invest · 1
+  Speedinvest · 1
   Springcoast · 1
   Sprints Capital · 1
   Square Peg · 2
@@ -642,7 +658,7 @@ Investisseurs — rapport de tools/build_companies.py
   TLV Partners · 1
   TNB Aura · 2
   Tom Brady · 1
-  TQ Ventures · 2
+  TQ Ventures · 3
   Transsion · 1
   TRIREC · 1
   True Global Ventures · 1
@@ -659,6 +675,7 @@ Investisseurs — rapport de tools/build_companies.py
   Ventures Platform · 1
   Verod-Kepple Africa Ventures · 2
   Vertex Growth · 1
+  Vertex Ventures US · 1
   VIG · 1
   Vinci · 2
   Visa · 1

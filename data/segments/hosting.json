@@ -1,0 +1,688 @@
+{
+ "segment_id": "hosting",
+ "path": [
+  "Cloud, data & developer tools",
+  "Cloud",
+  "Hosting"
+ ],
+ "name": "Hosting",
+ "edition": 0,
+ "edition_label": "Edition 0 (beta)",
+ "published": "2026-10-03",
+ "next_edition": "2027-01-01",
+ "cadence": "Twice a year",
+ "kpi_definitions": [
+  {
+   "id": "revenue",
+   "label": "Revenue / ARR",
+   "prefix": true
+  },
+  {
+   "id": "customers",
+   "label": "Customers / developers"
+  }
+ ],
+ "established_by": "Claude (Anthropic)",
+ "texts": {
+  "title": "The world's most valuable hosting startups, ranked by AI | Uback",
+  "description": "Uback ranks the world's non-listed hosting and developer-cloud companies by AI-estimated valuation: Vercel, Vultr, Render, Netlify, Railway and more. Edition 0 (beta).",
+  "h1": "The world’s most valuable hosting startups",
+  "intro": "Developer clouds and application platforms (PaaS), and cloud and web hosting providers. Ranked worldwide by AI-estimated valuation. The market sets the value; our AI estimates it.",
+  "not_in_segment": "GPU and AI clouds (CoreWeave, Lambda, Crusoe, Nebius) belong to Compute & inference; CDN and edge networks (Cloudflare, Fastly, Gcore) to Edge & CDN; databases (Supabase, Neon) to Data. Hosts that never raised venture capital are not ranked: Hostinger, Hetzner, SiteGround, Kinsta, Leaseweb. Companies owned by private equity or by a group are not ranked: WP Engine (Silver Lake), Newfold Digital (Bluehost, HostGator), Contabo (KKR), Liquid Web, Scaleway (Iliad), Heroku (Salesforce), Exoscale (A1). Acquired companies are no longer ranked: Koyeb (Mistral AI, 2026), Latitude.sh (Megaport, 2025), Fermyon (Akamai, 2025), Cloudways (DigitalOcean), Linode (Akamai). A company appears in one segment only.",
+  "activity": "developer clouds, application platforms and cloud hosting",
+  "og_title": "The world’s most valuable<br>hosting startups",
+  "sources": "Bloomberg, BusinessWire, SiliconANGLE, TechCrunch, DataCenterDynamics, FinSMEs, Tech.eu, EU-Startups, Contrary Research, company announcements."
+ },
+ "ranked": [
+  {
+   "rank": 1,
+   "name": "Vercel",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2025-09",
+    "amount_usd": 300000000.0,
+    "type": "Series F",
+    "investors": "Accel, GIC"
+   },
+   "published_valuation": {
+    "value_usd": 9300000000.0,
+    "date": "2025-09"
+   },
+   "estimate_usd": 9300000000.0,
+   "note_internal": "Frontend/AI cloud, Next.js. Plus ~USD 300M tender offer. Basis: Published valuation of USD 9.3bn (Sep 2025).",
+   "kpis": {
+    "revenue": {
+     "value_text": "USD 340M",
+     "period": "Feb 2026",
+     "source": "https://www.vktr.com/ai-news/vercel-ceo-signals-ipo/"
+    },
+    "customers": {
+     "value_text": "v0: 3.5M+ users; user base doubled year on year",
+     "period": "Sep 2025",
+     "source": "https://www.businesswire.com/news/home/20250930898216/en/Vercel-Closes-Series-F-at-$9.3B-Valuation-to-Scale-the-AI-Cloud"
+    }
+   },
+   "sources": [
+    "https://www.businesswire.com/news/home/20250930898216/en/Vercel-Closes-Series-F-at-$9.3B-Valuation-to-Scale-the-AI-Cloud",
+    "https://www.bloomberg.com/news/articles/2025-09-30/vercel-notches-9-3-billion-valuation-in-latest-ai-funding-round"
+   ]
+  },
+  {
+   "rank": 2,
+   "name": "Vultr",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2024-12",
+    "amount_usd": 333000000.0,
+    "type": "Growth equity",
+    "investors": "LuminArx Capital Management, AMD Ventures"
+   },
+   "published_valuation": {
+    "value_usd": 3500000000.0,
+    "date": "2024-12"
+   },
+   "estimate_usd": 3500000000.0,
+   "note_internal": "General cloud plus large GPU business. USD 329M credit (Jun 2025) not counted; seeking USD 1bn+ (Mar 2026), not closed. Basis: Published valuation of USD 3.5bn (Dec 2024).",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "32 cloud regions",
+     "period": "2024",
+     "source": "https://en.wikipedia.org/wiki/Vultr"
+    }
+   },
+   "sources": [
+    "https://www.hklaw.com/en/news/pressreleases/2025/01/holland-knight-advises-vultr-on-equity-financing-at",
+    "https://www.datacenterdynamics.com/en/news/vultr-seeks-at-least-1bn-in-funding-report/"
+   ]
+  },
+  {
+   "rank": 3,
+   "name": "Render",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "unicorn",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2026-02",
+    "amount_usd": 100000000.0,
+    "type": "Series C extension",
+    "investors": "Georgian; Addition, Bessemer, General Catalyst"
+   },
+   "published_valuation": {
+    "value_usd": 1500000000.0,
+    "date": "2026-02"
+   },
+   "estimate_usd": 1500000000.0,
+   "note_internal": "App platform (PaaS). Basis: Published valuation of USD 1.5bn (Feb 2026).",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "thousands of organisations incl. Twilio, Shopify, Tripadvisor",
+     "period": "Feb 2026",
+     "source": "https://siliconangle.com/2026/02/17/render-raises-100m-more-ai-optimized-cloud-platform/"
+    }
+   },
+   "sources": [
+    "https://siliconangle.com/2026/02/17/render-raises-100m-more-ai-optimized-cloud-platform/",
+    "https://render.com/blog/series-c-extension"
+   ]
+  },
+  {
+   "rank": 4,
+   "name": "Upsun",
+   "country": "France",
+   "country_code": "FR",
+   "region": "europe",
+   "tranche": "hundreds_m",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2022-06",
+    "amount_usd": 140000000.0,
+    "type": "Series D",
+    "investors": "Digital+ Partners, Morgan Stanley Expansion Capital, Revaia"
+   },
+   "published_valuation": null,
+   "estimate_usd": 722956891.0,
+   "note_internal": "Formerly Platform.sh; dual HQ Paris and San Francisco. Basis: Series D of USD 140M (Jun 2022); single source.",
+   "kpis": {
+    "revenue": {
+     "value_text": "above USD 40M",
+     "period": "Jun 2022",
+     "source": "https://upsun.com/blog/securing-series-d-financing/"
+    },
+    "customers": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://upsun.com/blog/securing-series-d-financing/"
+   ]
+  },
+  {
+   "rank": 5,
+   "name": "Netlify",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "hundreds_m",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2021-11",
+    "amount_usd": 105000000.0,
+    "type": "Series D",
+    "investors": "Bessemer Venture Partners"
+   },
+   "published_valuation": {
+    "value_usd": 1900000000.0,
+    "date": "2021-11"
+   },
+   "estimate_usd": 542217668.0,
+   "note_internal": "No round since 2021. Basis: Series D of USD 105M (Nov 2021); published valuation of USD 1.9bn (Nov 2021), over 24 months old.",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "10M developers",
+     "period": "Dec 2025",
+     "source": "https://www.netlify.com/blog/10-million-developers/"
+    }
+   },
+   "sources": [
+    "https://www.netlify.com/press/netlify-raises-usd105-million-to-transform-development-for-the-modern-web/",
+    "https://research.contrary.com/company/netlify"
+   ]
+  },
+  {
+   "rank": 6,
+   "name": "Railway",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "hundreds_m",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2026-01",
+    "amount_usd": 100000000.0,
+    "type": "Series B",
+    "investors": "TQ Ventures; FPV Ventures, Redpoint"
+   },
+   "published_valuation": null,
+   "estimate_usd": 516397779.0,
+   "note_internal": "Valuation undisclosed. Basis: Series B of USD 100M (Jan 2026).",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "2M+ developers; tens of thousands of companies",
+     "period": "Jan 2026",
+     "source": "https://siliconangle.com/2026/01/22/intelligent-cloud-infrastructure-startup-railway-gets-100m-simplify-application-deployment/"
+    }
+   },
+   "sources": [
+    "https://blog.railway.com/p/series-b",
+    "https://siliconangle.com/2026/01/22/intelligent-cloud-infrastructure-startup-railway-gets-100m-simplify-application-deployment/"
+   ]
+  },
+  {
+   "rank": 7,
+   "name": "Laravel",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "hundreds_m",
+   "confidence": "medium",
+   "last_equity_round": {
+    "date": "2024-09",
+    "amount_usd": 57000000.0,
+    "type": "Series A",
+    "investors": "Accel"
+   },
+   "published_valuation": null,
+   "estimate_usd": 294346734.0,
+   "note_internal": "Laravel Cloud, Forge, Vapor. Basis: Series A of USD 57M (Sep 2024).",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://finance.yahoo.com/news/exclusive-laravel-raises-57-million-114408132.html",
+    "https://www.arkansasbusiness.com/article/laravel-lands-57m-from-accel-aims-for-global-expansion/"
+   ]
+  },
+  {
+   "rank": 8,
+   "name": "Fly.io",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "hundreds_m",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2026-07",
+    "amount_usd": 25000000.0,
+    "type": "Series D",
+    "investors": "Dell Technologies Capital, Intel Capital"
+   },
+   "published_valuation": null,
+   "estimate_usd": 129099445.0,
+   "note_internal": "New CEO Scott Johnston. Basis: Series D of USD 25M (Jul 2026); single source.",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "37,000+ customers",
+     "period": "Jul 2026",
+     "source": "https://www.finsmes.com/2026/08/fly-io-raises-25m-in-series-d-funding.html"
+    }
+   },
+   "sources": [
+    "https://www.finsmes.com/2026/08/fly-io-raises-25m-in-series-d-funding.html",
+    "https://pulse2.com/fly-io-raises-25-million-series-d-and-appoints-scott-johnston-as-ceo/"
+   ]
+  },
+  {
+   "rank": 9,
+   "name": "Northflank",
+   "country": "United Kingdom",
+   "country_code": "GB",
+   "region": "europe",
+   "tranche": "hundreds_m",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2024-11",
+    "amount_usd": 22300000.0,
+    "type": "Seed and Series A",
+    "investors": "Bain Capital Ventures, Vertex Ventures US"
+   },
+   "published_valuation": null,
+   "estimate_usd": 115156705.0,
+   "note_internal": "Basis: Seed and Series A of USD 22.3M (Nov 2024).",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "tens of thousands of developers",
+     "period": "Nov 2024",
+     "source": "https://northflank.com/blog/northflank-raises-22m-to-make-kubernetes-work-for-your-developers-ship-workloads-not-infrastructure"
+    }
+   },
+   "sources": [
+    "https://northflank.com/blog/northflank-raises-22m-to-make-kubernetes-work-for-your-developers-ship-workloads-not-infrastructure",
+    "https://www.finsmes.com/2024/11/northflank-raises-22-3m-in-funding.html"
+   ]
+  },
+  {
+   "rank": 10,
+   "name": "Porter",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "hundreds_m",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2026-01",
+    "amount_usd": 20000000.0,
+    "type": "Series A",
+    "investors": "FirstMark Capital"
+   },
+   "published_valuation": null,
+   "estimate_usd": 103279556.0,
+   "note_internal": "PaaS in customers' own cloud accounts (YC). Basis: Series A of USD 20M (Jan 2026); single source.",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://firstmark.com/story/announcing-our-20m-series-a-in-porter-effortless-app-infrastructure-in-the-age-of-ai/"
+   ]
+  },
+  {
+   "rank": 11,
+   "name": "Qovery",
+   "country": "France",
+   "country_code": "FR",
+   "region": "europe",
+   "tranche": "tens_m",
+   "confidence": "high",
+   "last_equity_round": {
+    "date": "2025-09",
+    "amount_usd": 13000000.0,
+    "amount_label": "USD 13M (EUR 11.3M)",
+    "type": "Series A",
+    "investors": "IRIS; Speedinvest, Crane"
+   },
+   "published_valuation": null,
+   "estimate_usd": 67131711.0,
+   "note_internal": "Basis: Series A of USD 13M (Sep 2025).",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://tech.eu/2025/09/30/qovery-raises-13m-to-redefine-devops-automation/",
+    "https://www.eu-startups.com/2025/09/paris-based-qovery-lands-e11-3-million-to-simplify-multi-cloud-application-deployment-and-expand-to-the-us/"
+   ]
+  },
+  {
+   "rank": 12,
+   "name": "Val Town",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "tranche": "tens_m",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2024-04",
+    "amount_usd": 5500000.0,
+    "type": "Seed",
+    "investors": "Accel"
+   },
+   "published_valuation": null,
+   "estimate_usd": 28401878.0,
+   "note_internal": "Basis: Seed of USD 5.5M (Apr 2024); single source.",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    }
+   },
+   "sources": [
+    "https://blog.val.town/seed"
+   ]
+  },
+  {
+   "rank": 13,
+   "name": "Zeabur",
+   "country": "Taiwan",
+   "country_code": "TW",
+   "region": "asia-pacific",
+   "tranche": "tens_m",
+   "confidence": "low",
+   "last_equity_round": {
+    "date": "2025-11",
+    "amount_usd": 2000000.0,
+    "type": "Seed",
+    "investors": "500 Global; Baidu Ventures"
+   },
+   "published_valuation": null,
+   "estimate_usd": 10327956.0,
+   "note_internal": "Basis: Seed of USD 2M (Nov 2025); single source.",
+   "kpis": {
+    "revenue": {
+     "value_text": "not disclosed",
+     "period": null,
+     "source": null
+    },
+    "customers": {
+     "value_text": "5,000+ paying customers",
+     "period": "Nov 2025",
+     "source": "https://zeabur.com/blogs/our-2m-seed-round"
+    }
+   },
+   "sources": [
+    "https://zeabur.com/blogs/our-2m-seed-round"
+   ]
+  }
+ ],
+ "radar": [
+  {
+   "name": "Pantheon",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2021-07",
+    "amount_usd": 100000000.0,
+    "type": "Series E"
+   }
+  },
+  {
+   "name": "Deno",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2022-06",
+    "amount_usd": 21000000.0,
+    "type": "Series A"
+   }
+  },
+  {
+   "name": "UpCloud",
+   "country": "Finland",
+   "country_code": "FI",
+   "region": "europe",
+   "last_equity_round": {
+    "date": "2020-01",
+    "amount_usd": null,
+    "type": "Growth round",
+    "amount_label": "EUR 18M (equity and debt)"
+   }
+  },
+  {
+   "name": "Civo",
+   "country": "United Kingdom",
+   "country_code": "GB",
+   "region": "europe",
+   "last_equity_round": {
+    "date": "2024-04",
+    "amount_usd": 10300000.0,
+    "type": "Venture round"
+   }
+  },
+  {
+   "name": "Daytona",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2026-02",
+    "amount_usd": 24000000.0,
+    "type": "Series A"
+   }
+  },
+  {
+   "name": "E2B",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2025-07",
+    "amount_usd": 21000000.0,
+    "type": "Series A"
+   }
+  },
+  {
+   "name": "Blaxel",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2025-07",
+    "amount_usd": 7300000.0,
+    "type": "Seed"
+   }
+  },
+  {
+   "name": "Alpic",
+   "country": "France",
+   "country_code": "FR",
+   "region": "europe",
+   "last_equity_round": {
+    "date": "2025-09",
+    "amount_usd": 6000000.0,
+    "type": "Pre-seed"
+   }
+  },
+  {
+   "name": "Unikraft",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2025-10",
+    "amount_usd": 6000000.0,
+    "type": "Venture round"
+   }
+  },
+  {
+   "name": "Shuttle",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2025-10",
+    "amount_usd": 6000000.0,
+    "type": "Seed"
+   }
+  },
+  {
+   "name": "Modelence",
+   "country": "United States",
+   "country_code": "US",
+   "region": "north-america",
+   "last_equity_round": {
+    "date": "2026-01",
+    "amount_usd": 3000000.0,
+    "type": "Seed"
+   }
+  },
+  {
+   "name": "Zerops",
+   "country": "Czech Republic",
+   "country_code": "CZ",
+   "region": "europe",
+   "last_equity_round": {
+    "date": "2026-05",
+    "amount_usd": 2000000.0,
+    "type": "Seed"
+   }
+  },
+  {
+   "name": "Salus Cloud",
+   "country": "South Africa",
+   "country_code": "ZA",
+   "region": "sub-saharan-africa",
+   "last_equity_round": {
+    "date": "2025-06",
+    "amount_usd": 3700000.0,
+    "type": "Seed"
+   }
+  },
+  {
+   "name": "OrtCloud",
+   "country": "Singapore",
+   "country_code": "SG",
+   "region": "asia-pacific",
+   "last_equity_round": {
+    "date": "2026-04",
+    "amount_usd": 1700000.0,
+    "type": "Pre-seed"
+   }
+  }
+ ],
+ "listed_benchmarks": [
+  {
+   "name": "DigitalOcean",
+   "listing": "NYSE · DOCN",
+   "country": "United States"
+  },
+  {
+   "name": "GoDaddy",
+   "listing": "NYSE · GDDY",
+   "country": "United States"
+  },
+  {
+   "name": "Akamai (Linode)",
+   "listing": "Nasdaq · AKAM",
+   "country": "United States"
+  },
+  {
+   "name": "OVHcloud",
+   "listing": "Euronext Paris · OVH",
+   "country": "France"
+  },
+  {
+   "name": "IONOS Group",
+   "listing": "Xetra · IOS",
+   "country": "Germany"
+  },
+  {
+   "name": "Wix.com",
+   "listing": "Nasdaq · WIX",
+   "country": "Israel"
+  },
+  {
+   "name": "Infomaniak",
+   "listing": "SIX · INFO",
+   "country": "Switzerland"
+  },
+  {
+   "name": "Locaweb",
+   "listing": "B3 · LWSA3",
+   "country": "Brazil"
+  }
+ ]
+}

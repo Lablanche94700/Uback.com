@@ -1,6 +1,6 @@
 Fiches société — rapport de tools/build_companies.py
 
-703 fiches · 452 indexées · 251 noindex · 0 nouveaux slugs
+730 fiches · 465 indexées · 265 noindex · 27 nouveaux slugs
 
 == Fusions (une fiche, plusieurs classements)
   apna ← Apna / apna (in:ranked, recruiting:ranked)
@@ -33,7 +33,7 @@ Fiches société — rapport de tools/build_companies.py
 
 == Sociétés sans date de tour (0)
 
-== Sociétés sans source (149)
+== Sociétés sans source (163)
   15Five
   Aembit
   Afriex
@@ -41,6 +41,7 @@ Fiches société — rapport de tools/build_companies.py
   Albert
   Albo
   Alex
+  Alpic
   Altibbi
   Anything
   Aplazo
@@ -52,6 +53,7 @@ Fiches société — rapport de tools/build_companies.py
   Beacon Therapeutics
   Beltic
   Bioptimus
+  Blaxel
   Blockdaemon
   Bluevine
   Boltz
@@ -61,6 +63,7 @@ Fiches société — rapport de tools/build_companies.py
   ChartHop
   Check
   Chefaa
+  Civo
   Clearco
   Clerk
   Cline
@@ -70,12 +73,15 @@ Fiches société — rapport de tools/build_companies.py
   Converge Bio
   Cyclops
   Cypherock
+  Daytona
+  Deno
   Descope
   Didit
   Djamo
   Drug Farm
   Duna
   Dune
+  E2B
   EigenLabs
   Eka Care
   Elliptic
@@ -116,6 +122,7 @@ Fiches société — rapport de tools/build_companies.py
   Mercado Bitcoin (MB)
   Metaview
   MindRank AI
+  Modelence
   Momentic
   Monad Labs
   NALA
@@ -131,6 +138,8 @@ Fiches société — rapport de tools/build_companies.py
   Open
   OpenHands
   Opti
+  OrtCloud
+  Pantheon
   Paymob
   Prove
   Proxima (formerly VantAI)
@@ -145,9 +154,11 @@ Fiches société — rapport de tools/build_companies.py
   Rork
   SafePal
   Salsa
+  Salus Cloud
   Saporo
   Satispay
   Shufti Pro
+  Shuttle
   Slash
   Smile ID
   SonoThera
@@ -166,7 +177,9 @@ Fiches société — rapport de tools/build_companies.py
   Triomics
   TrueMoney (Ascend Money)
   Truora
+  Unikraft
   Unosecur
+  UpCloud
   VALR
   Velocity
   Viva Wallet
@@ -180,6 +193,7 @@ Fiches société — rapport de tools/build_companies.py
   YAP
   Yuno
   Zed
+  Zerops
   deepidv
   nChroma Bio
   voize
@@ -193,6 +207,7 @@ Fiches société — rapport de tools/build_companies.py
   Albert · 0 source(s)
   Albo · 0 source(s)
   Alex · 0 source(s)
+  Alpic · 0 source(s)
   Alta Ares · 1 source(s)
   Altibbi · 0 source(s)
   Alya · 1 source(s)
@@ -213,6 +228,7 @@ Fiches société — rapport de tools/build_companies.py
   Biolevate · 1 source(s)
   Bioptimus · 0 source(s)
   BLANK. Game Studios · 1 source(s)
+  Blaxel · 0 source(s)
   Blockdaemon · 0 source(s)
   Bluevine · 0 source(s)
   Boltz · 0 source(s)
@@ -227,6 +243,7 @@ Fiches société — rapport de tools/build_companies.py
   ChartHop · 0 source(s)
   Check · 0 source(s)
   Chefaa · 0 source(s)
+  Civo · 0 source(s)
   Clearco · 0 source(s)
   Clerk · 0 source(s)
   Cline · 0 source(s)
@@ -239,8 +256,10 @@ Fiches société — rapport de tools/build_companies.py
   Cyclops · 0 source(s)
   Cypherock · 0 source(s)
   Dataiku · 1 source(s)
+  Daytona · 0 source(s)
   Deepecho · 1 source(s)
   deepidv · 0 source(s)
+  Deno · 0 source(s)
   Descope · 0 source(s)
   Didit · 0 source(s)
   Djamo · 0 source(s)
@@ -250,6 +269,7 @@ Fiches société — rapport de tools/build_companies.py
   Dune · 0 source(s)
   Duplo · 1 source(s)
   Dust · 1 source(s)
+  E2B · 0 source(s)
   EcoTruck · 1 source(s)
   EigenLabs · 0 source(s)
   Eka Care · 0 source(s)
@@ -315,6 +335,7 @@ Fiches société — rapport de tools/build_companies.py
   Mercado Bitcoin (MB) · 0 source(s)
   Metaview · 0 source(s)
   MindRank AI · 0 source(s)
+  Modelence · 0 source(s)
   Moloco · 1 source(s)
   Momentic · 0 source(s)
   Monad Labs · 0 source(s)
@@ -338,7 +359,9 @@ Fiches société — rapport de tools/build_companies.py
   Opti · 0 source(s)
   Orbotix Industries · 1 source(s)
   Orochi Network · 1 source(s)
+  OrtCloud · 0 source(s)
   Paga · 1 source(s)
+  Pantheon · 0 source(s)
   Pathway · 1 source(s)
   Paymob · 0 source(s)
   Pivot · 1 source(s)
@@ -367,12 +390,14 @@ Fiches société — rapport de tools/build_companies.py
   Rork · 0 source(s)
   SafePal · 0 source(s)
   Salsa · 0 source(s)
+  Salus Cloud · 0 source(s)
   Sand to Green · 1 source(s)
   Saporo · 0 source(s)
   Satispay · 0 source(s)
   Seamless Technologies · 1 source(s)
   Sendbird · 1 source(s)
   Shufti Pro · 0 source(s)
+  Shuttle · 0 source(s)
   Shuttlers · 1 source(s)
   Silent Eight · 1 source(s)
   SKY ENGINE AI · 1 source(s)
@@ -412,9 +437,11 @@ Fiches société — rapport de tools/build_companies.py
   uLesson · 1 source(s)
   Ultrahuman · 1 source(s)
   Ultraviolette · 1 source(s)
+  Unikraft · 0 source(s)
   Uniphore · 1 source(s)
   Univity · 1 source(s)
   Unosecur · 0 source(s)
+  UpCloud · 0 source(s)
   VALR · 0 source(s)
   Velocity · 0 source(s)
   Viva Wallet · 0 source(s)
@@ -435,4 +462,5 @@ Fiches société — rapport de tools/build_companies.py
   Yulu · 1 source(s)
   Yuno · 0 source(s)
   Zed · 0 source(s)
+  Zerops · 0 source(s)
   Zowie · 1 source(s)

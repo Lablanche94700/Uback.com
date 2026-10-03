@@ -118,6 +118,7 @@ DTEND;VALUE=DATE:20260107
 RRULE:FREQ=YEARLY
 SUMMARY:Uback · Hosting (global segment ranking)
 TRANSP:TRANSPARENT
+URL:https://uback.com/segments/hosting/
 END:VEVENT
 BEGIN:VEVENT
 UID:01-07-country-au@uback.com
@@ -3003,6 +3004,7 @@ DTEND;VALUE=DATE:20260707
 RRULE:FREQ=YEARLY
 SUMMARY:Uback · Hosting (global segment ranking)
 TRANSP:TRANSPARENT
+URL:https://uback.com/segments/hosting/
 END:VEVENT
 BEGIN:VEVENT
 UID:07-07-country-au@uback.com
