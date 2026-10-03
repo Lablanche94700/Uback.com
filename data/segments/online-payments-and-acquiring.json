@@ -25,7 +25,7 @@
   },
   "ranked": [
     {"rank": 1, "name": "Stripe", "country": "United States", "country_code": "US", "region": "north-america",
-     "tranche": "decacorn", "confidence": "high",
+     "tranche": "hectocorn", "confidence": "high",
      "last_equity_round": {"date": "2026-02", "amount_usd": null, "type": "Tender offer (secondary)", "investors": "Thrive Capital, Coatue, a16z, plus Stripe buyback"},
      "published_valuation": {"value_usd": 159e9, "date": "2026-02"},
      "estimate_usd": 159e9, "note_internal": "",

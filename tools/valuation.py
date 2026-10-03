@@ -26,8 +26,8 @@ Sortie : valuation_central_usd, valuation_low_usd, valuation_high_usd (affichés
 valuation_confidence."""
 import math
 
-BRACKETS = ['hundreds_k', 'millions', 'tens_m', 'hundreds_m', 'unicorn', 'decacorn']
-LIMITS = [1e6, 1e7, 1e8, 1e9, 1e10]          # bornes hautes des tranches, en USD
+BRACKETS = ['hundreds_k', 'millions', 'tens_m', 'hundreds_m', 'unicorn', 'decacorn', 'hectocorn']
+LIMITS = [1e6, 1e7, 1e8, 1e9, 1e10, 1e11]    # bornes hautes des tranches, en USD (hectocorn : 100 Md$ et plus)
 ROUND_MULT = 1 / math.sqrt(0.25 * 0.15)      # le tour = 15 à 25 % du capital : milieu géométrique, ~5,16
 ADJ_FACTOR = 3                               # ajustement IA : au plus × 3 ou ÷ 3
 BANDS = {'high': (0.8, 1.25), 'medium': (2 / 3, 1.5), 'low': (0.5, 2.0)}   # fourchette autour de l'estimation

@@ -66,7 +66,8 @@ METHOD = {
 <tr><td>Dizaines de M$</td><td>10 à 100 M$</td></tr>
 <tr><td>Centaines de M$</td><td>100 M$ à 1 Md$</td></tr>
 <tr><td>Licorne</td><td>1 à 10 Md$</td></tr>
-<tr><td>Décacorne</td><td>plus de 10 Md$</td></tr>
+<tr><td>Décacorne</td><td>10 à 100 Md$</td></tr>
+<tr><td>Hectocorne</td><td>plus de 100 Md$</td></tr>
 </table></div>
 <p>Au sein d’une tranche, les sociétés restent classées selon leur estimation. Quand les données ne permettent pas une estimation sérieuse, la société n’est pas classée. Elle figure au Radar.</p>
 <p><b>Édition 0 (bêta), en attendant le consensus des cinq IA.</b> L’estimation centrale part de la dernière valorisation publiée si elle date de moins de 24 mois ; sinon du dernier tour en fonds propres, en supposant qu’il représente 15 à 25 % du capital (soit environ 5 fois son montant) ; jamais d’une dette ni d’une subvention. L’IA peut l’ajuster d’un facteur 3 au plus, dans un sens ou dans l’autre, en citant les faits publics qui le justifient. La fourchette dépend de l’indice de confiance : de −20 % à +25 % s’il est élevé, de deux tiers à une fois et demie s’il est moyen, de la moitié au double s’il est faible.</p>
@@ -175,7 +176,8 @@ METHOD = {
 <tr><td>Tens of millions</td><td>$10M to $100M</td></tr>
 <tr><td>Hundreds of millions</td><td>$100M to $1B</td></tr>
 <tr><td>Unicorn</td><td>$1B to $10B</td></tr>
-<tr><td>Decacorn</td><td>over $10B</td></tr>
+<tr><td>Decacorn</td><td>$10B to $100B</td></tr>
+<tr><td>Hectocorn</td><td>over $100B</td></tr>
 </table></div>
 <p>Within a range, companies remain ranked by their estimate. When the data does not allow a serious estimate, the company is not ranked. It appears in the Radar.</p>
 <p><b>Edition 0 (beta), pending the five-model consensus.</b> The central estimate starts from the latest published valuation if it is less than 24 months old; otherwise from the latest equity round, assuming it represents 15 to 25% of the capital (about 5 times its amount); never from debt or a grant. The AI may adjust it by a factor of 3 at most, either way, citing the public facts that justify it. The range depends on the confidence index: −20% to +25% when it is high, two-thirds to one and a half times when it is medium, half to double when it is low.</p>

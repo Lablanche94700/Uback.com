@@ -25,7 +25,7 @@
   },
   "ranked": [
     {"rank": 1, "name": "Revolut", "country": "United Kingdom", "country_code": "GB", "region": "europe",
-     "tranche": "decacorn", "confidence": "high",
+     "tranche": "hectocorn", "confidence": "high",
      "last_equity_round": {"date": "2026-07", "amount_usd": null, "type": "Secondary share sale", "investors": "employees, new and existing investors"},
      "published_valuation": {"value_usd": 115e9, "date": "2026-07"},
      "estimate_usd": 115e9, "note_internal": "",

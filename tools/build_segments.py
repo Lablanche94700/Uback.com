@@ -38,7 +38,7 @@ CONF = {'high': 3, 'medium': 2, 'low': 1}
 CONF_TXT = {'high': 'High', 'medium': 'Medium', 'low': 'Low'}
 CONF_LAB = {3: 'Solid sources', 2: 'Partial sources', 1: 'Weak sources'}
 VB = {'hundreds_k': 'Hundreds of k$', 'millions': 'Millions $', 'tens_m': 'Tens of M$', 'hundreds_m': 'Hundreds of M$',
-      'unicorn': 'Unicorn', 'decacorn': 'Decacorn'}
+      'unicorn': 'Unicorn', 'decacorn': 'Decacorn', 'hectocorn': 'Hectocorn'}
 GM, GI, GC, GL = '/method.html', '/invest.html', '/correction.html', '/legal-notice.html'
 # société ouverte aux Backers (champ facultatif open_to_backers) : badge, phrase d'explication
 OPEN = {'secondary': ('Shareholder selling', 'A shareholder has told Uback they are considering a sale.'),
@@ -610,6 +610,7 @@ def build_family(fam, datas):
         items = sorted(((c, d) for c, d in ranked if c['tranche'] == tranche), key=lambda x: x[0]['name'].lower())
         return len(items), ''.join(
             f'<a class="pill corn" href="/segments/{d["segment_id"]}/">{e(c["name"])}<span> · {e(d["name"])}</span></a>' for c, d in items)
+    n_hecto, hecto = corn_list('hectocorn')
     n_deca, deca = corn_list('decacorn')
     n_uni, uni = corn_list('unicorn')
     countries = len({c['country'] for c, d in ranked})
@@ -648,7 +649,7 @@ def build_family(fam, datas):
         <div><b>{len(pub)}</b><span>segment{'s' if len(pub) > 1 else ''} published</span></div>
         <div><b>{len(ranked)}</b><span>companies ranked</span></div>
         <div><b>{countries}</b><span>countries in the rankings</span></div>
-        <div><b>{n_deca + n_uni}</b><span>unicorns and decacorns</span></div>
+        <div><b>{n_hecto + n_deca + n_uni}</b><span>unicorns and above</span></div>
       </div>
       <div class="fine">Counts cover published segments only. Each company appears in one segment. Intention counters will be shown above a threshold of amount and number of Backers.</div>
     </div>
@@ -664,9 +665,10 @@ def build_family(fam, datas):
 
 <section class="soft" id="unicorns">
   <div class="wrap">
-    <div class="sec-head"><h2>Decacorns and unicorns in the {e(name_l)} rankings</h2><span class="sub">Grouped by valuation range, in alphabetical order. Each company is ranked only within its own segment.</span></div>
+    <div class="sec-head"><h2>{'Hectocorns, decacorns' if n_hecto else 'Decacorns'} and unicorns in the {e(name_l)} rankings</h2><span class="sub">Grouped by valuation range, in alphabetical order. Each company is ranked only within its own segment.</span></div>
     <div class="box line">
-      <h3>Decacorns · estimated at $10B or more <span class="cnt">{n_deca}</span></h3>
+      {f'<h3>Hectocorns · estimated at $100B or more <span class="cnt">{n_hecto}</span></h3><div class="pills-wrap">{hecto}</div>' if n_hecto else ''}
+      <h3{' style="margin-top:22px"' if n_hecto else ''}>Decacorns · estimated between $10B and $100B <span class="cnt">{n_deca}</span></h3>
       <div class="pills-wrap">{deca}</div>
       <h3 style="margin-top:22px">Unicorns · estimated between $1B and $10B <span class="cnt">{n_uni}</span></h3>
       <div class="pills-wrap">{uni}</div>
@@ -681,7 +683,7 @@ def build_family(fam, datas):
     if 'estimate_usd' in page or 'note_internal' in page:
         raise DataError('champ interne présent dans la page famille')
     open(os.path.join(out, 'index.html'), 'w', encoding='utf-8', newline='\n').write(page)
-    print(f'ok /sectors/{slug}/ · {len(pub)}/{total} segments · {len(ranked)} ranked · {n_deca} decacorns · {n_uni} unicorns')
+    print(f'ok /sectors/{slug}/ · {len(pub)}/{total} segments · {len(ranked)} ranked · {n_hecto} hectocorns · {n_deca} decacorns · {n_uni} unicorns')
 
 def main():
     # feuille de style : même source que les pages pays
