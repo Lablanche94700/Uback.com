@@ -8,7 +8,7 @@ des pages de tools/build_home.py : une seule source."""
 import os, datetime
 
 T = {
- 'en': dict(tag='Funded startups, ranked by AI. Run by rules, not editors.', contact='Contact us',
+ 'en': dict(tag='Reverse dealflow. Group buying for startup equity.', contact='Contact us',
             rk='Rankings', sec='By sector', cty='By country', col='Collections',
             how='How it works', method='Method', cal='Calendar', corr='Request a correction', faq='FAQ',
             back='Backers', invest='Invest with Uback', terms='Terms and conditions', lp='Local partners', partner='Become a partner', legal='Legal notice', aria='Footer',
@@ -17,7 +17,7 @@ T = {
                  'of losing all the capital invested.',
             urls=dict(method='method.html', corr='correction.html', faq='faq/', invest='invest.html', legal='legal-notice.html',
                       contact='contact.html', partner='partner.html', terms='terms.html')),
- 'fr': dict(tag='Des startups financées, classées par l’IA. Régi par des règles, pas par des rédacteurs.', contact='Nous contacter',
+ 'fr': dict(tag='Le dealflow inversé. L’achat groupé de parts de startups.', contact='Nous contacter',
             rk='Classements', sec='Par secteur', cty='Par pays', col='Collections',
             how='Comment ça marche', method='Méthode', cal='Calendrier', corr='Demander une correction', faq='FAQ',
             back='Backers', invest='Investir avec Uback', terms='Conditions générales', lp='Partenaires locaux', partner='Devenir partenaire', legal='Mentions légales', aria='Pied de page',
