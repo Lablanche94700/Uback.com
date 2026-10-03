@@ -81,6 +81,7 @@ SVG = {
  'ES': '<rect width="48" height="32" fill="#AA151B"/><rect y="8" width="48" height="16" fill="#F1BF00"/>',
  'JP': '<rect width="48" height="32" fill="#fff"/><circle cx="24" cy="16" r="9.6" fill="#BC002D"/>',
  'EE': _h('#0072CE', '#000000', '#FFFFFF'),
+ 'LT': _h('#FDB913', '#006A44', '#C1272D'),
  'FI': '<rect width="48" height="32" fill="#fff"/><rect x="13" width="8" height="32" fill="#002F6C"/><rect y="12" width="48" height="8" fill="#002F6C"/>',
  'CZ': '<rect width="48" height="16" fill="#fff"/><rect y="16" width="48" height="16" fill="#D7141A"/><polygon points="0,0 24,16 0,32" fill="#11457E"/>',
 }

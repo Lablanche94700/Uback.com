@@ -1,11 +1,12 @@
 Fiches société — rapport de tools/build_companies.py
 
-730 fiches · 465 indexées · 265 noindex · 0 nouveaux slugs
+759 fiches · 479 indexées · 280 noindex · 29 nouveaux slugs
 
 == Fusions (une fiche, plusieurs classements)
   apna ← Apna / apna (in:ranked, recruiting:ranked)
   coindcx ← CoinDCX (in:ranked, crypto-exchanges:ranked)
   coinswitch ← CoinSwitch (in:ranked, crypto-exchanges:radar)
+  danggeun ← Danggeun (Karrot) (kr:ranked, second-hand:ranked)
   darwinbox ← Darwinbox (in:born, talent-management:ranked)
   docplanner ← Docplanner (pl:ranked, appointment-booking:ranked)
   doctolib ← Doctolib (fr:ranked, appointment-booking:ranked)
@@ -33,7 +34,7 @@ Fiches société — rapport de tools/build_companies.py
 
 == Sociétés sans date de tour (0)
 
-== Sociétés sans source (163)
+== Sociétés sans source (178)
   15Five
   Aembit
   Afriex
@@ -51,6 +52,7 @@ Fiches société — rapport de tools/build_companies.py
   Bayzat
   Baz
   Beacon Therapeutics
+  Beebs
   Beltic
   Bioptimus
   Blaxel
@@ -58,8 +60,11 @@ Fiches société — rapport de tools/build_companies.py
   Bluevine
   Boltz
   Borderless AI
+  Bought
+  Brandback
   CPTx
   Carepatron
+  Charan
   ChartHop
   Check
   Chefaa
@@ -82,10 +87,12 @@ Fiches société — rapport de tools/build_companies.py
   Duna
   Dune
   E2B
+  ECOMMIT
   EigenLabs
   Eka Care
   Elliptic
   Evidium
+  Faume
   Figment
   Flashbots
   Footprint
@@ -97,6 +104,7 @@ Fiches société — rapport de tools/build_companies.py
   Galux
   Glide Identity
   Glints
+  GoTrendier
   Greenlight
   HyperDev
   IDfy
@@ -122,6 +130,7 @@ Fiches société — rapport de tools/build_companies.py
   Mercado Bitcoin (MB)
   Metaview
   MindRank AI
+  Minimist
   Modelence
   Momentic
   Monad Labs
@@ -141,17 +150,20 @@ Fiches société — rapport de tools/build_companies.py
   OrtCloud
   Pantheon
   Paymob
+  PopChill
   Prove
   Proxima (formerly VantAI)
   QuickNode
   R3
   Rain
   ReCode Therapeutics
+  Reflaunt
   Relace
   Relay
   Remofirst
   Rho
   Rork
+  SECONDSENSE
   SafePal
   Salsa
   Salus Cloud
@@ -162,6 +174,7 @@ Fiches société — rapport de tools/build_companies.py
   Slash
   Smile ID
   SonoThera
+  Speeral
   Sprout Solutions
   Stable
   Sumsub
@@ -174,6 +187,7 @@ Fiches société — rapport de tools/build_companies.py
   Toku
   Tonik
   TransferGo
+  Treet
   Triomics
   TrueMoney (Ascend Money)
   Truora
@@ -182,6 +196,7 @@ Fiches société — rapport de tools/build_companies.py
   UpCloud
   VALR
   Velocity
+  Vestuá
   Viva Wallet
   Vivid Money
   Vouched
@@ -191,6 +206,7 @@ Fiches société — rapport de tools/build_companies.py
   Wultra
   XFX
   YAP
+  Yaga
   Yuno
   Zed
   Zerops
@@ -224,6 +240,7 @@ Fiches société — rapport de tools/build_companies.py
   Bayzat · 0 source(s)
   Baz · 0 source(s)
   Beacon Therapeutics · 0 source(s)
+  Beebs · 0 source(s)
   Beltic · 0 source(s)
   Biolevate · 1 source(s)
   Bioptimus · 0 source(s)
@@ -233,11 +250,14 @@ Fiches société — rapport de tools/build_companies.py
   Bluevine · 0 source(s)
   Boltz · 0 source(s)
   Borderless AI · 0 source(s)
+  Bought · 0 source(s)
+  Brandback · 0 source(s)
   Bumpa · 1 source(s)
   BUSINESSNEXT · 1 source(s)
   CampusAI · 1 source(s)
   Carepatron · 0 source(s)
   CARPL.ai · 1 source(s)
+  Charan · 0 source(s)
   Chargebee · 1 source(s)
   Charikaty · 1 source(s)
   ChartHop · 0 source(s)
@@ -270,6 +290,7 @@ Fiches société — rapport de tools/build_companies.py
   Duplo · 1 source(s)
   Dust · 1 source(s)
   E2B · 0 source(s)
+  ECOMMIT · 0 source(s)
   EcoTruck · 1 source(s)
   EigenLabs · 0 source(s)
   Eka Care · 0 source(s)
@@ -279,6 +300,7 @@ Fiches société — rapport de tools/build_companies.py
   Enlighten · 1 source(s)
   Ephyra / GameBeast · 1 source(s)
   Evidium · 0 source(s)
+  Faume · 0 source(s)
   Figment · 0 source(s)
   Flashbots · 0 source(s)
   Footprint · 0 source(s)
@@ -293,6 +315,7 @@ Fiches société — rapport de tools/build_companies.py
   GIMO · 1 source(s)
   Glide Identity · 0 source(s)
   Glints · 0 source(s)
+  GoTrendier · 0 source(s)
   Greenlight · 0 source(s)
   Homebase · 1 source(s)
   Hugging Face · 1 source(s)
@@ -335,6 +358,7 @@ Fiches société — rapport de tools/build_companies.py
   Mercado Bitcoin (MB) · 0 source(s)
   Metaview · 0 source(s)
   MindRank AI · 0 source(s)
+  Minimist · 0 source(s)
   Modelence · 0 source(s)
   Moloco · 1 source(s)
   Momentic · 0 source(s)
@@ -367,6 +391,7 @@ Fiches société — rapport de tools/build_companies.py
   Pivot · 1 source(s)
   Pixxel · 1 source(s)
   Point2 Technology · 1 source(s)
+  PopChill · 0 source(s)
   Postman · 1 source(s)
   Prove · 0 source(s)
   Proxima (formerly VantAI) · 0 source(s)
@@ -379,6 +404,7 @@ Fiches société — rapport de tools/build_companies.py
   Raghu Vamsi Aerospace · 1 source(s)
   Rain · 0 source(s)
   ReCode Therapeutics · 0 source(s)
+  Reflaunt · 0 source(s)
   Relace · 0 source(s)
   Relay · 0 source(s)
   Releaf · 1 source(s)
@@ -395,6 +421,7 @@ Fiches société — rapport de tools/build_companies.py
   Saporo · 0 source(s)
   Satispay · 0 source(s)
   Seamless Technologies · 1 source(s)
+  SECONDSENSE · 0 source(s)
   Sendbird · 1 source(s)
   Shufti Pro · 0 source(s)
   Shuttle · 0 source(s)
@@ -407,6 +434,7 @@ Fiches société — rapport de tools/build_companies.py
   Smile ID · 0 source(s)
   SonoThera · 0 source(s)
   SOWIT · 1 source(s)
+  Speeral · 0 source(s)
   Sprout Solutions · 0 source(s)
   SR Robotics · 1 source(s)
   Stable · 0 source(s)
@@ -430,6 +458,7 @@ Fiches société — rapport de tools/build_companies.py
   Tookeez · 1 source(s)
   ToumAI Analytics · 1 source(s)
   TransferGo · 0 source(s)
+  Treet · 0 source(s)
   Triomics · 0 source(s)
   TrueMoney (Ascend Money) · 0 source(s)
   Truora · 0 source(s)
@@ -444,6 +473,7 @@ Fiches société — rapport de tools/build_companies.py
   UpCloud · 0 source(s)
   VALR · 0 source(s)
   Velocity · 0 source(s)
+  Vestuá · 0 source(s)
   Viva Wallet · 0 source(s)
   Vivid Money · 0 source(s)
   voize · 0 source(s)
@@ -458,6 +488,7 @@ Fiches société — rapport de tools/build_companies.py
   Wultra · 0 source(s)
   XFX · 0 source(s)
   Xpressbees · 1 source(s)
+  Yaga · 0 source(s)
   YAP · 0 source(s)
   Yulu · 1 source(s)
   Yuno · 0 source(s)

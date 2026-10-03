@@ -1,23 +1,23 @@
 Investisseurs — rapport de tools/build_companies.py
 
-616 noms · 152 pages (≥ 2 sociétés) · 84 indexées (≥ 3)
+634 noms · 155 pages (≥ 2 sociétés) · 86 indexées (≥ 3)
 
 == Pages
-  accel · 23 · Accel / Accel Leaders
+  accel · 24 · Accel / Accel Leaders
   tiger-global · 21 · Tiger Global
   sequoia-capital · 17 · Sequoia / Sequoia Capital
   general-atlantic · 15 · General Atlantic
-  lightspeed · 14 · Lightspeed / Lightspeed Venture Partners
-  softbank-vision-fund · 14 · SoftBank Vision Fund / SoftBank Vision Fund 2
-  general-catalyst · 12 · General Catalyst
-  andreessen-horowitz · 11 · Andreessen Horowitz / a16z
+  lightspeed · 15 · Lightspeed / Lightspeed Venture Partners
+  softbank-vision-fund · 15 · SoftBank Vision Fund / SoftBank Vision Fund 2
+  general-catalyst · 13 · General Catalyst
+  andreessen-horowitz · 12 · Andreessen Horowitz / a16z
   tcv · 11 · TCV
   ifc · 9 · IFC
   kkr · 9 · KKR
   ribbit-capital · 9 · Ribbit / Ribbit Capital
+  teachers-venture-growth · 9 · Teachers' Venture Growth / Teachers’ Venture Growth
   insight-partners · 8 · Insight / Insight Partners
   partech · 8 · Partech / Partech Africa
-  teachers-venture-growth · 8 · Teachers' Venture Growth / Teachers’ Venture Growth
   temasek · 8 · Temasek
   y-combinator · 8 · Y Combinator / YC
   azur-innovation-fund · 7 · Azur Innovation Fund / Azur Innovation Management
@@ -25,19 +25,19 @@ Investisseurs — rapport de tools/build_companies.py
   coatue · 7 · Coatue
   bpifrance · 6 · Bpifrance
   dst-global · 6 · DST Global
+  dragoneer-investment-group · 6 · Dragoneer / Dragoneer Investment Group
   greenoaks · 6 · Greenoaks
   index-ventures · 6 · Index Ventures
   kdb · 6 · KDB / Korea Development Bank
+  nea · 6 · inconnu de data/investors.json · NEA
   nvidia · 6 · NVIDIA NVentures / NVIDIA Ventures / Nvidia
   prosus · 6 · Prosus / Prosus Ventures
   softbank · 6 · inconnu de data/investors.json · SoftBank
   atomico · 5 · Atomico
-  dragoneer-investment-group · 5 · Dragoneer / Dragoneer Investment Group
   dragonfly · 5 · inconnu de data/investors.json · Dragonfly
   endeavor-catalyst · 5 · Endeavor Catalyst
   fidelity · 5 · inconnu de data/investors.json · Fidelity
   goldman-sachs-asset-management · 5 · Goldman Sachs Alternatives / Goldman Sachs Asset Management
-  nea · 5 · inconnu de data/investors.json · NEA
   qatar-investment-authority · 5 · QIA / Qatar Investment Authority
   regeneron · 5 · Regeneron / Regeneron Ventures
   salesforce-ventures · 5 · Salesforce / Salesforce Ventures
@@ -48,9 +48,11 @@ Investisseurs — rapport de tools/build_companies.py
   alpha-wave-global · 4 · Alpha Wave
   altos-ventures · 4 · inconnu de data/investors.json · Altos Ventures
   b-capital · 4 · B Capital / B Capital Group
+  balderton · 4 · inconnu de data/investors.json · Balderton
   blackstone · 4 · Blackstone / Blackstone Growth / Blackstone funds
   bond · 4 · inconnu de data/investors.json · BOND / Bond
   cathay-innovation · 4 · inconnu de data/investors.json · Cathay Innovation
+  eqt · 4 · inconnu de data/investors.json · EQT
   firstmark-capital · 4 · FirstMark / FirstMark Capital
   gic · 4 · GIC
   goodwater-capital · 4 · Goodwater / Goodwater Capital
@@ -60,20 +62,22 @@ Investisseurs — rapport de tools/build_companies.py
   northzone · 4 · inconnu de data/investors.json · Northzone
   peak-xv-partners · 4 · Peak XV
   silver-lake · 4 · Silver Lake / Silver Lake Waterman
+  tq-ventures · 4 · inconnu de data/investors.json · TQ Ventures
+  wellington-management · 4 · Wellington / Wellington Management
   a16z-crypto · 4 · a16z crypto
   arch-venture-partners · 3 · inconnu de data/investors.json · ARCH Venture Partners
   africinvest · 3 · AfricInvest
   al-mada-ventures · 3 · Al Mada Ventures
   atinum-investment · 3 · Atinum / Atinum Investment
-  balderton · 3 · inconnu de data/investors.json · Balderton
+  bain-capital-ventures · 3 · inconnu de data/investors.json · Bain Capital Ventures
   battery-ventures · 3 · inconnu de data/investors.json · Battery Ventures
   circle-ventures · 3 · inconnu de data/investors.json · Circle Ventures
   citadel-securities · 3 · inconnu de data/investors.json · Citadel Securities
-  eqt · 3 · inconnu de data/investors.json · EQT
   f-prime · 3 · inconnu de data/investors.json · F-Prime
   felicis · 3 · inconnu de data/investors.json · Felicis
   founders-fund · 3 · inconnu de data/investors.json · Founders Fund
   gv · 3 · inconnu de data/investors.json · GV
+  generation-investment-management · 3 · Generation IM / Generation Investment Management
   greycroft · 3 · inconnu de data/investors.json · Greycroft
   lb-investment · 3 · inconnu de data/investors.json · LB Investment
   leapfrog-investments · 3 · LeapFrog / LeapFrog Investments / Leapfrog
@@ -85,8 +89,6 @@ Investisseurs — rapport de tools/build_companies.py
   revaia · 3 · inconnu de data/investors.json · Revaia
   sanofi · 3 · inconnu de data/investors.json · Sanofi
   tpg · 3 · TPG / TPG Rise Fund / The Rise Funds
-  tq-ventures · 3 · inconnu de data/investors.json · TQ Ventures
-  wellington-management · 3 · Wellington / Wellington Management
   500-global · 2 · inconnu de data/investors.json · 500 Global
   8vc · 2 · inconnu de data/investors.json · 8VC
   ark-invest · 2 · ARK / ARK Invest
@@ -94,7 +96,6 @@ Investisseurs — rapport de tools/build_companies.py
   allianz-x · 2 · inconnu de data/investors.json · Allianz X
   animoca-brands · 2 · Animoca / Animoca Brands
   attijariwafa-ventures · 2 · Attijariwafa Ventures
-  bain-capital-ventures · 2 · inconnu de data/investors.json · Bain Capital Ventures
   bezos-expeditions · 2 · inconnu de data/investors.json · Bezos Expeditions
   blackrock · 2 · inconnu de data/investors.json · BlackRock
   blockchain-capital · 2 · inconnu de data/investors.json · Blockchain Capital
@@ -108,9 +109,9 @@ Investisseurs — rapport de tools/build_companies.py
   dimension · 2 · Dimension / Dimension Capital
   ftx-ventures · 2 · inconnu de data/investors.json · FTX Ventures
   five-elms-capital · 2 · inconnu de data/investors.json · Five Elms Capital
+  franklin-templeton · 2 · inconnu de data/investors.json · Franklin Templeton
   gef-capital · 2 · inconnu de data/investors.json · GEF Capital
   ggv-capital · 2 · GGV / GGV Capital
-  generation-investment-management · 2 · Generation IM / Generation Investment Management
   georgian · 2 · inconnu de data/investors.json · Georgian
   goldman-sachs · 2 · inconnu de data/investors.json · Goldman Sachs
   google · 2 · inconnu de data/investors.json · Google
@@ -149,12 +150,14 @@ Investisseurs — rapport de tools/build_companies.py
   scale-venture-partners · 2 · inconnu de data/investors.json · Scale Venture Partners
   sixth-street-growth · 2 · inconnu de data/investors.json · Sixth Street Growth
   square-peg · 2 · inconnu de data/investors.json · Square Peg
+  t-rowe-price · 2 · inconnu de data/investors.json · T. Rowe Price
   tnb-aura · 2 · inconnu de data/investors.json · TNB Aura
   target-global · 2 · inconnu de data/investors.json · Target Global
   thrive-capital · 2 · inconnu de data/investors.json · Thrive Capital
   tribe-capital · 2 · Tribe / Tribe Capital
   verod-kepple-africa-ventures · 2 · inconnu de data/investors.json · Verod-Kepple Africa Ventures
   vinci · 2 · inconnu de data/investors.json · Vinci
+  ebay · 2 · inconnu de data/investors.json · eBay
 
 == Noms inconnus de data/investors.json (pour ajout d’alias), avec le nombre de sociétés
   1789 Capital · 1
@@ -185,6 +188,7 @@ Investisseurs — rapport de tools/build_companies.py
   Alibaba · 1
   All On · 1
   Allianz X · 2
+  Altimeter Capital · 1
   Altos Ventures · 4
   Amadeus Capital · 1
   Amazon · 1
@@ -200,6 +204,7 @@ Investisseurs — rapport de tools/build_companies.py
   ARCH Venture Partners · 3
   Arche Capital · 1
   Archetype · 1
+  ArcTern Ventures · 1
   Argor Capital · 1
   Arm · 1
   Aruwa · 1
@@ -220,9 +225,10 @@ Investisseurs — rapport de tools/build_companies.py
   AXA Strategic Ventures · 1
   BAI · 1
   Baidu Ventures · 1
+  Baillie Gifford · 1
   Bain Capital · 1
-  Bain Capital Ventures · 2
-  Balderton · 3
+  Bain Capital Ventures · 3
+  Balderton · 4
   Base10 Partners · 1
   Battery Ventures · 3
   Beijing Medical · 1
@@ -239,6 +245,7 @@ Investisseurs — rapport de tools/build_companies.py
   Blackbird · 1
   BlackFin · 1
   BlackRock · 2
+  BlackRock funds · 1
   Blast · 1
   Blockchain Capital · 2
   Blockstream Capital Partners · 1
@@ -257,6 +264,7 @@ Investisseurs — rapport de tools/build_companies.py
   BRV · 1
   BTG Pactual · 1
   Buckley Ventures · 1
+  Burda Principal Investments · 1
   bValue Growth · 1
   Byers Capital · 1
   CalPERS · 1
@@ -294,6 +302,7 @@ Investisseurs — rapport de tools/build_companies.py
   CPP Investments · 1
   Craft Ventures · 2
   Crane · 1
+  Creadev · 1
   Creaegis · 1
   Credit Suisse · 1
   CrowdStrike Falcon Fund · 1
@@ -319,7 +328,7 @@ Investisseurs — rapport de tools/build_companies.py
   DSC Investment · 1
   earlier backers Foundation Capital · 1
   East Ventures · 1
-  eBay · 1
+  eBay · 2
   EIB · 1
   EIC · 1
   Eight Roads · 1
@@ -329,9 +338,10 @@ Investisseurs — rapport de tools/build_companies.py
   Elev8 · 1
   Eli Lilly · 1
   Emergence · 1
+  Energize Capital · 1
   Entrée Capital · 1
   Enza · 1
-  EQT · 3
+  EQT · 4
   EQT Ventures · 1
   Evli Growth Partners · 1
   eWTP Capital · 1
@@ -348,6 +358,7 @@ Investisseurs — rapport de tools/build_companies.py
   Flexport · 1
   Flourish Ventures · 1
   FoodLabs · 1
+  Forerunner Ventures · 1
   Foresite Labs · 1
   Forestay Capital · 1
   Forgepoint Capital · 1
@@ -356,7 +367,7 @@ Investisseurs — rapport de tools/build_companies.py
   Founders Fund · 3
   Four Rivers · 1
   FPV Ventures · 1
-  Franklin Templeton · 1
+  Franklin Templeton · 2
   FTX · 1
   FTX Ventures · 2
   Fuchsia · 1
@@ -510,7 +521,7 @@ Investisseurs — rapport de tools/build_companies.py
   Naver · 2
   Naver Financial · 1
   Naver Ventures · 1
-  NEA · 5
+  NEA · 6
   NEAR Foundation · 1
   Neo Wealth · 1
   Neowiz · 1
@@ -529,11 +540,13 @@ Investisseurs — rapport de tools/build_companies.py
   Northzone · 4
   not specified · 1
   Notion Capital · 2
+  Novator · 1
   Novo Holdings · 2
   Nubank · 1
   Oak HC/FT · 2
   Oakley Capital · 1
   Octopus Ventures · 1
+  OLX · 1
   One Peak · 3
   Openspace · 2
   P Capital Partners · 1
@@ -542,6 +555,7 @@ Investisseurs — rapport de tools/build_companies.py
   Paradigm · 3
   ParaFi Capital · 1
   parent · 1
+  Park West · 1
   Partners Group · 1
   Patient Square Capital · 1
   PayPal Ventures · 1
@@ -554,6 +568,7 @@ Investisseurs — rapport de tools/build_companies.py
   Pincus Capital · 1
   Pitango · 1
   Plug and Play · 1
+  Portage Ventures · 1
   Poste Italiane · 1
   Premji Invest · 2
   Prime Ventures · 1
@@ -588,12 +603,14 @@ Investisseurs — rapport de tools/build_companies.py
   SBVA · 1
   SC Ventures · 2
   Scale Venture Partners · 2
+  Schroders Capital · 1
   SeaTown · 1
   Sequoia Capital SEA · 1
   Sequoia Heritage · 1
   Seraphim Space · 1
   ServiceNow Ventures · 1
   ServiceNow Ventures joined in Nov 2024 · 1
+  Seven Seven Six · 1
   ShawSpring Partners · 1
   Sherpalo · 1
   Shift4Good · 1
@@ -618,6 +635,7 @@ Investisseurs — rapport de tools/build_companies.py
   Sony Innovation Fund · 1
   Spark Capital · 1
   SPE Capital · 1
+  Spearhead · 1
   Speciale Invest · 1
   Speedinvest · 1
   Springcoast · 1
@@ -626,6 +644,7 @@ Investisseurs — rapport de tools/build_companies.py
   Steadfast · 1
   Steadview · 1
   StepStone · 1
+  STIC Investments · 1
   STIC Ventures · 1
   STMicroelectronics · 1
   strategic · 1
@@ -635,7 +654,7 @@ Investisseurs — rapport de tools/build_companies.py
   Susa Ventures · 1
   Sutter Hill · 1
   SVB Capital · 1
-  T. Rowe Price · 1
+  T. Rowe Price · 2
   Tana Africa Capital · 1
   Target Global · 2
   TDK Ventures · 1
@@ -650,6 +669,7 @@ Investisseurs — rapport de tools/build_companies.py
   Thien Viet Securities · 1
   ThinkZone · 1
   Third Point · 1
+  Third Prime · 1
   Thrive Capital · 2
   Tidemark · 1
   Times Group · 1
@@ -658,7 +678,7 @@ Investisseurs — rapport de tools/build_companies.py
   TLV Partners · 1
   TNB Aura · 2
   Tom Brady · 1
-  TQ Ventures · 3
+  TQ Ventures · 4
   Transsion · 1
   TRIREC · 1
   True Global Ventures · 1
@@ -678,6 +698,7 @@ Investisseurs — rapport de tools/build_companies.py
   Vertex Ventures US · 1
   VIG · 1
   Vinci · 2
+  Vinted Ventures · 1
   Visa · 1
   Vista Credit Partners · 1
   Vitruvian Partners · 1
