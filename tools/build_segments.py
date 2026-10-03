@@ -465,7 +465,7 @@ def build(path):
       </tbody>
     </table>
     <p class="list-empty" id="no-rank" hidden>No ranked company in this region yet: see the <a href="#radar">Radar</a>.</p>
-    <div class="disclaimer">Ranking in descending order of AI-estimated valuation, based on public information, following a published method, with no human intervention on the order. The valuations, ranges and brackets shown are editorial estimates produced by AI, purely indicative and imperfect by nature: neither a financial valuation, nor an offer, nor investment advice. Only the market sets a company’s value, through a funding round or a sale. {ed0}Eligibility: at least $1M raised including one equity round, non-listed company, main activity in this segment ({e(t['activity'])}). Country shown is the country of main operations. <a href="{GC}">Request a correction</a></div>
+    <div class="disclaimer">Ranking in descending order of AI-estimated valuation, based on public information, with no human intervention on the order. The valuations, ranges and brackets shown are editorial estimates produced by AI, purely indicative and imperfect by nature: neither a financial valuation, nor an offer, nor investment advice. Only the market sets a company’s value, through a funding round or a sale. {ed0}Eligibility: at least $1M raised including one equity round, non-listed company, main activity in this segment ({e(t['activity'])}). Country shown is the country of main operations. <a href="{GC}">Request a correction</a></div>
 
     <div class="follow-band" id="follow">
       <div class="fb-text">
